@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023/7 | Hexo</title>
+  <title>Linux入门-1基础命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/07/index.html">
+  <meta name="description" content="1. 目录结构根目录：&#x2F;&#x2F;home&#x2F;hellow&#x2F;test.txt 2. 小tip2-1 特殊符号 . 当前目录  .. 上级目录  ~ home  &#96;作为命令执行   2-2 进入root用户 进入  su - root 123456  退出exit  2-3管道符|cat 1.txt | grep “hello” 2-4重定向符&gt;：右边文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux入门-1基础命令">
+<meta property="og:url" content="http://example.com/2023/07/25/Linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 目录结构根目录：&#x2F;&#x2F;home&#x2F;hellow&#x2F;test.txt 2. 小tip2-1 特殊符号 . 当前目录  .. 上级目录  ~ home  &#96;作为命令执行   2-2 进入root用户 进入  su - root 123456  退出exit  2-3管道符|cat 1.txt | grep “hello” 2-4重定向符&gt;：右边文件">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/linux/4.png">
+<meta property="og:image" content="http://example.com/img/linux/5.png">
+<meta property="og:image" content="http://example.com/img/linux/6.png">
+<meta property="og:image" content="http://example.com/img/linux/7.png">
+<meta property="og:image" content="http://example.com/public/img/linux/4.png">
+<meta property="og:image" content="http://example.com/public/img/linux/5.png">
+<meta property="og:image" content="http://example.com/public/img/linux/6.png">
+<meta property="og:image" content="http://example.com/public/img/linux/7.png">
+<meta property="article:published_time" content="2023-07-25T05:21:33.049Z">
+<meta property="article:modified_time" content="2023-07-20T02:13:22.160Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/linux/4.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,199 +163,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Linux/Linux_1.基础命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux入门-1基础命令
+    </h1>
+  
+
+        
+        <a href="/2023/07/25/Linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+  	<time datetime="2023-07-25T05:21:33.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1. 目录结构"></a>1. 目录结构</h2><p>根目录：&#x2F;<br>&#x2F;home&#x2F;hellow&#x2F;test.txt</p>
+<h2 id="2-小tip"><a href="#2-小tip" class="headerlink" title="2. 小tip"></a>2. 小tip</h2><h3 id="2-1-特殊符号"><a href="#2-1-特殊符号" class="headerlink" title="2-1 特殊符号"></a>2-1 特殊符号</h3><ul>
+<li><p>. 当前目录</p>
+</li>
+<li><p>.. 上级目录</p>
+</li>
+<li><p>~ home</p>
+</li>
+<li><p>&#96;作为命令执行</p>
+</li>
+</ul>
+<h3 id="2-2-进入root用户"><a href="#2-2-进入root用户" class="headerlink" title="2-2 进入root用户"></a>2-2 进入root用户</h3><ul>
+<li>进入</li>
+</ul>
+<p>su - root</p>
+<p>123456</p>
+<ul>
+<li>退出<br>exit</li>
+</ul>
+<h3 id="2-3管道符"><a href="#2-3管道符" class="headerlink" title="2-3管道符"></a>2-3管道符</h3><p>|<br>cat 1.txt | grep “hello”</p>
+<h3 id="2-4重定向符"><a href="#2-4重定向符" class="headerlink" title="2-4重定向符"></a>2-4重定向符</h3><p>&gt;：右边文件内容清空，左边内容写入文件</p>
+<p>&gt;&gt;：追加</p>
+<h2 id="3-命令"><a href="#3-命令" class="headerlink" title="3. 命令"></a>3. 命令</h2><p>命令 [选项] [参数]</p>
+<h3 id="1-ls命令（显示内容）"><a href="#1-ls命令（显示内容）" class="headerlink" title="1. ls命令（显示内容）"></a>1. ls命令（显示内容）</h3><p>ls [-a -l -h] [路径]</p>
+<ul>
+<li>a: all，列出全部文件（包括隐藏文件）</li>
+<li>l: list，以列表展现（权限，用户和用户组，大小，创建日期）</li>
+<li>h: 以易于阅读的形式，列出文件大小（搭配-l)</li>
+<li>组合使用：如-la</li>
+</ul>
+<h3 id="2-cd命令（change-directory"><a href="#2-cd命令（change-directory" class="headerlink" title="2. cd命令（change directory)"></a>2. cd命令（change directory)</h3><p>cd [路径]</p>
+<ul>
+<li>cd 回到用户HOME目录</li>
+<li>cd ..&#x2F;.. 返回上两级</li>
+<li>cd 路径</li>
+</ul>
+<h3 id="3-pwd命令（print-work-directory"><a href="#3-pwd命令（print-work-directory" class="headerlink" title="3. pwd命令（print work directory)"></a>3. pwd命令（print work directory)</h3><p>pwd</p>
+<h3 id="4-mkdir命令（make-directory"><a href="#4-mkdir命令（make-directory" class="headerlink" title="4. mkdir命令（make directory)"></a>4. mkdir命令（make directory)</h3><p>mkdir [-p] 路径</p>
+<ul>
+<li>多层创建</li>
+</ul>
+<h3 id="5-touch命令（创建文件）"><a href="#5-touch命令（创建文件）" class="headerlink" title="5. touch命令（创建文件）"></a>5. touch命令（创建文件）</h3><p>touch 路径</p>
+<h3 id="6-cat命令（查看文件）"><a href="#6-cat命令（查看文件）" class="headerlink" title="6. cat命令（查看文件）"></a>6. cat命令（查看文件）</h3><p>cat 路径</p>
+<h3 id="7-more命令（查看文件）"><a href="#7-more命令（查看文件）" class="headerlink" title="7. more命令（查看文件）"></a>7. more命令（查看文件）</h3><p>more 路径（分页看，空格下一页，q退出）</p>
+<h3 id="8-cp命令（copy"><a href="#8-cp命令（copy" class="headerlink" title="8. cp命令（copy)"></a>8. cp命令（copy)</h3><p>cp [-r] 源路径 目的地</p>
+<ul>
+<li>r 递归，用于文件夹的复制</li>
+</ul>
+<h3 id="9-mv命令（move"><a href="#9-mv命令（move" class="headerlink" title="9. mv命令（move)"></a>9. mv命令（move)</h3><p>mv 源路径 目的地&#x2F;（可重命名）</p>
+<h3 id="10-rm命令（remove"><a href="#10-rm命令（remove" class="headerlink" title="10. rm命令（remove)"></a>10. rm命令（remove)</h3><p>rm [-r -f] 参数1 参数2…</p>
+<ul>
+<li>r 递归，用于删除文件夹</li>
+<li>f (force)强制删除</li>
+<li>支持通配符：test* 表示以test开头</li>
+</ul>
+<h3 id="11-grep命令（文件中通过关键字搜索行）"><a href="#11-grep命令（文件中通过关键字搜索行）" class="headerlink" title="11. grep命令（文件中通过关键字搜索行）"></a>11. grep命令（文件中通过关键字搜索行）</h3><p>grep [-n] “关键字” 文件路径</p>
+<ul>
+<li>n：结果中显示行号</li>
+<li>关键字：用于查找</li>
+<li>路径：可做输入端口</li>
+</ul>
+<h3 id="12-wc命令（文件内容统计）"><a href="#12-wc命令（文件内容统计）" class="headerlink" title="12. wc命令（文件内容统计）"></a>12. wc命令（文件内容统计）</h3><p>wc [-cmlw] 文件路径</p>
+<ul>
+<li>c：统计bytes数量</li>
+<li>m：统计字符数量</li>
+<li>l：统计行数</li>
+<li>w：统计单词数</li>
+<li>路径：可做输入端口</li>
+</ul>
+<h3 id="13-which命令（查看命令的源文件）"><a href="#13-which命令（查看命令的源文件）" class="headerlink" title="13. which命令（查看命令的源文件）"></a>13. which命令（查看命令的源文件）</h3><p>which Linux命令</p>
+<h3 id="14-find命令（文件搜索）"><a href="#14-find命令（文件搜索）" class="headerlink" title="14. find命令（文件搜索）"></a>14. find命令（文件搜索）</h3><p>find 起始路径 -name “test*”<br>find 起始路径 -size +100k(大于100kb)</p>
+<h3 id="15-echo命令（打印）"><a href="#15-echo命令（打印）" class="headerlink" title="15. echo命令（打印）"></a>15. echo命令（打印）</h3><p>echo 输出内容</p>
+<ul>
+<li>echo <code>pwd</code>：将pwd作为命令执行</li>
+</ul>
+<h3 id="16-tail命令（从尾部查看）"><a href="#16-tail命令（从尾部查看）" class="headerlink" title="16. tail命令（从尾部查看）"></a>16. tail命令（从尾部查看）</h3><p>tail [-f -数字] 路径</p>
+<ul>
+<li>f 持续跟踪</li>
+<li>数字 查看多少行（默认10）</li>
+</ul>
+<h2 id="4-vim编辑器"><a href="#4-vim编辑器" class="headerlink" title="4. vim编辑器"></a>4. vim编辑器</h2><p>vi 文件路径</p>
+<p>vim 文件路径</p>
+<p><img src="/./img/linux/4.png"><br><img src="/./img/linux/5.png"><br><img src="/./img/linux/6.png"><br><img src="/./img/linux/7.png"><br><img src="/../../public/img/linux/4.png"><br><img src="/../../public/img/linux/5.png"><br><img src="/../../public/img/linux/6.png"><br><img src="/../../public/img/linux/7.png"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/Linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2023-07-25T05:21:33.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/Linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux入门-1基础命令</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/07/25/Linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/Linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2023-07-25T05:21:33.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/25/Linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux入门-2用户和权限</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/Linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">Linux入门-2用户和权限</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/weixin/weixin/" class="archive-article-date">
-  	<time datetime="2023-07-25T05:21:33.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/weixin/weixin/">微信小程序基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/vscode/vscode/" class="archive-article-date">
-  	<time datetime="2023-07-25T05:21:33.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/vscode/vscode/">vscode</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/hexo/hexo%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-07-25T05:05:51.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/hexo/hexo%E6%90%AD%E5%BB%BA/">hexo博客搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/hexo/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/hexo/hello-world/" class="archive-article-date">
-  	<time datetime="2023-07-25T03:51:05.489Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/07/25/hexo/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -365,8 +417,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
