@@ -6,14 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>串 | Hexo</title>
+  <title>4. 串 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="6 串6.1 定义  一种特殊的线性表  6.2 串的存储结构  顺序存储 12345678910#define MAXLEN 255typedef struct&amp;#123;    char ch[MAXLEN]; &#x2F;&#x2F;静态数组    int length;&amp;#125; SString;typedef struct&amp;#123;    char *ch; &#x2F;&#x2F;动态数组    int length">
-<meta property="og:type" content="article">
-<meta property="og:title" content="串">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="4. 串">
 <meta property="og:url" content="http://example.com/2023/08/07/datastruct/4_string/1_string/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="6 串6.1 定义  一种特殊的线性表  6.2 串的存储结构  顺序存储 12345678910#define MAXLEN 255typedef struct&amp;#123;    char ch[MAXLEN]; &#x2F;&#x2F;静态数组    int length;&amp;#125; SString;typedef struct&amp;#123;    char *ch; &#x2F;&#x2F;动态数组    int length">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/4_string/1.png">
 <meta property="og:image" content="http://example.com/img/datastruct/4_string/1.png">
@@ -40,9 +38,10 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/4_string/33.png">
 <meta property="og:image" content="http://example.com/img/datastruct/4_string/33.png">
 <meta property="article:published_time" content="2023-08-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-23T09:50:08.736Z">
+<meta property="article:modified_time" content="2023-10-23T12:15:39.435Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="串">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/themes/yilia/source/img/datastruct/4_string/1.png">
   
@@ -193,7 +192,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      串
+      4. 串
     </h1>
   
 
@@ -206,13 +205,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="6-串"><a href="#6-串" class="headerlink" title="6 串"></a>6 串</h1><h2 id="6-1-定义"><a href="#6-1-定义" class="headerlink" title="6.1 定义"></a>6.1 定义</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/1.png"><br><img src="/img/datastruct/4_string/1.png" alt="数据结构"></p>
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h2 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/1.png"><br><img src="/img/datastruct/4_string/1.png" alt="数据结构"></p>
 <ul>
 <li>一种特殊的线性表</li>
 </ul>
-<h2 id="6-2-串的存储结构"><a href="#6-2-串的存储结构" class="headerlink" title="6.2 串的存储结构"></a>6.2 串的存储结构</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/2.png"><br><img src="/img/datastruct/4_string/2.png" alt="数据结构"></p>
+<h2 id="4-2-串的存储结构"><a href="#4-2-串的存储结构" class="headerlink" title="4.2 串的存储结构"></a>4.2 串的存储结构</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/2.png"><br><img src="/img/datastruct/4_string/2.png" alt="数据结构"></p>
 <ul>
 <li><p>顺序存储<br><img src="/../../../../themes/yilia/source/img/datastruct/4_string/3.png"><br><img src="/img/datastruct/4_string/3.png" alt="数据结构"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXLEN 255</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> ch[MAXLEN]; <span class="comment">//静态数组</span></span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">&#125; SString;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> *ch; <span class="comment">//动态数组</span></span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">&#125; HString;</span><br></pre></td></tr></table></figure>
@@ -224,7 +223,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//2. 链式存储</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> ch; <span class="comment">//1：1</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; StringNode, *String;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> ch[<span class="number">4</span>]; <span class="comment">//1：4</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">StringNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; StringNode, *String;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/4.png"><br><img src="/img/datastruct/4_string/4.png" alt="数据结构"></p>
-<h2 id="6-3-基本操作"><a href="#6-3-基本操作" class="headerlink" title="6.3 基本操作"></a>6.3 基本操作</h2><table>
+<h2 id="4-3-基本操作"><a href="#4-3-基本操作" class="headerlink" title="4.3 基本操作"></a>4.3 基本操作</h2><table>
 <thead>
 <tr>
 <th align="left">函数名</th>
@@ -270,9 +269,9 @@
 </tbody></table>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求子串</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">SubString</span><span class="params">(SString *Sub, SString S, <span class="type">int</span> pos, <span class="type">int</span> len)</span>&#123;</span><br><span class="line">    <span class="comment">//1. 参数合法性判断</span></span><br><span class="line">    <span class="keyword">if</span>(pos&lt;<span class="number">1</span> || pos&gt;S.length || len&lt;<span class="number">0</span> || len&gt;S.length-pos+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//2. 子串赋值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=pos; i&lt;pos+len; i++)</span><br><span class="line">        Sub-&gt;ch[i-pos+<span class="number">1</span>]=S.ch[i];</span><br><span class="line">    Sub-&gt;length=len;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//比较</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">StrCompare</span><span class="params">(SString S, SString T)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=S.length &amp;&amp; i&lt;=T.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(S.ch[i]!=T.ch[i])</span><br><span class="line">            <span class="keyword">return</span> S.ch[i]-T.ch[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> S.length-T.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定位</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Index</span><span class="params">(SString S, SString T)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>, n=S.length, m=T.length;</span><br><span class="line">    SString sub;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=n-m+<span class="number">1</span>)&#123;</span><br><span class="line">        SubString(&amp;sub, S, i, m);</span><br><span class="line">        <span class="keyword">if</span>(StrCompare(sub, T)!=<span class="number">0</span>)</span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="6-4-模式匹配"><a href="#6-4-模式匹配" class="headerlink" title="6.4 模式匹配"></a>6.4 模式匹配</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/6.png"><br><img src="/img/datastruct/4_string/6.png" alt="数据结构"></p>
-<h3 id="6-4-1-朴素模式匹配算法"><a href="#6-4-1-朴素模式匹配算法" class="headerlink" title="6.4.1 朴素模式匹配算法"></a>6.4.1 朴素模式匹配算法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//朴素模式匹配算法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Index</span><span class="params">(SString S, SString T)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>, n=S.length, m=T.length;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=n-m+<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S.ch[i+j<span class="number">-1</span>]==T.ch[j])</span><br><span class="line">                ++j;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j&gt;m)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ++i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定位算法中，子串的长度是固定的，而模式匹配算法中，子串的长度是可变的</span></span><br></pre></td></tr></table></figure>
-<h3 id="6-4-2-KMP模式匹配算法"><a href="#6-4-2-KMP模式匹配算法" class="headerlink" title="6.4.2 KMP模式匹配算法"></a>6.4.2 KMP模式匹配算法</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/7.png"><br><img src="/img/datastruct/4_string/7.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/4_string/8.png"><br><img src="/img/datastruct/4_string/8.png" alt="数据结构"></p>
+<h2 id="4-4-模式匹配"><a href="#4-4-模式匹配" class="headerlink" title="4.4 模式匹配"></a>4.4 模式匹配</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/6.png"><br><img src="/img/datastruct/4_string/6.png" alt="数据结构"></p>
+<h3 id="4-4-1-朴素模式匹配算法"><a href="#4-4-1-朴素模式匹配算法" class="headerlink" title="4.4.1 朴素模式匹配算法"></a>4.4.1 朴素模式匹配算法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//朴素模式匹配算法</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Index</span><span class="params">(SString S, SString T)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>, n=S.length, m=T.length;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=n-m+<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S.ch[i+j<span class="number">-1</span>]==T.ch[j])</span><br><span class="line">                ++j;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(j&gt;m)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ++i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定位算法中，子串的长度是固定的，而模式匹配算法中，子串的长度是可变的</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-4-2-KMP模式匹配算法"><a href="#4-4-2-KMP模式匹配算法" class="headerlink" title="4.4.2 KMP模式匹配算法"></a>4.4.2 KMP模式匹配算法</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/4_string/7.png"><br><img src="/img/datastruct/4_string/7.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/4_string/8.png"><br><img src="/img/datastruct/4_string/8.png" alt="数据结构"></p>
 <ul>
 <li>1）根据模式求next数组<br><img src="/../../../../themes/yilia/source/img/datastruct/4_string/9.png"><br><img src="/img/datastruct/4_string/9.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/4_string/11.png"><br><img src="/img/datastruct/4_string/11.png" alt="数据结构"></li>
 </ul>
@@ -316,6 +315,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">串</a>
         		</li>
       		
 		</ul>
@@ -396,18 +399,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/07/datastruct/3_stack/3_exam/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/26/datastruct/7_search/3_AVL/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          栈与队列的应用
+          7.3 平衡二叉树
         
       </div>
     </a>
   
   
-    <a href="/2023/08/07/datastruct/3_stack/4_matrix/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">矩阵压缩</div>
+    <a href="/2023/08/07/datastruct/5_tree/1_tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5.1 树</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -434,7 +437,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%B8%B2"><span class="toc-number"></span> <span class="toc-text">6 串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%AE%9A%E4%B9%89"><span class="toc-number"></span> <span class="toc-text">6.1 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number"></span> <span class="toc-text">6.2 串的存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number"></span> <span class="toc-text">6.3 基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-number"></span> <span class="toc-text">6.4 模式匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-1-%E6%9C%B4%E7%B4%A0%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">6.4.1 朴素模式匹配算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-2-KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">6.4.2 KMP模式匹配算法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-1"><span class="toc-number">1.0.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E4%B8%B2%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 串的存储结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">4.3 基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="toc-number">1.4.</span> <span class="toc-text">4.4 模式匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E6%9C%B4%E7%B4%A0%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.4.1 朴素模式匹配算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-KMP%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.4.2 KMP模式匹配算法</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -566,11 +569,79 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
             
             <div class="clearfix"></div>

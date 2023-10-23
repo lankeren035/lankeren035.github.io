@@ -6,14 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>栈与队列的应用 | Hexo</title>
+  <title>3.3 栈与队列的应用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="5 栈与队列的应用5.1 括号匹配问题 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889#include&amp;l">
-<meta property="og:type" content="article">
-<meta property="og:title" content="栈与队列的应用">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="3.3 栈与队列的应用">
 <meta property="og:url" content="http://example.com/2023/08/07/datastruct/3_stack/3_exam/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="5 栈与队列的应用5.1 括号匹配问题 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889#include&amp;l">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/3_stack/exam/1.png">
 <meta property="og:image" content="http://example.com/img/datastruct/3_stack/exam/1.png">
@@ -28,9 +26,11 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/3_stack/exam/3.png">
 <meta property="og:image" content="http://example.com/img/datastruct/3_stack/exam/3.png">
 <meta property="article:published_time" content="2023-08-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-23T09:46:30.109Z">
+<meta property="article:modified_time" content="2023-10-23T12:08:38.400Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="栈">
+<meta property="article:tag" content="队列">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/themes/yilia/source/img/datastruct/3_stack/exam/1.png">
   
@@ -181,7 +181,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      栈与队列的应用
+      3.3 栈与队列的应用
     </h1>
   
 
@@ -194,11 +194,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<h1 id="5-栈与队列的应用"><a href="#5-栈与队列的应用" class="headerlink" title="5 栈与队列的应用"></a>5 栈与队列的应用</h1><h2 id="5-1-括号匹配问题"><a href="#5-1-括号匹配问题" class="headerlink" title="5.1 括号匹配问题"></a>5.1 括号匹配问题</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/1.png"><br><img src="/img/datastruct/3_stack/exam/1.png" alt="数据结构"></p>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+
+<h2 id="3-3-1-括号匹配问题"><a href="#3-3-1-括号匹配问题" class="headerlink" title="3.3.1 括号匹配问题"></a>3.3.1 括号匹配问题</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/1.png"><br><img src="/img/datastruct/3_stack/exam/1.png" alt="数据结构"></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> data[MAXSIZE];</span><br><span class="line">    <span class="type">int</span> top;</span><br><span class="line">&#125; SqStack;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InitStack</span><span class="params">(SqStack *S)</span>&#123;</span><br><span class="line">    S-&gt;top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判空</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">StackEmpty</span><span class="params">(SqStack S)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top==<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Push</span><span class="params">(SqStack *S, <span class="type">char</span> x)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S-&gt;top==MAXSIZE<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    S-&gt;top++;</span><br><span class="line">    S-&gt;data[S-&gt;top]=x;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">Pop</span><span class="params">(SqStack *S, <span class="type">char</span> *x)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S-&gt;top==<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *x=S-&gt;data[S-&gt;top];</span><br><span class="line">    S-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//取栈顶元素</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">GetTop</span><span class="params">(SqStack S, <span class="type">char</span> *x)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top==<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    *x=S.data[S.top];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//1. 括号匹配</span></span><br><span class="line">    <span class="type">char</span> str1[<span class="number">100</span>] = <span class="string">&quot;((()))&#123;[]&#125;&quot;</span>; <span class="comment">//合法</span></span><br><span class="line">    <span class="type">char</span> str2[<span class="number">100</span>] = <span class="string">&quot;((())&#123;[]&#125;)&quot;</span>; <span class="comment">//合法</span></span><br><span class="line">    <span class="type">char</span> str3[<span class="number">100</span>] = <span class="string">&quot;((())&#123;[]&#125;&quot;</span>; <span class="comment">//不合法</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,match(str1));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,match(str2));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,match(str3));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">match</span><span class="params">(<span class="type">char</span> str[])</span>&#123;</span><br><span class="line">    SqStack <span class="built_in">stack</span>;</span><br><span class="line">    InitStack(&amp;<span class="built_in">stack</span>);</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> x;</span><br><span class="line">    <span class="keyword">for</span>(;str[i]!=<span class="string">&#x27;\0&#x27;</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">switch</span> (str[i])</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;[&#x27;</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;&#123;&#x27;</span>:</span><br><span class="line">            Push(&amp;<span class="built_in">stack</span>, str[i]);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;)&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span>(!Pop(&amp;<span class="built_in">stack</span>, &amp;x) || x!=<span class="string">&#x27;(&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;]&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span>(!Pop(&amp;<span class="built_in">stack</span>, &amp;x) || x!=<span class="string">&#x27;[&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;&#125;&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span>(!Pop(&amp;<span class="built_in">stack</span>, &amp;x) || x!=<span class="string">&#x27;&#123;&#x27;</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!StackEmpty(<span class="built_in">stack</span>))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-2-表达式求值"><a href="#5-2-表达式求值" class="headerlink" title="5.2 表达式求值"></a>5.2 表达式求值</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/2.png"><br><img src="/img/datastruct/3_stack/exam/2.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/6.png"><br><img src="/img/datastruct/3_stack/exam/6.png" alt="数据结构"></p>
+<h2 id="3-3-2-表达式求值"><a href="#3-3-2-表达式求值" class="headerlink" title="3.3.2 表达式求值"></a>3.3.2 表达式求值</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/2.png"><br><img src="/img/datastruct/3_stack/exam/2.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/exam/6.png"><br><img src="/img/datastruct/3_stack/exam/6.png" alt="数据结构"></p>
 <ul>
 <li><p>中缀-&gt;后缀</p>
 <ul>
@@ -263,6 +264,14 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
         		</li>
       		
 		</ul>
@@ -343,18 +352,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/07/datastruct/3_stack/1_stack/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/07/datastruct/3_stack/4_matrix/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          栈
+          3.4 矩阵压缩
         
       </div>
     </a>
   
   
-    <a href="/2023/08/07/datastruct/4_string/1_string/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">串</div>
+    <a href="/2023/08/07/datastruct/7_search/1_search/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">7.1 顺序查找</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +390,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">5 栈与队列的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">5.1 括号匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">5.2 表达式求值</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-1-%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">3.3.1 括号匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-2-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">3.3.2 表达式求值</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -513,11 +522,79 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
             
             <div class="clearfix"></div>

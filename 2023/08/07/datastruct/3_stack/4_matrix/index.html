@@ -6,14 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>矩阵压缩 | Hexo</title>
+  <title>3.4 矩阵压缩 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="5 矩阵压缩 5.1 对称矩阵  存主对角线+下三角   $$a_{k}&#x3D;a_{ij}&#x3D;a_{ji} (i&gt;&#x3D;j)$$  列优先   $$k&#x3D;\frac{i(i-1)}{2}+j-1$$  行优先   $$k&#x3D;\frac{j(j-1)}{2}+i-1$$     5.2 三角矩阵  存主对角线+下三角&#x2F;上三角+c   $$a_{k">
-<meta property="og:type" content="article">
-<meta property="og:title" content="矩阵压缩">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="3.4 矩阵压缩">
 <meta property="og:url" content="http://example.com/2023/08/07/datastruct/3_stack/4_matrix/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="5 矩阵压缩 5.1 对称矩阵  存主对角线+下三角   $$a_{k}&#x3D;a_{ij}&#x3D;a_{ji} (i&gt;&#x3D;j)$$  列优先   $$k&#x3D;\frac{i(i-1)}{2}+j-1$$  行优先   $$k&#x3D;\frac{j(j-1)}{2}+i-1$$     5.2 三角矩阵  存主对角线+下三角&#x2F;上三角+c   $$a_{k">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/3_stack/matrix/1.png">
 <meta property="og:image" content="http://example.com/img/datastruct/3_stack/matrix/1.png">
@@ -34,7 +32,7 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/datastruct/3_stack/matrix/9.png">
 <meta property="og:image" content="http://example.com/img/datastruct/3_stack/matrix/9.png">
 <meta property="article:published_time" content="2023-08-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-23T09:49:42.380Z">
+<meta property="article:modified_time" content="2023-10-23T12:09:13.828Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -187,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      矩阵压缩
+      3.4 矩阵压缩
     </h1>
   
 
@@ -200,9 +198,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<h1 id="5-矩阵压缩"><a href="#5-矩阵压缩" class="headerlink" title="5 矩阵压缩"></a>5 矩阵压缩</h1><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/1.png"><br><img src="/img/datastruct/3_stack/matrix/1.png" alt="数据结构"></p>
-<h2 id="5-1-对称矩阵"><a href="#5-1-对称矩阵" class="headerlink" title="5.1 对称矩阵"></a>5.1 对称矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/2.png"><br><img src="/img/datastruct/3_stack/matrix/2.png" alt="数据结构"></p>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+
+<p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/1.png"><br><img src="/img/datastruct/3_stack/matrix/1.png" alt="数据结构"></p>
+<h2 id="3-4-1-对称矩阵"><a href="#3-4-1-对称矩阵" class="headerlink" title="3.4.1 对称矩阵"></a>3.4.1 对称矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/2.png"><br><img src="/img/datastruct/3_stack/matrix/2.png" alt="数据结构"></p>
 <ul>
 <li><p>存主对角线+下三角</p>
 <p>  $$a_{k}&#x3D;a_{ij}&#x3D;a_{ji} (i&gt;&#x3D;j)$$</p>
@@ -216,7 +215,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="5-2-三角矩阵"><a href="#5-2-三角矩阵" class="headerlink" title="5.2 三角矩阵"></a>5.2 三角矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/3.png"><br><img src="/img/datastruct/3_stack/matrix/3.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/4.png"><br><img src="/img/datastruct/3_stack/matrix/4.png" alt="数据结构"></p>
+<h2 id="3-4-2-三角矩阵"><a href="#3-4-2-三角矩阵" class="headerlink" title="3.4.2 三角矩阵"></a>3.4.2 三角矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/3.png"><br><img src="/img/datastruct/3_stack/matrix/3.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/4.png"><br><img src="/img/datastruct/3_stack/matrix/4.png" alt="数据结构"></p>
 <ul>
 <li><p>存主对角线+下三角&#x2F;上三角+c</p>
 <p>  $$a_{k}&#x3D;a_{ij} (i&gt;&#x3D;j)$$</p>
@@ -228,11 +227,11 @@
 <p>  $$k&#x3D;\left{\begin{array}{l}{\frac{(i-1)(2n-i+2)}{2}+j-i} &amp; {i \leq j} \ {\frac{n(n-1)}{2}} &amp; {i&gt;j}\end{array}\right.$$</p>
 </li>
 </ul>
-<h2 id="5-3-三对角矩阵"><a href="#5-3-三对角矩阵" class="headerlink" title="5.3 三对角矩阵"></a>5.3 三对角矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/5.png"><br><img src="/img/datastruct/3_stack/matrix/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/6.png"><br><img src="/img/datastruct/3_stack/matrix/6.png" alt="数据结构"></p>
+<h2 id="3-4-3-三对角矩阵"><a href="#3-4-3-三对角矩阵" class="headerlink" title="3.4.3 三对角矩阵"></a>3.4.3 三对角矩阵</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/5.png"><br><img src="/img/datastruct/3_stack/matrix/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/6.png"><br><img src="/img/datastruct/3_stack/matrix/6.png" alt="数据结构"></p>
 <ul>
 <li>$$k&#x3D;2i+j-3$$</li>
 </ul>
-<h2 id="5-4-稀疏矩阵"><a href="#5-4-稀疏矩阵" class="headerlink" title="5.4 稀疏矩阵"></a>5.4 稀疏矩阵</h2><ul>
+<h2 id="3-4-4-稀疏矩阵"><a href="#3-4-4-稀疏矩阵" class="headerlink" title="3.4.4 稀疏矩阵"></a>3.4.4 稀疏矩阵</h2><ul>
 <li><p>顺序存储<br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/7.png"><br><img src="/img/datastruct/3_stack/matrix/7.png" alt="数据结构"></p>
 </li>
 <li><p>链式存储<br><img src="/../../../../themes/yilia/source/img/datastruct/3_stack/matrix/8.png"><br><img src="/img/datastruct/3_stack/matrix/8.png" alt="数据结构"></p>
@@ -354,18 +353,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/08/07/datastruct/4_string/1_string/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/08/07/datastruct/3_stack/2_queue/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          串
+          3.2 队列
         
       </div>
     </a>
   
   
-    <a href="/2023/08/07/datastruct/5_tree/2_bintree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">二叉树</div>
+    <a href="/2023/08/07/datastruct/3_stack/3_exam/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.3 栈与队列的应用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -392,7 +391,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E7%9F%A9%E9%98%B5%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.</span> <span class="toc-text">5 矩阵压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5"><span class="toc-number">1.1.</span> <span class="toc-text">5.1 对称矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="toc-number">1.2.</span> <span class="toc-text">5.2 三角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E4%B8%89%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.</span> <span class="toc-text">5.3 三对角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5"><span class="toc-number">1.4.</span> <span class="toc-text">5.4 稀疏矩阵</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-1-%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5"><span class="toc-number">1.1.</span> <span class="toc-text">3.4.1 对称矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-2-%E4%B8%89%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="toc-number">1.2.</span> <span class="toc-text">3.4.2 三角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-3-%E4%B8%89%E5%AF%B9%E8%A7%92%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.</span> <span class="toc-text">3.4.3 三对角矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-4-%E7%A8%80%E7%96%8F%E7%9F%A9%E9%98%B5"><span class="toc-number">1.4.</span> <span class="toc-text">3.4.4 稀疏矩阵</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -524,11 +523,79 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,17 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>排序 | Hexo</title>
+  <title>1. 快速排序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. 基础算法1 快速排序1. 1 思想1234567891. 确定分界点	- q[l]	- q[r]	- q[(l+r)&#x2F;2]	- q[random]2. 调整区间（*）	- 左边&lt;&#x3D;x x0 右边&gt;&#x3D;x	- x不一定在x0位置3. 递归两端 123451. 暴力求解	a[], b[], c[],对c进行排序，&lt;&#x3D;x的放到a，&gt;&#x3D;x的放到b。放完后先将a放到c，再将b放到">
-<meta property="og:type" content="article">
-<meta property="og:title" content="排序">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="1. 快速排序">
 <meta property="og:url" content="http://example.com/2023/10/02/algorithm/1_base/1_base/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一. 基础算法1 快速排序1. 1 思想1234567891. 确定分界点	- q[l]	- q[r]	- q[(l+r)&#x2F;2]	- q[random]2. 调整区间（*）	- 左边&lt;&#x3D;x x0 右边&gt;&#x3D;x	- x不一定在x0位置3. 递归两端 123451. 暴力求解	a[], b[], c[],对c进行排序，&lt;&#x3D;x的放到a，&gt;&#x3D;x的放到b。放完后先将a放到c，再将b放到">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-10-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-23T09:55:50.668Z">
+<meta property="article:modified_time" content="2023-10-23T11:58:01.517Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="算法，排序">
 <meta name="twitter:card" content="summary">
@@ -168,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      排序
+      1. 快速排序
     </h1>
   
 
@@ -181,7 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一-基础算法"><a href="#一-基础算法" class="headerlink" title="一. 基础算法"></a>一. 基础算法</h1><h2 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1 快速排序"></a>1 快速排序</h2><h3 id="1-1-思想"><a href="#1-1-思想" class="headerlink" title="1. 1 思想"></a>1. 1 思想</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 确定分界点</span><br><span class="line">	- q[l]</span><br><span class="line">	- q[r]</span><br><span class="line">	- q[(l+r)/2]</span><br><span class="line">	- q[random]</span><br><span class="line">2. 调整区间（*）</span><br><span class="line">	- 左边&lt;=x x0 右边&gt;=x</span><br><span class="line">	- x不一定在x0位置</span><br><span class="line">3. 递归两端</span><br></pre></td></tr></table></figure>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+<h3 id="1-1-思想"><a href="#1-1-思想" class="headerlink" title="1. 1 思想"></a>1. 1 思想</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 确定分界点</span><br><span class="line">	- q[l]</span><br><span class="line">	- q[r]</span><br><span class="line">	- q[(l+r)/2]</span><br><span class="line">	- q[random]</span><br><span class="line">2. 调整区间（*）</span><br><span class="line">	- 左边&lt;=x x0 右边&gt;=x</span><br><span class="line">	- x不一定在x0位置</span><br><span class="line">3. 递归两端</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 暴力求解</span><br><span class="line">	a[], b[], c[],对c进行排序，&lt;=x的放到a，&gt;=x的放到b。放完后先将a放到c，再将b放到c.</span><br><span class="line">	</span><br><span class="line">2. 优化空间</span><br><span class="line">	定义左右指针i,j当c[i]&gt;x时停，当c[j]&lt;x时停。两个都停之后交换。</span><br></pre></td></tr></table></figure>
 <h3 id="1-2-算法模板"><a href="#1-2-算法模板" class="headerlink" title="1.2 算法模板"></a>1.2 算法模板</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100000</span>];</span><br><span class="line"><span class="type">void</span> <span class="title function_">qsort</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> x=a[((r-l)&gt;&gt;<span class="number">1</span>)+l];</span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span>(a[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span>(a[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j) swap(a[i],a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    qsort(a,l,j);</span><br><span class="line">    qsort(a,j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    qsort(a,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -311,7 +310,7 @@
   
   
     <a href="/2023/08/26/datastruct/7_search/5_Btree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">B树</div>
+      <div class="article-nav-title">7.5 B树</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -338,7 +337,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">一. 基础算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1 快速排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%80%9D%E6%83%B3"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 1 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 算法模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2 归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%80%9D%E6%83%B3"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 算法模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">3. 整数二分</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%80%9D%E6%83%B3"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 1 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.2 算法模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">2 归并排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%80%9D%E6%83%B3"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.2 算法模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">3. 整数二分</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -470,11 +469,79 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
             
             <div class="clearfix"></div>
