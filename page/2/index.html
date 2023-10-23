@@ -158,19 +158,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-datastruct/5_tree/2_bintree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-datastruct/5_tree/1_tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/07/datastruct/5_tree/2_bintree/">二叉树</a>
+      <a class="article-title" href="/2023/08/07/datastruct/5_tree/1_tree/">树</a>
     </h1>
   
 
         
-        <a href="/2023/08/07/datastruct/5_tree/2_bintree/" class="archive-article-date">
+        <a href="/2023/08/07/datastruct/5_tree/1_tree/" class="archive-article-date">
   	<time datetime="2023-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-07</time>
 </a>
         
@@ -179,143 +179,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <span id="more"></span>
-<h1 id="7-树"><a href="#7-树" class="headerlink" title="7 树"></a>7 树</h1><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="7-2-二叉树"><a href="#7-2-二叉树" class="headerlink" title="7.2 二叉树"></a>7.2 二叉树</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/1.png"><br><img src="/img/datastruct/5_tree/bintree/1.png" alt="数据结构"></p>
+<h1 id="7-树"><a href="#7-树" class="headerlink" title="7 树"></a>7 树</h1><h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/tree/1.png"><br><img src="/img/datastruct/5_tree/tree/1.png" alt="数据结构"></p>
 <!--more-->
-<ul>
-<li>二叉树是有序树，有左右之分</li>
-<li>二叉树有五种基本形态：空二叉树、只有根结点、只有左子树、只有右子树、左右子树都有</li>
-</ul>
-<h3 id="7-2-1-特殊二叉树"><a href="#7-2-1-特殊二叉树" class="headerlink" title="7.2.1 特殊二叉树"></a>7.2.1 特殊二叉树</h3><table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">说明</th>
-<th align="center">特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">满二叉树</td>
-<td align="center">所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上</td>
-<td align="center"><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/2.png"></td>
-</tr>
-<tr>
-<td align="center">完全二叉树</td>
-<td align="center">叶子结点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树</td>
-<td align="center"><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/3.png"></td>
-</tr>
-<tr>
-<td align="center">二叉排序树</td>
-<td align="center">空树 &#x2F; 左子树上所有结点的值均小于它的根结点的值；右子树上所有结点的值均大于它的根结点的值；左右子树也分别为二叉排序树</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">平衡二叉树</td>
-<td align="center">空树 &#x2F; 左子树和右子树的深度之差的绝对值不超过1，且它的左子树和右子树都是一棵平衡二叉树</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="7-2-2-一些性质"><a href="#7-2-2-一些性质" class="headerlink" title="7.2.2 一些性质"></a>7.2.2 一些性质</h3><ul>
-<li><p>叶子结点比度为2的结点多1个</p>
-</li>
-<li><p>第i层最多有2<sup>i-1</sup>个结点</p>
-</li>
-<li><p>高度为h的二叉树至多有2<sup>h</sup>-1个结点</p>
-</li>
-<li><p>有n个结点的完全二叉树高度为$$\lceil log_2(n+1)\rceil 或 \lfloor log_2n\rfloor+1$$</p>
-</li>
-<li><p>若完全二叉树有2k个结点，n<sub>0</sub>&#x3D;k,n<sub>1</sub>&#x3D;1,n<sub>2</sub>&#x3D;k-1</p>
-</li>
-<li><p>若完全二叉树有2k-1个结点，n<sub>0</sub>&#x3D;k,n<sub>1</sub>&#x3D;0,n<sub>2</sub>&#x3D;k-1</p>
-</li>
-</ul>
-<h3 id="7-2-3-存储结构"><a href="#7-2-3-存储结构" class="headerlink" title="7.2.3 存储结构"></a>7.2.3 存储结构</h3><ul>
-<li>顺序存储<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">    <span class="type">int</span> isEmpty;</span><br><span class="line">&#125;TreeNode;</span><br><span class="line"></span><br><span class="line">TreeNode t[MaxSize];</span><br></pre></td></tr></table></figure>
-<img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/4.png"><br><img src="/img/datastruct/5_tree/bintree/4.png" alt="数据结构"></li>
-</ul>
-<p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/5.png"><br><img src="/img/datastruct/5_tree/bintree/5.png" alt="数据结构"></p>
-<ul>
-<li>链式存储</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTnode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTnode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiTNode,BiTree;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>n个结点的二叉链表共有n+1个空链域</li>
-</ul>
-<h3 id="7-2-4-遍历"><a href="#7-2-4-遍历" class="headerlink" title="7.2.4 遍历"></a>7.2.4 遍历</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/9.png"><br><img src="/img/datastruct/5_tree/bintree/9.png" alt="数据结构"></p>
-<ul>
-<li><p>先序遍历</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PreOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        visit(T);<span class="comment">//操作</span></span><br><span class="line">        PreOrder(T-&gt;lchild);</span><br><span class="line">        PreOrder(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>中序遍历</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        InOrder(T-&gt;lchild);</span><br><span class="line">        visit(T);<span class="comment">//操作</span></span><br><span class="line">        InOrder(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>后序遍历</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后序遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        PostOrder(T-&gt;lchild);</span><br><span class="line">        PostOrder(T-&gt;rchild);</span><br><span class="line">        vist(T);<span class="comment">//操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>求树的深度</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求树的深度</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">treeDepth</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!T)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="type">int</span> l=treeDepth(T-&gt;lchild);</span><br><span class="line">        <span class="type">int</span> r=treeDepth(T-&gt;rchild);</span><br><span class="line">        <span class="keyword">return</span> (l&gt;r)?(l+<span class="number">1</span>):(r+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>层次遍历</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//层次遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">LevelOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    BiTree p;</span><br><span class="line">    BiTree q[MaxSize];</span><br><span class="line">    <span class="type">int</span> front=<span class="number">0</span>, rear=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        rear=(rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">        q[rear]=T;</span><br><span class="line">        <span class="keyword">while</span>(front!=rear)&#123;</span><br><span class="line">            front=(front+<span class="number">1</span>)%MaxSize;</span><br><span class="line">            p=q[front];</span><br><span class="line">            visit(p);</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;lchild)&#123;</span><br><span class="line">                rear=(rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">                q[rear]=p-&gt;lchild;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;rchild)&#123;</span><br><span class="line">                rear=(rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">                q[rear]=p-&gt;rchild;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="7-2-5-练习"><a href="#7-2-5-练习" class="headerlink" title="7.2.5 练习"></a>7.2.5 练习</h3><ul>
-<li><p>求遍历序列<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/6.png"><br><img src="/img/datastruct/5_tree/bintree/6.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/7.png"><br><img src="/img/datastruct/5_tree/bintree/7.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/8.png"><br><img src="/img/datastruct/5_tree/bintree/8.png" alt="数据结构"></p>
-</li>
-<li><p>根据序列求树<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/10.png"><br><img src="/img/datastruct/5_tree/bintree/10.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/11.png"><br><img src="/img/datastruct/5_tree/bintree/11.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/12.png"><br><img src="/img/datastruct/5_tree/bintree/12.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/13.png"><br><img src="/img/datastruct/5_tree/bintree/13.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/14.png"><br><img src="/img/datastruct/5_tree/bintree/14.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/15.png"><br><img src="/img/datastruct/5_tree/bintree/15.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/16.png"><br><img src="/img/datastruct/5_tree/bintree/16.png" alt="数据结构"></p>
-</li>
-</ul>
-<h3 id="7-2-6-线索二叉树"><a href="#7-2-6-线索二叉树" class="headerlink" title="7.2.6 线索二叉树"></a>7.2.6 线索二叉树</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/17.png"><br><img src="/img/datastruct/5_tree/bintree/17.png" alt="数据结构"></p>
-<ul>
-<li>存储结构<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//线索二叉树</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ThreadNode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ThreadNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span></span><br><span class="line">    <span class="type">int</span> ltag, rtag;<span class="comment">//左右线索标志</span></span><br><span class="line">&#125;ThreadNode, *ThreadTree;</span><br></pre></td></tr></table></figure></li>
-<li>中序线索二叉树<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/18.png"><br><img src="/img/datastruct/5_tree/bintree/18.png" alt="数据结构"></li>
-<li>先序线索二叉树<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/19.png"><br><img src="/img/datastruct/5_tree/bintree/19.png" alt="数据结构"></li>
-<li>后序线索二叉树<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/20.png"><br><img src="/img/datastruct/5_tree/bintree/20.png" alt="数据结构"></li>
-<li>线索化<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/21.png"><br><img src="/img/datastruct/5_tree/bintree/21.png" alt="数据结构"><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//土办法找到中序前驱</span></span><br><span class="line">BiTNode *p=<span class="literal">NULL</span>, *pre=<span class="literal">NULL</span>,*final=<span class="literal">NULL</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">findPre</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        findPre(T-&gt;lchild);</span><br><span class="line">        visit(T);</span><br><span class="line">        findPre(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">visit</span><span class="params">(BiTNode* q)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(q==p)</span><br><span class="line">        final=pre;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        pre=q;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中序线索化</span></span><br><span class="line">ThreadNode *pre=<span class="literal">NULL</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">InThread</span><span class="params">(ThreadTree p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p)&#123;</span><br><span class="line">        InThread(p-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(!p-&gt;lchild)&#123;</span><br><span class="line">            p-&gt;lchild=pre;</span><br><span class="line">            p-&gt;ltag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;rchild=p;</span><br><span class="line">            pre-&gt;rtag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        pre=p;</span><br><span class="line">        InThread(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//先序线索化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PreThread</span><span class="params">(ThreadTree p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!p-&gt;lchild)&#123;</span><br><span class="line">            p-&gt;lchild=pre;</span><br><span class="line">            p-&gt;ltag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;rchild=p;</span><br><span class="line">            pre-&gt;rtag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        pre=p;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;ltag==<span class="number">0</span>)</span><br><span class="line">            PreThread(p-&gt;lchild);</span><br><span class="line">        PreThread(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//后序线索化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">PostThread</span><span class="params">(ThreadTree p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!p-&gt;lchild)&#123;</span><br><span class="line">            p-&gt;lchild=pre;</span><br><span class="line">            p-&gt;ltag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;rchild=p;</span><br><span class="line">            pre-&gt;rtag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        pre=p;</span><br><span class="line">        PreThread(p-&gt;lchild);</span><br><span class="line">        PreThread(p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">CreateInThread</span><span class="params">(ThreadTree T)</span>&#123;</span><br><span class="line">    pre=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        InThread(T);</span><br><span class="line">        <span class="keyword">if</span>(!pre-&gt;rchild)&#123;</span><br><span class="line">            pre-&gt;rtag=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="7-1-一些性质"><a href="#7-1-一些性质" class="headerlink" title="7.1 一些性质"></a>7.1 一些性质</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/tree/3.png"><br><img src="/img/datastruct/5_tree/tree/3.png" alt="数据结构"></p>
 <ul>
-<li>线索二叉树找前驱&#x2F;后继<br><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/bintree/22.png"><br><img src="/img/datastruct/5_tree/bintree/22.png" alt="数据结构"><ul>
-<li><p>中序，后继</p>
-<p>  1）p-&gt;rtag&#x3D;&#x3D;1，则next&#x3D;p-&gt;rchild</p>
-<p>  2）p-&gt;rtag&#x3D;&#x3D;0，则</p>
-  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中序线索二叉树找后继</span></span><br><span class="line">ThreadNode *<span class="title function_">Firstnode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(p-&gt;ltag==<span class="number">0</span>)</span><br><span class="line">        p=p-&gt;lchild;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line">ThreadNode *<span class="title function_">Nextnode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;rtag==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> Firstnode(p-&gt;rchild);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> p-&gt;rchild;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>中序，前驱</p>
-<p>  1）p-&gt;ltag&#x3D;&#x3D;1，则pre&#x3D;p-&gt;lchild</p>
-<p>  2）p-&gt;ltag&#x3D;&#x3D;0,pre&#x3D;左子树的最右下</p>
-  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//中序线索二叉树找到前驱</span></span><br><span class="line">ThreadNode *<span class="title function_">Lastnode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(p-&gt;rtag==<span class="number">0</span>)</span><br><span class="line">        p=p-&gt;rchild;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line">ThreadNode *<span class="title function_">Prenode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;ltag==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> Lastnode(p-&gt;lchild);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> p-&gt;lchild;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对中序线索二叉树逆向遍历</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">InOrder</span><span class="params">(ThreadNode *T)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ThreadNode *p=Lastnode(T); p!=<span class="literal">NULL</span>; p=Prenode(p))</span><br><span class="line">        visit(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>先序，后继</p>
-<p>  1）p-&gt;rtag&#x3D;&#x3D;1，则next&#x3D;p-&gt;rchild</p>
-<p>  2）p-&gt;rtag&#x3D;&#x3D;0，则next&#x3D;左孩子（无则右孩子）</p>
-</li>
-<li><p>先序，前驱</p>
-<p>  1）p-&gt;ltag&#x3D;&#x3D;1，则prep-&gt;lchild</p>
-<p>  2）p-&gt;ltag&#x3D;&#x3D;0</p>
-<ul>
-<li><p>若能找到p的父，p为左孩子，则pre&#x3D;父</p>
-</li>
-<li><p>若能找到p的父，p为右孩子，左兄弟空，则pre&#x3D;父</p>
-</li>
-<li><p>若能找到p的父，p为右孩子，左兄弟不空，则pre&#x3D;左子树中最后一个被中序遍历的结点</p>
-</li>
+<li>根在第0层</li>
+<li>节点数&#x3D;总度数+1</li>
+<li>结点的度：结点拥有的子树的个数</li>
+<li>m叉树中可以没有m个子树，但是不能超过m个子树</li>
+<li>度为m的树，第i层最多有$$m^{i-1}$$个结点</li>
+<li>高度为h的m叉树，最多有$$\frac{m^h-1}{m-1}$$个结点</li>
+<li>高度为h的m叉树，最少有h个结点</li>
+<li>高度为h，度为m的树，最多有$$\frac{m^{h+1}-1}{m-1}$$个结点，最少有h+m-1个结点</li>
+<li>n个结点的m叉树的最小高度为：$$\lceil log_m(n(m-1)+1)\rceil$$</li>
 </ul>
-</li>
-<li><p>后序，前驱</p>
-<p>  1）p-&gt;ltag&#x3D;&#x3D;1，则pre&#x3D;p-&gt;lchild</p>
-<p>  2）p-&gt;ltag&#x3D;&#x3D;0，则pre&#x3D;右孩子（无则左孩子）</p>
-</li>
-<li><p>后序，后继</p>
-<p>  1）p-&gt;rtag&#x3D;&#x3D;1，则next-&gt;rchild</p>
-<p>  2）p-&gt;rtag&#x3D;&#x3D;0</p>
-<ul>
-<li><p>若能找到p的父，p为右孩子，则next&#x3D;父</p>
-</li>
-<li><p>若能找到p的父，p为左孩子，右兄弟空，则next&#x3D;父</p>
-</li>
-<li><p>若能找到p的父，p为左孩子，右兄弟不空，则next&#x3D;右子树中第一个被后序遍历的结点</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p><img src="/../../../../themes/yilia/source/img/datastruct/5_tree/tree/1.png"><br><img src="/img/datastruct/5_tree/tree/1.png" alt="数据结构"></p>
 
       
 
@@ -350,7 +229,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/07/datastruct/5_tree/2_bintree/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/08/07/datastruct/5_tree/1_tree/">展开全文 >></a>
         </p>
       
 
@@ -720,6 +599,125 @@
 
 
   
+    <article id="post-datastruct/7_search/2_BST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/08/07/datastruct/7_search/2_BST/">二叉排序树</a>
+    </h1>
+  
+
+        
+        <a href="/2023/08/07/datastruct/7_search/2_BST/" class="archive-article-date">
+  	<time datetime="2023-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="9-查找"><a href="#9-查找" class="headerlink" title="9 查找"></a>9 查找</h1><h2 id="9-5-二叉排序树"><a href="#9-5-二叉排序树" class="headerlink" title="9.5 二叉排序树"></a>9.5 二叉排序树</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/1.png"><br><img src="/img/datastruct/7_search/BST/1.png" alt="数据结构"></p>
+<!--more-->
+<ul>
+<li><p>左&lt;根&lt;右</p>
+</li>
+<li><p>中序遍历：升序排列</p>
+</li>
+<li><p>操作</p>
+<ul>
+<li>查找<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/2.png"><br><img src="/img/datastruct/7_search/BST/2.png" alt="数据结构"></li>
+<li>插入<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/3.png"><br><img src="/img/datastruct/7_search/BST/3.png" alt="数据结构"></li>
+<li>构造<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/4.png"><br><img src="/img/datastruct/7_search/BST/4.png" alt="数据结构"></li>
+<li>删除z<ul>
+<li><p>z是叶子</p>
+<p>  删</p>
+</li>
+<li><p>z只有一颗左子树&#x2F;右子树</p>
+<p>  删，子树代替</p>
+</li>
+<li><p>z有两棵子树</p>
+<p>  用前驱（左子树最右下）&#x2F;后继（右子树最左下）代替，删除前驱&#x2F;后继</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>查找效率分析</p>
+<ul>
+<li>最好：O(log<sub>2</sub>n)</li>
+<li>最坏：O(n)</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/07/datastruct/7_search/2_BST/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-datastruct/7_search/1_search" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -818,19 +816,19 @@
 
 
   
-    <article id="post-datastruct/7_search/2_BST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-datastruct/6_graph/2_generatetree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/07/datastruct/7_search/2_BST/">二叉排序树</a>
+      <a class="article-title" href="/2023/08/07/datastruct/6_graph/2_generatetree/">最小生成树</a>
     </h1>
   
 
         
-        <a href="/2023/08/07/datastruct/7_search/2_BST/" class="archive-article-date">
+        <a href="/2023/08/07/datastruct/6_graph/2_generatetree/" class="archive-article-date">
   	<time datetime="2023-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-07</time>
 </a>
         
@@ -839,37 +837,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <span id="more"></span>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="9-查找"><a href="#9-查找" class="headerlink" title="9 查找"></a>9 查找</h1><h2 id="9-5-二叉排序树"><a href="#9-5-二叉排序树" class="headerlink" title="9.5 二叉排序树"></a>9.5 二叉排序树</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/1.png"><br><img src="/img/datastruct/7_search/BST/1.png" alt="数据结构"></p>
-<!--more-->
-<ul>
-<li><p>左&lt;根&lt;右</p>
-</li>
-<li><p>中序遍历：升序排列</p>
-</li>
-<li><p>操作</p>
-<ul>
-<li>查找<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/2.png"><br><img src="/img/datastruct/7_search/BST/2.png" alt="数据结构"></li>
-<li>插入<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/3.png"><br><img src="/img/datastruct/7_search/BST/3.png" alt="数据结构"></li>
-<li>构造<br><img src="/../../../../themes/yilia/source/img/datastruct/7_search/BST/4.png"><br><img src="/img/datastruct/7_search/BST/4.png" alt="数据结构"></li>
-<li>删除z<ul>
-<li><p>z是叶子</p>
-<p>  删</p>
-</li>
-<li><p>z只有一颗左子树&#x2F;右子树</p>
-<p>  删，子树代替</p>
-</li>
-<li><p>z有两棵子树</p>
-<p>  用前驱（左子树最右下）&#x2F;后继（右子树最左下）代替，删除前驱&#x2F;后继</p>
-</li>
+<h1 id="8-图"><a href="#8-图" class="headerlink" title="8 图"></a>8 图</h1><h2 id="8-5-最小生成树（MST，最小代价生成树）"><a href="#8-5-最小生成树（MST，最小代价生成树）" class="headerlink" title="8.5 最小生成树（MST，最小代价生成树）"></a>8.5 最小生成树（MST，最小代价生成树）</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/1.png"><br><img src="/img/datastruct/6_graph/generatetree/1.png" alt="数据结构"></p>
+<h3 id="8-5-1-定义"><a href="#8-5-1-定义" class="headerlink" title="8.5.1 定义"></a>8.5.1 定义</h3><ul>
+<li>T是连通网的生成树，T中所有边的代价之和称为生成树的代价，代价最小的生成树称为最小生成树</li>
+<li>最小生成树不唯一</li>
+<li>生成树的边数&#x3D;顶点数-1</li>
+<li>只有连通网才有最小生成树</li>
+</ul>
+<h3 id="8-5-2-Prim算法"><a href="#8-5-2-Prim算法" class="headerlink" title="8.5.2 Prim算法"></a>8.5.2 Prim算法</h3><ul>
+<li>从某个顶点出发，选择代价最小的边，然后再选择与之相连的代价最小的边，直到所有顶点都被选中（看顶点）<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/2.png"><br><img src="/img/datastruct/6_graph/generatetree/2.png" alt="数据结构"><ul>
+<li>过程<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/4.png"><br><img src="/img/datastruct/6_graph/generatetree/4.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/5.png"><br><img src="/img/datastruct/6_graph/generatetree/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/6.png"><br><img src="/img/datastruct/6_graph/generatetree/6.png" alt="数据结构"></li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>查找效率分析</p>
-<ul>
-<li>最好：O(log<sub>2</sub>n)</li>
-<li>最坏：O(n)</li>
+<h3 id="8-5-3-Kruskal算法"><a href="#8-5-3-Kruskal算法" class="headerlink" title="8.5.3 Kruskal算法"></a>8.5.3 Kruskal算法</h3><ul>
+<li>从代价最小的边开始，依次选择代价更小的边，直到所有顶点都被选中（看边）<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/3.png"><br><img src="/img/datastruct/6_graph/generatetree/3.png" alt="数据结构"><ul>
+<li>过程<br>  <img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/10.png"><br><img src="/img/datastruct/6_graph/generatetree/10.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/7.png"><br><img src="/img/datastruct/6_graph/generatetree/7.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/8.png"><br><img src="/img/datastruct/6_graph/generatetree/8.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/9.png"><br><img src="/img/datastruct/6_graph/generatetree/9.png" alt="数据结构"></li>
 </ul>
 </li>
 </ul>
@@ -907,7 +890,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/07/datastruct/7_search/2_BST/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/08/07/datastruct/6_graph/2_generatetree/">展开全文 >></a>
         </p>
       
 
@@ -1162,19 +1145,19 @@
 
 
   
-    <article id="post-datastruct/6_graph/2_generatetree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-datastruct/6_graph/4_DAG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/07/datastruct/6_graph/2_generatetree/">最小生成树</a>
+      <a class="article-title" href="/2023/08/07/datastruct/6_graph/4_DAG/">有向无环图</a>
     </h1>
   
 
         
-        <a href="/2023/08/07/datastruct/6_graph/2_generatetree/" class="archive-article-date">
+        <a href="/2023/08/07/datastruct/6_graph/4_DAG/" class="archive-article-date">
   	<time datetime="2023-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-07</time>
 </a>
         
@@ -1183,22 +1166,39 @@
     <div class="article-entry" itemprop="articleBody">
       
         <span id="more"></span>
-<h1 id="8-图"><a href="#8-图" class="headerlink" title="8 图"></a>8 图</h1><h2 id="8-5-最小生成树（MST，最小代价生成树）"><a href="#8-5-最小生成树（MST，最小代价生成树）" class="headerlink" title="8.5 最小生成树（MST，最小代价生成树）"></a>8.5 最小生成树（MST，最小代价生成树）</h2><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/1.png"><br><img src="/img/datastruct/6_graph/generatetree/1.png" alt="数据结构"></p>
-<h3 id="8-5-1-定义"><a href="#8-5-1-定义" class="headerlink" title="8.5.1 定义"></a>8.5.1 定义</h3><ul>
-<li>T是连通网的生成树，T中所有边的代价之和称为生成树的代价，代价最小的生成树称为最小生成树</li>
-<li>最小生成树不唯一</li>
-<li>生成树的边数&#x3D;顶点数-1</li>
-<li>只有连通网才有最小生成树</li>
-</ul>
-<h3 id="8-5-2-Prim算法"><a href="#8-5-2-Prim算法" class="headerlink" title="8.5.2 Prim算法"></a>8.5.2 Prim算法</h3><ul>
-<li>从某个顶点出发，选择代价最小的边，然后再选择与之相连的代价最小的边，直到所有顶点都被选中（看顶点）<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/2.png"><br><img src="/img/datastruct/6_graph/generatetree/2.png" alt="数据结构"><ul>
-<li>过程<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/4.png"><br><img src="/img/datastruct/6_graph/generatetree/4.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/5.png"><br><img src="/img/datastruct/6_graph/generatetree/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/6.png"><br><img src="/img/datastruct/6_graph/generatetree/6.png" alt="数据结构"></li>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="8-图"><a href="#8-图" class="headerlink" title="8 图"></a>8 图</h1><h2 id="8-7-有向无环图（DAG）"><a href="#8-7-有向无环图（DAG）" class="headerlink" title="8.7 有向无环图（DAG）"></a>8.7 有向无环图（DAG）</h2><!--more-->
+<h3 id="8-7-1-DAG描述表达式"><a href="#8-7-1-DAG描述表达式" class="headerlink" title="8.7.1 DAG描述表达式"></a>8.7.1 DAG描述表达式</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/1.png"><br><img src="/img/datastruct/6_graph/DAG/1.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/2.png"><br><img src="/img/datastruct/6_graph/DAG/2.png" alt="数据结构"></p>
+<h3 id="8-7-2-拓扑排序"><a href="#8-7-2-拓扑排序" class="headerlink" title="8.7.2 拓扑排序"></a>8.7.2 拓扑排序</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/3.png"><br><img src="/img/datastruct/6_graph/DAG/3.png" alt="数据结构"></p>
+<ul>
+<li>AOV网（Activity On Vertex Network）：顶点表示活动，弧表示活动之间的优先关系</li>
+<li>实现：<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/4.png"><br><img src="/img/datastruct/6_graph/DAG/4.png" alt="数据结构"></li>
+<li>时间复杂度：<ul>
+<li>邻接表：O(|V|+|E|)</li>
+<li>邻接矩阵：O(|V|<sup>2</sup>)</li>
 </ul>
 </li>
+<li>逆拓扑排序<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/5.png"><br><img src="/img/datastruct/6_graph/DAG/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/6.png"><br><img src="/img/datastruct/6_graph/DAG/6.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/7.png"><br><img src="/img/datastruct/6_graph/DAG/7.png" alt="数据结构"></li>
 </ul>
-<h3 id="8-5-3-Kruskal算法"><a href="#8-5-3-Kruskal算法" class="headerlink" title="8.5.3 Kruskal算法"></a>8.5.3 Kruskal算法</h3><ul>
-<li>从代价最小的边开始，依次选择代价更小的边，直到所有顶点都被选中（看边）<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/3.png"><br><img src="/img/datastruct/6_graph/generatetree/3.png" alt="数据结构"><ul>
-<li>过程<br>  <img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/10.png"><br><img src="/img/datastruct/6_graph/generatetree/10.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/7.png"><br><img src="/img/datastruct/6_graph/generatetree/7.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/8.png"><br><img src="/img/datastruct/6_graph/generatetree/8.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/generatetree/9.png"><br><img src="/img/datastruct/6_graph/generatetree/9.png" alt="数据结构"></li>
+<h3 id="8-7-3-关键路径"><a href="#8-7-3-关键路径" class="headerlink" title="8.7.3 关键路径"></a>8.7.3 关键路径</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/8.png"><br><img src="/img/datastruct/6_graph/DAG/8.png" alt="数据结构"></p>
+<ul>
+<li>AOE网（Activity On Edge Network）：弧表示活动，顶点表示事件<ul>
+<li>只有某顶点代表的时间发生后，该顶点出发的弧上的活动才能开始</li>
+<li>只有在进入某顶点的所有弧上的活动都完成后，该顶点代表的事件才能发生</li>
+</ul>
+</li>
+<li>关键路径：从源点到汇点的最长路径</li>
+<li>关键活动：关键路径上的活动</li>
+<li>事件V<sub>k</sub>的最早发生时间ve(k)：决定了所有从V<sub>k</sub>出发的活动的最早开始时间</li>
+<li>活动a<sub>i</sub>的最早开始时间e(i)：决定了该活动弧的起点所表示的事件的最早发生时间</li>
+<li>事件V<sub>k</sub>的最迟发生时间vl(k)：在不推迟整个工程完成时间的前提下，该事件必须发生的最迟时间</li>
+<li>活动a<sub>i</sub>的最迟开始时间l(i)：该活动弧的终点所表示的事件的最迟发生时间与该活动所需的时间之差</li>
+<li>求关键路径<ul>
+<li>1）正大<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/9.png"><br><img src="/img/datastruct/6_graph/DAG/9.png" alt="数据结构"></li>
+<li>2）反小<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/10.png"><br><img src="/img/datastruct/6_graph/DAG/10.png" alt="数据结构"></li>
+<li>3）&#x3D;起点<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/11.png"><br><img src="/img/datastruct/6_graph/DAG/11.png" alt="数据结构"></li>
+<li>4）&#x3D;终点-<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/12.png"><br><img src="/img/datastruct/6_graph/DAG/12.png" alt="数据结构"></li>
+<li>5）相减<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/13.png"><br><img src="/img/datastruct/6_graph/DAG/13.png" alt="数据结构"></li>
 </ul>
 </li>
 </ul>
@@ -1236,7 +1236,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/07/datastruct/6_graph/2_generatetree/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/08/07/datastruct/6_graph/4_DAG/">展开全文 >></a>
         </p>
       
 
@@ -1382,130 +1382,9 @@
 
 
   
-    <article id="post-datastruct/6_graph/4_DAG" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/08/07/datastruct/6_graph/4_DAG/">有向无环图</a>
-    </h1>
-  
-
-        
-        <a href="/2023/08/07/datastruct/6_graph/4_DAG/" class="archive-article-date">
-  	<time datetime="2023-08-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="8-图"><a href="#8-图" class="headerlink" title="8 图"></a>8 图</h1><h2 id="8-7-有向无环图（DAG）"><a href="#8-7-有向无环图（DAG）" class="headerlink" title="8.7 有向无环图（DAG）"></a>8.7 有向无环图（DAG）</h2><!--more-->
-<h3 id="8-7-1-DAG描述表达式"><a href="#8-7-1-DAG描述表达式" class="headerlink" title="8.7.1 DAG描述表达式"></a>8.7.1 DAG描述表达式</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/1.png"><br><img src="/img/datastruct/6_graph/DAG/1.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/2.png"><br><img src="/img/datastruct/6_graph/DAG/2.png" alt="数据结构"></p>
-<h3 id="8-7-2-拓扑排序"><a href="#8-7-2-拓扑排序" class="headerlink" title="8.7.2 拓扑排序"></a>8.7.2 拓扑排序</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/3.png"><br><img src="/img/datastruct/6_graph/DAG/3.png" alt="数据结构"></p>
-<ul>
-<li>AOV网（Activity On Vertex Network）：顶点表示活动，弧表示活动之间的优先关系</li>
-<li>实现：<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/4.png"><br><img src="/img/datastruct/6_graph/DAG/4.png" alt="数据结构"></li>
-<li>时间复杂度：<ul>
-<li>邻接表：O(|V|+|E|)</li>
-<li>邻接矩阵：O(|V|<sup>2</sup>)</li>
-</ul>
-</li>
-<li>逆拓扑排序<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/5.png"><br><img src="/img/datastruct/6_graph/DAG/5.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/6.png"><br><img src="/img/datastruct/6_graph/DAG/6.png" alt="数据结构"><br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/7.png"><br><img src="/img/datastruct/6_graph/DAG/7.png" alt="数据结构"></li>
-</ul>
-<h3 id="8-7-3-关键路径"><a href="#8-7-3-关键路径" class="headerlink" title="8.7.3 关键路径"></a>8.7.3 关键路径</h3><p><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/8.png"><br><img src="/img/datastruct/6_graph/DAG/8.png" alt="数据结构"></p>
-<ul>
-<li>AOE网（Activity On Edge Network）：弧表示活动，顶点表示事件<ul>
-<li>只有某顶点代表的时间发生后，该顶点出发的弧上的活动才能开始</li>
-<li>只有在进入某顶点的所有弧上的活动都完成后，该顶点代表的事件才能发生</li>
-</ul>
-</li>
-<li>关键路径：从源点到汇点的最长路径</li>
-<li>关键活动：关键路径上的活动</li>
-<li>事件V<sub>k</sub>的最早发生时间ve(k)：决定了所有从V<sub>k</sub>出发的活动的最早开始时间</li>
-<li>活动a<sub>i</sub>的最早开始时间e(i)：决定了该活动弧的起点所表示的事件的最早发生时间</li>
-<li>事件V<sub>k</sub>的最迟发生时间vl(k)：在不推迟整个工程完成时间的前提下，该事件必须发生的最迟时间</li>
-<li>活动a<sub>i</sub>的最迟开始时间l(i)：该活动弧的终点所表示的事件的最迟发生时间与该活动所需的时间之差</li>
-<li>求关键路径<ul>
-<li>1）正大<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/9.png"><br><img src="/img/datastruct/6_graph/DAG/9.png" alt="数据结构"></li>
-<li>2）反小<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/10.png"><br><img src="/img/datastruct/6_graph/DAG/10.png" alt="数据结构"></li>
-<li>3）&#x3D;起点<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/11.png"><br><img src="/img/datastruct/6_graph/DAG/11.png" alt="数据结构"></li>
-<li>4）&#x3D;终点-<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/12.png"><br><img src="/img/datastruct/6_graph/DAG/12.png" alt="数据结构"></li>
-<li>5）相减<br><img src="/../../../../themes/yilia/source/img/datastruct/6_graph/DAG/13.png"><br><img src="/img/datastruct/6_graph/DAG/13.png" alt="数据结构"></li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/07/datastruct/6_graph/4_DAG/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1600,15 +1479,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1620,11 +1499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
               </li>
             
             <div class="clearfix"></div>
