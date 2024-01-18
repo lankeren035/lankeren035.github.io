@@ -326,19 +326,19 @@
 
 
   
-    <article id="post-linux/Linux_2.用户和权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-wechartapp/weixin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">Linux入门-2用户和权限</a>
+      <a class="article-title" href="/2021/03/01/wechartapp/weixin/">微信小程序基础</a>
     </h1>
   
 
         
-        <a href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" class="archive-article-date">
+        <a href="/2021/03/01/wechartapp/weixin/" class="archive-article-date">
   	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
 </a>
         
@@ -347,34 +347,42 @@
     <div class="article-entry" itemprop="articleBody">
       
         <span id="more"></span>
-<h3 id="1-su命令"><a href="#1-su命令" class="headerlink" title="1. su命令"></a>1. su命令</h3><p>su [-] [用户名]</p>
-<h3 id="2-sudo命令（以管理员身份运行）"><a href="#2-sudo命令（以管理员身份运行）" class="headerlink" title="2. sudo命令（以管理员身份运行）"></a>2. sudo命令（以管理员身份运行）</h3><p>sudo Linux命令</p>
-<ul>
-<li>先进入root用户</li>
-<li>再visudo，G到最后一行，o到末尾，再末尾输入：用户名 ALL&#x3D;(ALL)      NOPASSWD: ALL</li>
-<li>再esc，:wq退出</li>
+<h2 id="1-总体结构"><a href="#1-总体结构" class="headerlink" title="1.总体结构"></a>1.总体结构</h2><h3 id="（1）概述"><a href="#（1）概述" class="headerlink" title="（1）概述"></a>（1）概述</h3><h4 id="1-项目结构"><a href="#1-项目结构" class="headerlink" title="1)项目结构"></a>1)项目结构</h4><ul>
+<li>page：存放所有页面</li>
+<li>utils: 存放工具模块（如格式化时间的自定义模块）</li>
+<li>app.js: 项目入口</li>
+<li>app.json: 项目全局配置</li>
+<li>app.wxss: 项目全局样式</li>
+<li>project.config.json: 项目配置文件</li>
+<li>sitemap.json: 配置小程序及其页面是否允许被微信索引</li>
 </ul>
-<h3 id="3-用户组"><a href="#3-用户组" class="headerlink" title="3. 用户组"></a>3. 用户组</h3><ul>
-<li>创建：groupadd 组名</li>
-<li>删除：groupdel 组名</li>
+<h4 id="2）页面组成"><a href="#2）页面组成" class="headerlink" title="2）页面组成"></a>2）页面组成</h4><ul>
+<li>.js文件：页面脚本，存放页面数据、事件处理函数等</li>
+<li>.json文件：配置文件，配置窗口外观、表现等</li>
+<li>.wxml文件：模板结构文件</li>
+<li>.wxss文件: 样式表文件</li>
 </ul>
-<h3 id="4-用户"><a href="#4-用户" class="headerlink" title="4. 用户"></a>4. 用户</h3><h4 id="4-1创建用户"><a href="#4-1创建用户" class="headerlink" title="4-1创建用户"></a>4-1创建用户</h4><p>useradd [-g -d] 用户名<br>（useradd 用户名 -g 组名 -d 目录）</p>
-<ul>
-<li>g 指定用户的组，不写则组与用户名同</li>
-<li>d指定用户home目录位置</li>
-</ul>
-<h4 id="4-2-删除用户"><a href="#4-2-删除用户" class="headerlink" title="4-2 删除用户"></a>4-2 删除用户</h4><p>userdel [-r] 用户名</p>
-<ul>
-<li>r 删除home目录</li>
-</ul>
-<h4 id="4-3-查看用户所属组"><a href="#4-3-查看用户所属组" class="headerlink" title="4-3 查看用户所属组"></a>4-3 查看用户所属组</h4><p>id [用户名]</p>
-<h4 id="4-4-修改用户所属组"><a href="#4-4-修改用户所属组" class="headerlink" title="4-4 修改用户所属组"></a>4-4 修改用户所属组</h4><p>usermod -aG 组名 用户名</p>
-<h4 id="4-5-查看系统用户-组"><a href="#4-5-查看系统用户-组" class="headerlink" title="4-5 查看系统用户(组)"></a>4-5 查看系统用户(组)</h4><p>getent passwd或group</p>
-<ul>
-<li>用户显示的信息：用户名:密码:用户组:描述信息:HOME目录:执行终端（默认bash)</li>
-<li>组显示信息：组名:组认证:组ID</li>
-</ul>
-<h3 id="5-权限"><a href="#5-权限" class="headerlink" title="5 权限"></a>5 权限</h3><p><img src="/./lmg/linux/8.png"></p>
+<h3 id="（2）详述"><a href="#（2）详述" class="headerlink" title="（2）详述"></a>（2）详述</h3><h4 id="1）json文件"><a href="#1）json文件" class="headerlink" title="1）json文件"></a>1）json文件</h4><p> json是一种数据格式，在开发中json总是以配置文件的形式出现。</p>
+<table>
+<thead>
+<tr>
+<th>app.json</th>
+<th>afadsf</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>project.config.json</td>
+<td></td>
+</tr>
+<tr>
+<td>sitemap.json</td>
+<td></td>
+</tr>
+<tr>
+<td>每个页面的json</td>
+<td></td>
+</tr>
+</tbody></table>
 
       
 
@@ -388,7 +396,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -400,7 +408,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -409,7 +417,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/03/01/wechartapp/weixin/">展开全文 >></a>
         </p>
       
 
@@ -625,10 +633,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -637,7 +641,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -645,19 +649,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -669,7 +669,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,22 +701,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
@@ -721,11 +717,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
