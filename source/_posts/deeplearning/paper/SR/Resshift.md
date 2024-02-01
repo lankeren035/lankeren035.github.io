@@ -10,7 +10,7 @@ toc: true
 
 ---
 
-######
+#
 <!--more-->
 
 - 论文标题：[Resshift: Efficient diffusion model for image super-resolution by residual shifting](https://arxiv.org/abs/2307.12348)

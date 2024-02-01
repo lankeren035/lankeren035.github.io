@@ -134,17 +134,3 @@ deploy:
   type: git
   repo: git@github.com:lankeren035/lankeren035.github.io.git
   branch: main
-
-
-# 支持latex
-## Docs: https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
-markdown_it_plus:
-    highlight: true
-    html: true
-    xhtmlOut: true
-    breaks: true
-    langPrefix:
-    linkify: true
-    typographer:
-    quotes: “”‘’
-    pre_class: highlight
