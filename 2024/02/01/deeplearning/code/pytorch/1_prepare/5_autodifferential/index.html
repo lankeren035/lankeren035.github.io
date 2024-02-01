@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>5. 自动微分 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/9/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="5. 自动微分">
+<meta property="og:url" content="http://example.com/2024/02/01/deeplearning/code/pytorch/1_prepare/5_autodifferential/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-01T06:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-01T14:15:26.771Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -156,117 +161,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-linux/Linux_2.用户和权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-deeplearning/code/pytorch/1_prepare/5_autodifferential" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">Linux入门-2用户和权限</a>
+    <h1 class="article-title" itemprop="name">
+      5. 自动微分
     </h1>
   
 
         
-        <a href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+        <a href="/2024/02/01/deeplearning/code/pytorch/1_prepare/5_autodifferential/" class="archive-article-date">
+  	<time datetime="2024-02-01T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+<h1 id="5-自动微分"><a href="#5-自动微分" class="headerlink" title="5. 自动微分"></a>5. 自动微分</h1><ul>
+<li>深度学习框架通过自动计算导数，即自动微分（automatic differentiation）来加快求导。根据设计好的模型，系统会构建一个计算图（computational graph），来跟踪计算是哪些数据通过哪些操作组合起来产生输出。自动微分使系统能够随后反向传播梯度。这里，反向传播（backpropagate）意味着跟踪整个计算图，填充关于每个参数的偏导数。</li>
+</ul>
+<h2 id="5-1"><a href="#5-1" class="headerlink" title="5.1"></a>5.1</h2><ul>
+<li>对函数$y&#x3D;2\mathbf{x}^{\top}\mathbf{x}$关于列向量$\mathbf{x}$求导</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="comment">#1 创建变量x</span></span><br><span class="line">x=torch.arange(<span class="number">4.0</span>)</span><br><span class="line">y=<span class="number">2</span>*torch.dot(x,x)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2 存储梯度 （一个标量函数关于向量x的梯度是向量，并且与x具有相同的形状。）</span></span><br><span class="line">x.requires_grad_(<span class="literal">True</span>) <span class="comment">#等价于x=torch.arange(4.0,requires_grad=True)</span></span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3 计算y</span></span><br><span class="line">y=<span class="number">2</span>*torch.dot(x,x) <span class="comment">#点积</span></span><br><span class="line"><span class="built_in">print</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="comment">#4 反向传播计算梯度</span></span><br><span class="line"><span class="built_in">print</span>(x.grad) <span class="comment">#默认为None</span></span><br><span class="line">y.backward() <span class="comment">#反向传播</span></span><br><span class="line"><span class="built_in">print</span>(x.grad) <span class="comment">#梯度为4x</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#5 阻止跟踪</span></span><br><span class="line">y=x.<span class="built_in">sum</span>() <span class="comment">#y=6</span></span><br><span class="line">y.backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad) <span class="comment">#x的梯度会累加</span></span><br><span class="line">x.grad.zero_() <span class="comment">#清除梯度后就不会累加了</span></span><br><span class="line">y.backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([0., 1., 2., 3.])
+tensor([0., 1., 2., 3.], requires_grad=True)
+tensor(28., grad_fn=&lt;MulBackward0&gt;)
+None
+tensor([ 0.,  4.,  8., 12.])
+tensor([ 1.,  5.,  9., 13.])
+tensor([1., 1., 1., 1.])
+</code></pre>
+<h2 id="5-2-非标量变量的反向传播"><a href="#5-2-非标量变量的反向传播" class="headerlink" title="5.2 非标量变量的反向传播"></a>5.2 非标量变量的反向传播</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对非标量调用backward需要传入一个gradient参数，该参数指定微分函数关于self的梯度。</span></span><br><span class="line"><span class="comment"># 本例只想求偏导数的和，所以传递一个1的梯度是合适的</span></span><br><span class="line">x.grad.zero_()</span><br><span class="line">y=x*x <span class="comment">#这里y是向量</span></span><br><span class="line">y.<span class="built_in">sum</span>().backward() <span class="comment">#这里y.sum()是标量,所以可以调用backward，相当于y.backward(torch.ones(len(x)))</span></span><br><span class="line"><span class="built_in">print</span>(x.grad)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([0., 2., 4., 6.])
+</code></pre>
+<h2 id="5-3-分离计算"><a href="#5-3-分离计算" class="headerlink" title="5.3 分离计算"></a>5.3 分离计算</h2><ul>
+<li>将某些计算移动到记录的计算图之外。（作为常数处理）<ul>
+<li>假设$y&#x3D;f(x), z&#x3D;g(x,y)$。我们想计算z关于x的梯度，但由于某种原因，希望将y视为一个常数，并且只考虑到x在y被计算后发挥的作用。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x.grad.zero_()</span><br><span class="line">y=x*x</span><br><span class="line">u=y.detach() <span class="comment">#分u相当于一个常数，不需要求梯度</span></span><br><span class="line">z=u*x</span><br><span class="line">z.<span class="built_in">sum</span>().backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad) <span class="comment">#u</span></span><br><span class="line"></span><br><span class="line">x.grad.zero_()</span><br><span class="line">z=y*x</span><br><span class="line">z.<span class="built_in">sum</span>().backward()</span><br><span class="line"><span class="built_in">print</span>(x.grad) <span class="comment">#3x^2</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([0., 1., 4., 9.])
+tensor([ 0.,  3., 12., 27.])
+</code></pre>
+<h2 id="5-4-python控制流的梯度计算"><a href="#5-4-python控制流的梯度计算" class="headerlink" title="5.4 python控制流的梯度计算"></a>5.4 python控制流的梯度计算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">a</span>):</span><br><span class="line">    b=a*<span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> b.norm()&lt;<span class="number">1000</span>: <span class="comment">#经过while后b=ka</span></span><br><span class="line">        b=b*<span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> b.<span class="built_in">sum</span>()&gt;<span class="number">0</span>:</span><br><span class="line">        c=b <span class="comment">#c=kb=ka</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        c=<span class="number">100</span>*b <span class="comment">#c=100kb=100ka</span></span><br><span class="line">    <span class="keyword">return</span> c <span class="comment">#ka</span></span><br><span class="line">a=torch.randn(size=(),requires_grad=<span class="literal">True</span>)</span><br><span class="line">D=f(a) <span class="comment">#</span></span><br><span class="line">D.backward()</span><br><span class="line">a.grad==D/a <span class="comment">#梯度就是k=D/a</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor(True)
+</code></pre>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux/Linux_1.基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux入门-1基础命令</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -277,266 +254,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wechartapp/weixin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/wechartapp/weixin/">微信小程序基础</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/wechartapp/weixin/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/wechartapp/weixin/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-experience/vscode/vscode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/experience/vscode/vscode/">vscode</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/experience/vscode/vscode/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vscode中python相对路径无法使用"><a href="#vscode中python相对路径无法使用" class="headerlink" title="vscode中python相对路径无法使用"></a>vscode中python相对路径无法使用</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vscode//" class="article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/experience/vscode/vscode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo/hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/24/hexo/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2014/12/24/hexo/hello-world/" class="archive-article-date">
-  	<time datetime="2014-12-24T15:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
         		</li>
       		
 		</ul>
@@ -548,7 +274,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -556,16 +282,84 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/24/hexo/hello-world/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/01/deeplearning/code/pytorch/1_prepare/5_autodifferential/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2024/02/01/deeplearning/code/pytorch/1_prepare/4_calculus/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          4. 微积分
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/01/30/hexo/latex/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo博客允许显示latex公式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -580,17 +374,32 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">5. 自动微分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1"><span class="toc-number">2.1.</span> <span class="toc-text">5.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E9%9D%9E%E6%A0%87%E9%87%8F%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-number">2.2.</span> <span class="toc-text">5.2 非标量变量的反向传播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%88%86%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.</span> <span class="toc-text">5.3 分离计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-python%E6%8E%A7%E5%88%B6%E6%B5%81%E7%9A%84%E6%A2%AF%E5%BA%A6%E8%AE%A1%E7%AE%97"><span class="toc-number">2.4.</span> <span class="toc-text">5.4 python控制流的梯度计算</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
-    </nav>
+
   
 
 
@@ -613,8 +422,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

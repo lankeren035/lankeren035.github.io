@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>4. 微积分 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/9/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="4. 微积分">
+<meta property="og:url" content="http://example.com/2024/02/01/deeplearning/code/pytorch/1_prepare/4_calculus/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/4_calculus_files/4_calculus_1_1.svg">
+<meta property="og:image" content="http://example.com/4_calculus_files/4_calculus_3_1.svg">
+<meta property="article:published_time" content="2024-02-01T06:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-01T13:02:11.271Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/4_calculus_files/4_calculus_1_1.svg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,117 +164,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-linux/Linux_2.用户和权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-deeplearning/code/pytorch/1_prepare/4_calculus" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">Linux入门-2用户和权限</a>
+    <h1 class="article-title" itemprop="name">
+      4. 微积分
     </h1>
   
 
         
-        <a href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+        <a href="/2024/02/01/deeplearning/code/pytorch/1_prepare/4_calculus/" class="archive-article-date">
+  	<time datetime="2024-02-01T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+<h1 id="4-微积分"><a href="#4-微积分" class="headerlink" title="4. 微积分"></a>4. 微积分</h1><ul>
+<li>拟合模型的任务分解为两个关键问题：<ul>
+<li>优化（optimization）：用模型拟合观测数据的过程；</li>
+<li>泛化（generalization）：数学原理和实践者的智慧，能够指导我们生成出有效性超出用于训练的数据集本身的模型。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-1-导数和微分"><a href="#4-1-导数和微分" class="headerlink" title="4.1 导数和微分"></a>4.1 导数和微分</h2><ul>
+<li>通常选择对于模型参数可微的损失函数。简而言之，对于每个参数，如果我们把这个参数增加或减少一个无穷小的量，可以知道损失会以多快的速度增加或减少。</li>
+<li>导数：$f’(x)&#x3D;\lim\limits_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}&#x3D;y^\prime&#x3D;\frac{dy}{dx}&#x3D;\frac{df}{dx}&#x3D;\frac{d}{dx}f(x)&#x3D;Df(x)&#x3D;D_x f(x)$<ul>
+<li>1)常数相乘法则：$(Cf)^\prime&#x3D;C(f^\prime)$</li>
+<li>2)加法法则：$(f+g)^\prime&#x3D;f^\prime+g^\prime$   </li>
+<li>3)乘法法则：$(fg)^\prime&#x3D;f^\prime g+fg^\prime$</li>
+<li>4)除法法则：$(\frac{f}{g})^\prime&#x3D;\frac{f^\prime g-fg^\prime}{g^2}$</li>
+</ul>
+</li>
+<li>微分：若$f^\prime(a)$存在，则称$f$在$a$处可微</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将图形嵌入到Notebook中 %matplotlib inline</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>]=<span class="string">&quot;TRUE&quot;</span></span><br><span class="line"><span class="keyword">from</span> IPython.display <span class="keyword">import</span> set_matplotlib_formats</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment">#from matplotlib_inline import backend_inline</span></span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#1 定义一个函数f</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span> * x ** <span class="number">2</span> - <span class="number">4</span> * x</span><br><span class="line"></span><br><span class="line"><span class="comment">#2 定义f&#x27;</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">numerical_lim</span>(<span class="params">f, x, h</span>):</span><br><span class="line">    <span class="keyword">return</span> (f(x + h) - f(x)) / h</span><br><span class="line">    </span><br><span class="line"><span class="comment">#一些函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">use_svg_display</span>(): <span class="comment">#@save</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;使用svg格式在Jupyter中显示绘图&quot;&quot;&quot;</span></span><br><span class="line">    set_matplotlib_formats(<span class="string">&#x27;svg&#x27;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_figsize</span>(<span class="params">figsize=(<span class="params"><span class="number">3.5</span>, <span class="number">2.5</span></span>)</span>): <span class="comment">#@save</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;设置matplotlib的图表大小&quot;&quot;&quot;</span></span><br><span class="line">    use_svg_display()</span><br><span class="line">    d2l.plt.rcParams[<span class="string">&#x27;figure.figsize&#x27;</span>] = figsize</span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">set_axes</span>(<span class="params">axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;设置matplotlib的轴&quot;&quot;&quot;</span></span><br><span class="line">    axes.set_xlabel(xlabel)</span><br><span class="line">    axes.set_ylabel(ylabel)</span><br><span class="line">    axes.set_xscale(xscale)</span><br><span class="line">    axes.set_yscale(yscale)</span><br><span class="line">    axes.set_xlim(xlim)</span><br><span class="line">    axes.set_ylim(ylim)</span><br><span class="line">    <span class="keyword">if</span> legend:</span><br><span class="line">        axes.legend(legend)</span><br><span class="line">    axes.grid()</span><br><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">plot</span>(<span class="params">X, Y=<span class="literal">None</span>, xlabel=<span class="literal">None</span>, ylabel=<span class="literal">None</span>, legend=<span class="literal">None</span>, xlim=<span class="literal">None</span>,ylim=<span class="literal">None</span>, xscale=<span class="string">&#x27;linear&#x27;</span>, yscale=<span class="string">&#x27;linear&#x27;</span>,fmts=(<span class="params"><span class="string">&#x27;-&#x27;</span>, <span class="string">&#x27;m--&#x27;</span>, <span class="string">&#x27;g-.&#x27;</span>, <span class="string">&#x27;r:&#x27;</span></span>), figsize=(<span class="params"><span class="number">3.5</span>, <span class="number">2.5</span></span>), axes=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;绘制数据点&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> legend <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        legend = []</span><br><span class="line">    set_figsize(figsize)</span><br><span class="line">    axes = axes <span class="keyword">if</span> axes <span class="keyword">else</span> d2l.plt.gca()</span><br><span class="line">    <span class="comment"># 如果X有一个轴，输出True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">has_one_axis</span>(<span class="params">X</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">hasattr</span>(X, <span class="string">&quot;ndim&quot;</span>) <span class="keyword">and</span> X.ndim == <span class="number">1</span> <span class="keyword">or</span> <span class="built_in">isinstance</span>(X, <span class="built_in">list</span>) <span class="keyword">and</span> <span class="keyword">not</span> <span class="built_in">hasattr</span>(X[<span class="number">0</span>], <span class="string">&quot;__len__&quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> has_one_axis(X):</span><br><span class="line">        X = [X]</span><br><span class="line">    <span class="keyword">if</span> Y <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        X, Y = [[]] * <span class="built_in">len</span>(X), X</span><br><span class="line">    <span class="keyword">elif</span> has_one_axis(Y):</span><br><span class="line">        Y = [Y]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(X) != <span class="built_in">len</span>(Y):</span><br><span class="line">        X = X * <span class="built_in">len</span>(Y)</span><br><span class="line">    axes.cla()</span><br><span class="line">    <span class="keyword">for</span> x, y, fmt <span class="keyword">in</span> <span class="built_in">zip</span>(X, Y, fmts):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(x):</span><br><span class="line">            axes.plot(x, y, fmt)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            axes.plot(y, fmt)</span><br><span class="line">    set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3 绘制切线</span></span><br><span class="line">x = np.arange(<span class="number">0</span>, <span class="number">3</span>, <span class="number">0.1</span>)</span><br><span class="line">plot(x, [f(x), <span class="number">2</span> * x - <span class="number">3</span>], <span class="string">&#x27;x&#x27;</span>, <span class="string">&#x27;f(x)&#x27;</span>, legend=[<span class="string">&#x27;f(x)&#x27;</span>, <span class="string">&#x27;Tangent line (x=1)&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>C:\Users\123\AppData\Local\Temp\ipykernel_13552\2373785819.py:22: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+  set_matplotlib_formats(&#39;svg&#39;)
+</code></pre>
+<p><img src="/4_calculus_files/4_calculus_1_1.svg" alt="svg"></p>
+<h2 id="4-2-偏导数"><a href="#4-2-偏导数" class="headerlink" title="4.2 偏导数"></a>4.2 偏导数</h2><ul>
+<li>偏导数：$f(x_1,x_2,…,x_n)$关于$x_i$的偏导数：$\frac{\partial f}{\partial x_i}&#x3D;\lim\limits_{h\rightarrow 0}\frac{f(x_1,…,x_i+h,…,x_n)-f(x_1,…,x_i,…,x_n)}{h}$</li>
+</ul>
+<h2 id="4-3-梯度"><a href="#4-3-梯度" class="headerlink" title="4.3 梯度"></a>4.3 梯度</h2><ul>
+<li>梯度：$\nabla_x f(x)&#x3D;[\frac{\partial f(x)}{\partial x_1},\frac{\partial f(x)}{\partial x_2},…,\frac{\partial f(x)}{\partial x_n}]^T$</li>
+<li>一些性质：<ul>
+<li>$\forall A\in R^{m\times n},\nabla_x(Ax)&#x3D;A^T$</li>
+<li>$\forall A\in R^{m\times n},\nabla_x(x^TA)&#x3D;A$</li>
+<li>$\forall A\in R^{m\times n},\nabla_x(x^TAx)&#x3D;(A+A^T)x$</li>
+<li>$\nabla_x||x||_F^2&#x3D;\nabla_x(x^Tx)&#x3D;2x$</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-4-链式法则"><a href="#4-4-链式法则" class="headerlink" title="4.4 链式法则"></a>4.4 链式法则</h2><ul>
+<li>$y&#x3D;f(u_1,u_2,…,u_m),u_i&#x3D;g_i(x_1,x_2,…,x_n),则\frac{\partial y}{\partial x_i}&#x3D;\sum\limits_{j&#x3D;1}^m\frac{\partial y}{\partial u_j}\frac{\partial u_j}{\partial x_i}$</li>
+</ul>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ul>
+<li>绘制函数$y&#x3D;X^3-\frac{1}{X}$在x&#x3D;1处的图像</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">3</span> - <span class="number">1</span>/x</span><br><span class="line">x=np.arange(<span class="number">0</span>,<span class="number">3</span>,<span class="number">0.1</span>)</span><br><span class="line">plt.plot(x,f(x))</span><br><span class="line">plt.plot(x,<span class="number">3</span>*x**<span class="number">2</span>+<span class="number">1</span>/x**<span class="number">2</span>-<span class="number">4</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<pre><code>C:\Users\123\AppData\Local\Temp\ipykernel_13552\2157169762.py:5: RuntimeWarning: divide by zero encountered in divide
+  return x**3 - 1/x
+C:\Users\123\AppData\Local\Temp\ipykernel_13552\2157169762.py:8: RuntimeWarning: divide by zero encountered in divide
+  plt.plot(x,3*x**2+1/x**2-4)
+</code></pre>
+<p><img src="/4_calculus_files/4_calculus_3_1.svg" alt="svg"></p>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linux/Linux_1.基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">Linux入门-1基础命令</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -277,266 +270,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wechartapp/weixin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/wechartapp/weixin/">微信小程序基础</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/wechartapp/weixin/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/wechartapp/weixin/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-experience/vscode/vscode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/01/experience/vscode/vscode/">vscode</a>
-    </h1>
-  
-
-        
-        <a href="/2021/03/01/experience/vscode/vscode/" class="archive-article-date">
-  	<time datetime="2021-03-01T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vscode中python相对路径无法使用"><a href="#vscode中python相对路径无法使用" class="headerlink" title="vscode中python相对路径无法使用"></a>vscode中python相对路径无法使用</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vscode//" class="article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/01/experience/vscode/vscode/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hexo/hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/24/hexo/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2014/12/24/hexo/hello-world/" class="archive-article-date">
-  	<time datetime="2014-12-24T15:57:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
         		</li>
       		
 		</ul>
@@ -548,7 +290,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/博客//" class="article-tag-list-link color3">博客</a>
+        			<a href="/categories/深度学习//" class="article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
@@ -556,16 +298,84 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/24/hexo/hello-world/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/01/deeplearning/code/pytorch/1_prepare/4_calculus/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2024/02/01/deeplearning/code/pytorch/1_prepare/3_linearalgebra/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3. 线性代数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/01/deeplearning/code/pytorch/1_prepare/5_autodifferential/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">5. 自动微分</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -580,17 +390,32 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">4. 微积分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%AF%BC%E6%95%B0%E5%92%8C%E5%BE%AE%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">4.1 导数和微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%81%8F%E5%AF%BC%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">4.2 偏导数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E6%A2%AF%E5%BA%A6"><span class="toc-number">2.3.</span> <span class="toc-text">4.3 梯度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E9%93%BE%E5%BC%8F%E6%B3%95%E5%88%99"><span class="toc-number">2.4.</span> <span class="toc-text">4.4 链式法则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">2.5.</span> <span class="toc-text">练习</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
-    </nav>
+
   
 
 
@@ -613,8 +438,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
