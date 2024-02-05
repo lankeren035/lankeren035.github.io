@@ -14,8 +14,9 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/4img/1.png">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png">
 <meta property="article:published_time" content="2024-02-03T06:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-04T03:40:50.738Z">
+<meta property="article:modified_time" content="2024-02-05T14:30:01.422Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -187,7 +188,7 @@
 <li>独热编码（one-hot encoding）：$y\in{(1,0,0),(0,1,0),(0,0,1)}</li>
 </ul>
 <h2 id="4-2-网络架构"><a href="#4-2-网络架构" class="headerlink" title="4.2 网络架构"></a>4.2 网络架构</h2><ul>
-<li>为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1&#x3D;x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1&#x3D;x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1&#x3D;x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$<br><img src="/4img/1.png" alt="$\mathfb{o}=\mathfb{W}\mathfb{x}+\mathfb{b}$"></li>
+<li>为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1&#x3D;x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1&#x3D;x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1&#x3D;x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$<br><img src="/4img/1.png" alt="$\mathfb{o}=\mathfb{W}\mathfb{x}+\mathfb{b}$"><br><img src="/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png" alt="$\mathfb{o}=\mathfb{W}\mathfb{x}+\mathfb{b}$"></li>
 </ul>
 <h2 id="4-3-softmax全连接层的参数开销"><a href="#4-3-softmax全连接层的参数开销" class="headerlink" title="4.3 softmax全连接层的参数开销"></a>4.3 softmax全连接层的参数开销</h2><ul>
 <li>$d$个输入和$q$个输出的全连接层，参数开销为$O(dq)$</li>

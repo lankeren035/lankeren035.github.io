@@ -14,11 +14,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/1img/1.png">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/1img/1.png">
 <meta property="og:image" content="http://example.com/1_mlp_files/1_mlp_1_0.svg">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_1_0.svg">
 <meta property="og:image" content="http://example.com/1_mlp_files/1_mlp_3_0.svg">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_3_0.svg">
 <meta property="og:image" content="http://example.com/1_mlp_files/1_mlp_5_0.svg">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_5_0.svg">
 <meta property="article:published_time" content="2024-02-04T06:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-05T09:55:00.120Z">
+<meta property="article:modified_time" content="2024-02-05T14:33:58.660Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -187,7 +191,7 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 <h1 id="1-多层感知机"><a href="#1-多层感知机" class="headerlink" title="1 多层感知机"></a>1 多层感知机</h1><h2 id="1-1-隐藏层"><a href="#1-1-隐藏层" class="headerlink" title="1.1 隐藏层"></a>1.1 隐藏层</h2><ul>
-<li>仿射变换中的线性是一个很强的假设。可以通过在网络中加入一个或多个隐藏层来克服线性模型的限制，使其能处理更普遍的函数关系类型。我们可以把前L−1层看作表示，把最后一层看作线性预测器。这种架构通常称为多层感知机（multilayer perceptron），通常缩写为MLP<br><img src="/1img/1.png" alt="mlp"></li>
+<li>仿射变换中的线性是一个很强的假设。可以通过在网络中加入一个或多个隐藏层来克服线性模型的限制，使其能处理更普遍的函数关系类型。我们可以把前L−1层看作表示，把最后一层看作线性预测器。这种架构通常称为多层感知机（multilayer perceptron），通常缩写为MLP<br><img src="/1img/1.png" alt="mlp"><br><img src="/img/deeplearning/code/pytorch/3_mlp/1img/1.png" alt="mlp"></li>
 </ul>
 <h3 id="1-1-1-从线性到非线性"><a href="#1-1-1-从线性到非线性" class="headerlink" title="1.1.1 从线性到非线性"></a>1.1.1 从线性到非线性</h3><ul>
 <li>$X \in R^{n \times d}$，$W^{(1)} \in R^{d \times h}$，$H \in R^{n \times h}$，$W^{(2)} \in R^{h \times q}$，$O \in R^{n \times q}$</li>
@@ -204,7 +208,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&#x27;KMP_DUPLICATE_LIB_OK&#x27;</span>]=<span class="string">&#x27;True&#x27;</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#relu函数</span></span><br><span class="line">x=torch.arange(-<span class="number">8.0</span>,<span class="number">8.0</span>,<span class="number">0.1</span>,requires_grad=<span class="literal">True</span>)</span><br><span class="line">y=torch.relu(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#relu函数的导数</span></span><br><span class="line">y.backward(torch.ones_like(x),retain_graph=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#画图</span></span><br><span class="line">d2l.plot(x.detach(),[y.detach(),x.grad],<span class="string">&#x27;x&#x27;</span>,<span class="string">&#x27;y&#x27;</span>,figsize=(<span class="number">5</span>,<span class="number">2.5</span>),legend=[<span class="string">&#x27;relu&#x27;</span>,<span class="string">&#x27;grad&#x27;</span>])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/1_mlp_files/1_mlp_1_0.svg" alt="svg"></p>
+<p><img src="/1_mlp_files/1_mlp_1_0.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_1_0.svg"></p>
 <h3 id="1-2-2-Sigmoid函数"><a href="#1-2-2-Sigmoid函数" class="headerlink" title="1.2.2 Sigmoid函数"></a>1.2.2 Sigmoid函数</h3><ul>
 <li>sigmoid通常称为挤压函数（squashing function）：它将范围（‐inf, inf）中的任意输入压缩到区间（0, 1）中的某个值：$$sigmoid(x) &#x3D; \frac{1}{1+e^{-x}}$$</li>
 <li>导数：$$sigmoid’(x) &#x3D; sigmoid(x)(1-sigmoid(x))$$</li>
@@ -212,7 +216,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sigmoid函数</span></span><br><span class="line">y = torch.sigmoid(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#sigmoid函数的导数</span></span><br><span class="line">x.grad.data.zero_()</span><br><span class="line">y.backward(torch.ones_like(x),retain_graph=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#画图</span></span><br><span class="line">d2l.plot(x.detach(),[y.detach(),x.grad],<span class="string">&#x27;x&#x27;</span>,<span class="string">&#x27;y&#x27;</span>,figsize=(<span class="number">5</span>,<span class="number">2.5</span>),legend=[<span class="string">&#x27;sigmoid&#x27;</span>,<span class="string">&#x27;grad&#x27;</span>])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/1_mlp_files/1_mlp_3_0.svg" alt="svg"></p>
+<p><img src="/1_mlp_files/1_mlp_3_0.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_3_0.svg"></p>
 <h3 id="1-2-3-tanh函数"><a href="#1-2-3-tanh函数" class="headerlink" title="1.2.3 tanh函数"></a>1.2.3 tanh函数</h3><ul>
 <li>函数的形状类似于sigmoid函数，不同的是tanh函数关于坐标系原点中心对称。<br>$$tanh(x) &#x3D; \frac{1-e^{-2x}}{1+e^{-2x}}$$</li>
 <li>导数：$$tanh’(x) &#x3D; 1-tanh^2(x)$$</li>
@@ -220,7 +224,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#tanh函数</span></span><br><span class="line">y=torch.tanh(x)</span><br><span class="line"></span><br><span class="line"><span class="comment">#tanh函数的导数</span></span><br><span class="line">x.grad.data.zero_()</span><br><span class="line">y.backward(torch.ones_like(x),retain_graph=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#画图</span></span><br><span class="line">d2l.plot(x.detach(),[y.detach(),x.grad],<span class="string">&#x27;x&#x27;</span>,<span class="string">&#x27;y&#x27;</span>,figsize=(<span class="number">5</span>,<span class="number">2.5</span>),legend=[<span class="string">&#x27;tanh&#x27;</span>,<span class="string">&#x27;grad&#x27;</span>])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/1_mlp_files/1_mlp_5_0.svg" alt="svg"></p>
+<p><img src="/1_mlp_files/1_mlp_5_0.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_5_0.svg"></p>
 
       
 
