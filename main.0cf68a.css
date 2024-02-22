@@ -469,7 +469,7 @@ svg:not(:root) {
 pre {
     overflow: auto;
     white-space: pre;
-    white-space: pre-wrap;
+    /*white-space: pre-wrap;*/
     word-wrap: break-word
 }
 
@@ -1070,9 +1070,9 @@ html {
     display: block
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb { /*滚动条的滑块*/
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, .2)
+    background-color: rgb(189, 189, 189)
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1120,7 +1120,7 @@ html {
 
 .article-entry .highlight,
 .article-entry pre {
-    background: #272822;
+    background: #000000;
     margin: 10px 0;
     padding: 10px;
     overflow: auto;
