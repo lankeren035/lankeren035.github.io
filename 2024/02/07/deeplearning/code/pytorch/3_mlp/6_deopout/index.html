@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>3.6 暂退法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="3.6 暂退法">
+<meta property="og:url" content="http://example.com/2024/02/07/deeplearning/code/pytorch/3_mlp/6_deopout/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/6img/1.png">
+<meta property="og:image" content="http://example.com/img/3_mlp/6img/1.png">
+<meta property="og:image" content="http://example.com/6_deopout_files/6_deopout_3_0.svg">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg">
+<meta property="og:image" content="http://example.com/6_deopout_files/6_deopout_5_0.svg">
+<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg">
+<meta property="article:published_time" content="2024-02-07T06:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-07T14:07:46.732Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/6img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,16 +167,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-deeplearning/code/pytorch/3_mlp/6_deopout" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-deeplearning/code/pytorch/3_mlp/6_deopout" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/02/07/deeplearning/code/pytorch/3_mlp/6_deopout/">3.6 暂退法</a>
+    <h1 class="article-title" itemprop="name">
+      3.6 暂退法
     </h1>
   
 
@@ -178,10 +187,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+<h1 id="6-暂退法"><a href="#6-暂退法" class="headerlink" title="6 暂退法"></a>6 暂退法</h1><ul>
+<li>模型简单性：<ul>
+<li>维度小</li>
+<li>参数泛化</li>
+<li>平滑性</li>
+</ul>
+</li>
+<li>平滑性：函数不应该对其输入的微小变化敏感。例如，当我们对图像进行分类时，我们预计向像素添加一些随机噪声应该是基本无影响的。具有输入噪声的训练等价于Tikhonov正则化。基于此，提出暂退法：在计算后续层之前向网络的每一层注入噪声。因为当训练一个有多层的深层网络时，注入噪声只会在输入‐输出映射上增强平滑性。从表面上看是在训练过程中丢弃（dropout）一些神经元。</li>
+<li>需要说明的是，暂退法的原始论文提到了一个关于有性繁殖的类比：神经网络过拟合与每一层都依赖于前一层激活值相关，称这种情况为“共适应性”。作者认为，暂退法会破坏共适应性，就像有性生殖会破坏共适应的基因一样。???</li>
+<li>做法：<br>$$h ^\prime &#x3D;<br>\left{<br>\begin{matrix}<br>0 &amp;概率为p \<br>\frac{h}{1-p} &amp;其他情况 \<br>\end{matrix}<br>\right.<br>$$</li>
+<li>这样，输出层的计算不能过度依赖于h1, . . . , h5的任何一个元素。通常，我们在测试时不用暂退法。(一些研究人员在测试时使用暂退法，用于估计神经网络预测的“不确定性”：如果通过许多不同的暂退法遮盖后得到的预测结果都是一致的，那么我们可以说网络发挥更稳定。)<br><img src="/6img/1.png"><br><img src="/img/3_mlp/6img/1.png"></li>
+</ul>
+<h2 id="6-1-代码实现"><a href="#6-1-代码实现" class="headerlink" title="6.1 代码实现"></a>6.1 代码实现</h2><ul>
+<li>1）从U[0,1]抽样</li>
+<li>2）保留大于p的点&#x2F;(1-p)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&#x27;KMP_DUPLICATE_LIB_OK&#x27;</span>] = <span class="string">&#x27;True&#x27;</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="comment">#1 定义dropout</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dropout_layer</span>(<span class="params">X, dropout</span>):</span><br><span class="line">    <span class="keyword">assert</span> <span class="number">0</span> &lt;= dropout &lt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> dropout == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> torch.zeros_like(X)</span><br><span class="line">    <span class="keyword">if</span> dropout == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> X</span><br><span class="line">    mask = (torch.rand(X.shape) &gt; dropout).<span class="built_in">float</span>() <span class="comment">#大于p的元素-&gt;1</span></span><br><span class="line">    <span class="keyword">return</span> mask * X / (<span class="number">1.0</span> - dropout)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2 测试dropout</span></span><br><span class="line">X = torch.arange(<span class="number">16</span>, dtype=torch.float32).reshape((<span class="number">2</span>, <span class="number">8</span>))</span><br><span class="line"><span class="built_in">print</span>(X)</span><br><span class="line"><span class="built_in">print</span>(dropout_layer(X, <span class="number">0.</span>))</span><br><span class="line"><span class="built_in">print</span>(dropout_layer(X, <span class="number">0.5</span>))</span><br><span class="line"><span class="built_in">print</span>(dropout_layer(X, <span class="number">1.</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.],
+        [ 8.,  9., 10., 11., 12., 13., 14., 15.]])
+tensor([[ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.],
+        [ 8.,  9., 10., 11., 12., 13., 14., 15.]])
+tensor([[ 0.,  2.,  0.,  6.,  0., 10., 12.,  0.],
+        [16.,  0.,  0., 22., 24.,  0.,  0.,  0.]])
+tensor([[0., 0., 0., 0., 0., 0., 0., 0.],
+        [0., 0., 0., 0., 0., 0., 0., 0.]])
+</code></pre>
+<h3 id="6-1-1-dropout应用到模型"><a href="#6-1-1-dropout应用到模型" class="headerlink" title="6.1.1 dropout应用到模型"></a>6.1.1 dropout应用到模型</h3><ul>
+<li>将暂退法应用于每个隐藏层的输出（在激活函数之后），并且可以为每一层分别设置暂退概率：常见的技巧是在靠近输入层的地方设置较低的暂退概率。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1 参数</span></span><br><span class="line">num_inputs, num_outputs, num_hiddens1, num_hiddens2 = <span class="number">784</span>, <span class="number">10</span>, <span class="number">256</span>, <span class="number">256</span></span><br><span class="line">dropout1, dropout2 = <span class="number">0.2</span>, <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#2 模型</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Net</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_inputs, num_outputs, num_hiddens1, num_hiddens2,</span></span><br><span class="line"><span class="params">                 is_training=<span class="literal">True</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(Net, self).__init__()</span><br><span class="line">        self.num_inputs = num_inputs</span><br><span class="line">        self.training = is_training</span><br><span class="line">        self.lin1 = nn.Linear(num_inputs, num_hiddens1)</span><br><span class="line">        self.lin2 = nn.Linear(num_hiddens1, num_hiddens2)</span><br><span class="line">        self.lin3 = nn.Linear(num_hiddens2, num_outputs)</span><br><span class="line">        self.relu = nn.ReLU()</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, X</span>):</span><br><span class="line">        H1 = self.relu(self.lin1(X.reshape((-<span class="number">1</span>, self.num_inputs))))</span><br><span class="line">        <span class="keyword">if</span> self.training: <span class="comment"># 只在训练模型时使用dropout</span></span><br><span class="line">            H1 = dropout_layer(H1, dropout1)</span><br><span class="line">        H2 = self.relu(self.lin2(H1))</span><br><span class="line">        <span class="keyword">if</span> self.training: <span class="comment">#第二个全连接层后也使用dropout</span></span><br><span class="line">            H2 = dropout_layer(H2, dropout2)</span><br><span class="line">        out = self.lin3(H2)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line">    </span><br><span class="line">net=Net(num_inputs, num_outputs, num_hiddens1, num_hiddens2)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3 训练和测试</span></span><br><span class="line">num_epochs, lr, batch_size = <span class="number">10</span>, <span class="number">0.5</span>, <span class="number">256</span></span><br><span class="line">loss = nn.CrossEntropyLoss(reduction=<span class="string">&quot;none&quot;</span>)</span><br><span class="line">train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)</span><br><span class="line">trainer = torch.optim.SGD(net.parameters(), lr=lr)</span><br><span class="line">d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/6_deopout_files/6_deopout_3_0.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg">    </p>
+<h3 id="6-1-2-简洁实现"><a href="#6-1-2-简洁实现" class="headerlink" title="6.1.2 简洁实现"></a>6.1.2 简洁实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">net= nn.Sequential(</span><br><span class="line">    nn.Flatten(),</span><br><span class="line">    nn.Linear(<span class="number">784</span>,<span class="number">256</span>),</span><br><span class="line">    nn.ReLU(), </span><br><span class="line">    nn.Dropout(dropout1), <span class="comment">#dropout</span></span><br><span class="line">    nn.Linear(<span class="number">256</span>,<span class="number">256</span>),</span><br><span class="line">    nn.ReLU(),</span><br><span class="line">    nn.Dropout(dropout2), <span class="comment">#dropout</span></span><br><span class="line">    nn.Linear(<span class="number">256</span>,<span class="number">10</span>)</span><br><span class="line">                   )</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">init_weights</span>(<span class="params">m</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(m) == nn.Linear:</span><br><span class="line">        nn.init.normal_(m.weight, std=<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line">net.apply(init_weights)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练和测试</span></span><br><span class="line">trainer = torch.optim.SGD(net.parameters(), lr=lr)</span><br><span class="line">d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/6_deopout_files/6_deopout_5_0.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -216,16 +284,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/02/07/deeplearning/code/pytorch/3_mlp/6_deopout/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/07/deeplearning/code/pytorch/3_mlp/6_deopout/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2024/02/06/deeplearning/code/pytorch/3_mlp/5_weight_decay/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.5 权重衰减</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -240,373 +367,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-deeplearning/code/pytorch/3_mlp/5_weight_decay" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/02/06/deeplearning/code/pytorch/3_mlp/5_weight_decay/">3.5 权重衰减</a>
-    </h1>
-  
-
-        
-        <a href="/2024/02/06/deeplearning/code/pytorch/3_mlp/5_weight_decay/" class="archive-article-date">
-  	<time datetime="2024-02-06T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/02/06/deeplearning/code/pytorch/3_mlp/5_weight_decay/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E6%9A%82%E9%80%80%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">6 暂退法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.</span> <span class="toc-text">6.1 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-1-dropout%E5%BA%94%E7%94%A8%E5%88%B0%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">6.1.1 dropout应用到模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-2-%E7%AE%80%E6%B4%81%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.2.</span> <span class="toc-text">6.1.2 简洁实现</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple/">3.3 多层感知机简洁实现</a>
-    </h1>
-  
-
-        
-        <a href="/2024/02/05/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple/" class="archive-article-date">
-  	<time datetime="2024-02-05T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-deeplearning/code/pytorch/3_mlp/2_mlp_realize" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/2_mlp_realize/">3.2 多层感知机实现</a>
-    </h1>
-  
-
-        
-        <a href="/2024/02/05/deeplearning/code/pytorch/3_mlp/2_mlp_realize/" class="archive-article-date">
-  	<time datetime="2024-02-05T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/2_mlp_realize/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-deeplearning/code/pytorch/3_mlp/4_overfitting" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/4_overfitting/">3.4 模型选择、欠拟合和过拟合</a>
-    </h1>
-  
-
-        
-        <a href="/2024/02/05/deeplearning/code/pytorch/3_mlp/4_overfitting/" class="archive-article-date">
-  	<time datetime="2024-02-05T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2024/02/05/deeplearning/code/pytorch/3_mlp/4_overfitting/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -629,8 +415,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
