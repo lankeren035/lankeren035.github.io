@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux入门-2用户和权限 | Hexo</title>
+  <title>Linux入门-3使用操作3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Linux入门-2用户和权限">
-<meta property="og:url" content="http://example.com/2021/03/03/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/index.html">
+<meta property="og:title" content="Linux入门-3使用操作3">
+<meta property="og:url" content="http://example.com/2024/03/02/linux/Linux_5.usage3/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/linux/user/8.png">
-<meta property="og:image" content="d:\blog\themes\yilia\source\img\linux\user\8.png">
-<meta property="article:published_time" content="2021-03-03T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-02T02:46:52.786Z">
+<meta property="article:published_time" content="2024-03-02T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-02T12:41:58.956Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/linux/user/8.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -166,20 +163,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux/Linux_2.用户和权限" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux/Linux_5.usage3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux入门-2用户和权限
+      Linux入门-3使用操作3
     </h1>
   
 
         
-        <a href="/2021/03/03/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2021-03-03T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
+        <a href="/2024/03/02/linux/Linux_5.usage3/" class="archive-article-date">
+  	<time datetime="2024-03-02T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-02</time>
 </a>
         
       </header>
@@ -188,79 +185,126 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-<h1 id="2-用户和权限"><a href="#2-用户和权限" class="headerlink" title="2 用户和权限"></a>2 用户和权限</h1><table>
+<h1 id="3-Linux实用操作"><a href="#3-Linux实用操作" class="headerlink" title="3 Linux实用操作"></a>3 Linux实用操作</h1><h2 id="3-9-环境变量"><a href="#3-9-环境变量" class="headerlink" title="3.9 环境变量"></a>3.9 环境变量</h2><h3 id="3-9-1-查看环境变量"><a href="#3-9-1-查看环境变量" class="headerlink" title="3.9.1 查看环境变量"></a>3.9.1 查看环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>查看PATH变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span> | grep PATH</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>PATH记录了系统执行任何命令的搜索路径，当执行任何命令，都会按照顺序，从上述路径中搜索要执行的程序的本体。比如执行cd命令，就从第二个目录&#x2F;usr&#x2F;bin中搜索到了cd命令，并执行</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-9-2-获取环境变量值"><a href="#3-9-2-获取环境变量值" class="headerlink" title="3.9.2 获取环境变量值"></a>3.9.2 获取环境变量值</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$变量名</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;PATH&#125;</span>abc</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-9-3-设置环境变量"><a href="#3-9-3-设置环境变量" class="headerlink" title="3.9.3 设置环境变量"></a>3.9.3 设置环境变量</h3><ul>
+<li><p>临时设置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 变量名=变量值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>永久设置</p>
+<table>
 <thead>
 <tr>
-<th>切换用户</th>
-<th>su 用户名</th>
+<th>作用</th>
+<th>文件</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>管理员运行</td>
-<td>sudo 命令</td>
+<td>针对当前用户</td>
+<td>~&#x2F;.bashrc</td>
 </tr>
 <tr>
-<td>创建用户组</td>
-<td>groupadd 组名</td>
-</tr>
-<tr>
-<td>删除用户组</td>
-<td>groupdel 组名</td>
-</tr>
-<tr>
-<td>创建用户</td>
-<td>useradd 用户名 -g 组名 -d 用户家目录</td>
-</tr>
-<tr>
-<td>删除用户</td>
-<td>userdel -r 用户名</td>
-</tr>
-<tr>
-<td>查看用户所属组</td>
-<td>id 用户名</td>
-</tr>
-<tr>
-<td>修改用户所属组</td>
-<td>usermod -aG 组名 用户名</td>
-</tr>
-<tr>
-<td>查看系统用户(组)</td>
-<td>getent passwd或group</td>
+<td>所有用户</td>
+<td>&#x2F;etc&#x2F;profile</td>
 </tr>
 <tr>
 <td></td>
-<td></td>
+<td>使用<code>source 配置文件</code>立刻生效</td>
 </tr>
 </tbody></table>
-<h3 id="1-su命令"><a href="#1-su命令" class="headerlink" title="1. su命令"></a>1. su命令</h3><p>su [-] [用户名]</p>
-<h3 id="2-sudo命令（以管理员身份运行）"><a href="#2-sudo命令（以管理员身份运行）" class="headerlink" title="2. sudo命令（以管理员身份运行）"></a>2. sudo命令（以管理员身份运行）</h3><p>sudo Linux命令</p>
 <ul>
-<li>先进入root用户</li>
-<li>再visudo，G到最后一行，o到末尾，再末尾输入：用户名 ALL&#x3D;(ALL)      NOPASSWD: ALL</li>
-<li>再esc，:wq退出</li>
+<li><p>例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:目标文件</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="3-用户组"><a href="#3-用户组" class="headerlink" title="3. 用户组"></a>3. 用户组</h3><ul>
-<li>创建：groupadd 组名</li>
-<li>删除：groupdel 组名</li>
+</li>
 </ul>
-<h3 id="4-用户"><a href="#4-用户" class="headerlink" title="4. 用户"></a>4. 用户</h3><h4 id="4-1创建用户"><a href="#4-1创建用户" class="headerlink" title="4-1创建用户"></a>4-1创建用户</h4><p>useradd [-g -d] 用户名<br>（useradd 用户名 -g 组名 -d 目录）</p>
+<h2 id="3-10-上传下载"><a href="#3-10-上传下载" class="headerlink" title="3.10 上传下载"></a>3.10 上传下载</h2><ul>
+<li>rz、sz命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lrzsz <span class="comment">#下载rz、sz</span></span><br><span class="line">rz <span class="comment">#上传</span></span><br><span class="line">sz 文件 <span class="comment">#下载</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-11-压缩解压"><a href="#3-11-压缩解压" class="headerlink" title="3.11 压缩解压"></a>3.11 压缩解压</h2><h3 id="1-tar命令"><a href="#1-tar命令" class="headerlink" title="1. tar命令"></a>1. tar命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar [-c -v -x -f -z -C] 参1 参2...</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>g 指定用户的组，不写则组与用户名同</li>
-<li>d指定用户home目录位置</li>
+<li><p>可解压</p>
+<table>
+<thead>
+<tr>
+<th>格式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.tar</td>
+<td>tarball，归档文件，     简单的将文件组装到一个.tar的文件内，并没有太多文件体积的减少，仅仅是简单的封装</td>
+</tr>
+<tr>
+<td>.gz</td>
+<td>•也常见为.tar.gz，gzip格式压缩文件，即使用gzip压缩算法将文件压缩到一个文件内，可以极大的减少压缩后的体积</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c</td>
+<td>创建压缩文件</td>
+</tr>
+<tr>
+<td>v</td>
+<td>查看进度</td>
+</tr>
+<tr>
+<td>x</td>
+<td>解压模式</td>
+</tr>
+<tr>
+<td>f</td>
+<td>目标文件，必须放在最后一个</td>
+</tr>
+<tr>
+<td>z</td>
+<td>gzip模式，一般放在第一个</td>
+</tr>
+<tr>
+<td>C</td>
+<td>解压目的地，单独使用</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>压缩</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf test.tar 文件1 文件2 <span class="comment">#tar压缩</span></span><br><span class="line">tar -zcvf test.tar.gz 文件1 文件2 <span class="comment">#gzip压缩</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf 文件</span><br><span class="line">tar -xvf 文件 -C 目标路径 <span class="comment">#指定目录</span></span><br><span class="line">tar -zxvf 文件 -C 目标路径 <span class="comment">#解压.gz</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="4-2-删除用户"><a href="#4-2-删除用户" class="headerlink" title="4-2 删除用户"></a>4-2 删除用户</h4><p>userdel [-r] 用户名</p>
-<ul>
-<li>r 删除home目录</li>
-</ul>
-<h4 id="4-3-查看用户所属组"><a href="#4-3-查看用户所属组" class="headerlink" title="4-3 查看用户所属组"></a>4-3 查看用户所属组</h4><p>id [用户名]</p>
-<h4 id="4-4-修改用户所属组"><a href="#4-4-修改用户所属组" class="headerlink" title="4-4 修改用户所属组"></a>4-4 修改用户所属组</h4><p>usermod -aG 组名 用户名</p>
-<h4 id="4-5-查看系统用户-组"><a href="#4-5-查看系统用户-组" class="headerlink" title="4-5 查看系统用户(组)"></a>4-5 查看系统用户(组)</h4><p>getent passwd或group</p>
-<ul>
-<li>用户显示的信息：用户名:密码:用户组:描述信息:HOME目录:执行终端（默认bash)</li>
-<li>组显示信息：组名:组认证:组ID</li>
-</ul>
-<h3 id="5-权限"><a href="#5-权限" class="headerlink" title="5 权限"></a>5 权限</h3><p><img src="/./img/linux/user/8.png"></p>
-<p><img src="D:\blog\themes\yilia\source\img\linux\user\8.png"></p>
+<h3 id="2-zip命令"><a href="#2-zip命令" class="headerlink" title="2. zip命令"></a>2. zip命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip [-r] 文件1 文件2</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-unzip命令"><a href="#3-unzip命令" class="headerlink" title="3. unzip命令"></a>3. unzip命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip 文件 [-d 目标路径]</span><br></pre></td></tr></table></figure>
+
+
+
 
       
 
@@ -362,7 +406,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/03/linux/Linux_2.%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/03/02/linux/Linux_5.usage3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -376,18 +420,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/02/01/datastruct/2_linearlist/1_linearlist/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/03/02/linux/Linux_4.usage2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2.1 线性表的定义
+          Linux入门-3使用操作2
         
       </div>
     </a>
   
   
-    <a href="/2021/03/02/linux/Linux_1.%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux入门-1基础命令</div>
+    <a href="/2024/03/01/java/produce_practice/1_setup/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">生产实习-1系统结构搭建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -414,7 +458,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%94%A8%E6%88%B7%E5%92%8C%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">2 用户和权限</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-su%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. su命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-sudo%E5%91%BD%E4%BB%A4%EF%BC%88%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%E8%BF%90%E8%A1%8C%EF%BC%89"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. sudo命令（以管理员身份运行）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. 用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%94%A8%E6%88%B7"><span class="toc-number">2.0.4.</span> <span class="toc-text">4. 用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-number">2.0.4.1.</span> <span class="toc-text">4-1创建用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-number">2.0.4.2.</span> <span class="toc-text">4-2 删除用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7%E6%89%80%E5%B1%9E%E7%BB%84"><span class="toc-number">2.0.4.3.</span> <span class="toc-text">4-3 查看用户所属组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E6%89%80%E5%B1%9E%E7%BB%84"><span class="toc-number">2.0.4.4.</span> <span class="toc-text">4-4 修改用户所属组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7-%E7%BB%84"><span class="toc-number">2.0.4.5.</span> <span class="toc-text">4-5 查看系统用户(组)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%9D%83%E9%99%90"><span class="toc-number">2.0.5.</span> <span class="toc-text">5 权限</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Linux%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">3 Linux实用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">3.9 环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-1-%E6%9F%A5%E7%9C%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">3.9.1 查看环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-2-%E8%8E%B7%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%80%BC"><span class="toc-number">2.1.2.</span> <span class="toc-text">3.9.2 获取环境变量值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-3-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.9.3 设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.2.</span> <span class="toc-text">3.10 上传下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">3.11 压缩解压</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tar%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. tar命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-zip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. zip命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-unzip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. unzip命令</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
