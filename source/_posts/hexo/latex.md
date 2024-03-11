@@ -1,5 +1,5 @@
 ---
-title: hexo博客允许显示latex公式
+title: hexo博客关于latex公式
 
 date: 2024-1-30
 
@@ -22,4 +22,11 @@ toc: true
 - 在yilia主题文件夹下的config文件中设置
 
   `mathjax: true`
+
+- 一些网页无法渲染的公式
+
+|                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 网页上无法渲染：$$ softmax(\mathbf{X})_{ij} = \frac{ \exp(\mathbf{X}_{ij}) } { \sum_k \exp(\mathbf{X}_{ik}) } $$ | 在后面的下标ij的下划线前加上空格$$ softmax(\mathbf{X})_{ij} = \frac{ \exp(\mathbf{X} _{ij}) } { \sum_k \exp(\mathbf{X} _{ik}) } $$ |
+| 用左括号并列的公式无法渲染：$h ^\prime =\left\{ \begin{matrix}0 &amp;p \\\frac{h}{1-p} &amp;1-p \\\end{matrix}\right.$ | 使用cases，并用html换行：<span style="display:block"> $h ^\prime =\begin{cases}0 &p \\ \frac{h}{1-p} &1-p \\ \end{cases}.$   </span> |
 

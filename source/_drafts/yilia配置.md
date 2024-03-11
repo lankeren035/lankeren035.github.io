@@ -14,3 +14,27 @@ theme/yilia/config文件
 将head.png放到：blog/themes/yilia/source/img
 将blog/config文件中post_asset_folder: true
 
+
+
+
+
+- 代码块自动换行
+```
+pre {
+    overflow: auto;
+    white-space: pre;
+    /*white-space: pre-wrap;*/
+    word-wrap: break-word
+}
+```
+- 代码块滚动条颜色：
+
+```
+::-webkit-scrollbar-thumb { /*滚动条的滑块*/
+
+  border-radius: 8px;
+
+  background-color: rgb(189, 189, 189)
+
+}```
+```

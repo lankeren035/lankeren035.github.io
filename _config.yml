@@ -120,7 +120,8 @@ jsonContent:
 
 
 
-
+mathjax: true
+katex: true
 
 
 # Extensions

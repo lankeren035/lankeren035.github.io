@@ -1,8 +1,8 @@
 ---
-title: 5. 自动微分
+title: 1.5 自动微分
 date: 2024-2-1 14:00:00
-tags: [深度学习,机器学习,pytorch]
-categories: [深度学习]
+tags: [机器学习,pytorch]
+categories: [机器学习]
 comment: true
 toc: true
 ---

@@ -1,8 +1,8 @@
 ---
-title: 1. pytorch数据操作
+title: 1.1 pytorch数据操作
 date: 2023-11-11 14:00:00
-tags: [深度学习,机器学习,pytorch]
-categories: [深度学习]
+tags: [机器学习,pytorch]
+categories: [机器学习]
 comment: false
 toc: true
 ---

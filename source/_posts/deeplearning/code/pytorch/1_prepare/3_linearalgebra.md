@@ -1,8 +1,8 @@
 ---
-title: 3. 线性代数
+title: 1.3 线性代数
 date: 2024-2-1 14:00:00
-tags: [深度学习,机器学习,pytorch]
-categories: [深度学习]
+tags: [机器学习,pytorch]
+categories: [机器学习]
 comment: true
 toc: true
 ---

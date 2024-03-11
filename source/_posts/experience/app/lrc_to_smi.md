@@ -3,9 +3,9 @@ title: win10中windows media player自动同步歌词
 
 date: 2023-12-12
 
-tags: [其他]
+tags: [Windows]
 
-categories: [其他]
+categories: [经验]
 
 comment: false
 

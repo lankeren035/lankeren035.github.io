@@ -1,8 +1,8 @@
 ---
-title: 2. pytorch数据预处理
+title: 1.2 pytorch数据预处理
 date: 2023-11-27 14:00:00
-tags: [深度学习,机器学习,pytorch,数据预处理]
-categories: [深度学习]
+tags: [机器学习,pytorch]
+categories: [机器学习]
 comment: false
 toc: true
 ---

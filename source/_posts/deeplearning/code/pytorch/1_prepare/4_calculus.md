@@ -1,8 +1,8 @@
 ---
-title: 4. 微积分
+title: 1.4 微积分
 date: 2024-2-1 14:00:00
-tags: [深度学习,机器学习,pytorch]
-categories: [深度学习]
+tags: [机器学习,pytorch]
+categories: [机器学习]
 comment: true
 toc: true
 ---
@@ -27,7 +27,7 @@ toc: true
 #将图形嵌入到Notebook中 %matplotlib inline
 
 import os
-os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE" #这两行可以解决崩溃的错误
 from IPython.display import set_matplotlib_formats
 import numpy as np
 import matplotlib.pyplot as plt
@@ -102,6 +102,7 @@ plt.show()
 
     
 ![svg](4_calculus_files/4_calculus_1_1.svg)
+![](img/deeplearning/code/pytorch/1_prepare/4_calculus_1_1.svg)
     
 
 
@@ -144,5 +145,6 @@ plt.show()
 
     
 ![svg](4_calculus_files/4_calculus_3_1.svg)
+![](img/deeplearning/code/pytorch/1_prepare/4_calculus_3_1.svg)
     
 

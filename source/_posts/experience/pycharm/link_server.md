@@ -3,9 +3,9 @@ title: pycharm连接服务器--
 
 date: 2023-12-17
 
-tags: [其他,pycharm]
+tags: [pycharm]
 
-categories: [其他]
+categories: [经验]
 
 comment: false
 
