@@ -6,15 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: 其他 | Hexo</title>
+  <title>生产实习-7 项目功能开发 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/categories/%E5%85%B6%E4%BB%96/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="生产实习-7 项目功能开发">
+<meta property="og:url" content="http://example.com/2024/03/08/java/produce_practice/7_project/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:/blog/themes/yilia/source/img/java/produce_practice/6/0.png">
+<meta property="og:image" content="http://example.com/img/java/produce_practice/6/0.png">
+<meta property="og:image" content="d:/blog/themes/yilia/source/img/java/produce_practice/6/1.png">
+<meta property="og:image" content="http://example.com/img/java/produce_practice/6/1.png">
+<meta property="og:image" content="d:/blog/themes/yilia/source/img/java/produce_practice/6/3.png">
+<meta property="og:image" content="http://example.com/img/java/produce_practice/6/3.png">
+<meta property="og:image" content="d:/blog/themes/yilia/source/img/java/produce_practice/6/2.png">
+<meta property="og:image" content="http://example.com/img/java/produce_practice/6/2.png">
+<meta property="article:published_time" content="2024-03-08T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-08T09:09:05.970Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="生产实习">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:/blog/themes/yilia/source/img/java/produce_practice/6/0.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -160,124 +174,282 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java/produce_practice/7_project" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/12/17/experience/pycharm/link_server/" class="archive-article-date">
-  	<time datetime="2023-12-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/12/17/experience/pycharm/link_server/">pycharm连接服务器--</a>
+    <h1 class="article-title" itemprop="name">
+      生产实习-7 项目功能开发
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2024/03/08/java/produce_practice/7_project/" class="archive-article-date">
+  	<time datetime="2024-03-08T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+
+<h1 id="7-项目功能开发"><a href="#7-项目功能开发" class="headerlink" title="7 项目功能开发"></a>7 项目功能开发</h1><p><img src="D:/blog/themes/yilia/source/img/java/produce_practice/6/0.png"></p>
+<p><img src="/img/java/produce_practice/6/0.png"></p>
+<p><img src="D:/blog/themes/yilia/source/img/java/produce_practice/6/1.png"></p>
+<p><img src="/img/java/produce_practice/6/1.png"></p>
+<h2 id="7-1-项目实体创建"><a href="#7-1-项目实体创建" class="headerlink" title="7.1 项目实体创建"></a>7.1 项目实体创建</h2><ul>
+<li><p>创建ProjectInfo（之前用dbgan程序生成过），还需要在数据库创建表：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `myweb`.`project_info` (</span><br><span class="line">  `id` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `user_id` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NULL</span>,</span><br><span class="line">  `project_name` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NULL</span>,</span><br><span class="line">  `project_content` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NULL</span>,</span><br><span class="line">  `created_by` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NULL</span>,</span><br><span class="line">  `creation_date` DATETIME <span class="keyword">NULL</span>,</span><br><span class="line">  `last_updated_by` <span class="type">VARCHAR</span>(<span class="number">45</span>) <span class="keyword">NULL</span>,</span><br><span class="line">  `last_update_date` DATETIME <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`))</span><br><span class="line">ENGINE <span class="operator">=</span> InnoDB</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-2-数据库映射创建"><a href="#7-2-数据库映射创建" class="headerlink" title="7.2 数据库映射创建"></a>7.2 数据库映射创建</h2><ul>
+<li>创建ProjectInfoMapper接口（之前dbgan程序生成过xml文件）</li>
+</ul>
+<h2 id="7-3-创建功能接口"><a href="#7-3-创建功能接口" class="headerlink" title="7.3 创建功能接口"></a>7.3 创建功能接口</h2><ul>
+<li><p>先写service层的接口：ProjectService：</p>
+<p><img src="D:/blog/themes/yilia/source/img/java/produce_practice/6/3.png"></p>
+<p><img src="/img/java/produce_practice/6/3.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyingedu.questionnaire.biz.user.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.entities.ProjectInfo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ProjectService</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 增加项目</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> projectInfo</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">addProjectInfo</span><span class="params">(ProjectInfo projectInfo, String UserId)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改项目</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> projectInfo</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">modifyProjectInfo</span><span class="params">(ProjectInfo projectInfo)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除项目</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">deleteProjectById</span><span class="params">(String id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询项目列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    List&lt;ProjectInfo&gt; <span class="title function_">queryProjectList</span><span class="params">(ProjectInfo projectInfo)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再写service实现类：ProjectServiceImpl:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyingedu.questionnaire.biz.user.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.entities.ProjectInfo;</span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.imapper.ProjectInfoMapper;</span><br><span class="line"><span class="keyword">import</span> jakarta.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProjectServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">ProjectService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> ProjectInfoMapper projectInfoMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">addProjectInfo</span><span class="params">(ProjectInfo projectInfo, String UserId)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">modifyProjectInfo</span><span class="params">(ProjectInfo projectInfo)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">deleteProjectById</span><span class="params">(String id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;ProjectInfo&gt; <span class="title function_">queryProjectList</span><span class="params">(ProjectInfo projectInfo)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后写control层：</p>
+<p><img src="D:/blog/themes/yilia/source/img/java/produce_practice/6/2.png"></p>
+<p><img src="/img/java/produce_practice/6/2.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyingedu.questionnaire.biz.user.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.beans.HttpResponseEntity;</span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.biz.user.service.ProjectService;</span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.entities.ProjectInfo;</span><br><span class="line"><span class="keyword">import</span> jakarta.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span> <span class="comment">//rest的接口风格</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProjectController</span> &#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> ProjectService projectService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> HttpResponseEntity <span class="title function_">queryProjectList</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> HttpResponseEntity <span class="title function_">addProjectInfo</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> HttpResponseEntity <span class="title function_">modifyProjectInfo</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> HttpResponseEntity <span class="title function_">deleteProjectById</span><span class="params">(<span class="meta">@RequestBody</span> String id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="7-3-项目列表功能"><a href="#7-3-项目列表功能" class="headerlink" title="7.3 项目列表功能"></a>7.3 项目列表功能</h2><ul>
+<li>先查看对应的前端代码得到路径</li>
+</ul>
+<h3 id="7-3-1-control层"><a href="#7-3-1-control层" class="headerlink" title="7.3.1 control层"></a>7.3.1 control层</h3><ul>
+<li>ProjectController.queryProjectList：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/queryProjectList&quot;)</span></span><br><span class="line"><span class="keyword">public</span> HttpResponseEntity <span class="title function_">queryProjectList</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">HttpResponseEntity</span> <span class="variable">httpResponseEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpResponseEntity</span>();</span><br><span class="line"></span><br><span class="line">    List&lt;ProjectInfo&gt; projectInfos = projectService.queryProjectList(projectInfo);</span><br><span class="line">    <span class="keyword">if</span>(projectInfos.size() == <span class="number">1</span>) &#123;</span><br><span class="line">        httpResponseEntity.setCode(<span class="string">&quot;666&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    httpResponseEntity.setData(projectInfos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> httpResponseEntity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-3-2-service层"><a href="#7-3-2-service层" class="headerlink" title="7.3.2 service层"></a>7.3.2 service层</h3><ul>
+<li>ProjectServiceImpl.queryProjectList：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;ProjectInfo&gt; <span class="title function_">queryProjectList</span><span class="params">(ProjectInfo projectInfo)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">ProjectInfoExample</span> <span class="variable">projectInfoExample</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProjectInfoExample</span>();</span><br><span class="line">    ProjectInfoExample.<span class="type">Criteria</span> <span class="variable">projectInfoCriteria</span> <span class="operator">=</span> projectInfoExample.createCriteria();</span><br><span class="line">    projectInfoCriteria.andCreatedByEqualTo(projectInfo.getCreatedBy());</span><br><span class="line">    <span class="keyword">return</span> projectInfoMapper.selectByExample(projectInfoExample);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-3-数据库映射"><a href="#7-3-3-数据库映射" class="headerlink" title="7.3.3 数据库映射"></a>7.3.3 数据库映射</h3><ul>
+<li><p>实现selectByEanmple：</p>
+</li>
+<li><p>imapper函数接口（已经生成过了）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyingedu.questionnaire.dbmap.imapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.entities.ProjectInfo;</span><br><span class="line"><span class="keyword">import</span> com.lyingedu.questionnaire.dbmap.entities.ProjectInfoExample;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Param;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ProjectInfoMapper</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">long</span> <span class="title function_">countByExample</span><span class="params">(ProjectInfoExample example)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">deleteByExample</span><span class="params">(ProjectInfoExample example)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">deleteByPrimaryKey</span><span class="params">(String id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">insert</span><span class="params">(ProjectInfo row)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">insertSelective</span><span class="params">(ProjectInfo row)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    List&lt;ProjectInfo&gt; <span class="title function_">selectByExample</span><span class="params">(ProjectInfoExample example)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    ProjectInfo <span class="title function_">selectByPrimaryKey</span><span class="params">(String id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">updateByExampleSelective</span><span class="params">(<span class="meta">@Param(&quot;row&quot;)</span> ProjectInfo row, <span class="meta">@Param(&quot;example&quot;)</span> ProjectInfoExample example)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">updateByExample</span><span class="params">(<span class="meta">@Param(&quot;row&quot;)</span> ProjectInfo row, <span class="meta">@Param(&quot;example&quot;)</span> ProjectInfoExample example)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">updateByPrimaryKeySelective</span><span class="params">(ProjectInfo row)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * This method was generated by MyBatis Generator.</span></span><br><span class="line"><span class="comment">     * This method corresponds to the database table project_info</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@mbg</span>.generated Tue Mar 05 14:17:07 CST 2024</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">updateByPrimaryKey</span><span class="params">(ProjectInfo row)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>xmapper执行sql（已经生成过了）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=<span class="string">&quot;selectByExample&quot;</span> parameterType=<span class="string">&quot;com.lyingedu.questionnaire.dbmap.entities.ProjectInfoExample&quot;</span> resultMap=<span class="string">&quot;BaseResultMap&quot;</span>&gt;</span><br><span class="line">  &lt;!--</span><br><span class="line">    WARNING - <span class="meta">@mbg</span>.generated</span><br><span class="line">    This element is automatically generated by MyBatis Generator, <span class="keyword">do</span> not modify.</span><br><span class="line">    This element was generated on Tue Mar <span class="number">05</span> <span class="number">14</span>:<span class="number">17</span>:<span class="number">07</span> CST <span class="number">2024.</span></span><br><span class="line">  --&gt;</span><br><span class="line">  select</span><br><span class="line">  &lt;<span class="keyword">if</span> test=<span class="string">&quot;distinct&quot;</span>&gt;</span><br><span class="line">    distinct</span><br><span class="line">  &lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">  &lt;include refid=<span class="string">&quot;Base_Column_List&quot;</span> /&gt;</span><br><span class="line">  from project_info</span><br><span class="line">  &lt;<span class="keyword">if</span> test=<span class="string">&quot;_parameter != null&quot;</span>&gt;</span><br><span class="line">    &lt;include refid=<span class="string">&quot;Example_Where_Clause&quot;</span> /&gt;</span><br><span class="line">  &lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">  &lt;<span class="keyword">if</span> test=<span class="string">&quot;orderByClause != null&quot;</span>&gt;</span><br><span class="line">    order by $&#123;orderByClause&#125;</span><br><span class="line">  &lt;/<span class="keyword">if</span>&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="7-3-3-测试"><a href="#7-3-3-测试" class="headerlink" title="7.3.3 测试"></a>7.3.3 测试</h3><ul>
+<li>登陆后会显示当前用户创建的问卷</li>
+</ul>
+<h2 id="7-4-新建项目功能"><a href="#7-4-新建项目功能" class="headerlink" title="7.4 新建项目功能"></a>7.4 新建项目功能</h2><ul>
+<li>查看前端代码得到路径</li>
+</ul>
+<h3 id="7-4-1-control层"><a href="#7-4-1-control层" class="headerlink" title="7.4.1 control层"></a>7.4.1 control层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/addProjectInfo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> HttpResponseEntity <span class="title function_">addProjectInfo</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">HttpResponseEntity</span> <span class="variable">httpResponseEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpResponseEntity</span>();</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> projectService.addProjectInfo(projectInfo, projectInfo.getCreatedBy()); <span class="comment">//返回受影响的行数 //用户名要唯一</span></span><br><span class="line">    <span class="keyword">if</span>(count == <span class="number">1</span>) &#123; <span class="comment">//插入成功则状态码为666，否则为默认错误值</span></span><br><span class="line">        httpResponseEntity.setCode(<span class="string">&quot;666&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> httpResponseEntity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-2-service层"><a href="#7-4-2-service层" class="headerlink" title="7.4.2 service层"></a>7.4.2 service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">addProjectInfo</span><span class="params">(ProjectInfo projectInfo, String userName)</span> &#123;</span><br><span class="line"></span><br><span class="line">    projectInfo.setId(UUIDUtil.getOneUUID());</span><br><span class="line">    projectInfo.setCreatedBy(userName);</span><br><span class="line">    <span class="keyword">return</span> projectInfoMapper.insert(projectInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-5-项目修改"><a href="#7-5-项目修改" class="headerlink" title="7.5 项目修改"></a>7.5 项目修改</h2><h3 id="7-5-1-control层"><a href="#7-5-1-control层" class="headerlink" title="7.5.1 control层"></a>7.5.1 control层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/modifyProjectInfo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> HttpResponseEntity <span class="title function_">modifyProjectInfo</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">HttpResponseEntity</span> <span class="variable">httpResponseEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpResponseEntity</span>();</span><br><span class="line">    projectService.modifyProjectInfo(projectInfo);</span><br><span class="line">    httpResponseEntity.setCode(<span class="string">&quot;666&quot;</span>);</span><br><span class="line">    httpResponseEntity.setMessage(<span class="string">&quot;修改成功&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> httpResponseEntity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-5-2-service层"><a href="#7-5-2-service层" class="headerlink" title="7.5.2 service层"></a>7.5.2 service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">modifyProjectInfo</span><span class="params">(ProjectInfo projectInfo)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> projectInfoMapper.updateByPrimaryKeySelective(projectInfo)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-6-项目删除"><a href="#7-6-项目删除" class="headerlink" title="7.6 项目删除"></a>7.6 项目删除</h2><h3 id="7-6-1-control层"><a href="#7-6-1-control层" class="headerlink" title="7.6.1 control层"></a>7.6.1 control层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/deleteProjectById&quot;)</span></span><br><span class="line"><span class="keyword">public</span> HttpResponseEntity <span class="title function_">deleteProjectById</span><span class="params">(<span class="meta">@RequestBody</span> ProjectInfo projectInfo)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">HttpResponseEntity</span> <span class="variable">httpResponseEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpResponseEntity</span>();</span><br><span class="line">    projectService.deleteProjectById(projectInfo.getId());</span><br><span class="line">    httpResponseEntity.setCode(<span class="string">&quot;666&quot;</span>);</span><br><span class="line">    httpResponseEntity.setMessage(<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> httpResponseEntity;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-6-2-service层"><a href="#7-6-2-service层" class="headerlink" title="7.6.2 service层"></a>7.6.2 service层</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">deleteProjectById</span><span class="params">(String id)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> projectInfoMapper.deleteByPrimaryKey(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生产实习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pycharm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">springboot</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/03/08/java/produce_practice/7_project/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/12/12/experience/app/lrc_to_smi/" class="archive-article-date">
-  	<time datetime="2023-12-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-12</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2024/03/09/linux/Linux_nopassword/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Linux服务器免密登录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/07/experience/keyboard/keymap/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用via键盘映射</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/12/12/experience/app/lrc_to_smi/">win10中windows media player自动同步歌词</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E9%A1%B9%E7%9B%AE%E5%8A%9F%E8%83%BD%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">7 项目功能开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E4%BD%93%E5%88%9B%E5%BB%BA"><span class="toc-number">2.1.</span> <span class="toc-text">7.1 项目实体创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84%E5%88%9B%E5%BB%BA"><span class="toc-number">2.2.</span> <span class="toc-text">7.2 数据库映射创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%88%9B%E5%BB%BA%E5%8A%9F%E8%83%BD%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.3.</span> <span class="toc-text">7.3 创建功能接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E9%A1%B9%E7%9B%AE%E5%88%97%E8%A1%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">2.4.</span> <span class="toc-text">7.3 项目列表功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-control%E5%B1%82"><span class="toc-number">2.4.1.</span> <span class="toc-text">7.3.1 control层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-service%E5%B1%82"><span class="toc-number">2.4.2.</span> <span class="toc-text">7.3.2 service层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%A0%E5%B0%84"><span class="toc-number">2.4.3.</span> <span class="toc-text">7.3.3 数据库映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-%E6%B5%8B%E8%AF%95"><span class="toc-number">2.4.4.</span> <span class="toc-text">7.3.3 测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%8A%9F%E8%83%BD"><span class="toc-number">2.5.</span> <span class="toc-text">7.4 新建项目功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-1-control%E5%B1%82"><span class="toc-number">2.5.1.</span> <span class="toc-text">7.4.1 control层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-2-service%E5%B1%82"><span class="toc-number">2.5.2.</span> <span class="toc-text">7.4.2 service层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E9%A1%B9%E7%9B%AE%E4%BF%AE%E6%94%B9"><span class="toc-number">2.6.</span> <span class="toc-text">7.5 项目修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-1-control%E5%B1%82"><span class="toc-number">2.6.1.</span> <span class="toc-text">7.5.1 control层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5-2-service%E5%B1%82"><span class="toc-number">2.6.2.</span> <span class="toc-text">7.5.2 service层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-%E9%A1%B9%E7%9B%AE%E5%88%A0%E9%99%A4"><span class="toc-number">2.7.</span> <span class="toc-text">7.6 项目删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-1-control%E5%B1%82"><span class="toc-number">2.7.1.</span> <span class="toc-text">7.6.1 control层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-6-2-service%E5%B1%82"><span class="toc-number">2.7.2.</span> <span class="toc-text">7.6.2 service层</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -300,10 +472,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
@@ -411,10 +583,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
@@ -424,10 +592,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,6 +696,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
               </li>
             
             <div class="clearfix"></div>

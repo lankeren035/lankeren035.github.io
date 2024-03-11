@@ -18,7 +18,7 @@
 <meta property="og:image" content="d:\blog\themes\yilia\source\img\hexo\config\2.png">
 <meta property="og:image" content="http://example.com/img/hexo/config/2.png">
 <meta property="article:published_time" content="2024-01-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-01T14:33:01.977Z">
+<meta property="article:modified_time" content="2024-03-11T11:27:02.043Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
@@ -190,10 +190,10 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1> <span id="more"></span>
 
-<ul>
+<h1 id="git部署博客源码"><a href="#git部署博客源码" class="headerlink" title="git部署博客源码"></a>git部署博客源码</h1><ul>
 <li>在blog&#x2F;config文件里面确定了hexo s将博客部署到仓库的main分支，但是部署的是渲染后的代码，如何保存源码进行备份。</li>
 </ul>
-<p>在blog下打开gitbash</p>
+<h2 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1 创建分支"></a>1 创建分支</h2><p>在blog下打开gitbash</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br></pre></td></tr></table></figure>
 
 <p>去掉blog&#x2F;.gitignore文件中这三项：</p>
@@ -205,11 +205,17 @@
 <p>创建一个source分支，上传源码（注意此处仓库地址，参考blog&#x2F;config文件里面的部署部分，是带@符号的那个名字，不是简单的博客地址）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b source</span><br><span class="line">git remote add github 远程仓库地址</span><br><span class="line">git push -u github source</span><br></pre></td></tr></table></figure>
 
-<p>建议将source分支设置成默认分支，防止误删</p>
+
+
+<h2 id="2-设置默认分支"><a href="#2-设置默认分支" class="headerlink" title="2 设置默认分支"></a>2 设置默认分支</h2><p>建议将source分支设置成默认分支，防止误删</p>
 <p><img src="D:\blog\themes\yilia\source\img\hexo\config\1.png"></p>
 <p><img src="/img/hexo/config/1.png"></p>
 <p><img src="D:\blog\themes\yilia\source\img\hexo\config\2.png"></p>
 <p><img src="/img/hexo/config/2.png"></p>
+<ul>
+<li><p>以后只需要执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Your commit message&quot;</span></span><br><span class="line">git push -u github <span class="built_in">source</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -367,7 +373,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">git部署博客源码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">2.1.</span> <span class="toc-text">1 创建分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF"><span class="toc-number">2.2.</span> <span class="toc-text">2 设置默认分支</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -520,10 +526,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
@@ -533,10 +535,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,6 +639,18 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
               </li>
             
             <div class="clearfix"></div>
