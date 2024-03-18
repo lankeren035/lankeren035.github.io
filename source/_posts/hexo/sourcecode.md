@@ -24,6 +24,8 @@ toc: true
 
 
 
+## 1 创建分支
+
 在blog下打开gitbash
 
 ```
@@ -53,6 +55,10 @@ git remote add github 远程仓库地址
 git push -u github source
 ```
 
+
+
+## 2 设置默认分支
+
 建议将source分支设置成默认分支，防止误删
 
 ![](D:\blog\themes\yilia\source\img\hexo\config\1.png)
@@ -62,3 +68,16 @@ git push -u github source
 ![](D:\blog\themes\yilia\source\img\hexo\config\2.png)
 
 ![](img/hexo/config/2.png)
+
+
+
+- 以后只需要执行：
+
+  ```bash
+  git add .
+  git commit -m "Your commit message"
+  git push -u github source
+  
+  ```
+
+  

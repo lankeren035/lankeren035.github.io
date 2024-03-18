@@ -1,4 +1,4 @@
-```
+---
 title: Windows卸载ssh
 
 date: 2024-3-11
@@ -10,9 +10,9 @@ categories: [windows]
 comment: true
 
 toc: true
-```
+---
 
-/#
+#
 
  <!--more-->
 
