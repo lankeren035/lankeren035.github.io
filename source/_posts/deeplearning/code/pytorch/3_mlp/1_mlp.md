@@ -11,9 +11,10 @@ toc: true
 # 1 多层感知机
 ## 1.1 隐藏层
 - 仿射变换中的线性是一个很强的假设。可以通过在网络中加入一个或多个隐藏层来克服线性模型的限制，使其能处理更普遍的函数关系类型。我们可以把前L−1层看作表示，把最后一层看作线性预测器。这种架构通常称为多层感知机（multilayer perceptron），通常缩写为MLP
-![mlp](1img/1.png)
+![mlp](D:\blog\themes\yilia\source\img\deeplearning\code\pytorch\3_mlp\1img\1.png)
 ![mlp](img/deeplearning/code/pytorch/3_mlp/1img/1.png)
 ### 1.1.1 从线性到非线性
+
 - $X \in R^{n \times d}$，$W^{(1)} \in R^{d \times h}$，$H \in R^{n \times h}$，$W^{(2)} \in R^{h \times q}$，$O \in R^{n \times q}$
 - $X$是输入，$W^{(1)}$是第一层权重，$H$是第一层输出，$W^{(2)}$是第二层权重，$O$是输出
 $$H = XW^{(1)}+b^{(1)}$$
@@ -48,8 +49,7 @@ d2l.plot(x.detach(),[y.detach(),x.grad],'x','y',figsize=(5,2.5),legend=['relu','
 ```
 
 
-    
-![svg](1_mlp_files/1_mlp_1_0.svg)
+![svg](D:\blog\themes\yilia\source\img\deeplearning\code\pytorch\3_mlp\1_mlp_files\1_mlp_1_0.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_1_0.svg)
     
 
@@ -72,8 +72,7 @@ d2l.plot(x.detach(),[y.detach(),x.grad],'x','y',figsize=(5,2.5),legend=['sigmoid
 ```
 
 
-    
-![svg](1_mlp_files/1_mlp_3_0.svg)
+![svg](D:\blog\themes\yilia\source\img\deeplearning\code\pytorch\3_mlp\1_mlp_files\1_mlp_3_0.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_3_0.svg)
     
 
@@ -97,8 +96,7 @@ d2l.plot(x.detach(),[y.detach(),x.grad],'x','y',figsize=(5,2.5),legend=['tanh','
 ```
 
 
-    
-![svg](1_mlp_files/1_mlp_5_0.svg)
+![svg](D:\blog\themes\yilia\source\img\deeplearning\code\pytorch\3_mlp\1_mlp_files\1_mlp_5_0.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/1_mlp_files/1_mlp_5_0.svg)
     
 

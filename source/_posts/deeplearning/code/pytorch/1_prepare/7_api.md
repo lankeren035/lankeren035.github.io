@@ -1,6 +1,6 @@
 ---
 title: 1.7 查阅文档
-date: 2024-2-3 14:00:00
+date: 2024-2-2 14:00:00
 tags: [机器学习,pytorch]
 categories: [机器学习]
 comment: true

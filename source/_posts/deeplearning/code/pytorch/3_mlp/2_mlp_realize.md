@@ -8,6 +8,7 @@ toc: true
 ---
 #
 <!--more-->
+
 # 2 多层感知机实现
 
 
@@ -53,15 +54,13 @@ d2l.predict_ch3(net, test_iter)
 ```
 
 
-    
-![svg](2_mlp_realize_files/2_mlp_realize_1_0.svg)
+![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_0.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_0.svg)
     
 
 
 
-    
-![svg](2_mlp_realize_files/2_mlp_realize_1_1.svg)
+![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_1.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_1.svg)
     
 

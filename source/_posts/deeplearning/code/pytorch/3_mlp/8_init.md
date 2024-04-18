@@ -39,9 +39,9 @@ y.backward(torch.ones_like(x))
 d2l.plot(x.detach().numpy(), [y.detach().numpy(), x.grad.numpy()] , legend=['sigmoid','gradient'], figsize=(4.5, 2.5))
 ```
 
+​      ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg)
 
-    
-![svg](8_init_files/8_init_2_0.svg)
+![svg](img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg)
     
 
 
@@ -68,7 +68,7 @@ print('乘以100个矩阵后\n',M)
             [ 5.5275e+24,  1.2374e+24, -8.3584e+22, -6.0772e+24],
             [ 2.6396e+25,  5.9094e+24, -3.9915e+23, -2.9022e+25],
             [ 1.8637e+25,  4.1723e+24, -2.8182e+23, -2.0490e+25]])
-    
+
 
 ### 8.1.3 打破对称性
 - 一个隐藏层中的所有隐藏单元的地位是相同的，具有排列对称性。

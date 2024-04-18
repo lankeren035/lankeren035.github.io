@@ -20,3 +20,10 @@ categories: [python]
     from . import diffusion, unet
     ```
 
+- 数字前自动补0：
+
+  ```python
+  name=f'{number:05d}.png'
+  ```
+
+  

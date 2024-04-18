@@ -38,10 +38,12 @@ toc: true
 - 是否过拟合或欠拟合可能取决于模型复杂性和可用训练数据集的大小。
 
 ### 4.3.1 模型复杂性
-![](4img/1.png)
+
+ ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4img/1.png) 
 ![](img/deeplearning/code/pytorch/3_mlp/4img/1.png)
 
 ### 4.3.2 数据集大小
+
 - 模型复杂性和数据集大小之间通常存在关系。如果没有足够的数据，简单的模型可能更有用。\
 
 ## 4.4 多项式回归
@@ -94,7 +96,7 @@ print(features[:2], poly_features[:2,:], labels[:2],sep='\n') #两个x, 两个20
               1.9014e-05, -2.6397e-06,  3.3594e-07, -3.9464e-08,  4.3048e-09,
              -4.3827e-10,  4.1832e-11, -3.7579e-12,  3.1882e-13, -2.5626e-14]])
     tensor([ 5.0956, -4.0147])
-    
+
 
 ### 4.4.2 训练与测试
 
@@ -139,11 +141,11 @@ train(poly_features[:n_train,:4], poly_features[n_train:, :4], labels[:n_train],
 ```
 
     weight: [[ 4.98059    1.1953405 -3.389903   5.607252 ]]
-    
 
 
+
+ ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_7_1.svg)
     
-![svg](4_overfitting_files/4_overfitting_7_1.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_7_1.svg)
     
 
@@ -158,11 +160,10 @@ train(poly_features[:n_train,:2], poly_features[n_train:, :2], labels[:n_train],
 ```
 
     weight: [[2.9687963 4.1943007]]
-    
 
 
-    
-![svg](4_overfitting_files/4_overfitting_9_1.svg)
+
+![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_9_1.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_9_1.svg)
     
 
@@ -179,11 +180,11 @@ train(poly_features[:n_train, :], poly_features[n_train:, :], labels[:n_train], 
        1.06728293e-01 -1.89072818e-01 -1.45296961e-01 -1.12053894e-01
        1.03521936e-01 -3.26722339e-02  1.13504946e-01  3.62291411e-02
       -4.04332444e-04  3.25103179e-02 -7.38418847e-02 -1.19887017e-01]]
-    
 
 
-    
-![svg](4_overfitting_files/4_overfitting_11_1.svg)
+
+
+ ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_11_1.svg)
 ![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_11_1.svg)
     
 
