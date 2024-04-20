@@ -44,7 +44,7 @@ int a[100000];
 void qsort(int a[],int l, int r){
     if(l>=r) return;
     int i=l-1,j=r+1;
-    int x=a[((r-l)>>1)+l];
+    int x=a[((r-l)>>1)+l]; //这里要用a[]不要只计算索引，因为后续该索引位置上的元素可能会改变。
     while(i<j){
         do i++; while(a[i]<x);
         do j--; while(a[j]>x);
