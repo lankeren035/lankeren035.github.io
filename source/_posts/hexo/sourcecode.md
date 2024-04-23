@@ -80,4 +80,35 @@ git push -u github source
   
   ```
 
-  
+## 3 在新设备上编写博客
+1. 在设备上生成ssh密钥
+
+    ```bash
+    ssh-keygen
+    ```
+
+- 然后一路回车，会在:user/.ssh下面有id_rsa和id_rsa.pub。
+
+2. 将id_rsa.pub内容复制到github中：
+- 在github点击右上角自己的图像
+- settings
+- 左侧SSH and GPG keys
+- 右侧：New SSH key
+
+3. 在设备上提供github用户名和邮箱
+- 用户名可以在右上角头像获得
+- 又像可以通过setting -> email获得
+  ```bash
+  git config --global user.name "Your Name"
+  git config --global user.email "you@example.com"
+  ```
+
+4. 上传博客
+    ```bash
+    git push
+    ```
+
+5. 在别的设别更新
+    ```bash
+    git pull
+    ```
