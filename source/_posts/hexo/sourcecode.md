@@ -80,6 +80,7 @@ git push -u github source
   
   ```
 
+<<<<<<< Updated upstream
 ## 3 在新设备上编写博客
 1. 在设备上生成ssh密钥
 
@@ -112,3 +113,10 @@ git push -u github source
     ```bash
     git pull
     ```
+=======
+  
+
+## 3 在新的设备上编写博客
+
+1. 在机器上：
+>>>>>>> Stashed changes
