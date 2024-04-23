@@ -14,7 +14,7 @@ categories: [经验]
 - 写绝对路径
 注意用/不要用\
 - 修改配置文件
-![](../../themes/yilia/source/img/experience/vscode/relative_path/1.png)
+![](../../../../themes/yilia/source/img/experience/vscode/relative_path/1.png)
 ![](img/experience/vscode/relative_path/1.png)
-![](../../themes/yilia/source/img/experience/vscode/relative_path/2.png)
+![](../../../../themes/yilia/source/img/experience/vscode/relative_path/2.png)
 ![](img/experience/vscode/relative_path/2.png)
