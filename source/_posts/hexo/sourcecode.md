@@ -102,3 +102,13 @@ git push -u github source
   git config --global user.name "Your Name"
   git config --global user.email "you@example.com"
   ```
+
+4. 上传博客
+    ```bash
+    git push
+    ```
+
+5. 在别的设别更新
+    ```bash
+    git pull
+    ```
