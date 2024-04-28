@@ -232,7 +232,7 @@ torch.mm(A,B)
 
 ### 3.10.2 L2范数
 - 平方和的平方根：
-$$||x||=||x||_2 = \sqrt{\sum\limits_{i=1}^{n}x_i^2}$$
+$$ ||x||=||x||_ 2 = \sqrt{ \sum \limits_ {i=1}^ {n}x_ i^ 2}$$
 
 
 ```python
@@ -249,7 +249,7 @@ torch.norm(u) #范数
 
 ### 3.10.3 L1范数
 - 绝对值之和
-$$||x||_1 = \sum\limits_{i=1}^{n}|x_i|$$
+$$ ||x||_ 1 = \sum \limits_ {i=1}^ {n}|x_ i|$$
 - 与L2范数相比，L1范数受异常值的影响较小
 
 
@@ -265,11 +265,11 @@ torch.abs(u).sum() #L1范数
 
 
 ### 3.10.4 Lp范数
-$$||x||_p = (\sum\limits_{i=1}^{n}|x_i|^p)^{\frac{1}{p}}$$
+$$||x||_ p = ( \sum \limits_ {i=1}^ {n}|x_ i|^ p)^ { \frac{1}{p}}$$
 
 ### 3.10.5 Frobenius范数
 - 矩阵L2范数
-$$||X||_F = \sqrt{\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{n}x_{ij}^2}$$
+$$||X||_ F = \sqrt{ \sum \limits_ {i=1}^ {m} \sum \limits_ {j=1}^ {n}x_ {ij}^ 2}$$
 
 
 ```python

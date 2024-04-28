@@ -10,16 +10,18 @@ toc: true
 <!--more-->
 # 4 softmax回归
 ## 4.1 分类问题
-- 独热编码（one-hot encoding）：$y\in{(1,0,0),(0,1,0),(0,0,1)}
+- 独热编码（one-hot encoding）：$y\in{(1,0,0),(0,1,0),(0,0,1)}$
 ## 4.2 网络架构
 - 为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1=x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1=x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1=x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$
-![$\mathfb{o}=\mathfb{W}\mathfb{x}+\mathfb{b}$](4img/1.png)
-![$\mathfb{o}=\mathfb{W}\mathfb{x}+\mathfb{b}$](img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png)
+
+![$ \mathfb{o}= \mathfb{W} \mathfb{x}+ \mathfb{b}$](4img/1.png)
+![$ \mathfb{o} = \mathfb{W} \mathfb{x} + \mathfb{b}$](img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png)
 ## 4.3 softmax全连接层的参数开销
 - $d$个输入和$q$个输出的全连接层，参数开销为$O(dq)$
 - 可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定
 ## 4.4 softmax运算
-- softmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持可导的性质。$$\hat{y}_j=\frac{exp(o_j)}{\sum_{i=1}^qexp(o_i)}$$
+- softmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持可导的性质。
+$$\hat{y}_ j= \frac{exp(o_ j)}{ \sum_ {i=1}^ qexp(o_ i)}$$
 - 尽管softmax是一个非线性函数，但softmax回归的输出仍然由输入特征的仿射变换决定。因此，softmax回归是一个线性模型（linear model）。
 ## 4.5 小批量样本的矢量化
 - 批量：$\mathbf{X}$；特征维度：$d$；批量大小：$n$；类别数：$q$；
@@ -35,13 +37,13 @@ toc: true
     - $y_j^{(i)}$：样本i的标签向量中属于类别j的概率
 - 2）相当于最小化负对数似然(损失函数)：$$-\log P(\mathbf{Y}|\mathbf{X})=-\sum_{i=1}^n\log P(y^{(i)}|\mathbf{x}^{(i)})=\sum_{i=1}^nl(\mathbf{y}^{(i)},\mathbf{\hat{y}}^{(i)})$$
     - 损失函数为（交叉熵损失 cross-entropy loss）：$$l(\mathbf{y},\mathbf{\hat{y}})=-\sum_{j=1}^qy_j\log\hat{y}_j$$
-```
-由于y是一个长度为q的独热编码向量，所以除了一个项以外的所有项j都消失了。由于所有yˆj都是预测的概率，所以它们的对数永远不会大于0。因此，如果正确地预测实际标签，即如果实际标签P(y | x) = 1，则损失函数不能进一步最小化。注意，这往往是不可能的。例如，数据集中可能存在标签噪声（比如某些样本可能被误标），或输入特征没有足够的信息来完美地对每一个样本分类。？？？
-```
+
+        由于y是一个长度为q的独热编码向量，所以除了一个项以外的所有项j都消失了。由于所有yˆj都是预测的概率，所以它们的对数永远不会大于0。因此，如果正确地预测实际标签，即如果实际标签P(y | x) = 1，则损失函数不能进一步最小化。注意，这往往是不可能的。例如，数据集中可能存在标签噪声（比如某些样本可能被误标），或输入特征没有足够的信息来完美地对每一个样本分类。？？？
+
 
 
 ### 4.6.2 softmax及其导数
-- 对损失函数：$$\begin{aligned} l(\mathbf{y},\mathbf{\hat{y}})&=-\sum_{j=1}^qy_j\log\hat{y}_j \\ &=-\sum_{j=1}^qy_j\log\frac{\exp(o_j)}{\sum_{i=1}^q\exp(o_i)} \\ &=-\sum_{j=1}^q(y_j(o_j-\log\sum_{i=1}^q\exp(o_i))) \\ &=\sum_{j=1}^qy_j\log\sum_{i=1}^q\exp(o_i)-\sum_{j=1}^qy_jo_j \\ &=\log\sum_{i=1}^q\exp(o_i)-\sum_{j=1}^qy_jo_j \end{aligned}$$
+- 对损失函数：$$ \begin{aligned} l( \mathbf{y}, \mathbf{ \hat{y}}) &= - \sum_ {j=1}^ qy_ j \log \hat{y}_ j \\ &= - \sum_ {j=1}^ qy_ j \log \frac{ \exp(o_ j)}{ \sum_ {i=1}^ q \exp(o_ i)} \\ &= - \sum_ {j=1}^ q(y_ j(o_ j- \log \sum_ {i=1}^ q \exp(o_ i))) \\ &= \sum_ {j=1}^ qy_ j \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \\ &= \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \end{aligned}$$
 - 损失函数对$o_j$的导数(log以e为底)：$$\frac{\partial l(\mathbf{y},\mathbf{\hat{y}})}{\partial o_j}=\frac{\exp(o_j)}{\sum_{i=1}^q\exp(o_i)}-y_j=softmax(o)_j-y_j$$
     - **这与我们在回归中看到的非常相似，其中梯度是观测值y和估计值yˆ之间的差异。这不是巧合，在任何指数族分布模型中对数似然的梯度正是由此得出的。这使梯度计算在实践中变得容易很多。**
 

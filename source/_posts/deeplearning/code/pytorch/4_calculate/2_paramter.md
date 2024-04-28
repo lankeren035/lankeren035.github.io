@@ -199,10 +199,7 @@ print(net[2].weight.data)
     
 
 ### 2.2.2 自定义初始化
-$$\omega =\left\{ \begin{matrix}U(5,10) &可能性\frac{1}{4} \\
-0 &可能性\frac{1}{2}\\
-U(-10,-5) &可能性\frac{1}{4} \\
-\end{matrix}\right.$$
+$$ \omega = \begin{cases} U(5,10) &可能性 \frac{1}{4} \\ 0 &可能性 \frac{1}{2} \\ U(-10,-5) &可能性 \frac{1}{4} \\ \end{cases} $$
 
 
 ```python

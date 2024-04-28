@@ -17,16 +17,17 @@ toc: true
 ## 1.2 多层感知机的限制
 - 假设输入图像：$\mathbf{X}$，隐藏表示：$\mathbf{H}$。$\mathbf{X}$与$\mathbf{H}$具有相同的形状。权重矩阵：$W$，偏置：$\mathbf{U}$。全连接层可以表示成：$V$是对$W$的一个偏移。
 
-$$\begin{aligned}\left[\mathbf{H}\right]_{i,j}&=[\mathbf{U}]_{i,j}+\sum_k\sum_l[\mathbf{W}]_{i,j,k,l}[\mathbf{X}]_{k,l}\\&=[\mathbf{U}]_{i,j}+\sum_a\sum_b[\mathbf{V}]_{i,j,a,b}[\mathbf{X}]_{i+a,j+b}\end{aligned}$$
+$$ \begin{aligned} \left[ \mathbf{H} \right]_ {i,j} & = [ \mathbf{U}]_ {i,j}+ \sum_k \sum_l[ \mathbf{W}]_ {i,j,k,l}[ \mathbf{X}]_ {k,l} \\ 
+&= [ \mathbf{U}]_ {i,j}+ \sum_a \sum_b[ \mathbf{V}]_ {i,j,a,b}[ \mathbf{X}]_ {i+a,j+b} \end{aligned}$$
 
-- 索引a和b通过在正偏移和负偏移之间移动覆盖了整个图像。对于像素$\mathbf{H}_{i,j}$，可以通过在$\mathbf{X}$中以(i,j)为中心对像素进行加权求和得到，加权使用的权重为$V_{i,j,a,b}$。
+- 索引a和b通过在正偏移和负偏移之间移动覆盖了整个图像。对于像素$\mathbf{H}_ {i,j}$，可以通过在$\mathbf{X}$中以(i,j)为中心对像素进行加权求和得到，加权使用的权重为$V_ {i,j,a,b}$。
 ### 1.2.1 平移不变性
-- 检测对象在输入$\mathbf{X}$中的平移，应该仅导致隐藏表示$\mathbf{H}$中的平移。也就是说，v和$\mathbf{U}$实际上不依赖于(i,j)的值，即$V_{i,j,a,b}=\mathbf{V}_{a,b}$。且$\mathbf{U}$是一个常数。因此，$\mathbf{H}$的计算可以简化为：
-$$\mathbf{H}_{i,j}=u+\sum_a\sum_b\mathbf{V}_{a,b}\mathbf{X}_{i+a,j+b}$$
-- 这就是卷积（convolution）。使用系数$\mathbf{V}_{a,b}$对位置(i,j)附近的像素(i+a,j+b)进行加权求和，得到$\mathbf{H}_{i,j}$。注意，$\mathbf{V}_{a,b}$的系数比$V_{i,j,a,b}$少得多，因为前者不再依赖于图像中的位置。
+- 检测对象在输入$\mathbf{X}$中的平移，应该仅导致隐藏表示$\mathbf{H}$中的平移。也就是说，v和$\mathbf{U}$实际上不依赖于(i,j)的值，即$V_ {i,j,a,b}=\mathbf{V}_ {a,b}$。且 $\mathbf{U}$是一个常数。因此， $\mathbf{H}$的计算可以简化为：
+$$\mathbf{H}_ {i,j} = u+\sum_a \sum_b \mathbf{V}_ {a,b} \mathbf{X}_ {i+a,j+b}$$
+- 这就是卷积（convolution）。使用系数$\mathbf{V}_ {a,b}$对位置(i,j)附近的像素(i+a,j+b)进行加权求和，得到$\mathbf{H}_ {i,j}$。注意，$\mathbf{V}_ {a,b}$的系数比$V_{i,j,a,b}$少得多，因为前者不再依赖于图像中的位置。
 ### 1.2.2 局部性
-- 为了收集用来训练参数$\mathbf{H}_{i,j}$的相关信息，我们不应该偏离到距离(i,j)很远的地方。这意味着在$|a|>\Delta$或$|b|>\Delta$的范围之外，我们可以设置$\mathbf{V}_{a,b}=0$。这样，我们可以将$\mathbf{H}_{i,j}$的计算简化为：
-$$\mathbf{H}_{i,j}=u+\sum_{a=-\Delta}^{\Delta}\sum_{b=-\Delta}^{\Delta}\mathbf{V}_{a,b}\mathbf{X}_{i+a,j+b}$$
+- 为了收集用来训练参数$\mathbf{H}_ {i,j}$的相关信息，我们不应该偏离到距离(i,j)很远的地方。这意味着在$|a|>\Delta$或$|b|>\Delta$的范围之外，我们可以设置$\mathbf{V}_ {a,b}=0$。这样，我们可以将$\mathbf{H}_ {i,j}$的计算简化为：
+$$\mathbf{H}_ {i,j}=u+ \sum_ {a=- \Delta}^ {\Delta} \sum_ {b=- \Delta}^ {\Delta} \mathbf{V}_ {a,b} \mathbf{X}_ {i+a,j+b}$$
 - 上述公式就是卷积层的计算公式。
 - 卷积核（滤波器）：$\mathbf{V}$，卷积核大小：$2\Delta+1$。
 - 参数大幅减少的代价是，确定每个隐藏活性值时，每一层只包含局部的信息。
@@ -45,7 +46,8 @@ $$(f*g)(i)=\sum_a\sum_bf(a)g(i-a)$$
 
 - 对于二维张量，则为f的索引(a,b)和g的索引(i-a,j-b)上的对应加和：
     - 卷积核：g，输入：f，输出：f*g
-$$(f*g)(i,j)=\sum_a\sum_bf(a,b)g(i-a,j-b)$$
+
+$$ (f*g)(i,j)=\sum_a \sum_b f(a,b) g(i-a,j-b) $$
 
 ## 1.4 通道
 - 由于输入图像是三维的，隐藏表示$\mathbf{H}$也最好采用三维张量。因此，隐藏表示可以想象成一系列具有二维张量的通道。这些通道也成为特征映射（feature maps）。
