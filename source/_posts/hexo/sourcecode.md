@@ -40,6 +40,13 @@ Thumbs.db
 node-modules/,
 ```
 
+- 由于使用了yilia主题，相当于你的blog项目下包含了一个子项目：yilia，需要将themes/yilia里面的一些文件去掉，否则themes/yilia里面的内容不会被提交到远程仓库。
+```bash
+cd themes/yilia
+rm -rf .git
+git rm -r --cached
+```
+
 运行
 
 ```
