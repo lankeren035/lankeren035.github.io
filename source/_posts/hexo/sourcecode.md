@@ -104,7 +104,7 @@ git push -u github source
 
 3. 在设备上提供github用户名和邮箱
 - 用户名可以在右上角头像获得
-- 又像可以通过setting -> email获得
+- 邮箱可以通过setting -> email获得
   ```bash
   git config --global user.name "Your Name"
   git config --global user.email "you@example.com"
