@@ -3,7 +3,7 @@ title: python中re模块的使用
 date: 2024-04-1 20:00:00
 toc: true
 tags: [python]
-categories: [python库]
+categories: [python]
 
 
 
