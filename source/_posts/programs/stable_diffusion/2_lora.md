@@ -20,7 +20,68 @@ toc: true
 
 # 2- lora训练
 
-## 2.1 启动gui
+## 2.1 下载
+
+- 在big_model目录下载lora项目：
+
+  ```bash
+  cd ..
+  git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
+  cd lora-scripts
+  
+  ```
+
+- 安装虚拟环境（确保你的python是3.10）
+
+  ```bash
+  conda activate python310
+  python -m venv ./venv
+  conda deactivate
+  source ./venv/bin/activate
+  
+  ```
+
+## 2.2 运行
+
+- 同理使用虚拟环境，在run_gui.sh最前面加上：
+
+  ```bash
+  . venv/bin/activate
+  ```
+
+- windows:
+
+  - 国内
+
+    ```bash
+    ./install-cn.ps1
+    ./run_gui.ps1
+    
+    ```
+
+  - 国外
+
+    ```bash
+    ./install.ps1
+    ./run_gui.ps1
+    
+    ```
+
+- linux:
+
+  ```bash
+  bash install.sh
+  bash run_gui.sh
+  
+  ```
+
+- 运行后会自动打开本地端口： [http://127.0.0.1:28000](http://127.0.0.1:28000/) 
+
+
+
+
+
+## 2.3 启动gui
 
 - 训练不要使用过小的图片，也不要过大（3000以上）
 
@@ -37,7 +98,7 @@ toc: true
   - windows：编辑`train.ps1`
     - linux：编辑`train.sh`
 
-## 2.2 准备数据集
+## 2.4 准备数据集
 
 - 将图片放到一个文件夹：`10_human`（例子，代表训练迭代3个epoch，图片类型为human）。注意图片不要重名（如1.png与1.jpg）。复制图片路径
 
@@ -56,7 +117,7 @@ toc: true
 
 
 
-## 2.3 准备基础模型
+## 2.5 准备基础模型
 
 
 

@@ -25,6 +25,7 @@ mkdir big_model
 cd big_model
 git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
 cd stable-diffusion-webui-forge
+
   ```
 
 
@@ -35,13 +36,15 @@ cd stable-diffusion-webui-forge
 
   ```bash
   python --version
-  ```
-
-    - 如果你的python版本不对，可以先在conda安装一个python3.10：
-
+  
+```
+  
+  - 如果你的python版本不对，可以先在conda安装一个python3.10：
+  
       ```bash
       conda create --name python310 python=3.10
       conda activate python310
+      
       ```
   
 - 创建虚拟环境
@@ -49,6 +52,7 @@ cd stable-diffusion-webui-forge
   ```bash
   python -m venv ./venv
   conda deactivate
+  
   ```
 
 - 使用虚拟环境
@@ -57,12 +61,14 @@ cd stable-diffusion-webui-forge
 
       ```bash
       venv\Scripts\activate
-      ```
-
-   -  linux
-
+      
+   ```
+   
+-  linux
+   
       ```bash
       source ./venv/bin/activate
+      
       ```
 
 
@@ -73,18 +79,21 @@ cd stable-diffusion-webui-forge
 
   ```bash
   . venv/bin/activate
+  
   ```
 
 - windows:
 
   ```bash
   .\webui.bat
+  
   ```
 
 - linux:
 
   ```bash
   bash webui.sh --xformers
+  
   ```
 
 - 运行后会自动下载一些模型权重，如果中途断了可能是网络问题，重新启动
@@ -93,82 +102,46 @@ cd stable-diffusion-webui-forge
 
 ## 4. 添加扩展
 
-### 4.1 lora
+- 扩展可以直接将别人的`stable-diffusion-webui-forge/extensions/`里的扩展拷贝过来
 
-### 4.1.1 下载
+### 4.1 汉化
 
-- 在big_model目录下载lora项目：
+```
+https://github.com/VinsonLaro/stable-diffusion-webui-chinese
+```
 
-  ```bash
-  cd ..
-  git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
-  cd lora-scripts
-  
-  ```
+![](../../../../themes/yilia/source/img/project/stable_diffusion/5.jpg)
 
-- 安装虚拟环境（确保你的python是3.10）
+![](img/project/stable_diffusion/5.jpg)
 
-  ```bash
-conda activate python310
-  python -m venv ./venv
-conda deactivate
-  source ./venv/bin/activate
-  
-  ```
+ ![](../../../../themes/yilia/source/img/project/stable_diffusion/6.jpg) 
 
-### 4.1.2 运行
+![](img/project/stable_diffusion/6.jpg) 
 
-- 同理使用虚拟环境，在run_gui.sh最前面加上：
-
-  ```bash
-  . venv/bin/activate
-  ```
-
-- windows:
-
-  - 国内
-
-    ```bash
-    ./install-cn.ps1
-    ./run_gui.ps1
-    
-    ```
-
-  - 国外
-
-    ```bash
-    ./install.ps1
-    ./run_gui.ps1
-    
-    ```
-
-- linux:
-
-  ```bash
-  bash install.sh
-  bash run_gui.sh
-  
-  ```
-
-- 运行后会自动打开本地端口： [http://127.0.0.1:28000](http://127.0.0.1:28000/) 
-
-
+- 可以以在`Available`中，取消所有的勾选，然后在浏览器ctrl+f搜索simplif进行搜索。
+- 其他扩展的安装类似（需要有网络）
 
 ## 5. 添加基础模型
+
+- 基础模型可以从别人的`stable-diffusion-webui-forge/models/`里面拷贝过来（例如我需要sd模型，就将`models/Stable-diffusion/sdxl_lightning_8step.safetensors`拷贝到自己的对应目录。）
 
 - [模型网址](https://huggingface.co/ByteDance/SDXL-Lightning/tree/main)
 
 ### 5.1 Lora基础模型
 
-```bash
-cd ../stable-diffusion-webui-forge/models/Lora
-wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors?download=true
-```
+- 如果你想自己下载：
+
+    ```bash
+    cd ../stable-diffusion-webui-forge/models/Lora
+    wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors?download=true
+    
+    ```
 
 - windows powershell下可用：
 
   ```bash
   Invoke-WebRequest -Uri "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors?download=true" -OutFile "sdxl_lightning_8step_lora.safetensors"
+  
   ```
 
 - 在界面刷新即可看到：
@@ -179,14 +152,33 @@ wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning
 
 ### 5.2 stable diffusion基础模型
 
-```bash
-cd ../stable-diffusion-webui-forge/models/Stable-diffusion
-wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true
+- 如果你想自己下载：
+    ```bash
+    cd ../Stable-diffusion
+    wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true
+    
 ```
-
+    
 - windows powershell下可用：
 
     ```bash
     Invoke-WebRequest -Uri "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true" -OutFile "sdxl_lightning_8step.safetensors"
+    
     ```
+
+### 5.3 vae基础模型
+
+- 如果你想自己下载：
+
+    ```bash
+    cd ../VAE
+    wget https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true
+    
+    ```
+
+
+
+## 6 默认参数设置
+
+- 网页默认选择的参数位于`stable-diffusion-webui-forge/ui-config.json`，可以修改默认的图片大小等。（也可直接把别人的文件拷过来）
 
