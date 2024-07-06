@@ -23,11 +23,11 @@ toc: true
 
 ## 1. 微软商店下载windows terminal
 
-![](D:/blog/themes/yilia/source/img/experience/windows/powershell/1.png)
+![](../../../../themes/yilia/source/img/experience/windows/powershell/1.png)
 
 ![](img/experience/windows/powershell/1.png)
 
-![](D:/blog/themes/yilia/source/img/experience/windows/powershell/2.png)
+![](../../../../themes/yilia/source/img/experience/windows/powershell/2.png)
 
 ![](img/experience/windows/powershell/2.png)
 

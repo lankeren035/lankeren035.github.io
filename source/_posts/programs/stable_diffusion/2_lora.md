@@ -25,7 +25,7 @@ toc: true
 - 在big_model目录下载lora项目：
 
   ```bash
-  cd ..
+  cd ./big_model
   git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
   cd lora-scripts
   
@@ -55,7 +55,7 @@ toc: true
 
     ```bash
     ./install-cn.ps1
-    ./run_gui.ps1
+    ./run_gui.ps1  --xformers
     
     ```
 
@@ -63,21 +63,19 @@ toc: true
 
     ```bash
     ./install.ps1
-    ./run_gui.ps1
+    ./run_gui.ps1  --xformers
     
     ```
 
 - linux:
 
   ```bash
-  bash install.sh
-  bash run_gui.sh
+  bash install.bash
+  bash run_gui.sh --xformers
   
   ```
 
 - 运行后会自动打开本地端口： [http://127.0.0.1:28000](http://127.0.0.1:28000/) 
-
-
 
 
 
@@ -100,7 +98,7 @@ toc: true
 
 ## 2.4 准备数据集
 
-- 将图片放到一个文件夹：`10_human`（例子，代表训练迭代3个epoch，图片类型为human）。注意图片不要重名（如1.png与1.jpg）。复制图片路径
+- 将图片放到一个文件夹：`10_human`（例子，代表训练迭代10个epoch，图片类型为human）。注意图片不要重名（如1.png与1.jpg）。复制图片路径
 
 - 进入gui界面，粘贴图片路径：
 
@@ -108,7 +106,9 @@ toc: true
 
   ![](img/project/stable_diffusion/1.jpg)
 
-- 点击gui右下角的启动按钮，数据集里面就会自动出现每张图片对应的提示词（txt文件）(重名的后果导致两张图片只有一个txt)
+- 点击gui右下角的启动按钮，会自动下载tagger模型（如果因为网络问题，无法连接huggingface，可以直接把别人的`lora-scripts/huggingface/hub里面的模型文件夹拷贝过来`）
+
+- 数据集里面就会自动出现每张图片对应的提示词（txt文件）(重名的后果导致两张图片只有一个txt)
 
   ![](../../../../themes/yilia/source/img/project/stable_diffusion/2.jpg)
 
@@ -116,8 +116,41 @@ toc: true
 
 
 
+## 2.5 编辑标签
 
-## 2.5 准备基础模型
+- 标签编辑器 -> 输入数据集路径 -> 取消标签txt的备份 -> load
+
+- 原本应该在`Data set Images`区域显示图片预览，但我这里出现了Error（如果你知道怎么办请联系我）
+
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/7.jpg)
+
+  ![](img/project/stable_diffusion/7.jpg)
+
+- 如果你跟我一样显示Error了，可以点击左边区域的两个按钮，可以显示出标签（勉强也能编辑）
+
+    ![](../../../../themes/yilia/source/img/project/stable_diffusion/8.jpg)
+
+    ![](img/project/stable_diffusion/8.jpg)
+
+
+
+### 2.5.1删除/添加标签
+
+- 添加标签：
+
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/9.jpg)
+
+  ![](img/project/stable_diffusion/9.jpg)
+
+- 删除标签：
+
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/10.jpg)
+
+  ![](img/project/stable_diffusion/10.jpg)
+
+
+
+## 2.6 准备基础模型
 
 
 

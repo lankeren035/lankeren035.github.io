@@ -181,4 +181,3 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 ## 6 默认参数设置
 
 - 网页默认选择的参数位于`stable-diffusion-webui-forge/ui-config.json`，可以修改默认的图片大小等。（也可直接把别人的文件拷过来）
-
