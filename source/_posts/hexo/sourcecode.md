@@ -5,7 +5,7 @@ date: 2024-1-30
 
 tags: [博客]
 
-categories: [博客,git]
+categories: [博客]
 
 comment: true
 
@@ -111,7 +111,7 @@ git push -u github source
       ```
 
 4. 拉取博客
-    
+  
     ```bash
     mkdir blog
 cd blog

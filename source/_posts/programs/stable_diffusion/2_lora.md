@@ -1,7 +1,7 @@
 ---
-title: 2 lora训练
+title: 2-lora训练
 
-date: 2024-7-3
+date: 2024-7-1
 
 tags: [项目,stable diffusion, lora]
 
@@ -22,24 +22,61 @@ toc: true
 
 ## 2.1 下载
 
+- 方法1：copy
+
+  - 将别人的`lora-scripts`项目文件夹拷贝过来：
+
+    ```bash
+    cp -r 原路径/lora-scripts 你的路径/lora-scripts
+    ```
+    
+  - 然后（默认你使用了python3.10）：
+
+    ```bash
+    cd lora-scripts
+    mv ./venv ./venv_
+    python -m venv ./venv
+    cp -r ./venv_/lib/python3.10/site-packages ./venv/lib/python3.10/site-packages
+    rm -r ./venv_
+    source ./venv/bin/activate
+    bash run_gui.sh --xformers
+    
+    ```
+    
+  - 建议在run_gui.sh最前面加上（运行时会自动使用虚拟环境）：
+
+    ```bash
+    . venv/bin/activate
+    ```
+
+    
+
+  - 运行完后即可去[2.4 准备数据集](###2.4 准备数据集)
+
+- 方法2：下载
+  
 - 在big_model目录下载lora项目：
-
-  ```bash
-  cd ./big_model
-  git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
-  cd lora-scripts
   
-  ```
-
-- 安装虚拟环境（确保你的python是3.10）
-
-  ```bash
-  conda activate python310
-  python -m venv ./venv
-  conda deactivate
-  source ./venv/bin/activate
+      ```bash
+      cd ./big_model
+      git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
+    cd lora-scripts
   
-  ```
+    ```
+  
+    ```
+  
+- 安装虚拟环境（确保你的python是3.10）和必要的库
+  
+      ```bash
+      conda activate python310
+      python -m venv ./venv
+      conda deactivate
+    source ./venv/bin/activate
+  
+      ```
+
+
 
 ## 2.2 运行
 
@@ -79,7 +116,7 @@ toc: true
 
 
 
-## 2.3 启动gui
+## 2.3 启动gui （不用看）
 
 - 训练不要使用过小的图片，也不要过大（3000以上）
 
@@ -150,14 +187,33 @@ toc: true
 
 
 
-## 2.6 准备基础模型
+## 2.6 训练
 
+- 标签打完后就可以开始训练了，你可以先从别人的`lora-scripts/config/autosave`里面选择一个配置文件下载到本地，然后点击右下角的`导入配置文件`按钮，这样网络参数会跟别人的一致，就可以继续训练别人的模型了，但是有些参数还要自己写上。
 
+- 这里只列一些个人感觉重要的：
 
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/11.jpg)
 
+  ![](img/project/stable_diffusion/11.jpg)
 
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/12.jpg)
 
+  ![](img/project/stable_diffusion/12.jpg)
 
-![](../../../../themes/yilia/source/img/project/stable_diffusion/3.jpg)
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/13.jpg)
 
-![](img/project/stable_diffusion/3.jpg)
+  ![](img/project/stable_diffusion/13.jpg)
+
+  ![](../../../../themes/yilia/source/img/project/stable_diffusion/14.jpg)
+  
+![](img/project/stable_diffusion/14.jpg)
+  
+![](../../../../themes/yilia/source/img/project/stable_diffusion/15.jpg)
+  
+![](img/project/stable_diffusion/15.jpg)
+  
+![](../../../../themes/yilia/source/img/project/stable_diffusion/16.jpg)
+  
+![](img/project/stable_diffusion/16.jpg)
+

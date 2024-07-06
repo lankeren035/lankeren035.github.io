@@ -36,23 +36,22 @@ cd stable-diffusion-webui-forge
 
   ```bash
   python --version
-  
-```
+  ```
+
   
   - 如果你的python版本不对，可以先在conda安装一个python3.10：
   
       ```bash
       conda create --name python310 python=3.10
       conda activate python310
-      
       ```
-  
+
+
 - 创建虚拟环境
 
   ```bash
   python -m venv ./venv
   conda deactivate
-  
   ```
 
 - 使用虚拟环境
@@ -62,14 +61,16 @@ cd stable-diffusion-webui-forge
       ```bash
       venv\Scripts\activate
       
-   ```
-   
--  linux
-   
-      ```bash
-      source ./venv/bin/activate
-      
       ```
+   
+   
+   
+   - linux
+   
+       ```bash
+       source ./venv/bin/activate
+
+       ```
 
 
 
@@ -155,15 +156,22 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 - 如果你想自己下载：
     ```bash
     cd ../Stable-diffusion
-    wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true
+    wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/sd_xl_base_1.0.safetensors
     
-```
+    ```
+
+    - 注意这里下载的是base模型，你也可以试试别的，比如sdxl_lightning，但是后续训练使用
+    
+      ```
+      wget https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true
+      ```
+    
+      
     
 - windows powershell下可用：
 
     ```bash
     Invoke-WebRequest -Uri "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors?download=true" -OutFile "sdxl_lightning_8step.safetensors"
-    
     ```
 
 ### 5.3 vae基础模型
@@ -172,12 +180,18 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 
     ```bash
     cd ../VAE
-    wget https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors?download=true
+    wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true
     
     ```
-
-
+    
+    
 
 ## 6 默认参数设置
 
 - 网页默认选择的参数位于`stable-diffusion-webui-forge/ui-config.json`，可以修改默认的图片大小等。（也可直接把别人的文件拷过来）
+
+
+
+## 7 训练自己的lora: 
+
+{%post_link 2-lora训练%}
