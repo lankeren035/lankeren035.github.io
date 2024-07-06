@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>2 lora训练 | Hexo</title>
+  <title>2-lora训练 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="2 lora训练">
-<meta property="og:url" content="http://example.com/2024/07/03/programs/stable_diffusion/2_lora/index.html">
+<meta property="og:title" content="2-lora训练">
+<meta property="og:url" content="http://example.com/2024/07/01/programs/stable_diffusion/2_lora/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/1.jpg">
@@ -25,10 +25,20 @@
 <meta property="og:image" content="http://example.com/img/project/stable_diffusion/9.jpg">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/10.jpg">
 <meta property="og:image" content="http://example.com/img/project/stable_diffusion/10.jpg">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/3.jpg">
-<meta property="og:image" content="http://example.com/img/project/stable_diffusion/3.jpg">
-<meta property="article:published_time" content="2024-07-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-05T13:44:51.698Z">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/11.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/11.jpg">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/12.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/12.jpg">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/13.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/13.jpg">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/14.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/14.jpg">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/15.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/15.jpg">
+<meta property="og:image" content="http://example.com/themes/yilia/source/img/project/stable_diffusion/16.jpg">
+<meta property="og:image" content="http://example.com/img/project/stable_diffusion/16.jpg">
+<meta property="article:published_time" content="2024-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-06T14:15:25.335Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="项目">
 <meta property="article:tag" content="stable diffusion">
@@ -183,13 +193,13 @@
         
   
     <h1 class="article-title" itemprop="name">
-      2 lora训练
+      2-lora训练
     </h1>
   
 
         
-        <a href="/2024/07/03/programs/stable_diffusion/2_lora/" class="archive-article-date">
-  	<time datetime="2024-07-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-03</time>
+        <a href="/2024/07/01/programs/stable_diffusion/2_lora/" class="archive-article-date">
+  	<time datetime="2024-06-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-07-01</time>
 </a>
         
       </header>
@@ -201,11 +211,29 @@
 
 
 <h1 id="2-lora训练"><a href="#2-lora训练" class="headerlink" title="2- lora训练"></a>2- lora训练</h1><h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1 下载"></a>2.1 下载</h2><ul>
-<li><p>在big_model目录下载lora项目：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ./big_model</span><br><span class="line">git <span class="built_in">clone</span> --recurse-submodules https://github.com/Akegarasu/lora-scripts</span><br><span class="line"><span class="built_in">cd</span> lora-scripts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<li><p>方法1：copy</p>
+<ul>
+<li><p>将别人的<code>lora-scripts</code>项目文件夹拷贝过来：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> -r 原路径/lora-scripts 你的路径/lora-scripts</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装虚拟环境（确保你的python是3.10）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda activate python310</span><br><span class="line">python -m venv ./venv</span><br><span class="line">conda deactivate</span><br><span class="line"><span class="built_in">source</span> ./venv/bin/activate</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>然后（默认你使用了python3.10）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> lora-scripts</span><br><span class="line"><span class="built_in">mv</span> ./venv ./venv_</span><br><span class="line">python -m venv ./venv</span><br><span class="line"><span class="built_in">cp</span> -r ./venv_/lib/python3.10/site-packages ./venv/lib/python3.10/site-packages</span><br><span class="line"><span class="built_in">rm</span> -r ./venv_</span><br><span class="line"><span class="built_in">source</span> ./venv/bin/activate</span><br><span class="line">bash run_gui.sh --xformers</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建议在run_gui.sh最前面加上（运行时会自动使用虚拟环境）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>运行完后即可去[2.4 准备数据集](###2.4 准备数据集)</p>
+</li>
+</ul>
+</li>
+<li><p>方法2：下载</p>
+</li>
+<li><p>在big_model目录下载lora项目：</p>
+<pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">cd</span> ./big_model</span><br><span class="line">  git <span class="built_in">clone</span> --recurse-submodules https://github.com/Akegarasu/lora-scripts</span><br><span class="line"><span class="built_in">cd</span> lora-scripts</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+</code></pre>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 安装虚拟环境（确保你的python是3.10）和必要的库</span><br><span class="line">  </span><br><span class="line">      ```bash</span><br><span class="line">      conda activate python310</span><br><span class="line">      python -m venv ./venv</span><br><span class="line">      conda deactivate</span><br><span class="line">    source ./venv/bin/activate</span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="2-2-运行"><a href="#2-2-运行" class="headerlink" title="2.2 运行"></a>2.2 运行</h2><ul>
 <li><p>同理使用虚拟环境，在run_gui.sh最前面加上：</p>
@@ -226,7 +254,7 @@
 <li><p>运行后会自动打开本地端口： <a target="_blank" rel="noopener" href="http://127.0.0.1:28000/">http://127.0.0.1:28000</a></p>
 </li>
 </ul>
-<h2 id="2-3-启动gui"><a href="#2-3-启动gui" class="headerlink" title="2.3 启动gui"></a>2.3 启动gui</h2><ul>
+<h2 id="2-3-启动gui-（不用看）"><a href="#2-3-启动gui-（不用看）" class="headerlink" title="2.3 启动gui （不用看）"></a>2.3 启动gui （不用看）</h2><ul>
 <li><p>训练不要使用过小的图片，也不要过大（3000以上）</p>
 </li>
 <li><p>在<a target="_blank" rel="noopener" href="http://localhost:6006/">http://localhost:6006/</a> 启动 TensorBoard </p>
@@ -279,8 +307,24 @@
 <p><img src="/img/project/stable_diffusion/10.jpg"></p>
 </li>
 </ul>
-<h2 id="2-6-准备基础模型"><a href="#2-6-准备基础模型" class="headerlink" title="2.6 准备基础模型"></a>2.6 准备基础模型</h2><p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/3.jpg"></p>
-<p><img src="/img/project/stable_diffusion/3.jpg"></p>
+<h2 id="2-6-训练"><a href="#2-6-训练" class="headerlink" title="2.6 训练"></a>2.6 训练</h2><ul>
+<li><p>标签打完后就可以开始训练了，你可以先从别人的<code>lora-scripts/config/autosave</code>里面选择一个配置文件下载到本地，然后点击右下角的<code>导入配置文件</code>按钮，这样网络参数会跟别人的一致，就可以继续训练别人的模型了，但是有些参数还要自己写上。</p>
+</li>
+<li><p>这里只列一些个人感觉重要的：</p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/11.jpg"></p>
+<p><img src="/img/project/stable_diffusion/11.jpg"></p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/12.jpg"></p>
+<p><img src="/img/project/stable_diffusion/12.jpg"></p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/13.jpg"></p>
+<p><img src="/img/project/stable_diffusion/13.jpg"></p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/14.jpg"></p>
+</li>
+</ul>
+<p><img src="/img/project/stable_diffusion/14.jpg"></p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/15.jpg"></p>
+<p><img src="/img/project/stable_diffusion/15.jpg"></p>
+<p><img src="/../../../../themes/yilia/source/img/project/stable_diffusion/16.jpg"></p>
+<p><img src="/img/project/stable_diffusion/16.jpg"></p>
 
       
 
@@ -390,7 +434,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/07/03/programs/stable_diffusion/2_lora/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/07/01/programs/stable_diffusion/2_lora/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -404,9 +448,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2024/07/01/programs/stable_diffusion/1_setup/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          1 stable diffusion项目创建
+        
+      </div>
+    </a>
   
-    <a href="/2024/07/01/programs/stable_diffusion/1_setup/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">1 stable diffusion项目创建</div>
+  
+    <a href="/2024/06/29/python/file/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python处理文件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -433,7 +486,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-lora%E8%AE%AD%E7%BB%83"><span class="toc-number">2.</span> <span class="toc-text">2- lora训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%BF%90%E8%A1%8C"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%90%AF%E5%8A%A8gui"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 启动gui</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 准备数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E7%BC%96%E8%BE%91%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 编辑标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E5%88%A0%E9%99%A4-%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.1.</span> <span class="toc-text">2.5.1删除&#x2F;添加标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E5%87%86%E5%A4%87%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 准备基础模型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-lora%E8%AE%AD%E7%BB%83"><span class="toc-number">2.</span> <span class="toc-text">2- lora训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E8%BF%90%E8%A1%8C"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%90%AF%E5%8A%A8gui-%EF%BC%88%E4%B8%8D%E7%94%A8%E7%9C%8B%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 启动gui （不用看）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 准备数据集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E7%BC%96%E8%BE%91%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 编辑标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1%E5%88%A0%E9%99%A4-%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.1.</span> <span class="toc-text">2.5.1删除&#x2F;添加标签</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E8%AE%AD%E7%BB%83"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 训练</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -578,6 +631,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
@@ -586,11 +647,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,15 +667,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,63 +719,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">论文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,7 +731,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,11 +739,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,10 +767,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
@@ -739,6 +776,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">lora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">论文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>
