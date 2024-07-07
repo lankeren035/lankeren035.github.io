@@ -1,8 +1,8 @@
 ---
 title: python中面向对象的使用
 date: 2024-5-9 10:00:00
-tags: [机器学习,pytorch]
-categories: [机器学习]
+tags: [python]
+categories: [python]
 comment: true
 toc: true
 ---

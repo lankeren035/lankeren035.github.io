@@ -1,12 +1,13 @@
 ---
 title: python中torch的使用
 date: 2024-5-9 11:00:00
-tags: [机器学习,pytorch]
-categories: [机器学习]
+tags: [python,pytorch]
+categories: [python]
 comment: true
 toc: true
 ---
-#  
+#
+
 <!--more-->
 # python中torch的使用
 

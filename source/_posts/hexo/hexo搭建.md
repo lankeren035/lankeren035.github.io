@@ -5,7 +5,7 @@ date: 2022-12-12
 categories: [博客]
 tags: [博客,hexo]
 ---
-#  
+#
 
  <!-- more --> 
 
@@ -29,9 +29,21 @@ tags: [博客,hexo]
 - 安装点击next即可
 ## 3.通过cnpm安装hexo
 - 进入控制台使用管理员身份
+
 - 输入：npm install -g cnpm --registry=https://registry.npm.taobao.org<回车>
-![](../../../themes/yilia/source/img/hexo/2.png)
-![](./img/hexo/2.png)
+  ![](../../../themes/yilia/source/img/hexo/2.png)
+  ![](./img/hexo/2.png)
+
+  - 如果显示淘宝镜像过期输入：
+
+    ```bash
+    npm cache clean --force
+    npm config set registry https://registry.npmmirror.com
+    npm install -g cnpm
+    ```
+
+    
+
 - 输入：cnpm install -g hexo-cli<回车>
 ## 4.搭建博客
 - 创建一个空文件夹(d:/blog/test)

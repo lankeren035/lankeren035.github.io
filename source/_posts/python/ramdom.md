@@ -3,7 +3,7 @@ title: python中random模块的使用
 date: 2024-05-2 20:00:00
 toc: true
 tags: [python]
-categories: [python库]
+categories: [python]
 ---
 #  
 <!-- more -->
