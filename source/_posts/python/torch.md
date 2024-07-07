@@ -24,3 +24,9 @@ def xavier_init_weights(m):
 
 net.apply(xavier_init_weights)
 ```
+
+- 生成矩阵：
+```python
+
+torch.eye(10).unsqueeze(0).unsqueeze(0).repeat(2, 2, 1, 1)
+```

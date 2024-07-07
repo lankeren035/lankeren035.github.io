@@ -3,7 +3,7 @@ title: 1-3 二分
 
 date: 2024-4-18
 
-tags: [算法，排序]
+tags: [算法，二分]
 
 categories: [算法]
 
@@ -14,12 +14,15 @@ toc: true
 
 ---
 
-#
+#  
+
 <!--more-->
 
-# 3 整数二分
+# 3. 二分
 
-## 3.1思想
+## 3.1 整数二分
+
+### 3.1.1 思想
 
 - 二分的本质并不是单调性：有单调性一定可以二分，可以二分不一定有单调性。
 
@@ -27,13 +30,13 @@ toc: true
 
 - 每次分一半，保证答案处在目标区间里。二分一定会有解。
 
-## 3.2 模板
+### 3.1.2 模板
 
 ```c++
 //目标在右区间。区间[l, r]被划分成[l, mid], [mid+1, r]
 int bsearch_1(int l, int r){
     while(l < r){
-        int mid = ((r-l)>>1)+l; //多一个+1
+        int mid = ((r-l)>>1)+l; 
         if(check(mid)) r=mid;  //check()查看mid是否符合性质
         else l = mid + 1;
     }
@@ -43,7 +46,7 @@ int bsearch_1(int l, int r){
 //目标在左区间。区间[l, r]被划分成[l, mid-1]，[mid, r]
 int bsearch_2(int l, int r){
     while(l<r){
-        int mid = ((r-l+1)>>1)+l;
+        int mid = ((r-l+1)>>1)+l; //多一个+1 注意，当只有两个数时，mid取左边可能在更新l时会死循环
         if (check(mid)) l=mid;
         else r=mid-1;
     }
@@ -53,7 +56,7 @@ int bsearch_2(int l, int r){
 
 
 
-## 3.3 例题
+### 3.1.3 例题
 
 - 给定一长度为n的升序数组，以及q个查询。对于每次查询，输入一个数k，返回元素k的起始位置和终止位置（从0开始）。不存在则返回-1 -1
 
@@ -85,6 +88,7 @@ int main(){
                 scanf("%d", &x);
 
                 int l=0, r=n-1;
+                //找左边界
                 while(l<r){
                         int mid = ((r-l)>>1)+l;
                         if (a[mid] >= x) r=mid;
@@ -95,6 +99,8 @@ int main(){
                         cout <<l <<' ';
 
                         int l =0, r=n-1;
+
+                        //找右边界
                         while(l<r){
                                 int mid = ((r-l+1)>>1)+l;
                                 if (a[mid] <=x) l=mid;
@@ -107,13 +113,13 @@ int main(){
 }
 ```
 
-# 4 浮点数二分
+## 3.2 浮点数二分
 
 - 更简单，不用考虑+1问题。
 
-## 4.1 例题
+### 3.2.1 例题
 
-- 计算一个数（>1）的平方根
+- 计算一个数的平方根
 
 ```c++
 #include<iostream>
@@ -122,7 +128,7 @@ using namespace std;
 int main(){
         double x=0;
         cin >>x;
-        double l=0, r=x;
+        double l=0, r=max(x,1.);
         while(r-l>1e-8){
                 double mid = ((r-l)/2)+l;
                 if(mid*mid<x) l=mid;
@@ -133,3 +139,30 @@ int main(){
 }
 ```
 
+## 3.3 练习
+
+### 三次方根
+
+- 给定一个浮点数n，求它的三次方根。
+
+- 数据范围：-10000.0<=n<=10000.0
+
+- 精度要求：绝对误差小于1e-6
+
+```c++
+#include<iostream>
+using namespace std;
+
+int main(){
+	double x=0,mid=0;
+	cin>>x;
+	double l=-22,r=22; //注意范围
+	while(r-l>=1e-8){ //一般精度-6这里就整到-8
+		mid = ((r-l)/2)+l;
+		if (mid * mid * mid < x) l=mid;
+		else r=mid;
+	}
+	printf("%.6lf",mid);
+	return 0;
+}
+```

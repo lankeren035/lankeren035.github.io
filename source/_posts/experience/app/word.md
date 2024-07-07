@@ -20,9 +20,9 @@ toc: true
 
 # 1. 公式
 
-- 使用latex公式
+## 1.1 使用latex公式
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/1.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/1.png)
 
   ![](img/experience/app/word/1.png)
 
@@ -40,13 +40,13 @@ toc: true
 
 - 另存为 ， 选择类型为pdf, 选项
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/to_pdf/1.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/to_pdf/1.png)
 
   ![](img/experience/app/word/to_pdf/1.png)
 
 - 选择标题
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/to_pdf/2.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/to_pdf/2.png)
   
   ![](img/experience/app/word/to_pdf/2.png)
 
@@ -58,35 +58,35 @@ toc: true
 
 - 如何将摘要编页码，目录无页码，正文编页码
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/page/0.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/page/0.png)
 
   ![](img/experience/app/word/page/0.png)
 
 - 分别在上图箭头处（每一节的结尾插入分节符）（选择分节符/下一页，不要选连续）
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/page/1.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/page/1.png)
 
   ![](img/experience/app/word/page/1.png)
 
 - 重复n次插入后，你获得了四个区块。每个区块里面的分页随便你插入何种类型的分页符。
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/word/page/2.png)
+  ![](../../../../themes/yilia/source/img/experience/app/word/page/2.png)
 
   ![](img/experience/app/word/page/2.png)
 
 - 双击页脚（假设你在页脚插入页码），在**每**个区块的的第一页**取消链接到前一节**，插入页码。（每个区块的第一页都要点击**取消链接到前一节**斩断联系。）
 
-   ![](D:/blog/themes/yilia/source/img/experience/app/word/page/3.png)
+   ![](../../../../themes/yilia/source/img/experience/app/word/page/3.png)
 
    ![](img/experience/app/word/page/3.png)  
 
 - 此时页码不是1，不要慌，点击页码，设置格式。就ok了
 
-   ![](D:/blog/themes/yilia/source/img/experience/app/word/page/4.png)
+   ![](../../../../themes/yilia/source/img/experience/app/word/page/4.png)
 
    ![](img/experience/app/word/page/4.png)  
 
-   ![](D:/blog/themes/yilia/source/img/experience/app/word/page/5.png)
+   ![](../../../../themes/yilia/source/img/experience/app/word/page/5.png)
 
     ![](img/experience/app/word/page/5.png) 
 
@@ -94,4 +94,14 @@ toc: true
 
 
 
-# 4. 
+# 4. 表格
+
+## 4.1 三线表
+
+- 选择表格右键 -> 表格属性 -> 边框和底纹 -> 先选择磅数1.5，然后只选择上下边框
+
+  ![](../../../../themes/yilia/source/img/experience/app/word/2.png)
+
+  ![](img/experience/app/word/2.png)
+
+- 选择表格的第一行，然后属性，边框底纹，磅数0.75，选择上下边框
