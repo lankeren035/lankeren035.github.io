@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-01T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-29T02:32:42.785Z">
+<meta property="article:modified_time" content="2024-07-07T11:21:55.326Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="算法，排序">
 <meta name="twitter:card" content="summary">
@@ -181,21 +181,103 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-<h1 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1 快速排序"></a>1 快速排序</h1><h3 id="1-1-思想"><a href="#1-1-思想" class="headerlink" title="1. 1 思想"></a>1. 1 思想</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 确定分界点</span><br><span class="line">	- q[l]</span><br><span class="line">	- q[r]</span><br><span class="line">	- q[(l+r)/2]</span><br><span class="line">	- q[random]</span><br><span class="line">2. 调整区间（*）</span><br><span class="line">	- 左边&lt;=x x0 右边&gt;=x</span><br><span class="line">	- x不一定在x0位置</span><br><span class="line">3. 递归两端</span><br></pre></td></tr></table></figure>
+<h1 id="1-快速排序"><a href="#1-快速排序" class="headerlink" title="1. 快速排序"></a>1. 快速排序</h1><h2 id="1-1-思想"><a href="#1-1-思想" class="headerlink" title="1. 1 思想"></a>1. 1 思想</h2><ol>
+<li>确定分界点<ul>
+<li>q[l] （用j）</li>
+<li>q[r] （用i）</li>
+<li>q[(l+r)&#x2F;2]</li>
+<li>q[random]</li>
+</ul>
+</li>
+<li>调整区间（*）<ul>
+<li>左边&lt;&#x3D;x x0 右边&gt;&#x3D;x</li>
+<li>x不一定在x0位置</li>
+</ul>
+</li>
+<li>递归两端</li>
+</ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 暴力求解</span><br><span class="line">	a[], b[], c[],对c进行排序，&lt;=x的放到a，&gt;=x的放到b。放完后先将a放到c，再将b放到c.</span><br><span class="line">	</span><br><span class="line">2. 优化空间</span><br><span class="line">	定义左右指针i,j当c[i]&gt;x时停，当c[j]&lt;x时停。两个都停之后交换。</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-算法模板"><a href="#1-2-算法模板" class="headerlink" title="1.2 算法模板"></a>1.2 算法模板</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100000</span>];</span><br><span class="line"><span class="type">void</span> <span class="title function_">qsort</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> x=a[((r-l)&gt;&gt;<span class="number">1</span>)+l]; <span class="comment">//这里要用a[]不要只计算索引，因为后续该索引位置上的元素可能会改变。</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span>(a[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span>(a[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j) swap(a[i],a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    qsort(a,l,j);</span><br><span class="line">    qsort(a,j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    qsort(a,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-算法模板"><a href="#1-2-算法模板" class="headerlink" title="1.2 算法模板"></a>1.2 算法模板</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100000</span>];</span><br><span class="line"><span class="type">void</span> <span class="title function_">qsort</span><span class="params">(<span class="type">int</span> a[],<span class="type">int</span> l, <span class="type">int</span> r)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> x=a[((r-l)&gt;&gt;<span class="number">1</span>)+l]; <span class="comment">//这里要用a[]不要只计算索引，因为后续该索引位置上的元素可能会改变。</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span>(a[i]&lt;x);</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span>(a[j]&gt;x);</span><br><span class="line">        <span class="keyword">if</span>(i&lt;j) swap(a[i],a[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    qsort(a,l,j);</span><br><span class="line">    qsort(a,j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    qsort(a,<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//输入</span><br><span class="line">5</span><br><span class="line">5 4 3 2 1</span><br></pre></td></tr></table></figure>
 
 
 
 <ul>
+<li><p>c++里的快排是快排与插排的组合。</p>
+</li>
+<li><p>快排一般做题不会遇到，在面试的时候要你手写。</p>
+</li>
+<li><p>当分界点选择为a[l]时，如果使用i分割左右，那么可能会死循环，例如[0,1]用i分割后左：[]，右：[0,1]死循环。所以<code>mid = a[l]</code>时，递归用<code>(a, l, j)</code>。反之同理。</p>
+</li>
 <li><p>可以考虑使用i或j</p>
 </li>
 <li><p>可以考虑使用while(a[i++])</p>
 </li>
 <li><p>快排不稳定，如果要变成稳定的，可以变成&lt;a[i], i&gt;</p>
 </li>
+<li><p>循环最终只会有两种情况：</p>
+<ul>
+<li>i&#x3D;&#x3D;j</li>
+<li>i&#x3D;&#x3D;j+1</li>
 </ul>
+</li>
+</ul>
+<h2 id="1-3-练习"><a href="#1-3-练习" class="headerlink" title="1.3 练习"></a>1.3 练习</h2><h3 id="1-3-1-第k个数"><a href="#1-3-1-第k个数" class="headerlink" title="1.3.1 第k个数"></a>1.3.1 第k个数</h3><ul>
+<li><p>给定一个长度为 n的整数数列，以及一个整数 k，请用快速选择算法求出数列从小到大排序后的第 k个数。</p>
+</li>
+<li><p>输入格式</p>
+<ul>
+<li><p>第一行包含两个整数 n 和 k。</p>
+</li>
+<li><p>第二行包含 n个整数（所有整数均在1~$10^9$范围内），表示整数数列。</p>
+</li>
+</ul>
+</li>
+<li><p>输出格式</p>
+<ul>
+<li>输出一个整数，表示数列的第 k小数。</li>
+</ul>
+</li>
+<li><p>数据范围</p>
+<ul>
+<li><p>1≤n≤100000</p>
+</li>
+<li><p>1≤k≤n</p>
+</li>
+</ul>
+</li>
+<li><p>输入样例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">2 4 1 5 3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出样例：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="解1"><a href="#解1" class="headerlink" title="解1"></a>解1</h4><ul>
+<li>先快排，然后输出第k个数</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">100000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">qsort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l&gt;=r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="type">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> mid = a[((j-l)&gt;&gt;<span class="number">1</span>)+i];</span><br><span class="line">	<span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">		<span class="keyword">while</span>(a[++i]&lt;mid);</span><br><span class="line">		<span class="keyword">while</span>(a[--j]&gt;mid);</span><br><span class="line">		<span class="keyword">if</span> (i&lt;j) <span class="built_in">swap</span>(a[i],a[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">qsort</span>(l,j);</span><br><span class="line">	<span class="built_in">qsort</span>(j+<span class="number">1</span>,r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n=<span class="number">0</span>,k=<span class="number">0</span>;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) cin&gt;&gt;a[i];</span><br><span class="line">	<span class="built_in">qsort</span>(<span class="number">0</span>,n<span class="number">-1</span>);</span><br><span class="line">	cout&lt;&lt;a[k<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="解2"><a href="#解2" class="headerlink" title="解2"></a>解2</h4><ul>
+<li><p>快速选择：O(n)</p>
+<ol>
+<li>确定分界点<ul>
+<li>q[l]</li>
+<li>q[r]</li>
+<li>q[(l+r)&#x2F;2]</li>
+<li>q[random]</li>
+</ul>
+</li>
+<li>调整区间（*）<ul>
+<li>左边&lt;&#x3D;x x0 右边&gt;&#x3D;x</li>
+<li>x不一定在x0位置</li>
+</ul>
+</li>
+<li>if 左区间长度sl &gt;&#x3D; k, 递归左区间</li>
+<li>else 左区间长度sl &lt; k, 递归右区间(更新k)</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[<span class="number">100000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qselect</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (l&gt;=r) <span class="keyword">return</span> a[r]; <span class="comment">//这里可以写==，快排里不能，因为快排里面这里有可能没有数 </span></span><br><span class="line">	<span class="type">int</span> i=l<span class="number">-1</span>,j=r+<span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> mid = a[((j-l)&gt;&gt;<span class="number">1</span>)+i];</span><br><span class="line">	<span class="keyword">while</span>(i &lt; j)&#123;</span><br><span class="line">		<span class="keyword">while</span>(a[++i]&lt;mid);</span><br><span class="line">		<span class="keyword">while</span>(a[--j]&gt;mid);</span><br><span class="line">		<span class="keyword">if</span> (i&lt;j) <span class="built_in">swap</span>(a[i],a[j]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (j &lt; k) <span class="keyword">return</span> <span class="built_in">qselect</span>(j+<span class="number">1</span>,r,k); <span class="comment">//左区间长度：j-l+1 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">qselect</span>(l,j,k); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n=<span class="number">0</span>,k=<span class="number">0</span>;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) cin&gt;&gt;a[i];</span><br><span class="line">	cout&lt;&lt;<span class="built_in">qselect</span>(<span class="number">0</span>,n<span class="number">-1</span>,k<span class="number">-1</span>); <span class="comment">//传入的是下标，所以要k-1 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -311,11 +393,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/10/02/algorithm/1_base/1_base/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          1. 快速排序
+          1.1 pytorch数据操作
         
       </div>
     </a>
@@ -349,7 +431,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">1 快速排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%80%9D%E6%83%B3"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. 1 思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.0.2.</span> <span class="toc-text">1.2 算法模板</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">1. 快速排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%80%9D%E6%83%B3"><span class="toc-number">2.1.</span> <span class="toc-text">1. 1 思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 算法模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E7%BB%83%E4%B9%A0"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 练习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E7%AC%ACk%E4%B8%AA%E6%95%B0"><span class="toc-number">2.3.1.</span> <span class="toc-text">1.3.1 第k个数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A31"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">解1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A32"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">解2</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -482,6 +564,14 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
@@ -506,19 +596,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +632,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,11 +648,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,11 +716,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+                <a href="javascript:void(0)" class="js-tag color2">kaggle</a>
               </li>
              
               <li class="article-tag-list-item">
