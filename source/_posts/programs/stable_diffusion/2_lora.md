@@ -168,8 +168,14 @@ toc: true
     ![](../../../../themes/yilia/source/img/project/stable_diffusion/8.jpg)
 
     ![](img/project/stable_diffusion/8.jpg)
-
-
+    
+    - 解决上述问题：在`run_gui.sh`的前面加上：
+    
+        ```bash
+        export GRADIO_TEMP_DIR="home/用户名/tmp"
+        ```
+    
+        - 参考：{%post_link 'gradio无法访问temp'%}
 
 ### 2.5.1删除/添加标签
 
@@ -207,13 +213,14 @@ toc: true
 
   ![](../../../../themes/yilia/source/img/project/stable_diffusion/14.jpg)
   
+
 ![](img/project/stable_diffusion/14.jpg)
-  
+
 ![](../../../../themes/yilia/source/img/project/stable_diffusion/15.jpg)
-  
+
 ![](img/project/stable_diffusion/15.jpg)
-  
+
 ![](../../../../themes/yilia/source/img/project/stable_diffusion/16.jpg)
-  
+
 ![](img/project/stable_diffusion/16.jpg)
 

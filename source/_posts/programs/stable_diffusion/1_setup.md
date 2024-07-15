@@ -156,7 +156,7 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 - 如果你想自己下载：
     ```bash
     cd ../Stable-diffusion
-    wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/blob/main/sd_xl_base_1.0.safetensors
+    wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true
     
     ```
 
@@ -180,7 +180,7 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 
     ```bash
     cd ../VAE
-    wget https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true
+    wget https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl.vae.safetensors?download=true
     
     ```
     
@@ -195,3 +195,4 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 ## 7 训练自己的lora: 
 
 {%post_link 2-lora训练%}
+
