@@ -77,12 +77,41 @@ pip install debugpy
     - 开头加上：
 
       ```bash
-      ifdebug=true
-      debug_port=xxxx #端口号与前面对应
+      #!/usr/bin/env bash
+      #################################################
+      # Please do not make any changes to this file,  #
+  # change the variables in webui-user.sh instead #
+      #################################################
+  #-----------------------------------------------
+      ifdebug=false
+      debug_port=29000
+      
+      # 解析命令行参数并删除指定参数
+      args=("$@")
+      filtered_args=()
+      for arg in "${args[@]}"; do
+      case "$arg" in
+              -ifdebug=*)
+                  ifdebug="${arg#*=}"
+                  ;;
+              -debug_port=*)
+                  debug_port="${arg#*=}"
+                  ;;
+              *)
+                  filtered_args+=("$arg")
+                  ;;
+          esac
+      done
+      # 更新 $@ 以只包含 filtered_args 中的值
+      set -- "${filtered_args[@]}"
+      echo "ifdebug: $ifdebug"
+      echo "debug_port: $debug_port"
+      echo "remaining args: $@"
+      #-----------------------------------------------
       ```
-
+    
     - 翻到最后，将`"${python_cmd}" -u "${LAUNCH_SCRIPT}" "$@"`改成：
-
+    
       ```bash
       if [[ "${ifdebug}" = "true" ]]; then
           "${python_cmd}" -m debugpy --listen "${debug_port}" --wait-for-client "${LAUNCH_SCRIPT}" "$@"
@@ -90,7 +119,7 @@ pip install debugpy
           "${python_cmd}" -u "${LAUNCH_SCRIPT}" "$@"
       fi
       ```
-
+    
       
 
 ## 4.4 运行

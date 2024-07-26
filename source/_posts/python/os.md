@@ -31,6 +31,18 @@ categories: [python]
     os.makedirs('/', exits_ok=True)
     ```
 
+  - 获取当前文件的绝对路径：
+
+    ```python
+    modules_path = os.path.dirname(os.path.realpath(__file__))
+    ```
+
+  - 获取某个目录的父目录
+
+    ```python
+    script_path = os.path.dirname(modules_path)
+    ```
+
     
 
 - 重命名：
