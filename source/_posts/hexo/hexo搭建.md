@@ -30,7 +30,7 @@ tags: [博客,hexo]
 ## 3.通过cnpm安装hexo
 - 进入控制台使用管理员身份
 
-- 输入：npm install -g cnpm --registry=https://registry.npm.taobao.org<回车>
+- 输入：`npm install -g cnpm --registry=https://registry.npm.taobao.org`<回车>
   ![](../../../themes/yilia/source/img/hexo/2.png)
   ![](./img/hexo/2.png)
 
@@ -42,9 +42,21 @@ tags: [博客,hexo]
     npm install -g cnpm
     ```
 
+  - 如果显示:
+    ```bash
+    npm error code ERR_INVALID_URL
+    npm error Invalid URL
+    ````
+    则需要设置代理:
+    ```bash
+    npm config delete proxy
+    npm config delete https-proxy
+    npm config set  proxy http://127.0.0.1:7890
+    npm config set  https-proxy http://127.0.0.1:7890
+    ```
     
 
-- 输入：cnpm install -g hexo-cli<回车>
+- 输入：`cnpm install -g hexo-cli`<回车>
 ## 4.搭建博客
 - 创建一个空文件夹(d:/blog/test)
 - 进入该文件夹：cd /d d:/blog/test<回车>
@@ -63,7 +75,7 @@ tags: [博客,hexo]
 - 注意前面部分要跟自己的名字一样（以后通过
 ![](../../../themes/yilia/source/img/hexo/4.png)
 ![](./img/hexo/4.png)
-- 安装插件：命令行输入：cnpm install --save hexo-deployer-git
+- 安装插件：命令行输入：`cnpm install --save hexo-deployer-git`
 - 找到_config.yml文件,将最后面加上：
 ```
 type: git
@@ -75,7 +87,7 @@ type: git
 
 ## 7.换主题
 - 找到目标主题：github.com/litten/hexo-theme-yilia
-- 命令行输入：git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia则会在theme下创建yilia文件夹
+- 命令行输入：`git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia`则会在theme下创建yilia文件夹
 - 在_config.yml中将theme后的改为yilia
 ![](../../../themes/yilia/source/img/hexo/5.png)
 ![](./img/hexo/5.png)
