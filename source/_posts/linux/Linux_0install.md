@@ -1,6 +1,6 @@
 ---
 title: Linux入门-0配置
-date: 2021-03-01 20:00:00
+date: 2021-03-01 13:00:00
 toc: true
 tags: [Linux]
 categories: [Linux]

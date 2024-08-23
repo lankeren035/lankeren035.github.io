@@ -5,7 +5,7 @@ date: 2024-7-1
 
 tags: [项目,stable diffusion]
 
-categories: [stable diffusion]
+categories: [项目]
 
 comment: true
 

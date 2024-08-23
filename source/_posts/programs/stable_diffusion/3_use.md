@@ -5,7 +5,7 @@ date: 2024-7-9
 
 tags: [项目,stable diffusion]
 
-categories: [stable diffusion]
+categories: [项目]
 
 comment: true
 
@@ -26,8 +26,9 @@ toc: true
 ## 3.1 下载配置文件/权重
 
 - 方法一：手动下载（更快）
-  - 
-
+  
+- 
+  
 - 方法二：代码下载（会下载很多没用的权重，会比较慢，不过可以学学用huggingface下载东西）
   - 需要用到的权重：
     - base stable diffusion

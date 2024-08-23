@@ -1,6 +1,6 @@
 ---
 title: Linux入门-3使用操作2
-date: 2024-03-02 21:00:00
+date: 2024-03-03 14:00:00
 toc: true
 tags: [Linux]
 categories: [Linux]

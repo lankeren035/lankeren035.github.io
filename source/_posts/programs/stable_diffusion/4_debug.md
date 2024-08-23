@@ -4,7 +4,7 @@ date: 2024-7-9
 
 tags: [项目,stable diffusion,vscode]
 
-categories: [stable diffusion, vscode]
+categories: [项目]
 
 comment: true
 
@@ -80,6 +80,7 @@ pip install debugpy
       #!/usr/bin/env bash
       #################################################
       # Please do not make any changes to this file,  #
+      ```
   # change the variables in webui-user.sh instead #
       #################################################
   #-----------------------------------------------
@@ -109,7 +110,7 @@ pip install debugpy
       echo "remaining args: $@"
       #-----------------------------------------------
       ```
-    
+  
     - 翻到最后，将`"${python_cmd}" -u "${LAUNCH_SCRIPT}" "$@"`改成：
     
       ```bash

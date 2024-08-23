@@ -1,6 +1,6 @@
 ---
 title: Linux入门-2用户和权限
-date: 2021-03-03 20:00:00
+date: 2021-03-03 12:00:00
 toc: true
 tags: [Linux]
 categories: [Linux]
@@ -29,24 +29,26 @@ categories: [Linux]
 
 ### 1. su（switch user）<span id='su'>命令</span>
 
-su [-] [用户名]
+`su [-] [用户名]`
 
 - 退出用户：exit或ctrl+d
 
 ### 2. sudo<span id='sudo'>命令</span>（以管理员身份运行）
 
-sudo Linux命令
+`sudo Linux命令`
 
 - 需要先为用户配置sudo认证  
   - 先进入root用户
-  - 再visudo，G到最后一行，o到末尾，再末尾输入：用户名 ALL=(ALL)      NOPASSWD: ALL
+  - 再visudo，G到最后一行，o到末尾，再末尾输入：`用户名 ALL=(ALL)      NOPASSWD: ALL`
   - 再esc，:wq退出 
 
 ### 3. 用户组
+
 - 创建：<span id='groupadd'>groupadd</span> 组名
 - 删除：<span id='groupdel'>groupdel</span> 组名
 
 ### 4. 用户
+
 #### 4-1创建用户
 <span id='useradd'>useradd [-g -d] 用户名</span>
 （useradd 用户名 -g 组名 -d 目录）
@@ -59,13 +61,13 @@ sudo Linux命令
 - r 删除home目录
 #### 4-3 查看用户所属组<span id='id'> </span>
 
-id [用户名]
+`id [用户名]`
 
 #### 4-4 修改用户所属组<span id='usermod'> </span>
 
-usermod -aG 组名 用户名
+`usermod -aG 组名 用户名`
 
-#### 4-5 查看系统用户(组)<span id='getent'></span>
+#### 4-5 查看系统用户(组)<span id='getent'> </span>
 
 getent passwd或group
 - 用户显示的信息：用户名:密码:用户组:描述信息:HOME目录:执行终端（默认bash)
