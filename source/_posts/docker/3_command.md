@@ -123,8 +123,22 @@ docker.io/library/mysql:latest #真实地址 等价于：docker pull docker.io/l
   | docker restart 容器id           |                                    | 重启容器                                                     |
   | docker stop 容器id              |                                    | 停止当前正在运行的容器                                       |
   | docker kill 容器id              |                                    | 强制停止当前容器                                             |
-
+| docker commit 参数 容器 镜像名  | -a：作者<br>-m：附加信息           | 将容器打包成镜像                                             |
   
+  - 将下载的tomcat镜像添加webapp之后打包成新的镜像：
+  
+    ```shell
+    docker run --name "tomcat" -it -p 8080:8080 tomcat:9.0 /bin/bash
+    cp -r webapps.dist/* webapps
+    ```
+  
+    `ctrl + p + q`
+  
+    ```shell
+    docker commit -a "admin" -m "add webapps" tomcat mytomcat
+    ```
+  
+    
 
 ## 3.4 其他常用命令
 

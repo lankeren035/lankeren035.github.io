@@ -65,9 +65,9 @@ for layer in net:
     Linear output shape:	 torch.Size([1, 84])
     Sigmoid output shape:	 torch.Size([1, 84])
     Linear output shape:	 torch.Size([1, 10])
-    
 
 ## 6.2 模型训练
+
 - 在Fashion-MNIST上训练
 
 
@@ -146,10 +146,10 @@ train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
     loss 1.000, train acc0.824,test acc0.804
     6523.3 examples/sec on cpu
-    
 
 
-    
+
+
 ![svg](6_LeNet_files/6_LeNet_3_1.svg)
 ![](img/deeplearning/code/pytorch/5_convolution/6_LeNet_files/6_LeNet_3_1.svg)
 
