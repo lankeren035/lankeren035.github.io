@@ -60,6 +60,7 @@ docker stats #查看cpu状态
 | docker pull 名称[:tag]             | -a<br>-q                                                  | 下载镜像, tag是版本                                          |
 | docker rmi 名称/id1 名称/id2       | -f                                                        | 删除镜像                                                     |
 | docker rmi -f $(docker images -aq) |                                                           | 删除全部镜像                                                 |
+| docker history 镜像名              |                                                           | 查看镜像构建过程                                             |
 
 
 

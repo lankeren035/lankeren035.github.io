@@ -95,3 +95,49 @@ docker inspect centos
   ```
 
   
+
+## 7.3 Dockerfile挂载
+
+- Dockerfile就是用来构建docker镜像的构建文件，脚本的一个命令就是一层：
+
+  ```shell
+  # 创建一个dockerfile文件
+  # 文件中的内容：指令（大写） 参数
+  # 匿名挂载 volume01和volume02
+  
+  mkdir test
+  echo -e 'FROM centos\nVOLUME ["/volume01", "/volume02"]\nCMD [echo "-----end-----" && /bin/bash]' > test/dockerfile
+  
+  ```
+
+- 通过上面的命令构建一个镜像：
+
+  ```shell
+  docker build -f test/dockerfile -t dockerfile_test:1.0 .
+  ```
+
+  
+
+## 7.4 容器数据卷
+
+- `--volumes-from`命令
+
+![](../../../themes/yilia/source/img/docker/16.png)
+
+![](img/docker/16.png)
+
+```
+docker run -it --name centos01 centos01 /bin/bash
+docker run -it --name centos02 --volumes-from centos01 centos01 /bin/bash
+```
+
+- 多个容器之间的容器数据卷使用的是拷贝，因此删除一个容器之后另一个的共享数据依然存在。
+
+- 实现多个mysql共享数据：
+
+  ```shell
+  docker run -d -p 3306:3306 -v /etc/mysql/conf.d -v /var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql
+  docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 --volumes-from mysql01 mysql
+  ```
+
+  - 持续化到本地的数据是不会删除的。
