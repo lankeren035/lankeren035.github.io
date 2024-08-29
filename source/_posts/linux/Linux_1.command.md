@@ -17,7 +17,7 @@ categories: [Linux]
 | 显示工作路径           | <a href='#pwd'>pwd</a>                    |
 | 创建文件夹             | <a href='#mkdir'>mkdir -p 路径</a>          |
 | 创建文件               | <a href='#touch'>touch 路径</a>             |
-| 查看文件               | <a href='#cat'>cat 路径</a>               |
+| 查看文件（也可写入）     | <a href='#cat'>cat 路径</a>               |
 | 分页查看               | <a href='#more'>more 路径  </a>            |
 | 复制                   | <a href='#cp'>cp -r 源 目的  </a>        |
 | 移动文件               | <a href='#mv'>mv 源 目的（可重命名</a>） |
@@ -107,6 +107,17 @@ cat 1.txt | grep "hello"
 ### 6. <span id='cat'>cat命令（查看文件）</span>
 
 `cat 路径`
+
+- 将下列内容写入指定文件， `<<` 是 Bash 中的 "here document" 操作符，用来告诉 shell，从当前位置开始读取数据，直到遇到指定的结束标记（在这里是 `EOF`）。 
+
+    ```shell
+    cat << EOF >/mydata/redis/node-1/conf/redis.conf
+    port 6379
+    bind 0.0.0.0
+    EOF
+    ```
+
+
 
 ### <span id='more'>7. more命令（查看文件）</span>
 
