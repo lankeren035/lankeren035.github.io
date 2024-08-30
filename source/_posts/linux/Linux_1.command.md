@@ -17,7 +17,7 @@ categories: [Linux]
 | 显示工作路径           | <a href='#pwd'>pwd</a>                    |
 | 创建文件夹             | <a href='#mkdir'>mkdir -p 路径</a>          |
 | 创建文件               | <a href='#touch'>touch 路径</a>             |
-| 查看文件（也可写入）     | <a href='#cat'>cat 路径</a>               |
+| 查看文件（也可写入）     | <a href='#cat'>cat 路径</a><br>less 路径 （可分页） |
 | 分页查看               | <a href='#more'>more 路径  </a>            |
 | 复制                   | <a href='#cp'>cp -r 源 目的  </a>        |
 | 移动文件               | <a href='#mv'>mv 源 目的（可重命名</a>） |
@@ -29,6 +29,10 @@ categories: [Linux]
 | 打印                   | <a href='#echo'>echo</a>                   |
 | 从尾部查看             | <a href='#tail'>tail -f -数字 路径  </a>   |
 | 编辑文件               | <a href='#vi'>vi 路径</a>                |
+
+|                                                  |           |
+| ------------------------------------------------ | --------- |
+| 查看命令类型（内置命令、外部命令、别名还是函数） | type 命令 |
 
 
 

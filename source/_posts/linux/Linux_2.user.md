@@ -109,8 +109,10 @@ getent passwd或group
   - 例子：
 
     ```bash
-    chmod u=rwx,g=rx,o=x test.txt
+    chmod u=rwx,g=rx,o=x test.txt #所有者，所属组，其他用户
     chmod 751 test.txt
+    
+    chmod +x test2.txt #为三者都增加执行权限
     ```
     
     
