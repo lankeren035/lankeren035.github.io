@@ -101,6 +101,7 @@ date [-d] [+格式化字符串]
 ```bash
 date "+%Y-%m-%d %H:%M:%S"
 date -d "+1day" +%Y%m%d #后一天
+date +%s #时间戳
 ```
 
 - 修改时区

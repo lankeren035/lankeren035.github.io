@@ -196,6 +196,10 @@ vim 文件路径
 ![](../../../themes/yilia/source/img/linux/commend/6.png)
 ![](../../../themes/yilia/source/img/linux/commend/7.png)
 
+- 删除全部内容：`:%d`
+
+
+
 ## 5. <span id='help'>帮助</span>
 
 `命令 --help`
