@@ -60,21 +60,20 @@ toc: true
       ```bash
       cd ./big_model
       git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
-    cd lora-scripts
-  
     ```
-  
+  cd lora-scripts
     ```
   
 - 安装虚拟环境（确保你的python是3.10）和必要的库
   
-      ```bash
-      conda activate python310
-      python -m venv ./venv
-      conda deactivate
-    source ./venv/bin/activate
-  
-      ```
+  ```bash
+  conda activate python310
+  python -m venv ./venv
+  conda deactivate
+  ```
+  ```bash
+   source ./venv/bin/activate
+  ```
 
 
 
