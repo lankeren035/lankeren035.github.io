@@ -33,27 +33,5 @@ toc: true
   
 - 文件在这四个区域之间的转换关系：
   
-  
-  
-  ​	$$工作目录
-  \begin{array}{c}
-  \text{git add files} \\
-  \longrightarrow \\
-  \longleftarrow \\
-  \text{git checkout}
-  \end{array}
-  暂存区
-  \begin{array}{c}
-  \text{git commit} \\
-  \longrightarrow \\
-  \longleftarrow \\
-  \text{git reset}
-  \end{array}
-  本地仓库
-  \begin{array}{c}
-  \text{git push} \\
-  \longrightarrow \\
-  \longleftarrow \\
-  \text{git pull}
-  \end{array}
-  远程仓库$$
+  $$工作目录\underset{\text{git checkout}}{\overset{\text{git add files}}{\rightleftharpoons}}暂存区\underset{\text{git reset}}{\overset{\text{git commit}}{\rightleftharpoons}}本地仓库\underset{\text{git pull}}{\overset{\text{git push}}{\rightleftharpoons}}远程仓库$$
+
