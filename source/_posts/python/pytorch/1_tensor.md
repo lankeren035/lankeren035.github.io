@@ -101,18 +101,18 @@ print(f"张量随机： {x_rand}")
 
 ### 1.3.3 索引，切片，拼接，变异
 
-| 操作                                                         | 解释                                       |
-| ------------------------------------------------------------ | ------------------------------------------ |
-| <a href=#cat>cat(tensors , dim=0)</a>                        | 按维度拼接（拼谁谁变长，其他维度相等）     |
-| <a href=#stack>stack(tensors , dim=0)</a>                    | 按维度堆叠（会新增维度）                   |
-| chunk(*input*, *chunks*, *dim=0*)                            | 平均切成chunks段                           |
-| <a href=#dsplit>dsplit(*input*, *indices_or_sections*)</a><br>hsplit() | 按维度2（深度）切割<br>按维度1（高度）切割 |
-|                                                              |                                            |
-|                                                              |                                            |
-|                                                              |                                            |
-|                                                              |                                            |
-|                                                              |                                            |
-|                                                              |                                            |
+| 操作                                                         | 解释                                               |
+| ------------------------------------------------------------ | -------------------------------------------------- |
+| <a href=#cat>cat(tensors , dim=0)</a>                        | 按维度拼接（拼谁谁变长，其他维度相等）             |
+| <a href=#stack>stack(tensors , dim=0)</a>                    | 按维度堆叠（会新增维度）                           |
+| chunk(*input*, *chunks*, *dim=0*)                            | 平均切成chunks段                                   |
+| <a href=#dsplit>dsplit(*input*, *indices_or_sections*)</a><br>hsplit()<br><a href=#split>split()</a> | 按维度2（深度）切割<br>按维度1（高度）切割<br>切割 |
+| <a href=#dstack>dstack(*tensors*, \*, *out=None*)</a><br>hstack() | 按维度3叠加（新增维度）<br>按维度2拼接             |
+| reshape(*input*, *shape*)                                    | 改变形状                                           |
+| <a href=#squeeze>squeeze(*input*, *dim=None*)</a>            | 压缩值为1的维度                                    |
+|                                                              |                                                    |
+|                                                              |                                                    |
+|                                                              |                                                    |
 
 
 
@@ -225,5 +225,54 @@ y3 = torch.stack((x1, x2), dim=2)
 print(y1)
 print(y2)
 print(y3)
+```
+
+> - <a id=dstack></a> torch.dstack(*tensors*, ***, *out=None*) → Tensor
+
+```python
+import torch
+x1 = torch.tensor([1, 2, 3])
+x2 = torch.tensor([4, 5, 6])
+
+
+y1 = torch.stack((x1, x2), dim=1)
+z1 = torch.hstack((x1, x2)) #hstack不是叠加而是拼接
+#y2 = torch.stack((x1, x2), dim=2) #出错
+z2 = torch.dstack((x1,x2)) #dstack是叠加
+
+print(x1.shape, x2.shape)
+print(y1,y1.shape)
+print(z1,z1.shape)
+
+print(z2,z2.shape)
+```
+
+> - <a id=split></a>  torch.split(*tensor*, *split_size_or_sections*, *dim=0*)
+
+```python
+import torch
+x = torch.arange(10).reshape(5,2)
+
+y1 = torch.split(x, 2)# 将dim0分成2
+y2 = torch.split(x, [1,4])# 将dim0一四分
+
+print(y1)
+print(y2)
+```
+
+> - <a id=squeeze></a>   torch.squeeze(*input*, *dim=None*) → Tensor
+
+```python 
+import torch
+x = torch.zeros(2, 1, 2, 1, 2)
+
+y1 = torch.squeeze(x)
+y2 = torch.squeeze(x,0)
+y3 = torch.squeeze(x,(1,2,3))
+
+print(x.shape)
+print(y1.shape)
+print(y2.shape)
+print(y3.shape)
 ```
 
