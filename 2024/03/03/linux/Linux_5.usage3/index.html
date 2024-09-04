@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-03T07:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-23T09:35:18.510Z">
+<meta property="article:modified_time" content="2024-08-31T08:30:48.839Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -301,6 +301,12 @@
 
 
 
+<h2 id="3-12-定时任务"><a href="#3-12-定时任务" class="headerlink" title="3.12 定时任务"></a>3.12 定时任务</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">crontab -l #查看定时任务</span><br><span class="line">crontab -e #编写定时任务</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>编写格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">分钟 小时 日 月 周 命令</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -454,7 +460,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Linux%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">3 Linux实用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">3.9 环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-1-%E6%9F%A5%E7%9C%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">3.9.1 查看环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-2-%E8%8E%B7%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%80%BC"><span class="toc-number">2.1.2.</span> <span class="toc-text">3.9.2 获取环境变量值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-3-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.9.3 设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.2.</span> <span class="toc-text">3.10 上传下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">3.11 压缩解压</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tar%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. tar命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-zip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. zip命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-unzip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. unzip命令</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Linux%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">3 Linux实用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">3.9 环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-1-%E6%9F%A5%E7%9C%8B%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">3.9.1 查看环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-2-%E8%8E%B7%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%80%BC"><span class="toc-number">2.1.2.</span> <span class="toc-text">3.9.2 获取环境变量值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-3-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.3.</span> <span class="toc-text">3.9.3 设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10-%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.2.</span> <span class="toc-text">3.10 上传下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">3.11 压缩解压</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tar%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.1.</span> <span class="toc-text">1. tar命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-zip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.2.</span> <span class="toc-text">2. zip命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-unzip%E5%91%BD%E4%BB%A4"><span class="toc-number">2.3.3.</span> <span class="toc-text">3. unzip命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-12-%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">2.4.</span> <span class="toc-text">3.12 定时任务</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
