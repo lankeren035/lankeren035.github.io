@@ -99,7 +99,20 @@ print(f"张量随机： {x_rand}")
 | <a href=#range>range()</a>                                   | 范围：[   ]，steps指定步长                                   |
 | <a href=#linspace>linspace()</a><br>logspace                 | 范围：[   ]，steps指定个数<br>确定底数，生成一系列指数       |
 
-### 1.3.
+### 1.3.3 索引，切片，拼接，变异
+
+| 操作                                                         | 解释                                       |
+| ------------------------------------------------------------ | ------------------------------------------ |
+| <a href=#cat>cat(tensors , dim=0)</a>                        | 按维度拼接（拼谁谁变长，其他维度相等）     |
+| <a href=#stack>stack(tensors , dim=0)</a>                    | 按维度堆叠（会新增维度）                   |
+| chunk(*input*, *chunks*, *dim=0*)                            | 平均切成chunks段                           |
+| <a href=#dsplit>dsplit(*input*, *indices_or_sections*)</a><br>hsplit() | 按维度2（深度）切割<br>按维度1（高度）切割 |
+|                                                              |                                            |
+|                                                              |                                            |
+|                                                              |                                            |
+|                                                              |                                            |
+|                                                              |                                            |
+|                                                              |                                            |
 
 
 
@@ -167,5 +180,50 @@ import torch
 x = torch.logspace(start=-10, end=10, steps=5)# 底数默认10
 
 print(x)
+```
+
+> -   torch.cat(*tensors*, *dim=0*, ***, *out=None*) → Tensor
+>
+
+```python
+import torch
+
+x = torch.randn(2, 3)
+x = torch.cat((x, x, x), 0)
+
+print(x)
+```
+
+> -   <a id=dsplit></a>torch.dsplit(*input*, *indices_or_sections*) → List of Tensors
+>
+
+```python
+import torch
+x = torch.arange(16.0).reshape(2, 2, 4)
+
+# 按维度2均分成两个：[2,2,4] -> [2,2,2] * 2
+x1 = torch.dsplit(x, 2)
+# 按维度2分别占到[0,3），[3，6）[6,...)
+# [2,2,4] -> [2,2,3] [2,2,1] [2,2,0]
+x2 = torch.dsplit(x, [3, 6])
+
+print(x1)
+print(x2)
+```
+
+> -   <a id=stack></a> torch.stack(*tensors*, *dim=0*, ***, *out=None*) → Tensor
+
+```python
+import torch
+x1 = torch.randn(2, 3)
+x2 = torch.ones(2,3)
+
+y1 = torch.stack((x1, x2))
+y2 = torch.stack((x1, x2), dim=1)
+y3 = torch.stack((x1, x2), dim=2)
+
+print(y1)
+print(y2)
+print(y3)
 ```
 

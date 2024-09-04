@@ -46,3 +46,31 @@ toc: true
 
   
 
+# 3. 更改终端编码
+
+- 临时更改：
+
+  ```shell
+  chcp 936 #GBK
+  chcp 65001 #utf8
+  ```
+
+- 永久更改：
+
+  - （略）更改注册表：` HKEY_CURRENT_USER\Console%SystemRoot%_system32_cmd.exe `
+
+  - 更改配置文件：
+
+    - 方法1，更改页面显示编码：powershell输入：
+
+       ```shell
+       Add-Content -Path $PROFILE -Value "`nchcp 936"
+       ```
+
+    - 方法2，更改powershell编码行为：powershell输入：
+    
+       ```shell
+       Add-Content -Path $PROFILE -Value "`n[Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding('GBK')`n[Console]::InputEncoding = [System.Text.Encoding]::GetEncoding('GBK')"
+       ```
+    
+       
