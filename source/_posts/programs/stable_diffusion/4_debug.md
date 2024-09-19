@@ -80,10 +80,10 @@ pip install debugpy
       #!/usr/bin/env bash
       #################################################
       # Please do not make any changes to this file,  #
-      ```
-  # change the variables in webui-user.sh instead #
-      #################################################
-  #-----------------------------------------------
+      # change the variables in webui-user.sh instead #
+          #################################################
+      #-----------------------------------------------
+
       ifdebug=false
       debug_port=29000
       

@@ -39,3 +39,18 @@ categories: [Linux]
 |                  |                         |
   
   
+
+### 打开鼠标滚轮
+```
+ctrl + b
+:
+set -g mouse on
+```
+
+
+<details> <summary>点击展开/折叠 \u25BC &#9660</summary>
+这里是折叠的内容。
+
+你可以在这里添加更多的文字、代码或其他内容。
+
+</details>
