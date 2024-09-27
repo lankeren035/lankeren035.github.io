@@ -139,9 +139,8 @@ style_images = torch.stack([preprocess_image(p) for p in style_image_paths], dim
 <details style="margin-left: 20px;"><summary>跳转: preprocess_image:  &#9660 ▼>>></summary>
 
 ```python
-# 3. 图片处理
-
-# 返回tensor图片
+#3. 图片处理
+#返回tensor图片
 def preprocess_image(image_path, size=(W, H)):
     image = Image.open(image_path)
     if not image.mode == "RGB": # 如果不是RGB模式, 转换为RGB
@@ -944,6 +943,7 @@ class DDIMSampler(object):
                                                     )
         return samples, intermediates #x_0 , 中间结果
     def make_schedule(self, ddim_num_steps, ddim_discretize="uniform", ddim_eta=0., verbose=True):
+        # 生成DDIM采样时间表
         self.ddim_timesteps = make_ddim_timesteps(ddim_discr_method=ddim_discretize, num_ddim_timesteps=ddim_num_steps,
                                                   num_ddpm_timesteps=self.ddpm_num_timesteps,verbose=verbose)
         alphas_cumprod = self.model.alphas_cumprod
@@ -1051,19 +1051,22 @@ class DDIMSampler(object):
         c_in = copy.deepcopy(c) if isinstance(c, dict) else c
         uncond_guidance = unconditional_conditioning is not None and unconditional_guidance_scale != 1. # false
         uncond_guidance_2 = unconditional_conditioning_2 is not None and unconditional_guidance_scale_2 != 1. # false
-        if uncond_guidance: #false
-            x_in = torch.cat([x_in, x])
-            t_in = torch.cat([t_in, t])
+        if uncond_guidance: #使用双条件
+            x_in = torch.cat([x_in, x]) #x_in = x  ,  [1,16,16,16] -> [2,16,16,16]
+            t_in = torch.cat([t_in, t]) #t_in = t  ,  [1] -> [2]
             if isinstance(c_in, dict):
+                # c_in = {c1: content, c2: style}
                 for key in c_in.keys():
+                    # c_in = {c1: content cat nullcontent, c2: style cat style}
                     c_in[key] = torch.cat([c_in[key], unconditional_conditioning[key]])
             else:
                 c_in = torch.cat([c_in, unconditional_conditioning])
-        if uncond_guidance_2: #false
-            x_in = torch.cat([x_in, x])
-            t_in = torch.cat([t_in, t])
+        if uncond_guidance_2: #使用双条件
+            x_in = torch.cat([x_in, x]) #[2,16,16,16] -> [3,16,16,16]
+            t_in = torch.cat([t_in, t]) #[2] -> [3]
             if isinstance(c_in, dict):
                 for key in c_in.keys():
+                    # c_in = {c1: content cat nullcontent cat content, c2: style cat style cat nullstyle}
                     c_in[key] = torch.cat([c_in[key], unconditional_conditioning_2[key]])
             else:
                 c_in = torch.cat([c_in, unconditional_conditioning_2])
@@ -1079,7 +1082,10 @@ class DDIMSampler(object):
             e_t, e_t_uncond = e_t.chunk(2)
             e_t = e_t_uncond + unconditional_guidance_scale_2 * (e_t - e_t_uncond)
         elif uncond_guidance and uncond_guidance_2:
-            e_t, e_t_uncond, e_t_uncond_2 = e_t.chunk(3)
+            # e_t_content_style , e_t_nonecontent_style,  e_t_content_nonestyle
+            e_t, e_t_uncond, e_t_uncond_2 = e_t.chunk(3) #将预测出的噪声分成3部分
+            # ！！！双条件重点
+            # 风格无内容 + 内容系数1 * （风格内容 - 风格无内容） + 内容无风格 + 风格系数2 * （风格内容 - 内容无风格） - 风格内容
             e_t = e_t_uncond + unconditional_guidance_scale * (e_t - e_t_uncond) + \
                   e_t_uncond_2 + unconditional_guidance_scale_2 * (e_t - e_t_uncond_2) - e_t
 
@@ -1383,20 +1389,24 @@ class LitEma(nn.Module):
 
 - #### block 6 ： 风格迁移
 
+    - 输入content
+
 ```python
 def get_content_style_features(content_image_path, style_image_path, h=H, w=W):
+    # 返回tensor图片
     style_image = preprocess_image(style_image_path)[None, :].to(DEVICE)
     content_image = preprocess_image(content_image_path, size=(w, h))[None, :].to(DEVICE)
     
     with torch.no_grad(), model.ema_scope("Plotting"):
-        vgg_features = model.vgg(model.vgg_scaling_layer(style_image))
-        c_style = model.get_style_features(vgg_features)
-        null_style = c_style.clone()
-        null_style[:] = model.null_style_vector.weight[0]
+        vgg_features = model.vgg(model.vgg_scaling_layer(style_image)) #风格图像的vgg特征
+        c_style = model.get_style_features(vgg_features) # 将vgg风格矩阵的后两个维度（空间维度）的均值方差矩阵拼接在一起
+        null_style = c_style.clone() # 定义一个无风格的风格特征， 与c_style的形状一样
+        null_style[:] = model.null_style_vector.weight[0] # 用一个特定的向量 model.null_style_vector.weight[0] 初始化。这一向量通常用于表示一个“空”或“无”风格
 
-        content_encoder_posterior = model.encode_first_stage(content_image)
-        content_encoder_posterior = model.get_first_stage_encoding(content_encoder_posterior)
-        c_content = model.get_content_features(content_encoder_posterior)
+        content_encoder_posterior = model.encode_first_stage(content_image) #内容图通过encoder, 得到一个类，包含mean和logvar属性
+        #[1,16,16,16]
+        content_encoder_posterior = model.get_first_stage_encoding(content_encoder_posterior) #通过mean和var进行shift和scale得到内容特征
+        c_content = model.get_content_features(content_encoder_posterior) #获得归一化的内容特征
         null_content = torch.zeros_like(c_content)
         
     c = {'c1': c_content, 'c2': c_style}
@@ -1412,12 +1422,16 @@ def style_transfer(
     content_s=1., style_s=1.,
     ddim_steps=DDIM_STEPS, eta=ETA,
 ):
+    # 获取内容和风格特征, c是内容和风格特征的字典，c_null_style是无风格的风格特征，c_null_content是无内容的内容特征
     c, c_null_style, c_null_content = get_content_style_features(content_image_path, style_image_path, h, w)
     
     with torch.no_grad(), model.ema_scope("Plotting"):
         samples = model.sample_log(
-            cond=c, batch_size=1, x_T = torch.rand_like(c['c1']),
+            # 与前面有区别
+            cond=c, batch_size=1, x_T = torch.rand_like(c['c1']), #这里由于输入了内容图， 所以给定X_T的shape
             ddim=True, ddim_steps=ddim_steps, eta=eta,
+            # 这里多传入了四个参数， 两个scale和两个conditioning（null_style和null_content）
+            # 与之前的区别是： 跳转: samples, intermediates = ddim_sampler.sample这部分关于unconditional_guidance_scale和unconditional_conditioning的处理， 控制了风格和内容的比例
             unconditional_guidance_scale=content_s, unconditional_conditioning=c_null_content,
             unconditional_guidance_scale_2=style_s, unconditional_conditioning_2=c_null_style)[0]
 
@@ -1435,3 +1449,78 @@ display_samples((tensor_to_rgb(content_image), tensor_to_rgb(style_image)), figs
 x_samples = style_transfer(content_image_path, style_image_path, content_s=0.5, style_s=2.)
 display_samples(x_samples, figsize=(3, 3))
 ```
+
+<details style="margin-left: 20px;"><summary>跳转: encode_first_stage -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+
+```python
+class DualCondLDM(LatentDiffusion):
+    @torch.no_grad()
+    def encode_first_stage(self, x):
+        return self.first_stage_model.encode(x) #调用编码器，返回的是一个类，包含mean和logvar属性
+```
+</details>
+
+<details style="margin-left: 20px;"><summary>跳转: first_stage_model.encode -> ldm.models.autoencoder.  &#9660 ▼>>></summary>
+
+```python
+class AutoencoderKL(pl.LightningModule):
+    def encode(self, x):# x[batch, 3, 256, 256]
+        h = self.encoder(x) #h[batch, 32, 16, 16] 这里不进去了？？？
+        moments = self.quant_conv(h) #[batch, 32, 16, 16]
+        posterior = DiagonalGaussianDistribution(moments) #将encode的输出拆成两部分，mean和logvar， 这些放在一个类中
+        return posterior #返回这个类， 它包含了mean和logvar属性
+```
+</details>
+
+<details style="margin-left: 20px;"><summary>跳转: DiagonalGaussianDistribution -> ldm.modules.distributions.distributions  &#9660 ▼>>></summary>
+
+```python
+class DiagonalGaussianDistribution(object):
+    def __init__(self, parameters, deterministic=False):
+        self.parameters = parameters #[1,32,16,16]
+        # chunk将parameters从第二维度开始分成两部分，第一部分是mean，第二部分是logvar
+        # [1,32,16,16] -> [1,16,16,16], [1,16,16,16]
+        self.mean, self.logvar = torch.chunk(parameters, 2, dim=1)
+        # 将logvar限制在[-30, 20]之间
+        self.logvar = torch.clamp(self.logvar, -30.0, 20.0)
+        self.deterministic = deterministic #false
+        # e(0.5 * logvar) = e(logvar)^0.5 = var^0.5 = std
+        self.std = torch.exp(0.5 * self.logvar)
+        self.var = torch.exp(self.logvar)
+        if self.deterministic:
+            self.var = self.std = torch.zeros_like(self.mean).to(device=self.parameters.device)
+```
+</details>
+
+<details style="margin-left: 20px;"><summary>跳转: model.get_first_stage_encoding -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+
+```python
+class DualCondLDM(LatentDiffusion):
+    def get_first_stage_encoding(self, encoder_posterior):
+        z = encoder_posterior.mode() #这个类的mode方法返回mean
+        for i in range(z.shape[1]): #对z的每个通道进行缩放, 这里的scale_factors和shift_values在配置文件中设置, 与之前decode_first_stage中的相反
+            z[:, i] = (z[:, i] - self.shift_values[i]) * self.scale_factors[i]
+        return z.detach()
+```
+</details>
+
+<details style="margin-left: 20px;"><summary>跳转: model.get_content_features -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+
+```python
+class DualCondLDM(LatentDiffusion):
+    def get_content_features(self, features, flag=None):
+        content_features = features[:, :self.first_stage_model.embed_dim] #取features的前16个通道
+        std, mean = torch.std_mean(content_features, dim=[-1, -2], keepdim=True) #计算均值和方差
+        # ！！！这里对内容图像的处理方式为啥与风格图像不同？？？
+        # 对于风格图像，是将均值和方差拼接在一起，而对于内容图像，是将均值和方差分别除以方差和均值
+        # 风格图像： 关注的是图像在多个通道上的整体风格特征，而不是具体的像素信息
+        # 内容图像： 关注的是具体的内容特征，使其在不同图像之间的比较更加一致
+        content_features = (content_features - mean) / std #标准化
+        if flag is not None: #flag是一个掩码，用于允许在采样过程中对图像的特定区域进行控制？？？ false
+            flag = flag[..., None, None, None]
+            content_features = torch.where(flag, content_features, 0)  # null content
+        return content_features #返回归一化后的内容特征
+```
+</details>
+
+- 后面的block与前面的block类似，不再赘述
