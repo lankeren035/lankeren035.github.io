@@ -21,8 +21,8 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/linux/commend/5.png">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/linux/commend/6.png">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/linux/commend/7.png">
-<meta property="article:published_time" content="2021-03-02T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-29T02:32:43.665Z">
+<meta property="article:published_time" content="2021-03-02T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-01T04:53:02.864Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -181,7 +181,7 @@
 
         
         <a href="/2021/03/02/linux/Linux_1.command/" class="archive-article-date">
-  	<time datetime="2021-03-02T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+  	<time datetime="2021-03-02T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
 </a>
         
       </header>
@@ -214,8 +214,8 @@
 <td><a href='#touch'>touch 路径</a></td>
 </tr>
 <tr>
-<td>查看文件</td>
-<td><a href='#cat'>cat 路径</a></td>
+<td>查看文件（也可写入）</td>
+<td><a href='#cat'>cat 路径</a><br>less 路径 （可分页）</td>
 </tr>
 <tr>
 <td>分页查看</td>
@@ -262,7 +262,21 @@
 <td><a href='#vi'>vi 路径</a></td>
 </tr>
 </tbody></table>
-<h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1. 目录结构"></a>1. 目录结构</h2><p>根目录：&#x2F;<br>&#x2F;home&#x2F;hellow&#x2F;test.txt</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看命令类型（内置命令、外部命令、别名还是函数）</td>
+<td>type 命令</td>
+</tr>
+</tbody></table>
+<h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1. 目录结构"></a>1. 目录结构</h2><p>根目录：&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/home/hellow/test.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="2-小tip"><a href="#2-小tip" class="headerlink" title="2. 小tip"></a>2. 小tip</h2><h3 id="2-1-特殊符号"><a href="#2-1-特殊符号" class="headerlink" title="2-1 特殊符号"></a>2-1 特殊符号</h3><ul>
 <li><p>. 当前目录</p>
 </li>
@@ -274,59 +288,59 @@
 </li>
 </ul>
 <h3 id="2-2-进入root用户"><a href="#2-2-进入root用户" class="headerlink" title="2-2 进入root用户"></a>2-2 进入root用户</h3><ul>
-<li>进入</li>
+<li>进入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - root</span><br><span class="line"></span><br><span class="line">123456</span><br></pre></td></tr></table></figure></li>
+<li>退出<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>su - root</p>
-<p>123456</p>
-<ul>
-<li>退出<br>exit</li>
-</ul>
-<h3 id="2-3管道符"><a href="#2-3管道符" class="headerlink" title="2-3管道符"></a>2-3管道符</h3><p>|<br>cat 1.txt | grep “hello”</p>
+<h3 id="2-3管道符"><a href="#2-3管道符" class="headerlink" title="2-3管道符"></a>2-3管道符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">cat 1.txt | grep &quot;hello&quot;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>左边结果作为右边的输入</li>
 </ul>
 <h3 id="2-4重定向符"><a href="#2-4重定向符" class="headerlink" title="2-4重定向符"></a>2-4重定向符</h3><p>&gt;：右边文件内容清空，左边内容写入文件</p>
 <p>&gt;&gt;：追加</p>
 <h2 id="3-命令"><a href="#3-命令" class="headerlink" title="3. 命令"></a>3. 命令</h2><p>命令 [选项] [参数]</p>
-<h3 id="1-ls命令（显示内容）"><a href="#1-ls命令（显示内容）" class="headerlink" title="1. ls命令（显示内容）"></a><span id='ls'>1. ls命令（显示内容）</span></h3><p>ls [-a -l -h] [路径]</p>
+<h3 id="1-ls命令（显示内容）"><a href="#1-ls命令（显示内容）" class="headerlink" title="1. ls命令（显示内容）"></a><span id='ls'>1. ls命令（显示内容）</span></h3><p><code>ls [-a -l -h] [路径]</code></p>
 <ul>
 <li>a: all，列出全部文件（包括隐藏文件）</li>
 <li>l: list，以列表展现（权限，用户和用户组，大小，创建日期）</li>
 <li>h: 以易于阅读的形式，列出文件大小（搭配-l)</li>
 <li>组合使用：如-la</li>
 </ul>
-<h3 id="2-cd命令（change-directory）"><a href="#2-cd命令（change-directory）" class="headerlink" title="2. cd命令（change directory）"></a>2. <span id='cd'>cd命令（change directory）</span></h3><p>cd [路径]</p>
+<h3 id="2-cd命令（change-directory）"><a href="#2-cd命令（change-directory）" class="headerlink" title="2. cd命令（change directory）"></a>2. <span id='cd'>cd命令（change directory）</span></h3><p><code>cd [路径]</code></p>
 <ul>
 <li>cd 回到用户HOME目录</li>
 <li>cd ..&#x2F;.. 返回上两级</li>
 <li>cd 路径</li>
 </ul>
-<h3 id="3-pwd命令（print-work-directory）"><a href="#3-pwd命令（print-work-directory）" class="headerlink" title="3. pwd命令（print work directory）"></a><span id='pwd'>3. pwd命令（print work directory）</span></h3><p>pwd</p>
-<h3 id="4-mkdir命令（make-directory）"><a href="#4-mkdir命令（make-directory）" class="headerlink" title="4. mkdir命令（make directory）"></a>4. <span id='mkdir'>mkdir命令（make directory）</span></h3><p>mkdir [-p] 路径</p>
+<h3 id="3-pwd命令（print-work-directory）"><a href="#3-pwd命令（print-work-directory）" class="headerlink" title="3. pwd命令（print work directory）"></a><span id='pwd'>3. pwd命令（print work directory）</span></h3><p><code>pwd</code></p>
+<h3 id="4-mkdir命令（make-directory）"><a href="#4-mkdir命令（make-directory）" class="headerlink" title="4. mkdir命令（make directory）"></a>4. <span id='mkdir'>mkdir命令（make directory）</span></h3><p><code>mkdir [-p] 路径</code></p>
 <ul>
 <li>多层创建</li>
 </ul>
-<h3 id="5-touch命令（创建文件）"><a href="#5-touch命令（创建文件）" class="headerlink" title="5. touch命令（创建文件）"></a>5. <span id='touch'>touch命令（创建文件）</span></h3><p>touch 路径</p>
-<h3 id="6-cat命令（查看文件）"><a href="#6-cat命令（查看文件）" class="headerlink" title="6. cat命令（查看文件）"></a>6. <span id='cat'>cat命令（查看文件）</span></h3><p>cat 路径</p>
-<h3 id="7-more命令（查看文件）"><a href="#7-more命令（查看文件）" class="headerlink" title="7. more命令（查看文件）"></a><span id='more'>7. more命令（查看文件）</span></h3><p>more 路径（分页看，空格下一页，q退出）</p>
-<h3 id="8-cp命令（copy）"><a href="#8-cp命令（copy）" class="headerlink" title="8. cp命令（copy）"></a>8. <span id='cp'>cp命令（copy）</span></h3><p>cp [-r] 源路径 目的地</p>
+<h3 id="5-touch命令（创建文件）"><a href="#5-touch命令（创建文件）" class="headerlink" title="5. touch命令（创建文件）"></a>5. <span id='touch'>touch命令（创建文件）</span></h3><p><code>touch 路径</code></p>
+<h3 id="6-cat命令（查看文件）"><a href="#6-cat命令（查看文件）" class="headerlink" title="6. cat命令（查看文件）"></a>6. <span id='cat'>cat命令（查看文件）</span></h3><p><code>cat 路径</code></p>
+<ul>
+<li><p>将下列内容写入指定文件， <code>&lt;&lt;</code> 是 Bash 中的 “here document” 操作符，用来告诉 shell，从当前位置开始读取数据，直到遇到指定的结束标记（在这里是 <code>EOF</code>）。 </p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt;/mydata/redis/node-1/conf/redis.conf</span><br><span class="line">port 6379</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="7-more命令（查看文件）"><a href="#7-more命令（查看文件）" class="headerlink" title="7. more命令（查看文件）"></a><span id='more'>7. more命令（查看文件）</span></h3><p><code>more 路径</code>（分页看，空格下一页，q退出）</p>
+<h3 id="8-cp命令（copy）"><a href="#8-cp命令（copy）" class="headerlink" title="8. cp命令（copy）"></a>8. <span id='cp'>cp命令（copy）</span></h3><p><code>cp [-r] 源路径 目的地</code></p>
 <ul>
 <li>r 递归，用于文件夹的复制</li>
 </ul>
-<h3 id="9-mv命令（move）"><a href="#9-mv命令（move）" class="headerlink" title="9. mv命令（move）"></a>9. <span id='mv'>mv命令（move）</span></h3><p>mv 源路径 目的地&#x2F;（可重命名）</p>
-<h3 id="10-rm命令（remove）"><a href="#10-rm命令（remove）" class="headerlink" title="10. rm命令（remove）"></a>10. <span id='rm'>rm命令（remove）</span></h3><p>rm [-r -f] 参数1 参数2…</p>
+<h3 id="9-mv命令（move）"><a href="#9-mv命令（move）" class="headerlink" title="9. mv命令（move）"></a>9. <span id='mv'>mv命令（move）</span></h3><p><code>mv 源路径 目的地/（可重命名</code>）</p>
+<h3 id="10-rm命令（remove）"><a href="#10-rm命令（remove）" class="headerlink" title="10. rm命令（remove）"></a>10. <span id='rm'>rm命令（remove）</span></h3><p><code>rm [-r -f] 参数1 参数2...</code></p>
 <ul>
 <li>r 递归，用于删除文件夹</li>
 <li>f (force)强制删除</li>
 <li>支持通配符：test* 表示以test开头</li>
 </ul>
-<h3 id="11-grep命令（文件中通过关键字搜索行）"><a href="#11-grep命令（文件中通过关键字搜索行）" class="headerlink" title="11. grep命令（文件中通过关键字搜索行）"></a>11. <span id='grep'>grep命令（文件中通过关键字搜索行）</span></h3><p>grep [-n] “关键字” 文件路径</p>
+<h3 id="11-grep命令（文件中通过关键字搜索行）"><a href="#11-grep命令（文件中通过关键字搜索行）" class="headerlink" title="11. grep命令（文件中通过关键字搜索行）"></a>11. <span id='grep'>grep命令（文件中通过关键字搜索行）</span></h3><p><code>grep [-n] &quot;关键字&quot; 文件路径</code></p>
 <ul>
 <li>n：结果中显示行号</li>
 <li>关键字：用于查找</li>
 <li>路径：可做输入端口</li>
 </ul>
-<h3 id="12-wc命令（文件内容统计）"><a href="#12-wc命令（文件内容统计）" class="headerlink" title="12. wc命令（文件内容统计）"></a>12. <span id='wc'>wc命令（文件内容统计）</span></h3><p>wc [-cmlw] 文件路径</p>
+<h3 id="12-wc命令（文件内容统计）"><a href="#12-wc命令（文件内容统计）" class="headerlink" title="12. wc命令（文件内容统计）"></a>12. <span id='wc'>wc命令（文件内容统计）</span></h3><p><code>wc [-cmlw] 文件路径</code></p>
 <ul>
 <li>c：统计bytes数量</li>
 <li>m：统计字符数量</li>
@@ -334,24 +348,26 @@
 <li>w：统计单词数</li>
 <li>路径：可做输入端口</li>
 </ul>
-<h3 id="13-which命令（查看命令的源文件）"><a href="#13-which命令（查看命令的源文件）" class="headerlink" title="13. which命令（查看命令的源文件）"></a>13. <span id='which'>which命令（查看命令的源文件）</span></h3><p>which Linux命令</p>
-<h3 id="14-find命令（文件搜索）"><a href="#14-find命令（文件搜索）" class="headerlink" title="14. find命令（文件搜索）"></a>14. <span id='find'>find命令（文件搜索）</span></h3><p>find 起始路径 -name “test*”<br>find 起始路径 -size +100k(大于100kb)</p>
-<h3 id="15-echo命令（打印）"><a href="#15-echo命令（打印）" class="headerlink" title="15. echo命令（打印）"></a>15. <span id='echo'>echo命令（打印）</span></h3><p>echo 输出内容</p>
+<h3 id="13-which命令（查看命令的源文件）"><a href="#13-which命令（查看命令的源文件）" class="headerlink" title="13. which命令（查看命令的源文件）"></a>13. <span id='which'>which命令（查看命令的源文件）</span></h3><p><code>which Linux命令</code></p>
+<h3 id="14-find命令（文件搜索）"><a href="#14-find命令（文件搜索）" class="headerlink" title="14. find命令（文件搜索）"></a>14. <span id='find'>find命令（文件搜索）</span></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find 起始路径 -name &quot;test*&quot;</span><br><span class="line">find 起始路径 -size +100k(大于100kb)</span><br></pre></td></tr></table></figure>
+<h3 id="15-echo命令（打印）"><a href="#15-echo命令（打印）" class="headerlink" title="15. echo命令（打印）"></a>15. <span id='echo'>echo命令（打印）</span></h3><p><code>echo 输出内容</code></p>
 <ul>
 <li>echo &#96;pwd：’的作用：将pwd作为命令执行</li>
 </ul>
-<h3 id="16-tail命令（从尾部查看）"><a href="#16-tail命令（从尾部查看）" class="headerlink" title="16. tail命令（从尾部查看）"></a>16. <span id='tail'>tail命令（从尾部查看）</span></h3><p>tail [-f -数字] 路径</p>
+<h3 id="16-tail命令（从尾部查看）"><a href="#16-tail命令（从尾部查看）" class="headerlink" title="16. tail命令（从尾部查看）"></a>16. <span id='tail'>tail命令（从尾部查看）</span></h3><p><code>tail [-f -数字] 路径</code></p>
 <ul>
 <li>f 持续跟踪(会实时刷新)</li>
 <li>数字 查看多少行（默认10）</li>
 </ul>
-<h2 id="4-vim编辑器"><a href="#4-vim编辑器" class="headerlink" title="4. vim编辑器"></a>4. <span id='vi'>vim编辑器</span></h2><p>vi 文件路径</p>
-<p>vim 文件路径</p>
+<h2 id="4-vim编辑器"><a href="#4-vim编辑器" class="headerlink" title="4. vim编辑器"></a>4. <span id='vi'>vim编辑器</span></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi 文件路径</span><br><span class="line"></span><br><span class="line">vim 文件路径</span><br></pre></td></tr></table></figure>
 <ul>
 <li>vim是vi的升级版</li>
 </ul>
 <p><img src="/./img/linux/commend/4.png"><br><img src="/./img/linux/commend/5.png"><br><img src="/./img/linux/commend/6.png"><br><img src="/./img/linux/commend/7.png"><br><img src="/../../../themes/yilia/source/img/linux/commend/4.png"><br><img src="/../../../themes/yilia/source/img/linux/commend/5.png"><br><img src="/../../../themes/yilia/source/img/linux/commend/6.png"><br><img src="/../../../themes/yilia/source/img/linux/commend/7.png"></p>
-<h2 id="5-帮助"><a href="#5-帮助" class="headerlink" title="5. 帮助"></a>5. <span id='help'>帮助</span></h2><p>命令 –help</p>
+<ul>
+<li>删除全部内容：<code>:%d</code></li>
+</ul>
+<h2 id="5-帮助"><a href="#5-帮助" class="headerlink" title="5. 帮助"></a>5. <span id='help'>帮助</span></h2><p><code>命令 --help</code></p>
 <ul>
 <li>查看用法</li>
 </ul>
@@ -484,8 +500,8 @@
     </a>
   
   
-    <a href="/2021/03/01/linux/Linux_0install/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux入门-0配置</div>
+    <a href="/2021/03/01/wechartapp/weixin/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微信小程序基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -843,6 +859,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代码</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -998,5 +1042,9 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/clipboard_use.js"></script>
 </body>
 </html>

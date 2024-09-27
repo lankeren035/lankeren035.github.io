@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-10T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-24T13:23:48.371Z">
+<meta property="article:modified_time" content="2024-09-26T11:50:47.025Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -192,8 +192,13 @@
 
 
 </li>
-<li><p><code>argparse</code> 库在处理命令行参数时，自动将命令行中的 <code>-</code>（连字符）转换为变量名中的 <code>_</code>（下划线）</p>
+<li><p><code>argparse</code> 库在处理命令行参数时，自动将命令行中的 <code>-</code>（连字符）转换为变量名中的 <code>_</code>（下划线） </p>
 </li>
+<li><p>使用进度条：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iterator = tqdm(time_range, desc=<span class="string">&#x27;DDIM Sampler&#x27;</span>, total=total_steps)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>省略</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b, *_, device = *x.shape, x.device</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -679,6 +684,34 @@ MathJax.Hub.Queue(function() {
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">代码</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -834,5 +867,9 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.js"></script>
+  <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/clipboard_use.js"></script>
 </body>
 </html>
