@@ -84,51 +84,87 @@ toc: true
 
    ```css
    pre .css~* .id,
-
-   pre .id {
-
+pre .id {
      color: #fd971f
-
-   }
+}
    ```
 
 4. 在其下方添加：
 
-   ```css
-   .btn-copy {
-       display: inline-block;
-       cursor: pointer;
-       background-color: #eee;
-       background-image: linear-gradient(#fcfcfc, #eee);
-       border: 1px solid #d5d5d5;
-       border-radius: 3px;
-       -webkit-user-select: none;
-       -moz-user-select: none;
-       -ms-user-select: none;
-       user-select: none;
-       -webkit-appearance: none;
-       font-size: 13px;
-       font-weight: 700;
-       line-height: 20px;
-       color: #333;
-       -webkit-transition: opacity .3s ease-in-out;
-       -o-transition: opacity .3s ease-in-out;
-       transition: opacity .3s ease-in-out;
-       padding: 2px 6px;
-       position: absolute;
-       right: 5px;
-       top: 5px;
-       opacity: 0;
-   }
+   - 样式1：
    
-   .btn-copy span {
-       margin-left: 5px
-   }
-   
-   .code-wrapper:hover .btn-copy {
-       opacity: 1;
-   }
-   
-   ```
+       ```css
+       .btn-copy {
+           display: inline-block;
+           cursor: pointer;
+           background-color: #eee;
+           background-image: linear-gradient(#fcfcfc, #eee);
+           border: 1px solid #d5d5d5;
+           border-radius: 3px;
+           -webkit-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none;
+           user-select: none;
+           -webkit-appearance: none;
+           font-size: 13px;
+           font-weight: 700;
+           line-height: 20px;
+           color: #333;
+           -webkit-transition: opacity .3s ease-in-out;
+           -o-transition: opacity .3s ease-in-out;
+           transition: opacity .3s ease-in-out;
+           padding: 2px 6px;
+           position: absolute;
+           right: 5px;
+           top: 5px;
+           opacity: 0;
+       }
 
+       .btn-copy span {
+           margin-left: 5px
+       }
+
+       .code-wrapper:hover .btn-copy {
+           opacity: 1;
+       }
+
+       ```
    
+   - 样式2：
+   
+     ```css
+     .btn-copy {
+         display: inline-block;
+       position: absolute;
+         right: 1px;
+         top: -25px;
+         cursor: pointer;
+         background-color: #515151;
+         border: none;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+         -webkit-appearance: none;
+         font-size: 13px;
+         font-weight: 700;
+         line-height: 20px;
+         color: #d5d5d5;
+         -webkit-transition: opacity .3s ease-in-out;
+         -o-transition: opacity .3s ease-in-out;
+         transition: opacity .3s ease-in-out;
+         padding: 2px 6px;
+     }
+     
+     .btn-copy span {
+         margin-left: 5px
+     }
+     
+     .code-wrapper .btn-copy:hover {
+         color: #fff;
+     }
+     
+     ```
+     
+     
+
