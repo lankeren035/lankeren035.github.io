@@ -22,35 +22,52 @@ categories: [Linux]
 
 - 
 
-  |              |                                 |
-  | ------------ | ------------------------------- |
-  | 查看会话     | tmux ls                         |
-  | 删除会话     | tmux kill-session -t 会话名或id |
-  | 激活会话     | tmux attach -t 会话名或id       |
-  | 退出当前会话 | ctrl+d                          |
+  |              |                                                   |
+  | ------------ | ------------------------------------------------- |
+  | 新建会话     | tmux<br>tmux new -s 会话名                        |
+  | 查看会话     | tmux ls                                           |
+  | 删除会话     | tmux kill-session -t 会话名或id                   |
+  | 激活会话     | tmux a -t 会话名或id<br>tmux attach -t 会话名或id |
+  | 重命名会话   | tmux rename-session -t 旧名 新名 <br>Ctrl+b $     |
+  | 切换会话     | tmux switch -t 会话名                             |
+  | 退出当前会话 | ctrl+d                                            |
 
 - 
 
-  |                  |                         |
-  | ---------------- | ----------------------- |
-  | 向左打开一个窗口 | ctrl+b %                |
-  | 向下打开一个窗口 | ctrl+b "                |
-  | 调整窗口大小     | ctrl+b+方向（狂按方向） |
-|                  |                         |
+  |                    |                         |
+  | ------------------ | ----------------------- |
+  | 向左打开一个窗口   | ctrl+b %                |
+  | 向下打开一个窗口   | ctrl+b "                |
+  | 调整窗口大小       | ctrl+b+方向（狂按方向） |
+| 光标切换到上方窗格 | Ctrl+b 上               |
   
   
 
 ### 打开鼠标滚轮
+
 ```
 ctrl + b
 :
 set -g mouse on
 ```
 
+### 将进程添加到tmux
 
-<details> <summary>点击展开/折叠 \u25BC &#9660</summary>
-这里是折叠的内容。
+- 安装reptyr
 
-你可以在这里添加更多的文字、代码或其他内容。
+    ```bash
+    sudo apt install reptyr
+```
 
-</details>
+- 启动tmux
+
+- 添加进程（如果进程有子进程则无法添加）
+
+  ```bash
+  reptyr <PID>
+  ```
+
+  
+
+
+

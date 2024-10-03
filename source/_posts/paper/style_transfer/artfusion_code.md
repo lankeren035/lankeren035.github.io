@@ -91,7 +91,7 @@ model = model.eval().to(DEVICE) # 模型加载到设备上, 并设置为eval模�
 
 
 <details style="margin-left: 20px;"><summary>
-跳转: instantiate_from_config:  &#9660 ▼>>>
+跳转: instantiate_from_config:  &#9660
 </summary>
 
 ```python
@@ -136,7 +136,7 @@ style_image_paths = [ #风格图像路径
 style_images = torch.stack([preprocess_image(p) for p in style_image_paths], dim=0).to(DEVICE)
 ```
 
-<details style="margin-left: 20px;"><summary>跳转: preprocess_image:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: preprocess_image:  &#9660</summary>
 
 ```python
 #3. 图片处理
@@ -159,7 +159,7 @@ def preprocess_image(image_path, size=(W, H)):
 # 输入: tensor图片, 图片张数
 display_samples(tensor_to_rgb(style_images), n_columns=len(style_images))
 ```
-<details style="margin-left: 20px;"><summary>跳转: display_samples:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: display_samples:  &#9660</summary>
 
 
 ```python
@@ -219,7 +219,7 @@ with torch.no_grad(), model.ema_scope("Plotting"): # 关闭梯度, 并使用ema_
 display_samples(x_samples, n_columns=bs)
 ```
 
-<details style="margin-left: 20px;"><summary>跳转: DualCondLDM.vgg_scaling_layer:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: DualCondLDM.vgg_scaling_layer:  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion): #继承自LatentDiffusion
@@ -291,6 +291,10 @@ class DualCondLDM(LatentDiffusion): #继承自LatentDiffusion
         style_features = torch.cat([torch.cat(torch.std_mean(f, dim=[-1, -2]), dim=1) for f in features], dim=1)
         if flag is not None:
             flag = flag[..., None]
+            # flag与style_features在batch维度上相同
+            # flag [true, false, true, false]
+            # style_features [1,2,3,4]
+            # -> [1,0,3,0]
             style_features = torch.where(flag, style_features, self.null_style_vector.weight[0])  # null style
         return style_features
 
@@ -299,7 +303,7 @@ class DualCondLDM(LatentDiffusion): #继承自LatentDiffusion
 </details>
 
 
-<details style="margin-left: 20px;"><summary>跳转DualCondLDM父类: ldm.modules.diffusion.ddpm.LatenDiffusion:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转DualCondLDM父类: ldm.modules.diffusion.ddpm.LatenDiffusion:  &#9660</summary>
 
 ```python
 class LatentDiffusion(pl.LightningModule):
@@ -559,7 +563,7 @@ class LatentDiffusion(pl.LightningModule):
 
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: make_beta_schedule:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: make_beta_schedule:  &#9660</summary>
 
 ```python
 def make_beta_schedule(schedule, n_timestep, linear_start=1e-4, linear_end=2e-2, cosine_s=8e-3):
@@ -588,7 +592,7 @@ def make_beta_schedule(schedule, n_timestep, linear_start=1e-4, linear_end=2e-2,
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转:model_class=ldm.models.diffusion.dual_cond_ddpm.DualConditionDiffusionWrapper &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转:model_class=ldm.models.diffusion.dual_cond_ddpm.DualConditionDiffusionWrapper &#9660</summary>
 
 ```python
 class DualConditionDiffusionWrapper(pl.LightningModule):
@@ -617,7 +621,7 @@ class DualConditionDiffusionWrapper(pl.LightningModule):
 
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: self.diffusion_model = instantiate_from_config -> ldm.modules.diffusionmodules.model.StyleUNetModel:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: self.diffusion_model = instantiate_from_config -> ldm.modules.diffusionmodules.model.StyleUNetModel:  &#9660</summary>
 
 ```python
 # 在unet基础上扩展一些新功能， 特别是与内容相关的处理
@@ -656,7 +660,7 @@ class StyleUNetModel(UNetModel):
 
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: ldm.modules.ema.LitEma:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: ldm.modules.ema.LitEma:  &#9660</summary>
 
 ```python
 import torch
@@ -742,7 +746,7 @@ class LitEma(nn.Module): #继承自传入的nn.Module
 ```
 
 </details>
-<details style="margin-left: 20px;"><summary>跳转: ldm.modules.losses.lpips.vgg16:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: ldm.modules.losses.lpips.vgg16:  &#9660</summary>
 
 ```python
 import torch
@@ -795,7 +799,7 @@ class vgg16(torch.nn.Module):
 ```
 
 </details>
-<details style="margin-left: 20px;"><summary>跳转: ldm.modules.losses.lpips.ScalingLayer:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: ldm.modules.losses.lpips.ScalingLayer:  &#9660</summary>
 
 ```python
 #对输入进行标准化处理
@@ -812,7 +816,7 @@ class ScalingLayer(nn.Module):
 
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: samples = model.sample_log -> ldm.models.diffusion.ddpm.LatentDiffusion.sample_log:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: samples = model.sample_log -> ldm.models.diffusion.ddpm.LatentDiffusion.sample_log:  &#9660</summary>
 
 ```python
 class LatentDiffusion(pl.LightningModule):
@@ -833,7 +837,7 @@ class LatentDiffusion(pl.LightningModule):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: ddim_sampler = DDIMSampler -> ldm.models.diffusion.ddim.DDIMSampler:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: ddim_sampler = DDIMSampler -> ldm.models.diffusion.ddim.DDIMSampler:  &#9660</summary>
 
 ```python
 class DDIMSampler(object):
@@ -846,7 +850,7 @@ class DDIMSampler(object):
 
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: samples, intermediates = ddim_sampler.sample -> ldm.models.diffusion.ddim.DDIMSampler.sample:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: samples, intermediates = ddim_sampler.sample -> ldm.models.diffusion.ddim.DDIMSampler.sample:  &#9660</summary>
 
 ```python
 class DDIMSampler(object):
@@ -1121,7 +1125,7 @@ class DDIMSampler(object):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: make_ddim_timesteps -> ldm.modules.diffusionmodules.util.make_ddim_timesteps:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: make_ddim_timesteps -> ldm.modules.diffusionmodules.util.make_ddim_timesteps:  &#9660</summary>
 
 ```python
 def make_ddim_timesteps(ddim_discr_method, num_ddim_timesteps, num_ddpm_timesteps, verbose=True):
@@ -1145,7 +1149,7 @@ def make_ddim_timesteps(ddim_discr_method, num_ddim_timesteps, num_ddpm_timestep
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: make_ddim_sampling_parameters -> ldm.modules.diffusionmodules.util:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: make_ddim_sampling_parameters -> ldm.modules.diffusionmodules.util:  &#9660</summary>
 
 ```python
 def make_ddim_sampling_parameters(alphacums, ddim_timesteps, eta, verbose=True):
@@ -1165,7 +1169,7 @@ def make_ddim_sampling_parameters(alphacums, ddim_timesteps, eta, verbose=True):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: e_t = self.model.apply_model -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM:  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: e_t = self.model.apply_model -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM:  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion):
@@ -1182,7 +1186,7 @@ class DualCondLDM(LatentDiffusion):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: x_recon = self.model-> ldm.models.diffusion.dual_cond_ddpm.DualConditionDiffusionWrapper  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: x_recon = self.model-> ldm.models.diffusion.dual_cond_ddpm.DualConditionDiffusionWrapper  &#9660</summary>
 
 ```python
 # 主要用于封装和处理双条件扩散模型
@@ -1201,7 +1205,7 @@ class DualConditionDiffusionWrapper(pl.LightningModule):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: return self.diffusion_model -> ldm.modules.diffusionmodules.model.StyleUNetModel  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: return self.diffusion_model -> ldm.modules.diffusionmodules.model.StyleUNetModel  &#9660</summary>
 
 ```python
 class StyleUNetModel(UNetModel):
@@ -1272,7 +1276,7 @@ class UNetModel(nn.Module):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: emb = self.time_embed -> TimestepEmbedder.forward  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: emb = self.time_embed -> TimestepEmbedder.forward  &#9660</summary>
 
 ```python
 class TimestepEmbedder(nn.Module):
@@ -1319,7 +1323,7 @@ class TimestepEmbedder(nn.Module):
 </details>
 
 
-<details style="margin-left: 20px;"><summary>跳转: x_samples = model.decode_first_stage -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: x_samples = model.decode_first_stage -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660</summary>
 
 ```python
     def decode_first_stage(self, z, predict_cids=False, force_not_quantize=False):
@@ -1331,7 +1335,7 @@ class TimestepEmbedder(nn.Module):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: model.ema_scope("Plotting") -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: model.ema_scope("Plotting") -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion):
@@ -1357,7 +1361,7 @@ class DualCondLDM(LatentDiffusion):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: self.model_ema.store -> ldm.modules.ema.LitEma  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: self.model_ema.store -> ldm.modules.ema.LitEma  &#9660</summary>
 
 ```python
 class LitEma(nn.Module):
@@ -1450,7 +1454,7 @@ x_samples = style_transfer(content_image_path, style_image_path, content_s=0.5, 
 display_samples(x_samples, figsize=(3, 3))
 ```
 
-<details style="margin-left: 20px;"><summary>跳转: encode_first_stage -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: encode_first_stage -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion):
@@ -1460,7 +1464,7 @@ class DualCondLDM(LatentDiffusion):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: first_stage_model.encode -> ldm.models.autoencoder.  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: first_stage_model.encode -> ldm.models.autoencoder.  &#9660</summary>
 
 ```python
 class AutoencoderKL(pl.LightningModule):
@@ -1472,7 +1476,7 @@ class AutoencoderKL(pl.LightningModule):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: DiagonalGaussianDistribution -> ldm.modules.distributions.distributions  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: DiagonalGaussianDistribution -> ldm.modules.distributions.distributions  &#9660</summary>
 
 ```python
 class DiagonalGaussianDistribution(object):
@@ -1492,7 +1496,7 @@ class DiagonalGaussianDistribution(object):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: model.get_first_stage_encoding -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: model.get_first_stage_encoding -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion):
@@ -1504,7 +1508,7 @@ class DualCondLDM(LatentDiffusion):
 ```
 </details>
 
-<details style="margin-left: 20px;"><summary>跳转: model.get_content_features -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660 ▼>>></summary>
+<details style="margin-left: 20px;"><summary>跳转: model.get_content_features -> ldm.models.diffusion.dual_cond_ddpm.DualCondLDM  &#9660</summary>
 
 ```python
 class DualCondLDM(LatentDiffusion):
@@ -1524,3 +1528,317 @@ class DualCondLDM(LatentDiffusion):
 </details>
 
 - 后面的block与前面的block类似，不再赘述
+
+### 3.2 训练部分（train.py）
+
+- 训练之前需要下载数据集（根据readme.md中的说明, wiki-art需要将images文件夹里的子文件夹放出来）:
+```
+datasets/
+|-- ms-coco/
+|   |-- train2017/
+|   |-- val2017/
+|   |-- test2017/
+|-- wiki-art/
+    |-- 类别1/
+    |-- 类别2/
+    |-- ...
+    |-- WikiArt.csv
+```
+
+- 运行训练代码
+
+```bash
+python main.py --name experiment_name --base ./configs/kl16_content12.yaml --basedir ./checkpoints -t True --gpus 0,
+```
+
+
+```python
+
+if __name__ == "__main__":
+    # 获取当前时间
+    now = datetime.datetime.now().strftime("%Y-%m-%dT%H-%M-%S")
+
+    # add cwd for convenience and to make classes in this file available when
+    # running as `python main.py`
+    # (in particular `main.DataModuleFromConfig`)
+    sys.path.append(os.getcwd())
+
+    parser = get_parser() #获取参数解析器
+    parser = Trainer.add_argparse_args(parser)
+
+    opt, unknown = parser.parse_known_args()
+    if opt.name and opt.resume: #如果同时指定了name和resume, 因为resume用于恢复训练，name用于新建训练
+        raise ValueError(
+            "-n/--name and -r/--resume cannot be specified both."
+            "If you want to resume training in a new log folder, "
+            "use -n/--name in combination with --resume_from_checkpoint"
+        )
+    if opt.resume: #恢复训练
+        if not os.path.exists(opt.resume): #提供的路径不存在
+            raise ValueError("Cannot find {}".format(opt.resume))
+        if os.path.isfile(opt.resume): #提供的路径是文件
+            paths = opt.resume.split("/")
+            idx = -2
+            logdir = "/".join(paths[:idx]) #提取文件的上一级目录作为logdir
+            ckpt = opt.resume #提取文件的路径作为ckpt
+        else: #提供的路径是目录
+            assert os.path.isdir(opt.resume), opt.resume #确保提供的路径是目录
+            logdir = opt.resume #提供的路径作为logdir
+            ckpt = os.path.join(logdir, "models", "last.ckpt") #提供的路径下的models文件夹下的last.ckpt作为ckpt
+
+        opt.resume_from_checkpoint = ckpt
+        # 读取logdir/configs下的配置文件
+        base_configs = sorted(glob.glob(os.path.join(logdir, "configs/*.yaml")))
+        opt.base = base_configs + opt.base #将读取的配置文件与命令行参数中的配置文件合并
+        _tmp = logdir.split("/")
+        nowname = _tmp[-1] #提取logdir的最后一个目录名
+    else:
+        if opt.name:
+            name = "_" + opt.name
+        elif opt.base:
+            cfg_fname = os.path.split(opt.base[0])[-1]
+            cfg_name = os.path.splitext(cfg_fname)[0]
+            name = "_" + cfg_name
+        else:
+            name = ""
+        nowname = now + name + opt.postfix #最终实验目录名
+        logdir = os.path.join(opt.basedir, nowname) #实验目录
+
+    ckptdir = os.path.join(logdir, "models")
+    cfgdir = os.path.join(logdir, "configs")
+    tensorboard_dir = os.path.join(logdir, 'tensorboard')
+    os.makedirs(ckptdir, exist_ok=True)
+    os.makedirs(cfgdir, exist_ok=True)
+    os.makedirs(tensorboard_dir, exist_ok=True)
+    seed_everything(opt.seed) #设置随机种子
+
+    try:
+        # init and save configs
+        # 读取配置文件
+        configs = [OmegaConf.load(cfg) for cfg in opt.base]
+        cli = OmegaConf.from_dotlist(unknown) # {}
+        config = OmegaConf.merge(*configs, cli) #合并
+        # 获取linghtning配置???
+        lightning_config = config.pop("lightning", OmegaConf.create())
+        # merge trainer cli with config
+        # trainer_config: max_epochs, log_every_n_steps, accumulate_grad_batchs
+        trainer_config = lightning_config.get("trainer", OmegaConf.create())
+        # default to ddp
+        trainer_config["distributed_backend"] = "ddp"
+        for k in nondefault_trainer_args(opt): #识别出在默认选项 opt 和通过命令行解析的参数 args 之间存在差异的参数
+            # 参数优先级：命令行 > 配置文件
+            trainer_config[k] = getattr(opt, k)
+        if not "gpus" in trainer_config: #如果没有指定gpus
+            del trainer_config["distributed_backend"]
+            cpu = True
+        else: #指定了gpus
+            gpuinfo = trainer_config["gpus"]
+            print(f"Running on GPUs {gpuinfo}")
+            cpu = False
+        trainer_opt = argparse.Namespace(**trainer_config)
+        lightning_config.trainer = trainer_config
+
+        # model
+        model = instantiate_from_config(config.model)
+
+        # trainer and callbacks
+        trainer_kwargs = dict()
+
+        # tensorboardlogger用于记录训练过程
+        trainer_kwargs['logger'] = \
+            TensorBoardLogger(save_dir=tensorboard_dir, name='', version='', default_hp_metric=False)
+
+        # modelcheckpoint - use TrainResult/EvalResult(checkpoint_on=metric) to
+        # specify which metric is used to determine best models
+        default_modelckpt_cfg = { #模型检查点的基本配置，用于保存训练过程中表现最好的模型
+            "target": "pytorch_lightning.callbacks.ModelCheckpoint",
+            "params": {
+                "dirpath": ckptdir, #保存检查点的目录路径。
+                # 检查点文件的命名格式，包含当前的 epoch 和 step 以及训练损失
+                "filename": "epoch={epoch}_step={step}_loss={train/loss_epoch:.4f}",
+                "auto_insert_metric_name": False, #是否自动插入监控指标的名称
+                "every_n_epochs": 1, #每训练多少个 epoch 保存一次检查点
+                "monitor": "train/loss_epoch", #用于监控的指标，这里监控的是训练损失（train/loss_epoch）。
+                "save_top_k": 3, #保存表现最好的模型的数量，这里设置为 3。
+                "mode": "min", #指定监控指标的优化方向，min 表示希望损失值越小越好
+                "save_last": True, #是否保存最后一个检查点
+                "verbose": False, #是否打印检查点保存的详细信息
+            },
+        }
+        modelckpt_cfg = lightning_config.get('modelcheckpoint', OmegaConf.create())
+        # 合并默认配置和从配置文件中获取的配置来创建最终的模型检查点配置
+        modelckpt_cfg = OmegaConf.merge(default_modelckpt_cfg, modelckpt_cfg)
+
+        default_modelckpt_epoch_cfg = { #在每个 epoch 结束时保存模型的检查点配置
+            "target": "pytorch_lightning.callbacks.ModelCheckpoint",
+            "params": { #类似于 default_modelckpt_cfg，但用于每个 epoch
+                "dirpath": ckptdir,
+                "filename": "{epoch:03d}_{step}",
+                "save_top_k": -1, #保存的模型数量，这里设置为 -1 表示保存所有检查点
+                "every_n_epochs": 25, #每 25 个 epoch 保存一次检查点
+                "every_n_train_steps": None, 
+                "save_last": False, #不保存最后一个检查点
+                "verbose": False,
+                "save_on_train_epoch_end": True, #是否在每个训练 epoch 结束时保存
+            },
+        }
+        modelckpt_epoch_cfg = lightning_config.get('modelcheckpoint_epoch', OmegaConf.create())
+        modelckpt_epoch_cfg = OmegaConf.merge(default_modelckpt_epoch_cfg, modelckpt_epoch_cfg)
+
+        default_modelckpt_step_cfg = { #在每个训练 step 保存模型的检查点配置
+            "target": "pytorch_lightning.callbacks.ModelCheckpoint",
+            "params": {
+                "dirpath": ckptdir,
+                "filename": "{step}",
+                "save_top_k": -1,
+                "every_n_epochs": None,
+                "every_n_train_steps": None,
+                "save_last": False, #不保存最后的检查点
+                "verbose": False,
+                "save_on_train_epoch_end": True, #在每个训练 epoch 结束时保存
+            },
+        }
+        modelckpt_step_cfg = lightning_config.get('modelcheckpoint_step', OmegaConf.create())
+        modelckpt_step_cfg = OmegaConf.merge(default_modelckpt_step_cfg, modelckpt_step_cfg)
+
+        # add callback which sets up log directory
+        default_callbacks_cfg = { #训练过程中使用的各种回调配置。
+            "setup_callback": { #设置训练环境的回调
+                "target": "main.SetupCallback", #指定回调类
+                "params": { #包含参数，如是否恢复训练、当前时间、日志和检查点目录、配置等
+                    "resume": opt.resume,
+                    "now": now,
+                    "logdir": logdir,
+                    "ckptdir": ckptdir,
+                    "cfgdir": cfgdir,
+                    "config": config,
+                    "lightning_config": lightning_config,
+                }
+            },
+            "image_logger": { #记录训练过程中生成的图像
+                "target": "main.ImageLogger",
+                "params": { #包含参数，例如每批次记录的频率和最大记录图像数量
+                    "batch_frequency": 1024,
+                    "max_images": 64,
+                    "clamp": True
+                }
+            },
+            "learning_rate_logger": { #记录学习率的变化
+                "target": "main.LearningRateMonitor",
+                "params": { #包含记录间隔的参数
+                    "logging_interval": "step",
+                    #"log_momentum": True
+                }
+            },
+            'checkpoints': modelckpt_cfg,
+            'checkopints_epoch': modelckpt_epoch_cfg,
+            'checkopints_step': modelckpt_step_cfg,
+        }
+        callbacks_cfg = lightning_config.get('callbacks', OmegaConf.create())
+        callbacks_cfg = OmegaConf.merge(default_callbacks_cfg, callbacks_cfg)
+        # 对每个回调进行实例化，生成回调对象，并将其添加到 trainer_kwargs["callbacks"] 中，供后续训练使用
+        trainer_kwargs["callbacks"] = [instantiate_from_config(callbacks_cfg[k]) for k in callbacks_cfg]
+
+        # 创建 Trainer 对象
+        trainer = Trainer.from_argparse_args(trainer_opt, **trainer_kwargs)
+
+        # data
+        data = instantiate_from_config(config.data)
+        # NOTE according to https://pytorch-lightning.readthedocs.io/en/latest/datamodules.html
+        # calling these ourselves should not be necessary but it is.
+        # lightning still takes care of proper multiprocessing though
+        data.prepare_data()
+        data.setup()
+
+        # configure learning rate
+        bs = config.data.params.batch_size
+        if not cpu:
+            ngpu = len(lightning_config.trainer.gpus.strip(",").split(','))
+        else:
+            ngpu = 1
+        accumulate_grad_batches = lightning_config.trainer.get('accumulate_grad_batches', 1)
+        print(f"accumulate_grad_batches = {accumulate_grad_batches}")
+        lightning_config.trainer.accumulate_grad_batches = accumulate_grad_batches
+
+        if 'learning_rate' not in config.model:
+            base_lr = config.model.base_learning_rate
+            model.learning_rate = accumulate_grad_batches * ngpu * bs * base_lr
+            print("Setting learning rate to {:.2e} = {} (accumulate_grad_batches) * {} (num_gpus) * {} (batchsize) * {:.2e} (base_lr)".format(
+                model.learning_rate, accumulate_grad_batches, ngpu, bs, base_lr))
+        else:
+            model.learning_rate = config.model.learning_rate
+
+        # allow checkpointing via USR1
+        def melk(*args, **kwargs):
+            if trainer.global_rank == 0:
+                print("Summoning checkpoint.")
+                ckpt_path = os.path.join(ckptdir, "last.ckpt")
+                trainer.save_checkpoint(ckpt_path)
+                print(f"Save last in {ckpt_path}")
+
+        def divein(*args, **kwargs):
+            if trainer.global_rank == 0:
+                import pudb; pudb.set_trace()
+
+        import signal
+        signal.signal(signal.SIGUSR1, melk)
+        signal.signal(signal.SIGUSR2, divein)
+
+        if opt.test_first and 'test' in data.datasets:
+            trainer.test(model, data)
+
+        # run
+        if opt.train:
+            try:
+                setattr(model, 'data', data)
+                trainer.fit(model, data)
+            except Exception:
+                print('exception!!!!!')
+                melk()
+                raise
+        if not opt.no_test and not trainer.interrupted and 'test' in data.datasets:
+            trainer.test(model, data)
+    except Exception:
+        if opt.debug and trainer.global_rank==0:
+            try:
+                import pudb as debugger
+            except ImportError:
+                import pdb as debugger
+            debugger.post_mortem()
+        raise
+    finally:
+        # move newly created debug project to debug_runs
+        if opt.debug and not opt.resume and trainer.global_rank==0:
+            dst, name = os.path.split(logdir)
+            dst = os.path.join(dst, "debug_runs", name)
+            os.makedirs(os.path.split(dst)[0], exist_ok=True)
+            os.rename(logdir, dst)
+
+
+```
+
+<details style="margin-left: 20px;"><summary>跳转: data = instantiate_from_config(config.data) ->  DataModuleFromConfig &#9660</summary>
+
+```python
+
+class DataModuleFromConfig(pl.LightningDataModule):
+    def __init__(self, batch_size, val_scale=6, train=None, validation=None, test=None,
+                 wrap=False, num_workers=None):
+        super().__init__()
+        self.batch_size = batch_size
+        self.val_scale = val_scale
+        self.dataset_configs = dict()
+        self.num_workers = num_workers if num_workers is not None else batch_size*2
+        if train is not None:
+            self.dataset_configs["train"] = train
+            # _train_dataloader是一个受保护方法，用于创建训练数据集的 DataLoader
+            self.train_dataloader = self._train_dataloader
+        if validation is not None:
+            self.dataset_configs["validation"] = validation
+            self.val_dataloader = self._val_dataloader
+        if test is not None:
+            self.dataset_configs["test"] = test
+            self.test_dataloader = self._test_dataloader
+        self.wrap = wrap #是否对数据集进行包装
+```
+</details>
