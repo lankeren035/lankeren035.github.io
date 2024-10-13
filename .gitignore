@@ -3,3 +3,5 @@
 public/
 .deploy*/
 _multiconfig.yml
+
+source/_posts/deeplearning/code/pytorch/data
