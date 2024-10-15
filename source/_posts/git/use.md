@@ -28,7 +28,7 @@ toc: true
 
 
 
-## 1. 删除远端文件夹
+## 1. 删除远端文件夹（本地保留）
 
 ```bash
 git rm -r --cached source/_posts/deeplearning/code/pytorch/data
@@ -41,3 +41,14 @@ git push
 ## 2. 使用.gitignore
 
 - 将不想上传的路径写到.gitignore文件里面
+
+
+
+## 3. 在本地删除了一个文件夹后，如何将远端也删除
+
+```bash
+git add -u
+git commit -m "Remove folder"
+git push
+```
+
