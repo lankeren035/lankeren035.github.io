@@ -200,4 +200,3 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 ![](img/paper/diffusion/guidance/4.png)
 
 - 用加权的方式获得噪声：条件模型和非条件模型预测的结果做加权（当c取空时，预测的噪声就是非条件模型预测的噪声）
-

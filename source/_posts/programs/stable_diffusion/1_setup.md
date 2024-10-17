@@ -54,6 +54,50 @@ cd stable-diffusion-webui-forge
   conda deactivate
   ```
 
+
+  - 你也可以直接把别人的`venv`文件夹拷贝过来，然后需要修改`pyvenv.cfg`里面的python解释器路径。
+
+
+     - 拷贝过来后可能没有执行权限，需要：
+
+      ```bash
+      chmod +x 项目路径/venv/bin/python
+      chmod +x 项目路径/venv/bin/pip
+      python -V
+      pip list
+      ```
+
+   - 如果`pip list命令`出现如下错误：
+
+
+      - 看看`venv/pyvenv.cfg`指向的python路径是不是本地conda环境（指向项目的`venv`环境时会报错：）
+
+         ```bash
+         Fatal Python error: init_fs_encoding: failed to get the Python codec of the filesystem encoding
+         Python runtime state: core initialized
+         ModuleNotFoundError: No module named 'encodings'
+         ```
+
+      - 如果出现：
+
+         ```bash
+         valueerror: failed to parse cpython sys.version: '3.10.6 | packaged by conda-forge | (main, aug 22 2022, 20:36:39) [gcc 10.4.0]'
+         ```
+
+         - 就在`conda/envs/虚拟环境/lib/python3.x/platform.py`中找到（添加第二行）：
+
+           ```python
+           _sys_version_parser = re.compile(
+               r'([\w.+]+)\s*'  # "version<space>"
+               r'(?:\|[^|]*\|)*\s*' #去掉'|Anaconda xxx|'等,避免出现failed to parse CPython sys.version
+               r'\(#?([^,]+)'  # "(#buildno"
+               r'(?:,\s*([\w ]*)'  # ", builddate"
+               r'(?:,\s*([\w :]*))?)?\)\s*'  # ", buildtime)<space>"
+               r'\[([^\]]+)\]?', re.ASCII)  # "[compiler]"
+           ```
+
+           
+
 - 使用虚拟环境
 
    -  windows
