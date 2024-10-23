@@ -57,10 +57,11 @@ toc: true
   
 - 在big_model目录下载lora项目：
   
-      ```bash
-      cd ./big_model
-      git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
-    ```
+  ```bash
+  cd ./big_model
+  git clone --recurse-submodules https://github.com/Akegarasu/lora-scripts
+  ```
+    ```bash
   cd lora-scripts
     ```
   
@@ -119,7 +120,7 @@ toc: true
 
 - 训练不要使用过小的图片，也不要过大（3000以上）
 
-- 在http://localhost:6006/ 启动 TensorBoard 
+- 在http://localhost:6006/ 启动 TensorBoard （linux下可能要改改）
 
   ```bash
   ./tensorboard.ps1
