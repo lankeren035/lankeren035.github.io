@@ -61,10 +61,11 @@ $ \downarrow  $
 
 #### 2.1.3 最近一些方法
 
-- 方法：试图通过单帧正则化来提高视频输出的时间一致性。他们试图确保从内容特征到融合特征的线性转换。
+- 方法：试图通过单帧正则化（在全局层面进行优化）来提高视频输出的时间一致性。他们试图确保从内容特征到融合特征的线性转换。
   - 基本思想：鼓励在内容源中保留密集的成对关系。
   - 缺点：如果没有明确的指导，“线性性质”很大程度上受到全局样式优化的影响。 因此他们的结果仍然有时间一致性问题。
--  We notice that most video results show good structure rigidity to their content video inputs, but the local noise escalates the impression of inconsistency. So instead of considering a global constraint that could be easily violated, we start by thinking about a more relaxed constraint defined on local patches.
+  
+-  <details><summary>作者注意到很多生成的视频虽然在内容保持上表现的很好，但会局部噪声会影响一致性。因此本文不考虑使用全局约束，而是使用使用局部约束。&#9660 </summary>We notice that most video results show good structure rigidity to their content video inputs, but the local noise escalates the impression of inconsistency. So instead of considering a global constraint that could be easily violated, we start by thinking about a more relaxed constraint defined on local patches.</details>
 
 #### 2.1.4 本文想法
 
@@ -180,7 +181,7 @@ $ \downarrow  $
 
 ### 4.1 CCPL
 
-- 当两帧时间间隔足够小时，生成帧之间的变化线性依赖于对应的内容帧之间的变化：
+- 假设当两帧时间间隔足够小时，生成帧之间的变化线性依赖于对应的内容帧之间的变化：
 
     $$\lim \limits_{\Delta t\to0}\mathcal{D}(C_{t+\Delta t},C_t)\simeq\mathcal{D}(G_{t+\Delta t},G_t), \tag 1 $$
 
@@ -302,7 +303,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 | 实验内容                          | 实验步骤                                                     |
 | --------------------------------- | ------------------------------------------------------------ |
-| 比较图像风格迁移效果              | 10张内容图10张风格图得到100张结果图。计算平均SIFID度量风格化。 |
+| 比较图像风格迁移效果              | 10张内容图10张风格图得到100张结果图。计算风格图和结果图平均SIFID度量风格化。 |
 | 衡量photo-realistic结果的视觉质量 | 平均LPIPS                                                    |
 | 时间一致性                        | 从MPI sinintel数据集随机选择10个视频片段（50帧，每个12 FPS），并分别使用10个风格图像来处理这些视频。然后计算平均LPIPS和时间损失。 |
 | 人类评估                          | 50名参与者选择他们最喜欢的风格化图像/视频，考虑视觉质量，风格化效果和时间一致性。在图片和视频方面分别获得了500票。 |
