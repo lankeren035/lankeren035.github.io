@@ -102,7 +102,7 @@ toc: true
 
 
 
-# 2. video diffusion
+# 2. 视频生成
 
 ## 2.0 问题定义
 
@@ -310,3 +310,33 @@ toc: true
   - 先做image pretraining，然后inflate成3D
   - 在数据集上训练
   - high quality finetuning
+
+
+
+
+
+# 3. 视频编辑
+
+## 3.1 Tuning-Based
+
+### 3.1.1 One-Shot Tuned
+
+- 给的视频只有一个，在一个视频上训练
+
+#### 1） Tune-A-Video
+
+- 给一个文本视频对，更换主体
+
+  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/27.png)
+
+  ![](img/paper/diffusion/video_diffusion/27.png)
+
+
+
+#### 2）Dreamix
+
+
+
+
+
+## 3.2

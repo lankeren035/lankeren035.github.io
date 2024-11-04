@@ -1,5 +1,5 @@
 ---
-title: ArtFusion Controllable Arbitrary Style Transfer using Dual Conditional Latent Diffusion Models代码理解
+title: 'ArtFusion Controllable Arbitrary Style Transfer using Dual Conditional Latent Diffusion Models代码理解'
 date: 2024-9-19 10:28:00
 tags: [风格迁移,diffusion,深度学习,代码]
 categories: [风格迁移,diffusion]

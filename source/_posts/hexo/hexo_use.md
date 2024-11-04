@@ -25,13 +25,15 @@ toc: true
 
 ## 1. 站内文章跳转
 
-- 推荐使用标签：假设你想跳转`Hello World`博客（是博客的title，不是文件名）
+- 推荐使用标签：假设你想跳转`Hello World`博客（是博客的title，不是文件名）(不必在同一文件夹下)
 
   ```
   {%post_link 'Hello World'%}
   ```
 
   {%post_link 'Hello World'%}
+
+  
 
 - 使用相对路径（保证你跳转的博客date跟当前博客一致）
 
