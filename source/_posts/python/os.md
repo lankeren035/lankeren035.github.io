@@ -48,3 +48,13 @@ categories: [python]
 - 重命名：
 
   `os.rename(os.path.join(), os.path.join())`
+
+- 环境变量：
+
+  ```
+  os.environ['CUDA_VISIBLE_DEVICES'] = '0' 
+  ```
+
+  
+
+  
