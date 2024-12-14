@@ -105,3 +105,23 @@ toc: true
   ![](img/experience/app/word/2.png)
 
 - 选择表格的第一行，然后属性，边框底纹，磅数0.75，选择上下边框
+
+
+
+# 5. 乱码
+
+## 5.1 页眉的页码乱码，mathtype公式乱码
+
+- 页眉的页码变成了这样：
+
+![](../../../../themes/yilia/source/img/experience/app/word/formulation/1.png)
+
+![](img/experience/app/word/formulation/1.png)
+
+- 公式变成了这样：
+
+![](../../../../themes/yilia/source/img/experience/app/word/formulation/2.png)
+
+![](img/experience/app/word/formulation/1.png)
+
+- 解决：alt+F9 切换域代码的显示状态。 
