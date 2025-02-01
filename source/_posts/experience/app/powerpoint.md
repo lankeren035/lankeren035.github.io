@@ -1,7 +1,7 @@
 ---
 title: ppt笔记
 date: 2024-5-12 11:00:00
-tags: [经验]
+tags: [ppt]
 categories: [经验]
 comment: true
 toc: true
