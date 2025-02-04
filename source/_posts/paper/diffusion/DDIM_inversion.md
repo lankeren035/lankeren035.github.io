@@ -97,6 +97,10 @@ $$
 
 ## 2.1 Null Text Inversion
 
+https://blog.csdn.net/qq_36104364/article/details/138966926
+
+ [空文本逆映射 Null-text Inversion_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1h34y1K7s7/?spm_id_from=333.337.search-card.all.click&vd_source=3988165c7848b1c4da919fec04b512a5) 
+
 - $w=1$ 时反推出的 latent 虽然在 CFG  引导的情况下重构结果不够好，但其实也大差不差，是一个不错的起始点。 基于此，作者们提出了对 Null Text Embedding 进行 Pivotal Tuning 的方法。
 - 首先使用$w=1$ 对真实图片进行 DDIM Inversion，得到每一步的噪声 $z_ t ^ *$。将$z_T ^ *$和 新的文本 prompt 输入到模型中进行图像编辑或重构 ， 在此过程汇总，将每一步 CFG 采样出的噪声 $\epsilon_ \theta$计算出的$z_t$向$z_t ^ *$靠近， 计算二者的 MSE 损失，用于参数更新。  更新哪些参数呢？为了保证对模型其他部分不造成影响，作者提出对 null text 的 embedding $\varnothing$ (即CLIP text encoder对空字符串的编码）进行微调， 而所有其他网络以及文本 prompt 的 embedding 都保持不变。 
 
