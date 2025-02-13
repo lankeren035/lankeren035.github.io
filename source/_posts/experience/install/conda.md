@@ -37,3 +37,13 @@ Unpacking payload ...
 [48178] Cannot open PyInstaller archive from executable (/home/user/anaconda3/_conda) or external archive (/home/user/anaconda3/_conda.pkg)
 ```
 
+- 安装后如果无法使用conda命令
+
+  ```shell
+  ~/anaconda3/bin/conda init bash
+  source ~/.bashrc
+  conda -V
+  
+  ```
+
+  

@@ -6,8 +6,10 @@ categories: [python]
 comment: true
 toc: true
 ---
-#  
+#
+
 <!--more-->
+
 # python中面向对象的使用
 
 - 定义接口：
