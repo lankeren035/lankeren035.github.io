@@ -53,18 +53,22 @@ pip install debugpy
 - 纯python语句：
 
   ```bash
-  python -m debugpy --listen localhost:xxxx --wait-for-client \
-          main.py \ # 要运行的文件
-          --参数等等 \
+  python -m debugpy --listen localhost:xxxx --wait-for-client main.py --参数等等
   ```
-
+  
 - `torchrun`
 
   ```shell
-  python -m debugpy --listen localhost:5678 --wait-for-client $(which torchrun) --nnodes=1 --nproc_per_node=1 train.py --config configs/training/v1/image_finetune.yaml
+  python -m debugpy --listen localhost:5678 --wait-for-client $(which torchrun) --nnodes=1 --nproc_per_node=1 train.py --config configs/training/v1/config.yaml
   ```
 
+  - 网上看到的也有用：
   
+    ```shell
+    python -m debugpy --connect 5678 $(which torchrun) --nproc_per_node=2 ddp_demo.py
+    ```
+  
+    
 
 #4. 运行
 
