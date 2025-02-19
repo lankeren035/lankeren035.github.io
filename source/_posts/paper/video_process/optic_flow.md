@@ -25,6 +25,8 @@ toc:  true
 
 [参考链接2](https://yanqs.blog.csdn.net/article/details/104433061?spm=1001.2101.3001.6650.8&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EVECTOR_COMMERCIAL%7ERRF-8-104433061-blog-121837939.235%5Ev43%5Epc_blog_bottom_relevance_base7&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EVECTOR_COMMERCIAL%7ERRF-8-104433061-blog-121837939.235%5Ev43%5Epc_blog_bottom_relevance_base7&utm_relevant_index=12)
 
+[参考链接3](https://blog.csdn.net/qq_40968179/article/details/128093033)
+
 -  **稠密光流**（对图像中的每个像素点都计算光流） 
 
 # 0. Image Warping
@@ -37,7 +39,7 @@ toc:  true
 
 -  **把source_image中点的值直接warp到destination_image中对应点上** 
 
-  - 遍历`source image`中的每个点`p_source`，乘以从`source image`到`destination image`的`affine matrix`，将其投影到`destination image`中得到`p_destination`，如果`p_destination`的坐标不是整数，则进行四舍五入取整
+  -  <font color=Red>遍历`source image`</font>中的每个点`p_source`，乘以从`source image`到`destination image`的`affine matrix`，将其投影到`destination image`中得到`p_destination`，如果`p_destination`的坐标不是整数，则进行四舍五入取整
 
     ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/1.png)
 
@@ -62,7 +64,7 @@ toc:  true
 
 -  **把destination_image中的点warp到source_image对应点上，找最近的点的值** 
 
-  - 遍历destination image中的每个点p_destination，乘以destination image到source image的affine matrix，得这个点在source image中的对应点p_source，令p_destination的像素值等于p_source的值，如果p_source的坐标不是整数，则采用插值逼近的方法进行近似，因此不会产生的Forward Warping的问题。
+  -  <font color=Red>遍历destination image</font>中的每个点p_destination，乘以destination image到source image的affine matrix，得这个点在source image中的对应点p_source，令p_destination的像素值等于p_source的值，如果p_source的坐标不是整数，则采用插值逼近的方法进行近似，因此不会产生的Forward Warping的问题。
 
 
   ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/3.png)
@@ -82,31 +84,28 @@ toc:  true
 >该部分可以在理解光流之后再回看
 
 - 假设输入图片：
-  $$
-  \begin{bmatrix}
-     1 & 2 & 3 & 4 \\
-     5 & 6 & 7 & 8 \\
-     9 & 10 & 11 & 12 \\
-     13 & 14 & 15 & 16\\
-    \end{bmatrix} 
-  $$
-
+  
+  ```python
+  1  2  3  4
+  5  6  7  8
+  9  10 11 12
+  13 14 15 16
+  ```
+  
 - 希望将该图片左边两列上移一行，右边两列下移一行。那么x轴不动，在y轴移动
 
 - 这里移动一个单位对应的值需要注意，正常以为取 (-0.5, 0.5) 就是不动，然后加减1对应移动一个单位。这里是取 (0, 1) 范围时，不动。因此这里以0.5作为中心。对应的光流矩阵：
-  $$
-  \begin{bmatrix}
-     0.5 & 0.5 & 0.5 & 0.5 \\
-     0.5 & 0.5 & 0.5 & 0.5 \\
-     0.5 & 0.5 & 0.5 & 0.5 \\
-     0.5 & 0.5 & 0.5 & 0.5\\
-    \end{bmatrix} \quad \begin{bmatrix}
-     1.5 & 1.5 & -0.5 & -0.5 \\
-     1.5 & 1.5 & -0.5 & -0.5 \\
-     1.5 & 1.5 & -0.5 & -0.5 \\
-     1.5 & 1.5 & -0.5 & -0.5\\
-    \end{bmatrix}
-  $$
+  
+  ```python
+    [[[[0.5,0.5,0.5,0.5],
+       [0.5,0.5,0.5,0.5],
+       [0.5,0.5,0.5,0.5],
+       [0.5,0.5,0.5,0.5]],
+         [[1.5,1.5,-0.5,-0.5],
+          [1.5,1.5,-0.5,-0.5],
+          [1.5,1.5,-0.5,-0.5],
+          [1.5,1.5,-0.5,-0.5]]]]
+  ```
 
 ```python
 import torch
@@ -383,5 +382,6 @@ if __name__ == "__main__":
 
 - **光流**是一个**二维速度场**，表示 `每个像素pixel` 从参考图像到目标图像的`运动偏移`。 数学定义如下：
   - 给定两个图像img1，img2 $\in R^ {HW3}$
-  - flow $\in R^ {HW2}$ ，其中channel=2分辨描述水平和垂直方向的像素位移。
+  - flow $\in R^ {HW2}$ ，其中channel=2分别描述水平和垂直方向的像素位移。
 
+-  这里还要注意的一点：**像素坐标偏移量的`大小`\**当然就是通过\**光流数组中的数值大小**体现出来的，而**偏移的**`方向`是通过**光流数组中的正负**体现出来的。在`x方向上`，正值表示物体向左移动，而负值表示物体向右移动；在`y方向上`，正值表示物体向上移动，而负值表示物体向下移动。 

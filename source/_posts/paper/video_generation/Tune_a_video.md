@@ -256,6 +256,8 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
      > 结果表明，CogVideo生成了一致的视频帧，但在表示文本描述方面存在困难，而Plug-and-Play实现了高文本真实性，但未能生成一致的内容。相比之下，我们的方法在这两个指标上都优于基线。
 
+     >CLIP Score是乘以100了？
+  
   2. user study
 
 ## 5.3 Ablation

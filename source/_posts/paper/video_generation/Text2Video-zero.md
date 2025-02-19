@@ -75,18 +75,46 @@ toc:  true
   2. 对第一帧$x_T ^ 1$使用DDIM推理$\Delta t$步，得到$X^ 1 _ { T ’ }$ 
 
   3. 为全局场景和摄像机运动定义一个方向$\delta = ( \delta_ x, \delta_ y \in \mathbb R^ 2)$ ，默认情况下可以是主对角线方向：$\delta = (1,1)$
-
-  4. 对于我们要生成的每个帧$k=1, 2, ... , m$，计算全局平移向量$\delta^ k = \lambda \cdot（k-1）\delta $，其中$\lambda$是控制全局运动量的超参数。
-
-  5. 将你构造的运动流$\delta ^ { 1:m }$应用于$x^ 1 _ {T’}$，得到结果序列：
+     $$
+     \left [ \begin{matrix}\delta^1 \\ \left [ \begin{matrix}
+     0,0\\
+     0,0
+     \end{matrix} \right ] \\
+     \left [ \begin{matrix}
+     0,0\\
+     0,0
+     \end{matrix} \right ] \end{matrix} \right ] 
+     
+     \left [ \begin{matrix} \delta^2 \\ \left [ \begin{matrix}
+     12 ,12\\
+     12 ,12
+     \end{matrix} \right ] \\
+     \left [ \begin{matrix}
+     12,12\\
+     12,12
+     \end{matrix} \right ] \end{matrix} \right ] 
+     
+     \left [  \begin{matrix} \delta^3 \\ \left [ \begin{matrix}
+     24,24\\
+     24,24
+     \end{matrix} \right ] \\
+     \left [ \begin{matrix}
+     24,24\\
+     24,24
+     \end{matrix} \right ]  \end{matrix} \right ]
+     $$
+     
+4. 对于我们要生成的每个帧$k=1, 2, ... , m$，计算全局平移向量$\delta^ k = \lambda \cdot（k-1）\delta $，其中$\lambda$是控制全局运动量的超参数。
+  
+5. 将你构造的运动流$\delta ^ { 1:m }$应用于$x^ 1 _ {T’}$，得到结果序列：
      $$
      \tilde x ^ k _{ T' } = W_ k (x ^ 1 _{ T' }) \space \space \space for \space k=1,2, \dots,m
      $$
-
-     - 其中$W_ k(x^ 1 _ { T ^ \prime})$是用向量$\delta^ k$进行转换的翘曲操作。
-
-  6. 对每个$\tilde x ^ k _{ T' }$执行$\Delta t$次DDPM前向过程得到每一帧的初始噪声$x_T ^ {2:m}$
-
+  
+   - 其中$W_ k(x^ 1 _ { T ^ \prime})$是用向量$\delta^ k$进行转换的翘曲操作。详细信息参见 {% post_link 光流 %}
+  
+6. 对每个$\tilde x ^ k _{ T' }$执行$\Delta t$次DDPM前向过程得到每一帧的初始噪声$x_T ^ {2:m}$
+  
 - 然而，这种对$X_ T$的约束不足以描述特定的颜色、身份或形状，因此仍然导致时间不一致，尤其是对于前景对象。
 
 ### 3.3.2 跨帧注意力
@@ -119,10 +147,133 @@ $$
 
 - 更具体地说，ControlNet创建UNet 编码器（包括中间块）的可训练副本，同时额外获取输入$x_ t$和条件c，并将每一层的输出添加到原始UNet的skipconnections。这里c可以是任何类型的条件，例如边缘图、涂鸦、姿势（身体标志）、深度图、分割图等。针对每种类型的条件c，在特定域上训练可训练分支，从而产生有效的条件文本-图像生成机制。
 
-- 为了使用ControlNet指导我们的视频生成过程，我们将我们的方法应用于基本的扩散过程，即用运动信息丰富潜在码$x^ { 1:m } _ T$，并在主UNet中将自注意力改变为跨帧注意力。在采用主UNet进行视频生成任务时，我们在每个$x_ t^ k,k=1, \cdots,m$上每帧应用ControlNet预训练的复制分支，在每个扩散时间步长t=t，...，1，并将ControlNet分支输出添加到主UNet的跳过连接。
+- 为了使用ControlNet指导我们的视频生成过程，我们将我们的方法应用于基本的扩散过程，即**用运动信息丰富潜在码$x^ { 1:m } _ T$，**并在主UNet中将自注意力改变为**跨帧注意力**。在采用主UNet进行视频生成任务时，我们在每个$x_ t^ k,k=1, \cdots,m$上每帧应用ControlNet预训练的复制分支，在每个扩散时间步长t=t，...，1，并将ControlNet分支输出添加到主UNet的跳过连接。
 
 - 此外，对于我们的条件生成任务，我们采用了专门的DreamBooth（DB）模型的权重。这为我们提供了专门的时间一致的视频生成（参见图7）。
 
 ## 3.5 Video Instruct-Pix2Pix
 
-- 随着文本引导图像编辑方法的兴起，如Prompt2Prompt、Instruct-Pix2Pix、SDEdit等。出现了文本引导的视频编辑方法[1，16，42]。虽然这些方法需要复杂的优化过程，但我们的方法能够在视频领域采用任何基于SD的文本引导图像编辑算法，而无需任何训练或微调。这里**我们采用文本引导的图像编辑方法Instruct-Pix2Pix**，并将其与我们的方法相结合。更准确地说，我们根据等式将Instruct-Pix2Pix中的自我注意机制更改为交叉帧注意。8.我们的实验表明，与使用Instruct-Pix2Pix的näive每帧相比，这种适应显著提高了编辑视频的一致性（见图9）。
+- 随着文本引导图像编辑方法的兴起，如Prompt2Prompt、Instruct-Pix2Pix、SDEdit等。出现了文本引导的视频编辑方法[1，16，42]。虽然这些方法需要复杂的优化过程，但我们的方法能够在视频领域采用任何基于SD的文本引导图像编辑算法，而无需任何训练或微调。这里**我们采用文本引导的图像编辑方法Instruct-Pix2Pix**，并将其与我们的方法相结合。更准确地说，我们将Instruct-Pix2Pix中的自我注意机制更改为交叉帧注意。我们的实验表明，与使用Instruct-Pix2Pix的näive每帧相比，这种适应显著提高了编辑视频的一致性（见图9）。
+
+
+
+# 4. 实验
+
+## 4.1 实验细节
+
+- SD 1.5
+- 生成8帧
+- 分辨率512
+- 对于文生图T' = 881，T=941
+- 对于条件生成和specialized generation以及Video Instruct-Pix2Pix，T'=T=1000
+
+- specialized model使用dream booth
+- conditional generation使用controlnet
+- video Instruct-Pix2Pix使用 Instruct Pix2Pix
+
+
+
+## 4.2 定性结果
+
+- Text2Video-Zero的所有应用都表明，它成功地生成了全局场景和背景在时间上一致的视频，并且在整个序列中保持了前景对象的上下文、外观和身份。
+
+- 对于文生视频，生成了高质量视频，与文本高度对齐。
+
+![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/3.png)
+
+![](img/paper/video_generation/Text2Video-zero/3.png)
+
+- 使用边缘或姿势生成与提示词和指导相匹配的高质量视频，显示出很好的时间一致性和身份保留。
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/4.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/4.png)
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/5.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/5.png)
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/6.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/6.png)
+
+- VIdeo Instruct-Pix2Pix
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/7.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/7.png)
+
+## 4.3 与baseline比较
+
+- CogVideo比较文生视频
+- TAV比较 Video Instruct-Pix2Pix
+
+### 4.3.1 定量比较
+
+- CLIP score
+- 随机选取25个生成的视频（同一提示词）
+
+| 模型            | CLIP Score |
+| --------------- | ---------- |
+| CogVideo        | 29.63      |
+| Text2Video-zero | 31.19      |
+
+- 因此，我们的方法略微优于CogVideo，尽管后者有94亿个参数，并且需要对视频进行大规模训练。
+
+### 4.3.2 定性比较
+
+- CogVIdeo和本文方法都有较好的时间一致性，保留了对象和背景的身份。然而，我们的方法显示了更好的**文本-视频对齐**
+
+![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/8.png)
+
+![](img/paper/video_generation/Text2Video-zero/8.png)
+
+- 逐帧Instruct-Pix2Pix显示了良好的每帧编辑性能，它**缺乏时间一致性**。这一点在描绘滑雪者的视频中变得尤为明显，其中雪和天空是用不同的风格和颜色绘制的。
+
+- 使用我们的视频指令-Pix2Pix方法，这些问题得到了解决，从而在整个序列中实现了时间上一致的视频编辑。
+
+- 虽然Tune-A-Video创建了时间上一致的视频生成，但它**不如我们的方法与指令指导一致**，难以创建local编辑并丢失了输入序列的细节。当查看图9(左侧)中描绘的舞者视频的编辑时，这变得显而易见。与Tune-A-Video相比，**我们的方法将整件衣服画得更亮，同时更好地保留了背景**，例如，舞者后面的墙几乎保持不变。**Tune-A-Video绘制了一堵经过严重修改的墙**。此外，我们的方法更忠实于输入细节，例如，视频Instruct-Pix2Pix使用完全提供的姿势绘制舞者（图9左），并显示输入视频中出现的所有滑雪者（比较图9的最后一帧（右）），与Tune-A-Video相反。在附录图23、24中提供的附加评估中也可以观察到Tune-A-Video的所有上述弱点。
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/9.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/9.png)
+
+## 4.4 Ablation
+
+- 使用基本模型，即没有我们的更改（第一行），无法实现时间一致性。这对于不受约束的文本到视频生成尤其严重。例如，马的外观和位置变化非常快，背景完全不一致。
+
+- 使用我们提出的运动动力学（第二行），视频的一般概念在整个序列中被更好地保留。例如，所有帧都显示了一匹运动中的马的特写。同样，中间四个图形中的女人和背景的外观（使用带边缘引导的ControlNet）大大提高了。
+
+- 使用我们提出的跨帧注意力（第三行），我们看到在所有生成帧中，对象身份及其外观的保存都得到了改善。
+
+- 最后，通过结合这两个概念（最后一行），我们实现了最佳的时间一致性。例如，我们在最后四列中看到相同的背景图案和关于对象身份保存的信息，同时在生成的图像之间看到自然过渡。
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/10.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/10.png)
+
+### 4.4.1 其他Ablation
+
+- 对$\Delta t$=0时（对$x_T$施加运动）主要导致全局移位，而没有任何单个物体运动。
+
+![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/11.png)
+
+![](img/paper/video_generation/Text2Video-zero/11.png)
+
+- 背景更一致，保持的更好（红色广告牌）
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/12.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/12.png)
+
+- 边缘图条件生成：当使用CF-Attn层时，生成更好地保留了人的身份，并且在潜在中使用运动进一步提高了时间一致性。
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/13.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/13.png)
+
+- Video Instruct-Pix2Pix生成: 虽然在语义上知道文本引导编辑，但Tune-A-Video在本地化编辑方面有局限性，并且难以传输样式和颜色信息。另一方面，Instruct-Pix2Pix在图像级别进行视觉上合理的编辑，但在时间一致性方面存在问题。与上述方法相比，我们的方法在通过给定提示编辑视频时保持了时间一致性。
+
+  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/14.png)
+
+  ![](img/paper/video_generation/Text2Video-zero/14.png)
