@@ -152,7 +152,7 @@ cola|5
 
 ```markdown
 |    name       | price |
-| :------------ | :---: |
+| :----------- | :---: |
 | fried chicken | 19    |
 | cola          |  32   |
 ```
