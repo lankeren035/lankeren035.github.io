@@ -1,5 +1,5 @@
 ---
-title:  "Text2Video-Zero:  Text-to-Image Diffusion Models are Zero-Shot Video Generators论文理解"
+title:  "TOKENFLOW: CONSISTENT DIFFUSION FEATURES  FOR CONSISTENT VIDEO EDITING论文理解"
 
 date:  2025-2-14 13:28:00
 
@@ -10,10 +10,6 @@ categories:  [论文,视频]
 comment:  false
 
 toc:  true
-
-
-
-
 ---
 
 #
@@ -35,7 +31,7 @@ toc:  true
 - 利用图像扩散模型进行视频编辑的主要挑战是**确保编辑的内容在所有视频帧中保持一致**——理想情况下，3D世界中的每个物理点都会随着时间的推移进行连贯的修改。基于图像扩散模型的现有和并发视频编辑方法已经证明，**通过将自我注意模块扩展到包括多个帧，可以实现跨编辑帧的全局外观一致性**（TAV, Text2video-zero, Pix2video, Fatezero）
 
 - 然而，这种方法不足以实现期望的时间一致性水平，**因为视频中的运动仅通过注意力模块隐式地保留**。因此，专业或半专业用户经常求助于复杂的视频编辑管道，这需要额外的手动工作。
-- 在这项工作中，我们提出了一个框架，通过**显式地加强编辑上的原始帧间对应**来解决这一挑战。直观地，**自然视频包含跨帧的冗余信息**，例如，描绘**相似的外观和共享的视觉元素**。我们的关键观察是，**扩散模型中 视频的内部表示 表现出类似的属性**。也就是说，**RGB空间和扩散特征空间中的帧的冗余水平和时间一致性是紧密相关的**。基于这一观察，**我们方法的支柱是通过确保 *结果视频的特征* 跨帧一致来实现一致的编辑**。具体来说，我们**强制编辑的特征传达与原始视频特征相同的帧间对应和冗余**。为此，我们利用模型容易获得的**原始帧间特征对应关系**。这导致了一种有效的方法，该方法可以**直接基于原始视频动态传播编edited diffusion特征** 。这种方法允许我们利用最先进的**图像扩散模型**的生成先验，而无需额外的训练或微调，并且可以与现成的基于扩散的图像编辑方法结合工作（例如，SDEdit；prompt2prompt；controlnet；plug and play）。总而言之，我们做出了以下主要贡献：
+- 在这项工作中，我们提出了一个框架，通过<font color=red>**显式地加强编辑上的原始帧间对应性**</font>来解决这一挑战。直观地，**自然视频包含跨帧的冗余信息**，例如，描绘**相似的外观和共享的视觉元素**。我们的关键观察是，**扩散模型中 视频的内部表示 表现出类似的属性**。也就是说，**RGB空间和扩散特征空间中的帧的冗余水平和时间一致性是紧密相关的**。基于这一观察，**我们方法的支柱是通过确保 *结果视频的特征* 跨帧一致来实现一致的编辑**。具体来说，我们**强制编辑的特征传达与原始视频特征相同的帧间对应和冗余**。为此，我们利用<font color=red>**原始帧间特征对应关系**</font> （这种对应关系是模型容易获得的）。这导致了一种有效的方法，该方法可以**直接基于原始视频动态**<font color=red>**传播edited diffusion特征** </font>。这种方法允许我们利用最先进的**图像扩散模型**的生成先验，而无需额外的训练或微调，并且可以与现成的基于扩散的图像编辑方法结合工作（例如，SDEdit；prompt2prompt；controlnet；plug and play）。总而言之，我们做出了以下主要贡献：
   - 一种被称为TokenFlow的技术，它强制跨帧扩散特征的语义对应，允许显著增加由文本到图像扩散模型生成的视频的时间一致性。
   - 研究视频中扩散特征特性的新颖实证分析。
   - 对不同视频进行最先进的编辑结果，描绘复杂的运动。
@@ -99,7 +95,7 @@ toc:  true
 
 - 自然视频通常描绘随时间变化的连贯和共享内容。我们观察到$\epsilon_ \theta$中 自然视频的内部表示 具有类似的性质。这在图3中示出，其中我们可视化从给定视频(第一列)提取的特征。如图所示，`Features `描绘了一个 跨帧的共享的且一致的 表示，即，**对应区域展现类似的表示**。
 
-- 我们进一步观察到，**原始视频特征 使用简单的最近邻搜索 提供帧之间的细粒度对应**（图2）。此外，我们表明这些相应的特征对于扩散模型是可互换的——我们可以通过用附近帧中的相应特征交换<u>一个帧</u>的特征来忠实地合成该帧（图2（a））。（Moreover, we show that these corresponding features are interchangeable for the diffusion model – we can faithfully synthesize one frame by swapping its features by their corresponding ones in a nearby frame (Fig 2(a)).）
+- 我们进一步观察到，<font color=red>**原始视频特征 使用简单的最近邻搜索 提供帧之间的细粒度对应**</font>（图2）。此外，我们表明这些相应的特征对于扩散模型是可互换的——我们可以通过用附近帧中的相应特征交换<u>一个帧</u>的特征来忠实地合成该帧（图2（a））。（Moreover, we show that these corresponding features are interchangeable for the diffusion model – we can faithfully synthesize one frame by swapping its features by their corresponding ones in a nearby frame (Fig 2(a)).）
 
   ![](../../../../themes/yilia/source/img/paper/video_edit/Tokenflow/2.png)
 

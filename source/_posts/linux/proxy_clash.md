@@ -161,6 +161,14 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 
   - 如果运行的时候发生`(code=exited, status=217/USER)`，可以看看是不是已经有了这个服务，先删除这个文件（`/lib/systemd/system/clash.service`）
 
+  - 停止服务
+
+    ```shell
+    sudo systemctl stop clash
+    ```
+
+    
+
 - 开机自启动
 
   ```shell
