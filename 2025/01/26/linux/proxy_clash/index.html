@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/linux/clashmeta/3.png">
 <meta property="og:image" content="http://example.com/img/linux/clashmeta/3.png">
 <meta property="article:published_time" content="2025-01-26T07:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-10T11:50:22.701Z">
+<meta property="article:modified_time" content="2025-02-20T12:25:29.224Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -267,7 +267,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload #重新加载 Systemd 配置</span><br><span class="line">sudo systemctl start clash #启动服务</span><br><span class="line">sudo systemctl status clash #检查服务状态</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>如果运行的时候发生<code>(code=exited, status=217/USER)</code>，可以看看是不是已经有了这个服务，先删除这个文件（<code>/lib/systemd/system/clash.service</code>）</li>
+<li><p>如果运行的时候发生<code>(code=exited, status=217/USER)</code>，可以看看是不是已经有了这个服务，先删除这个文件（<code>/lib/systemd/system/clash.service</code>）</p>
+</li>
+<li><p>停止服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop clash</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>开机自启动</p>

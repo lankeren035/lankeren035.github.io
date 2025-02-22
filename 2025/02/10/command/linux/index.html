@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-09T20:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-12T12:40:36.024Z">
+<meta property="article:modified_time" content="2025-02-15T07:02:26.113Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="命令">
@@ -358,13 +358,13 @@
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>查看修改时间</td>
+<td>ls -l</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>查看文件状态</td>
+<td>stat 文件名</td>
 <td></td>
 </tr>
 <tr>
@@ -471,7 +471,7 @@
 </thead>
 <tbody><tr>
 <td>创建用户</td>
-<td>useradd 用户名 -g 组名 -d 用户家目录<br>useradd -m -G 用户组 用户名</td>
+<td>useradd 用户名 -g 组名 -d 用户家目录<br>useradd -m -G 用户组 用户名<br>sudo useradd -m -d 家目录 用户名</td>
 <td>指定主组，指定家目录<br>添加到某个组（如root）,创建家目录</td>
 </tr>
 <tr>
@@ -480,13 +480,13 @@
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>设置用户密码</td>
+<td>sudo passwd 用户名</td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>删除用户</td>
+<td>sudo userdel username<br>sudo userdel -r username</td>
 <td></td>
 </tr>
 <tr>
