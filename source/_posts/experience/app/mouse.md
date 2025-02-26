@@ -27,7 +27,7 @@ toc: true
 
 - 找到侧键位置，更改即可
 
-  ![](D:/blog/themes/yilia/source/img/experience/app/mouse/1.png)
+  ![](../../../../themes/yilia/source/img/experience/app/mouse/1.png)
 
   ![](img/experience/app/mouse/1.png)
 
@@ -37,13 +37,13 @@ toc: true
 
 - [下载](https://www.autohotkey.com/)(两个都要下载)
 
-   ![](D:/blog/themes/yilia/source/img/experience/app/mouse/2.png)
+   ![](../../../../themes/yilia/source/img/experience/app/mouse/2.png)
 
   ![](img/experience/app/mouse/2.png) 
 
 - 新建一个文件：
 
-     ![](D:/blog/themes/yilia/source/img/experience/app/mouse/3.png)
+     ![](../../../../themes/yilia/source/img/experience/app/mouse/3.png)
 
     ![](img/experience/app/mouse/3.png) 
 
@@ -58,7 +58,7 @@ toc: true
   If ErrorLevel ; 表示按键被长按
       Send, #{v} ; 模拟按下 Win+V
   Else
-      Send, ^{z} ; 模拟按下 Ctrl+Z
+      Send, {Enter} ; 模拟按下 enter
   Return
   
   XButton2::

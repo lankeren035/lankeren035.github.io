@@ -80,30 +80,30 @@ toc:  true
        wandb
      ```
   
-  2. 根据diffusers库的版本去github找源码
+  2. 根据diffusers库的版本去github找源码![](../../../../themes/yilia/source/img/paper/video_generation/AnimateDiff/1.png)
   
-     ![](../../../../themes/yilia/source/img/project/deepseek/local_install/1.png)![](../../../../img/project/deepseek/local_install/1.png)
+     ![](img/paper/video_generation/AnimateDiff/1.png)
   
   3. 查看他的`setup.py`找到相关字段：
   
-       ```shell
-       "huggingface-hub>=0.10.0",
+     ```shell
+     "huggingface-hub>=0.10.0",
      ```
   
   4. 重新安装这个包
   
   5. 发现这个问题解决了，但是后面还有问题：
   
-       ```shell
-       snapshot_download() got an unexpected keyword argument 'local_dir'
+     ```shell
+     snapshot_download() got an unexpected keyword argument 'local_dir'
      ```
   
   6. 还是版本问题，刚刚安装0.10.0版本时发现有：
   
-       ```shell
-       ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
-       gradio 3.36.1 requires huggingface-hub>=0.14.0, but you have huggingface-hub 0.10.0 which is incompatible.
-       gradio-client 1.7.0 requires huggingface-hub>=0.19.3, but you have huggingface-hub 0.10.0 which is incompatible.
+     ```shell
+     ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+     gradio 3.36.1 requires huggingface-hub>=0.14.0, but you have huggingface-hub 0.10.0 which is incompatible.
+     gradio-client 1.7.0 requires huggingface-hub>=0.19.3, but you have huggingface-hub 0.10.0 which is incompatible.
      ```
   
     7. 换成0.19.3试试，问题解决
