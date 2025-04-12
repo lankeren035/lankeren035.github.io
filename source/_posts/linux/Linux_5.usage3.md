@@ -111,6 +111,7 @@ tar [-c -v -x -f -z -C] 参1 参2...
   tar -xvf 文件
   tar -xvf 文件 -C 目标路径 #指定目录
   tar -zxvf 文件 -C 目标路径 #解压.gz
+  tar -xvzf lfw.tgz
   ```
 
 ### 2. zip命令

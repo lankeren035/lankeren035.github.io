@@ -3,9 +3,9 @@ title: vscode中python相对路径无法使用
 date: 2021-03-01 20:00:00
 toc: true
 tags: [vscode]
-categories: [经验]
+categories: [vscode]
 ---
-#  
+#
 
 <!--more-->
 

@@ -19,6 +19,8 @@ toc:  true
 
 <!--more-->
 
+- arxiv v1: 2023/3
+
 - ICCV 2023
 - [论文地址](https://openaccess.thecvf.com/content/ICCV2023/html/Khachatryan_Text2Video-Zero_Text-to-Image_Diffusion_Models_are_Zero-Shot_Video_Generators_ICCV_2023_paper.html)
 

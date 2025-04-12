@@ -16,6 +16,8 @@ toc:  true
 
 <!--more-->
 
+- arxiv v1: 2023/7   v3: 2023/11
+
 - ICLR 2024
 - [论文地址](https://arxiv.org/abs/2307.10373)
 - [项目地址](https://github.com/omerbt/TokenFlow)

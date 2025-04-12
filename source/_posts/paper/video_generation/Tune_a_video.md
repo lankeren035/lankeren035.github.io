@@ -16,6 +16,8 @@ toc:  true
 
 <!--more-->
 
+- arxiv v1: 2022/12  v2: 2023/3
+
 - ICCV 2023
 - [论文地址](https://arxiv.org/abs/2212.11565)
 - [项目地址](https://github.com/showlab/Tune-A-Video)
