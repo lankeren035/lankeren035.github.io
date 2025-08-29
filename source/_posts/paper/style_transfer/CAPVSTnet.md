@@ -3,9 +3,9 @@ title:  'CAP-VSTNet: Content Affinity Preserved Versatile Style Transfer论文�
 '
 date:  2024-10-24
 
-tags:  [论文,视频风格迁移,风格迁移]
+tags:  [论文,风格迁移]
 
-categories:  [论文,风格迁移]
+categories:  [风格迁移]
 
 comment:  true
 

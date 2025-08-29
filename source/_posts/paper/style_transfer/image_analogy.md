@@ -3,9 +3,9 @@ title:  image analogy
 
 date:  2024-11-1 11:28:00
 
-tags:  [风格迁移,diffusion,深度学习,论文]
+tags:  [风格迁移]
 
-categories:  [风格迁移,diffusion,深度学习,论文]
+categories:  [风格迁移]
 
 comment:  false
 

@@ -35,7 +35,7 @@ toc:  true
 
 |         |                                                              |
 | ------- | ------------------------------------------------------------ |
-| 调试    | python -m debugpy --listen localhost:5678 --wait-for-client $(which torchrun) --nnodes=1 --nproc_per_node=1 train.py --config configs/training/v1/config.yaml |
+| 调试    | python -m debugpy --listen localhost:5678 --wait-for-client $(which torchrun) --nnodes=1 --nproc_per_node=1 train.py --config configs/training/v1/config.yaml<br>python -m debugpy --listen localhost:xxxx --wait-for-client main.py --参数等等 |
 | 指定GPU | CUDA_VISIBLE_DEVICES=gpu_ids test.py                         |
 |         |                                                              |
 

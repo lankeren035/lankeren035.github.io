@@ -1,8 +1,8 @@
 ---
 title: 论文理解
 date: 2024-10-22 10:28:00
-tags: [风格迁移,diffusion,深度学习,论文]
-categories: [风格迁移,diffusion,深度学习,论文]
+tags: [论文,风格迁移]
+categories: [风格迁移]
 comment: false
 toc: true
 

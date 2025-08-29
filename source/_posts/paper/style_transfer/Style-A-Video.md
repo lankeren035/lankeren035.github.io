@@ -3,9 +3,9 @@ title:  "Style-A-Video: Agile Diffusion for Arbitrary Text-Based Video Style Tra
 
 date:  2024-11-7 11:28:00
 
-tags:  [风格迁移,diffusion,深度学习,论文]
+tags:  [论文,风格迁移]
 
-categories:  [风格迁移,diffusion,深度学习,论文,视频]
+categories:  [风格迁移]
 
 comment:  false
 

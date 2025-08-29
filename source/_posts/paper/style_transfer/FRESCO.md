@@ -3,9 +3,9 @@ title:  "FRESCO: Spatial-Temporal Correspondence for Zero-Shot Video Translation
 
 date:  2025-1-11 11:28:00
 
-tags:  [风格迁移,diffusion,深度学习,论文,视频]
+tags:  [视频扩散模型]
 
-categories:  [视频风格迁移,diffusion,深度学习,论文]
+categories:  [风格迁移]
 
 comment:  false
 

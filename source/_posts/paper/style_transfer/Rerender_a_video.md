@@ -3,9 +3,9 @@ title:  "Rerender A Video: Zero-Shot Text-Guided Video-to-Video Translation论�
 
 date:  2024-10-28 11:28:00
 
-tags:  [风格迁移,diffusion,深度学习,论文]
+tags:  [论文,视频扩散模型]
 
-categories:  [风格迁移,diffusion,深度学习,论文,视频]
+categories:  [风格迁移]
 
 comment:  false
 
