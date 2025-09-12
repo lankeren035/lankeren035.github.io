@@ -1,5 +1,5 @@
 ---
-title: Git克隆项目中断 error: RPC 失败。curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)
+title: "Git克隆项目中断 error: RPC 失败。curl 92 HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)"
 
 date: 2025-2-11 13:00:00
 

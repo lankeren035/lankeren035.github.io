@@ -340,7 +340,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     
 
-### 4.2.2 离散情况下粒子求和
+### 4.2.2 离散情况下粒子求和 ($\alpha$-blending)
 
 - 将光线[0,s]划分为N各等间距区间$[ T_ n \rightarrow T_{ n + 1 }]$ 
 

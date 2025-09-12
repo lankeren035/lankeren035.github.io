@@ -1,5 +1,5 @@
 ---
-title: Git连接不上Github
+title: "Git连接不上Github"
 
 date: 2025-2-2 13:00:00
 
@@ -30,6 +30,7 @@ toc: true
   ```
 
 - 使用`git push`却可以上传
+  
   - 因为`git push`使用的时`https`，而`hexo d`使用的是`ssh`
 
 ## 2.1 测试

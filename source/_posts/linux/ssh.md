@@ -1,4 +1,4 @@
-```
+---
 title: linux中ssh连接不上
 
 date: 2025-2-10 12:00:00
@@ -10,7 +10,7 @@ categories: [Linux]
 comment: true
 
 toc: true
-```
+---
 
 #  
 

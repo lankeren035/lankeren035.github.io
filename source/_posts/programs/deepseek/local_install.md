@@ -1,12 +1,12 @@
-```
+---
 title: Linux中部署deepseek
 date: 2025-02-10 16:00:00
 toc: true
 tags: [项目, deepseek]
 categories: [项目]
-```
+---
 
-# 
+#
 
 <!--more-->
 

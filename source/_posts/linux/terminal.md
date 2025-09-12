@@ -1,4 +1,4 @@
-```
+---
 title: linux 终端
 
 date: 2025-2-10 13:00:00
@@ -10,7 +10,7 @@ categories: [Linux]
 comment: true
 
 toc: true
-```
+---
 
 # 
 
