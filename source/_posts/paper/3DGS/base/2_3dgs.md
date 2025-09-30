@@ -73,16 +73,22 @@ toc:  true
 $$
 M_ { ortho } = 
 \begin{bmatrix}
-\frac{ 2 }{ r - l } &0 &0 &0 \\
-0 &\frac{ 2 }{ t - b } &0 &0 \\
-0 &0 &\frac{ 2 }{ n - f } &0 \\
-0 &0 &0 &1 \\
+\frac{ 2 }{ r - l } &0 &0 &0 \\\\
+0 &\frac{ 2 }{ t - b } &0 &0 \\\\
+0 &0 &\frac{ 2 }{ n - f } &0 \\\\
+0 &0 &0 &1 \\\\
 \end{bmatrix}
 \begin{bmatrix}
-1 &0 &0 &- \frac{ r+l }{2} \\
-0 &1 &0 &- \frac{ t+b }{2} \\
-0 &0 &1 &- \frac{ n+f }{2} \\
+1 &0 &0 &- \frac{ r+l }{2} \\\\
+0 &1 &0 &- \frac{ t+b }{2} \\\\
+0 &0 &1 &- \frac{ n+f }{2} \\\\
 0 &0 &0 &1
+\end{bmatrix} =
+\begin{bmatrix}
+\frac{ 2 }{ r - l } &0 &0 &-\frac{ r + l }{ r - l } \\\\
+0 &\frac{ 2 }{ t - b } &0 &-\frac{ t + b }{ t - b } \\\\
+0 &0 &\frac{ 2 }{ n - f } &-\frac{ n + f }{ n - f } \\\\
+0 &0 &0 &1 \\\\
 \end{bmatrix}
 $$
 
@@ -98,7 +104,7 @@ $$
 
   ![](img/paper/3DGS/base/3dgs/13.png)
   $$
-  M_ {persp \rightarrow ortho} = \begin{bmatrix} n &0 &0 &0 \\ 0 &n &0 &0 \\ 0 &0 &n+f &-nf \\ 0 &0 &1 &0  \end{bmatrix}
+  M_ {persp \rightarrow ortho} = \begin{bmatrix} n &0 &0 &0 \\\\ 0 &n &0 &0 \\\\ 0 &0 &n+f &-nf \\\\ 0 &0 &1 &0  \end{bmatrix}
   $$
   
 - 问题：
@@ -121,9 +127,9 @@ $$
 
     ![](img/paper/3DGS/base/3dgs/14.png)
     $$
-    M_{ viewport } = \begin{bmatrix} \frac{ w } { 2 } &0 &0 &\frac{ w } { 2 } \\
-    0 &\frac{ h } { 2 } &0 &\frac{ h } { 2 } \\
-    0 &0 &1 &0 \\
+    M_{ viewport } = \begin{bmatrix} \frac{ w } { 2 } &0 &0 &\frac{ w } { 2 } \\\\
+    0 &\frac{ h } { 2 } &0 &\frac{ h } { 2 } \\\\
+    0 &0 &1 &0 \\\\
     0 &0 &0 &1
     \end{bmatrix}
     $$
@@ -225,7 +231,7 @@ for p in pts: #遍历三个点
   - 假设有一个坐标（x，y），对他进行一个非仿射变换：
     $$
     \begin{align} 
-    f_ 1 ( x ) = x + sin( y ) \\
+    f_ 1 ( x ) = x + sin( y ) \\\\
     f_ 2( y ) = y + sin ( y )
     \end{align}
     $$
@@ -244,7 +250,7 @@ for p in pts: #遍历三个点
 
   - 也就是说确定了一个点$x_ 0 , y_ 0$，在他附近就可以通过导数去进行线性的逼近了。具体就叫雅可比矩阵：
     $$
-    J = \begin{bmatrix} \frac{ df_ 1 }{ dx } &\frac{ df_ 1 }{ dy } \\ \frac{ df_ 2 }{ dx } &\frac{ df_2 }{ dy } \end{bmatrix} = \begin{bmatrix} 1 & cos( y ) \\ cos( x ) &1 \end{bmatrix}
+    J = \begin{bmatrix} \frac{ df_ 1 }{ dx } &\frac{ df_ 1 }{ dy } \\\\ \frac{ df_ 2 }{ dx } &\frac{ df_2 }{ dy } \end{bmatrix} = \begin{bmatrix} 1 & cos( y ) \\\\ cos( x ) &1 \end{bmatrix}
     $$
     
 
@@ -254,29 +260,29 @@ for p in pts: #遍历三个点
 
 - 已知对于投影变换中的一个点，第一步进行压缩：
   $$
-  \left (  \begin{matrix} n&0 &0 &0 \\
-  0 &n &0 &0 \\ 0 &0 &n+f &-nf \\
+  \left (  \begin{matrix} n&0 &0 &0 \\\\
+  0 &n &0 &0 \\\\ 0 &0 &n+f &-nf \\\\
   0 &0 &1 &0
-  \end{matrix} \right) \times \left (  \begin{matrix} x \\
-  y \\ z \\
+  \end{matrix} \right) \times \left (  \begin{matrix} x \\\\
+  y \\\\ z \\\\
   1
-  \end{matrix} \right) = \left (  \begin{matrix} nx \\
-  ny \\ ( n+ f) z -nf \\
+  \end{matrix} \right) = \left (  \begin{matrix} nx \\\\
+  ny \\\\ ( n+ f) z -nf \\\\
   z
-  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ z } \\
-  \frac{ ny }{ z } \\ (n+f)-\frac{ nf }{ 2 } \\
+  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ z } \\\\
+  \frac{ ny }{ z } \\\\ (n+f)-\frac{ nf }{ 2 } \\\\
   1
   \end{matrix} \right)
   $$
 
 - 我们发现变换关系是：
   $$
-  \begin{bmatrix} f_ 1( x ) \\ f_ 2( y ) \\ f_ 3( z ) \end{bmatrix} = \begin{bmatrix}  \frac{ nx }{ z } \\ \frac{ ny }{ z } \\ ( n+f ) - \frac{ nf }{ z } \end{bmatrix}
+  \begin{bmatrix} f_ 1( x ) \\\\ f_ 2( y ) \\\\ f_ 3( z ) \end{bmatrix} = \begin{bmatrix}  \frac{ nx }{ z } \\\\ \frac{ ny }{ z } \\\\ ( n+f ) - \frac{ nf }{ z } \end{bmatrix}
   $$
 
 - 因此可以求雅可比矩阵（通常带入的是3d高斯的中心点）：
   $$
-  J = \begin{bmatrix} \frac{ n }{ z } &0 &-\frac{ nx }{ z^ 2 } \\ 0 &\frac{ n }{ z } &-\frac{ ny }{ z^2 } \\ 0 &0 &-\frac{ nf }{ z^ 2 }   \end{bmatrix}
+  J = \begin{bmatrix} \frac{ n }{ z } &0 &-\frac{ nx }{ z^ 2 } \\\\ 0 &\frac{ n }{ z } &-\frac{ ny }{ z^2 } \\\\ 0 &0 &-\frac{ nf }{ z^ 2 }   \end{bmatrix}
   $$
   
 

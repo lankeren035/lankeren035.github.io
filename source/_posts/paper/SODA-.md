@@ -81,7 +81,7 @@ $$
 
   - $b(x)$： **缓冲成本函数**，围绕一个“安全目标缓冲水平 $\bar x$ 做二次惩罚： 
 
-    $$b(x_ n ) = \left \{ \begin{matrix} ( \bar x - x_ n )^ 2 &x_ n \leq \bar x  \\ \epsilon (x_ n - \bar x )^ 2 &x_ n > \bar x , 0< \epsilon < 1  \\\end{matrix}\right.$$
+    $$b(x_ n ) = \left \{ \begin{matrix} ( \bar x - x_ n )^ 2 &x_ n \leq \bar x  \\\\ \epsilon (x_ n - \bar x )^ 2 &x_ n > \bar x , 0< \epsilon < 1  \\\end{matrix}\right.$$
     
     -  当$x_ n \le \bar x$ 时，缓冲不足，惩罚较重； 
     -  当 $x_ n > \bar x$时，缓冲过多，惩罚较轻（因超额缓冲虽能防止重缓冲，但会增加延迟和带宽占用，故轻罚）。 
@@ -192,7 +192,7 @@ $$
 ### 2）动态缓冲约束
 
 $$
-\left \{ \begin{matrix} x_ m = x_ { m - 1 } + \frac{ \omega_ { m | n - 1 } \Delta t}{ r_ m } - \Delta t \\ x_ m \in [ 0, x_{ max }, r_ m \in R ] \end{matrix} \right.
+\left \{ \begin{matrix} x_ m = x_ { m - 1 } + \frac{ \omega_ { m | n - 1 } \Delta t}{ r_ m } - \Delta t \\\\ x_ m \in [ 0, x_{ max }, r_ m \in R ] \end{matrix} \right.
 $$
 
 ### 3）滚动执行 ：只取首个决策 

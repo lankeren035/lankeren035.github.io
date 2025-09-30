@@ -26,14 +26,14 @@ $$\hat P(learning|deep) = \frac{n(deep, learning)}{n(deep)}$$
 
 - 其中$n(deep,learning)$是' deep learning'连续出现的次数。由于连续单词对“deep learning”的出现频率要低得多，所以估计这类单词正确的概率要困难得多。许多合理的三个单词组合可能是存在的，但是在数据集中却找不到。
 - 一种常见的策略是执行某种形式的拉普拉斯平滑（Laplace smoothing）：在所有计数中添加一个小常量。用n表示训练集中的单词总数，用m表示唯一单词的数量。此解决方案有助于处理单元素问题：
-$$\begin{aligned} \hat P(x) & = \frac{n(x) + \frac{ \epsilon_1 }{m}}{n + \epsilon_1} \\ \hat P(x'|x) & = \frac{ n(x,x' ) + \epsilon_2 \hat P(x') }{n(x) + \epsilon_2} \\ \hat P(x''|x,x') & = \frac{ n(x,x',x'') + \epsilon_3 \hat P(x'') }{n(x,x') + \epsilon_3} \end{aligned}$$
+$$\begin{aligned} \hat P(x) & = \frac{n(x) + \frac{ \epsilon_1 }{m}}{n + \epsilon_1} \\\\ \hat P(x'|x) & = \frac{ n(x,x' ) + \epsilon_2 \hat P(x') }{n(x) + \epsilon_2} \\\\ \hat P(x''|x,x') & = \frac{ n(x,x',x'') + \epsilon_3 \hat P(x'') }{n(x,x') + \epsilon_3} \end{aligned}$$
 
 - 其中$\epsilon$是一个超参数，当$\epsilon = 0$时，不应用平滑；当$\epsilon$接近正无穷时，$\hat P(x)$接近均匀分布 $\frac{1}{m}$。
 - 这样的模型很容易变得无效，首先，我们需要存储所有的计数；其次，这完全忽略了单词的意思。例如，“猫”（cat）和“猫科动物”（feline）可能出现在相关的上下文中，但是想根据上下文调整这类模型其实是相当困难的。最后，长单词序列大部分是没出现过的，因此一个模型如果只是简单地统计先前“看到”的单词序列频率，那么模型面对这种问题肯定是表现不佳的。
 
 ## 3.2 马尔可夫模型与n元语法
 - 如果$P(x_ {t+1} | X_ t, \cdots, x_ 1) = P(x_ {t+1} | x_ t)$,则序列上的分布满足一阶马尔可夫性质。阶数越高，对应的依赖关系就越长。这种性质推导出了许多可以应用于序列建模的近似公式：
-$$\begin{aligned} P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2)P(x_ 3)P(x_ 4|x_ 3) \\ P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2|x_ 1)P(x_ 3|x_ 2)P(x_ 4|x_ 3) \\ P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2|x_ 1)P(x_ 3|x_ 1,x_ 2)P(x_ 4|x_ 2,x_ 3) \end{aligned}$$
+$$\begin{aligned} P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2)P(x_ 3)P(x_ 4|x_ 3) \\\\ P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2|x_ 1)P(x_ 3|x_ 2)P(x_ 4|x_ 3) \\\\ P(x_ 1,x_ 2,x_ 3,x_ 4) & = P(x_ 1)P(x_ 2|x_ 1)P(x_ 3|x_ 1,x_ 2)P(x_ 4|x_ 2,x_ 3) \end{aligned}$$
 
 - 涉及一个、两个和三个变量的概率公式分别被称为 一元语法（unigram）、二元语法（bigram）和三元语法（trigram）模型。
 

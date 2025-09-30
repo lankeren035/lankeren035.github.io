@@ -37,7 +37,7 @@ $$P(x_ 1, . . . , x_ T) = \prod _{t=1} ^T P(x_ t | x_ {t−1}, . . . , x_ 1)$$
     $$P(x_ 1 | x_ 0) = P(x_ 1)$$
 
 - 假设$x_ t$仅是离散值，使用动态规划可以沿着马尔可夫链精确地计算结果。例如，我们可以高效地计算$P(x_ {t+1} | X_ {t-1})$:
-$$\begin{aligned} P(x_ { t + 1 } | x_ { t - 1 }) &= \frac { \sum _{ x_ t } P( x_ { t + 1 }, x_ t, x_ { t - 1 }) } { \sum _{ x_ t, x_ { t - 1 } } P( x_ { t + 1 }, x_ t, x_ { t - 1 }) } \\ &= \frac { \sum _{ x_ t } P( x_ { t + 1 } | x_ t, x_ { t - 1 }) P( x_ t | x_ { t - 1 }) P( x_ { t - 1 }) } { \sum _{ x_ t } P( x_ { t + 1 } | x_ t, x_ { t - 1 }) P( x_ t | x_ { t - 1 }) P( x_ { t - 1 }) } \\ &= \sum _{ x_ t } P( x_ { t + 1 } | x_ t ) P( x_ t | x_ { t - 1 }) \end{aligned}$$
+$$\begin{aligned} P(x_ { t + 1 } | x_ { t - 1 }) &= \frac { \sum _{ x_ t } P( x_ { t + 1 }, x_ t, x_ { t - 1 }) } { \sum _{ x_ t, x_ { t - 1 } } P( x_ { t + 1 }, x_ t, x_ { t - 1 }) } \\\\ &= \frac { \sum _{ x_ t } P( x_ { t + 1 } | x_ t, x_ { t - 1 }) P( x_ t | x_ { t - 1 }) P( x_ { t - 1 }) } { \sum _{ x_ t } P( x_ { t + 1 } | x_ t, x_ { t - 1 }) P( x_ t | x_ { t - 1 }) P( x_ { t - 1 }) } \\\\ &= \sum _{ x_ t } P( x_ { t + 1 } | x_ t ) P( x_ t | x_ { t - 1 }) \end{aligned}$$
 - 对$x_ t$求和结果为1，相当于求和符号与$x_ t$可以消掉。
 
 ### 1.1.3 因果关系

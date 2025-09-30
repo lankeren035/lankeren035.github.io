@@ -43,7 +43,7 @@ $$\hat{y}_ j= \frac{exp(o_ j)}{ \sum_ {i=1}^ qexp(o_ i)}$$
 
 
 ### 4.6.2 softmax及其导数
-- 对损失函数：$$ \begin{aligned} l( \mathbf{y}, \mathbf{ \hat{y}}) &= - \sum_ {j=1}^ qy_ j \log \hat{y}_ j \\ &= - \sum_ {j=1}^ qy_ j \log \frac{ \exp(o_ j)}{ \sum_ {i=1}^ q \exp(o_ i)} \\ &= - \sum_ {j=1}^ q(y_ j(o_ j- \log \sum_ {i=1}^ q \exp(o_ i))) \\ &= \sum_ {j=1}^ qy_ j \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \\ &= \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \end{aligned}$$
+- 对损失函数：$$ \begin{aligned} l( \mathbf{y}, \mathbf{ \hat{y}}) &= - \sum_ {j=1}^ qy_ j \log \hat{y}_ j \\\\ &= - \sum_ {j=1}^ qy_ j \log \frac{ \exp(o_ j)}{ \sum_ {i=1}^ q \exp(o_ i)} \\\\ &= - \sum_ {j=1}^ q(y_ j(o_ j- \log \sum_ {i=1}^ q \exp(o_ i))) \\\\ &= \sum_ {j=1}^ qy_ j \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \\\\ &= \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \end{aligned}$$
 - 损失函数对$o_j$的导数(log以e为底)：$$\frac{\partial l(\mathbf{y},\mathbf{\hat{y}})}{\partial o_j}=\frac{\exp(o_j)}{\sum_{i=1}^q\exp(o_i)}-y_j=softmax(o)_j-y_j$$
     - **这与我们在回归中看到的非常相似，其中梯度是观测值y和估计值yˆ之间的差异。这不是巧合，在任何指数族分布模型中对数似然的梯度正是由此得出的。这使梯度计算在实践中变得容易很多。**
 

@@ -37,11 +37,11 @@ toc: true
 
 - 下三角，行优先
 
-    $$k=\left\{\begin{array}{l}{\frac{i(i-1)}{2}+j-1} & {i \geq j} \\ {\frac{n(n-1)}{2}} & {i<j}\end{array}\right.$$
+    $$k=\left\{\begin{array}{l}{\frac{i(i-1)}{2}+j-1} & {i \geq j} \\\\ {\frac{n(n-1)}{2}} & {i<j}\end{array}\right.$$
 
 - 上三角，行优先
     
-    $$k=\left\{\begin{array}{l}{\frac{(i-1)(2n-i+2)}{2}+j-i} & {i \leq j} \\ {\frac{n(n-1)}{2}} & {i>j}\end{array}\right.$$
+    $$k=\left\{\begin{array}{l}{\frac{(i-1)(2n-i+2)}{2}+j-i} & {i \leq j} \\\\ {\frac{n(n-1)}{2}} & {i>j}\end{array}\right.$$
 
 ## 3.4.3 三对角矩阵
 ![](../../../../themes/yilia/source/img/datastruct/3_stack/matrix/5.png)

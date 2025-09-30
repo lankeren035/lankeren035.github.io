@@ -95,7 +95,7 @@ toc:  true
 - 受交叉注意图提供图像的语义布局这一事实的启发（prompt to prompt），如图4的第二行所示，我们通过在反转期间用常数τ[2，3]对编辑单词的交叉注意图进行阈值化来获得二进制掩码Mt。然后，编辑阶段$s^ {edit} _ t$和反转阶段$s_ t ^ { src }$的自注意力图与二进制掩模Mt混合，如图2所示。形式上，注意力图融合实现为
   $$
   \begin{aligned}
-  M_ t &= heavisidestep( c_ t ^ { src }, \tau) \\ s_t ^ { fused  } &= M_t \odot s_ t ^ { edit } + ( 1- M_ t) \odot s_ t ^ { src }
+  M_ t &= heavisidestep( c_ t ^ { src }, \tau) \\\\ s_t ^ { fused  } &= M_t \odot s_ t ^ { edit } + ( 1- M_ t) \odot s_ t ^ { src }
   \end{aligned}
   $$
   

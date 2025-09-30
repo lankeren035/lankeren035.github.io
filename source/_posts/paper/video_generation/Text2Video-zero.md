@@ -78,7 +78,7 @@ toc:  true
 
   3. 为全局场景和摄像机运动定义一个方向$\delta = ( \delta_ x, \delta_ y \in \mathbb R^ 2)$ ，默认情况下可以是主对角线方向：$\delta = (1,1)$
      $$
-     \left [ \begin{matrix}\delta^1 \\ \left [ \begin{matrix}
+     \left [ \begin{matrix}\delta^1 \\\\ \left [ \begin{matrix}
      0,0\\
      0,0
      \end{matrix} \right ] \\
@@ -87,7 +87,7 @@ toc:  true
      0,0
      \end{matrix} \right ] \end{matrix} \right ] 
      
-     \left [ \begin{matrix} \delta^2 \\ \left [ \begin{matrix}
+     \left [ \begin{matrix} \delta^2 \\\\ \left [ \begin{matrix}
      12 ,12\\
      12 ,12
      \end{matrix} \right ] \\
@@ -96,7 +96,7 @@ toc:  true
      12,12
      \end{matrix} \right ] \end{matrix} \right ] 
      
-     \left [  \begin{matrix} \delta^3 \\ \left [ \begin{matrix}
+     \left [  \begin{matrix} \delta^3 \\\\ \left [ \begin{matrix}
      24,24\\
      24,24
      \end{matrix} \right ] \\
@@ -125,7 +125,7 @@ toc:  true
 
 $$
 \begin{aligned}
-\text{ Cross-Frame-Attn }(Q^k, K^ { 1:m },V^{ 1: m } ) & = \\ Softmax \left( \frac{ Q^ k( K ^ 1 ) ^ T }{ \sqrt { c }} \right) V ^ 1
+\text{ Cross-Frame-Attn }(Q^k, K^ { 1:m },V^{ 1: m } ) & = \\\\ Softmax \left( \frac{ Q^ k( K ^ 1 ) ^ T }{ \sqrt { c }} \right) V ^ 1
 \end{aligned}
 $$
 

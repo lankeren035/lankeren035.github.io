@@ -21,7 +21,7 @@ toc: true
 
 - 假设在时间步t有一个小批量的输入：$ \mathbf{X}_t \in \mathbb{R}^{n \times d} $（样本数：n，每个样本中的输入数：d），$ \mathbf{ H }_ t ^ { ( l ) } \in \mathbb{R}^{n \times h} $表示时间步t时第l隐藏层的隐藏状态（隐藏单元数：h），$ \mathbf{ O }_ t \in \mathbb{R}^{n \times q} $（输出数：q）是时间步t的输出层变量。$ \mathbf{ H }_ t ^ { ( 0 ) } = \mathbf{ X }_ t $。对于l = 1，…，L，隐藏状态的更新方程为：
 
-$$ \begin{aligned} \mathbf{ H }_ t ^ { ( l ) } &= \phi _ l \left( \mathbf{ H }_ t ^ { ( l - 1 ) } \mathbf{ W } _ { x h } ^ { ( l ) } + \mathbf{ H } _ { t - 1 } ^ { ( l ) } \mathbf{ W } _ { hh } ^ { ( l ) } + \mathbf{ b } _ h ^ { ( l ) } \right) \\ \mathbf{ O }_ t &= \mathbf{ H }_ t ^ { ( L ) } \mathbf{ W } _ { h q } + \mathbf{ b } _ q \end{aligned} $$
+$$ \begin{aligned} \mathbf{ H }_ t ^ { ( l ) } &= \phi _ l \left( \mathbf{ H }_ t ^ { ( l - 1 ) } \mathbf{ W } _ { x h } ^ { ( l ) } + \mathbf{ H } _ { t - 1 } ^ { ( l ) } \mathbf{ W } _ { hh } ^ { ( l ) } + \mathbf{ b } _ h ^ { ( l ) } \right) \\\\ \mathbf{ O }_ t &= \mathbf{ H }_ t ^ { ( L ) } \mathbf{ W } _ { h q } + \mathbf{ b } _ q \end{aligned} $$
 
 ## 3.2 实现
 

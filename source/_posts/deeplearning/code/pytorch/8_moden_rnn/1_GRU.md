@@ -35,7 +35,7 @@ toc: true
 
 - 假设在时间步t，输入是小批量$ \mathbf{ X } _ { t } \in \mathbb{ R } ^ { n \times d } $（样本数为n，输入个数为d），前一时间步的隐状态是$ \mathbf{ H } _ { t - 1 } \in \mathbb{ R } ^ { n \times h } $（隐藏单元个数为h）。重置门$ \mathbf{ R } _ { t } \in \mathbb{ R } ^ { n \times h } $和更新门$ \mathbf{ Z } _ { t } \in \mathbb{ R } ^ { n \times h } $的计算如下：
 
-$$ \begin{aligned} \mathbf{ R } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { x r } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { h r } + \mathbf{ b } _ { r } \right) , \\ \mathbf{ Z } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { x z } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { h z } + \mathbf{ b } _ { z } \right) . \end{aligned} $$
+$$ \begin{aligned} \mathbf{ R } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { x r } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { h r } + \mathbf{ b } _ { r } \right) , \\\\ \mathbf{ Z } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { x z } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { h z } + \mathbf{ b } _ { z } \right) . \end{aligned} $$
 
 - 在求和过程中会触发广播机制。
 

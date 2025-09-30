@@ -17,7 +17,7 @@ toc: true
 ### 6.1.1 泄露平均值
 
 - 小批量随机梯度下降通过如下方式计算:
-    $$ \begin{aligned} \boldsymbol{g}_ {t, t-1 } & = \partial_{\boldsymbol{w}} \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} f(\boldsymbol{x}_i, \boldsymbol{w} _ { t- 1})\\ & = \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \mathbf{h}_{i, t-1} \end{aligned} $$
+    $$ \begin{aligned} \boldsymbol{g}_ {t, t-1 } & = \partial_{\boldsymbol{w}} \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} f(\boldsymbol{x}_i, \boldsymbol{w} _ { t- 1})\\\\ & = \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} \mathbf{h}_{i, t-1} \end{aligned} $$
 
     - 其中$\mathbf{h}_{i, t-1} = \partial_{\boldsymbol{w}} f(\boldsymbol{x}_i, \boldsymbol{w} _ { t- 1})$是样本i的随机梯度下降 (使用时间t-1时更新的权重)
 
@@ -25,7 +25,7 @@ toc: true
 $$ \mathbf{v}_t = \beta \mathbf{v}_{t-1} + \mathbf{g}_{t, t-1} $$
 
 - 其中, $\beta \in [0, 1)$. 将瞬时梯度替换为多个“过去”梯度的平均值。v被称为动量（momentum），它累加了过去的梯度:
-    $$ \begin{aligned} \mathbf{v}_t & = \beta \mathbf{v}_{t-2} + \beta \mathbf{g}_{t-1, t-2} + \mathbf{g}_{t, t-1} \\ & = ... \\ & = \sum_{\tau=0}^{t-1} \beta^{ \tau} \mathbf{g}_{t-\tau, t-\tau-1} \end{aligned} $$
+    $$ \begin{aligned} \mathbf{v}_t & = \beta \mathbf{v}_{t-2} + \beta \mathbf{g}_{t-1, t-2} + \mathbf{g}_{t, t-1} \\\\ & = ... \\\\ & = \sum_{\tau=0}^{t-1} \beta^{ \tau} \mathbf{g}_{t-\tau, t-\tau-1} \end{aligned} $$
 
 - 其中，较大的$\beta$相当于长期平均值，而较小的$\beta$相对于梯度法只是略有修正。新的梯度替换不再指向特定实例下降最陡的方向，而是指向过去梯度的加权平均值的方向。这使我们能够实现对单批量计算平均值的大部分好处，而不产生实际计算其梯度的代价。
 
@@ -82,7 +82,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
 
 - 观察上面的优化轨迹，我们可能会直觉到计算过去的平均梯度效果会很好。毕竟，在x1方向上，这将聚合非常对齐的梯度，从而增加我们在每一步中覆盖的距离。相反，在梯度振荡的x2方向，由于相互抵消了对方的振荡，聚合梯度将减小步长大小:
 
-    $$ \begin{aligned} & \mathbf{v}_t = \beta \mathbf{v}_{t-1} + \mathbf{g}_{t, t-1} \\ & \mathbf{ x } _ { t } = \mathbf{ x } _ { t-1 } - \eta \mathbf{v}_t \end{aligned} $$
+    $$ \begin{aligned} & \mathbf{v}_t = \beta \mathbf{v}_{t-1} + \mathbf{g}_{t, t-1} \\\\ & \mathbf{ x } _ { t } = \mathbf{ x } _ { t-1 } - \eta \mathbf{v}_t \end{aligned} $$
 
     - 当$\beta = 0$时，动量法等价于小批量随机梯度下降。
 
@@ -250,7 +250,7 @@ d2l.train_concise_ch11(trainer, {'lr': 0.005, 'momentum': 0.9}, data_iter)
         $$\mathbf{ z }_t = \mathbf{ z }_{t-1} - \mathbf{ \Lambda } \mathbf{ z }_{t-1} = (1- \mathbf{ \Lambda }) \mathbf{ z }_{t-1}$$
 
     - 上式表明梯度下降在不同的特征空间之间不会混合。也就是说，如果用Q的特征系统来表示，优化问题是以逐坐标顺序的方式进行的。这在动量法中也适用。
-        $$ \begin{aligned} \mathbf{ z }_t & = \beta \mathbf{ v }_{t-1} + \mathbf{ \Lambda } \mathbf{ z }_{t-1} \\ \mathbf{ z }_ t & = \mathbf{ z }_ { t-1 } - \eta ( \beta \mathbf{ v }_{t-1} + \mathbf{ \Lambda } \mathbf{ z }_{t-1} ) \\ & = (1- \eta \mathbf{ \Lambda }) \mathbf{ z }_{t-1} - \eta \beta \mathbf{ v }_{t-1} \end{aligned} $$
+        $$ \begin{aligned} \mathbf{ z }_t & = \beta \mathbf{ v }_{t-1} + \mathbf{ \Lambda } \mathbf{ z }_{t-1} \\\\ \mathbf{ z }_ t & = \mathbf{ z }_ { t-1 } - \eta ( \beta \mathbf{ v }_{t-1} + \mathbf{ \Lambda } \mathbf{ z }_{t-1} ) \\\\ & = (1- \eta \mathbf{ \Lambda }) \mathbf{ z }_{t-1} - \eta \beta \mathbf{ v }_{t-1} \end{aligned} $$
 
 - 上述过程说明: 带有和带有不凸二次函数动量的梯度下降，可以分解为朝二次矩阵特征向量方向坐标顺序的优化。
 
@@ -280,6 +280,6 @@ d2l.plt.legend();
 
 
 - 为了分析动量的收敛情况，我们首先用两个标量重写更新方程：一个用于x，另一个用于动量v。
-    $$\begin{bmatrix}v _ { t+1 } \\ x _ { t+1 }\end{bmatrix}= \begin{bmatrix} \beta & \lambda \\ -\eta\beta &(1-\eta\lambda)\end{bmatrix} \begin{bmatrix} v _ t \\ x_ t\end{bmatrix}= \mathbf{R}(\beta,\eta,\lambda)\begin{bmatrix}v_t \\x_t \end{bmatrix}$$
+    $$\begin{bmatrix}v _ { t+1 } \\\\ x _ { t+1 }\end{bmatrix}= \begin{bmatrix} \beta & \lambda \\\\ -\eta\beta &(1-\eta\lambda)\end{bmatrix} \begin{bmatrix} v _ t \\\\ x_ t\end{bmatrix}= \mathbf{R}(\beta,\eta,\lambda)\begin{bmatrix}v_t \\x_t \end{bmatrix}$$
 
 - 在t步之后，最初的值$[v_0,x_0]$变为$\mathbf{ R }(\beta ,\eta ,\lambda)^ t[v_ 0,x_ 0]$。因此，收敛速度是由R的特征值决定的。简而言之，当0<ηλ<2+2β时动量收敛。与梯度下降的0<ηλ<2相比，这是更大范围的可行参数。另外，一般而言较大值的β是可取的。

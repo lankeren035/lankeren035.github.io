@@ -145,7 +145,7 @@ https://blog.csdn.net/qq_36104364/article/details/138966926
   3. 在null text inversion中$\bar z_ t$的优化目标是$z_ t ^ *$， Negative Prompt Inversion 在这里假设优化得做够好，即有 $\bar z_t = z_ t ^ *$，即上式最后一项=0：
      $$
      \begin{aligned}
-     \epsilon_ \theta(z_ { t - 1 } ^ *, t - 1 , C) &=  \tilde \epsilon_{\theta}\!\bigl(\bar z_ {t },\,t, C ,\varnothing_ t \bigr) \\ &=w\epsilon_ \theta( \bar z_ t, t, C)+(1-w)\epsilon_ \theta(\bar z_t, t, \varnothing_ t)
+     \epsilon_ \theta(z_ { t - 1 } ^ *, t - 1 , C) &=  \tilde \epsilon_{\theta}\!\bigl(\bar z_ {t },\,t, C ,\varnothing_ t \bigr) \\\\ &=w\epsilon_ \theta( \bar z_ t, t, C)+(1-w)\epsilon_ \theta(\bar z_t, t, \varnothing_ t)
      \end{aligned}
      $$
 

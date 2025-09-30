@@ -17,7 +17,7 @@ toc: true
 ## 1.2 多层感知机的限制
 - 假设输入图像：$\mathbf{X}$，隐藏表示：$\mathbf{H}$。$\mathbf{X}$与$\mathbf{H}$具有相同的形状。权重矩阵：$W$，偏置：$\mathbf{U}$。全连接层可以表示成：$V$是对$W$的一个偏移。
 
-$$ \begin{aligned} \left[ \mathbf{H} \right]_ {i,j} & = [ \mathbf{U}]_ {i,j}+ \sum_k \sum_l[ \mathbf{W}]_ {i,j,k,l}[ \mathbf{X}]_ {k,l} \\ 
+$$ \begin{aligned} \left[ \mathbf{H} \right]_ {i,j} & = [ \mathbf{U}]_ {i,j}+ \sum_k \sum_l[ \mathbf{W}]_ {i,j,k,l}[ \mathbf{X}]_ {k,l} \\\\ 
 &= [ \mathbf{U}]_ {i,j}+ \sum_a \sum_b[ \mathbf{V}]_ {i,j,a,b}[ \mathbf{X}]_ {i+a,j+b} \end{aligned}$$
 
 - 索引a和b通过在正偏移和负偏移之间移动覆盖了整个图像。对于像素$\mathbf{H}_ {i,j}$，可以通过在$\mathbf{X}$中以(i,j)为中心对像素进行加权求和得到，加权使用的权重为$V_ {i,j,a,b}$。

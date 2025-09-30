@@ -89,7 +89,7 @@ toc:  true
 
 - 通常椭球（面）：
   $$
-  \frac{ x^ 2 }{ a^ 2 }+ \frac{ y^ 2 }{ b^ 2 } + \frac{ z^ 2 }{ c^ 2 } = 1 \\
+  \frac{ x^ 2 }{ a^ 2 }+ \frac{ y^ 2 }{ b^ 2 } + \frac{ z^ 2 }{ c^ 2 } = 1 \\\\
   Ax^ 2 + By^ 2+ Cz^2 + 2Dxy + 2Exz + 2Fyz = 1
   $$
   
@@ -104,7 +104,7 @@ toc:  true
 
 - 首先需要知道协方差矩阵
   - 对于高斯分布，在一维的时候他的形状是由均值核方差来决定的，当维度上升时，方差就变成了协方差矩阵
-  - 协方差矩阵：$\Sigma = \begin{bmatrix} \sigma_ { x } ^ 2 \space \sigma_{ xy } \space \sigma_ { xz } \\ \sigma_ { yx } \space \sigma_{ y } ^ 2 \space \sigma_ { yz } \\ \sigma_ { zx } \space \sigma_{ zy } \space \sigma_ { z } ^ 2 \\ \end{bmatrix}$
+  - 协方差矩阵：$\Sigma = \begin{bmatrix} \sigma_ { x } ^ 2 \space \sigma_{ xy } \space \sigma_ { xz } \\\\ \sigma_ { yx } \space \sigma_{ y } ^ 2 \space \sigma_ { yz } \\\\ \sigma_ { zx } \space \sigma_{ zy } \space \sigma_ { z } ^ 2 \\\\ \end{bmatrix}$
     - 一个对称矩形，决定高斯分布形状
     - 对角线上元素为x轴/y轴/z轴的方差
     - 反斜对角线上的值为协方差，表示x和y，x和z...的线性相关性
@@ -118,7 +118,7 @@ toc:  true
     - 一维的时候：x等于一个常数
       $$
       \begin{align}
-      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\
+      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\\\
       \frac{ ( x - \mu )^ 2 }{ \sigma^ 2 } = c
       \end{align}
       $$
@@ -126,10 +126,10 @@ toc:  true
     - 二维的时候：椭圆方程
       $$
       \begin{align}
-      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\ 
+      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\\\ 
       ([x,y] - [\mu_ 1, \mu_ 2]) ^T \begin{bmatrix} 
-       \sigma_ { x } ^ 2 \space \sigma_{ xy } \\ \sigma_ { yx } \space \sigma_{ y } ^ 2 \\ 
-      \end{bmatrix}^ { - 1 } ([x,y] - [\mu_ 1, \mu_ 2]) &= c \\
+       \sigma_ { x } ^ 2 \space \sigma_{ xy } \\\\ \sigma_ { yx } \space \sigma_{ y } ^ 2 \\\\ 
+      \end{bmatrix}^ { - 1 } ([x,y] - [\mu_ 1, \mu_ 2]) &= c \\\\
       \frac{ ( x - \mu_ 1 )^ 2 }{ \sigma_ 1 ^ 2 } + \frac{ ( y - \mu_ 2 )^ 2 }{ \sigma_ 2 ^ 2 } - \frac{ 2 \sigma_{ xy } ( x - \mu_ 1 )( y - \mu_ 2 ) }{ \sigma_ 1 \sigma_ 2 } &= c
       \end{align}
       $$
@@ -137,7 +137,7 @@ toc:  true
     - 三维的时候：椭球面方程
       $$
       \begin{align}
-      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\ 
+      (x - \mu )^ T \Sigma^ { -1 } (x  - \mu ) &= c \\\\ 
       \frac{ ( x - \mu_ 1 )^ 2 }{ \sigma_ 1 ^ 2 } + \frac{ ( y - \mu_ 2 )^ 2 }{ \sigma_ 2 ^ 2 } + \frac{ ( z - \mu_ 3 )^ 2 }{ \sigma_ 3 ^ 2 } - \frac{ 2 \sigma_{ xy } ( x - \mu_ 1 )( y - \mu_ 2 ) }{ \sigma_ 1 \sigma_ 2 } - \frac{ 2 \sigma_{ xz } ( x - \mu_ 1 )( z - \mu_ 3 ) }{ \sigma_ 1 \sigma_ 3 } - \frac{ 2 \sigma_{ yz } ( y - \mu_ 2 )( z - \mu_ 3 ) }{ \sigma_ 2 \sigma_ 3 } &= c
       \end{align}
       $$
@@ -154,30 +154,30 @@ toc:  true
 - 各向同性：
   - 在所有方向具有相同的扩散程度（梯度）
   - 球
-  - 3d高斯分布：协方差矩阵是对角矩阵，且对角线元素相等：$\Sigma = \begin{bmatrix} \sigma^ 2 &0 &0 \\ 0 &\sigma^ 2 &0 \\ 0 &0 &\sigma^ 2 \\ \end{bmatrix}$
+  - 3d高斯分布：协方差矩阵是对角矩阵，且对角线元素相等：$\Sigma = \begin{bmatrix} \sigma^ 2 &0 &0 \\\\ 0 &\sigma^ 2 &0 \\\\ 0 &0 &\sigma^ 2 \\\\ \end{bmatrix}$
 
 - 各向异性：
   - 在不同方向具有不同的扩散程度（梯度）
   - 椭球
-  - 3d高斯分布：协方差矩阵是对角矩阵：$\Sigma = \begin{bmatrix} \sigma_ { x }^ 2 &\sigma_ { xy } &\sigma_ { xz } \\ \sigma_ { yx } &\sigma_ { y }^ 2 &\sigma_ { yz } \\ \sigma_ { zx } &\sigma_ { zy } &\sigma_ { z }^ 2 \\ \end{bmatrix}$
+  - 3d高斯分布：协方差矩阵是对角矩阵：$\Sigma = \begin{bmatrix} \sigma_ { x }^ 2 &\sigma_ { xy } &\sigma_ { xz } \\\\ \sigma_ { yx } &\sigma_ { y }^ 2 &\sigma_ { yz } \\\\ \sigma_ { zx } &\sigma_ { zy } &\sigma_ { z }^ 2 \\\\ \end{bmatrix}$
 
 ### 2.5 协方差矩阵是如何控制椭球形状的
 
 - 高斯分布：$\mathbf{x} \sim N ( \mu , \Sigma)$
   - 均值$[\mu_ 1, \mu_2, \mu_ 3]$
-  - 协方差矩阵$\begin{bmatrix} \sigma_ { x }^ 2 &\sigma_ { xy } &\sigma_ { xz } \\ \sigma_ { yx } &\sigma_ { y }^ 2 &\sigma_ { yz } \\ \sigma_ { zx } &\sigma_ { zy } &\sigma_ { z }^ 2 \\ \end{bmatrix}$
+  - 协方差矩阵$\begin{bmatrix} \sigma_ { x }^ 2 &\sigma_ { xy } &\sigma_ { xz } \\\\ \sigma_ { yx } &\sigma_ { y }^ 2 &\sigma_ { yz } \\\\ \sigma_ { zx } &\sigma_ { zy } &\sigma_ { z }^ 2 \\\\ \end{bmatrix}$
 
 - 高斯分布的仿射变换：
   $$
   \begin{align}
-  \mathbf{ w } &= A \mathbf{ x } + b \\
+  \mathbf{ w } &= A \mathbf{ x } + b \\\\
   \mathbf{ w } &\sim N ( A \mu + b , A \Sigma A^ { T })
   \end{align}
   $$
   
 - 标准高斯分布：$\mathbf{x} \sim N ( \vec{ 0 } , I)$
   - 均值[0,0,0]
-  - 协方差矩阵$\begin{bmatrix} 1 &0 &0 \\ 0 &1 &0 \\ 0 &0 &1 \\ \end{bmatrix}$
+  - 协方差矩阵$\begin{bmatrix} 1 &0 &0 \\\\ 0 &1 &0 \\\\ 0 &0 &1 \\\\ \end{bmatrix}$
 
 - 任意高斯可以看作是标准高斯通过仿射变换得到
   
@@ -188,7 +188,7 @@ toc:  true
 - 高斯分布的仿射变换：
   $$
   \begin{align}
-  \mathbf{ w } &= A \mathbf{ x } + b \\
+  \mathbf{ w } &= A \mathbf{ x } + b \\\\
   \mathbf{ w } &\sim N ( A \mu + b , A \Sigma A^ { T })
   \end{align}
   $$
@@ -201,8 +201,8 @@ toc:  true
   - 因此：
     $$
     \begin{align}
-    \Sigma &= A \cdot I \cdot A^ T \\
-    &=R \cdot S \cdot I \cdot ( R \cdot S )^ T \\
+    \Sigma &= A \cdot I \cdot A^ T \\\\
+    &=R \cdot S \cdot I \cdot ( R \cdot S )^ T \\\\
     &= R \cdot S \cdot S^ T \cdot  R^ T
     \end{align}
     $$
@@ -212,7 +212,7 @@ toc:  true
 
   - 通过特征值分解将$\Sigma$分解成$Q \Lambda Q^ T$
 
-  - $\Lambda$是一个对角矩阵，他的对角线元素是他的特征值：$\begin{bmatrix} S_0 &0 &0 \\ 0 &S_1 &0 \\ 0 &0 &S_ 2 \end{bmatrix}$
+  - $\Lambda$是一个对角矩阵，他的对角线元素是他的特征值：$\begin{bmatrix} S_0 &0 &0 \\\\ 0 &S_1 &0 \\\\ 0 &0 &S_ 2 \end{bmatrix}$
 
   - 最后拆成：$\Sigma = Q \Lambda^{ \frac{ 1 }{ 2 }} \Lambda^{ \frac{ 1 }{ 2 }} Q^ T $
 
@@ -235,3 +235,4 @@ toc:  true
     ```
 
     
+

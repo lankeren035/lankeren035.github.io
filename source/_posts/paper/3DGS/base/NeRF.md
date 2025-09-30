@@ -30,7 +30,7 @@ toc:  true
 
 - 使用神经网络（MLP）来隐式存储3D信息的一个presentation（表征）
   - 显式的3D信息：**有明确的x,y,z值**（mesh, voxel体素,点云）
-    - 比如mesh会使用一个矩阵$\begin{bmatrix} 1,2,3 \\ 2,3,4 \\3,4,5 \\ 4,5,6 \end{bmatrix}$ 表示有四个顶点，与这四个顶点的xyz坐标。使用$\begin{bmatrix} 1,2,3 \\ 1,2,4 \end{bmatrix}$ 表示有两个表面（三角形）顶点1，2，3之间有连接，顶点1，2，4之间有连接。
+    - 比如mesh会使用一个矩阵$\begin{bmatrix} 1,2,3 \\\\ 2,3,4 \\\\3,4,5 \\\\ 4,5,6 \end{bmatrix}$ 表示有四个顶点，与这四个顶点的xyz坐标。使用$\begin{bmatrix} 1,2,3 \\\\ 1,2,4 \end{bmatrix}$ 表示有两个表面（三角形）顶点1，2，3之间有连接，顶点1，2，4之间有连接。
   - 隐式的3D信息：无明确的x,y,z值，智能输出指定角度的2D图片。
 
 - 训练时使用给定场景下的若干张图片。
@@ -121,13 +121,13 @@ toc:  true
 
   - 空间坐标为：（x,y,z）
 
-  - 发射的光纤通过相机模型成为图片上的像素坐标（u,v）
+  - 发射的光线通过相机模型成为图片上的像素坐标（u,v）
 
   - 粒子颜色即为像素颜色
 
   - （u,v）与）（x,y,z）的公式：相机坐标=相机内参x转换矩阵x世界坐标
     $$
-    \begin{bmatrix} u \\ v \\ 1 \end{bmatrix} = \begin{bmatrix} f_x \space \space 0 \space \space c_x \space \space 0 \\ 0 \space \space  f_y \space \space c_y \space \space  0 \\ 0 \space \space  0 \space \space  1 \space \space  0 \end{bmatrix}_ { 3 \times 4 } \begin{bmatrix} R \space \space T \\ 0 \space \space 1 \end{bmatrix}_ { 4 \times 4} \begin{bmatrix} x_w \\ y_w \\ z_w \\ 1 \end{bmatrix}_ { 4 \times 1}
+    \begin{bmatrix} u \\\\ v \\\\ 1 \end{bmatrix} = \begin{bmatrix} f_x \space \space 0 \space \space c_x \space \space 0 \\\\ 0 \space \space  f_y \space \space c_y \space \space  0 \\\\ 0 \space \space  0 \space \space  1 \space \space  0 \end{bmatrix}_ { 3 \times 4 } \begin{bmatrix} R \space \space T \\\\ 0 \space \space 1 \end{bmatrix}_ { 4 \times 4} \begin{bmatrix} x_w \\\\ y_w \\\\ z_w \\\\ 1 \end{bmatrix}_ { 4 \times 1}
     $$
 
 - 反之，已知观察点A，图片上的像素点B，我们可以找到一条射线。对于图片上的某一个像素（u,v）的颜色：
@@ -299,12 +299,12 @@ raw = network_query_fn(pts, viewdirs, network_fn)
   >假设有粒子A和B，A在B的前面，如果A异常明亮，那么B的光就不会显示了
 
   $$
-  \begin{align} \hat { C ( s ) } &= \int _0 ^ {+ \infty} T ( s ) \sigma( s ) C ( s ) ds \\ T(s) &= e ^ {- \int_ 0 ^ {s}  \sigma( t ) dt} \end{align}
+  \begin{align} \hat { C ( s ) } &= \int _0 ^ {+ \infty} T ( s ) \sigma( s ) C ( s ) ds \\\\ T(s) &= e ^ {- \int_ 0 ^ {s}  \sigma( t ) dt} \end{align}
   $$
 
   - $T(s)$：在s点之前，光线没有被阻挡的概率
 
-  - $\sigma(s)$：在s点处，光线撞击粒子（光线被粒子阻挡）的概率密度
+  - $\sigma(s)$：在s点处，光线撞击粒子（光线被粒子阻挡）的概率密度（光被吸收的概率）
 
   - $C(s)$：在s点处，粒子光出的颜色
 
@@ -324,16 +324,16 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     $$
     \begin{aligned} 
-    T(s + ds ) &= T( s )[ 1 - \sigma ( s ) ds] \\
-    T(s + ds ) &= T ( s ) - T ( s ) \sigma( s ) ds \\
-    T ( s + ds ) - T ( s ) &= -T( s ) \sigma( s ) ds \\
-    dT( s ) &= -T( s ) \sigma( s ) ds \\
-    \frac{ d T ( s  )}{T ( s )} &= - \sigma( s ) ds \\
-    \int_0 ^t \frac{dT ( s )}{T( s )} &= \int_0 ^ t - \sigma( s ) \\
-    \int_0 ^t \frac{1}{T( s )} dT ( s ) &= \int_0 ^ t - \sigma( s ) \\
-    \text{ ln } T ( s ) |_0 ^t &= \int_0 ^ t - \sigma( s ) \\
-    \text{ ln } T ( t ) - \text{ ln } T ( 0 ) &= \int_0 ^ t - \sigma( s ) \\
-    \text{ ln } T ( t )  &= \int_0 ^ t - \sigma( s ) \\
+    T(s + ds ) &= T( s )[ 1 - \sigma ( s ) ds] \\\\
+    T(s + ds ) &= T ( s ) - T ( s ) \sigma( s ) ds \\\\
+    T ( s + ds ) - T ( s ) &= -T( s ) \sigma( s ) ds \\\\
+    dT( s ) &= -T( s ) \sigma( s ) ds \\\\
+    \frac{ d T ( s  )}{T ( s )} &= - \sigma( s ) ds \\\\
+    \int_0 ^t \frac{dT ( s )}{T( s )} &= \int_0 ^ t - \sigma( s ) \\\\
+    \int_0 ^t \frac{1}{T( s )} dT ( s ) &= \int_0 ^ t - \sigma( s ) \\\\
+    \text{ ln } T ( s ) |_0 ^t &= \int_0 ^ t - \sigma( s ) \\\\
+    \text{ ln } T ( t ) - \text{ ln } T ( 0 ) &= \int_0 ^ t - \sigma( s ) \\\\
+    \text{ ln } T ( t )  &= \int_0 ^ t - \sigma( s ) \\\\
     T(t) &= e ^ {- \int_ 0 ^ {t}  \sigma( s ) ds}
     \end{aligned}
     $$
@@ -351,7 +351,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 - 假设区间内密度$\sigma_ n $和颜色$C_ n$固定
   $$
   \begin{aligned}
-  \hat C( r ) &= \sum_{ i = 1} ^ N T_ i ( 1 - e^ {-\sigma_ i  \delta_ i} ) c_ i \\
+  \hat C( r ) &= \sum_{ i = 1} ^ N T_ i ( 1 - e^ {-\sigma_ i  \delta_ i} ) c_ i \\\\
   T_i &= e^ { - \sum_{ j = 1 } ^{ i - 1 } \sigma_ j \delta_ j } 
   \end{aligned}
   $$
@@ -359,18 +359,18 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 - 我们认为最后的颜色是每一小段光区贡献的光强的累加和：$\hat C = \sum_ { n = 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 })$ 。对于其中的某一段：
   $$
   \begin{aligned}
-  I( t_ n \rightarrow t_ { n + 1}) &= \int_{ t_ n } ^ { t_ { n + 1 } } T ( t ) \sigma_n C_n dt \\
-  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } T ( t ) dt \\
-  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ t \sigma ( s ) ds } dt \\
-  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ { t_ n } \sigma ( s ) ds } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\
-  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\
-  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma_ n ds } dt \\
-  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \sigma_ n ( t - t_ n ) } dt \\
-  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) [- \frac{1}{ \sigma_ n } e^ { - \sigma_ n ( t - t_ n ) } |_ { t _ n } ^ { t_ n + 1 } ] \\
-  &= C_ n T ( 0 \rightarrow t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\
-  &= C_ n T( t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\
-  &= C_ n  e^ { - \int _ 0 ^ { t_ n} \sigma ( s ) ds }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\
-  &= C_ n  e^ { - \sum _ {i = 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\
+  I( t_ n \rightarrow t_ { n + 1}) &= \int_{ t_ n } ^ { t_ { n + 1 } } T ( t ) \sigma_n C_n dt \\\\
+  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } T ( t ) dt \\\\
+  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ t \sigma ( s ) ds } dt \\\\
+  &= \sigma_ n C_ n \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ { t_ n } \sigma ( s ) ds } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\\\
+  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\\\
+  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma_ n ds } dt \\\\
+  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int _{ t_ n } ^ { t_ { n+ 1 } } e^ { - \sigma_ n ( t - t_ n ) } dt \\\\
+  &= \sigma_ n C_ n T ( 0 \rightarrow t_ n ) [- \frac{1}{ \sigma_ n } e^ { - \sigma_ n ( t - t_ n ) } |_ { t _ n } ^ { t_ n + 1 } ] \\\\
+  &= C_ n T ( 0 \rightarrow t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\\\
+  &= C_ n T( t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\\\
+  &= C_ n  e^ { - \int _ 0 ^ { t_ n} \sigma ( s ) ds }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\\\
+  &= C_ n  e^ { - \sum _ {i = 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\\\
   
   \end{aligned}
   $$
@@ -378,8 +378,8 @@ raw = network_query_fn(pts, viewdirs, network_fn)
   - 令$\alpha_ n = 1 - e ^ { - \sigma_ n \delta_ n }$最终：
     $$
     \begin{aligned}
-    \hat C &= \sum_ { n = 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 }) \\
-    &= \sum_ { n = 0 } ^ N C_ n  e^ { - \sum _ {i = 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\
+    \hat C &= \sum_ { n = 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 }) \\\\
+    &= \sum_ { n = 0 } ^ N C_ n  e^ { - \sum _ {i = 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\\\
     &= \sum_ { n = 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } )
     \end{aligned}
     $$
@@ -446,7 +446,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     - 先根据粗模型的结果，进行逆变换采样。首先根据公式$\hat C = \sum_ { n = 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } )$ 取粒子颜色前的权重做softmax：
 
-      $$w = \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } ) \\ \hat w_i = \frac{ w_ i }{ \sum _ {j = 1 } ^ {N _ c } w_ i}$$
+      $$w = \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } ) \\\\ \hat w_i = \frac{ w_ i }{ \sum _ {j = 1 } ^ {N _ c } w_ i}$$
 
     - 此时，新的权重和为1，可看作概率密度函数，生成他的cdf
 

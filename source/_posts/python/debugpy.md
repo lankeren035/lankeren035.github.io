@@ -47,8 +47,9 @@ pip install debugpy
   
   ```
 
+# 3. 启动
 
-#3. 启动
+- 先要打个断点，如果发现无法打断点，把python插件重新安装一下
 
 - 纯python语句：
 

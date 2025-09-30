@@ -49,10 +49,10 @@ net.apply(init_weights)
 
 
 ## 7.2 优化softmax计算
-- 为了防止溢出，我们先将每个元素减去该行的最大值（每个$o_k$按常数进行移动不会改变softmax的输出）。$$\begin{aligned} \hat{y}_ j &= \frac{\exp(o_ j)}{ \sum_{i=1}^ q \exp(o_ i)} \\ &= \frac{ \exp(o_ j - \max(o)) \exp( \max(o))}{ \sum_ {i=1}^ q \exp(o_ i - \max(o)) \exp( \max(o))} \\ &= \frac{ \exp(o_ j - \max(o))}{ \sum_ {i=1}^ q \exp(o_ i - \max(o))} \end{aligned}$$
+- 为了防止溢出，我们先将每个元素减去该行的最大值（每个$o_k$按常数进行移动不会改变softmax的输出）。$$\begin{aligned} \hat{y}_ j &= \frac{\exp(o_ j)}{ \sum_{i=1}^ q \exp(o_ i)} \\\\ &= \frac{ \exp(o_ j - \max(o)) \exp( \max(o))}{ \sum_ {i=1}^ q \exp(o_ i - \max(o)) \exp( \max(o))} \\\\ &= \frac{ \exp(o_ j - \max(o))}{ \sum_ {i=1}^ q \exp(o_ i - \max(o))} \end{aligned}$$
 - 有些oj − max(ok)具有较大的负值。由于精度受限，exp(oj − max(ok))将有接近零的值，即下溢（underflow）。这些值可能会四舍五入为零，使$\hat{y}_ j$为零，并且使得$log(\hat{y}_ j )$的值为-inf。反向传播几步后，我们可能会发现自己面对一屏幕可怕的nan结果。
 - 通过将softmax和交叉熵结合在一起，可以避免反向传播过程中可能会困扰我们的数值稳定性问题。避免计算$\exp{o_j-\max(o_k)}$,因为log与exp抵消了
- $$\begin{aligned} log( \hat{y}_ j) &= log \left( \frac{ \exp(o_ j - \max(o_ k))}{ \sum_{k=1}^ q \exp(o_ k - \max(o_ k))} \right) \\ &= log( \exp(o_ j -  \max(o_ k))) - log( \sum_ {k=1}^ q \exp(o_ k -  \max(o_ k))) \\ &= o_ j - \max(o_ k) - log( \sum_ {k=1}^ q \exp(o_ k - \max(o_ k))) \end{aligned}$$
+ $$\begin{aligned} log( \hat{y}_ j) &= log \left( \frac{ \exp(o_ j - \max(o_ k))}{ \sum_{k=1}^ q \exp(o_ k - \max(o_ k))} \right) \\\\ &= log( \exp(o_ j -  \max(o_ k))) - log( \sum_ {k=1}^ q \exp(o_ k -  \max(o_ k))) \\\\ &= o_ j - \max(o_ k) - log( \sum_ {k=1}^ q \exp(o_ k - \max(o_ k))) \end{aligned}$$
 
 
 

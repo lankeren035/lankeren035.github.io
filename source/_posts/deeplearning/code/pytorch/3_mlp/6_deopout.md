@@ -21,7 +21,7 @@ toc: true
 - 做法：
 
   <span style="display:block">
-  $h ^\prime =\begin{cases}0 &p \\ \frac{h}{1-p} &1-p \\ \end{cases}.$ 
+  $h ^\prime =\begin{cases}0 &p \\\\ \frac{h}{1-p} &1-p \\\\ \end{cases}.$ 
 
   </span>
 

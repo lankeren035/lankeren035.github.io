@@ -18,13 +18,13 @@ toc: true
 - 从一个循环神经网络的简化模型开始，此模型忽略了隐状态的特性及其更新方式的细节。这里的数学表示没有像过去那样明确地区分标量、向量和矩阵，因为这些细节对于分析并不重要
 
 - 我们将时间步t的隐状态表示为$h_ t$，输入表示为$x_ t$，输出表示为$o_ t$。输入和隐状态可以拼接后与隐藏层中的一个权重变量相乘。。因此，我们分别使用$w_ h$和$w_ o$来表示隐藏层和输出层的权重。每个时间步的隐状态和输出可以写为：
-$$ \begin{aligned} h_ t &= f(x_t, h_{t-1}, w_h),\\ o_ t &= g(h_ t, w_o), \end{aligned} $$
+$$ \begin{aligned} h_ t &= f(x_t, h_{t-1}, w_h),\\\\ o_ t &= g(h_ t, w_o), \end{aligned} $$
 
 - 其中f和g分别是隐藏层和输出层的变换。因此，我们有一个链$ \{ \dots , (x_ {t-1}, h_ {t-1}, o_ {t-1}), (x_ t, h_ t, o_ t),  \dots \}$，它们通过循环计算彼此依赖。前向传播相当简单，一次一个时间步的遍历三元组$(x_ t, h_ t, o_ t)$，然后通过一个目标函数在所有T个时间步内评估输出$o_ t$和对应的标签$y_ t$之间的误差:
 $$ L(x_ 1, \dots, x_ T, y_ 1, \dots, y_ T, w_ h, w_ o) = \frac{1}{T} \sum_ {t=1} ^ T l(o_ t, y_ t). $$
 
 - 对于反向传播，问题则有点棘手，特别是当我们计算目标函数L关于参数wh的梯度时。具体来说，按照链式法则：
-$$ \begin{aligned} \frac{\partial L}{\partial w_ h} &= \frac{1}{T} \sum_ {t=1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial w_ h} \\ &= \frac{1}{T} \sum_ {t=1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial o_ t} \frac{\partial g(h_ t, w_ o)}{\partial h_ t} \frac{\partial h_ t}{\partial w_ h}. \end{aligned} $$
+$$ \begin{aligned} \frac{\partial L}{\partial w_ h} &= \frac{1}{T} \sum_ {t=1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial w_ h} \\\\ &= \frac{1}{T} \sum_ {t=1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial o_ t} \frac{\partial g(h_ t, w_ o)}{\partial h_ t} \frac{\partial h_ t}{\partial w_ h}. \end{aligned} $$
 
 - 其中第一项和第二项很容易计算，而第三项$ \frac{\partial h_ t}{\partial w_ h}$则相当复杂。因为我们需要循环地计算参数$w_ h$对$h_ t$的影响，因为$h_ t = f(x_t, h_{t-1}, w_h)$，所以$h_ t$既依赖于$h_ {t-1}$又依赖于$w_ h$，其中$h_ {t-1}$的计算也依赖于$w_ h$。因此，使用链式法则产生：
 $$ \frac{\partial h_ t}{\partial w_ h} = \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}} \frac{\partial h_ {t-1}}{\partial w_ h}.  $$
@@ -33,7 +33,7 @@ $$ \frac{\partial h_ t}{\partial w_ h} = \frac{\partial f(x_ t, h_ {t-1}, w_ h)}
 $$ a_ t = b_ t + \sum_ {i=1} ^ {t-1}(\prod_ {j=i+1} ^ t c_ j) b_ i $$
 
 - 不妨基于下列公式替换$a_ t$、$b_ t$和$c_ t$:
-$$ \begin{aligned} a_ t &= \frac{\partial h_ t}{\partial w_ h},\\ b_ t &= \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h},\\ c_ t &= \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}}, \end{aligned} $$
+$$ \begin{aligned} a_ t &= \frac{\partial h_ t}{\partial w_ h},\\\\ b_ t &= \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h},\\\\ c_ t &= \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}}, \end{aligned} $$
 
 - 通过：
 $$ \frac{\partial h_ t}{\partial w_ h} = \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}} \frac{\partial h_ {t-1}}{\partial w_ h}.  $$
@@ -70,7 +70,7 @@ $$ z_ t = \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \xi_ t \frac{
 
 ## 7.2 通过时间反向传播的细节
 - 如何计算目标函数相对于所有分解模型参数的梯度。为了保持简单，我们考虑一个没有偏置参数的循环神经网络，其在隐藏层中的激活函数使用恒等映射（$\phi(x) = x$）。对于时间步t，设单个样本的输入及其对应的标签分别为$\mathbf{ x }_ t \in \mathbb{ R }^{d} $和$y_ t $。计算隐状态$ \mathbf{ h }_ t \in \mathbb{ R }^{h} $和输出$ \mathbf{ o }_ t \in \mathbb{ R }^{q} $的公式如下：
-$$ \begin{aligned} \mathbf{ h }_ t &= \mathbf{ W }_ { hx } \mathbf{ x }_ t + \mathbf{ W }_ { hh } \mathbf{ h }_ { t-1},\\ \mathbf{ o }_ t &= \mathbf{ W }_ { qh } \mathbf{ h }_ t. \end{aligned} $$
+$$ \begin{aligned} \mathbf{ h }_ t &= \mathbf{ W }_ { hx } \mathbf{ x }_ t + \mathbf{ W }_ { hh } \mathbf{ h }_ { t-1},\\\\ \mathbf{ o }_ t &= \mathbf{ W }_ { qh } \mathbf{ h }_ t. \end{aligned} $$
 
 - 其中权重参数为$\mathbf{ W }_ { hx } \in \mathbb{ R }^{h \times d} $，$\mathbf{ W }_ { hh } \in \mathbb{ R }^{h \times h} $和$\mathbf{ W }_ { qh } \in \mathbb{ R }^{q \times h} $。用$l(\mathbf{ o }_ t, y_ t) $表示时间步t处（即从序列开始起的超过T个时间步）的损失函数，则我们的目标函数的总体损失是：
 $$ L = \frac{1}{T} \sum_ {t=1} ^ T l(\mathbf{ o }_ t, y_ t). $$
@@ -85,13 +85,13 @@ $$ L = \frac{1}{T} \sum_ {t=1} ^ T l(\mathbf{ o }_ t, y_ t). $$
 $$ \frac{\partial L}{\partial \mathbf{ o }_ t} = \frac{1}{T} \frac{\partial l(\mathbf{ o }_ t, y_ t)}{\partial \mathbf{ o }_ t}. $$
 
 - 现在，我们可以计算目标函数关于输出层中参数$\mathbf{ W }_ { qh } $的梯度：$ \frac{\partial L}{\partial \mathbf{ W }_ { qh } } $。由上图可知，目标函数L通过$\mathbf{ o }_ 1, \ldots, \mathbf{ o }_ T $依赖于$\mathbf{ W }_ { qh } $。根据链式法则，我们得到：
-$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { qh } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ W }_ { qh } } \right) \\ &= \sum_ {t=1} ^ T  \frac{\partial L}{\partial \mathbf{ o }_ t} \mathbf{ h }_ t ^ T . \end{aligned} $$
+$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { qh } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ W }_ { qh } } \right) \\\\ &= \sum_ {t=1} ^ T  \frac{\partial L}{\partial \mathbf{ o }_ t} \mathbf{ h }_ t ^ T . \end{aligned} $$
 
 - 其中$ \frac{ \partial L}{\partial \mathbf{ o }_ t} $已经在上面计算过了。接下来，在最后的时间步T，目标函数L仅通过$\mathbf{ o }_ T $依赖于隐状态$\mathbf{ h }_ T $。因此，使用链式法可以很容易地得到梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ T} $：
-<span id='goto13'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &= prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \\ &= \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$
+<span id='goto13'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &= prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \\\\ &= \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$
 
 - 当目标函数L通过$\mathbf{ h }_ { t+1 } $和$\mathbf{ o }_ t $依赖于$\mathbf{ h }_ t $时，对任意时间步t < T来说都变得更加棘手。根据链式法则，隐状态的梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $在任何时间步骤t < T时都可以递归地计算为：
-<span id='goto14'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &= prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \\ &= \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$
+<span id='goto14'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &= prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \\\\ &= \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$
 
 - 为了进行分析，对于任何时间步1 ≤ t ≤ T展开递归计算得:
 $$ \frac{\partial L}{\partial \mathbf{ h }_ t} = \sum_ {i=t} ^ T \left( \mathbf{ W }_ { hh } ^ T \right) ^ {T-i} \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ { T+t-i }}. $$
@@ -99,7 +99,7 @@ $$ \frac{\partial L}{\partial \mathbf{ h }_ t} = \sum_ {i=t} ^ T \left( \mathbf{
 - 从上式看到，这个简单的线性例子已经展现了长序列模型的一些关键问题：它陷入到$ \mathbf{ W }_ { hh } ^ T $的潜在的非常大的幂。在这个幂中，小于1的特征值将会消失，大于1的特征值将会发散。这在数值上是不稳定的，表现形式为梯度消失或梯度爆炸。解决此问题的一种方法是按照计算方便的需要截断时间步长的尺寸。实际上，这种截断是通过在给定数量的时间步之后分离梯度来实现的。
 
 - 最后，上图表明：目标函数L通过隐状态$\mathbf{ h }_ 1, \ldots, \mathbf{ h }_ T $依赖于隐藏层中的模型参数$\mathbf{ W }_ { hx } $和$\mathbf{ W }_ { hh } $。为了计算有关这些参数的梯度$ \frac{ \partial L}{\partial \mathbf{ W }_ { hx } } $和$ \frac{ \partial L}{\partial \mathbf{ W }_ { hh } } $，我们应用链式规则得：
-$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { hx } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hx } } \right) = \sum_ {t=1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ x }_ t ^ T, \\ \frac{\partial L}{\partial \mathbf{ W }_ { hh } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hh } } \right) = \sum_ {t=1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ h }_ { t-1 } ^ T. \end{aligned} $$
+$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { hx } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hx } } \right) = \sum_ {t=1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ x }_ t ^ T, \\\\ \frac{\partial L}{\partial \mathbf{ W }_ { hh } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hh } } \right) = \sum_ {t=1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ h }_ { t-1 } ^ T. \end{aligned} $$
 
 - 其中$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $是由<a href="#goto13">（13）</a>和<a href="#goto14">（14）</a>递归计算得到的，是影响数值稳定性的关键量。
 

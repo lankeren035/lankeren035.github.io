@@ -136,7 +136,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
     - 而我们需要预测的分数是：
       - $\begin{aligned} \nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] &= \nabla log \space P_ \theta (X_ t ) + \nabla log \space P_ \varphi (y | X_t) \\&= -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \end{aligned}$
     - 根据(3-1)可以知道分数：$ \nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] = - \frac{\hat \epsilon_ \theta ^ \prime (X_ t ) }{ \sqrt{1 - \bar \alpha_ t} } $
-    - 因此：$- \frac{\hat \epsilon_ \theta ^ \prime  }{ \sqrt{1 - \bar \alpha_ t} } = -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \\ \hat \epsilon ^\prime =  \hat \epsilon_ \theta - \sqrt{ 1 - \bar \alpha_ t} g $
+    - 因此：$- \frac{\hat \epsilon_ \theta ^ \prime  }{ \sqrt{1 - \bar \alpha_ t} } = -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \\\\ \hat \epsilon ^\prime =  \hat \epsilon_ \theta - \sqrt{ 1 - \bar \alpha_ t} g $
     - 因此这里只需要将DDPM预测出来的噪音做一个微小的偏移，然后就可以使用DDIM采样了。
 
 

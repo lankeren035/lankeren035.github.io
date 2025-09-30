@@ -82,7 +82,7 @@ $$\sum_i \alpha_ i f(x_i) \geq f \left( \sum_i \alpha_ i x_ i \right) \text{and}
 ## 2.3 约束
 
 - 凸优化的一个很好的特性是能够让我们有效地处理约束。它使我们能够解决以下形式的约束优化问题：
-  $$\begin{aligned} & minimize \space \space \space f( x ) \\ & subject to c_i ( x ) \leq 0 for \space all \space i \in \{1, ... ,N \} \end{aligned}$$
+  $$\begin{aligned} & minimize \space \space \space f( x ) \\\\ & subject to c_i ( x ) \leq 0 for \space all \space i \in \{1, ... ,N \} \end{aligned}$$
 
   - 其中$c_i$是约束函数
 

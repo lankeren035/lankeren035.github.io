@@ -29,7 +29,7 @@ toc: true
 
 - 假设有h个隐藏单元，批量大小为n，输入数为d：
 
-$$ \begin{aligned} \mathbf{ I } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xi } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hi } + \mathbf{ b } _ { i } \right) \\ \mathbf{ F } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xf } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hf } + \mathbf{ b } _ { f } \right) \\ \mathbf{ O } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xo } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { ho } + \mathbf{ b } _ { o } \right) \end{aligned} $$
+$$ \begin{aligned} \mathbf{ I } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xi } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hi } + \mathbf{ b } _ { i } \right) \\\\ \mathbf{ F } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xf } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hf } + \mathbf{ b } _ { f } \right) \\\\ \mathbf{ O } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xo } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { ho } + \mathbf{ b } _ { o } \right) \end{aligned} $$
 
 ### 2.1.2 候选记忆元
 

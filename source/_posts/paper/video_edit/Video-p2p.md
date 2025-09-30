@@ -176,7 +176,7 @@ toc:  true
 
   - 我们采用了从 Image-P2P 到 Video-P2P 的注意力控制方法。 例如，为了执行**单词交换**，Edit 函数可以表示为： 
     $$
-    Edit(M_t, M _ t ^ *, t) := \left\{ \begin{matrix}M_ t ^ * &if t< \tau \\ M_ t &otherwise\\\end{matrix}\right.
+    Edit(M_t, M _ t ^ *, t) := \left\{ \begin{matrix}M_ t ^ * &if t< \tau \\\\ M_ t &otherwise\\\end{matrix}\right.
     $$
 
     - $M_ t$和$M_ t^ *$ 是每一步每帧的交叉注意力图，$DM$ 是调整后的 T2S 模型。更改帧注意力图对最终结果的影响很小。注意力图仅在前$\tau$ 步交换，因为注意力是在早期形成的。$\bar M _ { t, w }$ 是在步骤 t 计算的单词 $w$ 的平均注意力图。它是在步骤 T, ... , t 上对每一帧独立取平均值。对于第 j 帧，我们计算： $\bar M _ { t, w , j }=\frac{ 1 }{ T - t } \sum_ { i =  t } ^ T \bar M _ { i, w , j} \space \space , \space \space j=1, ...,n$

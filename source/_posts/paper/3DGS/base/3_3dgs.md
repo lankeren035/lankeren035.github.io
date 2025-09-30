@@ -43,10 +43,10 @@ toc:  true
 
 $$
 \begin{align}
-f( t ) \approx &\sum_ l \sum_ { m = -l } ^ l c_ l ^ m y_ l ^ m ( \theta, \phi) \\
-= &c_0^0 y_ 0 ^ 0 +\\
-&c_ 1 ^ { -1 } y_ 1 ^ { -1 } +c_ 1 ^ 0 y_ 1 ^ 0 + c_ 1 ^ 1 y_ 1 ^1 + \\
-& c_ 2^{ -2 } y_ 2^{ -2 } + c_ 2^{ -1 } + y_ 2^{ -1 } + c_ 2^{ 0 } y_ 2^{ 0 } + c_ 2^{ 1 } y_ 2^{ 1 } + c_ 2^{ 2 } y_ 2^{ 2 } + \\
+f( t ) \approx &\sum_ l \sum_ { m = -l } ^ l c_ l ^ m y_ l ^ m ( \theta, \phi) \\\\
+= &c_0^0 y_ 0 ^ 0 +\\\\
+&c_ 1 ^ { -1 } y_ 1 ^ { -1 } +c_ 1 ^ 0 y_ 1 ^ 0 + c_ 1 ^ 1 y_ 1 ^1 + \\\\
+& c_ 2^{ -2 } y_ 2^{ -2 } + c_ 2^{ -1 } + y_ 2^{ -1 } + c_ 2^{ 0 } y_ 2^{ 0 } + c_ 2^{ 1 } y_ 2^{ 1 } + c_ 2^{ 2 } y_ 2^{ 2 } + \\\\
 & ...
 \end{align}
 $$
@@ -56,8 +56,8 @@ $$
 - $$
   y_l ^ m ( \theta , \varphi ) = \left \{   
   \begin{align} 
-  \sqrt{ 2 } K_ l ^ m cos( m \varphi )P_l ^m( cos \theta) \space \space \space& ,m> 0 \\
-  \sqrt{ 2 } K_ l ^ m sin( -m \varphi )P_l ^{ -m }( cos \theta) \space \space \space& ,m < 0 \\
+  \sqrt{ 2 } K_ l ^ m cos( m \varphi )P_l ^m( cos \theta) \space \space \space& ,m> 0 \\\\
+  \sqrt{ 2 } K_ l ^ m sin( -m \varphi )P_l ^{ -m }( cos \theta) \space \space \space& ,m < 0 \\\\
   K_ l ^ 0 P_ l ^ 0 ( cos \theta ) \space \space \space &, m=0
   \end{align} 
   \right . 
@@ -65,18 +65,18 @@ $$
 
   - $$
     \begin{align}
-    &P_ n ( x ) = \frac{ 1 }{ 2^n \cdot n! } \frac{ d^ n }{ dx^ n } [ ( x^ 2 - 1 )^ n ] \\
-    &P_ l ^ m = ( - 1 )^ m ( 1 - x^ 2 )^ { \frac{ m }{ 2 } } \frac{ d^ m }{ dx^ m }( P_ l ( x ) ) \\
+    &P_ n ( x ) = \frac{ 1 }{ 2^n \cdot n! } \frac{ d^ n }{ dx^ n } [ ( x^ 2 - 1 )^ n ] \\\\
+    &P_ l ^ m = ( - 1 )^ m ( 1 - x^ 2 )^ { \frac{ m }{ 2 } } \frac{ d^ m }{ dx^ m }( P_ l ( x ) ) \\\\
     &K_ l ^ m = \sqrt{ \frac{ ( 2l + 1 ) ( l - | m | )! }{ 4 \pi ( l + | m | )! } }
     \end{align}
     $$
 
   - $$
     \begin{align}
-    &y_ 0 ^ 0 = \sqrt{ \frac{ 1 }{ 4 \pi } } = 0.28 \\
-    &y_ 1 ^ { - 1 } = - \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ y }{ r } = -0.49 * \frac{ y }{ r } \\
-    &y_ 1 ^ { 0 } =  \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ z }{ r } = 0.49 * \frac{ z }{ r } \\
-    &y_ 1 ^ {  1 } = - \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ x }{ r } = -0.49 * \frac{ x }{ r } \\
+    &y_ 0 ^ 0 = \sqrt{ \frac{ 1 }{ 4 \pi } } = 0.28 \\\\
+    &y_ 1 ^ { - 1 } = - \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ y }{ r } = -0.49 * \frac{ y }{ r } \\\\
+    &y_ 1 ^ { 0 } =  \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ z }{ r } = 0.49 * \frac{ z }{ r } \\\\
+    &y_ 1 ^ {  1 } = - \sqrt{ \frac{ 3 }{ 4 \pi } } \frac{ x }{ r } = -0.49 * \frac{ x }{ r } \\\\
     
     \end{align}
     $$
@@ -116,8 +116,8 @@ $$
 - 直观上进行$\alpha - belding$就行了，实际上高斯做足迹渲染的时候的时候还是对每个像素着色的：先生成一个h*w的空矩阵，然后遍历每个像素进行着色。基于以下公式去求得每个像素的颜色（NeRF公式）：
   $$
   \begin{align} 
-  C &= T_ i \alpha c_ i \\
-  & = \sum_ { i = 1 } ^ N T_ i ( 1- e^ { -\sigma_ i \delta } ) c_ i \\
+  C &= T_ i \alpha c_ i \\\\
+  & = \sum_ { i = 1 } ^ N T_ i ( 1- e^ { -\sigma_ i \delta } ) c_ i \\\\
   & where T_ i = e^ { - \sum_ { j = 1 }^ { i - 1 } \sigma_ j \delta_ j }
   \end{align}
   $$

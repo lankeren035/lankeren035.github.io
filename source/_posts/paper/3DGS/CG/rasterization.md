@@ -41,9 +41,9 @@ toc:  true
 
   $$
   M_ { viewport } = \left( \begin{matrix} 
-  \frac{width }{ 2 } &0 &0 &\frac{ width }{ 2 } \\
-  0 &\frac{ height }{ 2 } &0 &\frac{ height }{ 2 } \\
-  0 &0 &1 &0 \\
+  \frac{width }{ 2 } &0 &0 &\frac{ width }{ 2 } \\\\
+  0 &\frac{ height }{ 2 } &0 &\frac{ height }{ 2 } \\\\
+  0 &0 &1 &0 \\\\
   0 &0 &0 &1
   \end{matrix}  \right)
   $$

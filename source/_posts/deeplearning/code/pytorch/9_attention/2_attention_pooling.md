@@ -89,7 +89,7 @@ $$ K(u) = \frac { 1 } { \sqrt { 2 \pi } } \exp ( - \frac { u ^ 2 } { 2 } )$$
 
 - 因此
 
-$$ \begin{aligned} f(x) & = \sum _ { i = 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\ & = \sum _ { i = 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } \right) } { \sum _ { j = 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( x - x _ { j } ) ^ { 2 } \right) } y _ { i } \\ & = \sum _ { i = 1 } ^ { n } softmax ( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } ) y _ { i } \end{aligned} $$
+$$ \begin{aligned} f(x) & = \sum _ { i = 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\\\ & = \sum _ { i = 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } \right) } { \sum _ { j = 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( x - x _ { j } ) ^ { 2 } \right) } y _ { i } \\\\ & = \sum _ { i = 1 } ^ { n } softmax ( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } ) y _ { i } \end{aligned} $$
 
 - 如果一个键$x_ i$与查询x越相似，那么分配给这个键对应值$y_ i$的注意力权重就越大，也就“获得了更多的注意力”
 
@@ -141,7 +141,7 @@ d2l.show_heatmaps(attention_weights.unsqueeze(0).unsqueeze(0), xlabel='Sorted tr
 
 - 例如，在查询$x$和键$x_ i$之间的距离乘以可学习参数$w$:
 
-$$ \begin{aligned} f(x) & = \sum _ { i = 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\ & = \sum _ { i = 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) } { \sum _ { j = 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { j } ) w ) ^ { 2 } \right) } y _ { i } \\ & = \sum _ { i = 1 } ^ { n } softmax \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) y _ { i } \end{aligned} $$
+$$ \begin{aligned} f(x) & = \sum _ { i = 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\\\ & = \sum _ { i = 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) } { \sum _ { j = 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { j } ) w ) ^ { 2 } \right) } y _ { i } \\\\ & = \sum _ { i = 1 } ^ { n } softmax \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) y _ { i } \end{aligned} $$
 
 ### 2.4.1 批量矩阵乘法
 

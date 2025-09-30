@@ -81,9 +81,9 @@ print('乘以100个矩阵后\n',M)
 - 假设某层有$n_{in}$个输入：$x_j$，权重为$w_ij$，输出为：$o_i=\sum_{j=1}^{n_{\mathrm{in}}}w_{ij}x_j$
 - 假设权重$w_{ij}$服从$ N(0, {\sigma} ^ 2) $，输入$x_j$服从$N(0,\gamma ^2)$。（这并不意味着分布必须是高斯的，只是均值和方差需要存在。）
 - 输出$o_i$的均值方差：
-    $$\begin{aligned}E[o_{i}] &= \sum_{j=1}^{n_\mathrm{in}}E[w_{ij}x_j]  \\ &= \sum_{j=1}^{n_\mathrm{in}}E[w_{ij}]E[x_j] \\ &= 0.\end{aligned}$$
+    $$\begin{aligned}E[o_{i}] &= \sum_{j=1}^{n_\mathrm{in}}E[w_{ij}x_j]  \\\\ &= \sum_{j=1}^{n_\mathrm{in}}E[w_{ij}]E[x_j] \\\\ &= 0.\end{aligned}$$
 
-    $$\begin{aligned}\operatorname{Var}[o_i] &= E[o_i^2]-(E[o_i])^2  \\ &= \sum_{j=1}^{n_{\mathrm{in}}}E[w_{ij}^2x_j^2]-0 \\ &= \sum_{j=1}^{n_{\mathrm{in}}}E[w_{ij}^2]E[x_j^2] \\ &= n_\text{in}\sigma^2\gamma^2.\end{aligned}$$
+    $$\begin{aligned}\operatorname{Var}[o_i] &= E[o_i^2]-(E[o_i])^2  \\\\ &= \sum_{j=1}^{n_{\mathrm{in}}}E[w_{ij}^2x_j^2]-0 \\\\ &= \sum_{j=1}^{n_{\mathrm{in}}}E[w_{ij}^2]E[x_j^2] \\\\ &= n_\text{in}\sigma^2\gamma^2.\end{aligned}$$
 - 保持方差不变的一种方法是设置$n_{in} \sigma^2=1$。考虑反向传播，使用与前向传播相同的推断，我们可以看到，除非$n_{out} \sigma^2=1$否则梯度的方差可能会增大，我们不可能同时满足这两个条件，因此提出Xavier初始化：
     $$\frac12(n_{\mathrm{in}}+n_{\mathrm{out}})\sigma^2=1 \rightarrow \sigma= \sqrt{\frac{2}{n_{in}+n_{out}}}$$
     - 或者改为从$U\left(-\sqrt{\frac6{n_\mathrm{in}+n_\mathrm{out}}},\sqrt{\frac6{n_\mathrm{in}+n_\mathrm{out}}}\right)$

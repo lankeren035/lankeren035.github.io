@@ -18,6 +18,33 @@ toc:  true
 
 <!--more-->
 
+## 0. 平移缩放旋转
+
+### 0.1 平移
+
+$$
+\begin{bmatrix} 1 &0 &0 &x_ e \\\\ 0 &1 &0 &y_e \\\\ 0 &0 &1 &z_ e \\\\ 0 &0 &0 &1 \end{bmatrix}
+$$
+
+## 0.2 旋转
+
+https://blog.csdn.net/csxiaoshui/article/details/65446125
+
+## 0.3 缩放
+
+$$
+\begin{bmatrix}
+\frac{ 2 }{ r - l } &0 &0 &0 \\\\
+0 &\frac{ 2 }{ t - b } &0 &0 \\\\
+0 &0 &\frac{ 2 }{ n - f } &0 \\\\
+0 &0 &0 &1 \\\\
+\end{bmatrix}
+$$
+
+
+
+
+
 
 
 ## 1. 什么是视图变换？
@@ -35,16 +62,16 @@ toc:  true
     - look-at向量（相机往哪看）：$\hat g$
     - 向上向量（相机头顶的朝向）：$\hat t$
 
-- 为了简化操作，默认相机在原点$\hat g$是y轴，$\hat t$是-z轴
+- 为了简化操作，默认相机在原点$\hat g$是-z轴，$\hat t$是y轴
 
   ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/16.png)
 
   ![](img/paper/3DGS/base/3dgs/16.png)
 
 - 假设相机原始位置为$(x_ e, y_ e, z_ e)$，对他做视图变换：
-  - 将相机位置平移到原点：$T _ { view }  = \begin{bmatrix} 1 &0 &0 &-x_ e \\ 0 &1 &0 &-y_e \\ 0 &0 &1 &-z_ e \\ 0 &0 &0 &1 \end{bmatrix}$
+  - 将相机位置平移到原点：$T _ { view }  = \begin{bmatrix} 1 &0 &0 &-x_ e \\\\ 0 &1 &0 &-y_e \\\\ 0 &0 &1 &-z_ e \\\\ 0 &0 &0 &1 \end{bmatrix}$
   - 将$\hat{ g }$ 旋转到-z轴，将$ \hat t $旋转到y轴，$\hat g \times \hat t$旋转到x轴
-    - 直接将$\hat g$旋转到 -z轴不太好操作，旋转矩阵不太好找，可以逆向考虑，考虑先将-z轴根据$R_ { view } ^ { - 1 }$转到$\hat g$，然后由于旋转矩阵的逆矩阵只需要转置就行，求个逆就可以找到旋转矩阵。 $R_ { view } ^ { - 1 } = \begin{bmatrix} x_{ \hat g \times \hat t } &x_ t &x_ { - g } &0 \\ y_ { \hat g \times \hat t } &y_t  &y_ { -g } &0 \\ z_ { \hat g \times \hat t } &z_ t &z_{ -g } &0 \\ 0 &0 &0 &1 \end{bmatrix}$
+    - 直接将$\hat g$旋转到 -z轴不太好操作，旋转矩阵不太好找，可以逆向考虑，考虑先将-z轴根据$R_ { view } ^ { - 1 }$转到$\hat g$，然后由于旋转矩阵的逆矩阵只需要转置就行，求个逆就可以找到旋转矩阵。 $R_ { view } ^ { - 1 } = \begin{bmatrix} x_{ \hat g \times \hat t } &x_ t &x_ { - g } &0 \\\\ y_ { \hat g \times \hat t } &y_t  &y_ { -g } &0 \\\\ z_ { \hat g \times \hat t } &z_ t &z_{ -g } &0 \\\\ 0 &0 &0 &1 \end{bmatrix}$
 
 - 得到$T_ { view }$和$R_ { view }$后，将相机和其他物体都做一个这样的变换
 
@@ -52,7 +79,7 @@ toc:  true
 
 >这里的投影并不是指将3D物体映射成2D图片，而是 **把相机前的 3D 视见体（view volume）线性/仿射地映射到一个标准的 3D 盒子里（NDC 立方体），而不是立刻产出二维像素图**。真正变成 2D 图像是在后面的“透视除法 + 视口映射 + 光栅化”阶段 
 >
->- 为什么要先变成立方体（而不是直接二维）？
+>- <details><summary>&#9660 为什么要先变成立方体（而不是直接二维）？</summary> 我们最终要在屏幕上画 2D 像素，但在画之前必须知道谁挡住谁、哪些部分该被裁掉、属性怎么做“透视正确插值”。这些都离不开 z/w，所以业界标准是：世界 → 相机 → 投影（得到裁剪坐标）→ 透视除法（NDC 立方体）→ 屏幕。 </details>
 >  - **统一裁剪**：无论正交还是透视，先把视见体变成统一的标准盒子（或在齐次裁剪空间的盒状约束），硬件用同一种裁剪逻辑就能处理，效率高。
 >  - **保留深度**：在产出 2D 像素前，需要 zzz 来做隐藏面消除、透明度排序、阴影/雾等效果。
 >  - **数值/规范化**：把范围归一到 [−1,1][-1,1][−1,1]（或 z∈[0,1]z\in[0,1]z∈[0,1]）能简化插值、测试和精度控制。
@@ -76,15 +103,15 @@ toc:  true
     $$
     M_ { ortho } = 
     \begin{bmatrix}
-    \frac{ 2 }{ r - l } &0 &0 &0 \\
-    0 &\frac{ 2 }{ t - b } &0 &0 \\
-    0 &0 &\frac{ 2 }{ n - f } &0 \\
-    0 &0 &0 &1 \\
+    \frac{ 2 }{ r - l } &0 &0 &0 \\\\
+    0 &\frac{ 2 }{ t - b } &0 &0 \\\\
+    0 &0 &\frac{ 2 }{ n - f } &0 \\\\
+    0 &0 &0 &1 \\\\
     \end{bmatrix}
     \begin{bmatrix}
-    1 &0 &0 &- \frac{ r+l }{2} \\
-    0 &1 &0 &- \frac{ t+b }{2} \\
-    0 &0 &1 &- \frac{ n+f }{2} \\
+    1 &0 &0 &- \frac{ r+l }{2} \\\\
+    0 &1 &0 &- \frac{ t+b }{2} \\\\
+    0 &0 &1 &- \frac{ n+f }{2} \\\\
     0 &0 &0 &1
     \end{bmatrix}
     $$
@@ -117,50 +144,49 @@ toc:  true
 
 - 对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x'，y'，z'）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z''），且根据三角形相似可知：$y' = \frac{ n }{ z} y $   $x' =  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$ (x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :
   $$
-  \left (  \begin{matrix} n&0 &0 &0 \\
-  0 &n &0 &0 \\ ? &? &? &? \\
+  \left (  \begin{matrix} n&0 &0 &0 \\\\
+  0 &n &0 &0 \\\\ ? &? &? &? \\\\
   0 &0 &1 &0
-  \end{matrix} \right) \times \left (  \begin{matrix} x \\
-  y \\ z \\
+  \end{matrix} \right) \times \left (  \begin{matrix} x \\\\
+  y \\\\ z \\\\
   1
-  \end{matrix} \right) = \left (  \begin{matrix} nx \\
-  ny \\ ? \\
+  \end{matrix} \right) = \left (  \begin{matrix} nx \\\\
+  ny \\\\ ? \\\\
   z
-  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ z } \\
-  \frac{ ny }{ z } \\ ? \\
+  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ z } \\\\
+  \frac{ ny }{ z } \\\\ ? \\\\
   1
   \end{matrix} \right)
   $$
 
-  - $M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\
-    0 &n &0 &0 \\ ? &? &? &? \\
+  - $M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\\\
+    0 &n &0 &0 \\\\ ? &? &? &? \\\\
     0 &0 &1 &0
     \end{matrix} \right)  $ 
 
 - 对于近平面上的点，压缩后不变：
   $$
-  \left (  \begin{matrix} n&0 &0 &0 \\
-  0 &n &0 &0 \\ 0 &0 &A &B \\
+  \left (  \begin{matrix} n&0 &0 &0 \\\\
+  0 &n &0 &0 \\\\ 0 &0 &A &B \\\\
   0 &0 &1 &0
-  \end{matrix} \right) \times \left (  \begin{matrix} x \\
-  y \\ n \\
+  \end{matrix} \right) \times \left (  \begin{matrix} x \\\\
+  y \\\\ n \\\\
   1
-  \end{matrix} \right) = \left (  \begin{matrix} nx \\
-  ny \\ n^ 2 \\
+  \end{matrix} \right) = \left (  \begin{matrix} nx \\\\
+  ny \\\\ n^ 2 \\\\
   n
-  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ n } \\
-  \frac{ ny }{ n } \\ n \\
+  \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ n } \\\\
+  \frac{ ny }{ n } \\\\ n \\\\
   1
-  \end{matrix} \right) \\ An+B=n^2
+  \end{matrix} \right) \\\\ An+B=n^2
   $$
   
-
 - 远平面的中心点压缩后不变：$Af + B = f^ 2$
 
-- 根据$\left \{ \begin{matrix}  An+B=n^2  \\ Af + B = f^ 2 \\\end{matrix}\right.$ 得：
+- 根据$\left \{ \begin{matrix}  An+B=n^2  \\\\ Af + B = f^ 2 \\\\\end{matrix}\right.$ 得：
   $$
-  M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\
-  0 &n &0 &0 \\ 0 &0 &n+f &-nf \\
+  M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\\\
+  0 &n &0 &0 \\\\ 0 &0 &n+f &-nf \\\\
   0 &0 &1 &0
   \end{matrix} \right)  
   $$

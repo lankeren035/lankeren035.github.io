@@ -107,7 +107,7 @@ attention(X, X, X, valid_lens).shape
 
     - 输入表示$ \mathbf{ X } \in \mathbb{ R }^{ n \times d } $包含一个序列中n个词元的d维嵌入表示。位置编码使用相同形状的位置嵌入矩阵$ \mathbf{ P } \in \mathbb{ R }^{ n \times d } $输出$ \mathbf{ X } + \mathbf{ P } $，矩阵第i行、第2j列和2j + 1列上的元素为：
 
-    $$ \begin{aligned} \mathbf{ P }_ { i, 2j } = \sin \left( \frac{ i }{ 10000^ { 2j / d } } \right) , \\ \mathbf{ P }_ { i, 2j + 1 } = \cos \left( \frac{ i }{ 10000^ { 2j / d } } \right) . \end{aligned} $$
+    $$ \begin{aligned} \mathbf{ P }_ { i, 2j } = \sin \left( \frac{ i }{ 10000^ { 2j / d } } \right) , \\\\ \mathbf{ P }_ { i, 2j + 1 } = \cos \left( \frac{ i }{ 10000^ { 2j / d } } \right) . \end{aligned} $$
 
 
 ```python

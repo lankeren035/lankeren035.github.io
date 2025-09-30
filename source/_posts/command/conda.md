@@ -23,6 +23,7 @@ toc:  true
 |                      |                                                              |      |
 | -------------------- | ------------------------------------------------------------ | ---- |
 | 创建虚拟环境         | conda  create --name python310 python=3.10 <br>python -m venv 项目目录/venv |      |
+| 复制环境             | conda create -n 新环境名 --clone 原环境名                    |      |
 | 删除虚拟环境         | conda  remove -n 名称 --all                                  |      |
 | 激活虚拟环境         | conda activate 环境名称<br>source  ./venv/bin/activate       |      |
 | 退出虚拟环境         | [conda] deactivate                                           |      |

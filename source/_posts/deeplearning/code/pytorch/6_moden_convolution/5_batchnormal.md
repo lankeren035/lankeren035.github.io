@@ -22,7 +22,7 @@ toc: true
 $$\mathrm{BN} ( \mathbf{x})= \boldsymbol{ \gamma} \odot \frac{ \mathbf{x}- \hat{ \boldsymbol{ \mu}}_ \mathcal{B}}{ \hat{ \boldsymbol{ \sigma}}_ \mathcal{B}} + \boldsymbol{ \beta}$$
 
 $$\begin{aligned}
-&\hat{\boldsymbol{\mu}}_ {\mathcal{B}} = \frac1{| \mathcal{B}|} \sum_{ \mathbf{x} \in \mathcal{B}} \mathbf{x}, \\ 
+&\hat{\boldsymbol{\mu}}_ {\mathcal{B}} = \frac1{| \mathcal{B}|} \sum_{ \mathbf{x} \in \mathcal{B}} \mathbf{x}, \\\\ 
 &\hat{\boldsymbol{ \sigma}}_ { \mathcal{B}}^ 2 = \frac1{| \mathcal{B}|} \sum_ { \mathbf{x} \in \mathcal{B}}( \mathbf{x} - \hat{ \boldsymbol{ \mu}}_ \mathcal{B})^ 2+ \epsilon. 
 \end{aligned}$$
 - $\gamma$和$\beta$是可以学习的参数向量, $\epsilon$防止除0

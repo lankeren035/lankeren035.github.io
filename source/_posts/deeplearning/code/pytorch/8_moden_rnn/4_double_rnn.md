@@ -35,7 +35,7 @@ $$ P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) = \prod_ {t = 1} ^ T P(h_ t \mid h_ {
 
 - 首先对隐变量$h_ 1, \ldots, h_ T$依次求和：
 
-$$ \begin{aligned} & P(x_1, \ldots, x_ T) \\ = & \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\ = & \sum_ {h_1, \ldots, h_ T} \prod_ {t = 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ = & \sum_ {h_2, \ldots, h_ T} \underbrace { \left( \sum_ {h_1} P(h_1) P(x_1 \mid h_1) P(h_2 \mid h_1) \right) } _ { \pi_ 2(h_2) \overset { \text {def }} {=} } P(x_2 \mid h_2) \prod_ {t = 3} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ = & \sum_ {h_3, \ldots, h_ T} \underbrace { \left( \sum_ {h_2} \pi_ 2(h_2) P(x_2 \mid h_2) P(h_3 \mid h_2) \right) } _ { \pi_ 3(h_3) \overset { \text {def }} {=} } P(x_3 \mid h_3) \prod_ {t = 4} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ \vdots \\ = & \sum_ {h_ T} \pi_ T(h_ T)P(x_ T \mid h_ T) \end{aligned} $$
+$$ \begin{aligned} & P(x_1, \ldots, x_ T) \\\\ = & \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\\\ = & \sum_ {h_1, \ldots, h_ T} \prod_ {t = 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\\\ = & \sum_ {h_2, \ldots, h_ T} \underbrace { \left( \sum_ {h_1} P(h_1) P(x_1 \mid h_1) P(h_2 \mid h_1) \right) } _ { \pi_ 2(h_2) \overset { \text {def }} {=} } P(x_2 \mid h_2) \prod_ {t = 3} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\\\ = & \sum_ {h_3, \ldots, h_ T} \underbrace { \left( \sum_ {h_2} \pi_ 2(h_2) P(x_2 \mid h_2) P(h_3 \mid h_2) \right) } _ { \pi_ 3(h_3) \overset { \text {def }} {=} } P(x_3 \mid h_3) \prod_ {t = 4} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\\\ \vdots \\\\ = & \sum_ {h_ T} \pi_ T(h_ T)P(x_ T \mid h_ T) \end{aligned} $$
 
 - 通常，我们将前向递归（forward recursion）写为：
 
@@ -45,7 +45,7 @@ $$ \pi_ {t + 1}(h_ {t + 1}) = \sum_ {h_ t} \pi_ t(h_ t) P(x_ t \mid h_ t) P(h_ {
 
 - 与前向递归一样，我们也可以使用后向递归对同一组隐变量求和:
 
-$$ \begin{aligned} & P(x_1, \ldots, x_ T) \\ = & \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\ = & \sum_ {h_1, \ldots, h_ T} \prod_ {t = 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ = & \sum_ {h_1, \ldots, h_ {T - 1}} \prod_ {t = 1} ^ {T - 1} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ T} P(h_ T \mid h_ {T - 1}) P(x_ T \mid h_ T) \right) } _ { \rho_ {T - 1}(h_ {T - 1}) \overset { \text {def }} {=} } \\ = & \sum_ {h_1, \ldots, h_ {T - 2}} \prod_ {t = 1} ^ {T - 2} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ {T - 1}} P(h_ {T - 1} \mid h_ {T - 2}) P(x_ {T - 1} \mid h_ {T - 1}) \rho_ {T - 1}(h_ {T - 1}) \right) } _ { \rho_ {T - 2}(h_ {T - 2}) \overset { \text {def }} {=} } \\ \vdots \\ = & \sum_ {h_1} P(h_ 1) P(x_1 \mid h_ 1) \rho_1(h_ 1) \end{aligned} $$
+$$ \begin{aligned} & P(x_1, \ldots, x_ T) \\\\ = & \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\\\ = & \sum_ {h_1, \ldots, h_ T} \prod_ {t = 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\\\ = & \sum_ {h_1, \ldots, h_ {T - 1}} \prod_ {t = 1} ^ {T - 1} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ T} P(h_ T \mid h_ {T - 1}) P(x_ T \mid h_ T) \right) } _ { \rho_ {T - 1}(h_ {T - 1}) \overset { \text {def }} {=} } \\\\ = & \sum_ {h_1, \ldots, h_ {T - 2}} \prod_ {t = 1} ^ {T - 2} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ {T - 1}} P(h_ {T - 1} \mid h_ {T - 2}) P(x_ {T - 1} \mid h_ {T - 1}) \rho_ {T - 1}(h_ {T - 1}) \right) } _ { \rho_ {T - 2}(h_ {T - 2}) \overset { \text {def }} {=} } \\\\ \vdots \\\\ = & \sum_ {h_1} P(h_ 1) P(x_1 \mid h_ 1) \rho_1(h_ 1) \end{aligned} $$
 
 - 因此，我们可以将后向递归（backward recursion）写为：
 $$ \rho_ {t - 1}(h_ {t - 1}) = \sum_ {h_ t} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \rho_ t(h_ t) $$
@@ -69,7 +69,7 @@ $$ P(x_ j \mid x_ { -j } ) \propto \sum_ {h_ j} \pi_ j(h_ j) \rho_ j(h_ j) P(x_ 
 
 - 对于任意时间步t，给定一个小批量的输入数据$ \mathbf {X} _ t \in \mathbb {R} ^ {n \times d} $（样本数：n，每个示例中的输入数d）。隐藏层激活函数为$ \phi $。在双向架构中，我们设该时间步的前向和反向隐状态分别为$ \overrightarrow {H} _ t \in \mathbb {R} ^ {n \times h} $和$ \overleftarrow {H} _ t \in \mathbb {R} ^ {n \times h} $。这里，h是隐藏单元的数量。前向和反向隐藏状态的计算如下：
 
-$$ \begin{aligned} \overrightarrow {H} _ t & = \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(f)} + \overrightarrow {H} _ {t - 1} \mathbf {W} _ {hh} ^ {(f)} + \mathbf {b} _ h ^ {(f)} \right) , \\ \overleftarrow {H} _ t & = \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(b)} + \overleftarrow {H} _ {t + 1} \mathbf {W} _ {hh} ^ {(b)} + \mathbf {b} _ h ^ {(b)} \right) . \end{aligned} $$
+$$ \begin{aligned} \overrightarrow {H} _ t & = \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(f)} + \overrightarrow {H} _ {t - 1} \mathbf {W} _ {hh} ^ {(f)} + \mathbf {b} _ h ^ {(f)} \right) , \\\\ \overleftarrow {H} _ t & = \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(b)} + \overleftarrow {H} _ {t + 1} \mathbf {W} _ {hh} ^ {(b)} + \mathbf {b} _ h ^ {(b)} \right) . \end{aligned} $$
 
 - 接下来，将前向隐状态$ \overrightarrow {H} _ t $和反向隐状态$ \overleftarrow {H} _ t $连接起来，获得需要送入输出层的隐状态$ H _ t \in \mathbb {R} ^ {n \times 2h} $。在具有多个隐藏层的深度双向循环神经网络中，该信息作为输入传递到下一个双向层。最后，输出层计算:
 
