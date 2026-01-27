@@ -28,7 +28,8 @@ toc: true
 
 - 写latex公式
   
-  - 写/ alt + = / ctrl + =
+  - 写/ alt + = / ctrl + -
+  - 如果无法渲染\frac{}{}这种带大括号的，需要在公式里面选择为latex
 
 
 

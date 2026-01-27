@@ -43,6 +43,9 @@ categories: [Linux]
   | 光标切换到另一个窗格 | ctrl+b o                |
   | 查看窗口编号         | ctrl+b w                |
   | 关闭当前子窗口       | ctrl+d<br>exit          |
+  | 复制模式             | ctrl+b [                |
+  
+  
   
   
 

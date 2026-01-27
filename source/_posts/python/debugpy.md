@@ -83,3 +83,5 @@ pip install debugpy
 
 - 如果无法运行，可以尝试将`lanuch.json`中的`debugpy`改成`debugpy-old`， 或者查看你的远端的python扩展是不是显示有问题，把他卸载重装。
 
+- 如果调试结束后经常发现端口被占用，杀死进城后循环弹窗，看看是不是插件：DebugPy Attacher的问题
+
