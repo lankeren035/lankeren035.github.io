@@ -134,20 +134,16 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 - 写入如下内容：
 
   ```shell
-  [Unit]
-  Description=Clash Meta Proxy
-  After=network.target
-  
   [Service]
   Type=simple
-  ExecStart=/opt/clash/mihomo-linux-amd64-v1.19.1 -d /opt/clash/conf
+  ExecStart=/opt/clash/mihomo-linux-amd64-v1.19.11 -d /opt/clash/conf
   Restart=always
-  User=<用户名> #注意改成自己的用户名用户组
-  Group=<用户组>
-  LimitNOFILE=65535 # 设置文件描述符限制
-  
-  [Install]
-  WantedBy=multi-user.target
+  # 注释掉User/Group，跳过身份切换
+  # User=用户名
+  # Group=用户组
+  LimitNOFILE=65535
+  # 关闭ProtectHome防护，解决systemd级别的访问限制
+  ProtectHome=no
   ```
 
 - 启动服务
@@ -159,7 +155,7 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
   
   ```
 
-  - 如果运行的时候发生`(code=exited, status=217/USER)`，可以看看是不是已经有了这个服务，先删除这个文件（`/lib/systemd/system/clash.service`）
+  - 如果运行的时候发生`(code=exited, status=217/USER)`，可以看看是不是已经有了这个服务，先删除这个文件（`/lib/systemd/system/clash.service`）或者是服务代码中的用户名或者用户组不对，可以注释掉，也有可能服务运行5此后系统给限制了。
 
   - 停止服务
 
