@@ -187,7 +187,7 @@ python -m playwright install
 2. 右侧点 **创建任务**（不要用“基本任务”）
 3. **常规**
    - 名称：`CampusAutoLogin`
-   - 勾选：**使用最高权限运行**
+   - 勾选：**使用最高权限运行**，**不管用户是否登录都要运行**
    - 配置：选择你的 Windows 版本
 4. **触发器**
    - 新建 → “开始任务：**启动时**”
@@ -680,3 +680,4 @@ sudo systemctl enable campus-autologin
   ```
 
   
+
