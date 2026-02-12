@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/9.png">
 <meta property="og:image" content="http://example.com/img/paper/3DGS/base/3dgs/9.png">
 <meta property="article:published_time" content="2025-08-30T02:28:00.000Z">
-<meta property="article:modified_time" content="2025-09-03T11:23:16.836Z">
+<meta property="article:modified_time" content="2025-09-16T02:29:01.120Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="NeRF">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
 <li><p>使用神经网络（MLP）来隐式存储3D信息的一个presentation（表征）</p>
 <ul>
 <li>显式的3D信息：<strong>有明确的x,y,z值</strong>（mesh, voxel体素,点云）<ul>
-<li>比如mesh会使用一个矩阵$\begin{bmatrix} 1,2,3 \ 2,3,4 \3,4,5 \ 4,5,6 \end{bmatrix}$ 表示有四个顶点，与这四个顶点的xyz坐标。使用$\begin{bmatrix} 1,2,3 \ 1,2,4 \end{bmatrix}$ 表示有两个表面（三角形）顶点1，2，3之间有连接，顶点1，2，4之间有连接。</li>
+<li>比如mesh会使用一个矩阵$\begin{bmatrix} 1,2,3 \\ 2,3,4 \\3,4,5 \\ 4,5,6 \end{bmatrix}$ 表示有四个顶点，与这四个顶点的xyz坐标。使用$\begin{bmatrix} 1,2,3 \\ 1,2,4 \end{bmatrix}$ 表示有两个表面（三角形）顶点1，2，3之间有连接，顶点1，2，4之间有连接。</li>
 </ul>
 </li>
 <li>隐式的3D信息：无明确的x,y,z值，智能输出指定角度的2D图片。</li>
@@ -342,11 +342,11 @@
 <ul>
 <li><p>空间坐标为：（x,y,z）</p>
 </li>
-<li><p>发射的光纤通过相机模型成为图片上的像素坐标（u,v）</p>
+<li><p>发射的光线通过相机模型成为图片上的像素坐标（u,v）</p>
 </li>
 <li><p>粒子颜色即为像素颜色</p>
 </li>
-<li><p>（u,v）与）（x,y,z）的公式：相机坐标&#x3D;相机内参x转换矩阵x世界坐标<br>$$<br>\begin{bmatrix} u \ v \ 1 \end{bmatrix} &#x3D; \begin{bmatrix} f_x \space \space 0 \space \space c_x \space \space 0 \ 0 \space \space  f_y \space \space c_y \space \space  0 \ 0 \space \space  0 \space \space  1 \space \space  0 \end{bmatrix}_ { 3 \times 4 } \begin{bmatrix} R \space \space T \ 0 \space \space 1 \end{bmatrix}_ { 4 \times 4} \begin{bmatrix} x_w \ y_w \ z_w \ 1 \end{bmatrix}_ { 4 \times 1}<br>$$</p>
+<li><p>（u,v）与）（x,y,z）的公式：相机坐标&#x3D;相机内参x转换矩阵x世界坐标<br>$$<br>\begin{bmatrix} u \\ v \\ 1 \end{bmatrix} &#x3D; \begin{bmatrix} f_x \space \space 0 \space \space c_x \space \space 0 \\ 0 \space \space  f_y \space \space c_y \space \space  0 \\ 0 \space \space  0 \space \space  1 \space \space  0 \end{bmatrix}_ { 3 \times 4 } \begin{bmatrix} R \space \space T \\ 0 \space \space 1 \end{bmatrix}_ { 4 \times 4} \begin{bmatrix} x_w \\ y_w \\ z_w \\ 1 \end{bmatrix}_ { 4 \times 1}<br>$$</p>
 </li>
 </ul>
 </li>
@@ -474,11 +474,11 @@
 <h4 id="4-2-1-粒子如何求和"><a href="#4-2-1-粒子如何求和" class="headerlink" title="4.2.1 粒子如何求和"></a>4.2.1 粒子如何求和</h4><blockquote>
 <p>假设有粒子A和B，A在B的前面，如果A异常明亮，那么B的光就不会显示了</p>
 </blockquote>
-<p>$$<br>\begin{align} \hat { C ( s ) } &amp;&#x3D; \int <em>0 ^ {+ \infty} T ( s ) \sigma( s ) C ( s ) ds \ T(s) &amp;&#x3D; e ^ {- \int</em> 0 ^ {s}  \sigma( t ) dt} \end{align}<br>$$</p>
+<p>$$<br>\begin{align} \hat { C ( s ) } &amp;&#x3D; \int <em>0 ^ {+ \infty} T ( s ) \sigma( s ) C ( s ) ds \\ T(s) &amp;&#x3D; e ^ {- \int</em> 0 ^ {s}  \sigma( t ) dt} \end{align}<br>$$</p>
 <ul>
 <li><p>$T(s)$：在s点之前，光线没有被阻挡的概率</p>
 </li>
-<li><p>$\sigma(s)$：在s点处，光线撞击粒子（光线被粒子阻挡）的概率密度</p>
+<li><p>$\sigma(s)$：在s点处，光线撞击粒子（光线被粒子阻挡）的概率密度（光被吸收的概率）</p>
 </li>
 <li><p>$C(s)$：在s点处，粒子光出的颜色</p>
 </li>
@@ -492,24 +492,24 @@
 <ul>
 <li>对于点$s+ds$，它不被遮挡的概率是：点s不被遮挡且$ds$这一段也都不被遮挡，由于$ds$很小，$ds$这一段被遮挡的概率都视作$\sigma(s)$</li>
 </ul>
-<p>$$<br>\begin{aligned}<br>T(s + ds ) &amp;&#x3D; T( s )[ 1 - \sigma ( s ) ds] \<br>T(s + ds ) &amp;&#x3D; T ( s ) - T ( s ) \sigma( s ) ds \<br>T ( s + ds ) - T ( s ) &amp;&#x3D; -T( s ) \sigma( s ) ds \<br>dT( s ) &amp;&#x3D; -T( s ) \sigma( s ) ds \<br>\frac{ d T ( s  )}{T ( s )} &amp;&#x3D; - \sigma( s ) ds \<br>\int_0 ^t \frac{dT ( s )}{T( s )} &amp;&#x3D; \int_0 ^ t - \sigma( s ) \<br>\int_0 ^t \frac{1}{T( s )} dT ( s ) &amp;&#x3D; \int_0 ^ t - \sigma( s ) \<br>\text{ ln } T ( s ) |<em>0 ^t &amp;&#x3D; \int_0 ^ t - \sigma( s ) \<br>\text{ ln } T ( t ) - \text{ ln } T ( 0 ) &amp;&#x3D; \int_0 ^ t - \sigma( s ) \<br>\text{ ln } T ( t )  &amp;&#x3D; \int_0 ^ t - \sigma( s ) \<br>T(t) &amp;&#x3D; e ^ {- \int</em> 0 ^ {t}  \sigma( s ) ds}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>T(s + ds ) &amp;&#x3D; T( s )[ 1 - \sigma ( s ) ds] \\<br>T(s + ds ) &amp;&#x3D; T ( s ) - T ( s ) \sigma( s ) ds \\<br>T ( s + ds ) - T ( s ) &amp;&#x3D; -T( s ) \sigma( s ) ds \\<br>dT( s ) &amp;&#x3D; -T( s ) \sigma( s ) ds \\<br>\frac{ d T ( s  )}{T ( s )} &amp;&#x3D; - \sigma( s ) ds \\<br>\int_0 ^t \frac{dT ( s )}{T( s )} &amp;&#x3D; \int_0 ^ t - \sigma( s ) \\<br>\int_0 ^t \frac{1}{T( s )} dT ( s ) &amp;&#x3D; \int_0 ^ t - \sigma( s ) \\<br>\text{ ln } T ( s ) |<em>0 ^t &amp;&#x3D; \int_0 ^ t - \sigma( s ) \\<br>\text{ ln } T ( t ) - \text{ ln } T ( 0 ) &amp;&#x3D; \int_0 ^ t - \sigma( s ) \\<br>\text{ ln } T ( t )  &amp;&#x3D; \int_0 ^ t - \sigma( s ) \\<br>T(t) &amp;&#x3D; e ^ {- \int</em> 0 ^ {t}  \sigma( s ) ds}<br>\end{aligned}<br>$$</p>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="4-2-2-离散情况下粒子求和"><a href="#4-2-2-离散情况下粒子求和" class="headerlink" title="4.2.2 离散情况下粒子求和"></a>4.2.2 离散情况下粒子求和</h3><ul>
+<h3 id="4-2-2-离散情况下粒子求和-alpha-blending"><a href="#4-2-2-离散情况下粒子求和-alpha-blending" class="headerlink" title="4.2.2 离散情况下粒子求和 ($\alpha$-blending)"></a>4.2.2 离散情况下粒子求和 ($\alpha$-blending)</h3><ul>
 <li><p>将光线[0,s]划分为N各等间距区间$[ T_ n \rightarrow T_{ n + 1 }]$ </p>
 </li>
 <li><p>n&#x3D;0，1，2，…，N</p>
 </li>
 <li><p>间隔长度为$\delta_ n$</p>
 </li>
-<li><p>假设区间内密度$\sigma_ n $和颜色$C_ n$固定<br>$$<br>\begin{aligned}<br>\hat C( r ) &amp;&#x3D; \sum_{ i &#x3D; 1} ^ N T_ i ( 1 - e^ {-\sigma_ i  \delta_ i} ) c_ i \<br>T_i &amp;&#x3D; e^ { - \sum_{ j &#x3D; 1 } ^{ i - 1 } \sigma_ j \delta_ j }<br>\end{aligned}<br>$$</p>
+<li><p>假设区间内密度$\sigma_ n $和颜色$C_ n$固定<br>$$<br>\begin{aligned}<br>\hat C( r ) &amp;&#x3D; \sum_{ i &#x3D; 1} ^ N T_ i ( 1 - e^ {-\sigma_ i  \delta_ i} ) c_ i \\<br>T_i &amp;&#x3D; e^ { - \sum_{ j &#x3D; 1 } ^{ i - 1 } \sigma_ j \delta_ j }<br>\end{aligned}<br>$$</p>
 </li>
-<li><p>我们认为最后的颜色是每一小段光区贡献的光强的累加和：$\hat C &#x3D; \sum_ { n &#x3D; 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 })$ 。对于其中的某一段：<br>$$<br>\begin{aligned}<br>I( t_ n \rightarrow t_ { n + 1}) &amp;&#x3D; \int_{ t_ n } ^ { t_ { n + 1 } } T ( t ) \sigma_n C_n dt \<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } T ( t ) dt \<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ t \sigma ( s ) ds } dt \<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ { t_ n } \sigma ( s ) ds } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma_ n ds } dt \<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \sigma_ n ( t - t_ n ) } dt \<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) [- \frac{1}{ \sigma_ n } e^ { - \sigma_ n ( t - t_ n ) } |_ { t _ n } ^ { t_ n + 1 } ] \<br>&amp;&#x3D; C_ n T ( 0 \rightarrow t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \<br>&amp;&#x3D; C_ n T( t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \<br>&amp;&#x3D; C_ n  e^ { - \int _ 0 ^ { t_ n} \sigma ( s ) ds }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \<br>&amp;&#x3D; C_ n  e^ { - \sum _ {i &#x3D; 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \</p>
+<li><p>我们认为最后的颜色是每一小段光区贡献的光强的累加和：$\hat C &#x3D; \sum_ { n &#x3D; 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 })$ 。对于其中的某一段：<br>$$<br>\begin{aligned}<br>I( t_ n \rightarrow t_ { n + 1}) &amp;&#x3D; \int_{ t_ n } ^ { t_ { n + 1 } } T ( t ) \sigma_n C_n dt \\<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } T ( t ) dt \\<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ t \sigma ( s ) ds } dt \\<br>&amp;&#x3D; \sigma_ n C_ n \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ 0 ^ { t_ n } \sigma ( s ) ds } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma ( s ) ds } dt \\<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \int_ { t_ n} ^ t \sigma_ n ds } dt \\<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) \int <em>{ t</em> n } ^ { t_ { n+ 1 } } e^ { - \sigma_ n ( t - t_ n ) } dt \\<br>&amp;&#x3D; \sigma_ n C_ n T ( 0 \rightarrow t_ n ) [- \frac{1}{ \sigma_ n } e^ { - \sigma_ n ( t - t_ n ) } |_ { t _ n } ^ { t_ n + 1 } ] \\<br>&amp;&#x3D; C_ n T ( 0 \rightarrow t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\<br>&amp;&#x3D; C_ n T( t_ n )  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\<br>&amp;&#x3D; C_ n  e^ { - \int _ 0 ^ { t_ n} \sigma ( s ) ds }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\<br>&amp;&#x3D; C_ n  e^ { - \sum _ {i &#x3D; 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\</p>
 <p>\end{aligned}<br>$$</p>
 <ul>
-<li><p>令$\alpha_ n &#x3D; 1 - e ^ { - \sigma_ n \delta_ n }$最终：<br>$$<br>\begin{aligned}<br>\hat C &amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 }) \<br>&amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N C_ n  e^ { - \sum _ {i &#x3D; 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \<br>&amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )…( 1 - \alpha_ { n - 1 } )<br>\end{aligned}<br>$$</p>
+<li><p>令$\alpha_ n &#x3D; 1 - e ^ { - \sigma_ n \delta_ n }$最终：<br>$$<br>\begin{aligned}<br>\hat C &amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N I ( T_ n \rightarrow T_ {n + 1 }) \\<br>&amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N C_ n  e^ { - \sum _ {i &#x3D; 0 } ^ { n - 1 } \sigma_ i \delta_ i }  ( 1 - e ^ { - \sigma_ n \delta_ n} ) \\<br>&amp;&#x3D; \sum_ { n &#x3D; 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )…( 1 - \alpha_ { n - 1 } )<br>\end{aligned}<br>$$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># delta_n</span></span><br><span class="line">dists = z_vals[..., <span class="number">1</span>:] - z_vals[..., :-<span class="number">1</span>]</span><br><span class="line">dists = torch.cat( [dists, torch.Tensor([<span class="number">1e10</span>]).expand(dists[..., :<span class="number">1</span>].shape)], -<span class="number">1</span>)</span><br><span class="line">dists = dists * torch.norm(rays_d[... , <span class="literal">None</span>, :], dim = -<span class="number">1</span> ) <span class="comment">#[N_rays, N_samples]</span></span><br><span class="line"></span><br><span class="line">noise = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> raw_noise_std &gt; <span class="number">0.</span>:</span><br><span class="line">    noise = torch.randn(raw[..., <span class="number">3</span>].shape) * raw_noise_std</span><br><span class="line"></span><br><span class="line"><span class="comment"># 得到alpha, raw模型输出，（1024,4)前3维为rgb，后一维为密度</span></span><br><span class="line">raw2alpha = <span class="keyword">lambda</span> raw, dists, act_fn = F.relu: <span class="number">1.</span>-torch.exp(-act_fn(raw) * dists)</span><br><span class="line">alpha = raw2alpha(raw[..., <span class="number">3</span>] + noise, dists) <span class="comment"># [N_rays, N_samples]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># alpha_0, [alpha_1 * (1-alpha_0)]</span></span><br><span class="line"><span class="comment"># torch.cumpord 累乘</span></span><br><span class="line">weights = alpha * torch.cumprod( torch.cat([ torch.ones(( alpha.shape[<span class="number">0</span>], <span class="number">1</span>)), <span class="number">1.</span>-alpha + <span class="number">1e-10</span>], -<span class="number">1</span>) , -<span class="number">1</span>)[:, :-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 颜色权重累加</span></span><br><span class="line">rgb = torch.sigmoid( raw[..., :<span class="number">3</span>]) <span class="comment"># [N_rays, N_samples, 3]</span></span><br><span class="line">rgb_map  = torch.<span class="built_in">sum</span>(weights[..., <span class="literal">None</span> ] * rgb, -<span class="number">2</span>) <span class="comment">#[N_rays, 3]</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -547,7 +547,7 @@
 <p><img src="/img/paper/3DGS/base/3dgs/9.png"></p>
 <ul>
 <li><p>先根据粗模型的结果，进行逆变换采样。首先根据公式$\hat C &#x3D; \sum_ { n &#x3D; 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )…( 1 - \alpha_ { n - 1 } )$ 取粒子颜色前的权重做softmax：</p>
-<p>$$w &#x3D; \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )…( 1 - \alpha_ { n - 1 } ) \ \hat w_i &#x3D; \frac{ w_ i }{ \sum _ {j &#x3D; 1 } ^ {N _ c } w_ i}$$</p>
+<p>$$w &#x3D; \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )…( 1 - \alpha_ { n - 1 } ) \\ \hat w_i &#x3D; \frac{ w_ i }{ \sum _ {j &#x3D; 1 } ^ {N _ c } w_ i}$$</p>
 </li>
 <li><p>此时，新的权重和为1，可看作概率密度函数，生成他的cdf</p>
 </li>
@@ -755,8 +755,8 @@
     </a>
   
   
-    <a href="/2025/08/30/programs/deepseek/local_install/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+    <a href="/2025/08/30/linux/Linux_0%E5%AE%89%E8%A3%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux入门-0配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -783,7 +783,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFNeRF"><span class="toc-number">1.1.</span> <span class="toc-text">1. 什么是NeRF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-NeRF%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">2. NeRF模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B2%92%E5%AD%90%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3. 什么是粒子？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 相机模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BD%93%E6%B8%B2%E6%9F%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 体渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-NeRF%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3. NeRF的输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%B2%92%E5%AD%90%E7%9A%84%E9%87%87%E9%9B%86"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 粒子的采集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">4. 模型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 位置编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E7%B2%92%E5%AD%90%E5%A6%82%E4%BD%95%E6%B1%82%E5%92%8C"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1 粒子如何求和</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E7%A6%BB%E6%95%A3%E6%83%85%E5%86%B5%E4%B8%8B%E7%B2%92%E5%AD%90%E6%B1%82%E5%92%8C"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.2.2 离散情况下粒子求和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%87%BA"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.3 模型输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%842"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.4 模型结构2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A8%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">5. 推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">6. 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 训练流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2 核心内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3 缺点</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFNeRF"><span class="toc-number">1.1.</span> <span class="toc-text">1. 什么是NeRF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-NeRF%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">2. NeRF模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B2%92%E5%AD%90%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">3. 什么是粒子？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%9B%B8%E6%9C%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 相机模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BD%93%E6%B8%B2%E6%9F%93"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 体渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-NeRF%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3. NeRF的输入输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%B2%92%E5%AD%90%E7%9A%84%E9%87%87%E9%9B%86"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 粒子的采集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">4. 模型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 位置编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E7%B2%92%E5%AD%90%E5%A6%82%E4%BD%95%E6%B1%82%E5%92%8C"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1 粒子如何求和</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E7%A6%BB%E6%95%A3%E6%83%85%E5%86%B5%E4%B8%8B%E7%B2%92%E5%AD%90%E6%B1%82%E5%92%8C-alpha-blending"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.2.2 离散情况下粒子求和 ($\alpha$-blending)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%87%BA"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.3 模型输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%842"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.4 模型结构2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A8%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">5. 推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">6. 总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1 训练流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2 核心内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E7%BC%BA%E7%82%B9"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3 缺点</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -812,7 +812,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1221,6 +1221,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>

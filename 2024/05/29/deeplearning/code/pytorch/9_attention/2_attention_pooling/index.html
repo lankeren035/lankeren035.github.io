@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_21_0.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_23_0.svg">
 <meta property="article:published_time" content="2024-05-29T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.466Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.617Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -235,7 +235,7 @@
 <ul>
 <li>因此</li>
 </ul>
-<p>$$ \begin{aligned} f(x) &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } \right) } { \sum _ { j &#x3D; 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( x - x _ { j } ) ^ { 2 } \right) } y _ { i } \ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } softmax ( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } ) y _ { i } \end{aligned} $$</p>
+<p>$$ \begin{aligned} f(x) &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } \right) } { \sum _ { j &#x3D; 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( x - x _ { j } ) ^ { 2 } \right) } y _ { i } \\ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } softmax ( - \frac { 1 } { 2 } ( x - x _ { i } ) ^ { 2 } ) y _ { i } \end{aligned} $$</p>
 <ul>
 <li><p>如果一个键$x_ i$与查询x越相似，那么分配给这个键对应值$y_ i$的注意力权重就越大，也就“获得了更多的注意力”</p>
 </li>
@@ -261,7 +261,7 @@
 <li><p>例如，在查询$x$和键$x_ i$之间的距离乘以可学习参数$w$:</p>
 </li>
 </ul>
-<p>$$ \begin{aligned} f(x) &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) } { \sum _ { j &#x3D; 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { j } ) w ) ^ { 2 } \right) } y _ { i } \ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } softmax \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) y _ { i } \end{aligned} $$</p>
+<p>$$ \begin{aligned} f(x) &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \alpha ( x , x _ { i } ) y _ { i } \\ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \frac { \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) } { \sum _ { j &#x3D; 1 } ^ { n } \exp \left( - \frac { 1 } { 2 } ( ( x - x _ { j } ) w ) ^ { 2 } \right) } y _ { i } \\ &amp; &#x3D; \sum _ { i &#x3D; 1 } ^ { n } softmax \left( - \frac { 1 } { 2 } ( ( x - x _ { i } ) w ) ^ { 2 } \right) y _ { i } \end{aligned} $$</p>
 <h3 id="2-4-1-批量矩阵乘法"><a href="#2-4-1-批量矩阵乘法" class="headerlink" title="2.4.1 批量矩阵乘法"></a>2.4.1 批量矩阵乘法</h3><ul>
 <li><p>batch1：n个a*b的矩阵：$\mathbf{ X } _ 1 , \ldots , \mathbf{ X } _ n$</p>
 </li>
@@ -503,7 +503,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -912,6 +912,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>

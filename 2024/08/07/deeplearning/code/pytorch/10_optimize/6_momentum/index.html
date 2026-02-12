@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_17_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_19_0.svg">
 <meta property="article:published_time" content="2024-08-07T06:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.204Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.604Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -196,14 +196,14 @@
 <li>本节将探讨更有效的优化算法</li>
 </ul>
 <h2 id="6-1-基础"><a href="#6-1-基础" class="headerlink" title="6.1 基础"></a>6.1 基础</h2><h3 id="6-1-1-泄露平均值"><a href="#6-1-1-泄露平均值" class="headerlink" title="6.1.1 泄露平均值"></a>6.1.1 泄露平均值</h3><ul>
-<li><p>小批量随机梯度下降通过如下方式计算:<br>  $$ \begin{aligned} \boldsymbol{g}_ {t, t-1 } &amp; &#x3D; \partial_{\boldsymbol{w}} \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} f(\boldsymbol{x}<em>i, \boldsymbol{w} _ { t- 1})\ &amp; &#x3D; \frac{1}{|\mathcal{B}|} \sum</em>{i \in \mathcal{B}} \mathbf{h}_{i, t-1} \end{aligned} $$</p>
+<li><p>小批量随机梯度下降通过如下方式计算:<br>  $$ \begin{aligned} \boldsymbol{g}_ {t, t-1 } &amp; &#x3D; \partial_{\boldsymbol{w}} \frac{1}{|\mathcal{B}|} \sum_{i \in \mathcal{B}} f(\boldsymbol{x}<em>i, \boldsymbol{w} _ { t- 1})\\ &amp; &#x3D; \frac{1}{|\mathcal{B}|} \sum</em>{i \in \mathcal{B}} \mathbf{h}_{i, t-1} \end{aligned} $$</p>
 <ul>
 <li>其中$\mathbf{h}<em>{i, t-1} &#x3D; \partial</em>{\boldsymbol{w}} f(\boldsymbol{x}_i, \boldsymbol{w} _ { t- 1})$是样本i的随机梯度下降 (使用时间t-1时更新的权重)</li>
 </ul>
 </li>
 <li><p>它也有很好的副作用，即平均梯度减小了方差。如果我们能够从方差减少的影响中受益，甚至超过小批量上的梯度平均值，会有好处. 可以用泄漏平均值（leakyaverage）取代梯度计算：<br>$$ \mathbf{v}<em>t &#x3D; \beta \mathbf{v}</em>{t-1} + \mathbf{g}_{t, t-1} $$</p>
 </li>
-<li><p>其中, $\beta \in [0, 1)$. 将瞬时梯度替换为多个“过去”梯度的平均值。v被称为动量（momentum），它累加了过去的梯度:<br>  $$ \begin{aligned} \mathbf{v}<em>t &amp; &#x3D; \beta \mathbf{v}</em>{t-2} + \beta \mathbf{g}<em>{t-1, t-2} + \mathbf{g}</em>{t, t-1} \ &amp; &#x3D; … \ &amp; &#x3D; \sum_{\tau&#x3D;0}^{t-1} \beta^{ \tau} \mathbf{g}_{t-\tau, t-\tau-1} \end{aligned} $$</p>
+<li><p>其中, $\beta \in [0, 1)$. 将瞬时梯度替换为多个“过去”梯度的平均值。v被称为动量（momentum），它累加了过去的梯度:<br>  $$ \begin{aligned} \mathbf{v}<em>t &amp; &#x3D; \beta \mathbf{v}</em>{t-2} + \beta \mathbf{g}<em>{t-1, t-2} + \mathbf{g}</em>{t, t-1} \\ &amp; &#x3D; … \\ &amp; &#x3D; \sum_{\tau&#x3D;0}^{t-1} \beta^{ \tau} \mathbf{g}_{t-\tau, t-\tau-1} \end{aligned} $$</p>
 </li>
 <li><p>其中，较大的$\beta$相当于长期平均值，而较小的$\beta$相对于梯度法只是略有修正。新的梯度替换不再指向特定实例下降最陡的方向，而是指向过去梯度的加权平均值的方向。这使我们能够实现对单批量计算平均值的大部分好处，而不产生实际计算其梯度的代价。</p>
 </li>
@@ -234,7 +234,7 @@
 <p><img src="/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_3_1.svg" alt="svg"></p>
 <h2 id="6-2-动量法"><a href="#6-2-动量法" class="headerlink" title="6.2 动量法"></a>6.2 动量法</h2><ul>
 <li><p>观察上面的优化轨迹，我们可能会直觉到计算过去的平均梯度效果会很好。毕竟，在x1方向上，这将聚合非常对齐的梯度，从而增加我们在每一步中覆盖的距离。相反，在梯度振荡的x2方向，由于相互抵消了对方的振荡，聚合梯度将减小步长大小:</p>
-<p>  $$ \begin{aligned} &amp; \mathbf{v}<em>t &#x3D; \beta \mathbf{v}</em>{t-1} + \mathbf{g}_{t, t-1} \ &amp; \mathbf{ x } _ { t } &#x3D; \mathbf{ x } _ { t-1 } - \eta \mathbf{v}_t \end{aligned} $$</p>
+<p>  $$ \begin{aligned} &amp; \mathbf{v}<em>t &#x3D; \beta \mathbf{v}</em>{t-1} + \mathbf{g}_{t, t-1} \\ &amp; \mathbf{ x } _ { t } &#x3D; \mathbf{ x } _ { t-1 } - \eta \mathbf{v}_t \end{aligned} $$</p>
 <ul>
 <li>当$\beta &#x3D; 0$时，动量法等价于小批量随机梯度下降。</li>
 </ul>
@@ -305,7 +305,7 @@
 <ul>
 <li><p>以z表示的梯度下降:<br>  $$\mathbf{ z }<em>t &#x3D; \mathbf{ z }</em>{t-1} - \mathbf{ \Lambda } \mathbf{ z }<em>{t-1} &#x3D; (1- \mathbf{ \Lambda }) \mathbf{ z }</em>{t-1}$$</p>
 </li>
-<li><p>上式表明梯度下降在不同的特征空间之间不会混合。也就是说，如果用Q的特征系统来表示，优化问题是以逐坐标顺序的方式进行的。这在动量法中也适用。<br>  $$ \begin{aligned} \mathbf{ z }<em>t &amp; &#x3D; \beta \mathbf{ v }</em>{t-1} + \mathbf{ \Lambda } \mathbf{ z }<em>{t-1} \ \mathbf{ z }</em> t &amp; &#x3D; \mathbf{ z }_ { t-1 } - \eta ( \beta \mathbf{ v }<em>{t-1} + \mathbf{ \Lambda } \mathbf{ z }</em>{t-1} ) \ &amp; &#x3D; (1- \eta \mathbf{ \Lambda }) \mathbf{ z }<em>{t-1} - \eta \beta \mathbf{ v }</em>{t-1} \end{aligned} $$</p>
+<li><p>上式表明梯度下降在不同的特征空间之间不会混合。也就是说，如果用Q的特征系统来表示，优化问题是以逐坐标顺序的方式进行的。这在动量法中也适用。<br>  $$ \begin{aligned} \mathbf{ z }<em>t &amp; &#x3D; \beta \mathbf{ v }</em>{t-1} + \mathbf{ \Lambda } \mathbf{ z }<em>{t-1} \\ \mathbf{ z }</em> t &amp; &#x3D; \mathbf{ z }_ { t-1 } - \eta ( \beta \mathbf{ v }<em>{t-1} + \mathbf{ \Lambda } \mathbf{ z }</em>{t-1} ) \\ &amp; &#x3D; (1- \eta \mathbf{ \Lambda }) \mathbf{ z }<em>{t-1} - \eta \beta \mathbf{ v }</em>{t-1} \end{aligned} $$</p>
 </li>
 </ul>
 </li>
@@ -324,7 +324,7 @@
 
 <p><img src="/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_19_0.svg" alt="svg"></p>
 <ul>
-<li><p>为了分析动量的收敛情况，我们首先用两个标量重写更新方程：一个用于x，另一个用于动量v。<br>  $$\begin{bmatrix}v _ { t+1 } \ x _ { t+1 }\end{bmatrix}&#x3D; \begin{bmatrix} \beta &amp; \lambda \ -\eta\beta &amp;(1-\eta\lambda)\end{bmatrix} \begin{bmatrix} v _ t \ x_ t\end{bmatrix}&#x3D; \mathbf{R}(\beta,\eta,\lambda)\begin{bmatrix}v_t \x_t \end{bmatrix}$$</p>
+<li><p>为了分析动量的收敛情况，我们首先用两个标量重写更新方程：一个用于x，另一个用于动量v。<br>  $$\begin{bmatrix}v _ { t+1 } \\ x _ { t+1 }\end{bmatrix}&#x3D; \begin{bmatrix} \beta &amp; \lambda \\ -\eta\beta &amp;(1-\eta\lambda)\end{bmatrix} \begin{bmatrix} v _ t \\ x_ t\end{bmatrix}&#x3D; \mathbf{R}(\beta,\eta,\lambda)\begin{bmatrix}v_t \x_t \end{bmatrix}$$</p>
 </li>
 <li><p>在t步之后，最初的值$[v_0,x_0]$变为$\mathbf{ R }(\beta ,\eta ,\lambda)^ t[v_ 0,x_ 0]$。因此，收敛速度是由R的特征值决定的。简而言之，当0&lt;ηλ&lt;2+2β时动量收敛。与梯度下降的0&lt;ηλ&lt;2相比，这是更大范围的可行参数。另外，一般而言较大值的β是可取的。</p>
 </li>
@@ -515,7 +515,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -924,6 +924,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>

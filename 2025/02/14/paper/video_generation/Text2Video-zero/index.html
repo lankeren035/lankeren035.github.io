@@ -42,7 +42,7 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/video_generation/Text2Video-zero/14.png">
 <meta property="og:image" content="http://example.com/img/paper/video_generation/Text2Video-zero/14.png">
 <meta property="article:published_time" content="2025-02-14T05:28:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.565Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.666Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="论文">
 <meta property="article:tag" content="视频编辑">
@@ -248,9 +248,9 @@
 </li>
 <li><p>对第一帧$x_T ^ 1$使用DDIM推理$\Delta t$步，得到$X^ 1 _ { T ’ }$ </p>
 </li>
-<li><p>为全局场景和摄像机运动定义一个方向$\delta &#x3D; ( \delta_ x, \delta_ y \in \mathbb R^ 2)$ ，默认情况下可以是主对角线方向：$\delta &#x3D; (1,1)$<br>$$<br>\left [ \begin{matrix}\delta^1 \ \left [ \begin{matrix}<br>0,0\<br>0,0<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>0,0\<br>0,0<br>\end{matrix} \right ] \end{matrix} \right ] </p>
-<p>\left [ \begin{matrix} \delta^2 \ \left [ \begin{matrix}<br>12 ,12\<br>12 ,12<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>12,12\<br>12,12<br>\end{matrix} \right ] \end{matrix} \right ] </p>
-<p>\left [  \begin{matrix} \delta^3 \ \left [ \begin{matrix}<br>24,24\<br>24,24<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>24,24\<br>24,24<br>\end{matrix} \right ]  \end{matrix} \right ]<br>$$</p>
+<li><p>为全局场景和摄像机运动定义一个方向$\delta &#x3D; ( \delta_ x, \delta_ y \in \mathbb R^ 2)$ ，默认情况下可以是主对角线方向：$\delta &#x3D; (1,1)$<br>$$<br>\left [ \begin{matrix}\delta^1 \\ \left [ \begin{matrix}<br>0,0\<br>0,0<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>0,0\<br>0,0<br>\end{matrix} \right ] \end{matrix} \right ] </p>
+<p>\left [ \begin{matrix} \delta^2 \\ \left [ \begin{matrix}<br>12 ,12\<br>12 ,12<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>12,12\<br>12,12<br>\end{matrix} \right ] \end{matrix} \right ] </p>
+<p>\left [  \begin{matrix} \delta^3 \\ \left [ \begin{matrix}<br>24,24\<br>24,24<br>\end{matrix} \right ] \<br>\left [ \begin{matrix}<br>24,24\<br>24,24<br>\end{matrix} \right ]  \end{matrix} \right ]<br>$$</p>
 </li>
 </ol>
 </li>
@@ -272,7 +272,7 @@
 <h3 id="3-3-2-跨帧注意力"><a href="#3-3-2-跨帧注意力" class="headerlink" title="3.3.2 跨帧注意力"></a>3.3.2 跨帧注意力</h3><ul>
 <li>为了解决上述问题，我们使用跨帧注意力机制来在整个生成的视频中保留关于（特别是）前景对象的外观、形状和身份的信息。</li>
 </ul>
-<p>$$<br>\begin{aligned}<br>\text{ Cross-Frame-Attn }(Q^k, K^ { 1:m },V^{ 1: m } ) &amp; &#x3D; \ Softmax \left( \frac{ Q^ k( K ^ 1 ) ^ T }{ \sqrt { c }} \right) V ^ 1<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\text{ Cross-Frame-Attn }(Q^k, K^ { 1:m },V^{ 1: m } ) &amp; &#x3D; \\ Softmax \left( \frac{ Q^ k( K ^ 1 ) ^ T }{ \sqrt { c }} \right) V ^ 1<br>\end{aligned}<br>$$</p>
 <h3 id="3-3-3-背景平滑（可选）"><a href="#3-3-3-背景平滑（可选）" class="headerlink" title="3.3.3 背景平滑（可选）"></a>3.3.3 背景平滑（可选）</h3><ul>
 <li><p>我们使用第一帧和帧k之间的<code>background-masked latent codes</code>的<strong>凸组合</strong>来进一步改善背景的时间一致性。当提供一个或没有初始图像并且没有提供进一步的指导时，这尤其有助于从文本提示生成视频。</p>
 </li>
@@ -603,7 +603,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1012,6 +1012,22 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>
