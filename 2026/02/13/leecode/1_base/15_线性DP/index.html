@@ -6,14 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>线性DP | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/7/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="线性DP">
+<meta property="og:url" content="http://example.com/2026/02/13/leecode/1_base/15_%E7%BA%BF%E6%80%A7DP/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-13T05:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-13T10:41:48.845Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -156,32 +159,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-paper/3DGS/base/3_3dgs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-leecode/1_base/15_线性DP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/09/02/paper/3DGS/base/3_3dgs/">3DGS_雪球颜色</a>
+    <h1 class="article-title" itemprop="name">
+      线性DP
     </h1>
   
 
         
-        <a href="/2025/09/02/paper/3DGS/base/3_3dgs/" class="archive-article-date">
-  	<time datetime="2025-09-02T07:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-09-02</time>
+        <a href="/2026/02/13/leecode/1_base/15_%E7%BA%BF%E6%80%A7DP/" class="archive-article-date">
+  	<time datetime="2026-02-13T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-02-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+
+<h2 id="1-最长公共子序列"><a href="#1-最长公共子序列" class="headerlink" title="1. 最长公共子序列"></a>1. 最长公共子序列</h2><blockquote>
+<ul>
+<li><p>(1143）给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在 <strong>公共子序列</strong> ，返回 <code>0</code> 。</p>
+<p>一个字符串的 <strong>子序列</strong> 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p>
+<ul>
+<li>例如，<code>&quot;ace&quot;</code> 是 <code>&quot;abcde&quot;</code> 的子序列，但 <code>&quot;aec&quot;</code> 不是 <code>&quot;abcde&quot;</code> 的子序列。</li>
+</ul>
+<p>两个字符串的 <strong>公共子序列</strong> 是这两个字符串所共同拥有的子序列。</p>
+</li>
+<li><pre><code>输入：text1 = &quot;abcde&quot;, text2 = &quot;ace&quot; 
+输出：3  
+解释：最长公共子序列是 &quot;ace&quot; ，它的长度为 3 。
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">   def longestCommonSubsequence(self, text1: str, text2: str) -&gt; int:</span><br><span class="line">       @cache</span><br><span class="line">       def dfs(i,j):</span><br><span class="line">           if i &lt; 0 or j &lt; 0:</span><br><span class="line">               return 0</span><br><span class="line">           if text1[i] == text2[j]:</span><br><span class="line">               return dfs(i-1, j-1) + 1</span><br><span class="line">           return max(dfs(i-1,j), dfs(i,j-1))</span><br><span class="line">       s = len(text1)</span><br><span class="line">       t = len(text2)</span><br><span class="line"></span><br><span class="line">       def dp1():</span><br><span class="line">           dp_map = [[0] * ( t+1 ) for _ in range(s + 1)]</span><br><span class="line">           for i in range(s):</span><br><span class="line">               for j in range(t):</span><br><span class="line">                   dp_map[i+1][j+1] = dp_map[i][j]+1 if text1[i] == text2[j] else max(dp_map[i][j+1], dp_map[i+1][j])</span><br><span class="line">           return dp_map[s][t]</span><br><span class="line">       </span><br><span class="line">       def dp2():</span><br><span class="line">           dp_map = [0] * ( t+  1)</span><br><span class="line">           for i in range(s):</span><br><span class="line">               pre = dp_map[0]</span><br><span class="line">               for j in range(t):</span><br><span class="line">                   tmp  = dp_map[j +1 ]</span><br><span class="line">                   dp_map[j+1] = pre + 1 if text1[i] == text2[j] else max (dp_map[j+1], dp_map[j])</span><br><span class="line">                   pre = tmp</span><br><span class="line">           return dp_map[t]</span><br><span class="line">       return dp2()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h2 id="2-编辑距离"><a href="#2-编辑距离" class="headerlink" title="2. 编辑距离"></a>2. 编辑距离</h2><blockquote>
+<ul>
+<li><p>(72）给你两个单词 <code>word1</code> 和 <code>word2</code>， <em>请返回将 <code>word1</code> 转换成 <code>word2</code> 所使用的最少操作数</em> 。</p>
+<p>你可以对一个单词进行如下三种操作：</p>
+<ul>
+<li>插入一个字符</li>
+<li>删除一个字符</li>
+<li>替换一个字符</li>
+</ul>
+</li>
+<li><pre><code>输入：word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
+输出：3
+解释：
+horse -&gt; rorse (将 &#39;h&#39; 替换为 &#39;r&#39;)
+rorse -&gt; rose (删除 &#39;r&#39;)
+rose -&gt; ros (删除 &#39;e&#39;)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</blockquote>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -192,7 +253,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3DGS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
         		</li>
       		
 		</ul>
@@ -204,7 +265,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3DGS//" class="article-tag-list-link color5">3DGS</a>
+        			<a href="/categories/刷题//" class="article-tag-list-link color3">刷题</a>
         		</li>
       		
 		</ul>
@@ -212,16 +273,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/09/02/paper/3DGS/base/3_3dgs/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2026/02/13/leecode/1_base/15_%E7%BA%BF%E6%80%A7DP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/11/git/proxy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git使用clash代理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -236,357 +356,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-paper/3DGS/CG/camera_transformation.md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/09/01/paper/3DGS/CG/camera_transformation.md/">camera transformation</a>
-    </h1>
-  
-
-        
-        <a href="/2025/09/01/paper/3DGS/CG/camera_transformation.md/" class="archive-article-date">
-  	<time datetime="2025-09-01T07:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/3DGS//" class="article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/09/01/paper/3DGS/CG/camera_transformation.md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">1. 最长公共子序列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB"><span class="toc-number">1.2.</span> <span class="toc-text">2. 编辑距离</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-paper/3DGS/base/2_3dgs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/31/paper/3DGS/base/2_3dgs/">3DGS_抛雪球</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/31/paper/3DGS/base/2_3dgs/" class="archive-article-date">
-  	<time datetime="2025-08-31T07:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/3DGS//" class="article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/31/paper/3DGS/base/2_3dgs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-paper/3DGS/base/1_3dgs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/30/paper/3DGS/base/1_3dgs/">3DGS_捏雪球</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/30/paper/3DGS/base/1_3dgs/" class="archive-article-date">
-  	<time datetime="2025-08-30T07:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/3DGS//" class="article-tag-list-link color5">3DGS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/30/paper/3DGS/base/1_3dgs/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-paper/3DGS/base/NeRF" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2025/08/30/paper/3DGS/base/NeRF/">NeRF</a>
-    </h1>
-  
-
-        
-        <a href="/2025/08/30/paper/3DGS/base/NeRF/" class="archive-article-date">
-  	<time datetime="2025-08-30T02:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-08-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NeRF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/NeRF//" class="article-tag-list-link color5">NeRF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2025/08/30/paper/3DGS/base/NeRF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/">63</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -609,8 +404,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
