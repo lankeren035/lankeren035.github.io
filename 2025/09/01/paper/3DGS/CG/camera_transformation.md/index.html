@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/img/paper/3DGS/base/3dgs/13.png">
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/17.png">
 <meta property="article:published_time" content="2025-09-01T07:28:00.000Z">
-<meta property="article:modified_time" content="2025-09-02T12:00:22.188Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.648Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="3DGS">
 <meta name="twitter:card" content="summary">
@@ -187,8 +187,9 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 
-
-
+<h2 id="0-平移缩放旋转"><a href="#0-平移缩放旋转" class="headerlink" title="0. 平移缩放旋转"></a>0. 平移缩放旋转</h2><h3 id="0-1-平移"><a href="#0-1-平移" class="headerlink" title="0.1 平移"></a>0.1 平移</h3><p>$$<br>\begin{bmatrix} 1 &amp;0 &amp;0 &amp;x_ e \\ 0 &amp;1 &amp;0 &amp;y_e \\ 0 &amp;0 &amp;1 &amp;z_ e \\ 0 &amp;0 &amp;0 &amp;1 \end{bmatrix}<br>$$</p>
+<h2 id="0-2-旋转"><a href="#0-2-旋转" class="headerlink" title="0.2 旋转"></a>0.2 旋转</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/csxiaoshui/article/details/65446125">https://blog.csdn.net/csxiaoshui/article/details/65446125</a></p>
+<h2 id="0-3-缩放"><a href="#0-3-缩放" class="headerlink" title="0.3 缩放"></a>0.3 缩放</h2><p>$$<br>\begin{bmatrix}<br>\frac{ 2 }{ r - l } &amp;0 &amp;0 &amp;0 \\<br>0 &amp;\frac{ 2 }{ t - b } &amp;0 &amp;0 \\<br>0 &amp;0 &amp;\frac{ 2 }{ n - f } &amp;0 \\<br>0 &amp;0 &amp;0 &amp;1 \\<br>\end{bmatrix}<br>$$</p>
 <h2 id="1-什么是视图变换？"><a href="#1-什么是视图变换？" class="headerlink" title="1. 什么是视图变换？"></a>1. 什么是视图变换？</h2><ul>
 <li>拍照的过程：<ul>
 <li>先把场景搭好（模型变换）</li>
@@ -208,15 +209,15 @@
 </li>
 </ul>
 </li>
-<li><p>为了简化操作，默认相机在原点$\hat g$是y轴，$\hat t$是-z轴</p>
+<li><p>为了简化操作，默认相机在原点$\hat g$是-z轴，$\hat t$是y轴</p>
 <p><img src="/../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/16.png"></p>
 <p><img src="/img/paper/3DGS/base/3dgs/16.png"></p>
 </li>
 <li><p>假设相机原始位置为$(x_ e, y_ e, z_ e)$，对他做视图变换：</p>
 <ul>
-<li>将相机位置平移到原点：$T _ { view }  &#x3D; \begin{bmatrix} 1 &amp;0 &amp;0 &amp;-x_ e \ 0 &amp;1 &amp;0 &amp;-y_e \ 0 &amp;0 &amp;1 &amp;-z_ e \ 0 &amp;0 &amp;0 &amp;1 \end{bmatrix}$</li>
+<li>将相机位置平移到原点：$T _ { view }  &#x3D; \begin{bmatrix} 1 &amp;0 &amp;0 &amp;-x_ e \\ 0 &amp;1 &amp;0 &amp;-y_e \\ 0 &amp;0 &amp;1 &amp;-z_ e \\ 0 &amp;0 &amp;0 &amp;1 \end{bmatrix}$</li>
 <li>将$\hat{ g }$ 旋转到-z轴，将$ \hat t $旋转到y轴，$\hat g \times \hat t$旋转到x轴<ul>
-<li>直接将$\hat g$旋转到 -z轴不太好操作，旋转矩阵不太好找，可以逆向考虑，考虑先将-z轴根据$R_ { view } ^ { - 1 }$转到$\hat g$，然后由于旋转矩阵的逆矩阵只需要转置就行，求个逆就可以找到旋转矩阵。 $R_ { view } ^ { - 1 } &#x3D; \begin{bmatrix} x_{ \hat g \times \hat t } &amp;x_ t &amp;x_ { - g } &amp;0 \ y_ { \hat g \times \hat t } &amp;y_t  &amp;y_ { -g } &amp;0 \ z_ { \hat g \times \hat t } &amp;z_ t &amp;z_{ -g } &amp;0 \ 0 &amp;0 &amp;0 &amp;1 \end{bmatrix}$</li>
+<li>直接将$\hat g$旋转到 -z轴不太好操作，旋转矩阵不太好找，可以逆向考虑，考虑先将-z轴根据$R_ { view } ^ { - 1 }$转到$\hat g$，然后由于旋转矩阵的逆矩阵只需要转置就行，求个逆就可以找到旋转矩阵。 $R_ { view } ^ { - 1 } &#x3D; \begin{bmatrix} x_{ \hat g \times \hat t } &amp;x_ t &amp;x_ { - g } &amp;0 \\ y_ { \hat g \times \hat t } &amp;y_t  &amp;y_ { -g } &amp;0 \\ z_ { \hat g \times \hat t } &amp;z_ t &amp;z_{ -g } &amp;0 \\ 0 &amp;0 &amp;0 &amp;1 \end{bmatrix}$</li>
 </ul>
 </li>
 </ul>
@@ -227,7 +228,7 @@
 <h2 id="3-投影"><a href="#3-投影" class="headerlink" title="3. 投影"></a>3. 投影</h2><blockquote>
 <p>这里的投影并不是指将3D物体映射成2D图片，而是 <strong>把相机前的 3D 视见体（view volume）线性&#x2F;仿射地映射到一个标准的 3D 盒子里（NDC 立方体），而不是立刻产出二维像素图</strong>。真正变成 2D 图像是在后面的“透视除法 + 视口映射 + 光栅化”阶段 </p>
 <ul>
-<li>为什么要先变成立方体（而不是直接二维）？</li>
+<li><details><summary>&#9660 为什么要先变成立方体（而不是直接二维）？</summary> 我们最终要在屏幕上画 2D 像素，但在画之前必须知道谁挡住谁、哪些部分该被裁掉、属性怎么做“透视正确插值”。这些都离不开 z/w，所以业界标准是：世界 → 相机 → 投影（得到裁剪坐标）→ 透视除法（NDC 立方体）→ 屏幕。 </details></li>
 <li><strong>统一裁剪</strong>：无论正交还是透视，先把视见体变成统一的标准盒子（或在齐次裁剪空间的盒状约束），硬件用同一种裁剪逻辑就能处理，效率高。</li>
 <li><strong>保留深度</strong>：在产出 2D 像素前，需要 zzz 来做隐藏面消除、透明度排序、阴影&#x2F;雾等效果。</li>
 <li><strong>数值&#x2F;规范化</strong>：把范围归一到 [−1,1][-1,1][−1,1]（或 z∈[0,1]z\in[0,1]z∈[0,1]）能简化插值、测试和精度控制。</li>
@@ -254,7 +255,7 @@
 <ul>
 <li><p>首先定义空间中的一个立方体：$[l, r] \times [ b, t] \times [f, n]$</p>
 </li>
-<li><p>然后先将立方体的中心移到原点，然后将xyz分别缩放到[-1,1]<br>$$<br>M_ { ortho } &#x3D;<br>\begin{bmatrix}<br>\frac{ 2 }{ r - l } &amp;0 &amp;0 &amp;0 \<br>0 &amp;\frac{ 2 }{ t - b } &amp;0 &amp;0 \<br>0 &amp;0 &amp;\frac{ 2 }{ n - f } &amp;0 \<br>0 &amp;0 &amp;0 &amp;1 \<br>\end{bmatrix}<br>\begin{bmatrix}<br>1 &amp;0 &amp;0 &amp;- \frac{ r+l }{2} \<br>0 &amp;1 &amp;0 &amp;- \frac{ t+b }{2} \<br>0 &amp;0 &amp;1 &amp;- \frac{ n+f }{2} \<br>0 &amp;0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$</p>
+<li><p>然后先将立方体的中心移到原点，然后将xyz分别缩放到[-1,1]<br>$$<br>M_ { ortho } &#x3D;<br>\begin{bmatrix}<br>\frac{ 2 }{ r - l } &amp;0 &amp;0 &amp;0 \\<br>0 &amp;\frac{ 2 }{ t - b } &amp;0 &amp;0 \\<br>0 &amp;0 &amp;\frac{ 2 }{ n - f } &amp;0 \\<br>0 &amp;0 &amp;0 &amp;1 \\<br>\end{bmatrix}<br>\begin{bmatrix}<br>1 &amp;0 &amp;0 &amp;- \frac{ r+l }{2} \\<br>0 &amp;1 &amp;0 &amp;- \frac{ t+b }{2} \\<br>0 &amp;0 &amp;1 &amp;- \frac{ n+f }{2} \\<br>0 &amp;0 &amp;0 &amp;1<br>\end{bmatrix}<br>$$</p>
 </li>
 </ul>
 </li>
@@ -284,16 +285,16 @@
 </ul>
 <p><img src="/../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/17.png"></p>
 <ul>
-<li><p>对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x’，y’，z’）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z’’），且根据三角形相似可知：$y’ &#x3D; \frac{ n }{ z} y $   $x’ &#x3D;  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$ (x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :<br>$$<br>\left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \<br>0 &amp;n &amp;0 &amp;0 \ ? &amp;? &amp;? &amp;? \<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right) \times \left (  \begin{matrix} x \<br>y \ z \<br>1<br>\end{matrix} \right) &#x3D; \left (  \begin{matrix} nx \<br>ny \ ? \<br>z<br>\end{matrix} \right) &#x3D;\left (  \begin{matrix} \frac{ nx }{ z } \<br>\frac{ ny }{ z } \ ? \<br>1<br>\end{matrix} \right)<br>$$</p>
+<li><p>对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x’，y’，z’）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z’’），且根据三角形相似可知：$y’ &#x3D; \frac{ n }{ z} y $   $x’ &#x3D;  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$ (x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :<br>$$<br>\left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \\<br>0 &amp;n &amp;0 &amp;0 \\ ? &amp;? &amp;? &amp;? \\<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right) \times \left (  \begin{matrix} x \\<br>y \\ z \\<br>1<br>\end{matrix} \right) &#x3D; \left (  \begin{matrix} nx \\<br>ny \\ ? \\<br>z<br>\end{matrix} \right) &#x3D;\left (  \begin{matrix} \frac{ nx }{ z } \\<br>\frac{ ny }{ z } \\ ? \\<br>1<br>\end{matrix} \right)<br>$$</p>
 <ul>
-<li>$M_ { persp \rightarrow ortho } &#x3D; \left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \<br>0 &amp;n &amp;0 &amp;0 \ ? &amp;? &amp;? &amp;? \<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right)  $</li>
+<li>$M_ { persp \rightarrow ortho } &#x3D; \left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \\<br>0 &amp;n &amp;0 &amp;0 \\ ? &amp;? &amp;? &amp;? \\<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right)  $</li>
 </ul>
 </li>
-<li><p>对于近平面上的点，压缩后不变：<br>$$<br>\left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \<br>0 &amp;n &amp;0 &amp;0 \ 0 &amp;0 &amp;A &amp;B \<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right) \times \left (  \begin{matrix} x \<br>y \ n \<br>1<br>\end{matrix} \right) &#x3D; \left (  \begin{matrix} nx \<br>ny \ n^ 2 \<br>n<br>\end{matrix} \right) &#x3D;\left (  \begin{matrix} \frac{ nx }{ n } \<br>\frac{ ny }{ n } \ n \<br>1<br>\end{matrix} \right) \ An+B&#x3D;n^2<br>$$</p>
+<li><p>对于近平面上的点，压缩后不变：<br>$$<br>\left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \\<br>0 &amp;n &amp;0 &amp;0 \\ 0 &amp;0 &amp;A &amp;B \\<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right) \times \left (  \begin{matrix} x \\<br>y \\ n \\<br>1<br>\end{matrix} \right) &#x3D; \left (  \begin{matrix} nx \\<br>ny \\ n^ 2 \\<br>n<br>\end{matrix} \right) &#x3D;\left (  \begin{matrix} \frac{ nx }{ n } \\<br>\frac{ ny }{ n } \\ n \\<br>1<br>\end{matrix} \right) \\ An+B&#x3D;n^2<br>$$</p>
 </li>
 <li><p>远平面的中心点压缩后不变：$Af + B &#x3D; f^ 2$</p>
 </li>
-<li><p>根据$\left { \begin{matrix}  An+B&#x3D;n^2  \ Af + B &#x3D; f^ 2 \\end{matrix}\right.$ 得：<br>$$<br>M_ { persp \rightarrow ortho } &#x3D; \left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \<br>0 &amp;n &amp;0 &amp;0 \ 0 &amp;0 &amp;n+f &amp;-nf \<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right)<br>$$</p>
+<li><p>根据$\left { \begin{matrix}  An+B&#x3D;n^2  \\ Af + B &#x3D; f^ 2 \\\end{matrix}\right.$ 得：<br>$$<br>M_ { persp \rightarrow ortho } &#x3D; \left (  \begin{matrix} n&amp;0 &amp;0 &amp;0 \\<br>0 &amp;n &amp;0 &amp;0 \\ 0 &amp;0 &amp;n+f &amp;-nf \\<br>0 &amp;0 &amp;1 &amp;0<br>\end{matrix} \right)<br>$$</p>
 </li>
 <li><p>最后$M_ { persp } &#x3D; M_ { orhto } M _ { persp \rightarrow ortho}$</p>
 </li>
@@ -451,7 +452,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">1. 什么是视图变换？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%80%8E%E4%B9%88%E5%81%9A%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">2. 怎么做视图变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.</span> <span class="toc-text">3. 投影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 正交投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 透视投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">3.2.1 透视投影过程：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E5%8E%8B%E7%BC%A9%E5%B9%B3%E9%9D%A2"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">1）压缩平面</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%B9%B3%E7%A7%BB%E7%BC%A9%E6%94%BE%E6%97%8B%E8%BD%AC"><span class="toc-number">1.1.</span> <span class="toc-text">0. 平移缩放旋转</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-1-%E5%B9%B3%E7%A7%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">0.1 平移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0-2-%E6%97%8B%E8%BD%AC"><span class="toc-number">1.2.</span> <span class="toc-text">0.2 旋转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0-3-%E7%BC%A9%E6%94%BE"><span class="toc-number">1.3.</span> <span class="toc-text">0.3 缩放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">1. 什么是视图变换？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%80%8E%E4%B9%88%E5%81%9A%E8%A7%86%E5%9B%BE%E5%8F%98%E6%8D%A2"><span class="toc-number">1.5.</span> <span class="toc-text">2. 怎么做视图变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8A%95%E5%BD%B1"><span class="toc-number">1.6.</span> <span class="toc-text">3. 投影</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="toc-number">1.6.1.</span> <span class="toc-text">3.1 正交投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1"><span class="toc-number">1.6.2.</span> <span class="toc-text">3.2 透视投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E9%80%8F%E8%A7%86%E6%8A%95%E5%BD%B1%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">1.6.2.1.</span> <span class="toc-text">3.2.1 透视投影过程：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E5%8E%8B%E7%BC%A9%E5%B9%B3%E9%9D%A2"><span class="toc-number">1.6.2.1.1.</span> <span class="toc-text">1）压缩平面</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -480,7 +481,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -584,7 +585,27 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,15 +629,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -632,11 +645,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,83 +657,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -740,11 +677,83 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,11 +761,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">viso</a>
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,15 +785,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,7 +805,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,23 +825,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -828,11 +841,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,23 +849,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,27 +873,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">超分</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>

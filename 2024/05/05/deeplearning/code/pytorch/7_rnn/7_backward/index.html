@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/7_backward/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/7_rnn/7_backward/2.png">
 <meta property="article:published_time" content="2024-05-05T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-05T14:26:16.652Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.612Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -195,17 +195,17 @@
 <h2 id="7-1-循环神经网络的梯度分析"><a href="#7-1-循环神经网络的梯度分析" class="headerlink" title="7.1 循环神经网络的梯度分析"></a>7.1 循环神经网络的梯度分析</h2><ul>
 <li><p>从一个循环神经网络的简化模型开始，此模型忽略了隐状态的特性及其更新方式的细节。这里的数学表示没有像过去那样明确地区分标量、向量和矩阵，因为这些细节对于分析并不重要</p>
 </li>
-<li><p>我们将时间步t的隐状态表示为$h_ t$，输入表示为$x_ t$，输出表示为$o_ t$。输入和隐状态可以拼接后与隐藏层中的一个权重变量相乘。。因此，我们分别使用$w_ h$和$w_ o$来表示隐藏层和输出层的权重。每个时间步的隐状态和输出可以写为：<br>$$ \begin{aligned} h_ t &amp;&#x3D; f(x_t, h_{t-1}, w_h),\ o_ t &amp;&#x3D; g(h_ t, w_o), \end{aligned} $$</p>
+<li><p>我们将时间步t的隐状态表示为$h_ t$，输入表示为$x_ t$，输出表示为$o_ t$。输入和隐状态可以拼接后与隐藏层中的一个权重变量相乘。。因此，我们分别使用$w_ h$和$w_ o$来表示隐藏层和输出层的权重。每个时间步的隐状态和输出可以写为：<br>$$ \begin{aligned} h_ t &amp;&#x3D; f(x_t, h_{t-1}, w_h),\\ o_ t &amp;&#x3D; g(h_ t, w_o), \end{aligned} $$</p>
 </li>
 <li><p>其中f和g分别是隐藏层和输出层的变换。因此，我们有一个链$ { \dots , (x_ {t-1}, h_ {t-1}, o_ {t-1}), (x_ t, h_ t, o_ t),  \dots }$，它们通过循环计算彼此依赖。前向传播相当简单，一次一个时间步的遍历三元组$(x_ t, h_ t, o_ t)$，然后通过一个目标函数在所有T个时间步内评估输出$o_ t$和对应的标签$y_ t$之间的误差:<br>$$ L(x_ 1, \dots, x_ T, y_ 1, \dots, y_ T, w_ h, w_ o) &#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T l(o_ t, y_ t). $$</p>
 </li>
-<li><p>对于反向传播，问题则有点棘手，特别是当我们计算目标函数L关于参数wh的梯度时。具体来说，按照链式法则：<br>$$ \begin{aligned} \frac{\partial L}{\partial w_ h} &amp;&#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial w_ h} \ &amp;&#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial o_ t} \frac{\partial g(h_ t, w_ o)}{\partial h_ t} \frac{\partial h_ t}{\partial w_ h}. \end{aligned} $$</p>
+<li><p>对于反向传播，问题则有点棘手，特别是当我们计算目标函数L关于参数wh的梯度时。具体来说，按照链式法则：<br>$$ \begin{aligned} \frac{\partial L}{\partial w_ h} &amp;&#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial w_ h} \\ &amp;&#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T \frac{\partial l(o_ t, y_ t)}{\partial o_ t} \frac{\partial g(h_ t, w_ o)}{\partial h_ t} \frac{\partial h_ t}{\partial w_ h}. \end{aligned} $$</p>
 </li>
 <li><p>其中第一项和第二项很容易计算，而第三项$ \frac{\partial h_ t}{\partial w_ h}$则相当复杂。因为我们需要循环地计算参数$w_ h$对$h_ t$的影响，因为$h_ t &#x3D; f(x_t, h_{t-1}, w_h)$，所以$h_ t$既依赖于$h_ {t-1}$又依赖于$w_ h$，其中$h_ {t-1}$的计算也依赖于$w_ h$。因此，使用链式法则产生：<br>$$ \frac{\partial h_ t}{\partial w_ h} &#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}} \frac{\partial h_ {t-1}}{\partial w_ h}.  $$</p>
 </li>
 <li><p>为了导出上述梯度，假设我们有三个序列$ { a_ t } $，$ { b_ t } $，$ { c_ t } $，当t&#x3D;1,2,…时，序列满足$a_ 0 &#x3D; 0$，且$a_ t &#x3D; b_ t + c_ t a_ {t-1}$。对于$t \geq 1$，我们有：<br>$$ a_ t &#x3D; b_ t + \sum_ {i&#x3D;1} ^ {t-1}(\prod_ {j&#x3D;i+1} ^ t c_ j) b_ i $$</p>
 </li>
-<li><p>不妨基于下列公式替换$a_ t$、$b_ t$和$c_ t$:<br>$$ \begin{aligned} a_ t &amp;&#x3D; \frac{\partial h_ t}{\partial w_ h},\ b_ t &amp;&#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h},\ c_ t &amp;&#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}}, \end{aligned} $$</p>
+<li><p>不妨基于下列公式替换$a_ t$、$b_ t$和$c_ t$:<br>$$ \begin{aligned} a_ t &amp;&#x3D; \frac{\partial h_ t}{\partial w_ h},\\ b_ t &amp;&#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h},\\ c_ t &amp;&#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}}, \end{aligned} $$</p>
 </li>
 <li><p>通过：<br>$$ \frac{\partial h_ t}{\partial w_ h} &#x3D; \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial h_ {t-1}} \frac{\partial h_ {t-1}}{\partial w_ h}.  $$</p>
 </li>
@@ -238,7 +238,7 @@
 <li>虽然随机截断在理论上具有吸引力，但很可能是由于多种因素在实践中并不比常规截断更好。首先，在对过去若干个时间步经过反向传播后，观测结果足以捕获实际的依赖关系。其次，增加的方差抵消了时间步数越多梯度越精确的事实。第三，我们真正想要的是只有短范围交互的模型。因此，模型需要的正是截断的通过时间反向传播方法所具备的轻度正则化效果。</li>
 </ul>
 <h2 id="7-2-通过时间反向传播的细节"><a href="#7-2-通过时间反向传播的细节" class="headerlink" title="7.2 通过时间反向传播的细节"></a>7.2 通过时间反向传播的细节</h2><ul>
-<li><p>如何计算目标函数相对于所有分解模型参数的梯度。为了保持简单，我们考虑一个没有偏置参数的循环神经网络，其在隐藏层中的激活函数使用恒等映射（$\phi(x) &#x3D; x$）。对于时间步t，设单个样本的输入及其对应的标签分别为$\mathbf{ x }_ t \in \mathbb{ R }^{d} $和$y_ t $。计算隐状态$ \mathbf{ h }_ t \in \mathbb{ R }^{h} $和输出$ \mathbf{ o }_ t \in \mathbb{ R }^{q} $的公式如下：<br>$$ \begin{aligned} \mathbf{ h }_ t &amp;&#x3D; \mathbf{ W }_ { hx } \mathbf{ x }_ t + \mathbf{ W }_ { hh } \mathbf{ h }_ { t-1},\ \mathbf{ o }_ t &amp;&#x3D; \mathbf{ W }_ { qh } \mathbf{ h }_ t. \end{aligned} $$</p>
+<li><p>如何计算目标函数相对于所有分解模型参数的梯度。为了保持简单，我们考虑一个没有偏置参数的循环神经网络，其在隐藏层中的激活函数使用恒等映射（$\phi(x) &#x3D; x$）。对于时间步t，设单个样本的输入及其对应的标签分别为$\mathbf{ x }_ t \in \mathbb{ R }^{d} $和$y_ t $。计算隐状态$ \mathbf{ h }_ t \in \mathbb{ R }^{h} $和输出$ \mathbf{ o }_ t \in \mathbb{ R }^{q} $的公式如下：<br>$$ \begin{aligned} \mathbf{ h }_ t &amp;&#x3D; \mathbf{ W }_ { hx } \mathbf{ x }_ t + \mathbf{ W }_ { hh } \mathbf{ h }_ { t-1},\\ \mathbf{ o }_ t &amp;&#x3D; \mathbf{ W }_ { qh } \mathbf{ h }_ t. \end{aligned} $$</p>
 </li>
 <li><p>其中权重参数为$\mathbf{ W }_ { hx } \in \mathbb{ R }^{h \times d} $，$\mathbf{ W }_ { hh } \in \mathbb{ R }^{h \times h} $和$\mathbf{ W }_ { qh } \in \mathbb{ R }^{q \times h} $。用$l(\mathbf{ o }_ t, y_ t) $表示时间步t处（即从序列开始起的超过T个时间步）的损失函数，则我们的目标函数的总体损失是：<br>$$ L &#x3D; \frac{1}{T} \sum_ {t&#x3D;1} ^ T l(\mathbf{ o }_ t, y_ t). $$</p>
 </li>
@@ -248,17 +248,17 @@
 </li>
 <li><p>首先，在任意时间步t，目标函数关于模型输出的微分计算是相当简单的：<br>$$ \frac{\partial L}{\partial \mathbf{ o }_ t} &#x3D; \frac{1}{T} \frac{\partial l(\mathbf{ o }_ t, y_ t)}{\partial \mathbf{ o }_ t}. $$</p>
 </li>
-<li><p>现在，我们可以计算目标函数关于输出层中参数$\mathbf{ W }_ { qh } $的梯度：$ \frac{\partial L}{\partial \mathbf{ W }_ { qh } } $。由上图可知，目标函数L通过$\mathbf{ o }_ 1, \ldots, \mathbf{ o }_ T $依赖于$\mathbf{ W }_ { qh } $。根据链式法则，我们得到：<br>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { qh } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ W }_ { qh } } \right) \ &amp;&#x3D; \sum_ {t&#x3D;1} ^ T  \frac{\partial L}{\partial \mathbf{ o }_ t} \mathbf{ h }_ t ^ T . \end{aligned} $$</p>
+<li><p>现在，我们可以计算目标函数关于输出层中参数$\mathbf{ W }_ { qh } $的梯度：$ \frac{\partial L}{\partial \mathbf{ W }_ { qh } } $。由上图可知，目标函数L通过$\mathbf{ o }_ 1, \ldots, \mathbf{ o }_ T $依赖于$\mathbf{ W }_ { qh } $。根据链式法则，我们得到：<br>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { qh } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ W }_ { qh } } \right) \\ &amp;&#x3D; \sum_ {t&#x3D;1} ^ T  \frac{\partial L}{\partial \mathbf{ o }_ t} \mathbf{ h }_ t ^ T . \end{aligned} $$</p>
 </li>
-<li><p>其中$ \frac{ \partial L}{\partial \mathbf{ o }_ t} $已经在上面计算过了。接下来，在最后的时间步T，目标函数L仅通过$\mathbf{ o }_ T $依赖于隐状态$\mathbf{ h }_ T $。因此，使用链式法可以很容易地得到梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ T} $：<br><span id='goto13'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &amp;&#x3D; prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \ &amp;&#x3D; \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$</p>
+<li><p>其中$ \frac{ \partial L}{\partial \mathbf{ o }_ t} $已经在上面计算过了。接下来，在最后的时间步T，目标函数L仅通过$\mathbf{ o }_ T $依赖于隐状态$\mathbf{ h }_ T $。因此，使用链式法可以很容易地得到梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ T} $：<br><span id='goto13'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &amp;&#x3D; prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \\ &amp;&#x3D; \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$</p>
 </li>
-<li><p>当目标函数L通过$\mathbf{ h }_ { t+1 } $和$\mathbf{ o }_ t $依赖于$\mathbf{ h }_ t $时，对任意时间步t &lt; T来说都变得更加棘手。根据链式法则，隐状态的梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $在任何时间步骤t &lt; T时都可以递归地计算为：<br><span id='goto14'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &amp;&#x3D; prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \ &amp;&#x3D; \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$</p>
+<li><p>当目标函数L通过$\mathbf{ h }_ { t+1 } $和$\mathbf{ o }_ t $依赖于$\mathbf{ h }_ t $时，对任意时间步t &lt; T来说都变得更加棘手。根据链式法则，隐状态的梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $在任何时间步骤t &lt; T时都可以递归地计算为：<br><span id='goto14'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &amp;&#x3D; prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \\ &amp;&#x3D; \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$</p>
 </li>
 <li><p>为了进行分析，对于任何时间步1 ≤ t ≤ T展开递归计算得:<br>$$ \frac{\partial L}{\partial \mathbf{ h }_ t} &#x3D; \sum_ {i&#x3D;t} ^ T \left( \mathbf{ W }_ { hh } ^ T \right) ^ {T-i} \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ { T+t-i }}. $$</p>
 </li>
 <li><p>从上式看到，这个简单的线性例子已经展现了长序列模型的一些关键问题：它陷入到$ \mathbf{ W }_ { hh } ^ T $的潜在的非常大的幂。在这个幂中，小于1的特征值将会消失，大于1的特征值将会发散。这在数值上是不稳定的，表现形式为梯度消失或梯度爆炸。解决此问题的一种方法是按照计算方便的需要截断时间步长的尺寸。实际上，这种截断是通过在给定数量的时间步之后分离梯度来实现的。</p>
 </li>
-<li><p>最后，上图表明：目标函数L通过隐状态$\mathbf{ h }_ 1, \ldots, \mathbf{ h }_ T $依赖于隐藏层中的模型参数$\mathbf{ W }_ { hx } $和$\mathbf{ W }_ { hh } $。为了计算有关这些参数的梯度$ \frac{ \partial L}{\partial \mathbf{ W }_ { hx } } $和$ \frac{ \partial L}{\partial \mathbf{ W }_ { hh } } $，我们应用链式规则得：<br>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { hx } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hx } } \right) &#x3D; \sum_ {t&#x3D;1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ x }_ t ^ T, \ \frac{\partial L}{\partial \mathbf{ W }_ { hh } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hh } } \right) &#x3D; \sum_ {t&#x3D;1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ h }_ { t-1 } ^ T. \end{aligned} $$</p>
+<li><p>最后，上图表明：目标函数L通过隐状态$\mathbf{ h }_ 1, \ldots, \mathbf{ h }_ T $依赖于隐藏层中的模型参数$\mathbf{ W }_ { hx } $和$\mathbf{ W }_ { hh } $。为了计算有关这些参数的梯度$ \frac{ \partial L}{\partial \mathbf{ W }_ { hx } } $和$ \frac{ \partial L}{\partial \mathbf{ W }_ { hh } } $，我们应用链式规则得：<br>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { hx } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hx } } \right) &#x3D; \sum_ {t&#x3D;1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ x }_ t ^ T, \\ \frac{\partial L}{\partial \mathbf{ W }_ { hh } } &amp;&#x3D; \sum_ {t&#x3D;1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ h }_ t}, \frac{\partial \mathbf{ h }_ t}{\partial \mathbf{ W }_ { hh } } \right) &#x3D; \sum_ {t&#x3D;1} ^ T \frac{\partial L}{\partial \mathbf{ h }_ t} \mathbf{ h }_ { t-1 } ^ T. \end{aligned} $$</p>
 </li>
 <li><p>其中$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $是由<a href="#goto13">（13）</a>和<a href="#goto14">（14）</a>递归计算得到的，是影响数值稳定性的关键量。</p>
 </li>
@@ -451,7 +451,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -555,7 +555,27 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,15 +599,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,11 +615,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,83 +627,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -711,11 +647,83 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -723,11 +731,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">viso</a>
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,15 +755,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,7 +775,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -775,23 +795,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,11 +811,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,23 +819,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,27 +843,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">超分</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>

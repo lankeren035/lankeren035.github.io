@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/4_double_rnn_files/4_double_rnn_1_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg">
 <meta property="article:published_time" content="2024-05-07T06:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-08T13:53:11.487Z">
+<meta property="article:modified_time" content="2026-02-11T12:34:06.616Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -216,7 +216,7 @@
 <li><p>首先对隐变量$h_ 1, \ldots, h_ T$依次求和：</p>
 </li>
 </ul>
-<p>$$ \begin{aligned} &amp; P(x_1, \ldots, x_ T) \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} \prod_ {t &#x3D; 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \ &#x3D; &amp; \sum_ {h_2, \ldots, h_ T} \underbrace { \left( \sum_ {h_1} P(h_1) P(x_1 \mid h_1) P(h_2 \mid h_1) \right) } _ { \pi_ 2(h_2) \overset { \text {def }} {&#x3D;} } P(x_2 \mid h_2) \prod_ {t &#x3D; 3} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \ &#x3D; &amp; \sum_ {h_3, \ldots, h_ T} \underbrace { \left( \sum_ {h_2} \pi_ 2(h_2) P(x_2 \mid h_2) P(h_3 \mid h_2) \right) } _ { \pi_ 3(h_3) \overset { \text {def }} {&#x3D;} } P(x_3 \mid h_3) \prod_ {t &#x3D; 4} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \ \vdots \ &#x3D; &amp; \sum_ {h_ T} \pi_ T(h_ T)P(x_ T \mid h_ T) \end{aligned} $$</p>
+<p>$$ \begin{aligned} &amp; P(x_1, \ldots, x_ T) \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} \prod_ {t &#x3D; 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ &#x3D; &amp; \sum_ {h_2, \ldots, h_ T} \underbrace { \left( \sum_ {h_1} P(h_1) P(x_1 \mid h_1) P(h_2 \mid h_1) \right) } _ { \pi_ 2(h_2) \overset { \text {def }} {&#x3D;} } P(x_2 \mid h_2) \prod_ {t &#x3D; 3} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ &#x3D; &amp; \sum_ {h_3, \ldots, h_ T} \underbrace { \left( \sum_ {h_2} \pi_ 2(h_2) P(x_2 \mid h_2) P(h_3 \mid h_2) \right) } _ { \pi_ 3(h_3) \overset { \text {def }} {&#x3D;} } P(x_3 \mid h_3) \prod_ {t &#x3D; 4} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ \vdots \\ &#x3D; &amp; \sum_ {h_ T} \pi_ T(h_ T)P(x_ T \mid h_ T) \end{aligned} $$</p>
 <ul>
 <li>通常，我们将前向递归（forward recursion）写为：</li>
 </ul>
@@ -227,7 +227,7 @@
 <li><p>与前向递归一样，我们也可以使用后向递归对同一组隐变量求和:</p>
 </li>
 </ul>
-<p>$$ \begin{aligned} &amp; P(x_1, \ldots, x_ T) \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} \prod_ {t &#x3D; 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ {T - 1}} \prod_ {t &#x3D; 1} ^ {T - 1} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ T} P(h_ T \mid h_ {T - 1}) P(x_ T \mid h_ T) \right) } _ { \rho_ {T - 1}(h_ {T - 1}) \overset { \text {def }} {&#x3D;} } \ &#x3D; &amp; \sum_ {h_1, \ldots, h_ {T - 2}} \prod_ {t &#x3D; 1} ^ {T - 2} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ {T - 1}} P(h_ {T - 1} \mid h_ {T - 2}) P(x_ {T - 1} \mid h_ {T - 1}) \rho_ {T - 1}(h_ {T - 1}) \right) } _ { \rho_ {T - 2}(h_ {T - 2}) \overset { \text {def }} {&#x3D;} } \ \vdots \ &#x3D; &amp; \sum_ {h_1} P(h_ 1) P(x_1 \mid h_ 1) \rho_1(h_ 1) \end{aligned} $$</p>
+<p>$$ \begin{aligned} &amp; P(x_1, \ldots, x_ T) \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} P(x_1, \ldots, x_ T, h_1, \ldots, h_ T) \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ T} \prod_ {t &#x3D; 1} ^ T P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ {T - 1}} \prod_ {t &#x3D; 1} ^ {T - 1} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ T} P(h_ T \mid h_ {T - 1}) P(x_ T \mid h_ T) \right) } _ { \rho_ {T - 1}(h_ {T - 1}) \overset { \text {def }} {&#x3D;} } \\ &#x3D; &amp; \sum_ {h_1, \ldots, h_ {T - 2}} \prod_ {t &#x3D; 1} ^ {T - 2} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \underbrace { \left( \sum_ {h_ {T - 1}} P(h_ {T - 1} \mid h_ {T - 2}) P(x_ {T - 1} \mid h_ {T - 1}) \rho_ {T - 1}(h_ {T - 1}) \right) } _ { \rho_ {T - 2}(h_ {T - 2}) \overset { \text {def }} {&#x3D;} } \\ \vdots \\ &#x3D; &amp; \sum_ {h_1} P(h_ 1) P(x_1 \mid h_ 1) \rho_1(h_ 1) \end{aligned} $$</p>
 <ul>
 <li><p>因此，我们可以将后向递归（backward recursion）写为：<br>$$ \rho_ {t - 1}(h_ {t - 1}) &#x3D; \sum_ {h_ t} P(h_ t \mid h_ {t - 1}) P(x_ t \mid h_ t) \rho_ t(h_ t) $$</p>
 </li>
@@ -248,7 +248,7 @@
 <h3 id="4-2-1-定义"><a href="#4-2-1-定义" class="headerlink" title="4.2.1 定义"></a>4.2.1 定义</h3><ul>
 <li>对于任意时间步t，给定一个小批量的输入数据$ \mathbf {X} _ t \in \mathbb {R} ^ {n \times d} $（样本数：n，每个示例中的输入数d）。隐藏层激活函数为$ \phi $。在双向架构中，我们设该时间步的前向和反向隐状态分别为$ \overrightarrow {H} _ t \in \mathbb {R} ^ {n \times h} $和$ \overleftarrow {H} _ t \in \mathbb {R} ^ {n \times h} $。这里，h是隐藏单元的数量。前向和反向隐藏状态的计算如下：</li>
 </ul>
-<p>$$ \begin{aligned} \overrightarrow {H} _ t &amp; &#x3D; \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(f)} + \overrightarrow {H} _ {t - 1} \mathbf {W} _ {hh} ^ {(f)} + \mathbf {b} _ h ^ {(f)} \right) , \ \overleftarrow {H} _ t &amp; &#x3D; \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(b)} + \overleftarrow {H} _ {t + 1} \mathbf {W} _ {hh} ^ {(b)} + \mathbf {b} _ h ^ {(b)} \right) . \end{aligned} $$</p>
+<p>$$ \begin{aligned} \overrightarrow {H} _ t &amp; &#x3D; \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(f)} + \overrightarrow {H} _ {t - 1} \mathbf {W} _ {hh} ^ {(f)} + \mathbf {b} _ h ^ {(f)} \right) , \\ \overleftarrow {H} _ t &amp; &#x3D; \phi \left( \mathbf {X} _ t \mathbf {W} _ {xh} ^ {(b)} + \overleftarrow {H} _ {t + 1} \mathbf {W} _ {hh} ^ {(b)} + \mathbf {b} _ h ^ {(b)} \right) . \end{aligned} $$</p>
 <ul>
 <li>接下来，将前向隐状态$ \overrightarrow {H} _ t $和反向隐状态$ \overleftarrow {H} _ t $连接起来，获得需要送入输出层的隐状态$ H _ t \in \mathbb {R} ^ {n \times 2h} $。在具有多个隐藏层的深度双向循环神经网络中，该信息作为输入传递到下一个双向层。最后，输出层计算:</li>
 </ul>
@@ -457,7 +457,7 @@ travellerererererererererererererererererererererererererer
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2025 ke
+    		&copy; 2026 ke
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -561,7 +561,27 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -585,15 +605,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,11 +621,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,83 +633,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pytorch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">查找</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">B树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,11 +653,83 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线性表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">查找</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">二叉排序树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">平衡二叉树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">B树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,11 +737,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">viso</a>
+                <a href="javascript:void(0)" class="js-tag color3">鼠标</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,15 +761,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -765,7 +781,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,23 +801,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">lora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,11 +817,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,23 +825,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,27 +849,39 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+                <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+                <a href="javascript:void(0)" class="js-tag color5">QAnything</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+                <a href="javascript:void(0)" class="js-tag color4">deepseek</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color2">stable diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">lora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">超分</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">NeRF</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NVS</a>
               </li>
             
             <div class="clearfix"></div>
