@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-13T02:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.637Z">
+<meta property="article:modified_time" content="2026-02-14T01:52:50.596Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -183,86 +183,80 @@
 
 
 
-<h2 id="1-长度最小的子数组"><a href="#1-长度最小的子数组" class="headerlink" title="1. 长度最小的子数组"></a>1. 长度最小的子数组</h2><blockquote>
-<ul>
+<h2 id="1-长度最小的子数组"><a href="#1-长度最小的子数组" class="headerlink" title="1. 长度最小的子数组"></a>1. 长度最小的子数组</h2><ul>
 <li><p>(209) 给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> 。找出该数组中满足其总和大于等于 <code>target</code> 的长度最小的 <strong>子数组</strong> <code>[numsl, numsl+1, ..., numsr-1, numsr]</code> ，并返回其长度<strong>。</strong>如果不存在符合条件的子数组，返回 <code>0</code> 。</p>
 </li>
 <li><pre><code>输入：target = 7, nums = [2,3,1,2,4,3]
 输出：2
 解释：子数组 [4,3] 是该条件下的长度最小的子数组。
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 思路：</span><br><span class="line"></span><br><span class="line"> - 暴力求解：遍历左端点或者右端点，以右端点为例。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 思路：</span><br><span class="line"></span><br><span class="line">  - 暴力求解：遍历左端点或者右端点，以右端点为例。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
   # 第一次遍历以2为右端点
   2 -&gt; 小于7，扩大
   左边没有数了，无法扩大，说明以2为右端点无解，进行下一次迭代
+  
+  # 第二次迭代，以3为右端点
+  3 -&gt; 小于7，扩大
+  2,3 -&gt; 小于7，扩大
+  左边没有数了，无法扩大，说明以3为右端点无解，进行下一次迭代
+  
+  # 
+  1 -&gt; 小于7，扩大
+  3,1 -&gt; 小于7，扩大
+  2,3,1 -&gt; 小于7，扩大
+  无解
+  
+  # 
+  2 -&gt; 小于7，扩大
+  1,2 -&gt; 小于7，扩大
+  3,1,2 -&gt; 小于7，扩大
+  2,3,1,2 -&gt; 大于7，说明以2为右端点，得到的解为4
+  
+  #...
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 优化求解，利用都是正数的性质，还是遍历右端点</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  # 第一次遍历以2为右端点
+  2 -&gt; 小于7，扩大
+  左边没有数了，无法扩大，说明以2为右端点无解，进行下一次迭代
+  
+  # 第二次迭代，以3为右端点
+  xxxxx 3 -&gt; 小于7，扩大
+  上一步迭代得到的全串为2，直接在此基础上向右扩展右端点
+  2,3 -&gt; 小于7，说明在第一次的全串(2)基础上扩展右端点(3)还是无法满足，进一步扩展右端点
+  2,3,1 -&gt; 小于7，说明在第一次的全串(2,3)基础上扩展右端点(1)还是无法满足，进一步扩展右端点
+  2,3,1,2 -&gt; 大于7，说明以2为右端点可以获得一个解，为了最短，尝试将左端点右移，发现3,1,2不满足，因此左端点不动，记录该长度为4，进一步扩展右端点
+  2,3,1,2,4 -&gt; 由于上一步的结果大于7，这次右端点扩展了一个数，肯定大于7，需要缩短（固定右端点）以找到最短序列，尝试右移左端点，
+  3,1,2,4 -&gt; 大于7，记录左边界更新（3），再次尝试右移左端点
+  1,2,4 -&gt; 大于等于7，记录该长度为3，更新最优解，记录左边界更新（1），再次尝试右移左端点
+  2,4 -&gt; 小于7，说明以4为右端点的情况已经遍历全了，回退一步：1，2，4，进一步扩展右端点
+  
+  1，2，4，3 -&gt; 由于上一步的结果大于7，这次右端点扩展了一个数，肯定大于7，需要缩短（固定右端点）以找到最短序列
+  2，4，3 -&gt; 大于等于7，记录该长度为3，更新最优解，记录左边界更新（2），再次缩短
+  4，3 -&gt; 大于等于7，记录该长度为2，更新最优解，记录左边界更新（4），再次缩短
+  3 -&gt; 小于7，说明以3为右端点的情况已经遍历全了，回退一步：3，4，进一步扩展右端点
+  
+  # 遍历完成
+  
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">    def minSubArrayLen(self, target: int, nums: List[int]) -&gt; int:</span><br><span class="line">        n = len(nums)</span><br><span class="line">        res = n+1</span><br><span class="line">        sum = 0</span><br><span class="line">        left = 0</span><br><span class="line">        for right,x in enumerate(nums):</span><br><span class="line">            sum += x</span><br><span class="line">            while sum - nums[left] &gt;= target:</span><br><span class="line">                sum  -= nums[left]</span><br><span class="line">                left += 1                 </span><br><span class="line">            res = min(res, right-left+1) if sum &gt;= target else res</span><br><span class="line">           </span><br><span class="line">        return res if res &lt;=n else 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
-</blockquote>
-<pre><code># 第二次迭代，以3为右端点
-3 -&gt; 小于7，扩大
-2,3 -&gt; 小于7，扩大
-左边没有数了，无法扩大，说明以3为右端点无解，进行下一次迭代
-
-# 
-1 -&gt; 小于7，扩大
-3,1 -&gt; 小于7，扩大
-2,3,1 -&gt; 小于7，扩大
-无解
-
-# 
-2 -&gt; 小于7，扩大
-1,2 -&gt; 小于7，扩大
-3,1,2 -&gt; 小于7，扩大
-2,3,1,2 -&gt; 大于7，说明以2为右端点，得到的解为4
-
-#...
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 优化求解，利用都是正数的性质，还是遍历右端点</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-# 第一次遍历以2为右端点
-2 -&gt; 小于7，扩大
-左边没有数了，无法扩大，说明以2为右端点无解，进行下一次迭代
-
-# 第二次迭代，以3为右端点
-xxxxx 3 -&gt; 小于7，扩大
-上一步迭代得到的全串为2，直接在此基础上向右扩展右端点
-2,3 -&gt; 小于7，说明在第一次的全串(2)基础上扩展右端点(3)还是无法满足，进一步扩展右端点
-2,3,1 -&gt; 小于7，说明在第一次的全串(2,3)基础上扩展右端点(1)还是无法满足，进一步扩展右端点
-2,3,1,2 -&gt; 大于7，说明以2为右端点可以获得一个解，为了最短，尝试将左端点右移，发现3,1,2不满足，因此左端点不动，记录该长度为4，进一步扩展右端点
-2,3,1,2,4 -&gt; 由于上一步的结果大于7，这次右端点扩展了一个数，肯定大于7，需要缩短（固定右端点）以找到最短序列，尝试右移左端点，
-3,1,2,4 -&gt; 大于7，记录左边界更新（3），再次尝试右移左端点
-1,2,4 -&gt; 大于等于7，记录该长度为3，更新最优解，记录左边界更新（1），再次尝试右移左端点
-2,4 -&gt; 小于7，说明以4为右端点的情况已经遍历全了，回退一步：1，2，4，进一步扩展右端点
-
-1，2，4，3 -&gt; 由于上一步的结果大于7，这次右端点扩展了一个数，肯定大于7，需要缩短（固定右端点）以找到最短序列
-2，4，3 -&gt; 大于等于7，记录该长度为3，更新最优解，记录左边界更新（2），再次缩短
-4，3 -&gt; 大于等于7，记录该长度为2，更新最优解，记录左边界更新（4），再次缩短
-3 -&gt; 小于7，说明以3为右端点的情况已经遍历全了，回退一步：3，4，进一步扩展右端点
-
-# 遍历完成
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">    def minSubArrayLen(self, target: int, nums: List[int]) -&gt; int:</span><br><span class="line">        n = len(nums)</span><br><span class="line">        res = n+1</span><br><span class="line">        sum = 0</span><br><span class="line">        left = 0</span><br><span class="line">        for right,x in enumerate(nums):</span><br><span class="line">            sum += x</span><br><span class="line">            while sum - nums[left] &gt;= target:</span><br><span class="line">                sum  -= nums[left]</span><br><span class="line">                left += 1                 </span><br><span class="line">            res = min(res, right-left+1) if sum &gt;= target else res</span><br><span class="line">           </span><br><span class="line">        return res if res &lt;=n else 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</code></pre>
-<h2 id="2-乘积小于K的子数组"><a href="#2-乘积小于K的子数组" class="headerlink" title="2. 乘积小于K的子数组"></a>2. 乘积小于K的子数组</h2><blockquote>
-<ul>
+<h2 id="2-乘积小于K的子数组"><a href="#2-乘积小于K的子数组" class="headerlink" title="2. 乘积小于K的子数组"></a>2. 乘积小于K的子数组</h2><ul>
 <li><p>（713）给你一个整数数组 <code>nums</code>和一个整数<code>k</code>  ，请你返回子数组内所有元素的乘积严格小于 <code>k</code> 的连续子数组的数目。 </p>
 </li>
 <li><pre><code>
 </code></pre>
 </li>
 </ul>
-<p> 输入：nums &#x3D; [10,5,2,6], k &#x3D; 100<br> 输出：8<br> 解释：8 个乘积小于 100 的子数组分别为：[10]、[5]、[2]、[6]、[10,5]、[5,2]、[2,6]、[5,2,6]。<br> 需要注意的是 [10,5,2] 并不是乘积小于 100 的子数组。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">   def numSubarrayProductLessThanK(self, nums: List[int], k: int) -&gt; int:</span><br><span class="line">       if k &lt;=1:</span><br><span class="line">           return 0</span><br><span class="line">       ans,left = 0,0</span><br><span class="line">       # 遍历右端点</span><br><span class="line">       prod = 1</span><br><span class="line">       for right,x in enumerate(nums):</span><br><span class="line">           prod *= x</span><br><span class="line">           while prod &gt;= k and left &lt;= right:</span><br><span class="line">               prod /= nums[left]</span><br><span class="line">               left += 1</span><br><span class="line">           ans += right - left + 1</span><br><span class="line">       return ans</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3. 无重复字符的最长子串"></a>3. 无重复字符的最长子串</h2><blockquote>
-<ul>
+<p> 输入：nums &#x3D; [10,5,2,6], k &#x3D; 100<br> 输出：8<br> 解释：8 个乘积小于 100 的子数组分别为：[10]、[5]、[2]、[6]、[10,5]、[5,2]、[2,6]、[5,2,6]。<br> 需要注意的是 [10,5,2] 并不是乘积小于 100 的子数组。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">    def numSubarrayProductLessThanK(self, nums: List[int], k: int) -&gt; int:</span><br><span class="line">        if k &lt;=1:</span><br><span class="line">            return 0</span><br><span class="line">        ans,left = 0,0</span><br><span class="line">        # 遍历右端点</span><br><span class="line">        prod = 1</span><br><span class="line">        for right,x in enumerate(nums):</span><br><span class="line">            prod *= x</span><br><span class="line">            while prod &gt;= k and left &lt;= right:</span><br><span class="line">                prod /= nums[left]</span><br><span class="line">                left += 1</span><br><span class="line">            ans += right - left + 1</span><br><span class="line">        return ans</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-无重复字符的最长子串"><a href="#3-无重复字符的最长子串" class="headerlink" title="3. 无重复字符的最长子串"></a>3. 无重复字符的最长子串</h2><ul>
 <li><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长 子串</strong> 的长度。 </p>
 </li>
 <li><pre><code>输入: s = &quot;abcabcbb&quot;
 输出: 3 
 解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。注意 &quot;bca&quot; 和 &quot;cab&quot; 也是正确答案。
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">   def lengthOfLongestSubstring(self, s: str) -&gt; int:</span><br><span class="line">       ans,left = 0,0</span><br><span class="line">       dic = &#123;&#125;</span><br><span class="line">       for right,x in enumerate(s):</span><br><span class="line">           dic[x] = dic.get(x,0) + 1</span><br><span class="line">           while dic[x] &gt; 1:</span><br><span class="line">               dic[s[left]] -=1</span><br><span class="line">               left += 1</span><br><span class="line">           ans = max(ans, right - left + 1)</span><br><span class="line">       return ans</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Solution:</span><br><span class="line">    def lengthOfLongestSubstring(self, s: str) -&gt; int:</span><br><span class="line">        ans,left = 0,0</span><br><span class="line">        dic = &#123;&#125;</span><br><span class="line">        for right,x in enumerate(s):</span><br><span class="line">            dic[x] = dic.get(x,0) + 1</span><br><span class="line">            while dic[x] &gt; 1:</span><br><span class="line">                dic[s[left]] -=1</span><br><span class="line">                left += 1</span><br><span class="line">            ans = max(ans, right - left + 1)</span><br><span class="line">        return ans</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
-</blockquote>
 
       
 
