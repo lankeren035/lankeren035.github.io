@@ -59,10 +59,33 @@ tags: [博客,hexo]
 - 输入：`cnpm install -g hexo-cli`<回车>
 ## 4.搭建博客
 - 创建一个空文件夹(d:/blog/test)
+
 - 进入该文件夹：cd /d d:/blog/test<回车>
+
 - 初始化：hexo init<回车>
-- 打开：hexo s<回车>
+
+- 打开：hexo s<回车>\
+
+  - 如果出错实施更新node.js版本，https://github.com/coreybutler/nvm-windows/releases， 下载 nvm-setup.exe 
+
+  - 重启终端
+
+    ```
+    nvm version
+    nvm install 20.19.0
+    nvm use 20.19.0
+    node -v
+    cd /d/blog
+    rm -rf node_modules package-lock.json
+    npm install
+    hexo clean
+    hexo s
+    ```
+
+    
+
 - 浏览器访问：http://localhost:4000/
+
 - 命令行点击ctr+c输入y<回车>即可关闭
 ## 5.操作博客
 - 新建博客：hexo n "test1.md"(保存在了blog\test\source\_posts\test1.md)（也可直接在该目录下新建.md文件）
