@@ -14,7 +14,7 @@ toc: true
 - 步幅：我们希望大幅降低图像的高度和宽度。
 ## 3.1 填充（padding）
 - 在输入图像的边界填充元素（通常是0）
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
 ![](img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
 - 通常卷积核的高度和宽度为奇数（如果为偶数，则上下填充的层数会差1）
 - 对于任何二维张量X，当：
@@ -57,7 +57,7 @@ print(s)
 ## 3.2 步幅（stride）
 - 有时为了高效计算或是缩减采样次数
 - 卷积核每次滑动的行数和列数
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
 ![](img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
 - 输入：$n_h \times n_w$，卷积核：$k_h \times k_w$，填充：$p_h \times p_w$，步幅：$s_h \times s_w$
 - 输出：$o_h \times o_w$，$o_h = \lfloor \frac{n_h + p_h - k_h}{s_h} + 1 \rfloor$，$o_w = \lfloor \frac{n_w + p_w - k_w}{s_w} + 1 \rfloor$

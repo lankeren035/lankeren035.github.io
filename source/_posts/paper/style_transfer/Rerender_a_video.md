@@ -165,7 +165,7 @@ toc:  true
 
 ## 5.1 Key Frame Translation
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
 
 ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
 
@@ -229,7 +229,7 @@ toc:  true
 
 - 一个问题：有损编码器会引入**失真和颜色偏差**（这里有颜色偏差，所以后面一节会用adain来控制颜色一致性？），一次编码解码可能看不太出来；但是这种偏差会随着帧序列进行累积（相当于I -> E() -> D() ->E() -> D()...，为什么会累积？为了得到x2，需要用I0和I1进行warp，然后通过encoder得到x2，然后通过decoder得到I2，然后根据I0和I2得到I3，然后通过encoder得到x3。这里注意x2，它先经过decoder变成I2然后通过光流得到I3，这里I3包含前面I2的累积信息，I3再通过encoder相当于之前I2的信息经过encoder，后面每次生成时，I2的信息会多次经过encoder, decoder）效果就会比较明显（下图的b，失真较多）：
 
-  ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
+  ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
 
   ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
   
@@ -261,7 +261,7 @@ toc:  true
 
     $$ \varepsilon ^ *(I) := x_0 ^ r + M_ \varepsilon \cdot \lambda_ \varepsilon (x_ 0 ^ r - x_ 0 ^ { rr })$$ 
 
-    ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
+    ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
 
     ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
 
@@ -269,7 +269,7 @@ toc:  true
 
 #### 2）结构引导的inpainting
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
 
 ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
 

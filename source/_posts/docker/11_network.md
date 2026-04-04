@@ -105,7 +105,7 @@ toc: true
 
 - evth-pair就是一堆虚拟设备借口，他们都是承兑出现的，一端连着协议，一端彼此相连。OpenStac, Docker容器之间的连接，OVS的连接都是使用evth-pair技术
 
-  ![](../../../themes/yilia/source/img/docker/22.png)
+  ![](../../../theme/yilia/source/img/docker/22.png)
   
   ![](img/docker/22.png)
 

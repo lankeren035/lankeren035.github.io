@@ -139,7 +139,7 @@ toc: true
 
 - 进入gui界面，粘贴图片路径：
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/1.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/1.jpg)
 
   ![](img/project/stable_diffusion/1.jpg)
 
@@ -147,7 +147,7 @@ toc: true
 
 - 数据集里面就会自动出现每张图片对应的提示词（txt文件）(重名的后果导致两张图片只有一个txt)
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/2.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/2.jpg)
 
   ![](img/project/stable_diffusion/2.jpg)
 
@@ -159,13 +159,13 @@ toc: true
 
 - 原本应该在`Data set Images`区域显示图片预览，但我这里出现了Error（如果你知道怎么办请联系我）
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/7.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/7.jpg)
 
   ![](img/project/stable_diffusion/7.jpg)
 
 - 如果你跟我一样显示Error了，可以点击左边区域的两个按钮，可以显示出标签（勉强也能编辑）
 
-    ![](../../../../themes/yilia/source/img/project/stable_diffusion/8.jpg)
+    ![](../../../../theme/yilia/source/img/project/stable_diffusion/8.jpg)
 
     ![](img/project/stable_diffusion/8.jpg)
     
@@ -181,13 +181,13 @@ toc: true
 
 - 添加标签：
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/9.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/9.jpg)
 
   ![](img/project/stable_diffusion/9.jpg)
 
 - 删除标签：
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/10.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/10.jpg)
 
   ![](img/project/stable_diffusion/10.jpg)
 
@@ -199,28 +199,28 @@ toc: true
 
 - 这里只列一些个人感觉重要的：
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/11.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/11.jpg)
 
   ![](img/project/stable_diffusion/11.jpg)
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/12.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/12.jpg)
 
   ![](img/project/stable_diffusion/12.jpg)
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/13.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/13.jpg)
 
   ![](img/project/stable_diffusion/13.jpg)
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/14.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/14.jpg)
   
 
 ![](img/project/stable_diffusion/14.jpg)
 
-![](../../../../themes/yilia/source/img/project/stable_diffusion/15.jpg)
+![](../../../../theme/yilia/source/img/project/stable_diffusion/15.jpg)
 
 ![](img/project/stable_diffusion/15.jpg)
 
-![](../../../../themes/yilia/source/img/project/stable_diffusion/16.jpg)
+![](../../../../theme/yilia/source/img/project/stable_diffusion/16.jpg)
 
 ![](img/project/stable_diffusion/16.jpg)
 

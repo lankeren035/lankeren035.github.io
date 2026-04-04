@@ -9,8 +9,8 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/datastruct/3_stack/queue/1.png)
-![数据结构](/img/datastruct/3_stack/queue/1.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/queue/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/queue/1.png)
 
 
 ## 3.2.1 定义
@@ -27,8 +27,8 @@ toc: true
 |QueueEmpty(Q)|若队列为空，返回true，否则返回false|
 
 ## 3.2.3 顺序队列
-![](../../../../themes/yilia/source/img/datastruct/3_stack/queue/2.png)
-![数据结构](/img/datastruct/3_stack/queue/2.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/queue/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/queue/2.png)
 
 - 顺序队列的实现
 ```c
@@ -96,8 +96,8 @@ int DeQueue(SqQueue *Q, int *x){
 (删除成功时flag=0,插入成功时flag=1)|front==rear && flag==1|front==rear && flag==0
 
 ## 3.2.4 链式队列
-![](../../../../themes/yilia/source/img/datastruct/3_stack/queue/3.png)
-![数据结构](/img/datastruct/3_stack/queue/3.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/queue/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/queue/3.png)
 
 ```c
 #include<stdio.h>
@@ -152,8 +152,8 @@ int DeQueue(LinkQueue *Q, int *x){
 ```
 
 - 双端队列
-![](../../../../themes/yilia/source/img/datastruct/3_stack/queue/4.png)
-![数据结构](/img/datastruct/3_stack/queue/4.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/queue/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/queue/4.png)
 
-![](../../../../themes/yilia/source/img/datastruct/3_stack/queue/5.png)
-![数据结构](/img/datastruct/3_stack/queue/5.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/queue/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/queue/5.png)

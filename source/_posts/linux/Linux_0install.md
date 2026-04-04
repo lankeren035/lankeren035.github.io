@@ -22,11 +22,11 @@ categories: [Linux]
 
 1. 在linux中右键，打开终端
 
-2. 输入：ifconfig ,找到ens下的inet后面的数字，复制![](./img/linux/install/1.png)
+2. 输入：ifconfig ,找到ens下的inet后面的数字，复制![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/install/1.png)
 
    ![](D:\blog\themes\yilia\source\img\linux\install\1.png)
 1. 打开finalshell点击左上文件图标，点击新串口左上带加号的文件图标，点击ssh连接，输入自定义的名称，主机输入刚刚的复制的一串数字，用户名、密码为linux用户的，点击确定
-  ![](./img/linux/install/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/install/2.png)
 
   ![](D:\blog\themes\yilia\source\img\linux\install\2.png)
 ### 0.4（windows中使用ubuntu）
@@ -36,7 +36,7 @@ categories: [Linux]
 2. 微软应用商店搜索ubuntu并下载，win10还需下载terminal
 
 3. 在terminal中点击向下箭头，选择Ubuntu
-  ![](./img/linux/install/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/install/3.png)
 
   ![](D:\blog\themes\yilia\source\img\linux\install\3.png)
 

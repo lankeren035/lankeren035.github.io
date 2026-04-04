@@ -25,21 +25,21 @@ toc: true
 
     - 第二种方法，拆分层内的工作。例如，将问题分散到4个GPU，每个GPU生成16个通道的数据，而不是在单个GPU上计算64个通道。对于全连接的层，同样可以拆分输出单元的数量。如下图, 其策略用于处理显存非常小（当时为2GB）的GPU。当通道或单元的数量不太小时，使计算性能有良好的提升。此外，由于可用的显存呈线性扩展，多个GPU能够处理不断变大的网络。
 
-    ![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/1.png)
+    ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/1.png)
     ![](img/deeplearning/code/pytorch/11_compute/5_multi_GPU/1.png)
 
         - 然而，我们需要大量的同步或屏障操作（barrieroperation），因为每一层都依赖于所有其他层的结果。此外，需要传输的数据量也可能比跨GPU拆分层时还要大。因此，基于带宽的成本和复杂性，我们同样不推荐这种方法。
 
     - 最后一种方法，跨多个GPU对数据进行拆分。这种方式下，所有GPU尽管有不同的观测结果，但是执行着相同类型的工作。在完成每个小批量数据的训练之后，梯度在GPU上聚合。这种方法最简单，并可以应用于任何情况，同步只需要在每个小批量数据处理之后进行。也就是说，当其他梯度参数仍在计算时，完成计算的梯度参数就可以开始交换。而且，GPU的数量越多，小批量包含的数据量就越大，从而就能提高训练效率。但是，添加更多的GPU并不能让我们训练更大的模型。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/2.png)
 ![](img/deeplearning/code/pytorch/11_compute/5_multi_GPU/2.png)
 
 ## 5.2 数据并行
 
 - 假设一台机器有k个GPU。给定需要训练的模型，虽然每个GPU上的参数值都是相同且同步的，但是每个GPU都将独立地维护一组完整的模型参数。例如，图演示了在k=2时基于数据并行方法训练模型。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/3.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/5_multi_GPU/3.png)
 ![](img/deeplearning/code/pytorch/11_compute/5_multi_GPU/3.png)
 
 - 一般来说，k个GPU并行训练过程如下：

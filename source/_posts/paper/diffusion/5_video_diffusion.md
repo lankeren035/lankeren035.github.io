@@ -25,7 +25,7 @@ toc: true
 
 - 给定一张无噪声的图片和一个训练好的denoiser，找到一个初始噪声（这个噪声通过去噪可以得到无噪声图片）（红线）
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/1.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/1.png)
 
 ![](img/paper/diffusion/video_diffusion/1.png)
 
@@ -54,7 +54,7 @@ toc: true
 - 个性化生成模型，比如用户想生成动漫风格图片，原始SD没有见过这种concept
 - 模型定制化，微调，训练参数少
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/2.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/2.png)
 
 ![](img/paper/diffusion/video_diffusion/2.png)
 
@@ -64,7 +64,7 @@ toc: true
 
 ### 2）DreamBooth
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/3.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/3.png)
 
 ![](img/paper/diffusion/video_diffusion/3.png)
 
@@ -72,7 +72,7 @@ toc: true
 
 
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/4.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/4.png)
 
 ![](img/paper/diffusion/video_diffusion/4.png)
 
@@ -84,7 +84,7 @@ toc: true
 
 ### 3）ControlNet
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/5.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/5.png)
 
 ![](img/paper/diffusion/video_diffusion/5.png)
 
@@ -92,7 +92,7 @@ toc: true
 
 
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/6.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/6.png)
 
 ![](img/paper/diffusion/video_diffusion/6.png)
 
@@ -113,7 +113,7 @@ toc: true
 
 - 一个比较早的比较经典的工作：3D convolution
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/7.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/7.png)
 
 ![](img/paper/diffusion/video_diffusion/7.png)
 
@@ -124,7 +124,7 @@ toc: true
 
 ### 2）（2+1）D Conv
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/8.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/8.png)
 
 ![](img/paper/diffusion/video_diffusion/8.png)
 
@@ -135,7 +135,7 @@ toc: true
 
 ### 2.1.1 VDM
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/9.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/9.png)
 
 ![](img/paper/diffusion/video_diffusion/9.png)
 
@@ -149,11 +149,11 @@ toc: true
 
 ### 2.1.2 Make-A-Video
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/10.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/10.png)
 
 ![](img/paper/diffusion/video_diffusion/10.png)
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/11.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/11.png)
 
 ![](img/paper/diffusion/video_diffusion/11.png)
 
@@ -163,7 +163,7 @@ toc: true
 - Frame Interpolation插帧
 - 时间空间超分
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/12.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/12.png)
 
 ![](img/paper/diffusion/video_diffusion/12.png)
 
@@ -172,13 +172,13 @@ toc: true
 
 - 然后用temporal convolution在时间维度上做convolution
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/13.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/13.png)
 
 ![](img/paper/diffusion/video_diffusion/13.png)
 
 - attention layer也分为spatial atention与temporal attention
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/14.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/14.png)
 
 ![](img/paper/diffusion/video_diffusion/14.png)
 
@@ -188,31 +188,31 @@ toc: true
 
 ##### 1）图片层面
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/15.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/15.png)
 
 ![](img/paper/diffusion/video_diffusion/15.png)
 
 - fid评估两个distribution的差距有多大（语义层面的信息，high level）
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/16.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/16.png)
 
   ![](img/paper/diffusion/video_diffusion/16.png)
 
 - PSNR（pixel层面，两个图片相减）
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/17.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/17.png)
 
   ![](img/paper/diffusion/video_diffusion/17.png)
 
 - SSIM（pixel层面，更复杂的计算，评价标准）
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/18.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/18.png)
 
   ![](img/paper/diffusion/video_diffusion/18.png)
 
 - CLIP Simialarity
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/19.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/19.png)
 
   ![](img/paper/diffusion/video_diffusion/19.png)
 
@@ -220,19 +220,19 @@ toc: true
 
 - FVD：用3D CNN，计算两个distribution举例也有点不同。
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/20.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/20.png)
 
   ![](img/paper/diffusion/video_diffusion/20.png)
 
 - inception score：也是在看distribution，不过他考量的有质量和多样性
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/21.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/21.png)
 
   ![](img/paper/diffusion/video_diffusion/21.png)
 
 - Frame Consistence CLIP scores：计算帧间一致性，将每一帧输入clip得到clip embedding，然后算所有pairs之间的距离有多大
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/22.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/22.png)
 
   ![](img/paper/diffusion/video_diffusion/22.png)
 
@@ -242,7 +242,7 @@ toc: true
 
 - 跟make a video一样，也是cascaded generation
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/23.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/23.png)
 
   ![](img/paper/diffusion/video_diffusion/23.png)
 
@@ -252,7 +252,7 @@ toc: true
 
 - 做法也类似，先生成关键帧，然后插帧
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/24.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/24.png)
 
   ![](img/paper/diffusion/video_diffusion/24.png)
 
@@ -270,13 +270,13 @@ toc: true
 
 - ldm结构，把ldm从2D变成3D。
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/25.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/25.png)
 
   ![](img/paper/diffusion/video_diffusion/25.png)
 
 - 也是使用（2+1）D的方式：spacial conv加temporal conv；spatial attention 加 temporal attention
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/26.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/26.png)
 
 ![](img/paper/diffusion/video_diffusion/26.png)
 
@@ -328,7 +328,7 @@ toc: true
 
 - 给一个文本视频对，更换主体
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/27.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/27.png)
 
   ![](img/paper/diffusion/video_diffusion/27.png)
 

@@ -47,7 +47,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
      - 例如，给定文本提示“一个男人在海滩上跑”，T2I模型生成了一个男人在跑的快照（**而不是走或跳**），**尽管不一定是以连续的方式**（见图2的第一行）。这证明了T2I模型可以通过**跨模态注意力**正确关注动词以生成静态运动。
   2. 关于一致对象：简单地将T2I模型中的**空间自注意力**从一幅图像扩展到多幅图像，可以在帧之间产**生一致的<span style="color:red;">内容</span>**。以“一个男人正在海滩上跑步”为例，当空间自注意力扩展到时空注意力后生成的连续帧，尽管运动仍然不连续（见图2的第二行），但在生成的序列中可以观察到相同的人和相同的海滩。这表明**T2I模型中的自注意力层仅受到空间相似性的驱动，而非像素位置**。
 
-![图2](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/1.png)
+![图2](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/1.png)
 
 ![图2](img/paper/video_generation/tune_a_video/1.png)
 
@@ -150,7 +150,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
 
   - 其中 $Q = W ^ Q z_ { v_ i }，K = W ^ K [ z_ { v_ 1 } , z_ { v_ { i−1 } }]，V = W ^ V [ z_ { v_ 1 } , z_ { v_ {i−1 }} ]$，其中 [·] 表示连接操作。请注意，投影矩阵 $W ^ Q,W ^ K , W ^ V $在空间和时间上是共享的。如图5所示：
 
-    ![图5](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/2.png)
+    ![图5](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/2.png)
 
     ![图5](img/paper/video_generation/tune_a_video/2.png)
 
@@ -161,7 +161,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
 - 我们在给定的输入视频上对我们的网络进行微调，以进行时间建模。时空注意力(ST-Attn)旨在通过查询前帧中的相关位置来建模时间一致性。因此，我们建议固定参数$W ^ K$和$W ^ V$，只在<b>ST-Attn层</b>中更新$W ^ Q$ 。相比之下，我们微调整个<b>时间自注意力(T-Attn)层</b>，因为它们是新添加的。
 - 此外，我们建议通过更新交叉注意力(Cross-Attn)中的**查询投影**来精炼文本-视频对齐。在实践中，**微调注意力模块**在计算上比完全调优更高效，同时保留了预训练T2I扩散模型的原始特性。我们采用与标准LDMs相同的训练目标。图4展示了微调过程，并突出显示了可训练参数。
 
-![图5](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/3.png)
+![图5](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/3.png)
 
 ![图5](img/paper/video_generation/tune_a_video/3.png)
 
@@ -182,7 +182,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 - 增加物体（a cowboy hat）
 - 移除物体（西瓜）
 
-![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/4.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/4.png)
 
 ![](img/paper/video_generation/tune_a_video/4.png)
 
@@ -194,13 +194,13 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 - 本文方法可以与个性化的T2I模型（例如，DreamBooth，其输入为3-5张图像并返回个性化的T2I模型）轻松集成，通过直接在其上进行微调。例如，我们可以使用为“现代迪士尼风格”或“土豆头先生”个性化的DreamBooth来创建特定风格或主题的视频（图11）。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/5.jpg)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/5.jpg)
 
   ![](img/paper/video_generation/tune_a_video/5.jpg)
 
 - 我们的方法也可以与条件T2I模型，如T2I-Adapter和ControlNet结合，以在不增加额外训练成本的情况下，对生成的视频进行多样化控制。例如，我们可以使用一系列人体姿势作为控制进一步编辑运动（例如，在图1中跳舞）。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/6.jpg)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/6.jpg)
 
   ![](img/paper/video_generation/tune_a_video/6.jpg)
 
@@ -241,7 +241,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
   - 本文方法生成时间一致的视频，保留输入视频的结构信息，并与编辑的文字和细节良好对齐。更多的定性比较可以在图12中找到。
 
-    ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/7.png)
+    ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/7.png)
 
     ![](img/paper/video_generation/tune_a_video/7.png)
 
@@ -252,7 +252,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
      - 为了保持画面的一致性，我们计算输出视频的**所有帧的CLIP图像嵌入**，并报告所有视频**帧对**之间的**平均余弦相似度**。（在输出视频中任取两帧，取遍所有组合，然后计算平均相似度）
      - 为了测量文本的忠实度，我们计算输出视频的所有帧与对应编辑提示之间的平均**CLIP分数**（应该也是计算余弦相似度）。
 
-     ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/8.png)
+     ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/8.png)
 
      ![](img/paper/video_generation/tune_a_video/8.png)
 
@@ -264,7 +264,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 ## 5.3 Ablation
 
-![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/9.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/9.png)
 
 ![](img/paper/video_generation/tune_a_video/9.png)
 
@@ -274,7 +274,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 - 得益于ST-Attn和inversion，没有微调的模型仍然能够在各帧之间保持一致的内容。然而，连续帧之间的运动不够平滑，导致**视频闪烁**。关于消融研究的其他视频示例可以在图13中找到。这些结果表明我们所有关键设计对我们方法的成功结果都有贡献。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/10.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/10.png)
 
   ![](img/paper/video_generation/tune_a_video/10.png)
 
@@ -284,6 +284,6 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 - 当输入视频包含**多个物体**并且**存在遮挡**时（如下面两只熊猫合到一起了）。这可能是由于T2I模型处理多个物体及其相互作用的固有限制。一个潜在的解决方案是使用额外的条件信息，例如深度，以使模型能够区分不同的物体及其相互作用。这一研究方向留待未来的工作。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/tune_a_video/11.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/11.png)
 
   ![](img/paper/video_generation/tune_a_video/11.png)

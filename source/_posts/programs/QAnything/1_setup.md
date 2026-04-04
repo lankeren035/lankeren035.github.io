@@ -77,7 +77,7 @@ pip install -e .
 
     - 1. ctrl + f搜索：`punkt_tab`
 
-      ![](../../../../themes/yilia/source/img/project/QAnything/1.png)
+      ![](../../../../theme/yilia/source/img/project/QAnything/1.png)
 
       ![](img/project/QAnything/1.png)
 

@@ -26,7 +26,7 @@ toc: true
 
     - 在目标数据集（如椅子数据集）上训练目标模型。输出层将从头开始进行训练，而所有其他层的参数将根据源模型的参数进行微调。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
 
 

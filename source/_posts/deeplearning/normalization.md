@@ -34,7 +34,7 @@ toc: true
   - LayerNorm：通过对Hidden size这个维度归一化来让某层的分布稳定。 
 - 深度网络每一层网络是相对独立的，也就是说每一层网络可以单独看成一个Classifier.不停对上一层的输出数据进行分类，每一层输出的数据分布又不一样，这就会出现Internal Covariate Shift（内部协变量偏移，这个概念是BN论文里第一次提出）. 随着网络的层数不断增大，这种误差就会不断积累，最终导致效果欠佳。显然对数据预处理只能解决第一层的问题，之后需要Normalization等方法来解决。
 
-![](../../../themes/yilia/source/img/deeplearning/norm/1.png)
+![](../../../theme/yilia/source/img/deeplearning/norm/1.png)
 
 ![](img/deeplearning/norm/1.png)
 

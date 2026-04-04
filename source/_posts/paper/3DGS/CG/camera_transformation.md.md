@@ -64,7 +64,7 @@ $$
 
 - 为了简化操作，默认相机在原点$\hat g$是-z轴，$\hat t$是y轴
 
-  ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/16.png)
+  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/16.png)
 
   ![](img/paper/3DGS/base/3dgs/16.png)
 
@@ -121,7 +121,7 @@ $$
 
 > 使用最广泛，远小近大，平行线就不再平行了
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/13.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/13.png)
 
 ![](img/paper/3DGS/base/3dgs/13.png)
 
@@ -140,7 +140,7 @@ $$
   - 远平面压缩后z值不会变化
   - 远平面的中心点压缩后不变
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/17.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/17.png)
 
 - 对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x'，y'，z'）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z''），且根据三角形相似可知：$y' = \frac{ n }{ z} y $   $x' =  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$ (x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :
   $$

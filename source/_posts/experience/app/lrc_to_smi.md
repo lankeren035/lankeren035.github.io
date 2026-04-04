@@ -24,19 +24,19 @@ toc: true
 
   1. [在线转换](https://www.lrccon.com/convert?lang=zh-hans)(只能转单个，想转多个可以找找别的)
 
-     ![](/img/experience/app/lrc_to_smi/2.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/lrc_to_smi/2.png)
 
-     ![](../../../../themes/yilia/source/img/experience/app/lrc_to_smi/2.png)
+     ![](../../../../theme/yilia/source/img/experience/app/lrc_to_smi/2.png)
 
-     ![](/img/experience/app/lrc_to_smi/3.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/lrc_to_smi/3.png)
 
-     ![](../../../../themes/yilia/source/img/experience/app/lrc_to_smi/3.png)
+     ![](../../../../theme/yilia/source/img/experience/app/lrc_to_smi/3.png)
 
      注意编码
   
-     ![](/img/experience/app/lrc_to_smi/4.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/lrc_to_smi/4.png)
   
-     ![](../../../../themes/yilia/source/img/experience/app/lrc_to_smi/4.png)
+     ![](../../../../theme/yilia/source/img/experience/app/lrc_to_smi/4.png)
   
   2. 将SMI文件与歌曲mp3文件放在同一文件夹下
 
@@ -44,15 +44,15 @@ toc: true
 
 1. 右键歌曲 -> 打开方式 -> windows media player
 
-![](/img/experience/app/lrc_to_smi/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/lrc_to_smi/1.png)
 
-![](../../../../themes/yilia/source/img/experience/app/lrc_to_smi/1.png)
+![](../../../../theme/yilia/source/img/experience/app/lrc_to_smi/1.png)
 
 2.  右键 -> 歌词 -> 开
 
-3.  ![](/img/experience/app/lrc_to_smi/5.png)
+3.  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/lrc_to_smi/5.png)
 
-    ![](../../../../themes/yilia/source/img/experience/app/lrc_to_smi/5.png)
+    ![](../../../../theme/yilia/source/img/experience/app/lrc_to_smi/5.png)
 
      
 

@@ -17,7 +17,7 @@ toc: true
 
 - 调试python代码时发现调试功能总出错，有时无法连接端口，尝试使用debugpy-old，修改python插件版本等弄好之后再调试，中断调试之后发现虽然没有进程占用GPU，但是显存被占用了很多：
 
-![](../../../themes/yilia/source/img/debug/nvidia-smi/1.png)
+![](../../../theme/yilia/source/img/debug/nvidia-smi/1.png)
 
 ![](img/debug/nvidia-smi/1.png)
 

@@ -40,7 +40,7 @@ Mesh和点云是最常见的 3D 场景表示，因为它们是明确定义的，
 >
 >- <details><summary> &#9660 是结合了Mesh/点云  与  NeRF二者的优点嘛？二者的优缺点分别是啥</summary><ul> <li>论文的“best of both worlds”指：既保留**连续体辐射场**带来的**可微/可优化**优势，又像**显式表示**那样能用**快速光栅化式流程**实时渲染。其做法是用**3D 高斯**作显式场景原语（一团一团“体元”），既**不依赖 MVS**的稠密几何，又能通过**tile-based splatting**按可见性排序做 **α-blending**，1080p 下实时，同时质量达 SOTA。 </li></ul></details>
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/1.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/1.png)
 
 ![](img/paper/3DGS/3dgs_paper/1.png)
 
@@ -170,7 +170,7 @@ Pulsar [Lassner 和 Zollhofer 2021] 实现了快速的球体光栅化，这启�
 
 > <details><summary> &#9660 3dgs的过程为什么要用坐标变换呢？直接用三维世界坐标系不行吗？</summary><ul>  <li>“世界 → 相机 → 屏幕/像素” 坐标变换，本质上属于 相机投影 + 渲染管线 的标准步骤，是<b>计算机图形学（渲染）与计算机视觉（成像/标定）</b>的共同基础。</li>  </ul>
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/2.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/2.png)
 
 ![](img/paper/3DGS/3dgs_paper/2.png)
 
@@ -214,7 +214,7 @@ $$
 
 > <details><summary> &#9660 怎么理解？</summary> <ul><li>   <b>各向异性协方差</b> 指的是 3D 高斯分布的形状和方向可以有所不同，而不仅仅是简单的球形，这使得它们能够更好地适应现实场景中的复杂几何形状。通过优化 <b>协方差矩阵</b>，可以精细调整高斯分布的形状，使其更好地匹配场景中的不同部分。例如，对于延长的物体，协方差矩阵可以调整，使高斯分布变长，从而更好地适应场景的结构。 </li>   <li> <b>紧凑表示</b>部分强调了使用具有各向异性协方差的 3D 高斯分布的高效性。由于高斯分布可以根据场景几何形状进行调整，因此与其他方法相比，表示复杂细节所需的高斯分布数量较少。这导致了一个 <b>紧凑的表示</b>，既节省内存，又能够准确地捕捉场景的结构。 </li> </ul>  
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/3.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/3.png)
 
 ![](img/paper/3DGS/3dgs_paper/3.png)
 
@@ -254,7 +254,7 @@ $$
 
 由于这两种情况都是密度化的良好候选者，我们对视空间位置梯度的平均大小进行密度化，设定阈值$\tau _ {pos}$，测试中我们将其设置为0.0002。接下来我们将展示这一过程的详细信息，如图4所示。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/4.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/4.png)
 
 ![](img/paper/3DGS/3dgs_paper/4.png)
 
@@ -349,13 +349,13 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 我们对数据集使用训练/测试划分，采用 Mip-NeRF360 提出的 methodology，**每隔第 8 张照片进行测试**，以便进行一致且有意义的比较以生成误差指标，使用文献中最常用的标准 PSNR、L-PIPS 和 SSIM 指标；请参见表 1。表中的所有数字均来自我们对作者代码的独立运行，除了 Mip-NeRF360 在其数据集上的结果，我们为避免对当前 SOTA 的混淆，将该数据从原始出版物中复制。对于我们图中的图像，我们使用了我们自己对 Mip-NeRF360 的运行：这些运行的数字见附录 D。我们还展示了平均训练时间、渲染速度以及用于存储优化参数所需的内存。我们报告了基本配置的 InstantNGP（Base）在 35K 次迭代中的结果，以及作者建议的稍大网络（Big），以及我们配置的 7K 和 30K 次迭代的结果。我们展示了我们在图6中展示了两种配置的视觉质量差异。在许多情况下，7K迭代时的质量已经相当不错。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/6.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/6.png)
 
 ![](img/paper/3DGS/3dgs_paper/6.png)
 
 >表1. 我们的方法与以前工作的定量评估，基于三个数据集进行计算。带有尖十字标记†的结果直接引用自原始论文，所有其他结果均来自我们的实验。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/12.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/12.png)
 
 ![](img/paper/3DGS/3dgs_paper/12.png)
 
@@ -369,7 +369,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 >  “left-out test view” 指的是在论文的 3D 渲染模型训练过程中，从采集的多视图数据集中**特意留出、不用于模型训练**，仅专门用于**测试模型渲染性能**的视角图像（即 “测试视图”），其核心作用是客观评估模型对 “未见过的视角” 的渲染泛化能力，避免因使用训练过的视图导致评估结果失真。 
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/7.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/7.png)
 
 ![](img/paper/3DGS/3dgs_paper/7.png)
 
@@ -377,7 +377,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 **合成有界场景**。除了现实场景，我们还在合成的Blender数据集上评估我们的方法 [Mildenhall et al. 2020]。相关场景提供了全面的视图集，尺寸有限，并且提供了精确的相机参数。在这种情况下，即使随机初始化，我们也能够实现最先进的结果：我们从一个包围场景边界的体积内的10万均匀随机高斯点开始训练。我们的方法迅速而自动地将它们修剪到大约6到1万个有意义的高斯点。在经过3万次迭代后，训练模型的最终大小达到了每个场景大约20万到50万的高斯点。我们在表2中报告并比较了我们获得的PSNR分数与先前方法的结果，并使用白色背景以保持兼容性。如图10所示（从左侧第二张图）和补充材料中所示。训练的合成场景以180–300 FPS的速率渲染。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/13.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/13.png)
 
 ![](img/paper/3DGS/3dgs_paper/13.png)
 
@@ -389,7 +389,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 我们隔离了我们所做的不同贡献和算法选择，并构建了一套实验来测量它们的影响。具体而言，我们测试了算法的以下几个方面：从结构光重建(SfM)的**初始化**、我们的**稠密化策略**、**各向异性协方差**、**允许无限数量的样本具有梯度**以及使用**球谐函数**。每个选择的定量影响总结在表3中。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/5.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/5.png)
 
 ![](img/paper/3DGS/3dgs_paper/5.png)
 
@@ -397,7 +397,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 从 SfM 初始化。我们还评估了从 SfM 点云初始化 3D 高斯的重要性。对于这个消融实验，我们均匀地抽样一个大小为输入相机边界框范围三倍的立方体。我们观察到我们的方法表现相对较好，即使在没有 SfM 点的情况下也能避免完全失败。相反，它主要在背景中退化，见图 7。对于训练视图覆盖不好的区域，随机初始化方法似乎有更多的浮动点，这些点无法通过优化去除。另一方面，合成 NeRF 数据集没有这种行为，因为它没有背景，并且受到输入相机的很好约束（见上面的讨论）。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/8.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/8.png)
 
 ![](img/paper/3DGS/3dgs_paper/8.png)
 
@@ -405,7 +405,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 **稠密化**。接下来，我们评估我们的两种致密化方法，更具体地说是第5节中描述的克隆和分裂策略。我们分别禁用每种方法，并使用其余方法进行优化，保持不变。结果表明，**分裂大型高斯分布对良好的背景重建至关重要**，如图8所示，而**克隆小型高斯分布而不是分裂它们则能实现更好和更快速的收敛**，特别是在场景中出现细结构时。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/9.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/9.png)
 
 ![](img/paper/3DGS/3dgs_paper/9.png)
 
@@ -415,7 +415,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 >  **验证 “跳过‘N 个最靠前（近相机）splats’之后的梯度计算，能否在提升优化速度的同时不牺牲渲染质量”** 
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/10.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/10.png)
 
 ![](img/paper/3DGS/3dgs_paper/10.png)
 
@@ -425,7 +425,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 > - 去掉各向异性后，3D 高斯会变成 “球体（各向同性高斯）”
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/11.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/11.png)
 
 ![](img/paper/3DGS/3dgs_paper/11.png)
 
@@ -437,13 +437,13 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 我们的方法并非没有局限性。在场景观察不佳的区域，我们会出现伪影；在这些区域，其他方法同样面临困难（例如，图11中的Mip-NeRF360）。尽管如上所述各向异性高斯具有许多优点，我们的方法仍可能产生拉长的伪影或“斑驳”的高斯（见图12）；在这些情况下，之前的方法也同样遇到困难。当我们的优化产生较大高斯时，我们偶尔会出现弹跳伪影；这往往发生在具有视图依赖外观的区域。**造成这些弹跳伪影的一个原因是光栅化程序通过保护带轻易地拒绝了高斯。采用更有原则的剔除方法可以缓解这些伪影**。**另一个因素是我们简单的可见性算法，这可能导致高斯突然切换深度/混合顺序。这可以通过抗锯齿来解决**，我们将其留作未来的工作。此外，我们目前在优化过程中没有应用任何正则化；这样做将有助于解决未观察区域和弹跳伪影的问题。尽管我们在全面评估中使用了相同的超参数，早期实验表明，在非常大的场景中（例如城市数据集），降低位置学习率可能是收敛所必需的。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/14.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/14.png)
 
 ![](img/paper/3DGS/3dgs_paper/14.png)
 
 > 图 11. 故障伪影的比较：Mip-NeRF360 有“漂浮物”和颗粒状外观（左，前景），而我们的方法产生粗糙的各向异性高斯，导致低细节视觉效果（右，背景）。训练场景。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/15.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/15.png)
 
 ![](img/paper/3DGS/3dgs_paper/15.png)
 
@@ -714,7 +714,7 @@ $
 
 ### B. 优化与致密化算法
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/16.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/16.png)
 
 ![](img/paper/3DGS/3dgs_paper/16.png)
 
@@ -722,7 +722,7 @@ $
 
 **排序**。我们的设计基于小块（splat）的高负载假设，因此我们通过在每一帧开始时使用基数排序一次性对小块进行排序来优化这一点。我们将屏幕分割成16x16像素的瓦片（或箱子）。我们通过在每个重叠的16×16瓦片中实例化每个小块来为每个瓦片创建一个小块列表。**这导致处理的高斯数量适度增加**，但通过简化的控制流和优化的GPU基数排序的高并行性得以平摊。[Merrill and Grimshaw 2010]。我们为每个小块实例分配一个最多64位的key，其中低32位编码其投影深度，高位编码重叠瓦片的索引。索引的精确大小取决于在当前分辨率下适合多少个瓦片。因此，深度排序可以通过单个基数排序直接并行解决所有小块。排序后，我们可以高效地生成每个瓷砖的高斯列表，通过识别具有相同瓷砖 ID 的排序数组中的范围的开始和结束。这是并行完成的，每 64 位数组元素启动一个线程，以比较其高 32 位与两个邻居。与 [Lassner 和 Zollhofer 2021] 相比，我们的光栅化完全消除了顺序图元处理步骤，并生成了更紧凑的每个瓷砖列表，以便在前向传递期间遍历。我们在算法 2 中展示了光栅化方法的高级概述。
 
-![](../../../../themes/yilia/source/img/paper/3DGS/3dgs_paper/17.png)
+![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/17.png)
 
 ![](img/paper/3DGS/3dgs_paper/17.png)
 

@@ -76,7 +76,7 @@ $ \downarrow  $
 
 
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/1.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/1.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/1.png)
 
@@ -195,7 +195,7 @@ $ \downarrow  $
 
 - 计算过程：
 
-  ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/2.png)
+  ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/2.png)
 
   ![](img/paper/style_transfer/video_style_transfer/CCPL/2.png)
 
@@ -240,7 +240,7 @@ $ \downarrow  $
 
 - 本文设计简单协方差变换模块（SCT）来融合内容特征和风格特征。
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/3.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/3.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/3.png)
 
@@ -319,7 +319,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 #### 5.3.1 视频风格迁移
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/4.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/4.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/4.png)
 
@@ -327,7 +327,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 - 将CCPL应用于各种模型，发现SIFID略有下降，时间一致性大大提升。
 - 本文方法与多帧方法ReReVST在时间一致性上能相当，并在风格化结果上表现更强。
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/6.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/6.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/6.png)
 
@@ -337,7 +337,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 #### 5.3.2 艺术风格迁移
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/7.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/7.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/7.png)
 
@@ -358,11 +358,11 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 #### 5.3.3 真实图片风格迁移
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/5.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/5.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/5.png)
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/8.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/8.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/8.png)
 
@@ -374,7 +374,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 #### 5.3.4 效率分析
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/9.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/9.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/9.png)
 
@@ -389,7 +389,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 - 每层采样的差分向量个数（每层输出的特征图采样几个中心点）
 - 损失权重
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/10.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/10.png)
 
 ![](img/paper/style_transfer/video_style_transfer/CCPL/10.png)
 

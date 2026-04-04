@@ -59,7 +59,7 @@ ImportError: cannot import name 'cached_download' from 'huggingface_hub'
 
 2. 根据diffusers库的版本去github找源码
 
-   ![](../../../../themes/yilia/source/img/project/deepseek/local_install/1.png)
+   ![](../../../../theme/yilia/source/img/project/deepseek/local_install/1.png)
 
    ![](img/project/deepseek/local_install/1.png)
 

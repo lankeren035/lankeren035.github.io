@@ -28,12 +28,12 @@ toc: true
 
 - 例如查看centos官方镜像：点击下面的版本：
 
-  ![](../../../themes/yilia/source/img/docker/17.png)
+  ![](../../../theme/yilia/source/img/docker/17.png)
 
   ![](img/docker/17.png)
   - 可以看到对他的源码：（docker hub中99%的镜像都是从scratch这个基础镜像过来的。
 
-  ![](../../../themes/yilia/source/img/docker/18.png)
+  ![](../../../theme/yilia/source/img/docker/18.png)
 
   ![](img/docker/18.png)
 
@@ -42,7 +42,7 @@ toc: true
   - `#`表示注释
   - 每一个指令都会创建提交一个新的镜像层，并提交
 
-![](../../../themes/yilia/source/img/docker/19.png)
+![](../../../theme/yilia/source/img/docker/19.png)
 
 ![](img/docker/19.png)
 

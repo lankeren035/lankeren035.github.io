@@ -27,7 +27,7 @@ toc: true
 
 - 找到侧键位置，更改即可
 
-  ![](../../../../themes/yilia/source/img/experience/app/mouse/1.png)
+  ![](../../../../theme/yilia/source/img/experience/app/mouse/1.png)
 
   ![](img/experience/app/mouse/1.png)
 
@@ -37,13 +37,13 @@ toc: true
 
 - [下载](https://www.autohotkey.com/)(两个都要下载)
 
-   ![](../../../../themes/yilia/source/img/experience/app/mouse/2.png)
+   ![](../../../../theme/yilia/source/img/experience/app/mouse/2.png)
 
   ![](img/experience/app/mouse/2.png) 
 
 - 新建一个文件：
 
-     ![](../../../../themes/yilia/source/img/experience/app/mouse/3.png)
+     ![](../../../../theme/yilia/source/img/experience/app/mouse/3.png)
 
     ![](img/experience/app/mouse/3.png) 
 

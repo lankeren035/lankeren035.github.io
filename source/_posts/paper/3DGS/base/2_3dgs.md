@@ -36,7 +36,7 @@ toc:  true
 
 >假设有一个高斯椭球，我们从不同的角度去看它可能有不同的形态，这个过程的本质还是一个仿射变换
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/10.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/10.png)
 
 ![](img/paper/3DGS/base/3dgs/10.png)
 
@@ -51,7 +51,7 @@ toc:  true
 
 >变换到相机角度之后，我们需要将高斯椭球映射到成像平面上，映射方法有两个：正交投影，透视投影
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/11.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/11.png)
 
 ![](img/paper/3DGS/base/3dgs/11.png)
 
@@ -67,7 +67,7 @@ toc:  true
 - 立方体**缩放**至$[-1,1]^ 3$的正方体
 - 仿射变换
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/12.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/12.png)
 
 ![](img/paper/3DGS/base/3dgs/12.png)
 $$
@@ -100,7 +100,7 @@ $$
 
 - 再做正交投影
 
-  ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/13.png)
+  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/13.png)
 
   ![](img/paper/3DGS/base/3dgs/13.png)
   $$
@@ -123,7 +123,7 @@ $$
 
   - 将$[-1,1]^ 2$的举行变换至$[0,w] \times [0,h]$
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/14.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/14.png)
 
     ![](img/paper/3DGS/base/3dgs/14.png)
     $$
@@ -149,7 +149,7 @@ $$
 
     
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/15.png)![](img/paper/3DGS/base/3dgs/15.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/15.png)![](img/paper/3DGS/base/3dgs/15.png)
 
 > 光栅化中经常听到一个词叫形变（Aliasing），比如上图左下角那个像素有点离群，那我们的采样方式可能有点问题，可以采取其他的采样方式使他更自然。
 
@@ -238,13 +238,13 @@ for p in pts: #遍历三个点
 
   - 这样导致从一个横平竖直的坐标系变成了一个带弯曲的坐标系：(关注某一个点，比如（-2，1）这个点变到了黄色框这个位置，展开这个小框，中心点是（-2，1），其他附近的变换是非线性变化，
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/19.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/19.png)
 
     ![](img/paper/3DGS/base/3dgs/19.png)
 
   - 假设把黄色框框进一步缩小，它附近的变换可以近似成一个线性的变换：
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/20.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/20.png)
 
     ![](img/paper/3DGS/base/3dgs/20.png)
 

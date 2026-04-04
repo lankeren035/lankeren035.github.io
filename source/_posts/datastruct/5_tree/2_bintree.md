@@ -9,8 +9,8 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/1.png)
-![数据结构](/img/datastruct/5_tree/bintree/1.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/1.png)
 <!--more-->
 - 二叉树是有序树，有左右之分
 - 二叉树有五种基本形态：空二叉树、只有根结点、只有左子树、只有右子树、左右子树都有
@@ -18,8 +18,8 @@ toc: true
 ### 5.2.1 特殊二叉树
 |名称|说明|特点|
 |:---:|:---:|:---:|
-|满二叉树|所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上|![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/2.png)|
-|完全二叉树|叶子结点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树|![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/3.png)|
+|满二叉树|所有分支结点都存在左子树和右子树，并且所有叶子都在同一层上|![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/2.png)|
+|完全二叉树|叶子结点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树|![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/3.png)|
 |二叉排序树|空树 / 左子树上所有结点的值均小于它的根结点的值；右子树上所有结点的值均大于它的根结点的值；左右子树也分别为二叉排序树||
 |平衡二叉树|空树 / 左子树和右子树的深度之差的绝对值不超过1，且它的左子树和右子树都是一棵平衡二叉树||
 
@@ -43,11 +43,11 @@ typedef struct{
 
 TreeNode t[MaxSize];
 ```
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/4.png)
-![数据结构](/img/datastruct/5_tree/bintree/4.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/4.png)
 
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/5.png)
-![数据结构](/img/datastruct/5_tree/bintree/5.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/5.png)
 
 - 链式存储
   
@@ -60,8 +60,8 @@ typedef struct BiTnode{
 - n个结点的二叉链表共有n+1个空链域
 
 ### 5.2.4 遍历
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/9.png)
-![数据结构](/img/datastruct/5_tree/bintree/9.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/9.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/9.png)
 
 - 先序遍历
 ```c
@@ -140,32 +140,32 @@ void LevelOrder(BiTree T){
 
 ### 5.2.5 练习
 - 求遍历序列
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/6.png)
-![数据结构](/img/datastruct/5_tree/bintree/6.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/7.png)
-![数据结构](/img/datastruct/5_tree/bintree/7.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/8.png)
-![数据结构](/img/datastruct/5_tree/bintree/8.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/6.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/6.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/7.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/7.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/8.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/8.png)
 
 - 根据序列求树
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/10.png)
-![数据结构](/img/datastruct/5_tree/bintree/10.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/11.png)
-![数据结构](/img/datastruct/5_tree/bintree/11.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/12.png)
-![数据结构](/img/datastruct/5_tree/bintree/12.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/13.png)
-![数据结构](/img/datastruct/5_tree/bintree/13.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/14.png)
-![数据结构](/img/datastruct/5_tree/bintree/14.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/15.png)
-![数据结构](/img/datastruct/5_tree/bintree/15.png)
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/16.png)
-![数据结构](/img/datastruct/5_tree/bintree/16.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/10.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/10.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/11.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/11.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/12.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/12.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/13.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/13.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/14.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/14.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/15.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/15.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/16.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/16.png)
 
 ### 5.2.6 线索二叉树
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/17.png)
-![数据结构](/img/datastruct/5_tree/bintree/17.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/17.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/17.png)
 - 存储结构
 ```c
 //线索二叉树
@@ -176,17 +176,17 @@ typedef struct ThreadNode{
 }ThreadNode, *ThreadTree;
 ```
 - 中序线索二叉树
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/18.png)
-![数据结构](/img/datastruct/5_tree/bintree/18.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/18.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/18.png)
 - 先序线索二叉树
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/19.png)
-![数据结构](/img/datastruct/5_tree/bintree/19.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/19.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/19.png)
 - 后序线索二叉树
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/20.png)
-![数据结构](/img/datastruct/5_tree/bintree/20.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/20.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/20.png)
 - 线索化
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/21.png)
-![数据结构](/img/datastruct/5_tree/bintree/21.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/21.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/21.png)
 ```c
 //土办法找到中序前驱
 BiTNode *p=NULL, *pre=NULL,*final=NULL;
@@ -268,8 +268,8 @@ void CreateInThread(ThreadTree T){
 ```
 
 - 线索二叉树找前驱/后继
-![](../../../../themes/yilia/source/img/datastruct/5_tree/bintree/22.png)
-![数据结构](/img/datastruct/5_tree/bintree/22.png)
+![](../../../../theme/yilia/source/img/datastruct/5_tree/bintree/22.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/5_tree/bintree/22.png)
     - 中序，后继
 
         1）p->rtag==1，则next=p->rchild

@@ -9,8 +9,8 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/1.png)
-![数据结构](/img/datastruct/6_graph/graph/1.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/1.png)
 
 
 ## 6.1-1 定义
@@ -20,25 +20,25 @@ toc: true
 
 
 ## 6.1-2 一些概念
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/2.png)
-![数据结构](/img/datastruct/6_graph/graph/2.png)
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/3.png)
-![数据结构](/img/datastruct/6_graph/graph/3.png)
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/4.png)
-![数据结构](/img/datastruct/6_graph/graph/4.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/2.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/3.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/4.png)
 - 生成子图要包含所有顶点
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/5.png)
-![数据结构](/img/datastruct/6_graph/graph/5.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/5.png)
 - 强连通分量：有向图中
 
 - 连通图的生成树：连通图的极小连通子图
 
 ## 6.1-3 图的存储
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/6.png)
-![数据结构](/img/datastruct/6_graph/graph/6.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/6.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/6.png)
 ### 6.1-3.1 邻接矩阵
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/7.png)
-![数据结构](/img/datastruct/6_graph/graph/7.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/7.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/7.png)
 - 出度：一行中非0元素的个数
 - 入度：一列中非0元素的个数
 - 空间复杂度：O(|v|<sup>2</sup>)
@@ -46,20 +46,20 @@ toc: true
 - 设邻接矩阵A只含0、1，则A<sup>k</sup>中非零元素表示从i到j的长度为k的路径数
 
 ### 6.1-3.2 邻接表
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/8.png)
-![数据结构](/img/datastruct/6_graph/graph/8.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/8.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/8.png)
 - 空间复杂度：O(|v|+|e|)
 
 ### 6.1-3.3 十字链表（有向图）
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/9.png)
-![数据结构](/img/datastruct/6_graph/graph/9.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/9.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/9.png)
 - 空间复杂度：O(|v|+|e|)
 - 如何找到指定顶点的所有出边：沿着绿色的箭头找
 - 如何找到指定顶点的所有入边：沿着橙色的箭头找
 
 ### 6.1-3.4 邻接多重表（无向图）
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/10.png)
-![数据结构](/img/datastruct/6_graph/graph/10.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/10.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/10.png)
 - 空间复杂度：O(|v|+|e|)
 - 删除边、顶点很方便
 
@@ -80,35 +80,35 @@ toc: true
 
 |有向图|无向图|
 |:---|:---|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/11.png)![数据结构](/img/datastruct/6_graph/graph/11.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/12.png)![数据结构](/img/datastruct/6_graph/graph/12.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/13.png)![数据结构](/img/datastruct/6_graph/graph/13.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/14.png)![数据结构](/img/datastruct/6_graph/graph/14.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/15.png)![数据结构](/img/datastruct/6_graph/graph/15.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/15.png)![数据结构](/img/datastruct/6_graph/graph/15.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/16.png)![数据结构](/img/datastruct/6_graph/graph/16.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/17.png)![数据结构](/img/datastruct/6_graph/graph/17.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/18.png)![数据结构](/img/datastruct/6_graph/graph/18.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/18.png)![数据结构](/img/datastruct/6_graph/graph/18.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/19.png)![数据结构](/img/datastruct/6_graph/graph/19.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/19.png)![数据结构](/img/datastruct/6_graph/graph/19.png)|
-|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/20.png)![数据结构](/img/datastruct/6_graph/graph/20.png)|![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/20.png)![数据结构](/img/datastruct/6_graph/graph/20.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/11.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/11.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/12.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/12.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/13.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/13.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/14.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/14.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/15.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/15.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/15.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/15.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/16.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/16.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/17.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/17.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/18.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/18.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/18.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/18.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/19.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/19.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/19.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/19.png)|
+|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/20.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/20.png)|![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/20.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/20.png)|
 
 ### 6.1-4.1 图的遍历
 - 广度优先遍历（BFS）
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/21.png)
-![数据结构](/img/datastruct/6_graph/graph/21.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/21.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/21.png)
 
     - 找到所有与v相邻的顶点：FirstNeighbor(G,v)，NextNeighbor(G,v,w)
     - 标记哪个顶点已经访问过：visited[]
     - 用队列保存已经访问过的顶点
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/22.png)
-![数据结构](/img/datastruct/6_graph/graph/22.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/22.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/22.png)
     - 如果图是非连通的，需要对每个连通分量进行BFS
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/23.png)
-![数据结构](/img/datastruct/6_graph/graph/23.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/23.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/23.png)
     - 广度优先生成树
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/24.png)
-![数据结构](/img/datastruct/6_graph/graph/24.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/24.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/24.png)
     - 广度优先生成森林
 - 深度优先遍历（DFS）
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/25.png)
-![数据结构](/img/datastruct/6_graph/graph/25.png)
-![](../../../../themes/yilia/source/img/datastruct/6_graph/graph/26.png)
-![数据结构](/img/datastruct/6_graph/graph/26.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/25.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/25.png)
+![](../../../../theme/yilia/source/img/datastruct/6_graph/graph/26.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/6_graph/graph/26.png)
     - 深度优先生成树
     - 深度优先生成森林

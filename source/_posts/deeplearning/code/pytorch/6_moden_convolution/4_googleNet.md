@@ -12,7 +12,7 @@ toc: true
 - GoogLeNet吸收了NiN中串联网络的思想，解决了什么样大小的卷积核最合适的问题。有时使用不同大小的卷积核组合是有利的。
 ## 4.1 Inception块
 - 在GoogLeNet中，基本的卷积块被称为Inception块（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
 - Inception块由四条并行路径组成。前三条路径使用窗口大小为1 × 1、3 × 3和5 × 5的卷积层，从不同空间大小中提取信息。
 
@@ -53,7 +53,7 @@ class Inception(nn.Module):
 - 第一个模块类似于AlexNet和LeNet，Inception块的组合从VGG继承，全局平均汇聚层避免了在最后使用全连接层。
 - GoogLeNet架构：
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
 
 

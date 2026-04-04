@@ -129,6 +129,6 @@ pip install debugpy
 
 - 运行后点击调试，python: Remote Attach
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/17.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/17.jpg)
 
   ![](img/project/stable_diffusion/17.jpg)

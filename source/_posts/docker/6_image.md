@@ -36,7 +36,7 @@ toc: true
 
 - 镜像加载原理
 
-  ![](../../../themes/yilia/source/img/docker/10.png)
+  ![](../../../theme/yilia/source/img/docker/10.png)
 
   ![](img/docker/10.png)
   - docker镜像由一层一层的文件系统组成（UnionFS）
@@ -95,19 +95,19 @@ toc: true
 
   - 举例：假如基于Ubuntu创建了一个新的镜像，这就是新镜像的第一层；如果在该镜像中添加python包，就会在基础镜像层之上创建第二个镜像层；如果继续添加一个安全补丁，就会创建第三个镜像层：
 
-    ![](../../../themes/yilia/source/img/docker/12.png)
+    ![](../../../theme/yilia/source/img/docker/12.png)
 
     ![](img/docker/12.png)
 
     - 在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合。下面举个例子，每个镜像包含3搁文件，而镜像包含了来自两个镜像层的6个文件（这里的镜像层跟之前图中的略有不同，主要为了便于展示文件）：
 
-        ![](../../../themes/yilia/source/img/docker/13.png)
+        ![](../../../theme/yilia/source/img/docker/13.png)
 
         ![](img/docker/13.png)
 
     - 假设文件5是一个app，这里对他进行更新，使用文件7，从外部看来整个镜像只有6个文件。
     
-      ![](../../../themes/yilia/source/img/docker/14.png)
+      ![](../../../theme/yilia/source/img/docker/14.png)
     
       ![](img/docker/14.png)
     
@@ -121,12 +121,12 @@ toc: true
     
     - 下图显示了与系统显示相同的三层镜像。所有镜像层堆叠合并，对外提供统一的视图：
     
-      ![](../../../themes/yilia/source/img/docker/15.png)
+      ![](../../../theme/yilia/source/img/docker/15.png)
     
       ![](img/docker/15.png)
 
 - docker镜像都是只读的，当容器启动时，一个新的可写层被加载到镜像的顶部，这一层就是我们通常说的容器层，容器之下的都叫镜像层。
 
-  ![](../../../themes/yilia/source/img/docker/11.png)
+  ![](../../../theme/yilia/source/img/docker/11.png)
 
   ![](img/docker/11.png)

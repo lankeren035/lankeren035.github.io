@@ -15,7 +15,7 @@ toc: true
     - 第一个组件是一个编码器（encoder）：它接受一个长度可变的序列作为输入，并将其转换为具有固定形状的编码状态
     - 第二个组件是解码器（decoder）：它将固定形状的编码状态映射到长度可变的序列
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/5_encoder/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/5_encoder/1.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/5_encoder/1.png)
 
 ## 6.1 编码器

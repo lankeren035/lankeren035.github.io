@@ -171,7 +171,7 @@ d2l.plot([freqs, bigram_freqs, trigram_freqs], xlabel='token: x',
 - 总体策略：
     - 假设我们将使用神经网络来训练语言模型，模型中的网络一次处理具有预定义长度（例如n个时间步）的一个小批量序列。现在的问题是如何随机生成一个小批量数据的特征和标签以供读取。
     - 由于文本序列可以是任意长的，任意长的序列可以被我们划分为具有相同时间步数的子序列。训练时，这样的小批量子序列将被输入到模型中。如下图n=5，每个时间步的词元对应于一个字符，可以选择任意偏移量来指示初始位置
-    ![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/3_lmdataset/1.png)
+    ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/3_lmdataset/1.png)
     ![](img/deeplearning/code/pytorch/7_rnn/3_lmdataset/1.png)
     - 选择图中的哪一个呢？都差不多。如果我们只选择一个偏移量，那么用于训练网络的、所有可能的子序列的覆盖范围将是有限的。因此，我们可以从随机偏移量开始划分序列，以同时获得覆盖性（coverage）和随机性（randomness）。如何实现随机采样（random sampling）和顺序分区（sequential partitioning）策略。
 

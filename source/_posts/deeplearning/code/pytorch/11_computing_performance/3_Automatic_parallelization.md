@@ -110,5 +110,5 @@ with Benchmark('在GPU1上运行并复制到CPU'):
 - 两个操作所需的总时间少于它们各部分操作所需时间的总和。请注意，与并行计算的区别是通信操作使用的资源：CPU和GPU之间的总线。事实上，我们可以在两个设备上同时进行计算和通信。如上所述，计算和通信之间存在的依赖关系是必须先计算y[i]，然后才能将其复制到CPU。幸运的是，系统可以在计算y[i]的同时复制y[i-1]，以减少总的运行时间。
 
 - 一个简单的两层多层感知机在CPU和两个GPU上训练时的计算图及其依赖关系的例子，如图所示, 手动调度由此产生的并行程序将是相当痛苦的。这就是基于图的计算后端进行优化的优势所在。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)
 ![](img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)

@@ -75,7 +75,7 @@ def multibox_prior(data, sizes, ratios):
     output = out_grid + anchor_manipulations
     return output.unsqueeze(0) #output的形状: (1, out_height * out_width * boxes_per_pixel, 4)
 
-img = d2l.plt.imread('./img/catdog.jpg')
+img = d2l.plt.imread('https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/catdog.jpg')
 h, w = img.shape[:2]
 print(h, w)
 X = torch.rand(size=(1, 3, h, w))  # 构造输入数据

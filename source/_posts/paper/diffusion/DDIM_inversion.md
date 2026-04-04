@@ -24,7 +24,7 @@ toc: true
 
 - 给定一张无噪声的图片和一个训练好的denoiser，找到一个初始噪声（这个噪声通过去噪可以得到无噪声图片）（红线）
 
-![](../../../../themes/yilia/source/img/paper/diffusion/video_diffusion/1.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/1.png)
 
 ![](img/paper/diffusion/video_diffusion/1.png)
 
@@ -106,7 +106,7 @@ https://blog.csdn.net/qq_36104364/article/details/138966926
 
 -  本方法在每一个时间步都会单独优化出一个特定的 null text embedding 。 这样，相当于为每张真实图片都训练出一组 特定 null text embedding，在该 embedding 下进行图像重构或编辑，就可以保持原始图像的布局。 
 
-  ![](../../../../themes/yilia/source/img/paper/diffusion/DDIM_inversion/1.png)
+  ![](../../../../theme/yilia/source/img/paper/diffusion/DDIM_inversion/1.png)
 
   ![](img/paper/diffusion/DDIM_inversion/1.png)
 

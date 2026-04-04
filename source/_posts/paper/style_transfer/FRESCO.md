@@ -56,19 +56,19 @@ toc:  true
 
   1. **不一致性**： 光流的变化可能会导致**引导**不一致，从而出现前景没有适当移动时前景部分却出现在了静止背景区域的问题 （头发出现在背景）
 
-     ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/1.png)
+     ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/1.png)
 
      ![](img/paper/style_transfer/video_style_transfer/fresco/1.png)
 
   2. **内容缺失（undercoverage）**： 在遮挡或快速运动的区域，准确的光流估算受到阻碍，由此产生的约束条件不足，导致图像失真 (c: 背部衣服和墙混到一起了，e：头发没了)
 
-     ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/2.png)
+     ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/2.png)
 
      ![](img/paper/style_transfer/video_style_transfer/fresco/2.png)
      
   3. **不准确**： 逐帧顺序生成仅限于局部优化，导致误差随着时间的推移不断累积 （b:  由于前几帧没有参考手指而导致手指缺失 ）
 
-     ![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/3.png)
+     ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/3.png)
 
      ![](img/paper/style_transfer/video_style_transfer/fresco/3.png)
 
@@ -149,7 +149,7 @@ Rerender-A-Video
 
 ## 3.2 整体框架
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/4.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/4.png)
 
 ![](img/paper/style_transfer/video_style_transfer/fresco/4.png)
 
@@ -200,7 +200,7 @@ Rerender-A-Video
 
 将ldm的self attention替换成本文的fresco guided attention
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/5.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/5.png)
 
 ![](img/paper/style_transfer/video_style_transfer/fresco/5.png)
 

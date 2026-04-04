@@ -16,16 +16,16 @@ toc: true
 - 给定一个具有$\mathbf{X}$特征和$\mathbf{y}$标签的数据集，我们可以通过解决以下优化问题来找到他：
 $$f_ {\mathcal{F}}^ * = \arg \min _{f \in \mathcal{F}} L(\mathbf{X}, \mathbf{y}, f)$$
 - 如何找到一个$f_ {\mathcal{F}^ `}^ *$，使比$f_ {\mathcal{F}}^ *$更接近$f^ *$？只有当较复杂的函数类包含较小的函数类时，我们才能确保提高它们的性能。左边，虽然F3比F1更接近f∗，但F6却离的更远了。右侧的嵌套函数（nested function）类F1 ⊆ . . . ⊆ F6，我们可以避免上述问题。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/1.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/6_resnet/1.png)
 - 对于深度神经网络，如果我们能将新添加的层训练成恒等映射（identity function）f(x) = x，新模型和原模型将同样有效。同时，由于新模型可能得出更优的解来拟合训练数据集，因此添加层似乎更容易降低训练误差。
 - 残差网络的核心思想是：每个附加层都应该更容易地包含原始函数作为其元素之一。
 ## 6.2 残差块
 - 输入为x，希望学出的理想映射为f(x)。左图虚线框中的部分需要直接拟合出该映射f(x)，而右图虚线框中的部分则需要拟合出残差映射f(x) − x。我们只需将 图右图虚线框内上方的加权运算（如仿射）的权重和偏置参数设成0，那么f(x)即为恒等映射。当理想映射f(x)极接近于恒等映射时，残差映射也易于捕捉恒等映射的细微波动。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/2.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/6_resnet/2.png)
 - resnet沿用vgg完整的3 x 3卷积层设计。残差块里首先有2个有相同输出通道数的3 × 3卷积层。每个卷积层后接一个批量规范化层和ReLU激活函数。然后我们通过跨层数据通路，跳过这2个卷积运算，将输入直接加在最后的ReLU激活函数前。这样的设计要求2个卷积层的输出与输入形状一样，从而使它们可以相加。如果想改变通道数，就需要引入一个额外的1 × 1卷积层来将输入变换成需要的形状后再做相加运算。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/3.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/3.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/6_resnet/3.png)
 
 
@@ -109,7 +109,7 @@ b5 = nn.Sequential(*resnet_block(256, 512, 2))
 - 最后，与GoogLeNet一样，在ResNet中加入全局平均汇聚层，以及全连接层输出。
 - 每个模块有4个卷积层（不包括恒等映射的1 × 1卷积层）。加上第一个7 × 7卷积层和最后一个全连接层，共有18层。因此，这种模型通常被称为ResNet‐18。
 - 虽然ResNet的主体架构跟GoogLeNet类似，但ResNet架构更简单，修改也更方便。这些因素都导致了ResNet迅速被广泛使用。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/4.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/6_resnet/4.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/6_resnet/4.png)
 
 

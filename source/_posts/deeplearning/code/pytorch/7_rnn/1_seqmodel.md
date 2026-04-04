@@ -14,7 +14,7 @@ toc: true
 # 1 序列模型
 ## 1.1 统计工具
 - 以股票价格（富时100指数）为例。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
 ![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
     - 在时间步t观察到的价格为$x_ t$。t对于本文中的序列通常是离散的，并在整数或其子集上变化。假设一个交易员想在t日的股市中表现良好，于是通过以下途径预测xt：
     $$x_ t ∼ P(x_ t | x_ {t−1}, . . . , x_ 1)$$
@@ -25,7 +25,7 @@ toc: true
 
     2. 如下图是保留一些对过去观测的总结$h_ t$，并且同时更新预测$\hat x_ t$的模型和总结$h_ t$。即：基于$\hat x_ t = P(x_ t | h_ t)$估计$x_ t$， 并使用$h_ t = g(x_ {t−1}, h_ {t−1})$来更新模型。由于$h _t$从未被观测到，这类模型也被称为 隐变量自回归模型（latent autoregressive models）。
 
-    ![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
+    ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
     ![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
 
 - 这两种情况都有一个显而易见的问题：如何生成训练数据？可以使用历史观测来预测下一个未来观测。整个序列的估计值都将通过以下的方式获得：

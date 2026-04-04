@@ -22,7 +22,7 @@ toc: true
 
 ## 1.1 使用latex公式
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/1.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/1.png)
 
   ![](img/experience/app/word/1.png)
 
@@ -41,13 +41,13 @@ toc: true
 
 - 另存为 ， 选择类型为pdf, 选项
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/to_pdf/1.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/to_pdf/1.png)
 
   ![](img/experience/app/word/to_pdf/1.png)
 
 - 选择标题
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/to_pdf/2.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/to_pdf/2.png)
   
   ![](img/experience/app/word/to_pdf/2.png)
 
@@ -59,35 +59,35 @@ toc: true
 
 - 如何将摘要编页码，目录无页码，正文编页码
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/page/0.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/page/0.png)
 
   ![](img/experience/app/word/page/0.png)
 
 - 分别在上图箭头处（每一节的结尾插入分节符）（选择分节符/下一页，不要选连续）
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/page/1.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/page/1.png)
 
   ![](img/experience/app/word/page/1.png)
 
 - 重复n次插入后，你获得了四个区块。每个区块里面的分页随便你插入何种类型的分页符。
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/page/2.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/page/2.png)
 
   ![](img/experience/app/word/page/2.png)
 
 - 双击页脚（假设你在页脚插入页码），在**每**个区块的的第一页**取消链接到前一节**，插入页码。（每个区块的第一页都要点击**取消链接到前一节**斩断联系。）
 
-   ![](../../../../themes/yilia/source/img/experience/app/word/page/3.png)
+   ![](../../../../theme/yilia/source/img/experience/app/word/page/3.png)
 
    ![](img/experience/app/word/page/3.png)  
 
 - 此时页码不是1，不要慌，点击页码，设置格式。就ok了
 
-   ![](../../../../themes/yilia/source/img/experience/app/word/page/4.png)
+   ![](../../../../theme/yilia/source/img/experience/app/word/page/4.png)
 
    ![](img/experience/app/word/page/4.png)  
 
-   ![](../../../../themes/yilia/source/img/experience/app/word/page/5.png)
+   ![](../../../../theme/yilia/source/img/experience/app/word/page/5.png)
 
     ![](img/experience/app/word/page/5.png) 
 
@@ -101,7 +101,7 @@ toc: true
 
 - 选择表格右键 -> 表格属性 -> 边框和底纹 -> 先选择磅数1.5，然后只选择上下边框
 
-  ![](../../../../themes/yilia/source/img/experience/app/word/2.png)
+  ![](../../../../theme/yilia/source/img/experience/app/word/2.png)
 
   ![](img/experience/app/word/2.png)
 
@@ -115,13 +115,13 @@ toc: true
 
 - 页眉的页码变成了这样：
 
-![](../../../../themes/yilia/source/img/experience/app/word/formulation/1.png)
+![](../../../../theme/yilia/source/img/experience/app/word/formulation/1.png)
 
 ![](img/experience/app/word/formulation/1.png)
 
 - 公式变成了这样：
 
-![](../../../../themes/yilia/source/img/experience/app/word/formulation/2.png)
+![](../../../../theme/yilia/source/img/experience/app/word/formulation/2.png)
 
 ![](img/experience/app/word/formulation/1.png)
 

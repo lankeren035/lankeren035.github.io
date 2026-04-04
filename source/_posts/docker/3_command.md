@@ -23,7 +23,7 @@ toc: true
 
 # 3- docker命令
 
-![](../../../themes/yilia/source/img/docker/8.png)
+![](../../../theme/yilia/source/img/docker/8.png)
 
 ![](img/docker/8.png)
 

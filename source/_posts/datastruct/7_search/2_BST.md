@@ -11,21 +11,21 @@ toc: true
 
 ### 
 
-![](../../../../themes/yilia/source/img/datastruct/7_search/BST/1.png)
-![数据结构](/img/datastruct/7_search/BST/1.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/BST/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/BST/1.png)
 <!--more-->
 - 左<根<右
 - 中序遍历：升序排列
 - 操作
     - 查找
-![](../../../../themes/yilia/source/img/datastruct/7_search/BST/2.png)
-![数据结构](/img/datastruct/7_search/BST/2.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/BST/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/BST/2.png)
     - 插入
-![](../../../../themes/yilia/source/img/datastruct/7_search/BST/3.png)
-![数据结构](/img/datastruct/7_search/BST/3.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/BST/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/BST/3.png)
     - 构造
-![](../../../../themes/yilia/source/img/datastruct/7_search/BST/4.png)
-![数据结构](/img/datastruct/7_search/BST/4.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/BST/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/BST/4.png)
     - 删除z
         - z是叶子
 

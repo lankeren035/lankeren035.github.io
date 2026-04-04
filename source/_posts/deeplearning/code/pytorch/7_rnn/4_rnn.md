@@ -43,7 +43,7 @@ $$\mathbf{O}_ t = \mathbf{H}_ t \mathbf{W}_ {hq} + \mathbf{b}_ q$$
     - 输出层偏置：$\mathbf{b}_ q \in \mathbb{R}^{1 \times q}$
     - 在不同的时间步，循环神经网络也总是使用这些模型参数。因此，循环神经网络的参数开销不会随着时间步的增加而增加。
 - 下图展示了循环神经网络在三个相邻时间步的计算逻辑。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/4_rnn/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/4_rnn/1.png)
 ![](img/deeplearning/code/pytorch/7_rnn/4_rnn/1.png)
 
 - 在任意时间步t，隐状态的计算可以被视为：
@@ -76,7 +76,7 @@ print(s2)
 
 ## 4.3 基于循环神经网络的字符级语言模型
 - 设：batch_size=1, 批量中的文本为“machine”。使用字符级语言模型而不是单词级。使用当前的和先前的字符预测下一个字符：
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/4_rnn/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/4_rnn/2.png)
 ![](img/deeplearning/code/pytorch/7_rnn/4_rnn/2.png)
 
 - 输入序列和标签序列分别为“machin”和“achine”。在训练过程中，我们对每个时间步的输出层的输出进行softmax操作，然后利用交叉熵损失计算模型输出和标签之间的误差。

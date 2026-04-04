@@ -44,7 +44,7 @@ categories: [Linux]
 
 - 这里选择[普通版本：](https://github.com/MetaCubeX/mihomo/releases/download/v1.19.1/mihomo-linux-amd64-v1.19.1.gz)
 
-  ![](../../../themes/yilia/source/img/linux/clashmeta/1.png)
+  ![](../../../theme/yilia/source/img/linux/clashmeta/1.png)
 
   ![](img/linux/clashmeta/1.png)
 
@@ -88,7 +88,7 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 
 - 发现测试不成功（地址好像不对）：
 
-  ![](../../../themes/yilia/source/img/linux/clashmeta/2.png)
+  ![](../../../theme/yilia/source/img/linux/clashmeta/2.png)
 
   ![](img/linux/clashmeta/2.png)
 
@@ -100,7 +100,7 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 
   - 发现很多冲突的环境变量：
 
-    ![](../../../themes/yilia/source/img/linux/clashmeta/3.png)
+    ![](../../../theme/yilia/source/img/linux/clashmeta/3.png)
 
     ![](img/linux/clashmeta/3.png)
 

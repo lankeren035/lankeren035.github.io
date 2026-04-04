@@ -30,7 +30,7 @@ toc:  true
 
 ### 2）球谐函数
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/21.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/21.png)
 
 ![](img/paper/3DGS/base/3dgs/21.png)
 
@@ -97,7 +97,7 @@ $$
 
 - 如下图的水壶感觉看起来特别有立体性，且表面很光亮，因为壶体有反光。而这个反光我们就是用一个图来表达他的光学性（左侧），通过把这个光贴到壶的面上，我们就感觉这个面很光滑。为什么呢？因为我们知道在现实生活中一个金属越光滑，他的反射就会越强，镜面反射越多。那么假设一个球是绝对光滑的，他就把环境中每一个亮光的地方都反射出来了，他就记录了整个环境中的光。
 
-  ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/22.png)
+  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/22.png)
 
   ![](img/paper/3DGS/base/3dgs/22.png)
 
@@ -105,7 +105,7 @@ $$
 
   ![]()
 
-![23](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/23.png)
+![23](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/23.png)
 
 ![23](img/paper/3DGS/base/3dgs/23.png)
 

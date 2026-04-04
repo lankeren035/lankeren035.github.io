@@ -14,7 +14,7 @@ toc: true
 
 - 下图描述了一个具有L个隐藏层的深度循环神经网络，每个隐状态都连续地传递到当前层的下一个时间步和下一层的当前时间步。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/3_deep_rnn/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/3_deep_rnn/1.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/3_deep_rnn/1.png)
 
 ## 3.1 函数依赖关系

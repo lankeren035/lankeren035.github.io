@@ -21,7 +21,7 @@ toc: true
 
 - 单发多框检测论文中选用了在分类层之前截断的VGG，现在也常用ResNet替代。我们可以设计基础网络，使它输出的高和宽较大。这样一来，基于该特征图生成的锚框数量较多，可以用来检测尺寸较小的目标。接下来的每个多尺度特征块将上一层提供的特征图的高和宽缩小（如减半），并使特征图中每个单元在输入图像上的感受野变得更广阔。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
 
 
@@ -353,7 +353,7 @@ print(f'{len(train_iter.dataset) / timer.stop():.1f} examples/sec on {str(device
 
 
 ```python
-X = torchvision.io.read_image('../img/banana.jpg').unsqueeze(0).float()
+X = torchvision.io.read_image('.https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/banana.jpg').unsqueeze(0).float()
 img = X.squeeze(0).permute(1, 2, 0).long()
 
 def predict(X):

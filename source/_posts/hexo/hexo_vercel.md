@@ -13,14 +13,14 @@ tags: [博客,hexo]
 
 - 输入网址https://npm.taobao.org/mirrors/git-for-windows/（你也可以去官网下载）
 - 点击你想下载的版本
-![](../../../themes/yilia/source/img/hexo/6.png)
-![](./img/hexo/6.png)
+![](../../../theme/yilia/source/img/hexo/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/6.png)
 - 下载exe文件
-![](../../../themes/yilia/source/img/hexo/7.png)
-![](./img/hexo/7.png)
+![](../../../theme/yilia/source/img/hexo/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/7.png)
 - 一路next即可
-![](../../../themes/yilia/source/img/hexo/8.png)
-![](./img/hexo/8.png)
+![](../../../theme/yilia/source/img/hexo/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/8.png)
 
 ## 2.  准备 GitHub 仓库 
 
@@ -95,7 +95,7 @@ git push -u origin main
 - 找到目标主题：github.com/litten/hexo-theme-yilia
 - 命令行输入：`git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia`则会在theme下创建yilia文件夹
 - 在_config.yml中将theme后的改为yilia
-![](../../../themes/yilia/source/img/hexo/5.png)
-![](./img/hexo/5.png)
+![](../../../theme/yilia/source/img/hexo/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/5.png)
 - hexo g再hexo s通过本地看看
 - 最后hexo d再把远端的也更新了

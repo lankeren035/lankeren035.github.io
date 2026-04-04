@@ -134,7 +134,7 @@ toc: true
 
 - `docker run`的运行流程：
 
-  ![](../../../themes/yilia/source/img/docker/4.png)
+  ![](../../../theme/yilia/source/img/docker/4.png)
 
   ![](img/docker/4.png)
 
@@ -145,7 +145,7 @@ toc: true
 - docker是怎么工作的
   - docker是要给client-server结构的系统，docker的守护进程运行在主机上，通过socket从客户端访问。docker-server收到docker-client的指令就会执行这个命令。
 
-![](../../../themes/yilia/source/img/docker/5.png)
+![](../../../theme/yilia/source/img/docker/5.png)
 
 ![](img/docker/5.png)
 
@@ -155,6 +155,6 @@ toc: true
 
   - docker有着比虚拟机更少的抽象层，docker利用的是宿主机的内核，vm需要Guest OS。
 
-    ![](../../../themes/yilia/source/img/docker/6.png)
+    ![](../../../theme/yilia/source/img/docker/6.png)
 
     ![](img/docker/6.png)

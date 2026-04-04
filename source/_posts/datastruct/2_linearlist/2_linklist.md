@@ -8,19 +8,19 @@ toc: true
 ---
 #
 <!--more-->
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/1.png)
-![数据结构](/img/datastruct/2_linearlist/1.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/1.png)
 
 
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/1.png)
-![数据结构](/img/datastruct/2_linearlist/linklist/1.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/1.png)
 ### 2.4.1 定义
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/2.png)
-![数据结构](/img/datastruct/2_linearlist/linklist/2.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/2.png)
 
 ||顺序表|单链表|
 |:---:|:---:|:---:|
-|结构|![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/3.png)![数据结构](/img/datastruct/2_linearlist/linklist/3.png)|![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/4.png)![数据结构](/img/datastruct/2_linearlist/linklist/4.png)|
+|结构|![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/3.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/3.png)|![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/4.png)![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/4.png)|
 |优点|随机存取，存储密度高|不要求大片连续空间，方便改容量|
 |缺点|要求大片连续空间，改容量不便|不可随机存取，额外指针空间|
 
@@ -32,10 +32,10 @@ toc: true
 ||对空表和非空表的处理需要用不同的逻辑|
 
 ### 2.4.2基本操作
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/5.png)
-![数据结构](/img/datastruct/2_linearlist/linklist/5.png)
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/linklist/6.png)
-![数据结构](/img/datastruct/2_linearlist/linklist/6.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/5.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/linklist/6.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/linklist/6.png)
 
 - 查找
     - 按位查找

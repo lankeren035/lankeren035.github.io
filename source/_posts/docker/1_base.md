@@ -62,13 +62,13 @@ toc: true
 
   - 之前的虚拟机技术：
 
-    ![](../../../themes/yilia/source/img/docker/1.png)
+    ![](../../../theme/yilia/source/img/docker/1.png)
 
     ![](img/docker/1.png)
 
   - docker
 
-    ![](../../../themes/yilia/source/img/docker/2.png)
+    ![](../../../theme/yilia/source/img/docker/2.png)
 
     ![](img/docker/2.png)
 
@@ -84,7 +84,7 @@ toc: true
 
 ## 1.4 docker的基本组成
 
-![](../../../themes/yilia/source/img/docker/3.png)
+![](../../../theme/yilia/source/img/docker/3.png)
 
 ![](img/docker/3.png)
 

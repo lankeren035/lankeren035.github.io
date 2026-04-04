@@ -12,7 +12,7 @@ categories: [经验]
 - 设置 -> 搜索zoom -> 勾选
 
 
-![](../../../../themes/yilia/source/img/experience/vscode/ctrl+roll/1.jpg)
+![](../../../../theme/yilia/source/img/experience/vscode/ctrl+roll/1.jpg)
 
 ![](img/experience/vscode/ctrl+roll/1.jpg)
 

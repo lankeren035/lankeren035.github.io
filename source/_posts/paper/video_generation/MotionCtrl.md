@@ -94,10 +94,10 @@ toc:  true
 
 ## 2.1 VideoCrafter1
 - 编码器是使用sd的编码器处理每一帧，不包含时间信息
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/13.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/13.png)
 ![](img/paper/video_generation/Motionctrl/13.png)
 - spatial transformer和temporal transformer
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/14.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/14.png)
 ![](img/paper/video_generation/Motionctrl/14.png)
 
 # 3. Methodology
@@ -109,7 +109,7 @@ toc:  true
 
 ## 3.2 MotionCtrl
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/1.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/1.png)
 ![](img/paper/video_generation/Motionctrl/1.png)
 
 - CMCM和OMCM分别考虑到摄像机运动的全局特性和物体运动的局部特性
@@ -127,7 +127,7 @@ toc:  true
 - CMCM需要一个相机姿势序列作为输入（$RT = \{RT_0 , RT_1, ... , RT_ { L-1 } \}$），本文中摄像机姿态由其**3*3旋转矩阵和3*1平移矩阵表示**。因此，$RT \in \mathbb{R}^{L \times 12}$，其中L是视频的长度，12是3*3+3*1。
 
     > 旋转矩阵和平移矩阵是什么？
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/12.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/12.png)
 ![](img/paper/video_generation/Motionctrl/12.png)
 
 - 先将$RT$扩展维度到$H \times W \times L \times 12$，然后与第一个self attention模块的输出在最后一个维度进行concatenate。然后用一个全连接层将其映射到$H \times W \times L \times C$，再与第二个self attention模块的输出concatenate。然后输入第二个self attention模块。
@@ -166,7 +166,7 @@ toc:  true
         - <details><summary>尽管ParticleSFM主要是一个structure-from-motion系统，但它包含了一个基于轨迹的运动分割模块，用于过滤掉动态场景中影响相机轨迹产生的动态轨迹。运动分割模块所获得的动态轨迹完全满足了我们的MotionCtrl的要求。但是这样会比较耗时，处理32帧大约要2分钟，因此本文随机从一个视频选择32帧，帧间间隔: [1,16]，以合成物体运动轨迹。一共得到243000个视频片段。&#9660</summary>Structure-from-Motion (SfM) 是一种从多帧图像推导三维场景和摄像机运动的技术，其基础假设是场景静态。为了处理动态场景，ParticleSfM 扩展了 SfM，加入了一个轨迹分割模块，能识别和提取动态场景中的对象运动信息。这种扩展正好符合 MotionCtrl 对对象运动轨迹的需求，帮助生成训练所需的数据集。</details>
         > 轨迹具体是什么含义，什么形式？根据下图d可以发现四张图片中几个点好像是一一对应的
 
-        ![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/2.png)
+        ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/2.png)
         ![](img/paper/video_generation/Motionctrl/2.png)
         - 为了避免用户需要提供上图b那样的密集轨迹，MotionCtrl要能够接收用户输入的稀疏轨迹来控制移动物体。因此，OMCM是通过从密集轨迹中随机选择n个轨迹来训练的（上图c）。然而，这些选择的稀疏轨迹往往过于分散，不利于有效的训练。从DragNUWA中获得启发，我们通过对稀疏轨迹应用高斯滤波器来缓解这个问题（上图d），我们最初使用密集轨迹训练OMCM，然后使用稀疏轨迹对其进行微调。
 
@@ -216,10 +216,10 @@ toc:  true
 
 ### 4.2.1 相机运动控制
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/3.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/3.png)
 ![](img/paper/video_generation/Motionctrl/3.png)
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/11.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/11.png)
 ![](img/paper/video_generation/Motionctrl/11.png)
 
 - 对于基本姿势，MotionCtrl可以生成不同速度的相机运动，而AnimaDiff时不可调的
@@ -227,14 +227,14 @@ toc:  true
 - 对于复杂姿势：相机先向左前移动，然后向前移动。VideoComposer可以使用提取的运动向量来模拟参考视频的摄像机运动。然而，密集的运动向量无意中捕捉到了物体的形状，即参考视频（第12帧）中门的轮廓，从而产生了一个看起来不自然的埃菲尔铁塔。
 > 你训练不也用了密集的运动向量？
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/4.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/4.png)
 ![](img/paper/video_generation/Motionctrl/4.png)
 
 - 定量结果更好
 
 ### 4.2.2 物体运动控制
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/5.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/5.png)
 ![](img/paper/video_generation/Motionctrl/5.png)
 
 - 红色曲线表示给定的轨迹，而绿色点表示相应帧中预期的物体位置。MotionCtrl可以生成运动更接近给定轨迹的对象，而VideoComposer的结果在某些帧中偏离
@@ -242,7 +242,7 @@ toc:  true
 
 ### 4.2.3 相机运动与物体运动结合
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/6.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/6.png)
 ![](img/paper/video_generation/Motionctrl/6.png)
 
 - 当MotionCtrl仅应用于轨迹时，它主要生成沿此路径的摇摆玫瑰。通过进一步引入缩放相机姿势，玫瑰和背景都按照指定的轨迹和相机运动进行动画。
@@ -256,20 +256,20 @@ toc:  true
     - 将相机姿势和spatial cross-attention模块结合
     - 将相机姿势和spatial self-attention模块结合
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/7.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/7.png)
 ![](img/paper/video_generation/Motionctrl/7.png)
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/8.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/8.png)
 ![](img/paper/video_generation/Motionctrl/8.png)
 
 - 这三种位置得到的结果在CamMC上与最初的LVDM接近。这是因为这些组件主要关注空间内容生成，这对相机姿势中编码的相机运动不敏感。相反，将CMCM与LVDM的时间转换器结合，可以显著改善摄像机的运动控制。
 
 ### 4.3.2 密集轨迹和稀疏轨迹
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/9.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/9.png)
 ![](img/paper/video_generation/Motionctrl/9.png)
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Motionctrl/10.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/10.png)
 ![](img/paper/video_generation/Motionctrl/10.png)
 
 - 只使用密集轨迹的训练会产生较差的结果，**这是由于训练和推理阶段之间的差异（推理期间提供稀疏轨迹）。**

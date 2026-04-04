@@ -139,7 +139,7 @@ d2l.train_ch8(net, train_iter, vocab, lr, num_epochs, device)
 
 
 ![svg](6_rnn_sample_realize_files/6_rnn_sample_realize_13_1.svg)
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/6_rnn_sample_realize_files/6_rnn_sample_realize_13_1.svg)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/6_rnn_sample_realize_files/6_rnn_sample_realize_13_1.svg)
 ![](img/deeplearning/code/pytorch/7_rnn/6_rnn_sample_realize_files/6_rnn_sample_realize_13_1.svg)
 
 - 与上一节相比，由于深度学习框架的高级API对代码进行了更多的优化，该模型在较短的时间内达到了较低的困惑度。

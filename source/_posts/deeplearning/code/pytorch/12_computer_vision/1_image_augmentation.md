@@ -26,7 +26,7 @@ from torch import nn
 from d2l import torch as d2l
 
 d2l.set_figsize()
-img = d2l.Image.open('./img/cat1.jpg')
+img = d2l.Image.open('https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/cat1.jpg')
 d2l.plt.imshow(img)
 ```
 

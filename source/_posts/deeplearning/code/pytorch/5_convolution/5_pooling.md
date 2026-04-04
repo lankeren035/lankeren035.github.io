@@ -15,7 +15,7 @@ toc: true
 - 汇聚层（pooling）层可以：降低卷积层对位置的敏感性，同时降低对空间采样表示的敏感性。
 ## 5.1 最大汇聚层和平均汇聚层
 - 汇聚层使用一个类似卷积核的窗口在输入上滑动，计算方式：计算汇聚窗口中所有元素的最大值或平均值。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/5_polling/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/5_polling/1.png)
 ![](img/deeplearning/code/pytorch/5_convolution/5_polling/1.png)
 
 

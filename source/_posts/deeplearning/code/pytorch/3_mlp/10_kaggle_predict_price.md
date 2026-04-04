@@ -253,10 +253,10 @@ print(f'{k}-折验证：平均训练log rmse：{float(train_l):f},'
     折5, 训练log rmse 0.163577, 验证log rmse 0.183105
     5-折验证：平均训练log rmse：0.165517,平均验证log rmse：0.170085
 
-  ![svg](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_15_1.svg) 
+  ![svg](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_15_1.svg) 
 
 
-![svg](./img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_15_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_15_1.svg)
 
 ​    
 
@@ -287,9 +287,9 @@ train_and_pred(train_features, test_features, train_labels,test_data,
 
     训练log rmse:0.162509
 
-![svg](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_17_1.svg)
+![svg](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_17_1.svg)
 
 
-![svg](./img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_17_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/10_kaggle_predict_price_files/10_kaggle_predict_price_17_1.svg)
     
 

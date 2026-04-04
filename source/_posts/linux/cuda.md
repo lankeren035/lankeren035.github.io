@@ -32,7 +32,7 @@ categories: [Linux]
 
 - [查看对应cuda版本](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html)： https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html 表三查看：
 
-  ![](../../../themes/yilia/source/img/linux/cuda/1.png)
+  ![](../../../theme/yilia/source/img/linux/cuda/1.png)
 
   ![](img/linux/cuda/1.png)
 
@@ -40,13 +40,13 @@ categories: [Linux]
 
 - [下载目标版本CUDA](https://developer.nvidia.com/cuda-toolkit-archive)：
 
-  ![](../../../themes/yilia/source/img/linux/cuda/2.png)
+  ![](../../../theme/yilia/source/img/linux/cuda/2.png)
 
   ![](img/linux/cuda/2.png)
 
   1. 根据你的环境选择：
 
-  ![](../../../themes/yilia/source/img/linux/cuda/3.png)
+  ![](../../../theme/yilia/source/img/linux/cuda/3.png)
 
   ![](img/linux/cuda/3.png)
 
@@ -69,25 +69,25 @@ categories: [Linux]
 
      - 点击向下按钮，然后enter继续安装
 
-       ![](../../../themes/yilia/source/img/linux/cuda/4.png)
+       ![](../../../theme/yilia/source/img/linux/cuda/4.png)
 
        ![](img/linux/cuda/4.png)
 
      - 输入accept然后enter
 
-       ![](../../../themes/yilia/source/img/linux/cuda/5.png)
+       ![](../../../theme/yilia/source/img/linux/cuda/5.png)
 
        ![](img/linux/cuda/5.png)
 
      - 看见选择页面，定位到Driver选项，点击enter取消勾选（前面带X表示勾选，**如果勾选他会把你现有的驱动替换**），定位到install然后enter
 
-       ![](../../../themes/yilia/source/img/linux/cuda/6.png)
+       ![](../../../theme/yilia/source/img/linux/cuda/6.png)
 
        ![](img/linux/cuda/6.png)
 
      - 安装成功：
 
-       ![](../../../themes/yilia/source/img/linux/cuda/7.png)
+       ![](../../../theme/yilia/source/img/linux/cuda/7.png)
 
        ![](img/linux/cuda/7.png)
 
@@ -95,13 +95,13 @@ categories: [Linux]
 
 - [查看对应版本]( https://developer.nvidia.com/cudnn-archive )： https://developer.nvidia.com/cudnn-archive ，点击展开即可查看对应版本：
 
-  ![](../../../themes/yilia/source/img/linux/cuda/8.png)
+  ![](../../../theme/yilia/source/img/linux/cuda/8.png)
 
   ![](img/linux/cuda/8.png)
 
 - 下载压缩包（该步骤需要登录，所以这里选择在本地电脑下载压缩包然后上传服务器）：
 
-  ![](../../../themes/yilia/source/img/linux/cuda/9.png)
+  ![](../../../theme/yilia/source/img/linux/cuda/9.png)
 
   ![](img/linux/cuda/9.png)
 

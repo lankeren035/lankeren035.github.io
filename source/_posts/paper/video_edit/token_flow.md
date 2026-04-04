@@ -83,7 +83,7 @@ toc:  true
 
 - 通过在每一帧上独立地应用图像编辑方法（Prompt-to-prompt； Plug-and-play；SDEdit；controlnet），导致跨帧的内容<u>不一致</u>（例如，图3中栏）。我们的关键发现是，**在编辑过程中，可以通过加强跨帧的内部扩散特征之间的一致性来缓解这些**<u>**不一致性**</u>。(these inconsistencies can be alleviated by enforcing consistency among the internal diffusion features across frames, during the editing process)
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/Tokenflow/1.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/1.png)
 
   ![](img/paper/video_edit/Tokenflow/1.png)
 
@@ -103,7 +103,7 @@ toc:  true
 
 - 我们进一步观察到，<font color=red>**原始视频特征 使用简单的最近邻搜索 提供帧之间的细粒度对应**</font>（图2）。此外，我们表明这些相应的特征对于扩散模型是可互换的——我们可以通过用附近帧中的相应特征交换<u>一个帧</u>的特征来忠实地合成该帧（图2（a））。（Moreover, we show that these corresponding features are interchangeable for the diffusion model – we can faithfully synthesize one frame by swapping its features by their corresponding ones in a nearby frame (Fig 2(a)).）
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/Tokenflow/2.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/2.png)
 
   ![](img/paper/video_edit/Tokenflow/2.png)
 
@@ -121,7 +121,7 @@ toc:  true
   
 - 然而，当编辑被单独地应用于每个帧时，特征的一致性被破坏（图3中栏）。这意味着RGB空间中的一致性水平与帧的内部特征的一致性相关。因此，**我们的关键思想是操纵 edited视频 的特征，以保持原始视频特征的一致性水平和帧间对应性。**
 
-![](../../../../themes/yilia/source/img/paper/video_edit/Tokenflow/3.png)
+![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/3.png)
 
 ![](img/paper/video_edit/Tokenflow/3.png)
 
@@ -178,6 +178,6 @@ toc:  true
     - 在每个生成步骤t，我们随机化k<n个关键帧索引，并结合扩展注意力（等式。3，图4（I））使用图像编辑技术对它们进行去噪（例如，pnp，SDEdit，controlnet）。（这个去噪过程使用source, uncond, cond三个成分进行去噪，旨在获得当前时间步各个自注意力层的source的输入输入，up block的第5个resnet
     - 然后，我们通过将图像编辑技术与令牌流（等式5，图4（II））相结合来对整个视频Jt进行去噪。注意，每一层都包括自注意力块的输入和输出之间的剩余连接，因此在每一层执行Tokenflow是必要的。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/Tokenflow/4.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/4.png)
 
   ![](img/paper/video_edit/Tokenflow/4.png)

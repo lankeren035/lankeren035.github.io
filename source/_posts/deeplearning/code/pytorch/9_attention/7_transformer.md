@@ -17,7 +17,7 @@ toc: true
 ## 7.1 模型
 
 - 编码器-解码器架构。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
 ![](img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
 
     - 编码器由多个层叠加，每个层有两个子层（sublayer）

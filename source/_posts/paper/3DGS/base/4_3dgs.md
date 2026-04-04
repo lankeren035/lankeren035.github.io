@@ -85,7 +85,7 @@ for i in range(H): #遍历每个像素，模仿GPU对单一像素的操作
   - 球谐函数系数：16*3
   - 透明度：$ \alpha $ 
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/24.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/24.png)
 
 ![](img/paper/3DGS/base/3dgs/24.png)
 
@@ -110,7 +110,7 @@ for i in range(H): #遍历每个像素，模仿GPU对单一像素的操作
 
   - 解决：打补丁（自适应高斯控制器，Adaptive control of Gaussians）：
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/25.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/25.png)
 
     ![](img/paper/3DGS/base/3dgs/25.png)
 

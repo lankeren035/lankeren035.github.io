@@ -42,13 +42,13 @@ toc:  true
 
   -  <font color=Red>遍历`source image`</font>中的每个点`p_source`，乘以从`source image`到`destination image`的`affine matrix`，将其投影到`destination image`中得到`p_destination`，如果`p_destination`的坐标不是整数，则进行四舍五入取整
 
-    ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/1.png)
+    ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/1.png)
 
     ![](img/paper/video_process/optic_flow/1.png)
 
   - 这样会产生一个问题： `destination image`中有的位置没有从`source image`中投影过来的点，有的位置有多个从`source image`中投影过来的点，所以会产生很多空洞，产生类似波纹的效果。 
 
-    ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/2.png)
+    ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/2.png)
 
     ![](img/paper/video_process/optic_flow/2.png)
 
@@ -68,7 +68,7 @@ toc:  true
   -  <font color=Red>遍历destination image</font>中的每个点p_destination，乘以destination image到source image的affine matrix，得这个点在source image中的对应点p_source，令p_destination的像素值等于p_source的值，如果p_source的坐标不是整数，则采用插值逼近的方法进行近似，因此不会产生的Forward Warping的问题。
 
 
-  ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/3.png)
+  ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/3.png)
 
   ![](img/paper/video_process/optic_flow/3.png)
 
@@ -76,7 +76,7 @@ toc:  true
 
   - 现在是对dest_image中的每个点，去source_image找答案
 
-    ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/4.png)
+    ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/4.png)
 
     ![](img/paper/video_process/optic_flow/4.png)
 
@@ -278,7 +278,7 @@ if __name__ == "__main__":
 
     - `align_corners`：当align_corners=True时，坐标归一化范围是图像四个角点的中心;当align_corners=False时，坐标归一化范围是图像四个角点靠外的角点。如下，其中每一个方格代表一个像素，并且像素坐标在方格中央
 
-      ![](../../../../themes/yilia/source/img/paper/video_process/optic_flow/5.png)
+      ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/5.png)
 
       ![](img/paper/video_process/optic_flow/5.png)
 

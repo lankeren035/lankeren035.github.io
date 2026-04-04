@@ -28,7 +28,7 @@ $$ \boldsymbol{ c }_ { t ^ ′ } = \sum _ { t  = 1 }^ T \alpha \left( {\boldsymb
 
 - Bahdanau注意力的架构：
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
 ![](img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
 
 ## 4.2 定义注意力解码器

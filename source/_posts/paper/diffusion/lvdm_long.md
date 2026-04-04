@@ -12,7 +12,7 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/paper/diffusion/lvdm_long/1.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/lvdm_long/1.png)
 
 ![](img/paper/diffusion/lvdm_long/1.png)
 

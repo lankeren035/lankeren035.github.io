@@ -28,7 +28,7 @@ toc: true
 %matplotlib inline
 import torch
 from d2l import torch as d2l
-img = d2l.plt.imread('./img/catdog.jpg')
+img = d2l.plt.imread('https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/catdog.jpg')
 h, w = img.shape[:2]
 h, w
 ```

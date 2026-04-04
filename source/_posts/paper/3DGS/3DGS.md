@@ -30,7 +30,7 @@ toc:  true
 -  针对用多张照片和视频拍摄的场景，允许以 1080p 分辨率进行高质量的实时（≥ 30 fps）新视图合成。 
 -  使用 3D Gaussian 球表示三维模型，并通过 Splatting 技术渲染出来 
 
-![](../../../../themes/yilia/source/img/paper/3DGS/1.png#pic_center =600x600 )
+![](../../../../theme/yilia/source/img/paper/3DGS/1.png#pic_center =600x600 )
 
 ![](img/paper/3DGS/1.png)
 

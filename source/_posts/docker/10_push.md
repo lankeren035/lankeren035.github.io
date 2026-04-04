@@ -62,11 +62,11 @@ toc: true
 
 - 进入阿里云控制台，展开左上角的列表，搜索：`容器镜像服务`：
 
-  ![](../../../themes/yilia/source/img/docker/20.png)
+  ![](../../../theme/yilia/source/img/docker/20.png)
 
   ![](img/docker/20.png)
 
-  ![](../../../themes/yilia/source/img/docker/21.png)
+  ![](../../../theme/yilia/source/img/docker/21.png)
 
   ![](img/docker/21.png)
 

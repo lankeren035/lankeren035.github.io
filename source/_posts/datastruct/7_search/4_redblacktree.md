@@ -10,14 +10,14 @@ toc: true
 <!--more-->
 
 ## 9.7 红黑树
-![](../../../../themes/yilia/source/img/datastruct/7_search/red/1.png)
-![数据结构](/img/datastruct/7_search/red/1.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/red/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/red/1.png)
 <!--more-->
 
 ### 7.4-1 为什么要有红黑树
 - 平衡二叉树插入/删除操作效率低，因为调整次数多
-![](../../../../themes/yilia/source/img/datastruct/7_search/red/2.png)
-![数据结构](/img/datastruct/7_search/red/2.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/red/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/red/2.png)
 
 ### 7.4-2 定义
 - 二叉排序树
@@ -25,8 +25,8 @@ toc: true
 - 根叶黑
 - 不红红
 - 黑路同
-![](../../../../themes/yilia/source/img/datastruct/7_search/red/3.png)
-![数据结构](/img/datastruct/7_search/red/3.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/red/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/red/3.png)
 
 ### 7.4-3 性质
 - 从根到叶子的最长的可能路径不多于最短的可能路径的两倍长
@@ -36,8 +36,8 @@ toc: true
 ### 7.4-4 操作
 - 查找
 - 插入
-![](../../../../themes/yilia/source/img/datastruct/7_search/red/4.png)
-![数据结构](/img/datastruct/7_search/red/4.png)
-![](../../../../themes/yilia/source/img/datastruct/7_search/red/5.png)
-![数据结构](/img/datastruct/7_search/red/5.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/red/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/red/4.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/red/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/red/5.png)
 - 删除

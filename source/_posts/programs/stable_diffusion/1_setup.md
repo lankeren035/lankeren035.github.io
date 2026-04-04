@@ -155,11 +155,11 @@ cd stable-diffusion-webui-forge
 https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 ```
 
-![](../../../../themes/yilia/source/img/project/stable_diffusion/5.jpg)
+![](../../../../theme/yilia/source/img/project/stable_diffusion/5.jpg)
 
 ![](img/project/stable_diffusion/5.jpg)
 
- ![](../../../../themes/yilia/source/img/project/stable_diffusion/6.jpg) 
+ ![](../../../../theme/yilia/source/img/project/stable_diffusion/6.jpg) 
 
 ![](img/project/stable_diffusion/6.jpg) 
 
@@ -191,7 +191,7 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 
 - 在界面刷新即可看到：
 
-  ![](../../../../themes/yilia/source/img/project/stable_diffusion/4.jpg)
+  ![](../../../../theme/yilia/source/img/project/stable_diffusion/4.jpg)
 
   ![](img/project/stable_diffusion/4.jpg)
 

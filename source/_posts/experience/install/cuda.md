@@ -33,7 +33,7 @@ toc: true
 nvidia-smi
 ```
 
-![](../../../../themes/yilia/source/img/experience/install/cuda/1.png)
+![](../../../../theme/yilia/source/img/experience/install/cuda/1.png)
 
 ![](img/experience/install/cuda/1.png)
 
@@ -45,7 +45,7 @@ nvidia-smi
 
 网址: https://developer.nvidia.com/cuda-toolkit-archive
 
-![](../../../../themes/yilia/source/img/experience/install/cuda/2.png)
+![](../../../../theme/yilia/source/img/experience/install/cuda/2.png)
 
 ![](img/experience/install/cuda/2.png)
 
@@ -53,7 +53,7 @@ nvidia-smi
 
 - 选择
 
-  ![](../../../../themes/yilia/source/img/experience/install/cuda/3.png)
+  ![](../../../../theme/yilia/source/img/experience/install/cuda/3.png)
 
   ![](img/experience/install/cuda/3.png)
 
@@ -67,13 +67,13 @@ nvidia-smi
 
   网址: https://developer.nvidia.com/rdp/cudnn-archive
 
-   ![](../../../../themes/yilia/source/img/experience/install/cuda/4.png)
+   ![](../../../../theme/yilia/source/img/experience/install/cuda/4.png)
 
    ![](img/experience/install/cuda/4.png)  
 
 - 选择
 
-  ![](../../../../themes/yilia/source/img/experience/install/cuda/5.png)
+  ![](../../../../theme/yilia/source/img/experience/install/cuda/5.png)
 
    ![](img/experience/install/cuda/5.png)
 
@@ -85,11 +85,11 @@ nvidia-smi
 
 - 双击下载的CUDA toolkit的exe文件, 一直往下走 -> 自定义安装
 
-  ![](../../../../themes/yilia/source/img/experience/install/cuda/6.png)
+  ![](../../../../theme/yilia/source/img/experience/install/cuda/6.png)
 
   ![](img/experience/install/cuda/6.png)
 
-  ![](../../../../themes/yilia/source/img/experience/install/cuda/7.png)
+  ![](../../../../theme/yilia/source/img/experience/install/cuda/7.png)
 
   ![](img/experience/install/cuda/7.png)
 
@@ -112,7 +112,7 @@ nvcc -V
 
 ## 6 安装pytorch GPU版
 
-![](../../../../themes/yilia/source/img/experience/install/cuda/8.png)
+![](../../../../theme/yilia/source/img/experience/install/cuda/8.png)
 
 ![](img/experience/install/cuda/8.png)
 

@@ -122,7 +122,7 @@ docker inspect centos
 
 - `--volumes-from`命令
 
-![](../../../themes/yilia/source/img/docker/16.png)
+![](../../../theme/yilia/source/img/docker/16.png)
 
 ![](img/docker/16.png)
 

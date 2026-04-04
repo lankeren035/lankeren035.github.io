@@ -52,7 +52,7 @@ toc:  true
 
 -  到目前为止，仅编辑视频中的局部对象仍然具有挑战性 。 本文提出了一种可以局部和全局编辑视频的pipeline，如图 1 和 5 所示。 
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/1.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/1.png)
 
   ![](img/paper/video_edit/video-p2p/1.png)
 
@@ -65,13 +65,13 @@ toc:  true
 
 - 对于视频通过单帧处理（Image-P2P）使用预训练的图像扩散模型缺乏跨帧的语义一致性。为了保持语义一致性，我们建议通过将文本到图像扩散模型（T2I）转变为文本到集合模型（T2S），**对所有帧使用反演和注意力控制的结构**。这种方法是有效的，如第三行所示，其中 其中机器人企鹅保持了跨帧的一致性。 
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/2.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/2.png)
 
   ![](img/paper/video_edit/video-p2p/2.png)
 
 - 本文采用`Tune a video`的方法：**改变卷积核，使用跨帧注意力替换self-attention** ，将 T2I 模型转换为 T2S 模型。  这种转换产生了一个 能够生成一组语义一致的图像的模型。  生成质量将随着膨胀步骤而降低，但可以在原始视频上进行调整后恢复。  虽然调整后的 T2S 模型不是理想的视频生成模型，但它足以为视频创建近似反演（approximate inversion），如图 3 (c) 所示。这只是一个近似值，因为误差在去噪过程中积累，与 [20, 36] 中的结论一致。 
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/3.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/3.png)
 
   ![](img/paper/video_edit/video-p2p/3.png)
 
@@ -128,7 +128,7 @@ toc:  true
   1. 优化用于视频反转的共享无条件嵌入
   2. 对源提示和编辑提示使用不同的指导，并结合它们的注意力图。该框架如图 4 所示。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/4.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/4.png)
 
   ![](img/paper/video_edit/video-p2p/4.png)
 
@@ -170,7 +170,7 @@ toc:  true
 
 - 算法如下
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/5.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/5.png)
 
   ![](img/paper/video_edit/video-p2p/5.png)
 
@@ -201,7 +201,7 @@ toc:  true
 
 - Video-P2P支持基于单词交换的实体替换，同时保持不相关区域的一致性。如图5所示，Video-P2P无缝地用蜘蛛侠替换摩托车上的人，同时最小化摩托车外观的变化(第4行)。生成的蜘蛛侠显示出跨帧的一致外观，背景保持不变。此外，我们可以用一只猫代替一只狗，同时保留它的手势和周围的草（第五排）。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/6.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/6.png)
 
   ![](img/paper/video_edit/video-p2p/6.png)
 
@@ -219,7 +219,7 @@ toc:  true
 
 - TAV+DDIM[39]和我们的Video-P2P都允许使用文本提示进行视频编辑。然而，TAV+DDIM在编辑特定对象时无法避免更改整个视频内容，而Video-P2P可以编辑局部区域并将对其他区域的影响降至最低。图6（左）展示了当用金刚替换狮子时，Video-P2P保留了云的复杂形状，而TAV+DDIM在这种情况下只能保持天空的色调。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/7.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/7.png)
 
   ![](img/paper/video_edit/video-p2p/7.png)
 
@@ -229,7 +229,7 @@ toc:  true
 
 - 与Dreamix【21】相比，Dreamix【21】使用不公开的预训练视频扩散模型，我们的方法在物体替换方面产生了更好的结果。虽然我们的方法由于缺乏时间先验而不能执行视频运动编辑，但我们在保留细节和动作一致性方面优于Dreamix。由于Dreamix不是开源的，我们对其发布的演示进行了评估。如图7所示，两种方法都可以将两只狗转换成两只猫，但是我们的方法保留了背景中抽屉的细节（第3行）。此外，Dreamix可能会在一定程度上影响时间顺序（time sequence），因为生成的猫比视频中的原始狗移动得更慢。相比之下，我们的方法完全保留了原始视频的运动。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/8.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/8.png)
 
   ![](img/paper/video_edit/video-p2p/8.png)
 
@@ -243,7 +243,7 @@ toc:  true
 
 - Masked PSNR和LPIPS【41】评估结构保留的质量。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/14.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/14.png)
 
   ![](img/paper/video_edit/video-p2p/14.png)
 
@@ -265,11 +265,11 @@ toc:  true
 
 - 如表1所示，我们的结果表明，视频P2P在所有指标上都表现良好。与TAV+DDIM相比，Video-P2P实现了更高的掩蔽PSNR和更低的LPIPS，表明更好地保留了未改变的区域。与其他两种方法相比，Video-P2P具有低得多的OSV，表明其在跨帧保持语义一致性方面具有优越的能力。此外，在表3中，我们报告了用户研究结果，其中Video-P2P平均排名第一，与其他方法相比具有较高的偏好率。(DG表示解耦引导)
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/9.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/9.png)
 
   ![](img/paper/video_edit/video-p2p/9.png)
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/10.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/10.png)
 
   ![](img/paper/video_edit/video-p2p/10.png)
 
@@ -279,7 +279,7 @@ toc:  true
 
 - 虽然膨胀图像扩散模型可以生成语义一致的图像，但T2S模型的生成能力在膨胀期间受到损害，即使使用优化的无条件嵌入，其也不足以用于视频反转。如图8（第三列）所示，直接使用膨胀的T2S模型会产生背景不准确的不切实际的结果。为了缓解这种情况，我们通过微调给定的视频来初始化T2S模式。这在图8（第4列）中很明显，其中猫的外观得到改善，草重建变得更加准确。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/11.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/11.png)
 
   ![](img/paper/video_edit/video-p2p/11.png)
 
@@ -287,7 +287,7 @@ toc:  true
 
 - 表2给出了视频反演的定量结果。我们观察到，与TAV+DDIM相比，优化共享无条件嵌入可以显著提高PSNR。然而，对于每个帧使用多个无条件嵌入仅将PSNR增加0.2，但导致更高的参数使用(n倍)。此外，我们发现，与共享无条件嵌入相比，使用多个无条件嵌入在注意力控制后导致20.51的较低掩蔽PSNR。因此，我们得出结论，共享无条件嵌入是视频反演最有效和高效的方法。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/13.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/13.png)
 
   ![](img/paper/video_edit/video-p2p/13.png)
 
@@ -295,7 +295,7 @@ toc:  true
 
 - 为了获得输入视频的潜在特征，我们使用源提示优化了无条件嵌入。需要注意的是，这种嵌入只适用于在prompt-to-prompt过程中的源提示词。对目标提示词使用优化的嵌入可能会负面影响生成结果的质量，如图9(第一行)所示。相反，我们利用目标提示的初始化无条件嵌入，并合并来自两个分支的注意力图。解耦引导注意力控制方法显著提高了编辑质量，如图9（第二行）所示。定量消融可在表1中找到。（第三排和第四排）。
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/video-p2p/12.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/12.png)
 
   ![](img/paper/video_edit/video-p2p/12.png)
 

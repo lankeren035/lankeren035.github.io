@@ -12,17 +12,17 @@ toc: true
 ### 
 
 ## 4.1 定义
-![](../../../../themes/yilia/source/img/datastruct/4_string/1.png)
-![数据结构](/img/datastruct/4_string/1.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/1.png)
 - 一种特殊的线性表
 
 ## 4.2 串的存储结构
-![](../../../../themes/yilia/source/img/datastruct/4_string/2.png)
-![数据结构](/img/datastruct/4_string/2.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/2.png)
 
 - 顺序存储
-![](../../../../themes/yilia/source/img/datastruct/4_string/3.png)
-![数据结构](/img/datastruct/4_string/3.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/3.png)
 ```c
 #define MAXLEN 255
 typedef struct{
@@ -38,8 +38,8 @@ typedef struct{
 
 - 链式存储
 
-![](../../../../themes/yilia/source/img/datastruct/4_string/5.png)
-![数据结构](/img/datastruct/4_string/5.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/5.png)
 ```c
 //2. 链式存储
 typedef struct StringNode{
@@ -53,8 +53,8 @@ typedef struct StringNode{
 } StringNode, *String;
 ```
 
-![](../../../../themes/yilia/source/img/datastruct/4_string/4.png)
-![数据结构](/img/datastruct/4_string/4.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/4.png)
 
 ## 4.3 基本操作
 
@@ -106,8 +106,8 @@ int Index(SString S, SString T){
 ```
 
 ## 4.4 模式匹配
-![](../../../../themes/yilia/source/img/datastruct/4_string/6.png)
-![数据结构](/img/datastruct/4_string/6.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/6.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/6.png)
 
 ### 4.4.1 朴素模式匹配算法
 
@@ -133,23 +133,23 @@ int Index(SString S, SString T){
 //定位算法中，子串的长度是固定的，而模式匹配算法中，子串的长度是可变的
 ```
 ### 4.4.2 KMP模式匹配算法
-![](../../../../themes/yilia/source/img/datastruct/4_string/7.png)
-![数据结构](/img/datastruct/4_string/7.png)
-![](../../../../themes/yilia/source/img/datastruct/4_string/8.png)
-![数据结构](/img/datastruct/4_string/8.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/7.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/7.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/8.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/8.png)
 
 - 1）根据模式求next数组
-![](../../../../themes/yilia/source/img/datastruct/4_string/9.png)
-![数据结构](/img/datastruct/4_string/9.png)
-![](../../../../themes/yilia/source/img/datastruct/4_string/11.png)
-![数据结构](/img/datastruct/4_string/11.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/9.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/9.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/11.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/11.png)
 
-![](../../../../themes/yilia/source/img/datastruct/4_string/22.png)
-![数据结构](/img/datastruct/4_string/22.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/22.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/22.png)
 
 - 算法优化
-![](../../../../themes/yilia/source/img/datastruct/4_string/33.png)
-![数据结构](/img/datastruct/4_string/33.png)
+![](../../../../theme/yilia/source/img/datastruct/4_string/33.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/4_string/33.png)
 
 next[3]=1 , next[3]与next[1]相等，所以转到next[1]后也会失配，所以next[3]可以改为next[1]=0
 

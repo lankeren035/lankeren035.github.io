@@ -25,7 +25,7 @@ toc: true
   -  高速扩展总线（PCIe）用于系统连接一个或多个GPU。服务器最多有8个加速卡，通常以更高级的拓扑方式连接，而桌面系统则有1个或2个加速卡，具体取决于用户的预算和电源负载的大小； 
   -  持久性存储设备，如磁盘驱动器、固态驱动器，在许多情况下使用高速扩展总线连接。它为系统需要的训练数据和中间检查点需要的存储提供了足够的传输速度。 
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
 
 ![](img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
 
@@ -84,7 +84,7 @@ toc: true
 
 - 添加缓存是一把双刃剑。一方面，它能确保处理器核心不缺乏数据。但同时，它也增加了芯片尺寸，消耗了原本可以用来提高处理能力的面积。此外，缓存未命中的代价可能会很昂贵。考虑最坏的情况，如下图所示, 当处理器1上的线程请求数据时，数据缓存在处理器0上。为了满足获取需要，处理器0需要停止它正在做的事情，将信息写回主内存，然后让处理器1从内存中读取它。在此操作期间，两个处理器都需要等待。与高效的单处理器实现相比，这种代码在多个处理器上运行的速度可能要慢得多。这就是为什么缓存大小（除了物理大小之外）有实际限制的另一个原因。
 
-  ![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
+  ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
 
   ![](img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
 

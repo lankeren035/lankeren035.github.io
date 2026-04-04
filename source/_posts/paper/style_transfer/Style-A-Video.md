@@ -129,7 +129,7 @@ $$L=\mathbb{E}_{\mathcal{E}(\boldsymbol{x}),\boldsymbol{c}_I,\boldsymbol{c}_T,\b
   -  为了实现这一点，我们将输入帧信息（表示为𝐼）和自关注信息（表示为𝑀）添加到生成模型条件中。 
   -  我们推被断编码的文本T与去噪器的**中间特征**（intermediate features）之间的self-attention map 𝑀。 
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/1.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/1.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/1.png)
 
@@ -246,7 +246,7 @@ $$\begin{aligned}\tilde{\epsilon_{\theta}}\left(z_{t},c_{I},c_{T},c_{M}\right)=&
 
 ## 1）qualitative evaluation
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/2.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/2.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/2.png)
 
@@ -265,7 +265,7 @@ $$\begin{aligned}\tilde{\epsilon_{\theta}}\left(z_{t},c_{I},c_{T},c_{M}\right)=&
   - 为了评估风格化帧的准确性：计算输入帧和输出帧的CLIP文本嵌入之间的平均余弦相似度，以此评估内容保存
   - 为了评估风格化效果：计算输出帧和提示词的CLIP文本嵌入之间的平均余弦相似度
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/3.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/3.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/3.png)
 
@@ -273,19 +273,19 @@ $$\begin{aligned}\tilde{\epsilon_{\theta}}\left(z_{t},c_{I},c_{T},c_{M}\right)=&
 
 ## 3）Ablation
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/4.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/4.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/4.png)
 
 - 值越大表示这个条件控制越强，图中相应的指标也越大，另一个指标就变差。（文章并没有说随着$s_I$的变化，其他的；变量是固定的，有没有控制变量？这里的ablation做的对吗？感觉应该是对比用一个条件，两个条件，三个条件之间的效果）
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/5.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/5.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/5.png)
 
 -  通过热图分析进一步评价了自注意掩模条件和时间一致性模块对帧间一致性的影响。 去除自注意图条件会导致精细细节的丢失，而没有时间一致性设计会导致视频帧间出现明显的抖动和闪烁。 
 
-![](../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/6.png)
+![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/style_a_video/6.png)
 
 ![](img/paper/style_transfer/video_style_transfer/style_a_video/6.png)
 

@@ -60,7 +60,7 @@ toc:  true
 
 ## 3.3 Method
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/1.jpg)
+![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/1.jpg)
 
 ![](img/paper/video_generation/Text2Video-zero/1.jpg)
 
@@ -68,7 +68,7 @@ toc:  true
 
 - 对于起始状态：$x_T ^ { 1:m}$，并不是每一帧都随机采样。而是采用如下算法
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/2.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/2.png)
 
   ![](img/paper/video_generation/Text2Video-zero/2.png)
 
@@ -181,27 +181,27 @@ $$
 
 - 对于文生视频，生成了高质量视频，与文本高度对齐。
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/3.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/3.png)
 
 ![](img/paper/video_generation/Text2Video-zero/3.png)
 
 - 使用边缘或姿势生成与提示词和指导相匹配的高质量视频，显示出很好的时间一致性和身份保留。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/4.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/4.png)
 
   ![](img/paper/video_generation/Text2Video-zero/4.png)
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/5.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/5.png)
 
   ![](img/paper/video_generation/Text2Video-zero/5.png)
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/6.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/6.png)
 
   ![](img/paper/video_generation/Text2Video-zero/6.png)
 
 - VIdeo Instruct-Pix2Pix
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/7.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/7.png)
 
   ![](img/paper/video_generation/Text2Video-zero/7.png)
 
@@ -226,7 +226,7 @@ $$
 
 - CogVIdeo和本文方法都有较好的时间一致性，保留了对象和背景的身份。然而，我们的方法显示了更好的**文本-视频对齐**
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/8.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/8.png)
 
 ![](img/paper/video_generation/Text2Video-zero/8.png)
 
@@ -236,7 +236,7 @@ $$
 
 - 虽然Tune-A-Video创建了时间上一致的视频生成，但它**不如我们的方法与指令指导一致**，难以创建local编辑并丢失了输入序列的细节。当查看图9(左侧)中描绘的舞者视频的编辑时，这变得显而易见。与Tune-A-Video相比，**我们的方法将整件衣服画得更亮，同时更好地保留了背景**，例如，舞者后面的墙几乎保持不变。**Tune-A-Video绘制了一堵经过严重修改的墙**。此外，我们的方法更忠实于输入细节，例如，视频Instruct-Pix2Pix使用完全提供的姿势绘制舞者（图9左），并显示输入视频中出现的所有滑雪者（比较图9的最后一帧（右）），与Tune-A-Video相反。在附录图23、24中提供的附加评估中也可以观察到Tune-A-Video的所有上述弱点。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/9.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/9.png)
 
   ![](img/paper/video_generation/Text2Video-zero/9.png)
 
@@ -250,7 +250,7 @@ $$
 
 - 最后，通过结合这两个概念（最后一行），我们实现了最佳的时间一致性。例如，我们在最后四列中看到相同的背景图案和关于对象身份保存的信息，同时在生成的图像之间看到自然过渡。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/10.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/10.png)
 
   ![](img/paper/video_generation/Text2Video-zero/10.png)
 
@@ -258,24 +258,24 @@ $$
 
 - 对$\Delta t$=0时（对$x_T$施加运动）主要导致全局移位，而没有任何单个物体运动。
 
-![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/11.png)
+![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/11.png)
 
 ![](img/paper/video_generation/Text2Video-zero/11.png)
 
 - 背景更一致，保持的更好（红色广告牌）
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/12.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/12.png)
 
   ![](img/paper/video_generation/Text2Video-zero/12.png)
 
 - 边缘图条件生成：当使用CF-Attn层时，生成更好地保留了人的身份，并且在潜在中使用运动进一步提高了时间一致性。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/13.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/13.png)
 
   ![](img/paper/video_generation/Text2Video-zero/13.png)
 
 - Video Instruct-Pix2Pix生成: 虽然在语义上知道文本引导编辑，但Tune-A-Video在本地化编辑方面有局限性，并且难以传输样式和颜色信息。另一方面，Instruct-Pix2Pix在图像级别进行视觉上合理的编辑，但在时间一致性方面存在问题。与上述方法相比，我们的方法在通过给定提示编辑视频时保持了时间一致性。
 
-  ![](../../../../themes/yilia/source/img/paper/video_generation/Text2Video-zero/14.png)
+  ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/14.png)
 
   ![](img/paper/video_generation/Text2Video-zero/14.png)

@@ -10,8 +10,8 @@ toc: true
 <!--more-->
 
 ## 3.3.1 括号匹配问题
-![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/1.png)
-![数据结构](/img/datastruct/3_stack/exam/1.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/1.png)
 
 ```c
 #include<stdio.h>
@@ -106,10 +106,10 @@ int match(char str[]){
 ```
 
 ## 3.3.2 表达式求值
-![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/2.png)
-![数据结构](/img/datastruct/3_stack/exam/2.png)
-![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/6.png)
-![数据结构](/img/datastruct/3_stack/exam/6.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/2.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/6.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/6.png)
 - 中缀->后缀
     - 手算
 
@@ -118,12 +118,12 @@ int match(char str[]){
             3）还有符号则返回2）
 
     - 代码
-        ![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/4.png)
-        ![数据结构](/img/datastruct/3_stack/exam/4.png)
+        ![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/4.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/4.png)
 
 - 中缀表达式的计算
-![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/5.png)
-![数据结构](/img/datastruct/3_stack/exam/5.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/5.png)
 
 
 - 用栈实现后缀表达式的计算
@@ -137,5 +137,5 @@ int match(char str[]){
         1）确定各个运算符的运算顺序
         2）选择下一个运算符(符左右)
         3）还有符号则返回2）
-![](../../../../themes/yilia/source/img/datastruct/3_stack/exam/3.png)
-![数据结构](/img/datastruct/3_stack/exam/3.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/exam/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/exam/3.png)

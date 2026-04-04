@@ -24,7 +24,7 @@ toc: true
 
 - 同样将$\mathbf{X}_t$和$\mathbf{H}_{t-1}$送入LSTM门中，如下图：它们由三个具有sigmoid激活函数的全连接层处理，以计算输入门、遗忘门和输出门的值。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png)
 
 - 假设有h个隐藏单元，批量大小为n，输入数为d：
@@ -37,7 +37,7 @@ $$ \begin{aligned} \mathbf{ I } _ { t } & = \sigma \left( \mathbf{ X } _ { t } \
 
 $$ \tilde{ C } _ { t } = \tanh \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xc } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hc } + \mathbf{ b } _ { c } \right) $$
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png)
 
 ### 2.1.3 记忆元
@@ -48,7 +48,7 @@ $$ \mathbf{ C } _ { t } = \mathbf{ F } _ { t } \odot \mathbf{ C } _ { t - 1 } + 
 
 - 如果遗忘门始终为1且输入门始终为0，则过去的记忆元$ \mathbf{ C } _ { t - 1 } $将一直通过时间步传递到当前时间步。引入这种设计是为了缓解梯度消失问题，并更好地捕获序列中的长距离依赖关系。计算记忆元的流程图:
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png)
 
 ### 2.1.4 隐状态
@@ -59,7 +59,7 @@ $$ \mathbf{ H } _ { t } = \mathbf{ O } _ { t } \odot \tanh \left( \mathbf{ C } _
 
 - 只要输出门接近1，我们就能够有效地将所有记忆信息传递给预测部分，而对于输出门接近0，我们只保留记忆元内的所有信息，而不需要更新隐状态。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png)
 ![](img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png)
 
 ## 2.2 从零开始实现

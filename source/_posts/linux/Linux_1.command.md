@@ -187,14 +187,14 @@ vim 文件路径
 ```
 - vim是vi的升级版  
 
-![](./img/linux/commend/4.png)
-![](./img/linux/commend/5.png)
-![](./img/linux/commend/6.png)
-![](./img/linux/commend/7.png)
-![](../../../themes/yilia/source/img/linux/commend/4.png)
-![](../../../themes/yilia/source/img/linux/commend/5.png)
-![](../../../themes/yilia/source/img/linux/commend/6.png)
-![](../../../themes/yilia/source/img/linux/commend/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/commend/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/commend/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/commend/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/commend/7.png)
+![](../../../theme/yilia/source/img/linux/commend/4.png)
+![](../../../theme/yilia/source/img/linux/commend/5.png)
+![](../../../theme/yilia/source/img/linux/commend/6.png)
+![](../../../theme/yilia/source/img/linux/commend/7.png)
 
 - 删除全部内容：`:%d`
 

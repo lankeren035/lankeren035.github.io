@@ -16,7 +16,7 @@ toc: true
 
 
 
-![](../../../../themes/yilia/source/img/paper/diffusion/freenoise/1.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/freenoise/1.png)
 
 ![](img/paper/diffusion/freenoise/1.png)
 
@@ -32,7 +32,7 @@ toc: true
 
 ### motion injection
 
-![](../../../../themes/yilia/source/img/paper/diffusion/freenoise/2.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/freenoise/2.png)
 
 ![](img/paper/diffusion/freenoise/2.png)
 

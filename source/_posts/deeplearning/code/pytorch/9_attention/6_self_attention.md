@@ -68,7 +68,7 @@ attention(X, X, X, valid_lens).shape
 
 - 目标都是将由n个词元组成的序列映射到另一个长度相等的序列，其中的每个输入词元或输出词元都由d维向量表示。比较他们的计算复杂性、顺序操作和最大路径长度。顺序操作会妨碍并行计算，而任意的序列位置组合之间的路径越短，则能更轻松地学习序列中的远距离依赖关系。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png)
 ![](img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png)
 
 - cnn

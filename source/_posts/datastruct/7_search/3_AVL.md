@@ -11,8 +11,8 @@ toc: true
 
 
 
-![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/1.png)
-![数据结构](/img/datastruct/7_search/AVL/1.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/1.png)
 <!--more-->
 
 ### 7.3-1 定义
@@ -23,30 +23,30 @@ toc: true
     - 1） 插入二叉排序树
     - 2）调整最小不平衡子树A
 
-        ![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/6.png)
-        ![数据结构](/img/datastruct/7_search/AVL/6.png)
+        ![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/6.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/6.png)
 
         - LL型：在A的左孩子的左子树插入
 
-        ![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/2.png)
-        ![数据结构](/img/datastruct/7_search/AVL/2.png)
+        ![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/2.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/2.png)
 
         - RR型：在A的右孩子的右子树插入
 
-        ![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/3.png)
-        ![数据结构](/img/datastruct/7_search/AVL/3.png)
+        ![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/3.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/3.png)
 
         - LR型：在A的左孩子的右子树插入
         
     
-        ![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/4.png)
-        ![数据结构](/img/datastruct/7_search/AVL/4.png)
+        ![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/4.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/4.png)
 
         - RL型：在A的右孩子的左子树插入
         
-        ![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/5.png)
-        ![数据结构](/img/datastruct/7_search/AVL/5.png)
+        ![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/5.png)
+        ![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/5.png)
 
 - 删除
-![](../../../../themes/yilia/source/img/datastruct/7_search/AVL/7.png)
-![数据结构](/img/datastruct/7_search/AVL/7.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/AVL/7.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/AVL/7.png)

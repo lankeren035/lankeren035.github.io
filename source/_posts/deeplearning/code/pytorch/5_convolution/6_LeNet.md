@@ -21,7 +21,7 @@ toc: true
     - 第一个卷积层有6个输出通道
     - 第二个卷积层有16个输出通道
     - 每个2x2pooling操作（stride=2）通过空间下采样将维数减少4倍
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/6_LeNet/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/6_LeNet/1.png)
 ![](img/deeplearning/code/pytorch/5_convolution/6_LeNet/1.png)
 - 为了将卷积块的输出传递给稠密块，我们必须在小批量中展平每个样本，因此需要将四维输入转换成二维输入全连接层。
 - LeNet的稠密块有三个全连接层，分别有120、84、10个输出。

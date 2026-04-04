@@ -23,7 +23,7 @@ toc:  true
 
 ## 1. 透视投影
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/18.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/18.png)
 
 ![](img/paper/3DGS/base/3dgs/18.png)
 

@@ -128,7 +128,7 @@ open_in_new: false
 reward_type: 2
 # 打赏wording
 reward_wording: '谢谢你请我吃糖果'
-# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img/alipay.jpg
+# 支付宝二维码图片地址，跟你设置头像的方式一样。比如：/assets/img_/alipay.jpg
 alipay: 
 # 微信二维码图片地址
 weixin: 

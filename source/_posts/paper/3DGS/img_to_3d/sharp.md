@@ -34,7 +34,7 @@ toc:  true
 
 ![](img/paper/3DGS/img_to_3d/sharp/1.png)
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/img_to_3d/sharp/1.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/img_to_3d/sharp/1.png)
 
 - 使用Depth Pro模型作为backbone
   - 使用该模型的encoder获取4个feature，输入为1536*1536

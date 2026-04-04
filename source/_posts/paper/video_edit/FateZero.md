@@ -38,7 +38,7 @@ toc:  true
 
 ## 3.2 FateZero视频编辑
 
-![](../../../../themes/yilia/source/img/paper/video_edit/FateZero/2.png)
+![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/2.png)
 
 ![](img/paper/video_edit/FateZero/2.png)
 
@@ -66,13 +66,13 @@ toc:  true
   - $p_ {edit}$是编辑提示词
   - 在函数ATT-FUSION中，我们注入了类似于Prompt-to-Prompt的 **提示词中不变部分的<u>交叉注意图</u>**。我们还**替换了<u>自我注意图</u>**，*以在样式和属性编辑期间保留原始结构和运动*。
 
-![](../../../../themes/yilia/source/img/paper/video_edit/FateZero/1.png)
+![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/1.png)
 
 ![](img/paper/video_edit/FateZero/1.png)
 
 - 图3显示了我们的注意力融合方法和（prompt to prompt,  Null text inversion）中用于图像编辑的简单反转然后生成的典型方法之间的玩具比较示例。**反演期间的交叉注意力图捕捉到了源图像中猫的轮廓和姿势**，但是**重建期间的注意力图**具有明显的差异。而在视频中，注意力一致性可能影响时间一致性，如图8所示。<font color='red'>这是因为时空自注意力图代表了帧之间的对应关系，现有视频扩散模型（TAV）的时间建模能力并不令人满意。</font> （时空注意力怎么变成了时空自注意力？？？）
 
-  ![](../../../../themes/yilia/source/img/paper/video_edit/FateZero/3.png)
+  ![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/3.png)
 
   ![](img/paper/video_edit/FateZero/3.png)
 
@@ -82,7 +82,7 @@ toc:  true
 
 ### 3.2.2 Attention Map Blending
 
-![](../../../../themes/yilia/source/img/paper/video_edit/FateZero/4.png)
+![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/4.png)
 
 ![](img/paper/video_edit/FateZero/4.png)
 

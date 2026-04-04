@@ -108,6 +108,6 @@ curl localhost:9200 #测试es是否ok
 
 - 使用Kibana连接es，网络如何才能连接过去？
 
-  ![](../../../themes/yilia/source/img/docker/9.png)
+  ![](../../../theme/yilia/source/img/docker/9.png)
 
   ![](img/docker/9.png)

@@ -80,7 +80,7 @@ toc:  true
        wandb
      ```
   
-  2. 根据diffusers库的版本去github找源码![](../../../../themes/yilia/source/img/paper/video_generation/AnimateDiff/1.png)
+  2. 根据diffusers库的版本去github找源码![](../../../../theme/yilia/source/img/paper/video_generation/AnimateDiff/1.png)
   
      ![](img/paper/video_generation/AnimateDiff/1.png)
   

@@ -8,8 +8,8 @@ toc: true
 ---
 #
 <!--more-->
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/1.png)
-![数据结构](/img/datastruct/2_linearlist/1.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/1.png)
 
 
 ## 2.1 定义
@@ -45,8 +45,8 @@ toc: true
 |ListTraverse(L,visit())|遍历|依次对线性表中每个元素调用visit()函数|
 
 ## 2.3 顺序表
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/2.png)
-![数据结构](/img/datastruct/2_linearlist/2.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/2.png)
 ### 2.3.1 顺序存储实现线性表
 - 静态分配
 ```c
@@ -126,10 +126,10 @@ int main(){
 }
 ```
 - 基本操作
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/3.png)
-![数据结构](/img/datastruct/2_linearlist/3.png)
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/4.png)
-![数据结构](/img/datastruct/2_linearlist/4.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/3.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/4.png)
 ```c
 /*
 顺序表

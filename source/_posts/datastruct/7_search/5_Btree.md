@@ -9,7 +9,7 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/datastruct/7_search/B/1.png)
-![数据结构](/img/datastruct/7_search/B/1.png)
+![](../../../../theme/yilia/source/img/datastruct/7_search/B/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/7_search/B/1.png)
 
 

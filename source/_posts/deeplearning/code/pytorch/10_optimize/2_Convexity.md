@@ -109,5 +109,5 @@ $$Proj_ {\mathbf{ C }} ( \mathbf{ x }) = argmin_{\mathbf{ c' } \in \mathbf{ C }}
 
 - 它是凸集中离x最近的点。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)
 ![](img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)

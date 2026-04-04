@@ -9,8 +9,8 @@ toc: true
 #
 <!--more-->
 
-![](../../../../themes/yilia/source/img/datastruct/3_stack/stack/1.png)
-![数据结构](/img/datastruct/3_stack/stack/1.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/stack/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/stack/1.png)
 
 
 ## 3.1 定义
@@ -29,8 +29,8 @@ toc: true
 - （常考：给你一个出栈序列，问你能不能通过入栈操作得到这个出栈序列）共有卡特兰数种出栈序列：$C_n=\frac{1}{n+1}\binom{2n}{n}$
 
 ## 3.3 顺序栈
-![](../../../../themes/yilia/source/img/datastruct/3_stack/stack/2.png)
-![数据结构](/img/datastruct/3_stack/stack/2.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/stack/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/stack/2.png)
 
 - 顺序栈的实现
 ```c
@@ -83,12 +83,12 @@ int GetTop(SqStack S, int *x){
 ```
 
 - 共享栈
-![](../../../../themes/yilia/source/img/datastruct/3_stack/stack/3.png)
-![数据结构](/img/datastruct/3_stack/stack/3.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/stack/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/stack/3.png)
 
 ## 3.4 链栈
-![](../../../../themes/yilia/source/img/datastruct/3_stack/stack/4.png)
-![数据结构](/img/datastruct/3_stack/stack/4.png)
+![](../../../../theme/yilia/source/img/datastruct/3_stack/stack/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/3_stack/stack/4.png)
 - 链栈的实现
 ```c
 

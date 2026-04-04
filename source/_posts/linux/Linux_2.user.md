@@ -77,7 +77,7 @@ getent passwd或group
 
 #### 5.1 权限信息
 
-![](./img/linux/user/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/user/8.png)
 
 ![](D:\blog\themes\yilia\source\img\linux\user\8.png)
 

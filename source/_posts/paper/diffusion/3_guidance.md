@@ -145,7 +145,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ## 4.1 采样算法1
 
-![](../../../../themes/yilia/source/img/paper/diffusion/guidance/1.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/guidance/1.png)
 
 ![](img/paper/diffusion/guidance/1.png)
 
@@ -154,7 +154,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ## 4.2 采样算法2
 
-![](../../../../themes/yilia/source/img/paper/diffusion/guidance/2.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/guidance/2.png)
 
 ![](img/paper/diffusion/guidance/2.png)
 
@@ -181,7 +181,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
   - 算法2的采样方式变成了某种方差的1-v次方再乘以之前的方差的v次方
   - $X_T$变成了$Z_1$
 
-![](../../../../themes/yilia/source/img/paper/diffusion/guidance/3.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/guidance/3.png)
 
 ![](img/paper/diffusion/guidance/3.png)
 
@@ -195,7 +195,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 
 
-![](../../../../themes/yilia/source/img/paper/diffusion/guidance/4.png)
+![](../../../../theme/yilia/source/img/paper/diffusion/guidance/4.png)
 
 ![](img/paper/diffusion/guidance/4.png)
 

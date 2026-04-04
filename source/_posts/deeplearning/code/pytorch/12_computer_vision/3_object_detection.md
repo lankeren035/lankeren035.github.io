@@ -20,7 +20,7 @@ toc: true
 import torch
 from d2l import torch as d2l
 d2l.set_figsize()
-img = d2l.plt.imread('./img/catdog.jpg')
+img = d2l.plt.imread('https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/catdog.jpg')
 d2l.plt.imshow(img);
 ```
 

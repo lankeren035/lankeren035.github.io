@@ -18,7 +18,7 @@ toc: true
 
 - 登录kaggle，点击头像，点击设置，下划找到Create New Token，点击下载json文件
 
-![](../../../../themes\yilia\source\img\experience\website\1.png)
+![](../../../../theme\yilia\source\img\experience\website\1.png)
 
 ![](img\experience\website\1.png)
 

@@ -48,7 +48,7 @@ python -m playwright install
   name="upass" type="password"
   ```
 
-  ![](../../../../themes/yilia/source/img/experience/network/autologin/1.png)
+  ![](../../../../theme/yilia/source/img/experience/network/autologin/1.png)
 
   ![](img/experience/network/autologin/1.png)
 

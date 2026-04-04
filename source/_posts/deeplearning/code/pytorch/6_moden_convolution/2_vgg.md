@@ -35,7 +35,7 @@ def vgg_block(num_convs, in_channels, out_channels):
 
 ## 2.2 VGG网络
 - 从AlexNet到VGG，它们本质上都是块设计。
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/2_vgg/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/2_vgg/1.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/2_vgg/1.png)
 - 原始VGG网络有5个卷积块，前两个块各有一个卷积层，后三个块各包含两个卷积层，因此共有8个卷积层。
 - 第一个模块有64输出通道，每个后续模块将输出通道翻倍，直到该数字达到512.

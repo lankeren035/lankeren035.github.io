@@ -69,7 +69,7 @@ toc:  true
 
     - 物体折射/反射
 
-      ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/1.png)
+      ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/1.png)
 
       ![](img/paper/3DGS/base/3dgs/1.png)
 
@@ -83,7 +83,7 @@ toc:  true
 
     - 像素坐标系
 
-      ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/2.png)
+      ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/2.png)
 
       ![](img/paper/3DGS/base/3dgs/2.png)
 
@@ -142,13 +142,13 @@ toc:  true
   - 理论上：t从0到正无穷
   - 对于整张图片有（H,W）条射线
 
-  ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/3.png)
+  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/3.png)
 
   ![](img/paper/3DGS/base/3dgs/3.png)
 
 - 由像素点P(u,v)反推射线
 
-  ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/4.png)
+  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/4.png)
 
   ![](img/paper/3DGS/base/3dgs/4.png)
 
@@ -252,7 +252,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
 ## 4. 模型结构
 
-![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/5.png)
+![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/5.png)
 
 ![](img/paper/3DGS/base/3dgs/5.png)
 
@@ -312,11 +312,11 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
   - $T(s)$的推导：
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/6.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/6.png)
 
     ![](img/paper/3DGS/base/3dgs/6.png)
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/7.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/7.png)
 
     ![](img/paper/3DGS/base/3dgs/7.png)
 
@@ -425,7 +425,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
   - 由于之前采用的是均匀采样，会采样到无效区域（空白区域和遮挡区域），我们希望有效区域多采样，无效区域少采样。
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/8.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/8.png)
 
     ![](img/paper/3DGS/base/3dgs/8.png)
 
@@ -440,7 +440,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
   - 最后输出是采用模型2的输出，粗模型和细模型结构相同
 
-    ![](../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/9.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/9.png)
 
     ![](img/paper/3DGS/base/3dgs/9.png)
 

@@ -19,7 +19,7 @@ toc: true
 
 -  R-CNN首先从输入图像中选取若干（例如2000个）提议区域（如锚框也是一种选取方法），并标注它们的类别和边界框（如偏移量）然后，用卷积神经网络对每个提议区域进行前向传播以抽取其特征。接下来，我们用每个提议区域的特征来预测类别和边界框。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png)
 
 - R‐CNN包括以下四个步骤：
@@ -40,7 +40,7 @@ toc: true
 
 - FastR-CNN对R‐CNN的主要改进之一，是仅在整张图象上执行卷积神经网络的前向传播。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png)
 
 - 主要计算如下:
@@ -59,7 +59,7 @@ toc: true
 
     - 如下图, 在4×4的输入中，我们选取了左上角3×3的兴趣区域。对于该兴趣区域，我们通过2×2的兴趣区域汇聚层得到一个2×2的输出。请注意，四个划分后的子窗口中分别含有元素0、1、4、5（5最大）；2、6（6最大）；8、9（9最大）；以及10。
 
-    ![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png)
+    ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png)
     ![](img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png)
 
 
@@ -114,7 +114,7 @@ torchvision.ops.roi_pool(X, rois, output_size=(2, 2), spatial_scale=0.1)
 
 - FasterR-CNN提出将选择性搜索替换为区域提议网络（regionproposalnetwork），从而减少提议区域的生成数量，并保证目标检测的精度。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png)
 
 - 计算步骤如下：
@@ -133,7 +133,7 @@ torchvision.ops.roi_pool(X, rois, output_size=(2, 2), spatial_scale=0.1)
 
 - 如果在训练集中还标注了每个目标在图像上的像素级位置，那么MaskR-CNN能够有效地利用这些详尽的标注信息进一步提升目标检测的精度。
 
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png)
 ![](img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png)
 
 - MaskR‐CNN是基于FasterR‐CNN修改而来的。具体来说，MaskR‐CNN将兴趣区域汇聚层替换为了兴趣区域对齐层，使用双线性插值（bilinearinterpolation）来保留特征图上的空间信息，从而更适于像素级预测。兴趣区域对齐层的输出包含了所有与兴趣区域的形状相同的特征图。它们不仅被用于预测每个兴趣区域的类别和边界框，还通过额外的全卷积网络预测目标的像素级位置。

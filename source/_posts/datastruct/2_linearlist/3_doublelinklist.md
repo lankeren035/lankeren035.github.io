@@ -8,8 +8,8 @@ toc: true
 ---
 #
 <!--more-->
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/1.png)
-![数据结构](/img/datastruct/2_linearlist/1.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/1.png)
 
 # 2 线性表
 
@@ -21,8 +21,8 @@ toc: true
 
 
 ### 2.4.1 基本操作
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/1.png)
-![数据结构](/img/datastruct/2_linearlist/doublelinklist/1.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/doublelinklist/1.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/1.png)
 
 - 插入
 - 删除
@@ -92,15 +92,15 @@ int DeleteNode(DNode *p){
 ```
 
 ## 2.5 循环链表
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/2.png)
-![数据结构](/img/datastruct/2_linearlist/doublelinklist/2.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/doublelinklist/2.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/2.png)
 
 ## 2.6 静态链表
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/3.png)
-![数据结构](/img/datastruct/2_linearlist/doublelinklist/3.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/doublelinklist/3.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/3.png)
 
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/4.png)
-![数据结构](/img/datastruct/2_linearlist/doublelinklist/4.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/doublelinklist/4.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/4.png)
 
 ### 2.6.1 代码实现
 - 插入
@@ -114,5 +114,5 @@ int DeleteNode(DNode *p){
 |存储结构|顺序存储|链式存储
 |优点|随机存取，存储密度高|插入和删除
 
-![](../../../../themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/5.png)
-![数据结构](/img/datastruct/2_linearlist/doublelinklist/5.png)
+![](../../../../theme/yilia/source/img/datastruct/2_linearlist/doublelinklist/5.png)
+![数据结构](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/datastruct/2_linearlist/doublelinklist/5.png)

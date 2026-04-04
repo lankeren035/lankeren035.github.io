@@ -27,6 +27,6 @@ toc:  true
 
 - 大致方法： 每一个像素都取周边像素的平均值 
 
-  ![](../../../themes/yilia/source/img/image_process/gaussian_blur/1.png)
+  ![](../../../theme/yilia/source/img/image_process/gaussian_blur/1.png)
 
   ![](img/image_process/gaussian_blur/1.png)

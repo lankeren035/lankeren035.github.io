@@ -23,7 +23,7 @@ toc: true
     - 硬件：图形处理器（Graphics Processing Unit，GPU）
 ## 1.2 AlexNet
 - 从LeNet（左）到AlexNet（右）
-![](../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
+![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
 ![](img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
 - AlexNet和LeNet的设计理念非常相似，但也存在显著差异。
     1. AlexNet比相对较小的LeNet5要深得多。

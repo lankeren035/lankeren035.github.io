@@ -69,7 +69,7 @@ npm run dev
 
 - 使用[anything llm](https://github.com/Mintplex-Labs/anything-llm) ，点击下载
 
-  ![](../../../../themes/yilia/source/img/project/deepseek/local_install/1.png)
+  ![](../../../../theme/yilia/source/img/project/deepseek/local_install/1.png)
 
   ![](img/project/deepseek/local_install/1.png)
 

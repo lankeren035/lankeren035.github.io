@@ -36,7 +36,7 @@ toc: true
 
 - 视频定制的一种简单方法是简单地用定制的T2I模型的权重替换T2V模型中的T2I权重。然而，定制的T2I模型的权重经常偏离膨胀的T2V模型中的权重，这导致特征分布的不匹配。因此，正如最近在几项工作【8,36】中观察到的，这种方法可能会导致显著的伪影或定制数据的低保真度（见图2）。在这项工作中，我们提出了一个通用框架，用于利用定制图像模型的生成2D先验，同时保留预训练T2V模型的运动先验。
 
-  ![](../../../../themes/yilia/source/img/paper/video_style_transfer/stillmoving/1.png)
+  ![](../../../../theme/yilia/source/img/paper/video_style_transfer/stillmoving/1.png)
 
   ![](img/paper/video_style_transfer/stillmoving/1.png)
 
@@ -61,7 +61,7 @@ toc: true
 
 - **在训练过程中，我们设置$\alpha = 1$，并使用来自模型训练集（WebVid）中的一小组视频（更多细节见SM）。对于每个视频，我们随机选择单个帧，复制F次，并用扩散去噪目标训练适配器层。**换句话说，**运动适配器被训练成从视频模型的分布生成描绘复制随机帧的冻结视频**（见图3（a））。一旦被训练，运动适配器就能够**在冻结的数据上训练视频模型权重**（先训练lora，然后训练视频权重？这里所谓的视频模型的权重按照“正如3.3所说”，看来应该是视频模型里的图像权重），正如我们在3.3中详细介绍的那样。**请注意，通过设置$\alpha = 0$，模型保留了其生成运动的能力。有趣的是，我们发现运动适配器控制运动量的能力推广到负尺度。例如，当设置$\alpha = -1$时，模型产生运动量增加的视频**（见SM）。因此，除了允许在图像上定制T2V模型之外，运动适配器还可以在推理期间用于控制生成视频中的运动量。
 
-  ![](../../../../themes/yilia/source/img/paper/video_style_transfer/stillmoving/2.png)
+  ![](../../../../theme/yilia/source/img/paper/video_style_transfer/stillmoving/2.png)
 
   ![](img/paper/video_style_transfer/stillmoving/2.png)
 
