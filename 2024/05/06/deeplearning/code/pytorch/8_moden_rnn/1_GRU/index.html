@@ -13,23 +13,23 @@
 <meta property="og:url" content="http://example.com/2024/05/06/deeplearning/code/pytorch/8_moden_rnn/1_GRU/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png">
 <meta property="og:image" content="http://example.com/1_GRU_files/1_GRU_9_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg">
 <meta property="og:image" content="http://example.com/1_GRU_files/1_GRU_11_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_11_1.svg">
 <meta property="article:published_time" content="2024-05-06T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.613Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -215,7 +215,7 @@
 <li><p>下图描述了门控循环单元中的重置门和更新门的输入，输入是由当前时间步的输入和前一时间步的隐状态给出。两个门的输出是由使用sigmoid激活函数的两个全连接层给出。</p>
 </li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png"></p>
 <ul>
 <li>假设在时间步t，输入是小批量$ \mathbf{ X } _ { t } \in \mathbb{ R } ^ { n \times d } $（样本数为n，输入个数为d），前一时间步的隐状态是$ \mathbf{ H } _ { t - 1 } \in \mathbb{ R } ^ { n \times h } $（隐藏单元个数为h）。重置门$ \mathbf{ R } _ { t } \in \mathbb{ R } ^ { n \times h } $和更新门$ \mathbf{ Z } _ { t } \in \mathbb{ R } ^ { n \times h } $的计算如下：</li>
 </ul>
@@ -231,7 +231,7 @@
 <li>其中$ \odot $是Hadamard积（按元素乘积）。使用tanh非线性激活函数来确保候选隐状态中的值保持在区间(−1, 1)中。</li>
 <li>与原始的隐状态更新机制相比，这种方法中的$ \mathbf{ R } _ { t } $和$ \mathbf{ H } _ { t - 1 } $的元素相乘可以减少以往状态的影响。每当重置门$ \mathbf{ R } _ { t } $中的项接近1时，我们恢复一个普通的循环神经网络。对于重置门$ \mathbf{ R } _ { t } $中所有接近0的项，候选隐状态是以$ \mathbf{ X } _ { t } $为输入的多层感知机的输出。因此，任何预先存在的隐状态都会被重置为默认值。应用重置门之后的计算流程:</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png"></p>
 <h3 id="1-1-3-隐状态"><a href="#1-1-3-隐状态" class="headerlink" title="1.1.3 隐状态"></a>1.1.3 隐状态</h3><ul>
 <li>上述计算了候选隐状态，我们仍然需要结合更新门$ \mathbf{ Z } _ { t } $的效果。这一步确定新的隐状态$ \mathbf{ H } _ { t } \in \mathbb{ R } ^ { n \times h } $在多大程度上来自旧的状态$ \mathbf{ H } _ { t - 1 } $和在多大程度上来自新的候选状态$ \tilde { \mathbf{ H } } _ { t } $。更新门仅需在$ \mathbf{ H } _ { t - 1 } $和$ \tilde { \mathbf{ H } } _ { t } $之间进行按元素的凸组合就可以实现这个目标：</li>
 </ul>
@@ -246,7 +246,7 @@
 <li><p>更新门起作用后的计算流：</p>
 </li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png"></p>
 <ul>
 <li><p>门控循环单元具有以下两个显著特征：</p>
 <ul>
@@ -906,6 +906,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

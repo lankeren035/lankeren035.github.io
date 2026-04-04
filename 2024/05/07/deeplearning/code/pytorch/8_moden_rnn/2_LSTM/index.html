@@ -13,25 +13,25 @@
 <meta property="og:url" content="http://example.com/2024/05/07/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png">
 <meta property="og:image" content="http://example.com/2_LSTM_files/2_LSTM_9_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM_files/2_LSTM_9_1.svg">
 <meta property="og:image" content="http://example.com/2_LSTM_files/2_LSTM_11_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM_files/2_LSTM_11_1.svg">
 <meta property="article:published_time" content="2024-05-07T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.614Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -209,7 +209,7 @@
 <h3 id="2-1-1-输入门、遗忘门和输出门"><a href="#2-1-1-输入门、遗忘门和输出门" class="headerlink" title="2.1.1 输入门、遗忘门和输出门"></a>2.1.1 输入门、遗忘门和输出门</h3><ul>
 <li>同样将$\mathbf{X}<em>t$和$\mathbf{H}</em>{t-1}$送入LSTM门中，如下图：它们由三个具有sigmoid激活函数的全连接层处理，以计算输入门、遗忘门和输出门的值。</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/1.png"></p>
 <ul>
 <li>假设有h个隐藏单元，批量大小为n，输入数为d：</li>
 </ul>
@@ -218,7 +218,7 @@
 <li>候选记忆元（candidate memory cell）$\tilde{C}_ t \in \mathbb{R} ^ { n \times h }$的计算与上面描述的三个门的计算类似，但是使用tanh函数作为激活函数，函数的值范围为(−1, 1):</li>
 </ul>
 <p>$$ \tilde{ C } _ { t } &#x3D; \tanh \left( \mathbf{ X } _ { t } \mathbf{ W } _ { xc } + \mathbf{ H } _ { t - 1 } \mathbf{ W } _ { hc } + \mathbf{ b } _ { c } \right) $$</p>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/2.png"></p>
 <h3 id="2-1-3-记忆元"><a href="#2-1-3-记忆元" class="headerlink" title="2.1.3 记忆元"></a>2.1.3 记忆元</h3><ul>
 <li>为了控制输入和遗忘（或跳过），输入门$ \mathbf{ I } _ { t } $控制采用多少来自候选记忆元$ \tilde{ C } _ { t } $的新数据，遗忘门$ \mathbf{ F } _ { t } $控制保留多少旧记忆元$ \mathbf{ C } _ { t - 1 } $的内容。使用按元素乘法，得出：</li>
 </ul>
@@ -226,7 +226,7 @@
 <ul>
 <li>如果遗忘门始终为1且输入门始终为0，则过去的记忆元$ \mathbf{ C } _ { t - 1 } $将一直通过时间步传递到当前时间步。引入这种设计是为了缓解梯度消失问题，并更好地捕获序列中的长距离依赖关系。计算记忆元的流程图:</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/3.png"></p>
 <h3 id="2-1-4-隐状态"><a href="#2-1-4-隐状态" class="headerlink" title="2.1.4 隐状态"></a>2.1.4 隐状态</h3><ul>
 <li>输出门控制隐状态的计算：</li>
 </ul>
@@ -234,7 +234,7 @@
 <ul>
 <li>只要输出门接近1，我们就能够有效地将所有记忆信息传递给预测部分，而对于输出门接近0，我们只保留记忆元内的所有信息，而不需要更新隐状态。</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/2_LSTM/4.png"></p>
 <h2 id="2-2-从零开始实现"><a href="#2-2-从零开始实现" class="headerlink" title="2.2 从零开始实现"></a>2.2 从零开始实现</h2><ul>
 <li>加载数据集</li>
 </ul>
@@ -883,6 +883,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

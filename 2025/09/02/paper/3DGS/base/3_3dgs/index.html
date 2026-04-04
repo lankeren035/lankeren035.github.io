@@ -13,19 +13,19 @@
 <meta property="og:url" content="http://example.com/2025/09/02/paper/3DGS/base/3_3dgs/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/21.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/21.png">
 <meta property="og:image" content="http://example.com/img/paper/3DGS/base/3dgs/21.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/22.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/22.png">
 <meta property="og:image" content="http://example.com/img/paper/3DGS/base/3dgs/22.png">
 <meta property="og:image" content="http://example.com/">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/23.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/23.png">
 <meta property="og:image" content="http://example.com/img/paper/3DGS/base/3dgs/23.png">
 <meta property="article:published_time" content="2025-09-02T07:28:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.655Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.614Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="3DGS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/paper/3DGS/base/3dgs/21.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/21.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -199,7 +199,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="2）球谐函数"><a href="#2）球谐函数" class="headerlink" title="2）球谐函数"></a>2）球谐函数</h3><p><img src="/../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/21.png"></p>
+<h3 id="2）球谐函数"><a href="#2）球谐函数" class="headerlink" title="2）球谐函数"></a>2）球谐函数</h3><p><img src="/../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/21.png"></p>
 <p><img src="/img/paper/3DGS/base/3dgs/21.png"></p>
 <ul>
 <li>任何一个球面坐标的函数可以用多个球谐函数来近似：<ul>
@@ -235,14 +235,14 @@
 <li><p>在CG上，有个东西叫做环境贴图，它表达了环境里光的存在，经常会用到球形的环境贴图。</p>
 </li>
 <li><p>如下图的水壶感觉看起来特别有立体性，且表面很光亮，因为壶体有反光。而这个反光我们就是用一个图来表达他的光学性（左侧），通过把这个光贴到壶的面上，我们就感觉这个面很光滑。为什么呢？因为我们知道在现实生活中一个金属越光滑，他的反射就会越强，镜面反射越多。那么假设一个球是绝对光滑的，他就把环境中每一个亮光的地方都反射出来了，他就记录了整个环境中的光。</p>
-<p><img src="/../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/22.png"></p>
+<p><img src="/../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/22.png"></p>
 <p><img src="/img/paper/3DGS/base/3dgs/22.png"></p>
 </li>
 <li><p>一个球记录了环境光，然后把球的每个面可以映射到矩形上，再展开就可以得到一个展示环境光的环境贴图。在渲染中我们常用球谐函数来重建光，如果分别使用1阶到6阶还原的效果会越好，如下图（右）当1阶的时候，只有一个颜色，也就是RGB，他不跟方向相关，随着阶数的增加，信息越来越多。</p>
 <p><img src="/"></p>
 </li>
 </ul>
-<p><img src="/../../../../../themes/yilia/source/img/paper/3DGS/base/3dgs/23.png" alt="23"></p>
+<p><img src="/../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/23.png" alt="23"></p>
 <p><img src="/img/paper/3DGS/base/3dgs/23.png" alt="23"></p>
 <h2 id="3-合成图片"><a href="#3-合成图片" class="headerlink" title="3. 合成图片"></a>3. 合成图片</h2><ul>
 <li><p>直观上进行$\alpha - belding$就行了，实际上高斯做足迹渲染的时候的时候还是对每个像素着色的：先生成一个h*w的空矩阵，然后遍历每个像素进行着色。基于以下公式去求得每个像素的颜色（NeRF公式）：<br>$$<br>\begin{align}<br>C &amp;&#x3D; T_ i \alpha c_ i \\<br>&amp; &#x3D; \sum_ { i &#x3D; 1 } ^ N T_ i ( 1- e^ { -\sigma_ i \delta } ) c_ i \\<br>&amp; where T_ i &#x3D; e^ { - \sum_ { j &#x3D; 1 }^ { i - 1 } \sigma_ j \delta_ j }<br>\end{align}<br>$$</p>
@@ -865,6 +865,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

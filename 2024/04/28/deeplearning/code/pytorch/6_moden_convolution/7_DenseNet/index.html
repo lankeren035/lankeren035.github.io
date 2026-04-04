@@ -13,19 +13,19 @@
 <meta property="og:url" content="http://example.com/2024/04/28/deeplearning/code/pytorch/6_moden_convolution/7_DenseNet/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png">
 <meta property="og:image" content="http://example.com/7_DenseNet_files/7_DenseNet_17_1.svg">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/6_moden_conv/7_DenseNet_files/7_DenseNet_17_1.svg">
 <meta property="article:published_time" content="2024-04-28T06:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.414Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -194,8 +194,8 @@
 <h2 id="7-1-从ResNet到DenseNet"><a href="#7-1-从ResNet到DenseNet" class="headerlink" title="7.1 从ResNet到DenseNet"></a>7.1 从ResNet到DenseNet</h2><ul>
 <li>泰勒展开式（Taylor expansion），把这个函数分解成越来越高阶的项。在x接近0时:<br>$$f(x) &#x3D; f(0) + f’(0)x + \frac{f’’(0)}{2!}x^ 2 + \frac{f’’’(0)}{3!}x^ 3 + \cdots$$</li>
 <li>ResNet将函数展开为：一个简单的线性项和一个复杂的非线性项。<br>$$f(x) &#x3D; x + g(x)$$</li>
-<li>DenseNet将$f$拓展成超过两部分: ResNet和DenseNet的关键区别在于，DenseNet输出是连接（用图中的[, ]表示）而不是如ResNet的简单相加。<br><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png"><br><img src="/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png"><br>$$ x \rightarrow [x, f_ 1(x), f_ 2([x, f_ 1(x)]), f_ 3([x, f_ 1(x), f_ 2([x, f_ 1(x)])]), \ldots]$$</li>
-<li>最后，将这些展开式结合到多层感知机中，再次减少特征的数量。我们不需要添加术语，而是将它们连接起来。DenseNet这个名字由变量之间的“稠密连接”而得来，最后一层与之前的所有层紧密相连。<br><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png"><br><img src="/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png"></li>
+<li>DenseNet将$f$拓展成超过两部分: ResNet和DenseNet的关键区别在于，DenseNet输出是连接（用图中的[, ]表示）而不是如ResNet的简单相加。<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png"><br><img src="/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png"><br>$$ x \rightarrow [x, f_ 1(x), f_ 2([x, f_ 1(x)]), f_ 3([x, f_ 1(x), f_ 2([x, f_ 1(x)])]), \ldots]$$</li>
+<li>最后，将这些展开式结合到多层感知机中，再次减少特征的数量。我们不需要添加术语，而是将它们连接起来。DenseNet这个名字由变量之间的“稠密连接”而得来，最后一层与之前的所有层紧密相连。<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png"><br><img src="/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png"></li>
 <li>DenseNet主要由2部分构成：稠密块（dense block）和过渡层（transition layer）。前者定义如何连接输入和输出，而后者则控制通道数量，使其不会太复杂。</li>
 </ul>
 <h2 id="7-2-稠密块"><a href="#7-2-稠密块" class="headerlink" title="7.2 稠密块"></a>7.2 稠密块</h2><ul>
@@ -866,6 +866,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

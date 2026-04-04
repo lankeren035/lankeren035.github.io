@@ -13,20 +13,20 @@
 <meta property="og:url" content="http://example.com/2024/10/15/paper/diffusion/3_guidance/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/diffusion/guidance/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/1.png">
 <meta property="og:image" content="http://example.com/img/paper/diffusion/guidance/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/diffusion/guidance/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/2.png">
 <meta property="og:image" content="http://example.com/img/paper/diffusion/guidance/2.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/diffusion/guidance/3.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/3.png">
 <meta property="og:image" content="http://example.com/img/paper/diffusion/guidance/3.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/diffusion/guidance/4.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/4.png">
 <meta property="og:image" content="http://example.com/img/paper/diffusion/guidance/4.png">
 <meta property="article:published_time" content="2024-10-15T02:28:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.662Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.615Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="diffusion">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/paper/diffusion/guidance/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -328,7 +328,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="4-采样算法"><a href="#4-采样算法" class="headerlink" title="4. 采样算法"></a>4. 采样算法</h1><h2 id="4-1-采样算法1"><a href="#4-1-采样算法1" class="headerlink" title="4.1 采样算法1"></a>4.1 采样算法1</h2><p><img src="/../../../../themes/yilia/source/img/paper/diffusion/guidance/1.png"></p>
+<h1 id="4-采样算法"><a href="#4-采样算法" class="headerlink" title="4. 采样算法"></a>4. 采样算法</h1><h2 id="4-1-采样算法1"><a href="#4-1-采样算法1" class="headerlink" title="4.1 采样算法1"></a>4.1 采样算法1</h2><p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/1.png"></p>
 <p><img src="/img/paper/diffusion/guidance/1.png"></p>
 <ul>
 <li>$N( \mu + s \Sigma \nabla_ {x_ t} log \space p_ \phi (y|x_ t ), \Sigma)$其中多了个s，用来控制条件控制强度：<ul>
@@ -336,7 +336,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="4-2-采样算法2"><a href="#4-2-采样算法2" class="headerlink" title="4.2 采样算法2"></a>4.2 采样算法2</h2><p><img src="/../../../../themes/yilia/source/img/paper/diffusion/guidance/2.png"></p>
+<h2 id="4-2-采样算法2"><a href="#4-2-采样算法2" class="headerlink" title="4.2 采样算法2"></a>4.2 采样算法2</h2><p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/2.png"></p>
 <p><img src="/img/paper/diffusion/guidance/2.png"></p>
 <ul>
 <li>预测处噪声然后做一个偏移，然后用DDIM采样。</li>
@@ -359,7 +359,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/../../../../themes/yilia/source/img/paper/diffusion/guidance/3.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/3.png"></p>
 <p><img src="/img/paper/diffusion/guidance/3.png"></p>
 <ul>
 <li><p>$p_ {uncond }$是一个输入条件，一个概率，用来训无条件扩散模型的概率，</p>
@@ -375,7 +375,7 @@
 <li><p>一步到位加噪得到$Z_ \lambda$</p>
 </li>
 </ul>
-<p><img src="/../../../../themes/yilia/source/img/paper/diffusion/guidance/4.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/4.png"></p>
 <p><img src="/img/paper/diffusion/guidance/4.png"></p>
 <ul>
 <li>用加权的方式获得噪声：条件模型和非条件模型预测的结果做加权（当c取空时，预测的噪声就是非条件模型预测的噪声）</li>
@@ -991,6 +991,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

@@ -13,20 +13,20 @@
 <meta property="og:url" content="http://example.com/2024/05/09/deeplearning/code/pytorch/8_moden_rnn/7_seq2seq/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png">
 <meta property="og:image" content="http://example.com/7_seq2seq_files/7_seq2seq_21_1.svg">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
 <meta property="article:published_time" content="2024-05-09T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.458Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -192,7 +192,7 @@
 <h1 id="7-序列到序列学习（seq2seq）"><a href="#7-序列到序列学习（seq2seq）" class="headerlink" title="7 序列到序列学习（seq2seq）"></a>7 序列到序列学习（seq2seq）</h1><ul>
 <li>使用两个循环神经网络的编码器和解码器，并将其应用于序列到序列（sequence to sequence，seq2seq）类的学习任务</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"></p>
 <ul>
 <li>“<eos>”表示序列结束词元。一旦输出序列生成此词元，模型就会停止预测。在循环神经网络解码器的初始化时间步，有两个特定的设计决定：首先，特定的“<bos>”表示序列开始词元，它是解码器的输入序列的第一个词元。其次，使用循环神经网络编码器最终的隐状态来初始化解码器的隐状态。</li>
 </ul>
@@ -257,7 +257,7 @@
 <ul>
 <li>模型结构</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png"></p>
 <h2 id="7-3-损失函数"><a href="#7-3-损失函数" class="headerlink" title="7.3 损失函数"></a>7.3 损失函数</h2><ul>
 <li><p>在每个时间步，解码器预测了输出词元的概率分布。类似于语言模型，可以使用softmax来获得分布，并通过计算交叉熵损失函数来进行优化。特定的填充词元被添加到序列的末尾，因此不同长度的序列可以以相同形状的小批量加载。但是，我们应该将填充词元的预测排除在损失函数的计算之外。</p>
 </li>
@@ -319,7 +319,7 @@
 <h2 id="7-5-预测"><a href="#7-5-预测" class="headerlink" title="7.5 预测"></a>7.5 预测</h2><ul>
 <li>为了采用一个接着一个词元的方式预测输出序列，每个解码器当前时间步的输入都将来自于前一时间步的预测词元。与训练类似，序列开始词元（“<bos>”）在初始时间步被输入到解码器中。当输出序列的预测遇到序列结束词元（“<eos>”）时，预测就结束了。</li>
 </ul>
-<p><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"><br><img src="/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#@save</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict_seq2seq</span>(<span class="params">net, src_sentence, src_vocab, tgt_vocab, num_steps, device, save_attention_weights=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;序列到序列模型的预测&quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 在预测时将`net`设置为评估模式</span></span><br><span class="line">    net.<span class="built_in">eval</span>()</span><br><span class="line">    src_tokens = src_vocab[src_sentence.lower().split(<span class="string">&#x27; &#x27;</span>)] + [src_vocab[<span class="string">&#x27;&lt;eos&gt;&#x27;</span>]]</span><br><span class="line">    enc_valid_len = torch.tensor([<span class="built_in">len</span>(src_tokens)], device=device)</span><br><span class="line">    src_tokens = d2l.truncate_pad(src_tokens, num_steps, src_vocab[<span class="string">&#x27;&lt;pad&gt;&#x27;</span>]) <span class="comment"># 讲src_tokens填充到num_steps长度</span></span><br><span class="line">    <span class="comment"># 添加批量轴</span></span><br><span class="line">    enc_X = torch.unsqueeze(torch.tensor(src_tokens, dtype=torch.long, device=device), dim=<span class="number">0</span>)</span><br><span class="line">    enc_outputs = net.encoder(enc_X, enc_valid_len)</span><br><span class="line">    dec_state = net.decoder.init_state(enc_outputs, enc_valid_len)</span><br><span class="line">    <span class="comment"># 添加批量轴</span></span><br><span class="line">    dec_X = torch.unsqueeze(torch.tensor([tgt_vocab[<span class="string">&#x27;&lt;bos&gt;&#x27;</span>]], dtype=torch.long, device=device), dim=<span class="number">0</span>)</span><br><span class="line">    output_seq, attention_weight_seq = [], []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(num_steps):</span><br><span class="line">        Y, dec_state = net.decoder(dec_X, dec_state)</span><br><span class="line">        <span class="comment"># 我们使用具有预测最高可能性的标记，作为解码器在下一时间步的输入</span></span><br><span class="line">        dec_X = Y.argmax(dim=<span class="number">2</span>)</span><br><span class="line">        pred = dec_X.squeeze(dim=<span class="number">0</span>).<span class="built_in">type</span>(torch.int32).item()</span><br><span class="line">        <span class="comment"># 保存注意力权重（稍后讨论）</span></span><br><span class="line">        <span class="keyword">if</span> save_attention_weights:</span><br><span class="line">            attention_weight_seq.append(net.decoder.attention_weights)</span><br><span class="line">        <span class="comment"># 一旦序列结束标记被预测，输出序列的生成就完成了</span></span><br><span class="line">        <span class="keyword">if</span> pred == tgt_vocab[<span class="string">&#x27;&lt;eos&gt;&#x27;</span>]:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        output_seq.append(pred)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27; &#x27;</span>.join(tgt_vocab.to_tokens(output_seq)), attention_weight_seq</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-6-预测序列的评估"><a href="#7-6-预测序列的评估" class="headerlink" title="7.6 预测序列的评估"></a>7.6 预测序列的评估</h2><ul>
@@ -955,6 +955,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

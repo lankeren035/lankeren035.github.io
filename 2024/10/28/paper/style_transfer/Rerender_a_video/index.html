@@ -13,21 +13,21 @@
 <meta property="og:url" content="http://example.com/2024/10/28/paper/style_transfer/Rerender_a_video/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png">
 <meta property="og:image" content="http://example.com/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png">
 <meta property="og:image" content="http://example.com/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png">
 <meta property="og:image" content="http://example.com/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png">
 <meta property="og:image" content="http://example.com/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png">
 <meta property="article:published_time" content="2024-10-28T03:28:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.552Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.614Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="论文">
 <meta property="article:tag" content="视频扩散模型">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -364,7 +364,7 @@
 <li><p>我们的框架可以充分利用不同帧之间的关系来增强输出的时间一致性</p>
 </li>
 </ul>
-<h2 id="5-1-Key-Frame-Translation"><a href="#5-1-Key-Frame-Translation" class="headerlink" title="5.1 Key Frame Translation"></a>5.1 Key Frame Translation</h2><p><img src="/../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png"></p>
+<h2 id="5-1-Key-Frame-Translation"><a href="#5-1-Key-Frame-Translation" class="headerlink" title="5.1 Key Frame Translation"></a>5.1 Key Frame Translation</h2><p><img src="/../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png"></p>
 <p><img src="/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png"></p>
 <ul>
 <li>follow <code>SDEdit</code>，本文的$X_T$不是随机噪声，而是对输入视频帧进行T步加噪得到的噪声图。（这样可以通过T控制保留多少细节）</li>
@@ -430,7 +430,7 @@ only early steps for rough shape guidance.
 <li><p>为了在采样中间阶段约束<strong>低级纹理特征</strong>（上一节是在latent space应用光流扭曲，如果一直在latent space会导致模糊和形状失真，所以上一节只在采样前期进行，到中期就在pixel space进行光流扭曲，这两节的作用应该都是<strong>约束局部特征的一致性</strong>），先对前一帧进行warp，然后编码回latent space以一种图像修复的方式进行融合</p>
 </li>
 <li><p>一个问题：有损编码器会引入<strong>失真和颜色偏差</strong>（这里有颜色偏差，所以后面一节会用adain来控制颜色一致性？），一次编码解码可能看不太出来；但是这种偏差会随着帧序列进行累积（相当于I -&gt; E() -&gt; D() -&gt;E() -&gt; D()…，为什么会累积？为了得到x2，需要用I0和I1进行warp，然后通过encoder得到x2，然后通过decoder得到I2，然后根据I0和I2得到I3，然后通过encoder得到x3。这里注意x2，它先经过decoder变成I2然后通过光流得到I3，这里I3包含前面I2的累积信息，I3再通过encoder相当于之前I2的信息经过encoder，后面每次生成时，I2的信息会多次经过encoder, decoder）效果就会比较明显（下图的b，失真较多）：</p>
-<p><img src="/../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png"></p>
 <p><img src="/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png"></p>
 <ul>
 <li><code>blended latent diffusion</code>通过微调decoder的权重以适应每个图像来解决这个问题，但这对长视频来说不切实际。本文提出novel的面向保真度的（fidelity-oriented）零样本图像编码方法。</li>
@@ -459,7 +459,7 @@ only early steps for rough shape guidance.
 </li>
 <li><p><strong>此外，还引入了一个mask矩阵</strong>$M _ \varepsilon$（用于避免补偿信息可能引入的伪影，上图c中眼睛存在蓝色伪影）。设置一个阈值，当$\varepsilon ‘(I)$和$\varepsilon ( I )$之间的误差矩阵上某个值超过预定义的阈值时，$M_ \varepsilon$的相应位置就设置成0（或1？)，因此，最终编码过程：</p>
 <p>$$ \varepsilon ^ *(I) :&#x3D; x_0 ^ r + M_ \varepsilon \cdot \lambda_ \varepsilon (x_ 0 ^ r - x_ 0 ^ { rr })$$ </p>
-<p><img src="/../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png"></p>
 <p><img src="/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png"></p>
 </li>
 </ul>
@@ -468,7 +468,7 @@ only early steps for rough shape guidance.
 <blockquote>
 <p>线性损失的假设合理吗？</p>
 </blockquote>
-<h4 id="2）结构引导的inpainting"><a href="#2）结构引导的inpainting" class="headerlink" title="2）结构引导的inpainting"></a>2）结构引导的inpainting</h4><p><img src="/../../../../themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png"></p>
+<h4 id="2）结构引导的inpainting"><a href="#2）结构引导的inpainting" class="headerlink" title="2）结构引导的inpainting"></a>2）结构引导的inpainting</h4><p><img src="/../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png"></p>
 <p><img src="/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png"></p>
 <p>$$ \tilde{I}<em>i^{\prime} &#x3D; M_0^i\cdot\left(M</em>{i-1}^i\cdot\bar{I}<em>i^{\prime}+(1-M</em>{i-1}^i)\cdot w_{i-1}^i(I_{i-1}^{\prime})\right)+\left(1-M_0^i\right)\cdot w_0^i(I_0^{\prime})$$</p>
 <ul>
@@ -1104,6 +1104,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

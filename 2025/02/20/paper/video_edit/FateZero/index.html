@@ -13,21 +13,21 @@
 <meta property="og:url" content="http://example.com/2025/02/20/paper/video_edit/FateZero/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/video_edit/FateZero/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/video_edit/FateZero/2.png">
 <meta property="og:image" content="http://example.com/img/paper/video_edit/FateZero/2.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/video_edit/FateZero/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/video_edit/FateZero/1.png">
 <meta property="og:image" content="http://example.com/img/paper/video_edit/FateZero/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/video_edit/FateZero/3.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/video_edit/FateZero/3.png">
 <meta property="og:image" content="http://example.com/img/paper/video_edit/FateZero/3.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/paper/video_edit/FateZero/4.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/video_edit/FateZero/4.png">
 <meta property="og:image" content="http://example.com/img/paper/video_edit/FateZero/4.png">
 <meta property="article:published_time" content="2025-02-20T05:28:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.664Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.614Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="论文">
 <meta property="article:tag" content="视频编辑">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/paper/video_edit/FateZero/2.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/video_edit/FateZero/2.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -205,7 +205,7 @@
 <li>最后，我们讨论了一个更具挑战性的案例，该案例也支持使用Sec中的视频扩散模型对视频进行形状感知编辑。3.3.</li>
 <li>注意，所提出的方法是一种通用编辑方法，可以用于各种文本到图像或文本到视频模型中。在本文中，我们主要使用稳定扩散【41】和基于稳定扩散的视频生成模型（Tune-A-Video【51】），因为它具有通用性和泛化能力。</li>
 </ul>
-<h2 id="3-1-LDM与Inversion"><a href="#3-1-LDM与Inversion" class="headerlink" title="3.1 LDM与Inversion"></a>3.1 LDM与Inversion</h2><h2 id="3-2-FateZero视频编辑"><a href="#3-2-FateZero视频编辑" class="headerlink" title="3.2 FateZero视频编辑"></a>3.2 FateZero视频编辑</h2><p><img src="/../../../../themes/yilia/source/img/paper/video_edit/FateZero/2.png"></p>
+<h2 id="3-1-LDM与Inversion"><a href="#3-1-LDM与Inversion" class="headerlink" title="3.1 LDM与Inversion"></a>3.1 LDM与Inversion</h2><h2 id="3-2-FateZero视频编辑"><a href="#3-2-FateZero视频编辑" class="headerlink" title="3.2 FateZero视频编辑"></a>3.2 FateZero视频编辑</h2><p><img src="/../../../../theme/yilia/source/img/paper/video_edit/FateZero/2.png"></p>
 <p><img src="/img/paper/video_edit/FateZero/2.png"></p>
 <ul>
 <li>我们使用预训练的文本到图像模型，即稳定扩散，作为我们的基本模型，它包含一个用于T时间步长去噪的UNet。我们<strong>没有直接利用由<u>重建分支的注意力</u>引导的潜在编辑的常规管道</strong>，而是对视频编辑进行了如下几个关键修改。</li>
@@ -230,18 +230,18 @@
 </ul>
 </li>
 </ul>
-<p><img src="/../../../../themes/yilia/source/img/paper/video_edit/FateZero/1.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/video_edit/FateZero/1.png"></p>
 <p><img src="/img/paper/video_edit/FateZero/1.png"></p>
 <ul>
 <li><p>图3显示了我们的注意力融合方法和（prompt to prompt,  Null text inversion）中用于图像编辑的简单反转然后生成的典型方法之间的玩具比较示例。<strong>反演期间的交叉注意力图捕捉到了源图像中猫的轮廓和姿势</strong>，但是<strong>重建期间的注意力图</strong>具有明显的差异。而在视频中，注意力一致性可能影响时间一致性，如图8所示。<font color='red'>这是因为时空自注意力图代表了帧之间的对应关系，现有视频扩散模型（TAV）的时间建模能力并不令人满意。</font> （时空注意力怎么变成了时空自注意力？？？）</p>
-<p><img src="/../../../../themes/yilia/source/img/paper/video_edit/FateZero/3.png"></p>
+<p><img src="/../../../../theme/yilia/source/img/paper/video_edit/FateZero/3.png"></p>
 <p><img src="/img/paper/video_edit/FateZero/3.png"></p>
 </li>
 </ul>
 <blockquote>
 <p>Inversion attention compared with reconstruction attention using prompt ‘deserted shore −→ ‘glacier shore’. The attention maps obtained from the reconstruction stage fail to detect the boat’s position, and can not provide suitable motion guidance for zero-shot video editing.</p>
 </blockquote>
-<h3 id="3-2-2-Attention-Map-Blending"><a href="#3-2-2-Attention-Map-Blending" class="headerlink" title="3.2.2 Attention Map Blending"></a>3.2.2 Attention Map Blending</h3><p><img src="/../../../../themes/yilia/source/img/paper/video_edit/FateZero/4.png"></p>
+<h3 id="3-2-2-Attention-Map-Blending"><a href="#3-2-2-Attention-Map-Blending" class="headerlink" title="3.2.2 Attention Map Blending"></a>3.2.2 Attention Map Blending</h3><p><img src="/../../../../theme/yilia/source/img/paper/video_edit/FateZero/4.png"></p>
 <p><img src="/img/paper/video_edit/FateZero/4.png"></p>
 <blockquote>
 <p>使用稳定扩散的零镜头形状编辑（兔子→老虎）中混合自我注意的研究。第四和第五列：忽视自我关注不能保存原始结构和背景，天真的替换会导致伪影。第三列：使用交叉注意力图混合自我注意力（第二行）从具有相似姿势的目标文本获得新形状，并从输入帧获得背景。</p>
@@ -883,6 +883,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

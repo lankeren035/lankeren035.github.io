@@ -13,17 +13,17 @@
 <meta property="og:url" content="http://example.com/2024/04/21/deeplearning/code/pytorch/5_convolution/4_mult_channel/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png">
-<meta property="og:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png">
+<meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png">
 <meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png">
 <meta property="article:published_time" content="2024-04-21T03:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.391Z">
+<meta property="article:modified_time" content="2026-04-04T05:33:27.614Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png">
+<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -187,7 +187,7 @@
       
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 <h1 id="4-多输入多输出通道"><a href="#4-多输入多输出通道" class="headerlink" title="4 多输入多输出通道"></a>4 多输入多输出通道</h1><h2 id="4-1-多输入通道"><a href="#4-1-多输入通道" class="headerlink" title="4.1 多输入通道"></a>4.1 多输入通道</h2><ul>
-<li>对每个通道分别进行互现观运算，然后按通道相加<br><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png"><br><img src="/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png"></li>
+<li>对每个通道分别进行互现观运算，然后按通道相加<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png"><br><img src="/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png"></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> d2l <span class="keyword">import</span> torch <span class="keyword">as</span> d2l</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">corr2d_multi_in</span>(<span class="params">X,K</span>):</span><br><span class="line">    <span class="comment"># 先遍历X和K的第0个维度（channel），再把它们加在一起</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(d2l.corr2d(x,k) <span class="keyword">for</span> x,k <span class="keyword">in</span> <span class="built_in">zip</span>(X,K))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证上图</span></span><br><span class="line">X = torch.tensor([[[<span class="number">0.0</span>,<span class="number">1.0</span>,<span class="number">2.0</span>],[<span class="number">3.0</span>,<span class="number">4.0</span>,<span class="number">5.0</span>],[<span class="number">6.0</span>,<span class="number">7.0</span>,<span class="number">8.0</span>]],</span><br><span class="line">                  [[<span class="number">1.0</span>,<span class="number">2.0</span>,<span class="number">3.0</span>],[<span class="number">4.0</span>,<span class="number">5.0</span>,<span class="number">6.0</span>],[<span class="number">7.0</span>,<span class="number">8.0</span>,<span class="number">9.0</span>]]])</span><br><span class="line">K = torch.tensor([[[<span class="number">0.0</span>,<span class="number">1.0</span>],[<span class="number">2.0</span>,<span class="number">3.0</span>]],[[<span class="number">1.0</span>,<span class="number">2.0</span>],[<span class="number">3.0</span>,<span class="number">4.0</span>]]])</span><br><span class="line">y = corr2d_multi_in(X,K)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
 
@@ -216,7 +216,7 @@ tensor([[[ 56.,  72.],
          [192., 224.]]])
 </code></pre>
 <h2 id="4-3-1x1卷积层"><a href="#4-3-1x1卷积层" class="headerlink" title="4.3 1x1卷积层"></a>4.3 1x1卷积层</h2><ul>
-<li>1x1卷积失去了卷积层特有的能力（在高度和宽度维度上，识别相邻元素间相互作用的能力。）其实1x1卷积的唯一计算发生在通道上。<br><img src="/../../../../../../themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png"><br><img src="/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png"></li>
+<li>1x1卷积失去了卷积层特有的能力（在高度和宽度维度上，识别相邻元素间相互作用的能力。）其实1x1卷积的唯一计算发生在通道上。<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png"><br><img src="/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png"></li>
 <li>可以将1x1卷积层看作在每个像素位置应用的全连接层，以$c_i$个输入值转换成$c_o$个输出。</li>
 <li>使用全连接层实现1x1卷积</li>
 </ul>
@@ -837,6 +837,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>
