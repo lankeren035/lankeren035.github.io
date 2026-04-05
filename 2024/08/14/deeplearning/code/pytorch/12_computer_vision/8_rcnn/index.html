@@ -14,17 +14,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png">
 <meta property="article:published_time" content="2024-08-14T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.913Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -199,7 +199,7 @@
 <h2 id="8-1-R-CNN"><a href="#8-1-R-CNN" class="headerlink" title="8.1 R-CNN"></a>8.1 R-CNN</h2><ul>
 <li>R-CNN首先从输入图像中选取若干（例如2000个）提议区域（如锚框也是一种选取方法），并标注它们的类别和边界框（如偏移量）然后，用卷积神经网络对每个提议区域进行前向传播以抽取其特征。接下来，我们用每个提议区域的特征来预测类别和边界框。</li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png"><br><img src="/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/1.png"></p>
 <ul>
 <li><p>R‐CNN包括以下四个步骤：</p>
 <ol>
@@ -222,7 +222,7 @@
 <li><p>FastR-CNN对R‐CNN的主要改进之一，是仅在整张图象上执行卷积神经网络的前向传播。</p>
 </li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png"><br><img src="/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/2.png"></p>
 <ul>
 <li><p>主要计算如下:</p>
 <ol>
@@ -243,7 +243,7 @@
 <li><p>如下图, 在4×4的输入中，我们选取了左上角3×3的兴趣区域。对于该兴趣区域，我们通过2×2的兴趣区域汇聚层得到一个2×2的输出。请注意，四个划分后的子窗口中分别含有元素0、1、4、5（5最大）；2、6（6最大）；8、9（9最大）；以及10。</p>
 </li>
 </ul>
-<p>  <img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png"><br>  <img src="/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png"></p>
+<p>  <img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png"><br>  <img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/3.png"></p>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 假设卷积神经网络抽取的特征X的高度和宽度都是4，且只有单通道</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision</span><br><span class="line"></span><br><span class="line">X = torch.arange(<span class="number">16.</span>).reshape((<span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">4</span>))</span><br><span class="line">X</span><br></pre></td></tr></table></figure>
@@ -282,7 +282,7 @@
 <li><p>FasterR-CNN提出将选择性搜索替换为区域提议网络（regionproposalnetwork），从而减少提议区域的生成数量，并保证目标检测的精度。</p>
 </li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png"><br><img src="/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/4.png"></p>
 <ul>
 <li><p>计算步骤如下：</p>
 <ol>
@@ -302,7 +302,7 @@
 <h2 id="8-4-Mask-R-CNN"><a href="#8-4-Mask-R-CNN" class="headerlink" title="8.4 Mask R-CNN"></a>8.4 Mask R-CNN</h2><ul>
 <li>如果在训练集中还标注了每个目标在图像上的像素级位置，那么MaskR-CNN能够有效地利用这些详尽的标注信息进一步提升目标检测的精度。</li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png"><br><img src="/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/8_rcnn/5.png"></p>
 <ul>
 <li>MaskR‐CNN是基于FasterR‐CNN修改而来的。具体来说，MaskR‐CNN将兴趣区域汇聚层替换为了兴趣区域对齐层，使用双线性插值（bilinearinterpolation）来保留特征图上的空间信息，从而更适于像素级预测。兴趣区域对齐层的输出包含了所有与兴趣区域的形状相同的特征图。它们不仅被用于预测每个兴趣区域的类别和边界框，还通过额外的全卷积网络预测目标的像素级位置。</li>
 </ul>
@@ -632,15 +632,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,35 +668,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,6 +681,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,15 +708,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,6 +740,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -776,11 +776,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,7 +804,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,14 +828,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -833,6 +837,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,10 +856,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -861,6 +865,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -917,14 +925,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

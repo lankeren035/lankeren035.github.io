@@ -14,11 +14,11 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_8_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_12_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_8_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_12_0.svg">
 <meta property="article:published_time" content="2024-06-02T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T05:33:27.612Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.855Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -223,7 +223,7 @@
 <h2 id="6-2-比较cnn-rnn和self-attention"><a href="#6-2-比较cnn-rnn和self-attention" class="headerlink" title="6.2 比较cnn,rnn和self-attention"></a>6.2 比较cnn,rnn和self-attention</h2><ul>
 <li>目标都是将由n个词元组成的序列映射到另一个长度相等的序列，其中的每个输入词元或输出词元都由d维向量表示。比较他们的计算复杂性、顺序操作和最大路径长度。顺序操作会妨碍并行计算，而任意的序列位置组合之间的路径越短，则能更轻松地学习序列中的远距离依赖关系。</li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png"><br><img src="/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png"></p>
 <ul>
 <li><p>cnn</p>
 <ul>
@@ -280,7 +280,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&quot;KMP_DUPLICATE_LIB_OK&quot;</span>] = <span class="string">&quot;TRUE&quot;</span></span><br><span class="line"></span><br><span class="line">encoding_dim, num_steps = <span class="number">32</span>, <span class="number">60</span></span><br><span class="line">pos_encoding = PositionalEncoding(encoding_dim, <span class="number">0</span>)</span><br><span class="line">pos_encoding.<span class="built_in">eval</span>()</span><br><span class="line">X = pos_encoding(torch.zeros((<span class="number">1</span>, num_steps, encoding_dim)))</span><br><span class="line">P = pos_encoding.P[:, :X.shape[<span class="number">1</span>], :]</span><br><span class="line">d2l.plot(torch.arange(num_steps), P[<span class="number">0</span>, :, <span class="number">6</span>:<span class="number">10</span>].T, xlabel=<span class="string">&#x27;Row (position)&#x27;</span>,</span><br><span class="line">         figsize=(<span class="number">6</span>, <span class="number">2.5</span>), legend=[<span class="string">&quot;Col %d&quot;</span> % d <span class="keyword">for</span> d <span class="keyword">in</span> torch.arange(<span class="number">6</span>, <span class="number">10</span>)])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_8_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_8_0.svg" alt="svg"></p>
 <h3 id="6-3-1-绝对位置信息"><a href="#6-3-1-绝对位置信息" class="headerlink" title="6.3.1 绝对位置信息"></a>6.3.1 绝对位置信息</h3><ul>
 <li><p>编码维度单调降低的频率与绝对位置信息的关系：</p>
 <ul>
@@ -314,7 +314,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">P = P[<span class="number">0</span>,:,:].unsqueeze(<span class="number">0</span>).unsqueeze(<span class="number">0</span>)</span><br><span class="line">d2l.show_heatmaps(</span><br><span class="line">    P,xlabel=<span class="string">&#x27;Column (encoding dimension)&#x27;</span>,</span><br><span class="line">    ylabel=<span class="string">&#x27;Row(position)&#x27;</span>, figsize=(<span class="number">3.5</span>, <span class="number">4</span>), cmap=<span class="string">&#x27;Blues&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_12_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_12_0.svg" alt="svg"></p>
 <h3 id="6-3-2-相对位置信息"><a href="#6-3-2-相对位置信息" class="headerlink" title="6.3.2 相对位置信息"></a>6.3.2 相对位置信息</h3><ul>
 <li><p>上述的位置编码还允许模型学习得到输入序列中的相对位置信息。这是因为对于任何确定的位置偏移$\sigma$，位置$ i + \sigma$处的位置编码可以线性投影位置$i$处的位置编码来表示。</p>
 </li>
@@ -651,15 +651,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,35 +687,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,6 +700,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,15 +727,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,6 +759,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -795,11 +795,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,7 +823,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -835,14 +847,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -852,6 +856,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,10 +875,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -880,6 +884,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -936,14 +944,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

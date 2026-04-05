@@ -14,11 +14,11 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg">
 <meta property="article:published_time" content="2024-08-14T05:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T05:33:27.613Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.913Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -196,7 +196,7 @@
 <li><p>单发多框检测论文中选用了在分类层之前截断的VGG，现在也常用ResNet替代。我们可以设计基础网络，使它输出的高和宽较大。这样一来，基于该特征图生成的锚框数量较多，可以用来检测尺寸较小的目标。接下来的每个多尺度特征块将上一层提供的特征图的高和宽缩小（如减半），并使特征图中每个单元在输入图像上的感受野变得更广阔。</p>
 </li>
 </ul>
-<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png"><br><img src="/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png"></p>
+<p><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png"></p>
 <ul>
 <li>如上图, 由于接近顶部的多尺度特征图较小，但具有较大的感受野，它们适合检测较少但较大的物体。简而言之，通过多尺度特征块，单发多框检测生成不同大小的锚框，并通过预测边界框的类别和偏移量来检测大小不同的目标，因此这是一个多尺度目标检测模型。</li>
 </ul>
@@ -340,14 +340,14 @@ read 100 validation examples
 <pre><code>class err 3.33e-03, bbox mae 3.28e-03
 6657.8 examples/sec on cuda:0
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg" alt="svg"></p>
 <h2 id="7-3-预测目标"><a href="#7-3-预测目标" class="headerlink" title="7.3 预测目标"></a>7.3 预测目标</h2><ul>
 <li>读取并调整测试图像的大小，然后将其转成卷积层需要的四维格式。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">X = torchvision.io.read_image(<span class="string">&#x27;.https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/banana.jpg&#x27;</span>).unsqueeze(<span class="number">0</span>).<span class="built_in">float</span>()</span><br><span class="line">img = X.squeeze(<span class="number">0</span>).permute(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>).long()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">predict</span>(<span class="params">X</span>):</span><br><span class="line">    net.<span class="built_in">eval</span>()</span><br><span class="line">    anchors, cls_preds, bbox_preds = net(X.to(device))</span><br><span class="line">    cls_probs = F.softmax(cls_preds, dim=<span class="number">2</span>).permute(<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">    output = d2l.multibox_detection(cls_probs, bbox_preds, anchors)</span><br><span class="line">    idx = [i <span class="keyword">for</span> i, row <span class="keyword">in</span> <span class="built_in">enumerate</span>(output[<span class="number">0</span>]) <span class="keyword">if</span> row[<span class="number">0</span>] != -<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> output[<span class="number">0</span>, idx]</span><br><span class="line"></span><br><span class="line">output = predict(X)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择置信度不低于0.9的边界框</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">display</span>(<span class="params">img, output, threshold</span>):</span><br><span class="line">    d2l.set_figsize((<span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line">    fig = d2l.plt.imshow(img)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> output:</span><br><span class="line">        score = <span class="built_in">float</span>(row[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">if</span> score &lt; threshold:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        h, w = img.shape[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">        bbox = [row[<span class="number">2</span>:<span class="number">6</span>] * torch.tensor((w, h, w, h), device=row.device)]</span><br><span class="line">        d2l.show_bboxes(fig.axes, bbox, <span class="string">&#x27;%.2f&#x27;</span> % score, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line"></span><br><span class="line">display(img, output.cpu(), threshold=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg" alt="svg"></p>
 
       
 
@@ -674,15 +674,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,35 +710,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,6 +723,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -770,15 +750,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -802,6 +782,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -818,11 +818,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,7 +846,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,14 +870,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -875,6 +879,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,10 +898,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -903,6 +907,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,14 +967,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

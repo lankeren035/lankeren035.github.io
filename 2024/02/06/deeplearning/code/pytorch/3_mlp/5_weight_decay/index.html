@@ -14,15 +14,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="d:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg">
 <meta property="og:image" content="d:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg">
 <meta property="og:image" content="d:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg">
 <meta property="og:image" content="d:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg">
 <meta property="article:published_time" content="2024-02-06T06:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.348Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.912Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -207,12 +207,12 @@
 
 <pre><code>w的L2范数是： 12.524763107299805
 </code></pre>
-<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg"></p>
+<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg" alt="svg"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train(lambd=<span class="number">3</span>) <span class="comment">#使用权重衰减</span></span><br></pre></td></tr></table></figure>
 
 <pre><code>w的L2范数是： 0.3719361424446106
 </code></pre>
-<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg"></p>
+<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg" alt="svg"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg"></p>
 <h2 id="5-2-简洁实现"><a href="#5-2-简洁实现" class="headerlink" title="5.2 简洁实现"></a>5.2 简洁实现</h2><ul>
 <li>通常将权重衰减集成到优化算法中，以便与任何损失函数结合使用，并允许在不增加任何额外的计算开销的情况下向算法中添加权重衰减。</li>
 </ul>
@@ -220,12 +220,12 @@
 
 <pre><code>w的L2范数： 12.297795295715332
 </code></pre>
-<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg"></p>
+<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg" alt="svg"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_concise(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
 
 <pre><code>w的L2范数： 0.40956297516822815
 </code></pre>
-<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg" alt="svg"><br><img src="/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg"></p>
+<p> <img src="D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg" alt="svg"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg"></p>
 
       
 
@@ -355,8 +355,8 @@
     </a>
   
   
-    <a href="/2024/02/05/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3.3 多层感知机简洁实现</div>
+    <a href="/2024/02/05/deeplearning/code/pytorch/3_mlp/2_mlp_realize/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.2 多层感知机实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -552,15 +552,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,35 +588,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,6 +601,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,15 +628,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,6 +660,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -696,11 +696,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,7 +724,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,14 +748,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -753,6 +757,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,10 +776,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -781,6 +785,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,14 +845,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

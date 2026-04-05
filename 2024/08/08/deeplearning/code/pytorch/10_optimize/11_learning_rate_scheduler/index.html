@@ -13,21 +13,21 @@
 <meta property="og:url" content="http://example.com/2024/08/08/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg">
 <meta property="article:published_time" content="2024-08-08T08:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-30T00:15:22.165Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.914Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -217,7 +217,7 @@
 
 <pre><code>train loss 0.163, train acc 0.937, test acc 0.892
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg" alt="svg"></p>
 <h2 id="11-2-学习率调度器"><a href="#11-2-学习率调度器" class="headerlink" title="11.2 学习率调度器"></a>11.2 学习率调度器</h2><ul>
 <li>我们可以在每个迭代轮数（甚至在每个小批量）之后向下调整学习率。例如，以动态的方式来响应优化的进展情况。</li>
 <li>我们应该定义一个调度器。当调用更新次数时，它将返回学习率的适当值。将学习率设置为$\eta &#x3D; \eta_ 0(t+1)^{-\frac12}$</li>
@@ -226,7 +226,7 @@
 
 <pre><code>learning rate is now 0.10
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg" alt="svg"></p>
 <ul>
 <li>看看加入调度器后的结果。</li>
 </ul>
@@ -234,7 +234,7 @@
 
 <pre><code>train loss 0.270, train acc 0.902, test acc 0.883
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg" alt="svg"></p>
 <ul>
 <li>比以前好一些：曲线比以前更加平滑，并且过拟合更小了。遗憾的是，关于为什么在理论上某些策略会导致较轻的过拟合，有一些观点认为，较小的步长将导致参数更接近零，因此更简单。但是，这并不能完全解释这种现象，因为我们并没有真正地提前停止，而只是轻柔地降低了学习率。</li>
 </ul>
@@ -254,14 +254,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FactorScheduler</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, factor=<span class="number">1</span>, stop_factor_lr=<span class="number">1e-7</span>, base_lr=<span class="number">0.1</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.factor = factor</span><br><span class="line">        self.stop_factor_lr = stop_factor_lr</span><br><span class="line">        self.base_lr = base_lr</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, num_update</span>):</span><br><span class="line">        self.base_lr = <span class="built_in">max</span>(self.stop_factor_lr, self.base_lr * self.factor)</span><br><span class="line">        <span class="keyword">return</span> self.base_lr</span><br><span class="line">scheduler = FactorScheduler(factor=<span class="number">0.9</span>, stop_factor_lr=<span class="number">1e-2</span>, base_lr=<span class="number">2.0</span>)</span><br><span class="line">d2l.plot(torch.arange(<span class="number">50</span>), [scheduler(t) <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>)])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg" alt="svg"></p>
 <h3 id="11-3-2-多因子调度器"><a href="#11-3-2-多因子调度器" class="headerlink" title="11.3.2 多因子调度器"></a>11.3.2 多因子调度器</h3><ul>
 <li>训练深度网络的常见策略之一是保持学习率为一组分段的常量，并且不时地按给定的参数对学习率做乘法衰减。具体地说，给定一组降低学习率的时间点，例如s&#x3D;{5,10,20}，每当$t \in s$时，降低$\eta_ {t+1} \leftarrow \eta_t \cdot \alpha$. 假设每步中的值减半，我们可以按如下方式实现这一点。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">net = net_fn()</span><br><span class="line">trainer = torch.optim.SGD(net.parameters(), lr=<span class="number">0.5</span>)</span><br><span class="line">scheduler = lr_scheduler.MultiStepLR(trainer, milestones=[<span class="number">15</span>, <span class="number">30</span>], gamma=<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_lr</span>(<span class="params">trainer, scheduler</span>):</span><br><span class="line">    lr = scheduler.get_last_lr()[<span class="number">0</span>]</span><br><span class="line">    trainer.step()</span><br><span class="line">    scheduler.step()</span><br><span class="line">    <span class="keyword">return</span> lr</span><br><span class="line">d2l.plot(torch.arange(num_epochs), [get_lr(trainer, scheduler) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs)])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg" alt="svg"></p>
 <ul>
 <li>这种分段恒定学习率调度背后的直觉是，让优化持续进行，直到权重向量的分布达到一个驻点。此时，我们才将学习率降低，以获得更高质量的代理来达到一个良好的局部最小值。</li>
 </ul>
@@ -269,7 +269,7 @@
 
 <pre><code>train loss 0.191, train acc 0.928, test acc 0.899
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg" alt="svg"></p>
 <h3 id="11-3-3-余弦调度器"><a href="#11-3-3-余弦调度器" class="headerlink" title="11.3.3 余弦调度器"></a>11.3.3 余弦调度器</h3><ul>
 <li><p>余弦调度器是一种启发式算法。它所依据的观点是：我们可能不想在一开始就太大地降低学习率，而且可能希望最终能用非常小的学习率来“改进”解决方案。这产生了一个类似于余弦的调度，函数形式如下所示，学习率的值在$t \in [0, T]$之间.<br>  $$\eta_ t &#x3D; \eta_ T + \frac{\eta_ 0 - \eta_ T}{2}(1 + \cos(\frac{\pi t}{T}))$$</p>
 <ul>
@@ -280,7 +280,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CosineScheduler</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, max_update, base_lr=<span class="number">0.01</span>, final_lr=<span class="number">0</span>, warmup_steps=<span class="number">0</span>, warmup_begin_lr=<span class="number">0</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.base_lr_orig = base_lr</span><br><span class="line">        self.max_update = max_update</span><br><span class="line">        self.final_lr = final_lr</span><br><span class="line">        self.warmup_steps = warmup_steps</span><br><span class="line">        self.warmup_begin_lr = warmup_begin_lr</span><br><span class="line">        self.max_steps = self.max_update - self.warmup_steps</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_warmup_lr</span>(<span class="params">self, epoch</span>):</span><br><span class="line">        increase = (self.base_lr - self.warmup_begin_lr) * <span class="built_in">float</span>(epoch) / <span class="built_in">float</span>(self.warmup_steps)</span><br><span class="line">        <span class="keyword">return</span> self.warmup_begin_lr + increase</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, epoch</span>):</span><br><span class="line">        <span class="keyword">if</span> epoch &lt; self.warmup_steps:</span><br><span class="line">            <span class="keyword">return</span> self.get_warmup_lr(epoch)</span><br><span class="line">        <span class="keyword">if</span> epoch &lt;= self.max_update:</span><br><span class="line">            self.base_lr = self.final_lr + (self.base_lr_orig - self.final_lr) * (<span class="number">1</span> + math.cos(math.pi * (epoch - self.warmup_steps) / self.max_steps)) / <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> self.base_lr</span><br><span class="line">scheduler = CosineScheduler(max_update=<span class="number">20</span>, base_lr=<span class="number">0.3</span>, final_lr=<span class="number">0.01</span>)</span><br><span class="line">d2l.plot(torch.arange(num_epochs), [scheduler(t) <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(num_epochs)])</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg" alt="svg"></p>
 <ul>
 <li>在计算机视觉的背景下，这个调度方式可能产生改进的结果。但请注意，如下所示，这种改进并不一定成立。</li>
 </ul>
@@ -288,7 +288,7 @@
 
 <pre><code>train loss 0.195, train acc 0.929, test acc 0.895
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg" alt="svg"></p>
 <h3 id="11-3-4-预热"><a href="#11-3-4-预热" class="headerlink" title="11.3.4 预热"></a>11.3.4 预热</h3><ul>
 <li><p>某些情况下，初始化参数不足以得到良好的解。这对某些高级网络设计来说尤其棘手，可能导致不稳定的优化结果。对此，一方面，我们可以选择一个足够小的学习率，从而防止一开始发散，然而这样进展太缓慢。另一方面，较高的学习率最初就会导致发散。</p>
 </li>
@@ -662,15 +662,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,35 +698,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,6 +711,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,15 +738,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,6 +770,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -806,11 +806,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,7 +834,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,14 +858,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -863,6 +867,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,10 +886,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -891,6 +895,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,14 +955,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>

@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/theme/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg">
-<meta property="og:image" content="http://example.com/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg">
 <meta property="article:published_time" content="2024-07-09T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T05:33:27.612Z">
+<meta property="article:modified_time" content="2026-04-04T14:23:59.855Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -195,7 +195,7 @@
 </li>
 </ul>
 <h2 id="7-1-模型"><a href="#7-1-模型" class="headerlink" title="7.1 模型"></a>7.1 模型</h2><ul>
-<li><p>编码器-解码器架构。<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg"><br><img src="/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg"></p>
+<li><p>编码器-解码器架构。<br><img src="/../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg"><br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg"></p>
 <ul>
 <li><p>编码器由多个层叠加，每个层有两个子层（sublayer）</p>
 <ul>
@@ -329,7 +329,7 @@ batch norm: tensor([[-1.0000, -1.0000],
 
 <pre><code>loss 0.031, 7034.3 tokens/sec on cpu
 </code></pre>
-<p><img src="/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg" alt="svg"></p>
 <ul>
 <li>测试翻译，计算BLEU分数</li>
 </ul>
@@ -363,7 +363,7 @@ torch.Size([2, 4, 10, 10])
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d2l.show_heatmaps(enc_attention_weights.cpu(), xlabel=<span class="string">&#x27;Key positions&#x27;</span>,ylabel=<span class="string">&#x27;Query positions&#x27;</span>, titles=[<span class="string">&#x27;Head %d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>)],figsize=(<span class="number">7</span>, <span class="number">3.5</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg" alt="svg"></p>
 <ul>
 <li>为了可视化解码器注意力权重，需要完成更多数据操作工作。如用0填充被掩蔽的注意力权重。值得注意的是，解码器的注意力权重和encoder-decoder注意力权重都有相同的查询：即以序列开始词元（BOS）开头，再与后续输出的词元共同组成序列。</li>
 </ul>
@@ -380,14 +380,14 @@ torch.Size([2, 4, 10, 10])
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Plusonetoincludethebeginning-of-sequencetoken</span></span><br><span class="line">d2l.show_heatmaps(dec_self_attention_weights[:, :, :, :<span class="built_in">len</span>(translation.split()) + <span class="number">1</span>],</span><br><span class="line">    xlabel=<span class="string">&#x27;Key positions&#x27;</span>, ylabel=<span class="string">&#x27;Query positions&#x27;</span>,</span><br><span class="line">    titles=[<span class="string">&#x27;Head %d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>)], figsize=(<span class="number">7</span>, <span class="number">3.5</span>))</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg" alt="svg"></p>
 <ul>
 <li>与编码器的自注意力的情况类似，通过指定输入序列的有效长度，输出序列的查询不会与输入序列中填充位置的词元进行注意力计算。</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d2l.show_heatmaps(dec_inter_attention_weights, xlabel=<span class="string">&#x27;Key positions&#x27;</span>,ylabel=<span class="string">&#x27;Query positions&#x27;</span>, titles=[<span class="string">&#x27;Head %d&#x27;</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>)],figsize=(<span class="number">7</span>, <span class="number">3.5</span>))</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg" alt="svg"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg" alt="svg"></p>
 
       
 
@@ -714,15 +714,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,35 +750,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,6 +763,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">双链表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,15 +790,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,6 +822,26 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
@@ -858,11 +858,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,7 +886,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,14 +910,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">pycharm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">生产实习</a>
               </li>
              
@@ -915,6 +919,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -930,10 +938,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
               </li>
              
@@ -943,6 +947,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,14 +1007,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
               </li>
             
             <div class="clearfix"></div>
