@@ -20,6 +20,20 @@
             }
           },
           {
+            "id": "52233b66d2b8538a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/files/3dgs_train.py.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_train.py"
+            }
+          },
+          {
             "id": "10ce1b03410153be",
             "type": "leaf",
             "state": {
@@ -34,17 +48,31 @@
             }
           },
           {
+            "id": "17ab97e279285597",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_readColmapSceneInfo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_readColmapSceneInfo"
+            }
+          },
+          {
             "id": "fa2e67285f94700f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getProjectionMatrix.md",
+                "file": "source/_posts/git/2computer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3dgs_getProjectionMatrix"
+              "title": "2computer"
             }
           },
           {
@@ -74,9 +102,22 @@
               "icon": "lucide-file",
               "title": "3dgs_PILtoTorch"
             }
+          },
+          {
+            "id": "722b6b4af3bf2454",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_readColmapCameras.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_readColmapCameras"
+            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -242,53 +283,53 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "fa2e67285f94700f",
+  "active": "d595d147a99739e3",
   "lastOpenFiles": [
-    "node_modules/xml-name-validator/lib/xml-name-validator.js",
-    "node_modules/xml-name-validator/README.md",
-    "node_modules/xml-name-validator/package.json",
-    "node_modules/xml-name-validator/LICENSE.txt",
-    "node_modules/xml-name-validator/lib",
-    "node_modules/xml-name-validator",
-    "node_modules/w3c-xmlserializer/lib/serialize.js",
-    "node_modules/w3c-xmlserializer/lib/constants.js",
-    "node_modules/w3c-xmlserializer/lib/attributes.js",
-    "node_modules/w3c-xmlserializer/README.md",
-    "node_modules/w3c-xmlserializer/package.json",
-    "node_modules/w3c-xmlserializer/LICENSE.md",
-    "node_modules/w3c-xmlserializer/lib",
-    "node_modules/w3c-xmlserializer",
-    "node_modules/vary/README.md",
-    "node_modules/vary/HISTORY.md",
-    "node_modules/utils-merge/README.md",
-    "node_modules/util-deprecate/README.md",
-    "node_modules/util-deprecate/History.md",
-    "node_modules/url-parse/README.md",
-    "node_modules/unpipe/README.md",
-    "node_modules/unpipe/HISTORY.md",
-    "node_modules/universalify/README.md",
-    "node_modules/to-regex-range/README.md",
-    "node_modules/titlecase/README.md",
-    "node_modules/titlecase/LICENCE.md",
-    "node_modules/tildify/readme.md",
-    "node_modules/statuses/README.md",
-    "node_modules/statuses/HISTORY.md",
-    "node_modules/shebang-regex/readme.md",
-    "node_modules/setprototypeof/README.md",
-    "node_modules/serve-static/README.md",
-    "node_modules/serve-static/HISTORY.md",
-    "node_modules/resolve/SECURITY.md",
-    "node_modules/requires-port/README.md",
-    "node_modules/readdirp/README.md",
-    "node_modules/psl/browserstack-logo.svg",
-    "node_modules/nib/iconic/iconic_stroke.svg",
-    "node_modules/hexo-theme-landscape/source/css/images/banner.jpg",
-    "node_modules/highlight.js/styles/pojoaque.jpg",
-    "node_modules/highlight.js/styles/brown-papersq.png",
+    "source/_posts/git/2computer.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getProjectionMatrix.md",
+    "source/_posts/paper/3DGS/base/2_3dgs.md",
     "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_7_1.svg",
-    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg"
+    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg",
+    "source/_posts/obsidian/3dgs_code_learn/main.md",
+    "themes/yilia/source/img/obsidian/3dgs/2.png",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/cameras.py/Camera/3dgs___init__.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera.md",
+    "source/_posts/paper/3DGS/CG/camera_transformation.md.md",
+    "source/_posts/paper/3DGS/CG/~syncthing~camera_transformation.md.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~NeRF.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~2_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/~syncthing~3dgs_code.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~3_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~1_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/CG/~syncthing~rasterization.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/general_utils.py/3dgs_PILtoTorch.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/camera_utils.py/3dgs_loadCam.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/camera_utils.py/3dgs_cameraList_from_camInfos.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/__init__.py/Scene/3dgs___init__.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_getNerfppNorm.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getWorld2View2.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/dataset_readers.py/~syncthing~3dgs_SceneInfo.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/~syncthing~3dgs_readColmapSceneInfo.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/~syncthing~3dgs_fetchPly.md.tmp",
+    "themes/yilia/source/img/paper/video_edit/Tokenflow/results_sub_00.png",
+    "themes/yilia/source/img/datastruct/5_tree/bintree/7.png",
+    "themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset_files/6_object_detect_dataset_11_0.png",
+    "themes/yilia/source/img/datastruct/6_graph/DAG/6.png",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_readColmapSceneInfo.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_readColmapCameras.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/train.py/3dgs_training.md",
+    "[3dgs_CameraInfo.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/dataset_readers.py/3dgs_CameraInfo.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_focal2fov.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/colmap_loader.py/3dgs_Image.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_qvec2rotmat.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_intrinsics_binary.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_extrinsics_binary.md",
+    "source/_posts/obsidian/3dgs_code_learn/files/3dgs_train.py.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_next_bytes.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/gaussian_model.py/GaussianModel/3dgs___init__.md"
   ]
 }
