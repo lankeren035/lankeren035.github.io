@@ -70,7 +70,7 @@ d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
 
 
     
-![svg](7_softmax_realize_simple_files/7_softmax_realize_simple_5_0.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/7_softmax_realize_simple_files/7_softmax_realize_simple_5_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/7_softmax_realize_simple_files/7_softmax_realize_simple_5_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/7_softmax_realize_simple_files/7_softmax_realize_simple_5_0.svg)
     
 

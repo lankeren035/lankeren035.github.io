@@ -26,7 +26,7 @@ toc: true
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\SRDiff\1.png)
 
-![](img/deeplearning/paper/SR/SRDiff/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/SRDiff/1.png)
 
 - 将残差图像拿来做扩散
 - 将LR通过encoder后作为条件
@@ -35,8 +35,8 @@ toc: true
 
  ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\SRDiff\2.png) 
 
- ![](img/deeplearning/paper/SR/SRDiff/2.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/SRDiff/2.png) 
 
  ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\SRDiff\3.png) 
 
- ![](img/deeplearning/paper/SR/SRDiff/3.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/SRDiff/3.png) 

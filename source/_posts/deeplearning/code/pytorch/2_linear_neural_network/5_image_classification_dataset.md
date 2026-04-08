@@ -73,8 +73,8 @@ show_images(X.reshape(18, 28, 28), 2, 9, titles=get_fashion_mnist_labels(y));
 
 
     
-![svg](5_image_classification_dataset_files/5_image_classification_dataset_3_1.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/5_image_classification_dataset_files/5_image_classification_dataset_3_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/5_image_classification_dataset_files/5_image_classification_dataset_3_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/5_image_classification_dataset_files/5_image_classification_dataset_3_1.svg)
     
 
 

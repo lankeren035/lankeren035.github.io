@@ -110,4 +110,4 @@ curl localhost:9200 #测试es是否ok
 
   ![](../../../theme/yilia/source/img/docker/9.png)
 
-  ![](img/docker/9.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/9.png)

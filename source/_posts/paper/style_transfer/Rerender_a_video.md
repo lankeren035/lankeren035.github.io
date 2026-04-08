@@ -167,7 +167,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
 
-![](img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/1.png)
 
 - follow `SDEdit`，本文的$X_T$不是随机噪声，而是对输入视频帧进行T步加噪得到的噪声图。（这样可以通过T控制保留多少细节）
 - 采样每一帧时，**使用第一帧作为锚帧**来约束**全局风格一致性**，以及**当前帧的前一帧**来约束**局部时间一致性**
@@ -231,7 +231,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
 
-  ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/2.png)
   
   - `blended latent diffusion`通过微调decoder的权重以适应每个图像来解决这个问题，但这对长视频来说不切实际。本文提出novel的面向保真度的（fidelity-oriented）零样本图像编码方法。
 
@@ -263,7 +263,7 @@ toc:  true
 
     ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
 
-    ![](img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/3.png)
 
 >线性损失的假设合理吗？
 
@@ -271,7 +271,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
 
-![](img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/rerender_a_video/4.png)
 
 $$ \tilde{I}_i^{\prime} = M_0^i\cdot\left(M_{i-1}^i\cdot\bar{I}_i^{\prime}+(1-M_{i-1}^i)\cdot w_{i-1}^i(I_{i-1}^{\prime})\right)+\left(1-M_0^i\right)\cdot w_0^i(I_0^{\prime})$$
 

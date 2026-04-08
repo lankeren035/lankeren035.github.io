@@ -65,7 +65,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/5/1.png)
 
-  ![](img/java/produce_practice/5/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/5/1.png)
 
   - 在pages/user/index.js里面也可以看到编辑按钮对应的是handleEdit，然后在handleEdit里面发现又跳转到创建用户页。
   - 然后去createUser/index.html里面看到创建用户按钮对应index.js下的handleCreateUser函数，在handleCreateUser函数里面判断，如果传入了user.id说明是要修改，没传入则是要新建，在修改部分找到路径：/admin/modifyUserInfo。

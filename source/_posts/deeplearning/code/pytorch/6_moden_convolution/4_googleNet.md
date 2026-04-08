@@ -13,7 +13,7 @@ toc: true
 ## 4.1 Inception块
 - 在GoogLeNet中，基本的卷积块被称为Inception块（Inception block）。这很可能得名于电影《盗梦空间》（Inception），因为电影中的一句话“我们需要走得更深”（“We need to go deeper”）。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/1.png)
 - Inception块由四条并行路径组成。前三条路径使用窗口大小为1 × 1、3 × 3和5 × 5的卷积层，从不同空间大小中提取信息。
 
 
@@ -54,7 +54,7 @@ class Inception(nn.Module):
 - GoogLeNet架构：
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googlenet/2.png)
 
 
 ```python
@@ -136,6 +136,6 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 
     
-![svg](4_googleNet_files/4_googleNet_7_1.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/4_googleNet_files/4_googleNet_7_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/6_moden_convolution/4_googleNet_files/4_googleNet_7_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/4_googleNet_files/4_googleNet_7_1.svg)
 

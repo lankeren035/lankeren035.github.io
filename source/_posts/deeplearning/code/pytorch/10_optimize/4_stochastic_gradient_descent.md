@@ -63,7 +63,7 @@ d2l.show_trace_2d(f, d2l.train_2d(sgd, steps=50, f_grad=f_grad))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_1_2.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_1_2.svg)
     
 
 
@@ -102,7 +102,7 @@ d2l.show_trace_2d(f, d2l.train_2d(sgd, steps=1000, f_grad=f_grad))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_3_1.svg)
     
 
 
@@ -124,7 +124,7 @@ d2l.show_trace_2d(f, d2l.train_2d(sgd, steps=50, f_grad=f_grad))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/4_stochastic_gradient_descent_files/4_stochastic_gradient_descent_5_1.svg)
     
 
 

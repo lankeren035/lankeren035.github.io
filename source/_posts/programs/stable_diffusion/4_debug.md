@@ -131,4 +131,4 @@ pip install debugpy
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/17.jpg)
 
-  ![](img/project/stable_diffusion/17.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/17.jpg)

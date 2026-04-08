@@ -15,7 +15,7 @@ toc: true
 - 通过上述步骤，将得到与键对应的值的概率分布（即注意力权重）。最后，注意力汇聚的输出就是基于这些注意力权重的值的加权和。从宏观来看，上述算法可以用来实现注意力机制框架。下图说明了如何将注意力汇聚的输出计算成为值的加权和，其中a表示注意力评分函数。由于注意力权重是概率分布，因此加权和其本质上是加权平均值。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/3_attention_score/1.png)
-![](img/deeplearning/code/pytorch/9_attention/3_attention_score/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/3_attention_score/1.png)
 
 - 假设有一个查询$q\in\mathbb{R}^ q$和m个键值对$(k_1,v_1),\ldots,(k_m,v_m)$，其中$k_ i \in \mathbb{R}^ k$，$v_ i \in \mathbb{R}^ v$。注意力汇聚函数$f$就被表示成值的加权和：
 
@@ -152,7 +152,7 @@ d2l.show_heatmaps(attention.attention_weights.reshape((1, 1, 2, 10)), xlabel='Ke
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/3_attention_score_files/3_attention_score_11_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/3_attention_score_files/3_attention_score_11_0.svg)
     
 
 
@@ -203,6 +203,6 @@ d2l.show_heatmaps(attention.attention_weights.reshape((1,1,2,10)), xlabel='Keys'
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/3_attention_score_files/3_attention_score_13_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/3_attention_score_files/3_attention_score_13_1.svg)
     
 

@@ -25,7 +25,7 @@ toc:  true
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/18.png)
 
-![](img/paper/3DGS/base/3dgs/18.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/18.png)
 
 - 在透视投影中，我们通过一个视锥来观测物体，怎么定义这个视锥：
   - 长宽比

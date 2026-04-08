@@ -107,7 +107,7 @@ toc: true
 
   ![](../../../theme/yilia/source/img/docker/22.png)
   
-  ![](img/docker/22.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/22.png)
 
 - 其中的docker0是与物理网卡直连的（NAT）
 

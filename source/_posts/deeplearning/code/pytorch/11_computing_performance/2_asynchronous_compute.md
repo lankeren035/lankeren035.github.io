@@ -76,11 +76,11 @@ z
 
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/1.png)
-![](img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/1.png)
 
 - 每当Python前端线程执行前三条语句中的一条语句时，它只是将任务返回到后端队列。当最后一个语句的结果需要被打印出来时，Python前端线程将等待C++后端线程完成变量z的结果计算。这种设计的一个好处是Python前端线程不需要执行实际的计算。因此，不管Python的性能如何，对程序的整体性能几乎没有影响。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/2.png)
-![](img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/2.png)
 
 ## 2.2 障碍器与阻塞器
 

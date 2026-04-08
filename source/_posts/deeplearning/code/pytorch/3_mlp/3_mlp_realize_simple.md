@@ -46,6 +46,6 @@ d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
 
 
   ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple_files/3_mlp_realize_simple_1_0.svg)
-![](img/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple_files/3_mlp_realize_simple_1_0.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/3_mlp_realize_simple_files/3_mlp_realize_simple_1_0.svg)
     
 

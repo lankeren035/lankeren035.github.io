@@ -32,7 +32,7 @@ toc:  true
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/21.png)
 
-![](img/paper/3DGS/base/3dgs/21.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/21.png)
 
 - 任何一个球面坐标的函数可以用多个球谐函数来近似：
   - 什么叫“球面坐标的函数”：这里任意的一个点相当于三维的极坐标下，固定r，只有$\theta$和$\phi$可以变化，所以这里球谐函数就会跟这个点的方向有关系。比如我有一个球，他在不同的方向上反射的光可能是不一样的。这样就把颜色和观测角度建立了联系，颜色就不会单一了。
@@ -99,7 +99,7 @@ $$
 
   ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/22.png)
 
-  ![](img/paper/3DGS/base/3dgs/22.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/22.png)
 
 - 一个球记录了环境光，然后把球的每个面可以映射到矩形上，再展开就可以得到一个展示环境光的环境贴图。在渲染中我们常用球谐函数来重建光，如果分别使用1阶到6阶还原的效果会越好，如下图（右）当1阶的时候，只有一个颜色，也就是RGB，他不跟方向相关，随着阶数的增加，信息越来越多。
 
@@ -107,7 +107,7 @@ $$
 
 ![23](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/23.png)
 
-![23](img/paper/3DGS/base/3dgs/23.png)
+![23](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/23.png)
 
 
 

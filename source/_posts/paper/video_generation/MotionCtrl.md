@@ -95,10 +95,10 @@ toc:  true
 ## 2.1 VideoCrafter1
 - 编码器是使用sd的编码器处理每一帧，不包含时间信息
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/13.png)
-![](img/paper/video_generation/Motionctrl/13.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/13.png)
 - spatial transformer和temporal transformer
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/14.png)
-![](img/paper/video_generation/Motionctrl/14.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/14.png)
 
 # 3. Methodology
 ## 3.1 LVDM
@@ -110,7 +110,7 @@ toc:  true
 ## 3.2 MotionCtrl
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/1.png)
-![](img/paper/video_generation/Motionctrl/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/1.png)
 
 - CMCM和OMCM分别考虑到摄像机运动的全局特性和物体运动的局部特性
 
@@ -128,7 +128,7 @@ toc:  true
 
     > 旋转矩阵和平移矩阵是什么？
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/12.png)
-![](img/paper/video_generation/Motionctrl/12.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/12.png)
 
 - 先将$RT$扩展维度到$H \times W \times L \times 12$，然后与第一个self attention模块的输出在最后一个维度进行concatenate。然后用一个全连接层将其映射到$H \times W \times L \times C$，再与第二个self attention模块的输出concatenate。然后输入第二个self attention模块。
 
@@ -167,7 +167,7 @@ toc:  true
         > 轨迹具体是什么含义，什么形式？根据下图d可以发现四张图片中几个点好像是一一对应的
 
         ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/2.png)
-        ![](img/paper/video_generation/Motionctrl/2.png)
+        ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/2.png)
         - 为了避免用户需要提供上图b那样的密集轨迹，MotionCtrl要能够接收用户输入的稀疏轨迹来控制移动物体。因此，OMCM是通过从密集轨迹中随机选择n个轨迹来训练的（上图c）。然而，这些选择的稀疏轨迹往往过于分散，不利于有效的训练。从DragNUWA中获得启发，我们通过对稀疏轨迹应用高斯滤波器来缓解这个问题（上图d），我们最初使用密集轨迹训练OMCM，然后使用稀疏轨迹对其进行微调。
 
     - 训练OMCM时，LVDM和CMCM都是冻结的。这种策略保证了OMCM在有限的数据集上增加了对象运动控制功能，同时对LVDM和CMCM的影响最小。
@@ -217,10 +217,10 @@ toc:  true
 ### 4.2.1 相机运动控制
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/3.png)
-![](img/paper/video_generation/Motionctrl/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/3.png)
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/11.png)
-![](img/paper/video_generation/Motionctrl/11.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/11.png)
 
 - 对于基本姿势，MotionCtrl可以生成不同速度的相机运动，而AnimaDiff时不可调的
 
@@ -228,14 +228,14 @@ toc:  true
 > 你训练不也用了密集的运动向量？
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/4.png)
-![](img/paper/video_generation/Motionctrl/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/4.png)
 
 - 定量结果更好
 
 ### 4.2.2 物体运动控制
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/5.png)
-![](img/paper/video_generation/Motionctrl/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/5.png)
 
 - 红色曲线表示给定的轨迹，而绿色点表示相应帧中预期的物体位置。MotionCtrl可以生成运动更接近给定轨迹的对象，而VideoComposer的结果在某些帧中偏离
 
@@ -243,7 +243,7 @@ toc:  true
 ### 4.2.3 相机运动与物体运动结合
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/6.png)
-![](img/paper/video_generation/Motionctrl/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/6.png)
 
 - 当MotionCtrl仅应用于轨迹时，它主要生成沿此路径的摇摆玫瑰。通过进一步引入缩放相机姿势，玫瑰和背景都按照指定的轨迹和相机运动进行动画。
 
@@ -257,20 +257,20 @@ toc:  true
     - 将相机姿势和spatial self-attention模块结合
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/7.png)
-![](img/paper/video_generation/Motionctrl/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/7.png)
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/8.png)
-![](img/paper/video_generation/Motionctrl/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/8.png)
 
 - 这三种位置得到的结果在CamMC上与最初的LVDM接近。这是因为这些组件主要关注空间内容生成，这对相机姿势中编码的相机运动不敏感。相反，将CMCM与LVDM的时间转换器结合，可以显著改善摄像机的运动控制。
 
 ### 4.3.2 密集轨迹和稀疏轨迹
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/9.png)
-![](img/paper/video_generation/Motionctrl/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/9.png)
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Motionctrl/10.png)
-![](img/paper/video_generation/Motionctrl/10.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Motionctrl/10.png)
 
 - 只使用密集轨迹的训练会产生较差的结果，**这是由于训练和推理阶段之间的差异（推理期间提供稀疏轨迹）。**
 

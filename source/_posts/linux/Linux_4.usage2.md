@@ -39,19 +39,19 @@ hostnamectl set-hostname 主机名 #修改主机名
 
      ![](D:\blog\themes\yilia\source\img\linux\usage\1.png)
 
-     ![](img/linux/usage/1.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/1.png)
 
      ![](D:\blog\themes\yilia\source\img\linux\usage\2.png)
 
-     ![](img/linux/usage/2.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/2.png)
 
      ![](D:\blog\themes\yilia\source\img\linux\usage\3.png)
 
-     ![](img/linux/usage/3.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/3.png)
 
      ![](D:\blog\themes\yilia\source\img\linux\usage\4.png)
 
-     ![](img/linux/usage/4.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/4.png)
 
   2. 在linux中手动修改配置文件
 
@@ -63,7 +63,7 @@ hostnamectl set-hostname 主机名 #修改主机名
 
      ![](D:\blog\themes\yilia\source\img\linux\usage\5.png)
 
-     ![](img/linux/usage/5.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/5.png)
 
      ```bash
      systemctl restart network #重启网卡
@@ -176,7 +176,7 @@ hostnamectl set-hostname 主机名 #修改主机名
 
   ![](D:\blog\themes\yilia\source\img\linux\usage\6.png)
 
-  ![](img/linux/usage/6.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/6.png)
 
   | 行   | 解释                                                         |
   | ---- | ------------------------------------------------------------ |
@@ -189,13 +189,13 @@ hostnamectl set-hostname 主机名 #修改主机名
 
   ![](D:\blog\themes\yilia\source\img\linux\usage\7.png)
 
-  ![](img/linux/usage/7.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/7.png)
 
   - 在top界面下：
 
     ![](D:\blog\themes\yilia\source\img\linux\usage\8.png)
 
-    ![](img/linux/usage/8.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/8.png)
 
 - 磁盘信息监控
 
@@ -221,7 +221,7 @@ hostnamectl set-hostname 主机名 #修改主机名
 
       ![](D:\blog\themes\yilia\source\img\linux\usage\9.png)
 
-      ![](img/linux/usage/9.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/9.png)
 
       - rrqm/s： 每秒这个设备相关的读取请求有多少被Merge了（当系统调用需要读取数据的时候，VFS将请求发到各个FS，如果FS发现不同的读取请求读取的是相同Block的数据，FS会将这个请求合并Merge, 提高IO利用率, 避免重复调用）；
 
@@ -261,7 +261,7 @@ hostnamectl set-hostname 主机名 #修改主机名
 
     ![](D:\blog\themes\yilia\source\img\linux\usage\10.png)
 
-    ![](img/linux/usage/10.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/usage/10.png)
 
     - IFACE 本地网卡接口的名称
 

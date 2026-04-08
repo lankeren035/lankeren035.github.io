@@ -147,7 +147,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/guidance/1.png)
 
-![](img/paper/diffusion/guidance/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/1.png)
 
 - $N( \mu + s \Sigma \nabla_ {x_ t} log \space p_ \phi (y|x_ t ), \Sigma)$其中多了个s，用来控制条件控制强度：
   - $s  \nabla log \space p (y|x_ t ) \rightarrow \nabla lg \space p (y|x_ t )^ s \cdot z  $， 其中z用于归一化（假设当s=1时，比如原本这里的p有两种可能取值：0.9和0.1，当s增大为2时，两个可能取值：$0.9^2，0.1^2$，归一化之后$0.9^2$就变得比原本的0.9更大了。
@@ -156,7 +156,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/guidance/2.png)
 
-![](img/paper/diffusion/guidance/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/2.png)
 
 - 预测处噪声然后做一个偏移，然后用DDIM采样。
 
@@ -183,7 +183,7 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/guidance/3.png)
 
-![](img/paper/diffusion/guidance/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/3.png)
 
 - $p_ {uncond }$是一个输入条件，一个概率，用来训无条件扩散模型的概率，
 
@@ -197,6 +197,6 @@ $$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &= \frac{ \hat q( X_t | 
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/guidance/4.png)
 
-![](img/paper/diffusion/guidance/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/4.png)
 
 - 用加权的方式获得噪声：条件模型和非条件模型预测的结果做加权（当c取空时，预测的噪声就是非条件模型预测的噪声）

@@ -17,11 +17,11 @@ $$f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^ 2 + \frac{f'''(0)}{3!}x^ 3 + \cdots
 $$f(x) = x + g(x)$$
 - DenseNet将$f$拓展成超过两部分: ResNet和DenseNet的关键区别在于，DenseNet输出是连接（用图中的[, ]表示）而不是如ResNet的简单相加。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/1.png)
 $$ x \rightarrow [x, f_ 1(x), f_ 2([x, f_ 1(x)]), f_ 3([x, f_ 1(x), f_ 2([x, f_ 1(x)])]), \ldots]$$
 - 最后，将这些展开式结合到多层感知机中，再次减少特征的数量。我们不需要添加术语，而是将它们连接起来。DenseNet这个名字由变量之间的“稠密连接”而得来，最后一层与之前的所有层紧密相连。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_densenet/2.png)
 - DenseNet主要由2部分构成：稠密块（dense block）和过渡层（transition layer）。前者定义如何连接输入和输出，而后者则控制通道数量，使其不会太复杂。
 ## 7.2 稠密块
 - DenseNet使用了ResNet改良版的“批量规范化、激活和卷积”架构
@@ -167,6 +167,6 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 
     
-![svg](7_DenseNet_files/7_DenseNet_17_1.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/7_DenseNet_files/7_DenseNet_17_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/6_moden_convolution/7_DenseNet_files/7_DenseNet_17_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/7_DenseNet_files/7_DenseNet_17_1.svg)
 

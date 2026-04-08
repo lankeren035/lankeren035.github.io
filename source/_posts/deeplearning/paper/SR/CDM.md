@@ -25,9 +25,9 @@ toc: true
 - 整体思想： Classifier Diffusion Models + SR3 + Tricks的串联模型，应用多个不同分辨率的扩散模型实现超分效果。 
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\CDM\1.png)
-![](img/deeplearning/paper/SR/CDM/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/CDM/1.png)
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\CDM\2.png)
-![](img/deeplearning/paper/SR/CDM/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/CDM/2.png)
 - SR3中也提到可以用级联的SR3做生成，本文在此基础上提出条件增强以提高生成质量
 
 # 1.1 条件增强
@@ -41,6 +41,6 @@ toc: true
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\CDM\3.png)
 
-![](img/deeplearning/paper/SR/CDM/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/CDM/3.png)
 
 - 效果比直接级联SR3好

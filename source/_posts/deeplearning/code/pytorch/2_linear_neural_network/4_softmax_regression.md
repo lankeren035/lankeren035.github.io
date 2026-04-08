@@ -14,8 +14,8 @@ toc: true
 ## 4.2 网络架构
 - 为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1=x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1=x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1=x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$
 
-![$ \mathfb{o}= \mathfb{W} \mathfb{x}+ \mathfb{b}$](4img/1.png)
-![$ \mathfb{o} = \mathfb{W} \mathfb{x} + \mathfb{b}$](img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png|$ \mathfb{o}= \mathfb{W} \mathfb{x}+ \mathfb{b}$]]
+![$ \mathfb{o} = \mathfb{W} \mathfb{x} + \mathfb{b}$](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png)
 ## 4.3 softmax全连接层的参数开销
 - $d$个输入和$q$个输出的全连接层，参数开销为$O(dq)$
 - 可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定

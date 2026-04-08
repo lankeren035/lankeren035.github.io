@@ -67,7 +67,7 @@ plot_kernel_reg(y_hat)
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_7_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_7_0.svg)
     
 
 
@@ -117,7 +117,7 @@ plot_kernel_reg(y_hat)
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_9_0.svg)
     
 
 
@@ -131,7 +131,7 @@ d2l.show_heatmaps(attention_weights.unsqueeze(0).unsqueeze(0), xlabel='Sorted tr
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_11_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_11_0.svg)
     
 
 
@@ -242,7 +242,7 @@ for epoch in range(5):
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_19_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_19_0.svg)
     
 
 
@@ -260,7 +260,7 @@ plot_kernel_reg(y_hat)
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_21_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_21_0.svg)
     
 
 
@@ -274,6 +274,6 @@ d2l.show_heatmaps(net.attention_weights.unsqueeze(0).unsqueeze(0),xlabel='Sorted
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_23_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/2_attention_pooling_files/2_attention_pooling_23_0.svg)
     
 

@@ -61,7 +61,7 @@ $$ z_ t = \frac{\partial f(x_ t, h_ {t-1}, w_ h)}{\partial w_ h} + \xi_ t \frac{
 
 ### 7.1.4 比较策略
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/7_backward/1.png)
-![](img/deeplearning/code/pytorch/7_rnn/7_backward/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/7_backward/1.png)
 - 第一行采用随机截断，方法是将文本划分为不同长度的片断；
 - 第二行采用常规截断，方法是将文本分解为相同长度的子序列。这也是我们在循环神经网络实验中一直在做的；
 - 第三行采用通过时间的完全反向传播，结果是产生了在计算上不可行的表达式。
@@ -77,7 +77,7 @@ $$ L = \frac{1}{T} \sum_ {t=1} ^ T l(\mathbf{ o }_ t, y_ t). $$
 
 - 为了在循环神经网络的计算过程中可视化模型变量和参数之间的依赖关系，我们可以为模型绘制一个计算图：例如，时间步3的隐状态$ \mathbf{ h }_ 3 $的计算依赖于模型参数$\mathbf{ W }_ { hx } $和$\mathbf{ W }_ { hh } $，以及最终时间步的隐状态$ \mathbf{ h }_ 2 $和当前时间步的输入$ \mathbf{ x }_ 3 $。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/7_backward/2.png)
-![](img/deeplearning/code/pytorch/7_rnn/7_backward/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/7_backward/2.png)
 
 - 未着色的方框表示变量，着色的方框表示参数，圆表示运算符。模型参数是：$\mathbf{ W }_ { hx } $，$\mathbf{ W }_ { hh } $和$\mathbf{ W }_ { qh } $。通常，训练该模型需要对这些参数进行梯度计算：$ \frac{\partial L}{\partial \mathbf{ W }_ { hx } } $，$ \frac{\partial L}{\partial \mathbf{ W }_ { hh } } $和$ \frac{\partial L}{\partial \mathbf{ W }_ { qh } } $。根据上图的依赖关系，我们可以沿箭头的相反方向遍历计算图，依次计算和存储梯度。为了灵活地表示链式法则中不同形状的矩阵、向量和标量的乘法，我们继续使用prod运算符。
 

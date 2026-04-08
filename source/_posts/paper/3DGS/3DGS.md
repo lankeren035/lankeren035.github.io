@@ -32,7 +32,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/1.png#pic_center =600x600 )
 
-![](img/paper/3DGS/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/1.png)
 
 -  对比 Nerf 和传统的 Mesh：一个是纯连续的、隐式表达在可微空间内；一个是纯离散的（虽然可以插值）、显式表达在三维空间内，3DGS 是在离散和连续间的一个平衡：在高斯球内部是连续的、可微的；在整个空间中，每个高斯球又是离散的。所谓中庸之道也。 
 

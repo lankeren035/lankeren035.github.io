@@ -24,17 +24,17 @@ toc: true
 
 - windows搜索：`可选功能`
 - ![](D:/blog/themes/yilia/source/img/experience/windows/ssh/1.png)
-- ![](img/experience/windows/ssh/1.png)
+- ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/windows/ssh/1.png)
 
 ## 2. 将Git的ssh目录加入环境变量
 
 - 通常Git的ssh是在Git/usr/bin下（用\\)
 
 ![](D:/blog/themes/yilia/source/img/experience/windows/ssh/2.png)
-![](img/experience/windows/ssh/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/windows/ssh/2.png)
 
 ![](D:/blog/themes/yilia/source/img/experience/windows/ssh/3.png)
-![](img/experience/windows/ssh/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/windows/ssh/3.png)
 
  
 

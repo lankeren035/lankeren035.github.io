@@ -34,7 +34,7 @@ categories: [Linux]
 
   ![](../../../theme/yilia/source/img/linux/cuda/1.png)
 
-  ![](img/linux/cuda/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/1.png)
 
   - 版本符合
 
@@ -42,13 +42,13 @@ categories: [Linux]
 
   ![](../../../theme/yilia/source/img/linux/cuda/2.png)
 
-  ![](img/linux/cuda/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/2.png)
 
   1. 根据你的环境选择：
 
   ![](../../../theme/yilia/source/img/linux/cuda/3.png)
 
-  ![](img/linux/cuda/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/3.png)
 
   - 可以这样查看系统参数：
 
@@ -71,25 +71,25 @@ categories: [Linux]
 
        ![](../../../theme/yilia/source/img/linux/cuda/4.png)
 
-       ![](img/linux/cuda/4.png)
+       ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/4.png)
 
      - 输入accept然后enter
 
        ![](../../../theme/yilia/source/img/linux/cuda/5.png)
 
-       ![](img/linux/cuda/5.png)
+       ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/5.png)
 
      - 看见选择页面，定位到Driver选项，点击enter取消勾选（前面带X表示勾选，**如果勾选他会把你现有的驱动替换**），定位到install然后enter
 
        ![](../../../theme/yilia/source/img/linux/cuda/6.png)
 
-       ![](img/linux/cuda/6.png)
+       ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/6.png)
 
      - 安装成功：
 
        ![](../../../theme/yilia/source/img/linux/cuda/7.png)
 
-       ![](img/linux/cuda/7.png)
+       ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/7.png)
 
 # 2. 安装对应的 **cuDNN**  
 
@@ -97,13 +97,13 @@ categories: [Linux]
 
   ![](../../../theme/yilia/source/img/linux/cuda/8.png)
 
-  ![](img/linux/cuda/8.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/8.png)
 
 - 下载压缩包（该步骤需要登录，所以这里选择在本地电脑下载压缩包然后上传服务器）：
 
   ![](../../../theme/yilia/source/img/linux/cuda/9.png)
 
-  ![](img/linux/cuda/9.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/cuda/9.png)
 
 - 解压安装（换成自己的文件名，版本号）
 

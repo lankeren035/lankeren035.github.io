@@ -18,11 +18,11 @@ toc: true
 # 7 项目功能开发
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/6/0.png)
 
-![](img/java/produce_practice/6/0.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/6/0.png)
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/6/1.png)
 
-![](img/java/produce_practice/6/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/6/1.png)
 
 ## 7.1 项目实体创建
 
@@ -52,7 +52,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/6/3.png)
 
-  ![](img/java/produce_practice/6/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/6/3.png)
 
   ```java
   package com.lyingedu.questionnaire.biz.user.service;
@@ -139,7 +139,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/6/2.png)
 
-  ![](img/java/produce_practice/6/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/6/2.png)
 
   ```java
   package com.lyingedu.questionnaire.biz.user.controller;

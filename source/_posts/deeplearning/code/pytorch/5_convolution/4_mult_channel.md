@@ -12,7 +12,7 @@ toc: true
 ## 4.1 多输入通道
 - 对每个通道分别进行互现观运算，然后按通道相加
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png)
-![](img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/1.png)
 
 
 
@@ -70,7 +70,7 @@ print(s)
 ## 4.3 1x1卷积层
 - 1x1卷积失去了卷积层特有的能力（在高度和宽度维度上，识别相邻元素间相互作用的能力。）其实1x1卷积的唯一计算发生在通道上。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png)
-![](img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/4_mult_channel/2.png)
 - 可以将1x1卷积层看作在每个像素位置应用的全连接层，以$c_i$个输入值转换成$c_o$个输出。
 - 使用全连接层实现1x1卷积
 

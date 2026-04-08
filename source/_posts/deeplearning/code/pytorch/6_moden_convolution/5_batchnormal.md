@@ -137,8 +137,8 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 
     
-![svg](5_batchnormal_files/5_batchnormal_5_1.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/5_batchnormal_files/5_batchnormal_5_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/6_moden_convolution/5_batchnormal_files/5_batchnormal_5_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/5_batchnormal_files/5_batchnormal_5_1.svg)
 
 
 
@@ -165,8 +165,8 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 
     
-![svg](5_batchnormal_files/5_batchnormal_7_1.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/5_batchnormal_files/5_batchnormal_7_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/6_moden_convolution/5_batchnormal_files/5_batchnormal_7_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/5_batchnormal_files/5_batchnormal_7_1.svg)
 
 
 ## 5.6 争议

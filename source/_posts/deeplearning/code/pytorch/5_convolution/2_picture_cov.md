@@ -12,7 +12,7 @@ toc: true
 ## 2.1 互相关运算
 - 卷积层表达的运算其实是相关运算（cross-correlation），而不是卷积运算。在卷积层中，输入张量与核张量通过互相关运算产生输出张量。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/2_picture_cov/1.png)
-![](img/deeplearning/code/pytorch/5_convolution/2_picture_cov/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/2_picture_cov/1.png)
 - 计算0 × 0 + 1 × 1 + 3 × 2 + 4 × 3 = 19
 - 假设输入：$n_h \times n_w$，卷积核：$k_h \times k_w$，输出：$n_h - k_h + 1 \times n_w - k_w + 1$
 

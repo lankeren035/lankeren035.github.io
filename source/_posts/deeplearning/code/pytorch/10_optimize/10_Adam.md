@@ -78,7 +78,7 @@ d2l.train_ch11(adam, init_adam_states(feature_dim),
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_1_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_1_1.svg)
     
 
 
@@ -95,7 +95,7 @@ d2l.train_concise_ch11(trainer, {'lr': 0.01}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_3_1.svg)
     
 
 
@@ -131,6 +131,6 @@ d2l.train_ch11(yogi, init_adam_states(feature_dim),
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/10_Adam_files/10_Adam_5_1.svg)
     
 

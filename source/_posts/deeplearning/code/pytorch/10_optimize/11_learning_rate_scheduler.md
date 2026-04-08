@@ -99,7 +99,7 @@ train(net, train_iter, test_iter, num_epochs, loss, trainer, device)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_3_1.svg)
     
 
 
@@ -128,7 +128,7 @@ d2l.plot(torch.arange(num_epochs), [scheduler(t) for t in range(num_epochs)])
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_5_1.svg)
     
 
 
@@ -146,7 +146,7 @@ train(net, train_iter, test_iter, num_epochs, loss, trainer, device, scheduler)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_7_1.svg)
     
 
 
@@ -180,7 +180,7 @@ d2l.plot(torch.arange(50), [scheduler(t) for t in range(50)])
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_9_0.svg)
     
 
 
@@ -203,7 +203,7 @@ d2l.plot(torch.arange(num_epochs), [get_lr(trainer, scheduler) for _ in range(nu
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_11_0.svg)
     
 
 
@@ -219,7 +219,7 @@ train(net, train_iter, test_iter, num_epochs, loss, trainer, device, scheduler)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_13_1.svg)
     
 
 
@@ -255,7 +255,7 @@ d2l.plot(torch.arange(num_epochs), [scheduler(t) for t in range(num_epochs)])
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_15_0.svg)
     
 
 
@@ -273,7 +273,7 @@ train(net, train_iter, test_iter, num_epochs, loss, trainer, device, scheduler)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/11_learning_rate_scheduler_files/11_learning_rate_scheduler_17_1.svg)
     
 
 

@@ -207,8 +207,8 @@ train_ch3(net, train_iter, test_iter, cross_entropy, num_epochs, updater)
 
 
 ​    
-![svg](6_softmax_realize_files/6_softmax_realize_13_0.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg)
 ​    
 
 
@@ -230,7 +230,7 @@ predict_ch3(net, test_iter)
 
 
 ​    
-![svg](6_softmax_realize_files/6_softmax_realize_15_0.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_15_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_15_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_15_0.svg)
 ​    
 

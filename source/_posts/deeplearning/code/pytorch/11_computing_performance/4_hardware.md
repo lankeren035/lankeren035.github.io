@@ -27,7 +27,7 @@ toc: true
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
 
-![](img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/1.png)
 
 - 高速扩展总线由直接连接到CPU的多个通道组成，将CPU与大多数组件（网络、GPU和存储）连接在一起。 
 - 运行代码时，需要将数据转移到处理器上（CPU或GPU）执行计算，然后将结果从处理器移回到随机访问存储和持久存储器中。因此，为了获得良好的性能，需要确保每一步工作都能无缝链接，而不希望系统中的任何一部分成为主要的瓶颈。例如，如果不能快速加载图像，那么处理器就无事可做。同样地，如果不能快速移动矩阵到CPU（或GPU）上，那么CPU（或GPU）就会无法全速运行。最后，如果希望在网络上同步多台计算机，那么网络就不应该拖累计算速度。一种选择是通信和计算交错进行。 
@@ -86,7 +86,7 @@ toc: true
 
   ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
 
-  ![](img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/4_hardware/2.png)
 
 ## 4.5 GPU和其他加速卡
 

@@ -54,7 +54,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/1.png)
 
-  ![](img/paper/video_edit/video-p2p/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/1.png)
 
 -  注意力控制是详细图像编辑最有效的pipeline
   - Prompt-to-prompt image editing with cross attention control
@@ -67,13 +67,13 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/2.png)
 
-  ![](img/paper/video_edit/video-p2p/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/2.png)
 
 - 本文采用`Tune a video`的方法：**改变卷积核，使用跨帧注意力替换self-attention** ，将 T2I 模型转换为 T2S 模型。  这种转换产生了一个 能够生成一组语义一致的图像的模型。  生成质量将随着膨胀步骤而降低，但可以在原始视频上进行调整后恢复。  虽然调整后的 T2S 模型不是理想的视频生成模型，但它足以为视频创建近似反演（approximate inversion），如图 3 (c) 所示。这只是一个近似值，因为误差在去噪过程中积累，与 [20, 36] 中的结论一致。 
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/3.png)
 
-  ![](img/paper/video_edit/video-p2p/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/3.png)
 
 -  为了提高反演质量，我们建议优化所有帧的共享无条件嵌入，以使去噪潜在特征与扩散潜在特征对齐。 我们的实验表明，共享嵌入是视频反演最有效、最有效的选择。比较如图 3 所示。 
 
@@ -130,7 +130,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/4.png)
 
-  ![](img/paper/video_edit/video-p2p/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/4.png)
 
 
 
@@ -172,7 +172,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/5.png)
 
-  ![](img/paper/video_edit/video-p2p/5.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/5.png)
 
   - 我们采用了从 Image-P2P 到 Video-P2P 的注意力控制方法。 例如，为了执行**单词交换**，Edit 函数可以表示为： 
     $$
@@ -203,7 +203,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/6.png)
 
-  ![](img/paper/video_edit/video-p2p/6.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/6.png)
 
 ### 4.2.2 提示词细化
 
@@ -221,7 +221,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/7.png)
 
-  ![](img/paper/video_edit/video-p2p/7.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/7.png)
 
 - 虽然我们的模型初始化类似于TAV，但Video-P2P仍然可以在TAV+DDIM失败的情况下生成时间一致的结果。如图6(右)所示，即使当输入是来自DDIM反转的特征时，TAV也难以在第二行中生成时间一致的序列。相比之下，我们的方法可以产生更好的结构保留结果，如第三行所示。
 
@@ -231,7 +231,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/8.png)
 
-  ![](img/paper/video_edit/video-p2p/8.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/8.png)
 
 ### 4.3.3 定量结果
 
@@ -245,7 +245,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/14.png)
 
-  ![](img/paper/video_edit/video-p2p/14.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/14.png)
 
   - 为了评估编辑视频中局部结构的保留，我们提出了掩膜峰值信噪比（M.PSNR），它通过测量不相关区域的低级像素距离来补充LPIPS [51]。如图13所示，给定变化对象的平均注意力掩码序列M，我们通过比较编辑视频$V^*$和输入视频$V$中不相关区域的像素距离来计算掩膜峰值信噪比。:
     $$
@@ -267,11 +267,11 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/9.png)
 
-  ![](img/paper/video_edit/video-p2p/9.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/9.png)
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/10.png)
 
-  ![](img/paper/video_edit/video-p2p/10.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/10.png)
 
 ## 4.4 Ablation
 
@@ -281,7 +281,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/11.png)
 
-  ![](img/paper/video_edit/video-p2p/11.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/11.png)
 
 ### 4.4.2 共享无条件嵌入
 
@@ -289,7 +289,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/13.png)
 
-  ![](img/paper/video_edit/video-p2p/13.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/13.png)
 
 ### 4.4.3 解耦引导注意力控制
 
@@ -297,7 +297,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/video-p2p/12.png)
 
-  ![](img/paper/video_edit/video-p2p/12.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/video-p2p/12.png)
 
 # 5. Conclusion
 

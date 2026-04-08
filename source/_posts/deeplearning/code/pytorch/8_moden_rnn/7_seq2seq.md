@@ -13,7 +13,7 @@ toc: true
 - 使用两个循环神经网络的编码器和解码器，并将其应用于序列到序列（sequence to sequence，seq2seq）类的学习任务
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
 
 - “<eos>”表示序列结束词元。一旦输出序列生成此词元，模型就会停止预测。在循环神经网络解码器的初始化时间步，有两个特定的设计决定：首先，特定的“<bos>”表示序列开始词元，它是解码器的输入序列的第一个词元。其次，使用循环神经网络编码器最终的隐状态来初始化解码器的隐状态。
 
@@ -148,7 +148,7 @@ output.shape, state.shape
 - 模型结构
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png)
 
 ## 7.3 损失函数
 
@@ -305,7 +305,7 @@ train_seq2seq(net, train_iter, lr, num_epochs, tgt_vocab, device)
 
 
     
-![svg](7_seq2seq_files/7_seq2seq_21_1.svg)
+![[7_seq2seq_21_1.svg|svg]]
     
 
 
@@ -314,7 +314,7 @@ train_seq2seq(net, train_iter, lr, num_epochs, tgt_vocab, device)
 - 为了采用一个接着一个词元的方式预测输出序列，每个解码器当前时间步的输入都将来自于前一时间步的预测词元。与训练类似，序列开始词元（“<bos>”）在初始时间步被输入到解码器中。当输出序列的预测遇到序列结束词元（“<eos>”）时，预测就结束了。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png)
 
 
 ```python

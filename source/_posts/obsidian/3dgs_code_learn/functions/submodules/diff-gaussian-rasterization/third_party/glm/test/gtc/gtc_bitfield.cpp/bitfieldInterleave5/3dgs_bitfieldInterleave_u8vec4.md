@@ -1,0 +1,39 @@
+---
+title: "bitfieldInterleave_u8vec4"
+date: 2026-04-07
+tags: [3dgs]
+categories: [3dgs]
+comment: true
+toc: true
+published: true
+permalink: "code/3dgs/submodules.diff-gaussian-rasterization.third_party.glm.test.gtc.gtc_bitfield.cpp.bitfieldInterleave5.bitfieldInterleave_u8vec4"
+hexo-path:
+---
+
+## 1. 输入
+
+| 参数名 | 类型 | 解释 |
+|---|---|---|
+| x | glm::uint8 | - |
+| y | glm::uint8 | - |
+| z | glm::uint8 | - |
+| w | glm::uint8 | - |
+
+## 2. 输出
+
+| 返回类型 | 解释 |
+|---|---|
+| GLM_FUNC_QUALIFIER glm::uint32 | - |
+
+## 3. 操作逻辑
+
+1. 待补充
+
+## 4. 信息
+
+| 字段 | 内容 |
+|---|---|
+| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/3dgs_gtc_bitfield.cpp\|gtc_bitfield.cpp]] |
+| 所属类 | - |
+| 命名空间 | bitfieldInterleave5 |
+| 类型 | definition |

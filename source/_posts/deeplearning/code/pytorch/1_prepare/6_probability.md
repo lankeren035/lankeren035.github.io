@@ -54,8 +54,8 @@ d2l.plt.legend()
 
 
     
-![svg](6_probability_files/6_probability_1_2.svg)
-![](img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg)
+![[source/_posts/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg)
     
 
 

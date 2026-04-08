@@ -27,7 +27,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/1.png)
 
-![](img/paper/diffusion/video_diffusion/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/1.png)
 
 
 
@@ -56,7 +56,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/2.png)
 
-![](img/paper/diffusion/video_diffusion/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/2.png)
 
 - train右边的，将原始输出和新的输出结合
 
@@ -66,7 +66,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/3.png)
 
-![](img/paper/diffusion/video_diffusion/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/3.png)
 
 - 对某个具体的概念（比如红色的书包）给几张图，能够通过训练把这个概念学到网络里面，然后就能生成不同场景下的红色书包。
 
@@ -74,7 +74,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/4.png)
 
-![](img/paper/diffusion/video_diffusion/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/4.png)
 
 - 有一个文本token（ [v] ）来对应这个concept，然后用这几张图片来重新调整diffusion的权重。
 
@@ -86,7 +86,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/5.png)
 
-![](img/paper/diffusion/video_diffusion/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/5.png)
 
 - 给一些更好的，细粒度的前置条件，比如Canny edge或human pose
 
@@ -94,7 +94,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/6.png)
 
-![](img/paper/diffusion/video_diffusion/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/6.png)
 
 - 跟lora有点像，左边原始权重不动，右边把原始权重复制一份，只训练复制部分，复制的部分有其他的condition作为输入，比如edge或pose图。
 - 通过这种方式可以把新的condition融入
@@ -115,7 +115,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/7.png)
 
-![](img/paper/diffusion/video_diffusion/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/7.png)
 
 - 2D卷积
   - 给一张图片，然后用一个2D的kernel在图片上slide over，然后生成output图片
@@ -126,7 +126,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/8.png)
 
-![](img/paper/diffusion/video_diffusion/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/8.png)
 
 - 3D卷积计算开销大
 - 可以先在spacial上做卷积，然后在temporal上做卷积
@@ -137,7 +137,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/9.png)
 
-![](img/paper/diffusion/video_diffusion/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/9.png)
 
 - 用（2+1）D的形式将时间空间分开的Unet
 
@@ -151,11 +151,11 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/10.png)
 
-![](img/paper/diffusion/video_diffusion/10.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/10.png)
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/11.png)
 
-![](img/paper/diffusion/video_diffusion/11.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/11.png)
 
 - 多级生成的框架
 - Spatiotemporal Decoder从原始noise大概recover出来一些关键帧，包括比较小的时候他长什么样子，看看时空上长什么样。
@@ -165,7 +165,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/12.png)
 
-![](img/paper/diffusion/video_diffusion/12.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/12.png)
 
 - 更接近(2+1)D的形式，
 - 先用2D的spatial Convolution（用已经训好的T2I模型进行初始化）
@@ -174,13 +174,13 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/13.png)
 
-![](img/paper/diffusion/video_diffusion/13.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/13.png)
 
 - attention layer也分为spatial atention与temporal attention
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/14.png)
 
-![](img/paper/diffusion/video_diffusion/14.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/14.png)
 
 
 
@@ -190,31 +190,31 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/15.png)
 
-![](img/paper/diffusion/video_diffusion/15.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/15.png)
 
 - fid评估两个distribution的差距有多大（语义层面的信息，high level）
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/16.png)
 
-  ![](img/paper/diffusion/video_diffusion/16.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/16.png)
 
 - PSNR（pixel层面，两个图片相减）
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/17.png)
 
-  ![](img/paper/diffusion/video_diffusion/17.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/17.png)
 
 - SSIM（pixel层面，更复杂的计算，评价标准）
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/18.png)
 
-  ![](img/paper/diffusion/video_diffusion/18.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/18.png)
 
 - CLIP Simialarity
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/19.png)
 
-  ![](img/paper/diffusion/video_diffusion/19.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/19.png)
 
 ##### 2）视频层面
 
@@ -222,19 +222,19 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/20.png)
 
-  ![](img/paper/diffusion/video_diffusion/20.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/20.png)
 
 - inception score：也是在看distribution，不过他考量的有质量和多样性
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/21.png)
 
-  ![](img/paper/diffusion/video_diffusion/21.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/21.png)
 
 - Frame Consistence CLIP scores：计算帧间一致性，将每一帧输入clip得到clip embedding，然后算所有pairs之间的距离有多大
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/22.png)
 
-  ![](img/paper/diffusion/video_diffusion/22.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/22.png)
 
 
 
@@ -244,7 +244,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/23.png)
 
-  ![](img/paper/diffusion/video_diffusion/23.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/23.png)
 
 
 
@@ -254,7 +254,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/24.png)
 
-  ![](img/paper/diffusion/video_diffusion/24.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/24.png)
 
 - 在ldm中插入了temporal convolution和3D attention layers
 - 在decoder中加入了3D convolutional layers
@@ -272,13 +272,13 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/25.png)
 
-  ![](img/paper/diffusion/video_diffusion/25.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/25.png)
 
 - 也是使用（2+1）D的方式：spacial conv加temporal conv；spatial attention 加 temporal attention
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/26.png)
 
-![](img/paper/diffusion/video_diffusion/26.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/26.png)
 
 - 值得一提的是，他的temporal convolution的length是可变的，这样可以处理不同数量的帧作为输入。当length=1时就变成了图像生成，训练的时候就可以用图片和视频进行一个join training
 
@@ -330,7 +330,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/27.png)
 
-  ![](img/paper/diffusion/video_diffusion/27.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/27.png)
 
 
 

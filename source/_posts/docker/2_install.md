@@ -136,7 +136,7 @@ toc: true
 
   ![](../../../theme/yilia/source/img/docker/4.png)
 
-  ![](img/docker/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/4.png)
 
 
 
@@ -147,7 +147,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/docker/5.png)
 
-![](img/docker/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/5.png)
 
 
 
@@ -157,4 +157,4 @@ toc: true
 
     ![](../../../theme/yilia/source/img/docker/6.png)
 
-    ![](img/docker/6.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/6.png)

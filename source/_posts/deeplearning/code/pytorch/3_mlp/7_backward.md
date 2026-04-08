@@ -30,7 +30,7 @@ toc: true
 ## 7.2 前向传播计算图
 - 7.1的计算图：
 ![](D:\blog\themes\yilia\source\img\deeplearning\code\pytorch\3_mlp\7\1.png)
-![](img/deeplearning/code/pytorch/3_mlp/7/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/7/1.png)
 
 
 ## 7.3 反向传播

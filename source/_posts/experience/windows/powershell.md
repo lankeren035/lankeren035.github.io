@@ -25,11 +25,11 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/experience/windows/powershell/1.png)
 
-![](img/experience/windows/powershell/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/windows/powershell/1.png)
 
 ![](../../../../theme/yilia/source/img/experience/windows/powershell/2.png)
 
-![](img/experience/windows/powershell/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/windows/powershell/2.png)
 
 
 

@@ -55,12 +55,12 @@ d2l.predict_ch3(net, test_iter)
 
 
 ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_0.svg)
-![](img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_0.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_0.svg)
     
 
 
 
 ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/2_mlp_realize_files/2_mlp_realize_1_1.svg)
     
 

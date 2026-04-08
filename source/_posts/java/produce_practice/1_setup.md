@@ -26,7 +26,7 @@ toc: true
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/1.png)
 
-![](img/java/produce_practice/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/1.png)
 
 2. [进入网址](https://start.spring.io)
 
@@ -34,7 +34,7 @@ toc: true
 
      ![](D:/blog/themes/yilia/source/img/java/produce_practice/3.png)
 
-     ![](img/java/produce_practice/3.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/3.png)
 
      点击`生成`,网站就会帮我们下载一个工程源文件。将该文件夹解压后就是你的项目文件夹。
 
@@ -42,13 +42,13 @@ toc: true
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/4.png)
 
-   ![](img/java/produce_practice/4.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4.png)
 
 4. 这些基础依赖里只有mybatis明确指定了版本号。我们调低了框架的主版本号，为了防止不兼容，我们需要调整mybatis版本号。
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/5.png)
 
-   ![](img/java/produce_practice/5.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/5.png)
 
 5. 访问之前的[第三方依赖仓库](https://mvnrepository.com)查看主框架的依赖版本号。
 
@@ -58,19 +58,19 @@ toc: true
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/6.png)
 
-   ![](img/java/produce_practice/6.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/6.png)
 
    - 点击3.1.0版本：
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/7.png)
 
-   ![](img/java/produce_practice/7.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/7.png)
 
    - 发现依赖的spring web版本为6.0.9：
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/8.png)
 
-   ![](img/java/produce_practice/8.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/8.png)
 
    
 
@@ -78,31 +78,31 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/9.png)
 
-    ![](img/java/produce_practice/9.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/9.png)
 
    - 搜索
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/10.png)
 
-      ![](img/java/produce_practice/10.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/10.png)
 
    - 点击上面看到的版本：3.0.3
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/11.png)
 
-      ![](img/java/produce_practice/11.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/11.png)
 
    - 点击对应版本：
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/12.png)
 
-      ![](img/java/produce_practice/12.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/12.png)
 
      发现对应的spring context版本是6.1.0，与之前主框架的6.0.9不一致。
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/13.png)
 
-      ![](img/java/produce_practice/13.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/13.png)
 
    - 需要将mybatis starter版本降低，经查询3.0.2版本依赖的spring context也是6.0.9，因此可以将pom.xml中对应版本改为3.0.2
 
@@ -112,53 +112,53 @@ toc: true
 
  ![](D:/blog/themes/yilia/source/img/java/produce_practice/14.png)
 
-![](img/java/produce_practice/14.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/14.png)
 
 - 现在暂时不连接数据库，需要注释掉mybatis和mysql连接器，否则会出错。
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/15.png)
 
-![](img/java/produce_practice/15.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/15.png)
 
 - 刷新maven后依赖更新：
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/16.png)
 
-![](img/java/produce_practice/16.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/16.png)
 
 - 找到主程序，运行，记住程序端口：
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/17.png)
 
-![](img/java/produce_practice/17.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/17.png)
 
 - 在static下新建一个index.html测试一下：
 
 ![](D:/blog/themes/yilia/source/img/java/produce_practice/18.png)
 
-![](img/java/produce_practice/18.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/18.png)
 
 - 重新运行，输入网址，测试成功：
 
  ![](D:/blog/themes/yilia/source/img/java/produce_practice/19.png)
 
- ![](img/java/produce_practice/19.png)  
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/19.png)  
 
 ## 1.3 连接数据库
 
-- 使用阿里云服务器的mysql，第二天发现被攻击了，数据库丢失，所以要做好备份，或者即使关闭端口。可以参考[数据库恢复部分](##1.4)不一定有用。
+- 使用阿里云服务器的mysql，第二天发现被攻击了，数据库丢失，所以要做好备份，或者即使关闭端口。可以参考[[##1.4|数据库恢复部分]]不一定有用。
 
 - 解除之前的注释，刷新maven
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/21.png)
 
-   ![](img/java/produce_practice/21.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/21.png)
 
 - 将resources/application.properties重命名：application.yml，配置数据库信息：
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/20.png)
 
-   ![](img/java/produce_practice/20.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/20.png)
 
 - 注意：如果你将数据库配置那一段删掉，那么运行的时候会出错，但是就算你数据库配置写错了，运行也不会报错，你需要通过一个测试单元来尝试连接一下数据库才能发现是否能够连接成功。
 
@@ -207,7 +207,7 @@ toc: true
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/23.png)
 
-   ![](img/java/produce_practice/23.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/23.png)
 
   
 
@@ -223,7 +223,7 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/35.png)
 
-    ![](img/java/produce_practice/35.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/35.png)
 
     发现有多个日志文件
 

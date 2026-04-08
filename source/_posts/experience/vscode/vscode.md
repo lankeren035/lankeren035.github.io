@@ -15,9 +15,9 @@ categories: [vscode]
 注意用/不要用\
 - 修改配置文件
 ![](../../../../theme/yilia/source/img/experience/vscode/relative_path/1.png)
-![](img/experience/vscode/relative_path/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/vscode/relative_path/1.png)
 ![](../../../../theme/yilia/source/img/experience/vscode/relative_path/2.png)
-![](img/experience/vscode/relative_path/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/vscode/relative_path/2.png)
 
 
 

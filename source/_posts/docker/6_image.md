@@ -38,7 +38,7 @@ toc: true
 
   ![](../../../theme/yilia/source/img/docker/10.png)
 
-  ![](img/docker/10.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/10.png)
   - docker镜像由一层一层的文件系统组成（UnionFS）
     - bootfs（boot file system）：主要包括bootloader和kernel。bootloader主要是引导加载kernel，Linux刚启动时加载bootfs文件系统，在Docker镜像的最底层是bootfs。这一层与我们典型的Linux/unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs
     - rootfs（root file system）：在bootfs之上。包含的就是典型Linux系统中的/dev, /proc, /bin, /etc等标准目录和文件。rootfs就是各种不同的操作系统的发行版本，比如Ubuntu，Centos等等。
@@ -97,19 +97,19 @@ toc: true
 
     ![](../../../theme/yilia/source/img/docker/12.png)
 
-    ![](img/docker/12.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/12.png)
 
     - 在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合。下面举个例子，每个镜像包含3搁文件，而镜像包含了来自两个镜像层的6个文件（这里的镜像层跟之前图中的略有不同，主要为了便于展示文件）：
 
         ![](../../../theme/yilia/source/img/docker/13.png)
 
-        ![](img/docker/13.png)
+        ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/13.png)
 
     - 假设文件5是一个app，这里对他进行更新，使用文件7，从外部看来整个镜像只有6个文件。
     
       ![](../../../theme/yilia/source/img/docker/14.png)
     
-      ![](img/docker/14.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/14.png)
     
     - 这种情况下，上层镜像层中的文件覆盖了底层镜像层中的文件。这样就使得文件的更新版本作为一个新的镜像层添加到镜像中。
     
@@ -123,10 +123,10 @@ toc: true
     
       ![](../../../theme/yilia/source/img/docker/15.png)
     
-      ![](img/docker/15.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/15.png)
 
 - docker镜像都是只读的，当容器启动时，一个新的可写层被加载到镜像的顶部，这一层就是我们通常说的容器层，容器之下的都叫镜像层。
 
   ![](../../../theme/yilia/source/img/docker/11.png)
 
-  ![](img/docker/11.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/11.png)

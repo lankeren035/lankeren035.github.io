@@ -57,7 +57,7 @@ d2l.train_ch11(adadelta, init_adadelta_states(feature_dim),
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/9_Adadelta_files/9_Adadelta_1_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/9_Adadelta_files/9_Adadelta_1_1.svg)
     
 
 
@@ -74,6 +74,6 @@ d2l.train_concise_ch11(trainer, {'rho': 0.9}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/9_Adadelta_files/9_Adadelta_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/9_Adadelta_files/9_Adadelta_3_1.svg)
     
 

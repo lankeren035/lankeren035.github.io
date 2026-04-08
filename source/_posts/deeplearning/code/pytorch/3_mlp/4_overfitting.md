@@ -40,7 +40,7 @@ toc: true
 ### 4.3.1 模型复杂性
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4img/1.png) 
-![](img/deeplearning/code/pytorch/3_mlp/4img/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4img/1.png)
 
 ### 4.3.2 数据集大小
 
@@ -146,7 +146,7 @@ train(poly_features[:n_train,:4], poly_features[n_train:, :4], labels[:n_train],
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_7_1.svg)
     
-![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_7_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_7_1.svg)
     
 
 
@@ -164,7 +164,7 @@ train(poly_features[:n_train,:2], poly_features[n_train:, :2], labels[:n_train],
 
 
 ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_9_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_9_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_9_1.svg)
     
 
 
@@ -185,6 +185,6 @@ train(poly_features[:n_train, :], poly_features[n_train:, :], labels[:n_train], 
 
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_11_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_11_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4_overfitting_files/4_overfitting_11_1.svg)
     
 

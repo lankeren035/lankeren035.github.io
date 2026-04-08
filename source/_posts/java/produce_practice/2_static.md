@@ -26,19 +26,19 @@ toc: true
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/1.png)
 
-   ![](img/java/produce_practice/2/1.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/1.png)
 
 2. 查看程序访问路径：8085端口
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/2.png)
 
-   ![](img/java/produce_practice/2/2.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/2.png)
 
 3. 修改程序配置文件的端口配置为8085
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/3.png)
 
-   ![](img/java/produce_practice/2/3.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/3.png)
 
 4. 运行并访问 ：http://127.0.0.1:8085/pages/login/index.html，能显示登录页面就ok
 
@@ -71,13 +71,13 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/4.png)
 
-   ![](img/java/produce_practice/2/4.png) 
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/4.png) 
 
 3. 所有工程文件都在main/java/com/lyingedu.questionnaire下。在这里创建如下目录结构：
 
    ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/5.png)
 
-   ![](img/java/produce_practice/2/5.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/5.png)
 
 4. 使用dbgen工具将数据库导入工程：
 
@@ -87,19 +87,19 @@ toc: true
   
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/6.png)
   
-    ![](img/java/produce_practice/2/6.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/6.png)
   
   - 修改配置文件，运行（注意数据库地址端口用户名密码都不能错）
   
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/7.png)
   
-    ![](img/java/produce_practice/2/7.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/7.png)
   
   - 运行完成后会发现在主项目的questionnaire下多出了一个dbmap文件夹：
   
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/8.png)
   
-    ![](img/java/produce_practice/2/8.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/8.png)
 
 5. 数据库实体用户在生成后需要对这些对实体映射进行一些配置（不然无法在开发过程中引用）
 
@@ -107,10 +107,10 @@ toc: true
 
      ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/9.png)
 
-     ![](img/java/produce_practice/2/9.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/9.png)
 
    - 在主入口映射接口文件，运行成功则配置ok
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/2/10.png)
 
-      ![](img/java/produce_practice/2/10.png)  
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/2/10.png)  

@@ -26,7 +26,7 @@ d2l.plt.imshow(img);
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/3_object_detection_files/3_object_detection_1_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/3_object_detection_files/3_object_detection_1_0.svg)
     
 
 
@@ -102,6 +102,6 @@ fig.axes.add_patch(bbox_to_rect(cat_bbox, 'red'));
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/3_object_detection_files/3_object_detection_7_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/3_object_detection_files/3_object_detection_7_0.svg)
     
 

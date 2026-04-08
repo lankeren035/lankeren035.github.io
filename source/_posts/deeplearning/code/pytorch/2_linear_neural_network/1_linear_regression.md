@@ -130,8 +130,8 @@ d2l.plot(x,[normal(x,mu,sigma) for mu,sigma in params],xlabel='x',ylabel='p(x)',
 
 
     
-![svg](1_linear_regression_files/1_linear_regression_4_0.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1_linear_regression_4_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1_linear_regression_4_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1_linear_regression_4_0.svg)
     
 
 
@@ -147,5 +147,5 @@ d2l.plot(x,[normal(x,mu,sigma) for mu,sigma in params],xlabel='x',ylabel='p(x)',
 ### 1.4.1 神经网络
 - 线性回归是一个单层神经网络（隐去了权重和偏置）：
 - 每个输入都与每个输出相连，成为全连接层（fully connected layer）或稠密层（dense layer）。
-![](1_linear_regression_files/1.png)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1.png)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1.png]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/1_linear_regression_files/1.png)

@@ -14,5 +14,5 @@ categories: [经验]
 
 ![](../../../../theme/yilia/source/img/experience/vscode/ctrl+roll/1.jpg)
 
-![](img/experience/vscode/ctrl+roll/1.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/vscode/ctrl+roll/1.jpg)
 

@@ -79,7 +79,7 @@ pip install -e .
 
       ![](../../../../theme/yilia/source/img/project/QAnything/1.png)
 
-      ![](img/project/QAnything/1.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/QAnything/1.png)
 
     - 2. 根据报错信息，代码没有找到`tokenizers/punkt_tab/english/`，尝试了一遍`Searched in:`列出的路径，发现需要将下载的文件夹解压到：`qanything_kernel/nltk_data/tokenizers`中
 

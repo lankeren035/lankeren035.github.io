@@ -96,5 +96,5 @@ train(net, num_gpus=1, batch_size=256, lr=0.1)
 
 
     
-![](img/deeplearning/code/pytorch/11_compute/6_multi_GPU_simple_files/6_multi_GPU_simple_5_0.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/6_multi_GPU_simple_files/6_multi_GPU_simple_5_0.svg)
     

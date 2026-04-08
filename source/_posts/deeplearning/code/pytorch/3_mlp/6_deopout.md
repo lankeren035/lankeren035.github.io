@@ -27,7 +27,7 @@ toc: true
 
 - 这样，输出层的计算不能过度依赖于h1, . . . , h5的任何一个元素。通常，我们在测试时不用暂退法。(一些研究人员在测试时使用暂退法，用于估计神经网络预测的“不确定性”：如果通过许多不同的暂退法遮盖后得到的预测结果都是一致的，那么我们可以说网络发挥更稳定。)
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6img/1.png)
-![](img/deeplearning/code/pytorch/3_mlp/6img/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6img/1.png)
 
 ## 6.1 代码实现
 - 1）从U[0,1]抽样
@@ -110,7 +110,7 @@ d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
 ```
 
   ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg)    
-![](img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg)    
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg)    
 
 
 ### 6.1.2 简洁实现
@@ -141,6 +141,6 @@ d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
 
   ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg)
     
-![](img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg)
     
 

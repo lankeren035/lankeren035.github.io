@@ -52,7 +52,7 @@ annotate('min of risk', (1.1, -1.05), (0.95, -0.5))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_3_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_3_0.svg)
     
 
 ## 1.2 深度学习中的优化挑战
@@ -70,7 +70,7 @@ annotate('global minimum', (1.1, -0.95), (0.6, 0.8))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg)
     
 
 
@@ -90,7 +90,7 @@ annotate('saddle point', (0, -0.2), (-0.52, -5.0))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_7_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_7_0.svg)
     
 
 
@@ -119,7 +119,7 @@ d2l.plt.ylabel('y');
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_9_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_9_1.svg)
     
 
 
@@ -139,6 +139,6 @@ annotate('vanishing gradient', (4, 1), (2, 0.0))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_11_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_11_0.svg)
     
 

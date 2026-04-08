@@ -42,7 +42,7 @@ Mesh和点云是最常见的 3D 场景表示，因为它们是明确定义的，
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/1.png)
 
-![](img/paper/3DGS/3dgs_paper/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/1.png)
 
 >图1。我们的方法实现了实时渲染辐射场，其质量与之前最佳质量的方法相当[Barron et al. 2022]，同时所需的优化时间与最快三种以前的方法相当[Fridovich-Keil 和 Yu et al. 2022; Müller et al. 2022]。这种性能的关键在于一种新颖的3D高斯场景表示法，结合实时可微分渲染器，为场景优化和新颖视图合成提供了显著的加速。值得注意的是，对于与InstantNGP相当的训练时间[Müller et al. 2022]，我们获得的质量与其相似；虽然这是他们达到的最高质量，但通过训练51分钟，我们达到了最先进的质量，甚至略优于Mip-NeRF360[Barron et al. 2022]。
 
@@ -172,7 +172,7 @@ Pulsar [Lassner 和 Zollhofer 2021] 实现了快速的球体光栅化，这启�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/2.png)
 
-![](img/paper/3DGS/3dgs_paper/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/2.png)
 
 > 优化从稀疏的 SfM 点云开始，并创建一组 3D 高斯分布。然后，我们优化并自适应地控制这组高斯的密度。在优化过程中，我们使用快速的基于瓦片的渲染器，使得与最先进的快速辐射场方法相比，训练时间具有竞争力。一旦训练完成，我们的渲染器允许对各种场景进行实时导航。
 
@@ -216,7 +216,7 @@ $$
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/3.png)
 
-![](img/paper/3DGS/3dgs_paper/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/3.png)
 
 > 图 3。我们通过将优化后的三维高斯缩小 60%（最右侧）来可视化这些高斯。这清楚地显示了三维高斯在优化后紧凑地表示复杂几何形状的**各向异性**。左侧是实际渲染的图像。
 >
@@ -256,7 +256,7 @@ $$
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/4.png)
 
-![](img/paper/3DGS/3dgs_paper/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/4.png)
 
 >图4. 我们的自适应高斯稠密化方案。顶部行（重构不足）：当小规模几何形状（黑色轮廓）覆盖不足时，我们克隆相应的高斯。底部行（重构过度）：如果小规模几何形状由一个大型斑点表示，我们将其拆分为两个。
 
@@ -351,13 +351,13 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/6.png)
 
-![](img/paper/3DGS/3dgs_paper/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/6.png)
 
 >表1. 我们的方法与以前工作的定量评估，基于三个数据集进行计算。带有尖十字标记†的结果直接引用自原始论文，所有其他结果均来自我们的实验。
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/12.png)
 
-![](img/paper/3DGS/3dgs_paper/12.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/12.png)
 
 > 图6。对于某些场景（上方），我们可以看到即使在7K迭代（约5分钟）时，我们的方法也能很好地捕捉到火车。在30K迭代（约35分钟）时，背景伪影已显著减少。对于其他场景（下方），差异几乎不可见；7K迭代（约8分钟）的质量已经非常高。
 
@@ -371,7 +371,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/7.png)
 
-![](img/paper/3DGS/3dgs_paper/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/7.png)
 
 > 图5。我们展示了我们的方法与之前方法的比较，以及来自保留测试视图的相应真实图像。场景从上到下依次为：来自Mip-NeRF360数据集的自行车、花园、树桩、台面和房间；来自Deep Blending数据集[Hedman等，2018]的游戏室和DrJohnson，以及来自Tanks&Temples的卡车和火车。箭头/插图中突出的质量差异并不明显。
 
@@ -379,7 +379,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/13.png)
 
-![](img/paper/3DGS/3dgs_paper/13.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/13.png)
 
 > 表 2. 合成 NeRF 的 PSNR 分数，我们从 100K 随机初始化的点开始。来自各自论文的竞争指标。
 
@@ -391,7 +391,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/5.png)
 
-![](img/paper/3DGS/3dgs_paper/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/5.png)
 
 > 表3. 消融实验的PSNR分数。对于本实验，我们手动将每个场景输入图像的高分辨率版本下采样到我们其他实验所设定的渲染分辨率。这样做可以减少随机伪影（例如，由于在预下采样的Mip-NeRF360输入中JPEG压缩引起的伪影）。
 
@@ -399,7 +399,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/8.png)
 
-![](img/paper/3DGS/3dgs_paper/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/8.png)
 
 >图7. 使用SfM点进行初始化的帮助。上：使用随机点云进行初始化。下：使用SfM点进行初始化。
 
@@ -407,7 +407,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/9.png)
 
-![](img/paper/3DGS/3dgs_paper/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/9.png)
 
 >图 8. 针对“克隆”和“分裂”两个案例的致密化策略消融（第 5 节）。
 
@@ -417,7 +417,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/10.png)
 
-![](img/paper/3DGS/3dgs_paper/10.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/10.png)
 
 > 图9。如果我们限制接收梯度的点的数量，视觉质量的影响是显著的。左：限制接收梯度的10个高斯。右：我们完整的方法。
 
@@ -427,7 +427,7 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/11.png)
 
-![](img/paper/3DGS/3dgs_paper/11.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/11.png)
 
 > 图10. 我们在禁用和启用高斯各向异性的情况下训练场景。使用各向异性体积点可以对细结构进行建模，对视觉质量产生显著影响。请注意，为了说明，我们限制Ficus在两种配置中使用不超过5000个高斯函数。
 
@@ -439,13 +439,13 @@ SH系数优化对缺乏角度信息非常敏感。对于典型的“类似NeRF�
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/14.png)
 
-![](img/paper/3DGS/3dgs_paper/14.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/14.png)
 
 > 图 11. 故障伪影的比较：Mip-NeRF360 有“漂浮物”和颗粒状外观（左，前景），而我们的方法产生粗糙的各向异性高斯，导致低细节视觉效果（右，背景）。训练场景。
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/15.png)
 
-![](img/paper/3DGS/3dgs_paper/15.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/15.png)
 
 > 图12。在与训练期间观察到的视图重叠很少的情况下，我们的方法可能会产生伪影（右）。同样，Mip-NeRF360 在这些情况下也有伪影（左）。DrJohnson 场景。
 
@@ -716,7 +716,7 @@ $
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/16.png)
 
-![](img/paper/3DGS/3dgs_paper/16.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/16.png)
 
 ### C. 光栅化器的详细信息
 
@@ -724,7 +724,7 @@ $
 
 ![](../../../../theme/yilia/source/img/paper/3DGS/3dgs_paper/17.png)
 
-![](img/paper/3DGS/3dgs_paper/17.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/3dgs_paper/17.png)
 
 > - `CullGaussians`（高斯裁剪）步骤里的输入`p`，指的是**3D 高斯的中心在**「相机空间（视图空间）」**中的坐标**。 
 > - `L, K ← DuplicateWithKeys(M′, T )`  **输出**：`L`（高斯实例索引列表）、`K`（对应实例的排序键列表） 

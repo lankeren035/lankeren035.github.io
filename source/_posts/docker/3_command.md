@@ -25,7 +25,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/docker/8.png)
 
-![](img/docker/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/8.png)
 
 - 将当前用户添加到`docker`用户组，否则每次执行命令都要用`sudo`
 

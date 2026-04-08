@@ -38,7 +38,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/video_style_transfer/stillmoving/1.png)
 
-  ![](img/paper/video_style_transfer/stillmoving/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_style_transfer/stillmoving/1.png)
 
 - 理想情况下，我们希望通过对其输出帧提供直接监督来微调T2V模型。但是，我们无法访问定制内容的任何视频数据。我们克服这一挑战的关键想法是在“**冻结视频**”上微调T2V模型，这些视频是通过在时间上复制定制T2I模型生成的静态图像来构建的。这种方法的**关键挑战是保留T2V模型的运动先验，并避免教导它生成静态内容**。
 - 我们分两个阶段应对这一挑战。我们首先训练**运动适配器**，它是时间注意力层的轻量级残差，导致T2V模型生成静态视频。**然后，我们将这些运动适配器用作运动开关**：我们打开它们**以允许我们在冻结的定制视频上微调T2V模型**，然后移除它们以恢复模型的运动先验。T2V微调是通过注入定制的T2I权重并仅训练轻量级空间适配器来修正特征分布中的不匹配来实现的。
@@ -63,7 +63,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/paper/video_style_transfer/stillmoving/2.png)
 
-  ![](img/paper/video_style_transfer/stillmoving/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_style_transfer/stillmoving/2.png)
 
 ## 3.3 Spatial Adapters
 

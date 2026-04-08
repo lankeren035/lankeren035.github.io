@@ -15,7 +15,7 @@ toc: true
 ## 3.1 填充（padding）
 - 在输入图像的边界填充元素（通常是0）
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
-![](img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/1.png)
 - 通常卷积核的高度和宽度为奇数（如果为偶数，则上下填充的层数会差1）
 - 对于任何二维张量X，当：
     - 卷积核大小为奇数
@@ -58,7 +58,7 @@ print(s)
 - 有时为了高效计算或是缩减采样次数
 - 卷积核每次滑动的行数和列数
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
-![](img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/5_convolution/3_padding/2.png)
 - 输入：$n_h \times n_w$，卷积核：$k_h \times k_w$，填充：$p_h \times p_w$，步幅：$s_h \times s_w$
 - 输出：$o_h \times o_w$，$o_h = \lfloor \frac{n_h + p_h - k_h}{s_h} + 1 \rfloor$，$o_w = \lfloor \frac{n_w + p_w - k_w}{s_w} + 1 \rfloor$
 - 如果我们设置了$p_h = k_h - 1$和$p_w = k_w - 1$

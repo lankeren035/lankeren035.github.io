@@ -31,7 +31,7 @@ toc: true
 - 下图描述了门控循环单元中的重置门和更新门的输入，输入是由当前时间步的输入和前一时间步的隐状态给出。两个门的输出是由使用sigmoid激活函数的两个全连接层给出。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/1.png)
 
 - 假设在时间步t，输入是小批量$ \mathbf{ X } _ { t } \in \mathbb{ R } ^ { n \times d } $（样本数为n，输入个数为d），前一时间步的隐状态是$ \mathbf{ H } _ { t - 1 } \in \mathbb{ R } ^ { n \times h } $（隐藏单元个数为h）。重置门$ \mathbf{ R } _ { t } \in \mathbb{ R } ^ { n \times h } $和更新门$ \mathbf{ Z } _ { t } \in \mathbb{ R } ^ { n \times h } $的计算如下：
 
@@ -49,7 +49,7 @@ $$ \tilde { \mathbf{ H } } _ { t } = \tanh \left( \mathbf{ X } _ { t } \mathbf{ 
 - 与原始的隐状态更新机制相比，这种方法中的$ \mathbf{ R } _ { t } $和$ \mathbf{ H } _ { t - 1 } $的元素相乘可以减少以往状态的影响。每当重置门$ \mathbf{ R } _ { t } $中的项接近1时，我们恢复一个普通的循环神经网络。对于重置门$ \mathbf{ R } _ { t } $中所有接近0的项，候选隐状态是以$ \mathbf{ X } _ { t } $为输入的多层感知机的输出。因此，任何预先存在的隐状态都会被重置为默认值。应用重置门之后的计算流程:
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/2.png)
 
 ### 1.1.3 隐状态
 
@@ -64,7 +64,7 @@ $$ \mathbf{ H } _ { t } = \mathbf{ Z } _ { t } \odot \mathbf{ H } _ { t - 1 } + 
 - 更新门起作用后的计算流：
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU/3.png)
 
 - 门控循环单元具有以下两个显著特征：
     
@@ -166,8 +166,8 @@ d2l.train_ch8(model, train_iter, vocab, lr, num_epochs, device)
 
 
     
-![svg](1_GRU_files/1_GRU_9_1.svg)
-![](img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg)
+![[source/_posts/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg)
     
 
 
@@ -190,7 +190,7 @@ d2l.train_ch8(model, train_iter, vocab, lr, num_epochs, device)
 
 
     
-![svg](1_GRU_files/1_GRU_11_1.svg)
-![](img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_11_1.svg)
+![[source/_posts/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_11_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_11_1.svg)
     
 

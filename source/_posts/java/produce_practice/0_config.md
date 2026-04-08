@@ -28,7 +28,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/1.png)
 
-  ![](img/java/produce_practice/0/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/1.png)
 
 - 下载后解压到你想放到的目录（比如我是D:/jdk-17
 
@@ -38,7 +38,7 @@ toc: true
 
 2. 新建环境变量： ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/2.png)
 
-   ![](img/java/produce_practice/0/2.png) 
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/2.png) 
 
 3. 输入变量名：`JAVA_HOME`，变量值（根据你存放的路径）：`D:\jdk-17`，确定。
 
@@ -65,7 +65,7 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/4.png)
 
-    ![](img/java/produce_practice/0/4.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/4.png) 
 
 ### 0.2.2 安装虚拟机
 
@@ -131,7 +131,7 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/5.png)
 
-    ![](img/java/produce_practice/0/5.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/5.png) 
 
   - 创建C:\Users\123\.m2\settings.xml
 
@@ -155,7 +155,7 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/5.png)
 
-    ![](img/java/produce_practice/0/5.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/5.png) 
 
 - 检验国内镜像配置
 
@@ -165,15 +165,15 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/6.png)
 
-    ![](img/java/produce_practice/0/6.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/6.png) 
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/7.png)
 
-    ![](img/java/produce_practice/0/7.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/7.png) 
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/8.png)
 
-    ![](img/java/produce_practice/0/8.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/8.png) 
 
     - 复制：
 
@@ -191,25 +191,25 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/9.png)
 
-    ![](img/java/produce_practice/0/9.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/9.png) 
 
     - 此时刚刚粘贴的依赖不是红色字体了，说明下载ok，然后输入json可以看到有代码自动补全：
 
       ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/10.png)
 
-      ![](img/java/produce_practice/0/10.png) 
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/10.png) 
 
 - 统一编码：（搜索encoding或编码，还有搜索控制台：编码）
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/11.png)
 
-  ![](img/java/produce_practice/0/11.png) 
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/11.png) 
 
 - 避免其他插件在控制台输出中文乱码：
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/0/12.png)
 
-  ![](img/java/produce_practice/0/12.png) 
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/0/12.png) 
 
   输入：
 

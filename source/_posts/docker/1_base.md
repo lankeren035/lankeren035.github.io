@@ -64,13 +64,13 @@ toc: true
 
     ![](../../../theme/yilia/source/img/docker/1.png)
 
-    ![](img/docker/1.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/1.png)
 
   - docker
 
     ![](../../../theme/yilia/source/img/docker/2.png)
 
-    ![](img/docker/2.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/2.png)
 
     - 应用更快速的交付和部署：
       - 传统：一堆帮助文档，安装程序
@@ -86,7 +86,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/docker/3.png)
 
-![](img/docker/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/3.png)
 
 - 镜像（image）：
   - docker镜像就好比是一个模板，可以通过这个模板来创建容器服务，例如：tomcat镜像 -> run -> tomcat01容器（提供服务器），通过这个镜像可以创建多个容器（最终服务运行或者项目运行就是在容器中的 ）

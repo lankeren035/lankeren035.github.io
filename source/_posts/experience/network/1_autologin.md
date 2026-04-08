@@ -50,7 +50,7 @@ python -m playwright install
 
   ![](../../../../theme/yilia/source/img/experience/network/autologin/1.png)
 
-  ![](img/experience/network/autologin/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/network/autologin/1.png)
 
 #### 1.3 写脚本
 

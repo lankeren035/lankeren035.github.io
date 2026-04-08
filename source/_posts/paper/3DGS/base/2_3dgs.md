@@ -38,7 +38,7 @@ toc:  true
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/10.png)
 
-![](img/paper/3DGS/base/3dgs/10.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/10.png)
 
 - 从世界坐标系到相机坐标系
 - 横看成岭侧成峰，远近高低各不同
@@ -51,9 +51,9 @@ toc:  true
 
 >变换到相机角度之后，我们需要将高斯椭球映射到成像平面上，映射方法有两个：正交投影，透视投影
 
-![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/11.png)
 
-![](img/paper/3DGS/base/3dgs/11.png)
+
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/11.png)
 
 - 3D到2D
 - 正交投影，与z无关
@@ -66,10 +66,7 @@ toc:  true
 - **平移**到原点
 - 立方体**缩放**至$[-1,1]^ 3$的正方体
 - 仿射变换
-
-![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/12.png)
-
-![](img/paper/3DGS/base/3dgs/12.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/12.png)
 $$
 M_ { ortho } = 
 \begin{bmatrix}
@@ -100,9 +97,9 @@ $$
 
 - 再做正交投影
 
-  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/13.png)
 
-  ![](img/paper/3DGS/base/3dgs/13.png)
+
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/13.png)
   $$
   M_ {persp \rightarrow ortho} = \begin{bmatrix} n &0 &0 &0 \\\\ 0 &n &0 &0 \\\\ 0 &0 &n+f &-nf \\\\ 0 &0 &1 &0  \end{bmatrix}
   $$
@@ -123,9 +120,9 @@ $$
 
   - 将$[-1,1]^ 2$的举行变换至$[0,w] \times [0,h]$
 
-    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/14.png)
 
-    ![](img/paper/3DGS/base/3dgs/14.png)
+
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/14.png)
     $$
     M_{ viewport } = \begin{bmatrix} \frac{ w } { 2 } &0 &0 &\frac{ w } { 2 } \\\\
     0 &\frac{ h } { 2 } &0 &\frac{ h } { 2 } \\\\
@@ -149,7 +146,7 @@ $$
 
     
 
-    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/15.png)![](img/paper/3DGS/base/3dgs/15.png)
+    ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/15.png)![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/15.png)
 
 > 光栅化中经常听到一个词叫形变（Aliasing），比如上图左下角那个像素有点离群，那我们的采样方式可能有点问题，可以采取其他的采样方式使他更自然。
 
@@ -240,13 +237,13 @@ for p in pts: #遍历三个点
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/19.png)
 
-    ![](img/paper/3DGS/base/3dgs/19.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/19.png)
 
   - 假设把黄色框框进一步缩小，它附近的变换可以近似成一个线性的变换：
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/20.png)
 
-    ![](img/paper/3DGS/base/3dgs/20.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/20.png)
 
   - 也就是说确定了一个点$x_ 0 , y_ 0$，在他附近就可以通过导数去进行线性的逼近了。具体就叫雅可比矩阵：
     $$
@@ -270,7 +267,7 @@ for p in pts: #遍历三个点
   ny \\\\ ( n+ f) z -nf \\\\
   z
   \end{matrix} \right) =\left (  \begin{matrix} \frac{ nx }{ z } \\\\
-  \frac{ ny }{ z } \\\\ (n+f)-\frac{ nf }{ 2 } \\\\
+  \frac{ ny }{ z } \\\\ (n+f)-\frac{ nf }{ z } \\\\
   1
   \end{matrix} \right)
   $$

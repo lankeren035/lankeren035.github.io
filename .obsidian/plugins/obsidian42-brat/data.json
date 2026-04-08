@@ -1,0 +1,36 @@
+{
+  "pluginList": [
+    "RyotaUshio/obsidian-inline-math",
+    "lifeodyssey/obsidian-hexo-auto-update",
+    "nanjo712/obsidian-hexo-integration"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "RyotaUshio/obsidian-inline-math",
+      "version": "latest"
+    },
+    {
+      "repo": "lifeodyssey/obsidian-hexo-auto-update",
+      "version": "",
+      "tokenName": "plug"
+    },
+    {
+      "repo": "nanjo712/obsidian-hexo-integration",
+      "version": "1.0.3",
+      "tokenName": "plug"
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "globalTokenName": "",
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

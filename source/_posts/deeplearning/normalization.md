@@ -36,7 +36,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/deeplearning/norm/1.png)
 
-![](img/deeplearning/norm/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/norm/1.png)
 
 | Batch Norm                   | Layer Norm                    | Instance Norm         | Group Norm                                        |
 | ---------------------------- | ----------------------------- | --------------------- | ------------------------------------------------- |

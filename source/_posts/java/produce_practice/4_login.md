@@ -30,7 +30,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/1.png)
 
-  ![](img/java/produce_practice/4/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/1.png)
 
 ### 4.1.2 编写UserController.userLogin方法（control层）
 
@@ -64,7 +64,7 @@ toc: true
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/2.png)
 
-    ![](img/java/produce_practice/4/2.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/2.png)
 
 ### 4.1.3 编写userserviceImpl.queryUserList方法（service层）
 
@@ -111,7 +111,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/3.png)
 
-  ![](img/java/produce_practice/4/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/3.png)
 
   然后刷新maven即可。
 
@@ -119,19 +119,19 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/4.png)
 
-  ![](img/java/produce_practice/4/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/4.png)
 
   - 然后点击调试控制台的恢复程序按钮
 
      ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/5.png)
 
-    ![](img/java/produce_practice/4/5.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/5.png) 
 
     发现前端页面跳转：
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/6.png)
 
-    ![](img/java/produce_practice/4/6.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/6.png)
 
 ## 4.2 创建用户功能
 
@@ -141,7 +141,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/4/7.png)
 
-  ![](img/java/produce_practice/4/7.png) 
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/4/7.png) 
 
 
 

@@ -1,0 +1,28 @@
+---
+title: "cameras.py"
+date: 2026-04-07
+tags: [3dgs]
+categories: [3dgs]
+comment: true
+toc: true
+published: true
+permalink: "code/3dgs/scene.cameras.py"
+hexo-path:
+---
+
+## 1. 流程
+
+1. 待补充
+
+## 2. 包含的类
+
+| 类名 | 解释 |
+|---|---|
+| [[3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera\|Camera]] | - |
+| [[3dgs_code_learn/modules/scene/cameras.py/3dgs_MiniCam\|MiniCam]] | - |
+
+## 3. 包含的函数
+
+| 函数名 | 返回 | 解释 |
+|---|---|---|
+| - | - | - |

@@ -18,7 +18,7 @@ toc: true
 
 - 编码器-解码器架构。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
-![](img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg)
 
     - 编码器由多个层叠加，每个层有两个子层（sublayer）
         - 第一个子层是multi-head self-attention汇聚；
@@ -347,7 +347,7 @@ d2l.train_seq2seq(net, train_iter, lr, num_epochs, tgt_vocab, device)
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg)
     
 
 
@@ -402,7 +402,7 @@ d2l.show_heatmaps(enc_attention_weights.cpu(), xlabel='Key positions',ylabel='Qu
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg)
     
 
 
@@ -438,7 +438,7 @@ d2l.show_heatmaps(dec_self_attention_weights[:, :, :, :len(translation.split()) 
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg)
     
 
 
@@ -451,6 +451,6 @@ d2l.show_heatmaps(dec_inter_attention_weights, xlabel='Key positions',ylabel='Qu
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg)
     
 

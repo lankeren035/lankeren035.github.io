@@ -51,7 +51,7 @@ for ax, func in zip(axes, [f, g, h]):
 
 
     
-![svg](2_Convexity_files/2_Convexity_3_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/10_optimize/2_Convexity_files/2_Convexity_3_0.svg|svg]]
     
 
 
@@ -110,4 +110,4 @@ $$Proj_ {\mathbf{ C }} ( \mathbf{ x }) = argmin_{\mathbf{ c' } \in \mathbf{ C }}
 - 它是凸集中离x最近的点。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)
-![](img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/2_convexity/1.jpg)

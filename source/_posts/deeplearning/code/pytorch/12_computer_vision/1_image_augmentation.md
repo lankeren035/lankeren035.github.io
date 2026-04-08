@@ -39,7 +39,7 @@ d2l.plt.imshow(img)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_1_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_1_1.svg)
 
     
 
@@ -64,7 +64,7 @@ apply(img, torchvision.transforms.RandomHorizontalFlip())
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_5_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_5_0.svg)
     
 
 
@@ -79,7 +79,7 @@ apply(img, torchvision.transforms.RandomVerticalFlip())
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_7_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_7_0.svg)
     
 
 
@@ -96,7 +96,7 @@ apply(img, shape_aug)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_9_0.svg)
     
 
 
@@ -121,7 +121,7 @@ apply(img, torchvision.transforms.ColorJitter(brightness=0.5, contrast=0, satura
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_11_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_11_0.svg)
     
 
 
@@ -135,7 +135,7 @@ apply(img, color_aug)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_13_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_13_0.svg)
     
 
 
@@ -150,7 +150,7 @@ apply(img, augs)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_15_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_15_0.svg)
     
 
 
@@ -169,7 +169,7 @@ d2l.show_images([all_images[i][0] for i in range(32)], 4, 8, scale=0.8);
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_17_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_17_1.svg)
     
 
 
@@ -269,6 +269,6 @@ train_with_data_aug(train_augs, test_augs, net)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_23_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation_files/1_image_augmentation_23_1.svg)
     
 

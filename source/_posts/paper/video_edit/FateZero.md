@@ -40,7 +40,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/2.png)
 
-![](img/paper/video_edit/FateZero/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/FateZero/2.png)
 
 - 我们使用预训练的文本到图像模型，即稳定扩散，作为我们的基本模型，它包含一个用于T时间步长去噪的UNet。我们**没有直接利用由<u>重建分支的注意力</u>引导的潜在编辑的常规管道**，而是对视频编辑进行了如下几个关键修改。
 
@@ -68,13 +68,13 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/1.png)
 
-![](img/paper/video_edit/FateZero/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/FateZero/1.png)
 
 - 图3显示了我们的注意力融合方法和（prompt to prompt,  Null text inversion）中用于图像编辑的简单反转然后生成的典型方法之间的玩具比较示例。**反演期间的交叉注意力图捕捉到了源图像中猫的轮廓和姿势**，但是**重建期间的注意力图**具有明显的差异。而在视频中，注意力一致性可能影响时间一致性，如图8所示。<font color='red'>这是因为时空自注意力图代表了帧之间的对应关系，现有视频扩散模型（TAV）的时间建模能力并不令人满意。</font> （时空注意力怎么变成了时空自注意力？？？）
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/3.png)
 
-  ![](img/paper/video_edit/FateZero/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/FateZero/3.png)
 
 >Inversion attention compared with reconstruction attention using prompt ‘deserted shore −→ ‘glacier shore’. The attention maps obtained from the reconstruction stage fail to detect the boat’s position, and can not provide suitable motion guidance for zero-shot video editing.
 
@@ -84,7 +84,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/video_edit/FateZero/4.png)
 
-![](img/paper/video_edit/FateZero/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/FateZero/4.png)
 
 >使用稳定扩散的零镜头形状编辑（兔子→老虎）中混合自我注意的研究。第四和第五列：忽视自我关注不能保存原始结构和背景，天真的替换会导致伪影。第三列：使用交叉注意力图混合自我注意力（第二行）从具有相似姿势的目标文本获得新形状，并从输入帧获得背景。
 

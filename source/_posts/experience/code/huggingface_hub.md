@@ -61,7 +61,7 @@ ImportError: cannot import name 'cached_download' from 'huggingface_hub'
 
    ![](../../../../theme/yilia/source/img/project/deepseek/local_install/1.png)
 
-   ![](img/project/deepseek/local_install/1.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/deepseek/local_install/1.png)
 
 3. 查看他的`setup.py`找到相关字段：
 

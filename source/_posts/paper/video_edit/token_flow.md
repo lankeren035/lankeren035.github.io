@@ -85,7 +85,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/1.png)
 
-  ![](img/paper/video_edit/Tokenflow/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/Tokenflow/1.png)
 
   >跨时间的扩散特征
   >
@@ -105,7 +105,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/2.png)
 
-  ![](img/paper/video_edit/Tokenflow/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/Tokenflow/2.png)
 
   >细粒度特征对应。
   >
@@ -123,7 +123,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/3.png)
 
-![](img/paper/video_edit/Tokenflow/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/Tokenflow/3.png)
 
 - 如图4所示，我们的框架**<font color=red>在每个生成时间步中 在两个主要组件之间交替</font>**：
   1. 采样一组关键帧并根据P联合编辑它们；该阶段导致跨关键帧的共享全局外观，
@@ -180,4 +180,4 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_edit/Tokenflow/4.png)
 
-  ![](img/paper/video_edit/Tokenflow/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_edit/Tokenflow/4.png)

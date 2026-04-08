@@ -79,7 +79,7 @@ pip install debugpy
 
   ![](../../../theme/yilia/source/img/project/stable_diffusion/17.jpg)
 
-  ![](img/project/stable_diffusion/17.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/17.jpg)
 
 - 如果无法运行，可以尝试将`lanuch.json`中的`debugpy`改成`debugpy-old`， 或者查看你的远端的python扩展是不是显示有问题，把他卸载重装。
 

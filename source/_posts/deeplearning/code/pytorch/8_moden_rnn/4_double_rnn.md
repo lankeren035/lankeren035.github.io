@@ -25,7 +25,7 @@ toc: true
 - 如果我们想用概率图模型来解决这个问题，可以设计一个隐变量模型：在任意时间步t，假设存在某个隐变量ht，通过概率$ P(x_t \mid h_t) $控制我们观测到的$ x_t $。此外，任何$ h_ t \rightarrow h_ {t + 1} $转移都是由一些状态转移概率$ P(h_ {t + 1} \mid h_ t) $控制的。这个概率图模型就是一个隐马尔可夫模型（hidden Markov model，HMM）:
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/1.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/1.png)
 
 - 因此，对于有T个观测值的序列，我们在观测状态和隐状态上具有以下联合概率分布：
 
@@ -61,7 +61,7 @@ $$ P(x_ j \mid x_ { -j } ) \propto \sum_ {h_ j} \pi_ j(h_ j) \rho_ j(h_ j) P(x_ 
 - 我们希望在循环神经网络中拥有一种机制，使之能够提供与隐马尔可夫模型类似的前瞻能力。只需要增加一个“从最后一个词元开始从后向前运行”的循环神经网络。双向循环神经网络（bidirectional RNNs）添加了反向传递信息的隐藏层，以便更灵活地处理此类信息。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png)
-![](img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png)
 
 - 这与隐马尔可夫模型中的动态规划的前向和后向递归没有太大区别。其主要区别是，在隐马尔可夫模型中的方程具有特定的统计意义。双向循环神经网络没有这样容易理解的解释，我们只能把它们当作通用的、可学习的函数。
 
@@ -118,7 +118,7 @@ d2l.train_ch8(model, train_iter, vocab, lr, num_epochs, device)
 
 
     
-![svg](4_double_rnn_files/4_double_rnn_1_1.svg)
-![](img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg)
+![[source/_posts/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg)
     
 

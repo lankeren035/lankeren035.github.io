@@ -70,7 +70,7 @@ display_anchors(fmap_w=4, fmap_h=4, s=[0.15])
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_5_1.svg)
     
 
 
@@ -83,7 +83,7 @@ display_anchors(fmap_w=2, fmap_h=2, s=[0.4])
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_7_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_7_0.svg)
     
 
 
@@ -96,7 +96,7 @@ display_anchors(fmap_w=1, fmap_h=1, s=[0.8])
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect_files/5_multiscale_object_detect_9_0.svg)
     
 
 

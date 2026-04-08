@@ -55,7 +55,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_1_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_1_1.svg)
     
 
 
@@ -74,7 +74,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(gd_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_3_1.svg)
     
 
 
@@ -102,7 +102,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(momentum_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_5_1.svg)
     
 
 
@@ -120,7 +120,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(momentum_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_7_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_7_1.svg)
     
 
 
@@ -143,7 +143,7 @@ d2l.plt.legend();
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_9_0.svg)
     
 
 
@@ -178,7 +178,7 @@ train_momentum(0.02, 0.5)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_11_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_11_1.svg)
     
 
 
@@ -194,7 +194,7 @@ train_momentum(0.01, 0.9)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_13_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_13_1.svg)
     
 
 
@@ -210,7 +210,7 @@ train_momentum(0.005, 0.9)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_15_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_15_1.svg)
     
 
 
@@ -227,7 +227,7 @@ d2l.train_concise_ch11(trainer, {'lr': 0.005, 'momentum': 0.9}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_17_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_17_1.svg)
     
 
 
@@ -275,7 +275,7 @@ d2l.plt.legend();
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_19_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/6_momentum_files/6_momentum_19_0.svg)
     
 
 

@@ -91,7 +91,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(adagrad_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_1_2.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_1_2.svg)
     
 
 
@@ -110,7 +110,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(adagrad_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_3_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_3_1.svg)
     
 
 
@@ -139,7 +139,7 @@ d2l.train_ch11(adagrad, init_adagrad_states(feature_dim),
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_5_1.svg)
     
 
 
@@ -156,6 +156,6 @@ d2l.train_concise_ch11(trainer, {'lr': 0.1}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_7_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/7_AdaGrad_files/7_AdaGrad_7_1.svg)
     
 

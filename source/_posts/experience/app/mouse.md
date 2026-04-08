@@ -29,7 +29,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/experience/app/mouse/1.png)
 
-  ![](img/experience/app/mouse/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/mouse/1.png)
 
   - 此外还可以自己设置不同的方案等。
 
@@ -39,13 +39,13 @@ toc: true
 
    ![](../../../../theme/yilia/source/img/experience/app/mouse/2.png)
 
-  ![](img/experience/app/mouse/2.png) 
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/mouse/2.png) 
 
 - 新建一个文件：
 
      ![](../../../../theme/yilia/source/img/experience/app/mouse/3.png)
 
-    ![](img/experience/app/mouse/3.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/mouse/3.png) 
 
 - 写入如下内容，实现短按、长按不同功能：
 

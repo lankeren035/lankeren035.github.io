@@ -35,7 +35,7 @@ toc: true
     - 可以通过设计注意力汇聚的方式，便于给定的查询（自主性提示）与键（非自主性提示）进行匹配，这将引导得出最匹配的值（感官输入）。
 
     ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/1_attention_cues/1.png)
-    ![](img/deeplearning/code/pytorch/9_attention/1_attention_cues/1.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/1_attention_cues/1.png)
 
     - 提供一个自主性提示，然后提供多个非自主性提示，一个非自主性提示与自主性提示匹配，得到一个值（一一对应）。
 
@@ -103,6 +103,6 @@ show_heatmaps(attention_weights, xlabel='Keys', ylabel='Queries')
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/1_attention_cues_files/1_attention_cues_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/1_attention_cues_files/1_attention_cues_5_1.svg)
     
 

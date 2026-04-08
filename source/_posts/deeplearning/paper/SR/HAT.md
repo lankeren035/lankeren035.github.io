@@ -30,7 +30,7 @@ toc: true
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\1.png)
 
-![](img/deeplearning/paper/SR/HAT/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/1.png)
 
 ​	 一般来说，被利用像素的范围越大，重建的效果往往越好，该结论在对比基于CNN的方法EDSR与RCAN时可以得到明显体现。然而，当对比RCAN与基于Transformer的SwinIR方法时，却出现了结论相反的现象： SwinIR取得了更高的PSNR/SSIM，但相比RCAN并没有使用更大范围的像素信息，并且由于其有限的信息使用范围，在蓝色框区域恢复出了错误的纹理。这与以往普遍认为Transformer结构是通过更好地利用long-range信息来取得性能优势的直觉是相悖的。 
 
@@ -53,13 +53,13 @@ toc: true
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\2.png)
 
- ![](img/deeplearning/paper/SR/HAT/2.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/2.png) 
 
 ​	对于OCAB的设计，本文使用了一种重叠的窗口划分机制，如下图所示。
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\3.png)
 
- ![](img/deeplearning/paper/SR/HAT/3.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/3.png) 
 
 ​	相对于原始基于窗口的self-attention中Q、K和V来自于同一个窗口特征，OCA中的K/V来自更大的窗口特征，这允许attention能够被跨窗口地计算，以增强相邻窗口间信息的交互。
 
@@ -82,8 +82,8 @@ toc: true
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\4.png)
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\5.png)
 
- ![](img/deeplearning/paper/SR/HAT/4.png) 
- ![](img/deeplearning/paper/SR/HAT/5.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/4.png) 
+ ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/5.png) 
 
 
 
@@ -93,8 +93,8 @@ toc: true
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\6.png)
 
-![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\7.png)![](img/deeplearning/paper/SR/HAT/6.png) 
-![](img/deeplearning/paper/SR/HAT/7.png) 
+![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\7.png)![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/6.png) 
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/7.png) 
 
 - 可以看到文中所提的两个模块在定量指标上均带来了不小的提升，在LAM和视觉效果上相对于Baseline也具有明显改善。
 
@@ -105,7 +105,7 @@ toc: true
 - 在基准数据集上进行定量对比实验的结果如下表所示。
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\8.png)
-![](img/deeplearning/paper/SR/HAT/8.png) 
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/8.png) 
 
 ​	从定量指标上看，没有使用ImageNet预训练策略的HAT的性能已经明显超越SwinIR，甚至在很多情况下超越了经过ImageNet预训练的EDT。
 
@@ -116,7 +116,7 @@ toc: true
 -  视觉效果对比如下图所示。可以看出HAT能够恢复更多更清晰的细节，由于对于重复纹理较多的情况，HAT具有显著优势。在文字的恢复上，HAT相比其他方法也能够恢复出更清晰的文字边缘。 
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\9.png)
-![](img/deeplearning/paper/SR/HAT/8.png) 
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/8.png) 
 
 
 
@@ -125,7 +125,7 @@ toc: true
 ​	 本文对于不同的预训练策略进行了对比，如下表所示。相对于EDT 提出使用相关任务进行预训练的策略，本文提出的使用相同任务进行预训练的策略无论是在预训练阶段还是微调后的结果，性能都要更优。 
 
 ![](D:\blog\themes\yilia\source\img\deeplearning\paper\SR\HAT\11.png)
-![](img/deeplearning/paper/SR/HAT/11.png) 
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/paper/SR/HAT/11.png) 
 
 
 

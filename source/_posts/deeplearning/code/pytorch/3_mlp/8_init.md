@@ -41,7 +41,7 @@ d2l.plot(x.detach().numpy(), [y.detach().numpy(), x.grad.numpy()] , legend=['sig
 
 ​      ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg)
 
-![svg](img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg)
     
 
 

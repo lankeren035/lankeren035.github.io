@@ -14,7 +14,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/lvdm_long/1.png)
 
-![](img/paper/diffusion/lvdm_long/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/lvdm_long/1.png)
 
 
 

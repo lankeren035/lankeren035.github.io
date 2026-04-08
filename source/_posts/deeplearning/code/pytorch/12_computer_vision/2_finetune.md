@@ -27,7 +27,7 @@ toc: true
     - 在目标数据集（如椅子数据集）上训练目标模型。输出层将从头开始进行训练，而所有其他层的参数将根据源模型的参数进行微调。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
-![](img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune/1.png)
 
 
 - 当目标数据集比源数据集小得多时，微调有助于提高模型的泛化能力。
@@ -65,7 +65,7 @@ d2l.show_images(hotdogs + not_hotdogs, 2, 8, scale=1.4);
 
 
     
-![png](2_finetune_files/2_finetune_1_1.png)
+![[https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune_files/2_finetune_1_1.png|png]]
     
 
 
@@ -189,7 +189,7 @@ train_fine_tuning(finetune_net, 5e-5)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/2_finetune_files/2_finetune_13_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune_files/2_finetune_13_1.svg)
     
 
 
@@ -208,6 +208,6 @@ train_fine_tuning(scratch_net, 5e-4, param_group=False)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/2_finetune_files/2_finetune_15_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/2_finetune_files/2_finetune_15_1.svg)
     
 

@@ -71,7 +71,7 @@ npm run dev
 
   ![](../../../../theme/yilia/source/img/project/deepseek/local_install/1.png)
 
-  ![](img/project/deepseek/local_install/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/deepseek/local_install/1.png)
 
 - 下载，启动
 

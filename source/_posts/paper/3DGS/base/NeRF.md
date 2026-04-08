@@ -71,7 +71,7 @@ toc:  true
 
       ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/1.png)
 
-      ![](img/paper/3DGS/base/3dgs/1.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/1.png)
 
   - 对上面的整个过程进行建模得到的就是一个**相机模型**：连接3D世界与2D图片
 
@@ -85,7 +85,7 @@ toc:  true
 
       ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/2.png)
 
-      ![](img/paper/3DGS/base/3dgs/2.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/2.png)
 
 - 我们常说的3D建模（3D重建）就是**通过图片去推测光源的位置和强度，以及物体的几何性质**（比如他的材质）。这样操作**建模难度巨大**。在NeRF中就引入了一个概念：**体渲染**
 
@@ -144,13 +144,13 @@ toc:  true
 
   ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/3.png)
 
-  ![](img/paper/3DGS/base/3dgs/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/3.png)
 
 - 由像素点P(u,v)反推射线
 
   ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/4.png)
 
-  ![](img/paper/3DGS/base/3dgs/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/4.png)
 
   - 像素平面坐标系：$（u,v）$
   - 物理成像平面坐标系：$（x_n , y_n）$
@@ -254,7 +254,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/5.png)
 
-![](img/paper/3DGS/base/3dgs/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/5.png)
 
 - 8层全连接
 
@@ -314,11 +314,11 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/6.png)
 
-    ![](img/paper/3DGS/base/3dgs/6.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/6.png)
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/7.png)
 
-    ![](img/paper/3DGS/base/3dgs/7.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/7.png)
 
     - 对于点$s+ds$，它不被遮挡的概率是：点s不被遮挡且$ds$这一段也都不被遮挡，由于$ds$很小，$ds$这一段被遮挡的概率都视作$\sigma(s)$
 
@@ -427,7 +427,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/8.png)
 
-    ![](img/paper/3DGS/base/3dgs/8.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/8.png)
 
 - 解决：
 
@@ -442,7 +442,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/9.png)
 
-    ![](img/paper/3DGS/base/3dgs/9.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/9.png)
 
     - 先根据粗模型的结果，进行逆变换采样。首先根据公式$\hat C = \sum_ { n = 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } )$ 取粒子颜色前的权重做softmax：
 

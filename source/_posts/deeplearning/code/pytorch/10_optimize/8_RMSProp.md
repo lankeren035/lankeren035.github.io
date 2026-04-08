@@ -49,7 +49,7 @@ d2l.plt.xlabel('Time')
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_1_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_1_1.svg)
     
 
 
@@ -82,7 +82,7 @@ d2l.show_trace_2d(f_2d, d2l.train_2d(rmsprop_2d))
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_3_2.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_3_2.svg)
     
 
 
@@ -113,7 +113,7 @@ d2l.train_ch11(rmsprop, init_rmsprop_states(feature_dim),
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_5_1.svg)
     
 
 
@@ -130,6 +130,6 @@ d2l.train_concise_ch11(trainer, {'lr': 0.01, 'alpha': 0.9}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg)
     
 

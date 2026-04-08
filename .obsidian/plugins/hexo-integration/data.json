@@ -1,0 +1,19 @@
+{
+  "hexoRoot": "C:\\Users\\admin\\Desktop\\个人电脑同步\\blog",
+  "postHashes": {},
+  "permalinkStyle": "title",
+  "baiduAppId": "xxx",
+  "baiduApiKey": "xxx",
+  "removeStopWords": true,
+  "maxPermalinkWords": 5,
+  "imageSyntax": "hexo",
+  "coverFieldName": "cover",
+  "showOutputModal": true,
+  "pathMapping": {},
+  "autoExcerpt": false,
+  "serverPort": 4000,
+  "compressImages": false,
+  "webpQuality": 75,
+  "alwaysKeepServerRunning": false,
+  "autoGenerateAfterPublish": false
+}

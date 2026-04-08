@@ -31,7 +31,7 @@ toc: true
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/1.png)
 
-![](img/experience/keyboard/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/1.png)
 
 ## 2.2 导入配置文件
 
@@ -41,19 +41,19 @@ toc: true
 
    ![](D:/blog/themes/yilia/source/img/experience/keyboard/2.png)
 
-   ![](img/experience/keyboard/2.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/2.png)
 
 3. 创建一个宏：Fn + F1。需要先进入全屏模式才能录制，点击圆点进行录制，然后按住Fn + F1，再点击圆点完成录制，然后点击傍边的保存按钮。
 
    ![](D:/blog/themes/yilia/source/img/experience/keyboard/3.png)
 
-   ![](img/experience/keyboard/3.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/3.png)
 
 4. 按照如下顺序将F1（我这里因为已经换成M1:
 
    ![](D:/blog/themes/yilia/source/img/experience/keyboard/4.png)
 
-   ![](img/experience/keyboard/4.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/4.png)
 
 ## 2.3 其他功能
 
@@ -61,28 +61,28 @@ toc: true
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/5.png)
 
-![](img/experience/keyboard/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/5.png)
 
 ### 2.3.2 界面
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/6.png)
 
-![](img/experience/keyboard/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/6.png)
 
 ### 2.3.3 宏
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/7.png)
 
-![](img/experience/keyboard/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/7.png)
 
 ### 2.3.4 层
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/8.png)
 
-![](img/experience/keyboard/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/8.png)
 
 ### 2.3.5 any
 
 ![](D:/blog/themes/yilia/source/img/experience/keyboard/9.png)
 
-![](img/experience/keyboard/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/keyboard/9.png)

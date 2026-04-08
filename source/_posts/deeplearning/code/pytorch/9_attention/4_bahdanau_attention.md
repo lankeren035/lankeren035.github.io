@@ -16,7 +16,7 @@ toc: true
 
 ## 4.1 模型
 
-- 在[序列到序列学习](../8_moden_rnn/7_seq2seq.md)模型的基础上做如下更改：
+- 在[[7_seq2seq|序列到序列学习]]模型的基础上做如下更改：
 
     - 上下文变量$\boldsymbol{c}$在任何解码时间步t′都会被$\boldsymbol{c}_ {t′}$替换。
 
@@ -29,7 +29,7 @@ $$ \boldsymbol{ c }_ { t ^ ′ } = \sum _ { t  = 1 }^ T \alpha \left( {\boldsymb
 - Bahdanau注意力的架构：
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
-![](img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau/1.png)
 
 ## 4.2 定义注意力解码器
 
@@ -141,7 +141,7 @@ d2l.train_seq2seq(net, train_iter, lr, num_epochs, tgt_vocab, device)
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/4_bahdanau_attention_files/4_bahdanau_attention_5_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau_attention_files/4_bahdanau_attention_5_1.svg)
     
 
 
@@ -173,6 +173,6 @@ d2l.show_heatmaps(attention_weights[:, :, :, :len(engs[-1].split()) + 1].cpu(), 
 
 
     
-![svg](img/deeplearning/code/pytorch/9_attention/4_bahdanau_attention_files/4_bahdanau_attention_9_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/4_bahdanau_attention_files/4_bahdanau_attention_9_0.svg)
     
 

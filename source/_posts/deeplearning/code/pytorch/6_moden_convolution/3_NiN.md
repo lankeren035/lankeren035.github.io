@@ -16,7 +16,7 @@ toc: true
 - NiN的想法是在每个像素位置（针对每个高度和宽度）应用一个全连接层。如果我们将权重连接到每个空间位置，我们可以将其视为1 × 1卷积层，或作为在每个像素位置上独立作用的全连接层。
 - 从另一个角度看，即将空间维度中的每个像素视为单个样本，将通道维度视为不同特征（feature）。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/3_NiN/1.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/3_NiN/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/3_NiN/1.png)
 - NiN块以一个普通卷积层开始，后面是两个1 × 1的卷积层。这两个1 × 1卷积层充当带有ReLU激活函数的逐像素全连接层。第一层的卷积窗口形状通常由用户设置。随后的卷积窗口形状固定为1 × 1。
 
 
@@ -94,6 +94,6 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
 
     
-![svg](3_NiN_files/3_NiN_7_0.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/3_NiN_files/3_NiN_7_0.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/6_moden_convolution/3_NiN_files/3_NiN_7_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/3_NiN_files/3_NiN_7_0.svg)
 

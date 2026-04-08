@@ -82,7 +82,7 @@ toc:  true
   
   2. 根据diffusers库的版本去github找源码![](../../../../theme/yilia/source/img/paper/video_generation/AnimateDiff/1.png)
   
-     ![](img/paper/video_generation/AnimateDiff/1.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/AnimateDiff/1.png)
   
   3. 查看他的`setup.py`找到相关字段：
   

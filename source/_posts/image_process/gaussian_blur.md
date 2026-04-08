@@ -29,4 +29,4 @@ toc:  true
 
   ![](../../../theme/yilia/source/img/image_process/gaussian_blur/1.png)
 
-  ![](img/image_process/gaussian_blur/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/image_process/gaussian_blur/1.png)

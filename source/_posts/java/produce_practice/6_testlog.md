@@ -30,13 +30,13 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/5/2.png)
 
-  ![](img/java/produce_practice/5/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/5/2.png)
 
 - 假设你需要在每次登录的时候都记录日志，那在controller中找到登录方法所在的类，然后在类上面加上@Slf4j的注释，可以发现结构中多了一个log：
 
     ![](D:/blog/themes/yilia/source/img/java/produce_practice/5/3.png)
 
-    ![](img/java/produce_practice/5/3.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/5/3.png)
 
 - 在登录方法中加入日志记录：
 

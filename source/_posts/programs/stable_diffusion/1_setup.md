@@ -157,11 +157,11 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 
 ![](../../../../theme/yilia/source/img/project/stable_diffusion/5.jpg)
 
-![](img/project/stable_diffusion/5.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/5.jpg)
 
  ![](../../../../theme/yilia/source/img/project/stable_diffusion/6.jpg) 
 
-![](img/project/stable_diffusion/6.jpg) 
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/6.jpg) 
 
 - 可以以在`Available`中，取消所有的勾选，然后在浏览器ctrl+f搜索simplif进行搜索。
 - 其他扩展的安装类似（需要有网络）
@@ -193,7 +193,7 @@ https://github.com/VinsonLaro/stable-diffusion-webui-chinese
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/4.jpg)
 
-  ![](img/project/stable_diffusion/4.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/4.jpg)
 
 ### 5.2 stable diffusion基础模型
 

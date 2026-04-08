@@ -70,11 +70,11 @@ git push -u github source
 
 ![](D:\blog\themes\yilia\source\img\hexo\config\1.png)
 
-![](img/hexo/config/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/config/1.png)
 
 ![](D:\blog\themes\yilia\source\img\hexo\config\2.png)
 
-![](img/hexo/config/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/hexo/config/2.png)
 
 
 

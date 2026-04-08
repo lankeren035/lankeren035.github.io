@@ -18,7 +18,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/freenoise/1.png)
 
-![](img/paper/diffusion/freenoise/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/freenoise/1.png)
 
 
 
@@ -34,6 +34,6 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/freenoise/2.png)
 
-![](img/paper/diffusion/freenoise/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/freenoise/2.png)
 
 - 假设生成长视频使用了两个提示词，论文指出：LDM分别在去噪过程的早期、中期和晚期合成不同级别的视觉内容场景布局、对象形状和精细细节。作者希望在场景布局上保持不变，因此在较大的时候应该都使用同一个提示词（第一个提示词）；当处于中间时间步（或处于unet的decoder部分）的时候进行提示词替换。对于提示词替换，前面的帧使用提示词1，中间部分的帧使用提示词1+提示词2的组合，最后部分的帧使用提示词2 ...

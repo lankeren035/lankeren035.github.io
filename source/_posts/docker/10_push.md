@@ -64,11 +64,11 @@ toc: true
 
   ![](../../../theme/yilia/source/img/docker/20.png)
 
-  ![](img/docker/20.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/20.png)
 
   ![](../../../theme/yilia/source/img/docker/21.png)
 
-  ![](img/docker/21.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/21.png)
 
   - 创建后选择本地仓库，创建镜像仓库后，有教程。
 

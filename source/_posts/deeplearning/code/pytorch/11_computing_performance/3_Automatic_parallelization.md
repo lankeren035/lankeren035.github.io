@@ -111,4 +111,4 @@ with Benchmark('在GPU1上运行并复制到CPU'):
 
 - 一个简单的两层多层感知机在CPU和两个GPU上训练时的计算图及其依赖关系的例子，如图所示, 手动调度由此产生的并行程序将是相当痛苦的。这就是基于图的计算后端进行优化的优势所在。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)
-![](img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/2_asynchronous_compute/3.png)

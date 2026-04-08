@@ -74,7 +74,7 @@ train(lambd=0) #没有使用权重衰减
 
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg)
     
 
 
@@ -88,7 +88,7 @@ train(lambd=3) #使用权重衰减
 
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg)
     
 
 
@@ -127,7 +127,7 @@ train_concise(0)
 
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg)
     
 
 
@@ -141,6 +141,6 @@ train_concise(3)
 
 
  ![svg](D:/blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg)
-![](img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg)
     
 

@@ -124,7 +124,7 @@ docker inspect centos
 
 ![](../../../theme/yilia/source/img/docker/16.png)
 
-![](img/docker/16.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/16.png)
 
 ```
 docker run -it --name centos01 centos01 /bin/bash

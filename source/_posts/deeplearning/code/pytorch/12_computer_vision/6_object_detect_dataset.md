@@ -119,6 +119,6 @@ for ax, label in zip(axes, batch[1][0:10]):
 
 
     
-![png](img/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset_files/6_object_detect_dataset_11_0.png)
+![png](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset_files/6_object_detect_dataset_11_0.png)
     
 

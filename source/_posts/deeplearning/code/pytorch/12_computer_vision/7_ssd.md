@@ -22,7 +22,7 @@ toc: true
 - 单发多框检测论文中选用了在分类层之前截断的VGG，现在也常用ResNet替代。我们可以设计基础网络，使它输出的高和宽较大。这样一来，基于该特征图生成的锚框数量较多，可以用来检测尺寸较小的目标。接下来的每个多尺度特征块将上一层提供的特征图的高和宽缩小（如减半），并使特征图中每个单元在输入图像上的感受野变得更广阔。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
-![](img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd/1.png)
 
 
 - 如上图, 由于接近顶部的多尺度特征图较小，但具有较大的感受野，它们适合检测较少但较大的物体。简而言之，通过多尺度特征块，单发多框检测生成不同大小的锚框，并通过预测边界框的类别和偏移量来检测大小不同的目标，因此这是一个多尺度目标检测模型。
@@ -343,7 +343,7 @@ print(f'{len(train_iter.dataset) / timer.stop():.1f} examples/sec on {str(device
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_33_1.svg)
     
 
 
@@ -383,6 +383,6 @@ display(img, output.cpu(), threshold=0.9)
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/7_ssd_files/7_ssd_35_0.svg)
     
 

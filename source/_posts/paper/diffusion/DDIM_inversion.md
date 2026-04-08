@@ -26,7 +26,7 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/paper/diffusion/video_diffusion/1.png)
 
-![](img/paper/diffusion/video_diffusion/1.png)
+![](<https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/video_diffusion/1.png>)
 
 
 
@@ -108,7 +108,7 @@ https://blog.csdn.net/qq_36104364/article/details/138966926
 
   ![](../../../../theme/yilia/source/img/paper/diffusion/DDIM_inversion/1.png)
 
-  ![](img/paper/diffusion/DDIM_inversion/1.png)
+  ![](<https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/DDIM_inversion/1.png>)
 
 - 算法流程：
 

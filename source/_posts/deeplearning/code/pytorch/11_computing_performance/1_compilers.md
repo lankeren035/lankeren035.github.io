@@ -28,7 +28,7 @@ print(fancy_func(1, 2, 3, 4))
     
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/11_compute/1_compiler/1.png)
-![](img/deeplearning/code/pytorch/11_compute/1_compiler/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/11_compute/1_compiler/1.png)
 
 - 尽管命令式编程很方便，但可能效率不高。一方面原因，Python会单独执行这三个函数的调用，而没有考虑add函数在fancy_func中被重复调用。如果在一个GPU（甚至多个GPU）上执行这些命令，那么Python解释器产生的开销可能会非常大。此外，它需要保存e和f的变量值，直到fancy_func中的所有语句都执行完毕。这是因为程序不知道在执行语句e = add(a, b)和f = add(c, d)之后，其他部分是否会使用变量e和f
 

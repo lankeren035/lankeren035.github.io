@@ -101,8 +101,8 @@ plt.show()
 
 
     
-![svg](4_calculus_files/4_calculus_1_1.svg)
-![](img/deeplearning/code/pytorch/1_prepare/4_calculus_1_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/1_prepare/4_calculus_files/4_calculus_1_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/4_calculus_1_1.svg)
     
 
 
@@ -144,7 +144,7 @@ plt.show()
 
 
     
-![svg](4_calculus_files/4_calculus_3_1.svg)
-![](img/deeplearning/code/pytorch/1_prepare/4_calculus_3_1.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/1_prepare/4_calculus_files/4_calculus_3_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/4_calculus_3_1.svg)
     
 

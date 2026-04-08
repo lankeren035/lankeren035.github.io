@@ -49,7 +49,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
 
 ![图2](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/1.png)
 
-![图2](img/paper/video_generation/tune_a_video/1.png)
+![图2](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/1.png)
 
 
 
@@ -152,7 +152,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
 
     ![图5](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/2.png)
 
-    ![图5](img/paper/video_generation/tune_a_video/2.png)
+    ![图5](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/2.png)
 
 ## 3.3 微调和推断
 
@@ -163,7 +163,7 @@ https://blog.csdn.net/wjpwjpwjp0831/article/details/141862947
 
 ![图5](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/3.png)
 
-![图5](img/paper/video_generation/tune_a_video/3.png)
+![图5](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/3.png)
 
 <center>图5</center>
 ### 3.3.2 通过DDIM反演的结构指导
@@ -184,7 +184,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/4.png)
 
-![](img/paper/video_generation/tune_a_video/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/4.png)
 
 ## 4.2 背景修改
 
@@ -196,13 +196,13 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/5.jpg)
 
-  ![](img/paper/video_generation/tune_a_video/5.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/5.jpg)
 
 - 我们的方法也可以与条件T2I模型，如T2I-Adapter和ControlNet结合，以在不增加额外训练成本的情况下，对生成的视频进行多样化控制。例如，我们可以使用一系列人体姿势作为控制进一步编辑运动（例如，在图1中跳舞）。
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/6.jpg)
 
-  ![](img/paper/video_generation/tune_a_video/6.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/6.jpg)
 
 # 5. 实验
 
@@ -243,7 +243,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
     ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/7.png)
 
-    ![](img/paper/video_generation/tune_a_video/7.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/7.png)
 
 - ### 定量结果
 
@@ -254,7 +254,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
      ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/8.png)
 
-     ![](img/paper/video_generation/tune_a_video/8.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/8.png)
 
      > 结果表明，CogVideo生成了一致的视频帧，但在表示文本描述方面存在困难，而Plug-and-Play实现了高文本真实性，但未能生成一致的内容。相比之下，我们的方法在这两个指标上都优于基线。
 
@@ -266,7 +266,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/9.png)
 
-![](img/paper/video_generation/tune_a_video/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/9.png)
 
 - 没有ST-Attn的模型显示出显著的内容差异（从滑雪者的服装颜色可以明显看出）。
 
@@ -276,7 +276,7 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/10.png)
 
-  ![](img/paper/video_generation/tune_a_video/10.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/10.png)
 
 
 
@@ -286,4 +286,4 @@ $$V ^ ∗ = D( DDIM-samp ( DDIM-inv ( \mathcal{E} ( V ) ) , T ^ ∗ ))$$
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/tune_a_video/11.png)
 
-  ![](img/paper/video_generation/tune_a_video/11.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/tune_a_video/11.png)

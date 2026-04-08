@@ -301,8 +301,8 @@ train_ch8(net, train_iter, vocab, lr, num_epochs, d2l.try_gpu())
 
 
     
-![svg](5_rnn_realize_files/5_rnn_realize_27_1.svg)
-![](img/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_27_1.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_27_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_27_1.svg)
 
 
 - 检查使用随机抽样方法的结果。
@@ -320,6 +320,6 @@ train_ch8(net, train_iter, vocab, lr, num_epochs, d2l.try_gpu(), use_random_iter
 
 
     
-![svg](5_rnn_realize_files/5_rnn_realize_29_1.svg)
-![](img/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_29_1.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_29_1.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/5_rnn_realize_files/5_rnn_realize_29_1.svg)
 

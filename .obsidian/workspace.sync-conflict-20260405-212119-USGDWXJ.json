@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "a31608037c853881",
+    "type": "split",
+    "children": [
+      {
+        "id": "620930741350cc9e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1007237274b662b",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/main.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "main"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "933e08d88425e241",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f7ab5871ef1d613",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b95251fbdfbce9e5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "eb8c6ad1c11def27",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b49025f085d20f3f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "a099871a45d90968",
+    "type": "split",
+    "children": [
+      {
+        "id": "56b6735020ed8854",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f75b933e35d15bf0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "train 的反向链接列表"
+            }
+          },
+          {
+            "id": "f3a374811ca83162",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "train 的出链列表"
+            }
+          },
+          {
+            "id": "5b102e444aaeede0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "1bcce6c67938b321",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "916900de7192e19f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "train 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "hexo-integration:Hexo 集成": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian42-brat:BRAT": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "e1007237274b662b",
+  "lastOpenFiles": [
+    "source/_posts/obsidian/3dgs_code_learn/main.md",
+    "source/_posts/obsidian/3dgs_code_learn/~syncthing~main.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/train/~syncthing~3dgs_0_main.md.tmp",
+    "blog/source/_posts/obsidian",
+    "obsidian笔记/3dgs_code_learn/main.md",
+    "obsidian笔记/3dgs_code_learn/train.0_main.md",
+    "obsidian笔记/3dgs_code_learn/files/train.md",
+    "obsidian笔记/3dgs_code_learn/files/train/train.md",
+    "obsidian笔记/3dgs_code_learn/functions/scene/gaussian_model/GaussianModel/__init__.md",
+    "obsidian笔记/3dgs_code_learn/functions/train/train.0_main.md",
+    "obsidian笔记/3dgs_code_learn/functions/train/0_main.md",
+    "obsidian笔记/3dgs_code_learning/main.md",
+    "obsidian笔记/3dgs_code_learn/maps/project_blueprint.md",
+    "obsidian笔记/3dgs_code_learn/maps",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/Image/qvec2rotmat.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/loss_utils/FusedSSIMMap/backward.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/loss_utils/FusedSSIMMap/forward.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/system_utils/mkdir_p.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/system_utils/searchForMaxIteration.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/sh_utils/SH2RGB.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/sh_utils/RGB2SH.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/sh_utils/eval_sh.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_points3D_text.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_points3D_binary.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_next_bytes.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_model.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_images_text.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_images_binary.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/write_cameras_text.md",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model/Image",
+    "obsidian笔记/3dgs_code_learn/functions/utils/loss_utils/FusedSSIMMap",
+    "obsidian笔记/3dgs_code_learn/functions/utils/system_utils",
+    "obsidian笔记/3dgs_code_learn/functions/utils/sh_utils",
+    "obsidian笔记/3dgs_code_learn/functions/utils/read_write_model",
+    "obsidian笔记/3dgs_code_learn/functions/utils/make_depth_scale",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/8_init_files/8_init_2_0.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/7/1.png",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_5_0.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6_deopout_files/6_deopout_3_0.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_5_1.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_4_1.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_2_1.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/5_weight_decay_files/5_weight_decay_1_1.svg",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/6img/1.png",
+    "Win Blog/themes/yilia/source/img/deeplearning/code/pytorch/3_mlp/4img/1.png"
+  ]
+}

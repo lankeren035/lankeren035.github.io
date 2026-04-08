@@ -19,7 +19,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/debug/nvidia-smi/1.png)
 
-![](img/debug/nvidia-smi/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/debug/nvidia-smi/1.png)
 
 
 

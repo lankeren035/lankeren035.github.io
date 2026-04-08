@@ -146,7 +146,7 @@ show_bboxes(fig.axes, boxes[250, 250, :, :] * bbox_scale,
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_5_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_5_0.svg)
     
 
 
@@ -314,7 +314,7 @@ show_bboxes(fig.axes, anchors * bbox_scale, ['0', '1', '2', '3', '4'])
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_15_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_15_0.svg)
     
 
 
@@ -485,7 +485,7 @@ show_bboxes(fig.axes, anchors * bbox_scale, ['dog=0.9', 'dog=0.8', 'dog=0.7', 'c
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_29_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_29_0.svg)
     
 
 
@@ -526,7 +526,7 @@ for i in output[0].detach().numpy():
 
 
     
-![svg](img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_33_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/4_anchor_box_files/4_anchor_box_33_0.svg)
     
 
 

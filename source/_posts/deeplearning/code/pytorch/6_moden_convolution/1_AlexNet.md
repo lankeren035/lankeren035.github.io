@@ -24,7 +24,7 @@ toc: true
 ## 1.2 AlexNet
 - 从LeNet（左）到AlexNet（右）
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
-![](img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet/1.png)
 - AlexNet和LeNet的设计理念非常相似，但也存在显著差异。
     1. AlexNet比相对较小的LeNet5要深得多。
     2. AlexNet使用ReLU而不是sigmoid作为其激活函数。
@@ -134,5 +134,5 @@ d2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())
 
     
 ![svg](1_AlexNet_files/1_AlexNet_7_1.svg)
-![](img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet_files/1_AlexNet_0_1.svg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/6_moden_conv/1_AlexNet_files/1_AlexNet_0_1.svg)
 

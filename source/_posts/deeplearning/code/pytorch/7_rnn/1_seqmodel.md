@@ -15,7 +15,7 @@ toc: true
 ## 1.1 统计工具
 - 以股票价格（富时100指数）为例。
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
-![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
     - 在时间步t观察到的价格为$x_ t$。t对于本文中的序列通常是离散的，并在整数或其子集上变化。假设一个交易员想在t日的股市中表现良好，于是通过以下途径预测xt：
     $$x_ t ∼ P(x_ t | x_ {t−1}, . . . , x_ 1)$$
 ### 1.1.1 自回归模型
@@ -26,7 +26,7 @@ toc: true
     2. 如下图是保留一些对过去观测的总结$h_ t$，并且同时更新预测$\hat x_ t$的模型和总结$h_ t$。即：基于$\hat x_ t = P(x_ t | h_ t)$估计$x_ t$， 并使用$h_ t = g(x_ {t−1}, h_ {t−1})$来更新模型。由于$h _t$从未被观测到，这类模型也被称为 隐变量自回归模型（latent autoregressive models）。
 
     ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
-    ![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
 
 - 这两种情况都有一个显而易见的问题：如何生成训练数据？可以使用历史观测来预测下一个未来观测。整个序列的估计值都将通过以下的方式获得：
 $$P(x_ 1, . . . , x_ T) = \prod _{t=1} ^T P(x_ t | x_ {t−1}, . . . , x_ 1)$$
@@ -64,8 +64,8 @@ d2l.plot(time, [x], 'time', 'x', xlim=[1, 1000], figsize=(6, 3))
 
 
     
-![svg](1_seqmodel_files/1_seqmodel_1_0.svg)
-![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_1_0.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_1_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_1_0.svg)
     
 
 
@@ -153,8 +153,8 @@ d2l.plot(
 
 
     
-![svg](1_seqmodel_files/1_seqmodel_9_0.svg)
-![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_9_0.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_9_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_9_0.svg)
 
 
 - 对于直到$x_ t$的观测序列，其在时间步t + k处的预测输出$\hat x_ {t+k}$称为k步预测。
@@ -175,8 +175,8 @@ d2l.plot([time, time[tau:], time[n_train + tau:]],
 
 
     
-![svg](1_seqmodel_files/1_seqmodel_11_0.svg)
-![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_11_0.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_11_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_11_0.svg)
 
 
 - 绿线的预测显然并不理想。经过几个预测步骤之后，预测的结果很快就会衰减到一个常数。为什么这个算法效果这么差呢？事实是由于错误的累积
@@ -212,7 +212,7 @@ d2l.plot([time[tau + i - 1: T - max_steps + i] for i in steps],
 
 
     
-![svg](1_seqmodel_files/1_seqmodel_13_0.svg)
-![](img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_13_0.svg)
+![[source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_13_0.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel_files/1_seqmodel_13_0.svg)
 
 

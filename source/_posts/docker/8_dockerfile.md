@@ -30,12 +30,12 @@ toc: true
 
   ![](../../../theme/yilia/source/img/docker/17.png)
 
-  ![](img/docker/17.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/17.png)
   - 可以看到对他的源码：（docker hub中99%的镜像都是从scratch这个基础镜像过来的。
 
   ![](../../../theme/yilia/source/img/docker/18.png)
 
-  ![](img/docker/18.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/18.png)
 
 - 基础知识：
   - 每个关键字必须大写
@@ -44,7 +44,7 @@ toc: true
 
 ![](../../../theme/yilia/source/img/docker/19.png)
 
-![](img/docker/19.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/docker/19.png)
 
 
 

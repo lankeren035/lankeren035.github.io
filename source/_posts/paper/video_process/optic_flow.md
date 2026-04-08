@@ -44,13 +44,13 @@ toc:  true
 
     ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/1.png)
 
-    ![](img/paper/video_process/optic_flow/1.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_process/optic_flow/1.png)
 
   - 这样会产生一个问题： `destination image`中有的位置没有从`source image`中投影过来的点，有的位置有多个从`source image`中投影过来的点，所以会产生很多空洞，产生类似波纹的效果。 
 
     ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/2.png)
 
-    ![](img/paper/video_process/optic_flow/2.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_process/optic_flow/2.png)
 
 ### 2）代码理解
 
@@ -70,7 +70,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/3.png)
 
-  ![](img/paper/video_process/optic_flow/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_process/optic_flow/3.png)
 
   - 前面是由source_image + f，将source_image每个点映射到dest_image
 
@@ -78,7 +78,7 @@ toc:  true
 
     ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/4.png)
 
-    ![](img/paper/video_process/optic_flow/4.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_process/optic_flow/4.png)
 
 ### 2）代码理解
 
@@ -280,7 +280,7 @@ if __name__ == "__main__":
 
       ![](../../../../theme/yilia/source/img/paper/video_process/optic_flow/5.png)
 
-      ![](img/paper/video_process/optic_flow/5.png)
+      ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_process/optic_flow/5.png)
 
       - 举例：
 

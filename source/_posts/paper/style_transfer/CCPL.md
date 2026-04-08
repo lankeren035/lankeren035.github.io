@@ -78,7 +78,7 @@ $ \downarrow  $
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/1.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/1.png)
 
 - 方法：
 
@@ -197,7 +197,7 @@ $ \downarrow  $
 
   ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/2.png)
 
-  ![](img/paper/style_transfer/video_style_transfer/CCPL/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/2.png)
 
   1. 将生成图像$G$和内容图$C$送入固定的图像编码器$E$得到特定层的feature maps：$G_f, C_f$
 
@@ -242,7 +242,7 @@ $ \downarrow  $
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/3.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/3.png)
 
 - 计算过程：
   1. 对内容特征$f_ c$进行均值方差归一化得到$\bar f_c$
@@ -321,7 +321,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/4.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/4.png)
 
 - SCTNet的SIFID最好，说明其可以获得正确的风格。
 - 将CCPL应用于各种模型，发现SIFID略有下降，时间一致性大大提升。
@@ -329,7 +329,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/6.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/6.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/6.png)
 
 - 短期时间一致性比较：奇数行表示之前的帧。偶数行表示连续帧之间差异的热图。 本文方法的热图与ground truth基本相似。
 
@@ -339,7 +339,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/7.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/7.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/7.png)
 
 -  AdaIN有严重的形状畸变（例如，第1行房屋，第3行桥梁）和纹理图案混乱（第4、5行）。 
 -  SANet也存在形状畸变，并且遗漏了一些结构细节（第1 ~ 3行）。 
@@ -360,11 +360,11 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/5.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/5.png)
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/8.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/8.png)
 
 - Linear和DSTN生成的结果有细节损失（第3行窗口消失）。
 - 对于WCT2和StyleNAS，它们的部分结果显示颜色分布不合理（第2行红色道路）。
@@ -376,7 +376,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/9.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/9.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/9.png)
 
 - 使用一个12GB的Titan XP GPU 
 
@@ -391,7 +391,7 @@ $$L_\mathrm{s}=\sum_l(\|\mu(\phi_l(I_g))-\mu(\phi_l(I_s))\|_F+\|\sigma(\phi_l(I_
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/10.png)
 
-![](img/paper/style_transfer/video_style_transfer/CCPL/10.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/CCPL/10.png)
 
 -  随着CCPL层数的增加 
   - 时间一致性上升

@@ -18,7 +18,7 @@ toc: true
     - 输出序列的条件概率是 0.5×0.4×0.4×0.6 = 0.048
     
         ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/1.png)
-        ![](img/deeplearning/code/pytorch/8_moden_rnn/8_search/1.png)
+        ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/1.png)
 
 - 现实中，最优序列（optimal sequence）应该是最大化$ \prod_ {t′=1} ^ {T′} P(y_ {t′} | y_ 1, \ldots, y_ {t′−1}, c) $的输出序列。贪心法无法保证。
 
@@ -27,7 +27,7 @@ toc: true
     - 条件概率为 0.5 × 0.3 × 0.6 × 0.6 = 0.054
 
         ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/2.png)
-        ![](img/deeplearning/code/pytorch/8_moden_rnn/8_search/2.png)
+        ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/2.png)
 
 ## 8.2 穷举搜索
 
@@ -38,4 +38,4 @@ toc: true
 - 贪心与穷举的折中，贪心搜索的改进，它有一个超参数，名为束宽（beam size）k。在时间步1，我们选择具有最高条件概率的k个词元。然后从此开始一直分k叉树。最后从k|y|个序列中选择具有最高条件概率的k个序列。
 
     ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/3.png)
-    ![](img/deeplearning/code/pytorch/8_moden_rnn/8_search/3.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/8_search/3.png)

@@ -58,19 +58,19 @@ toc:  true
 
      ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/1.png)
 
-     ![](img/paper/style_transfer/video_style_transfer/fresco/1.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/1.png)
 
   2. **内容缺失（undercoverage）**： 在遮挡或快速运动的区域，准确的光流估算受到阻碍，由此产生的约束条件不足，导致图像失真 (c: 背部衣服和墙混到一起了，e：头发没了)
 
      ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/2.png)
 
-     ![](img/paper/style_transfer/video_style_transfer/fresco/2.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/2.png)
      
   3. **不准确**： 逐帧顺序生成仅限于局部优化，导致误差随着时间的推移不断累积 （b:  由于前几帧没有参考手指而导致手指缺失 ）
 
      ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/3.png)
 
-     ![](img/paper/style_transfer/video_style_transfer/fresco/3.png)
+     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/3.png)
 
 ## 1.3 本文方法
 
@@ -151,7 +151,7 @@ Rerender-A-Video
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/4.png)
 
-![](img/paper/style_transfer/video_style_transfer/fresco/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/4.png)
 
 - 本文的调整集中于将`I`的**空间**和**时间**对应关系纳入 U-Net 中。 本文将时空对应关系定义为：
   - **时间对应性**： 这种**帧间对应**（inter-frame）关系通过相邻帧之间的光流来衡量，是保持时间一致性的关键因素。 将从 $I_i$ 到$I_j$ 的光流和遮挡分别表示为 $w^j_i$ 和 $M^j_i$，我们的目标是确保$I^′_i$ 和 $I^′_{i+1}$ **在非遮挡区域共享$w^{i+1}_i$。** （共享这个光流有什么用？）
@@ -202,7 +202,7 @@ Rerender-A-Video
 
 ![](../../../../theme/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/5.png)
 
-![](img/paper/style_transfer/video_style_transfer/fresco/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/style_transfer/video_style_transfer/fresco/5.png)
 
 ### 3.4.1 空间引导注意力
 

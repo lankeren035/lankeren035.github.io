@@ -24,7 +24,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/experience/app/word/1.png)
 
-  ![](img/experience/app/word/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/1.png)
 
 - 写latex公式
   
@@ -43,13 +43,13 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/experience/app/word/to_pdf/1.png)
 
-  ![](img/experience/app/word/to_pdf/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/to_pdf/1.png)
 
 - 选择标题
 
   ![](../../../../theme/yilia/source/img/experience/app/word/to_pdf/2.png)
   
-  ![](img/experience/app/word/to_pdf/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/to_pdf/2.png)
 
 
 
@@ -61,35 +61,35 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/experience/app/word/page/0.png)
 
-  ![](img/experience/app/word/page/0.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/0.png)
 
 - 分别在上图箭头处（每一节的结尾插入分节符）（选择分节符/下一页，不要选连续）
 
   ![](../../../../theme/yilia/source/img/experience/app/word/page/1.png)
 
-  ![](img/experience/app/word/page/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/1.png)
 
 - 重复n次插入后，你获得了四个区块。每个区块里面的分页随便你插入何种类型的分页符。
 
   ![](../../../../theme/yilia/source/img/experience/app/word/page/2.png)
 
-  ![](img/experience/app/word/page/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/2.png)
 
 - 双击页脚（假设你在页脚插入页码），在**每**个区块的的第一页**取消链接到前一节**，插入页码。（每个区块的第一页都要点击**取消链接到前一节**斩断联系。）
 
    ![](../../../../theme/yilia/source/img/experience/app/word/page/3.png)
 
-   ![](img/experience/app/word/page/3.png)  
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/3.png)  
 
 - 此时页码不是1，不要慌，点击页码，设置格式。就ok了
 
    ![](../../../../theme/yilia/source/img/experience/app/word/page/4.png)
 
-   ![](img/experience/app/word/page/4.png)  
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/4.png)  
 
    ![](../../../../theme/yilia/source/img/experience/app/word/page/5.png)
 
-    ![](img/experience/app/word/page/5.png) 
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/page/5.png) 
 
 - 不需要页码的区块直接删除 
 
@@ -103,7 +103,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/experience/app/word/2.png)
 
-  ![](img/experience/app/word/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/2.png)
 
 - 选择表格的第一行，然后属性，边框底纹，磅数0.75，选择上下边框
 
@@ -117,13 +117,13 @@ toc: true
 
 ![](../../../../theme/yilia/source/img/experience/app/word/formulation/1.png)
 
-![](img/experience/app/word/formulation/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/formulation/1.png)
 
 - 公式变成了这样：
 
 ![](../../../../theme/yilia/source/img/experience/app/word/formulation/2.png)
 
-![](img/experience/app/word/formulation/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/word/formulation/1.png)
 
 - 解决：alt+F9 切换域代码的显示状态。 
 

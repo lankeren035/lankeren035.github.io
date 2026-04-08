@@ -15,7 +15,7 @@ toc: true
 - 多头注意力（multihead attention）：为此，与其只使用单独一个注意力汇聚，我们可以用独立学习得到的h组不同的**线性投影**来变换查询、键和值。然后，这h组变换后的查询、键和值将并行地送到注意力汇聚中。最后，将这h个注意力汇聚的输出拼接在一起，并且通过另一个可以学习的线性投影进行变换，以产生最终输出。对于h个注意力汇聚输出，每一个注意力汇聚都被称作一个**头**（head）。
 
 ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/9_attention/5_multihead/1.png)
-![](img/deeplearning/code/pytorch/9_attention/5_multihead/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/9_attention/5_multihead/1.png)
 
 ## 5.1 模型
 

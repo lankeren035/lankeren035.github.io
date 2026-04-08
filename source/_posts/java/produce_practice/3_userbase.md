@@ -30,7 +30,7 @@ toc: true
 
   ![](D:/blog/themes/yilia/source/img/java/produce_practice/3/1.png)
 
-  ![](img/java/produce_practice/3/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/3/1.png)
 
   1. 首先在biz/user/service下创建UserService。然后根据文档中表格信息实现接口：
 
@@ -126,9 +126,9 @@ toc: true
 
  ![](D:/blog/themes/yilia/source/img/java/produce_practice/3/2.png)![](D:/blog/themes/yilia/source/img/java/produce_practice/3/3.png)
 
-![](img/java/produce_practice/3/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/3/2.png)
 
-![](img/java/produce_practice/3/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/java/produce_practice/3/3.png)
 
 1. 在biz/user/controller下创建UserController类，并注解@RestController，使用rest的接口风格；注解@RequestMapping("/admin")，使用request请求
 

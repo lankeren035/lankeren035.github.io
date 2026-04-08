@@ -142,7 +142,7 @@ show_list_len_pair_hist(['source', 'target'], 'tokens per sentence', 'count', so
 
 
     
-![svg](5_translate_files/5_translate_7_0.svg)
+![[5_translate_7_0.svg|svg]]
     
 
 

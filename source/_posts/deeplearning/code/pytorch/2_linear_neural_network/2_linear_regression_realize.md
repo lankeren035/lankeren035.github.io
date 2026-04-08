@@ -56,8 +56,8 @@ d2l.plt.scatter(features[:,1].detach().numpy(),labels.detach().numpy(),1)
 
 
     
-![svg](2_linear_regression_realize_files/2_linear_regression_realize_3_2.svg)
-![](img/deeplearning/code/pytorch/2_linear_neural_network/2_linear_regression_realize_files/2_linear_regression_realize_3_2.svg)
+![[blog/source/_posts/deeplearning/code/pytorch/2_linear_neural_network/2_linear_regression_realize_files/2_linear_regression_realize_3_2.svg|svg]]
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/2_linear_regression_realize_files/2_linear_regression_realize_3_2.svg)
     
 
 

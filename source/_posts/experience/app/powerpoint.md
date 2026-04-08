@@ -13,18 +13,18 @@ toc: true
 #### 多张图片整齐排列：
 
 ![](../../../../theme/yilia/source/img/experience/app/ppt/1.png)
-![](img/experience/app/ppt/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/ppt/1.png)
 
 
 - ctrl选中第一列所有横向图片：
 
 ![](../../../../theme/yilia/source/img/experience/app/ppt/2.png)
-![](img/experience/app/ppt/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/ppt/2.png)
 
 - 图片工具 -> 图片格式 -> 对齐对象。先垂直居中，然后横向分布
 
 ![](../../../../theme/yilia/source/img/experience/app/ppt/3.png)
-![](img/experience/app/ppt/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/ppt/3.png)
 
 - ctrl选中第一列所有纵向图片，合理选择对齐方式。
 
@@ -38,9 +38,9 @@ toc: true
 - 视图 -> 幻灯片母版
 
 ![](../../../../theme/yilia/source/img/experience/app/ppt/5.png)
-![](img/experience/app/ppt/5.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/ppt/5.png)
 
 - 你刚刚使用了几个主题，这里就有几个大区域，一个大区域下面有很多个小区域，在第一个大区域上插入图片，这个图片会在所有的使用了主题1的幻灯片上显示。
 
 ![](../../../../theme/yilia/source/img/experience/app/ppt/4.png)
-![](img/experience/app/ppt/4.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/ppt/4.png)

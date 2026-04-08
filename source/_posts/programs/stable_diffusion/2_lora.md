@@ -141,7 +141,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/1.jpg)
 
-  ![](img/project/stable_diffusion/1.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/1.jpg)
 
 - 点击gui右下角的启动按钮，会自动下载tagger模型（如果因为网络问题，无法连接huggingface，可以直接把别人的`lora-scripts/huggingface/hub里面的模型文件夹拷贝过来`）
 
@@ -149,7 +149,7 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/2.jpg)
 
-  ![](img/project/stable_diffusion/2.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/2.jpg)
 
 
 
@@ -161,13 +161,13 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/7.jpg)
 
-  ![](img/project/stable_diffusion/7.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/7.jpg)
 
 - 如果你跟我一样显示Error了，可以点击左边区域的两个按钮，可以显示出标签（勉强也能编辑）
 
     ![](../../../../theme/yilia/source/img/project/stable_diffusion/8.jpg)
 
-    ![](img/project/stable_diffusion/8.jpg)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/8.jpg)
     
     - 解决上述问题：在`run_gui.sh`的前面加上：
     
@@ -183,13 +183,13 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/9.jpg)
 
-  ![](img/project/stable_diffusion/9.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/9.jpg)
 
 - 删除标签：
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/10.jpg)
 
-  ![](img/project/stable_diffusion/10.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/10.jpg)
 
 
 
@@ -201,26 +201,26 @@ toc: true
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/11.jpg)
 
-  ![](img/project/stable_diffusion/11.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/11.jpg)
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/12.jpg)
 
-  ![](img/project/stable_diffusion/12.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/12.jpg)
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/13.jpg)
 
-  ![](img/project/stable_diffusion/13.jpg)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/13.jpg)
 
   ![](../../../../theme/yilia/source/img/project/stable_diffusion/14.jpg)
   
 
-![](img/project/stable_diffusion/14.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/14.jpg)
 
 ![](../../../../theme/yilia/source/img/project/stable_diffusion/15.jpg)
 
-![](img/project/stable_diffusion/15.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/15.jpg)
 
 ![](../../../../theme/yilia/source/img/project/stable_diffusion/16.jpg)
 
-![](img/project/stable_diffusion/16.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/project/stable_diffusion/16.jpg)
 

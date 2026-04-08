@@ -87,7 +87,7 @@ for i in range(H): #遍历每个像素，模仿GPU对单一像素的操作
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/24.png)
 
-![](img/paper/3DGS/base/3dgs/24.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/24.png)
 
 - 然后进行变换过程（splatting过程）形成一张图片，然后跟GT算loss。
 
@@ -112,7 +112,7 @@ for i in range(H): #遍历每个像素，模仿GPU对单一像素的操作
 
     ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/25.png)
 
-    ![](img/paper/3DGS/base/3dgs/25.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/25.png)
 
     - 太大的高斯给拆开
     - 太小的高斯给复制

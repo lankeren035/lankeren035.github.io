@@ -46,7 +46,7 @@ categories: [Linux]
 
   ![](../../../theme/yilia/source/img/linux/clashmeta/1.png)
 
-  ![](img/linux/clashmeta/1.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/clashmeta/1.png)
 
 
 
@@ -90,7 +90,7 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 
   ![](../../../theme/yilia/source/img/linux/clashmeta/2.png)
 
-  ![](img/linux/clashmeta/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/clashmeta/2.png)
 
   - 检查环境变量：
 
@@ -102,7 +102,7 @@ sudo curl -o /opt/clash/conf/config.yaml "订阅链接" #下载你的订阅链�
 
     ![](../../../theme/yilia/source/img/linux/clashmeta/3.png)
 
-    ![](img/linux/clashmeta/3.png)
+    ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/linux/clashmeta/3.png)
 
   - 重新设置
 

@@ -62,7 +62,7 @@ toc:  true
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/1.jpg)
 
-![](img/paper/video_generation/Text2Video-zero/1.jpg)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/1.jpg)
 
 ### 3.3.1 Latent Codes中的Motion Dynamics
 
@@ -70,7 +70,7 @@ toc:  true
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/2.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/2.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/2.png)
 
   1. 随机采样第一帧$x_T ^1 \sim \mathcal N( 0, 1)$
 
@@ -183,27 +183,27 @@ $$
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/3.png)
 
-![](img/paper/video_generation/Text2Video-zero/3.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/3.png)
 
 - 使用边缘或姿势生成与提示词和指导相匹配的高质量视频，显示出很好的时间一致性和身份保留。
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/4.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/4.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/4.png)
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/5.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/5.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/5.png)
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/6.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/6.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/6.png)
 
 - VIdeo Instruct-Pix2Pix
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/7.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/7.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/7.png)
 
 ## 4.3 与baseline比较
 
@@ -228,7 +228,7 @@ $$
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/8.png)
 
-![](img/paper/video_generation/Text2Video-zero/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/8.png)
 
 - 逐帧Instruct-Pix2Pix显示了良好的每帧编辑性能，它**缺乏时间一致性**。这一点在描绘滑雪者的视频中变得尤为明显，其中雪和天空是用不同的风格和颜色绘制的。
 
@@ -238,7 +238,7 @@ $$
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/9.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/9.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/9.png)
 
 ## 4.4 Ablation
 
@@ -252,7 +252,7 @@ $$
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/10.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/10.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/10.png)
 
 ### 4.4.1 其他Ablation
 
@@ -260,22 +260,22 @@ $$
 
 ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/11.png)
 
-![](img/paper/video_generation/Text2Video-zero/11.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/11.png)
 
 - 背景更一致，保持的更好（红色广告牌）
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/12.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/12.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/12.png)
 
 - 边缘图条件生成：当使用CF-Attn层时，生成更好地保留了人的身份，并且在潜在中使用运动进一步提高了时间一致性。
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/13.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/13.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/13.png)
 
 - Video Instruct-Pix2Pix生成: 虽然在语义上知道文本引导编辑，但Tune-A-Video在本地化编辑方面有局限性，并且难以传输样式和颜色信息。另一方面，Instruct-Pix2Pix在图像级别进行视觉上合理的编辑，但在时间一致性方面存在问题。与上述方法相比，我们的方法在通过给定提示编辑视频时保持了时间一致性。
 
   ![](../../../../theme/yilia/source/img/paper/video_generation/Text2Video-zero/14.png)
 
-  ![](img/paper/video_generation/Text2Video-zero/14.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/video_generation/Text2Video-zero/14.png)

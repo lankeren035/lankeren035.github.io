@@ -1,0 +1,23 @@
+{
+  "hexoRoot": "C:/Users/admin/Desktop/blog",
+  "postHashes": {
+    "experience/test.md": "1bc6da7a79fa78796ca3d7a145ab36749d94de7c09a1f88f44cda8a9825d7969"
+  },
+  "permalinkStyle": "title",
+  "baiduAppId": "xxx",
+  "baiduApiKey": "xxx",
+  "removeStopWords": true,
+  "maxPermalinkWords": 5,
+  "imageSyntax": "hexo",
+  "coverFieldName": "cover",
+  "showOutputModal": true,
+  "pathMapping": {
+    "experience/test.md": "test.md"
+  },
+  "autoExcerpt": false,
+  "serverPort": 4000,
+  "compressImages": false,
+  "webpQuality": 75,
+  "alwaysKeepServerRunning": false,
+  "autoGenerateAfterPublish": false
+}

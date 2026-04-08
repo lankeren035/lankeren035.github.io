@@ -32,7 +32,7 @@ toc:  true
 
 ### 1. 模型结构
 
-![](img/paper/3DGS/img_to_3d/sharp/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/img_to_3d/sharp/1.png)
 
 ![](../../../../../theme/yilia/source/img/paper/3DGS/img_to_3d/sharp/1.png)
 

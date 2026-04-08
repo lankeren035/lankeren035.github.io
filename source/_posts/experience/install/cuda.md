@@ -35,7 +35,7 @@ nvidia-smi
 
 ![](../../../../theme/yilia/source/img/experience/install/cuda/1.png)
 
-![](img/experience/install/cuda/1.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/1.png)
 
 
 
@@ -47,7 +47,7 @@ nvidia-smi
 
 ![](../../../../theme/yilia/source/img/experience/install/cuda/2.png)
 
-![](img/experience/install/cuda/2.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/2.png)
 
 
 
@@ -55,7 +55,7 @@ nvidia-smi
 
   ![](../../../../theme/yilia/source/img/experience/install/cuda/3.png)
 
-  ![](img/experience/install/cuda/3.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/3.png)
 
 
 
@@ -69,13 +69,13 @@ nvidia-smi
 
    ![](../../../../theme/yilia/source/img/experience/install/cuda/4.png)
 
-   ![](img/experience/install/cuda/4.png)  
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/4.png)  
 
 - 选择
 
   ![](../../../../theme/yilia/source/img/experience/install/cuda/5.png)
 
-   ![](img/experience/install/cuda/5.png)
+   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/5.png)
 
 
 
@@ -87,11 +87,11 @@ nvidia-smi
 
   ![](../../../../theme/yilia/source/img/experience/install/cuda/6.png)
 
-  ![](img/experience/install/cuda/6.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/6.png)
 
   ![](../../../../theme/yilia/source/img/experience/install/cuda/7.png)
 
-  ![](img/experience/install/cuda/7.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/7.png)
 
 ## 4.2 安装cudnn
 
@@ -114,5 +114,5 @@ nvcc -V
 
 ![](../../../../theme/yilia/source/img/experience/install/cuda/8.png)
 
-![](img/experience/install/cuda/8.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/install/cuda/8.png)
 

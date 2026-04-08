@@ -153,7 +153,7 @@ gd_res = train_sgd(1, 1500, 10)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_7_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_7_1.svg)
     
 
 
@@ -170,7 +170,7 @@ sgd_res = train_sgd(0.005, 1)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_9_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_9_1.svg)
     
 
 
@@ -188,7 +188,7 @@ mini1_res = train_sgd(.4, 100)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_11_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_11_1.svg)
     
 
 
@@ -206,7 +206,7 @@ d2l.plt.gca().set_xscale('log')
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_13_0.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_13_0.svg)
     
 
 
@@ -253,6 +253,6 @@ train_concise_ch11(trainer, {'lr': 0.01}, data_iter)
 
 
     
-![svg](img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_15_1.svg)
+![svg](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_15_1.svg)
     
 

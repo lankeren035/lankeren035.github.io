@@ -31,7 +31,6 @@ $$
 https://blog.csdn.net/csxiaoshui/article/details/65446125
 
 ## 0.3 缩放
-
 $$
 \begin{bmatrix}
 \frac{ 2 }{ r - l } &0 &0 &0 \\\\
@@ -64,13 +63,12 @@ $$
 
 - 为了简化操作，默认相机在原点$\hat g$是-z轴，$\hat t$是y轴
 
-  ![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/16.png)
 
-  ![](img/paper/3DGS/base/3dgs/16.png)
+  ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/16.png)
 
 - 假设相机原始位置为$(x_ e, y_ e, z_ e)$，对他做视图变换：
   - 将相机位置平移到原点：$T _ { view }  = \begin{bmatrix} 1 &0 &0 &-x_ e \\\\ 0 &1 &0 &-y_e \\\\ 0 &0 &1 &-z_ e \\\\ 0 &0 &0 &1 \end{bmatrix}$
-  - 将$\hat{ g }$ 旋转到-z轴，将$ \hat t $旋转到y轴，$\hat g \times \hat t$旋转到x轴
+  - 将$\hat{ g }$ 旋转到-z轴，将$\hat t$ 旋转到y轴，$\hat g \times \hat t$旋转到x轴
     - 直接将$\hat g$旋转到 -z轴不太好操作，旋转矩阵不太好找，可以逆向考虑，考虑先将-z轴根据$R_ { view } ^ { - 1 }$转到$\hat g$，然后由于旋转矩阵的逆矩阵只需要转置就行，求个逆就可以找到旋转矩阵。 $R_ { view } ^ { - 1 } = \begin{bmatrix} x_{ \hat g \times \hat t } &x_ t &x_ { - g } &0 \\\\ y_ { \hat g \times \hat t } &y_t  &y_ { -g } &0 \\\\ z_ { \hat g \times \hat t } &z_ t &z_{ -g } &0 \\\\ 0 &0 &0 &1 \end{bmatrix}$
 
 - 得到$T_ { view }$和$R_ { view }$后，将相机和其他物体都做一个这样的变换
@@ -121,9 +119,9 @@ $$
 
 > 使用最广泛，远小近大，平行线就不再平行了
 
-![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/13.png)
 
-![](img/paper/3DGS/base/3dgs/13.png)
+
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/13.png)
 
 - 透视投影通过一个视锥观察物体，假设近平面是n，远平面式f，如上图（下），透视投影要做的就是将线的右端点投影到左端点，透视投影跟正交投影的区别就是远平面要大些。
 
@@ -140,9 +138,9 @@ $$
   - 远平面压缩后z值不会变化
   - 远平面的中心点压缩后不变
 
-![](../../../../../theme/yilia/source/img/paper/3DGS/base/3dgs/17.png)
+![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/17.png)
 
-- 对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x'，y'，z'）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z''），且根据三角形相似可知：$y' = \frac{ n }{ z} y $   $x' =  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$ (x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :
+- 对于视锥上的一条线，他在某平面（不一定是远平面）上的点为(x，y，z)，近平面上的点为（x'，y'，z'）这个点压缩后（视锥压缩成立方体），会被压缩成（x‘，y’，z''），且根据三角形相似可知：$y' = \frac{ n }{ z} y$   $x' =  \frac{ n }{ z } x$。对于某平面（不一定是远平面）任意一点$(x, y,z ,1 )^ T$ 会被压缩成$( \frac{ nx }{ z }, \frac{ ny }{ z } , unknown , 1 )$ :
   $$
   \left (  \begin{matrix} n&0 &0 &0 \\\\
   0 &n &0 &0 \\\\ ? &? &? &? \\\\
@@ -159,10 +157,10 @@ $$
   \end{matrix} \right)
   $$
 
-  - $M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\\\
+  - $$M_ { persp \rightarrow ortho } = \left (  \begin{matrix} n&0 &0 &0 \\\\
     0 &n &0 &0 \\\\ ? &? &? &? \\\\
     0 &0 &1 &0
-    \end{matrix} \right)  $ 
+    \end{matrix} \right)  $$
 
 - 对于近平面上的点，压缩后不变：
   $$
