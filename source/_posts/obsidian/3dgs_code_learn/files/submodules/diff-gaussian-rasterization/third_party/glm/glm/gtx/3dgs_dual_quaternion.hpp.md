@@ -24,11 +24,11 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_dual_quat_identity\|glm::dual_quat_identity]] | template <typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_normalize\|glm::normalize]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_lerp\|glm::lerp]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_inverse\|glm::inverse]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_mat2x4_cast\|glm::mat2x4_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<2, 4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_mat3x4_cast\|glm::mat3x4_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<3, 4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_dualquat_cast\|glm::dualquat_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_dualquat_cast\|glm::dualquat_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[3dgs_dual_quat_identity\|glm::dual_quat_identity]] | template <typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_normalize\|glm::normalize]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_lerp\|glm::lerp]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/dual_quaternion.hpp/glm/3dgs_inverse\|glm::inverse]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[3dgs_mat2x4_cast\|glm::mat2x4_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<2, 4, T, Q> | - |
+| [[3dgs_mat3x4_cast\|glm::mat3x4_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<3, 4, T, Q> | - |
+| [[3dgs_dualquat_cast\|glm::dualquat_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |
+| [[3dgs_dualquat_cast\|glm::dualquat_cast]] | template<typename T, qualifier Q> GLM_FUNC_DECL tdualquat<T, Q> | - |

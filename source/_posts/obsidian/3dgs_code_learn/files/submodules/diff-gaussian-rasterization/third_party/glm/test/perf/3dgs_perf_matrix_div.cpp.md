@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_test_mat_div_mat\|test_mat_div_mat]] | template <typename matType> static void | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_launch_mat_div_mat\|launch_mat_div_mat]] | template <typename matType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_comp_mat2_div_mat2\|comp_mat2_div_mat2]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_comp_mat3_div_mat3\|comp_mat3_div_mat3]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_comp_mat4_div_mat4\|comp_mat4_div_mat4]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_mat_div_mat\|test_mat_div_mat]] | template <typename matType> static void | - |
+| [[3dgs_launch_mat_div_mat\|launch_mat_div_mat]] | template <typename matType> static int | - |
+| [[3dgs_comp_mat2_div_mat2\|comp_mat2_div_mat2]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat3_div_mat3\|comp_mat3_div_mat3]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat4_div_mat4\|comp_mat4_div_mat4]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_div.cpp/3dgs_0_main\|main]] | int | - |

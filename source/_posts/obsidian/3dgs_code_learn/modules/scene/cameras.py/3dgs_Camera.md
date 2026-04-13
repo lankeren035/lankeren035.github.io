@@ -9,7 +9,7 @@ published: true
 permalink: "code/3dgs/scene.cameras.py.Camera"
 hexo-path:
 ---
-
+- 该类用于保存3dgs可处理的camera信息
 ## 1. 输入
 
 | 参数名             | 类型                                | 解释                   |
@@ -51,24 +51,24 @@ hexo-path:
 | R                    | -                       | __init__ | 旋转矩阵                                                                     |
 | T                    | -                       | __init__ | 平移向量                                                                     |
 | alpha_mask           | -                       | __init__ | 用于曝光训练对一张图做左右mask                                                        |
-| camera_center        | -                       | __init__ | -                                                                        |
+| camera_center        | -                       | __init__ | 相机中心                                                                     |
 | colmap_id            | -                       | __init__ | 相机id                                                                     |
 | data_device          | -                       | __init__ | -                                                                        |
 | depth_mask           | -                       | __init__ | 深度图的mask                                                                 |
 | depth_reliable       | bool=False              | __init__ | 深度是否可靠                                                                   |
-| full_proj_transform  | -                       | __init__ | -                                                                        |
+| full_proj_transform  | -                       | __init__ | 全量矩阵：W2C\*透视投影NDC矩阵                                                      |
 | image_height         | -                       | __init__ | 最终图片高度                                                                   |
 | image_name           | -                       | __init__ | 图片文件名                                                                    |
 | image_width          | -                       | __init__ | 最终图片宽度                                                                   |
 | invdepthmap          | default=None            | __init__ | 逆深度                                                                      |
 | original_image       | -                       | __init__ | GT图[0,1]                                                                 |
-| projection_matrix    | -                       | __init__ | -                                                                        |
+| projection_matrix    | -                       | __init__ | 透视投影矩阵，将相机坐标系的点投影到NDC空间                                                  |
 | scale                | default=1               | __init__ | 场景归一化参数，这里采用默认值，按理来说应该调用的时候传入之前计算的场景尺度： 1/radius [[3dgs_getNerfppNorm]]  |
 | trans                | default=[0.0, 0.0, 0.0] | __init__ | 场景归一化参数，这里采用默认值，按理来说应该调用的时候传入之前计算的场景位移： translate [[3dgs_getNerfppNorm]] |
 | uid                  | -                       | __init__ | 相机信息序号                                                                   |
-| world_view_transform | -                       | __init__ | -                                                                        |
-| zfar                 | -                       | __init__ | -                                                                        |
-| znear                | -                       | __init__ | -                                                                        |
+| world_view_transform | -                       | __init__ | W2C矩阵                                                                    |
+| zfar                 | 100                     | __init__ | 远平面                                                                      |
+| znear                | 0.01                    | __init__ | 近平面                                                                      |
 
 ## 3. 方法
 

@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/type_vec2.hpp/glm/3dgs_operator~\|glm::operator~]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR vec<2, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/type_vec2.hpp/glm/3dgs_operator~\|glm::operator~]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR vec<2, T, Q> | - |

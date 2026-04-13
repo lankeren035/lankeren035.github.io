@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_trigonometric.cpp/3dgs_test_angle\|test_angle]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_trigonometric.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_trigonometric.cpp/3dgs_test_angle\|test_angle]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_trigonometric.cpp/3dgs_0_main\|main]] | int | - |

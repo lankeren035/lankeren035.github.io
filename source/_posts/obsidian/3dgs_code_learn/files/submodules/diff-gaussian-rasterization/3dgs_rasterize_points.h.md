@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_RasterizeGaussiansCUDA\|RasterizeGaussiansCUDA]] | std::tuple<int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_RasterizeGaussiansBackwardCUDA\|RasterizeGaussiansBackwardCUDA]] | std::tuple<torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_markVisible\|markVisible]] | torch::Tensor | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_RasterizeGaussiansCUDA\|RasterizeGaussiansCUDA]] | std::tuple<int, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_RasterizeGaussiansBackwardCUDA\|RasterizeGaussiansBackwardCUDA]] | std::tuple<torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor, torch::Tensor> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.h/3dgs_markVisible\|markVisible]] | torch::Tensor | - |

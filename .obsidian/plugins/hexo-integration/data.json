@@ -1,9 +1,9 @@
 {
-  "hexoRoot": "C:\\Users\\admin\\Desktop\\个人电脑同步\\blog",
+  "hexoRoot": "",
   "postHashes": {},
-  "permalinkStyle": "title",
-  "baiduAppId": "xxx",
-  "baiduApiKey": "xxx",
+  "permalinkStyle": "hash",
+  "baiduAppId": "",
+  "baiduApiKey": "",
   "removeStopWords": true,
   "maxPermalinkWords": 5,
   "imageSyntax": "hexo",

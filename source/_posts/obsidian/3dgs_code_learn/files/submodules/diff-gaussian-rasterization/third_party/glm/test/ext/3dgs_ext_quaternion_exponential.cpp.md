@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_test_log\|test_log]] | template <typename quaType, typename vecType> int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_test_pow\|test_pow]] | template <typename quaType, typename vecType> int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_test_log\|test_log]] | template <typename quaType, typename vecType> int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_test_pow\|test_pow]] | template <typename quaType, typename vecType> int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_exponential.cpp/3dgs_0_main\|main]] | int | - |

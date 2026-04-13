@@ -25,13 +25,15 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. 定义一个空的[[3dgs_BinningState|BinningState]]结构体
+2. 根据里面的所有属性和函数计算内存分配
+
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/cuda_rasterizer/3dgs_rasterizer_impl.cu\|rasterizer_impl.cu]] |
+| 所属文件 | [[3dgs_rasterizer_impl.cu\|rasterizer_impl.cu]] |
 | 所属类 | - |
 | 命名空间 | CudaRasterizer::BinningState |
 | 类型 | namespace_scoped |

@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/string_cast.hpp/glm/3dgs_to_string\|glm::to_string]] | template<typename genType> GLM_FUNC_DECL std::string | - |
+| [[3dgs_to_string\|glm::to_string]] | template<typename genType> GLM_FUNC_DECL std::string | - |

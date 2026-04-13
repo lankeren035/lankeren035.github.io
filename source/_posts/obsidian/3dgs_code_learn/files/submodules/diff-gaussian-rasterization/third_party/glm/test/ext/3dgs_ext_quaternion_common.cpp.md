@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_common.cpp/3dgs_test_conjugate\|test_conjugate]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_common.cpp/3dgs_test_mix\|test_mix]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_common.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_conjugate\|test_conjugate]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_common.cpp/3dgs_test_mix\|test_mix]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_quaternion_common.cpp/3dgs_0_main\|main]] | int | - |

@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/type_half.hpp/glm/detail/3dgs_toFloat32\|glm::detail::toFloat32]] | GLM_FUNC_DECL float | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/type_half.hpp/glm/detail/3dgs_toFloat16\|glm::detail::toFloat16]] | GLM_FUNC_DECL hdata | - |
+| [[3dgs_toFloat32\|glm::detail::toFloat32]] | GLM_FUNC_DECL float | - |
+| [[3dgs_toFloat16\|glm::detail::toFloat16]] | GLM_FUNC_DECL hdata | - |

@@ -59,7 +59,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/cuda_rasterizer/3dgs_backward.cu\|backward.cu]] |
+| 所属文件 | [[3dgs_backward.cu\|backward.cu]] |
 | 所属类 | - |
 | 命名空间 | BACKWARD |
 | 类型 | namespace_scoped |

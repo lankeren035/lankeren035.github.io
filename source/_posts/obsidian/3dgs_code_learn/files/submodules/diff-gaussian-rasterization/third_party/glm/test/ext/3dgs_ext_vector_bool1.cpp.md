@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_operators\|test_operators]] | template <typename genType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_ctor\|test_ctor]] | template <typename genType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_size\|test_size]] | template <typename genType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_relational\|test_relational]] | template <typename genType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_constexpr\|test_constexpr]] | template <typename genType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_operators\|test_operators]] | template <typename genType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_ctor\|test_ctor]] | template <typename genType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_size\|test_size]] | template <typename genType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_relational\|test_relational]] | template <typename genType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_test_constexpr\|test_constexpr]] | template <typename genType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_vector_bool1.cpp/3dgs_0_main\|main]] | int | - |

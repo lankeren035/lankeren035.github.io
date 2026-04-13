@@ -24,7 +24,7 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_cpp_defaulted_ctor.cpp/3dgs_test_vec_memcpy\|test_vec_memcpy]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_cpp_defaulted_ctor.cpp/3dgs_test_mat_memcpy\|test_mat_memcpy]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_cpp_defaulted_ctor.cpp/3dgs_test_quat_memcpy\|test_quat_memcpy]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_cpp_defaulted_ctor.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_vec_memcpy\|test_vec_memcpy]] | static int | - |
+| [[3dgs_test_mat_memcpy\|test_mat_memcpy]] | static int | - |
+| [[3dgs_test_quat_memcpy\|test_quat_memcpy]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_cpp_defaulted_ctor.cpp/3dgs_0_main\|main]] | int | - |

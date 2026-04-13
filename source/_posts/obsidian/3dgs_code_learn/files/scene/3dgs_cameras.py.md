@@ -18,8 +18,8 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera\|Camera]] | - |
-| [[3dgs_code_learn/modules/scene/cameras.py/3dgs_MiniCam\|MiniCam]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera\|Camera]] | - |
+| [[3dgs_MiniCam\|MiniCam]] | - |
 
 ## 3. 包含的函数
 

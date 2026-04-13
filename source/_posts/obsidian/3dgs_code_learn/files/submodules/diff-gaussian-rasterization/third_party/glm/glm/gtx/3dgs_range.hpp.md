@@ -24,12 +24,12 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_components\|glm::components]] | template<typename genType> inline length_t | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_begin\|glm::begin]] | template<typename genType> inline typename genType::value_type const * | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_end\|glm::end]] | template<typename genType> inline typename genType::value_type const * | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_begin\|glm::begin]] | template<typename genType> inline typename genType::value_type * | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/range.hpp/glm/3dgs_end\|glm::end]] | template<typename genType> inline typename genType::value_type * | - |
+| [[3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
+| [[3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
+| [[3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
+| [[3dgs_components\|glm::components]] | template<typename T, qualifier Q> inline length_t | - |
+| [[3dgs_components\|glm::components]] | template<typename genType> inline length_t | - |
+| [[3dgs_begin\|glm::begin]] | template<typename genType> inline typename genType::value_type const * | - |
+| [[3dgs_end\|glm::end]] | template<typename genType> inline typename genType::value_type const * | - |
+| [[3dgs_begin\|glm::begin]] | template<typename genType> inline typename genType::value_type * | - |
+| [[3dgs_end\|glm::end]] | template<typename genType> inline typename genType::value_type * | - |

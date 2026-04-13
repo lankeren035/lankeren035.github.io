@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/3dgs_color_space_YCoCg.hpp\|color_space_YCoCg.hpp]] |
+| 所属文件 | [[3dgs_color_space_YCoCg.hpp\|color_space_YCoCg.hpp]] |
 | 所属类 | - |
 | 命名空间 | glm |
 | 类型 | declaration |

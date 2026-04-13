@@ -433,10 +433,13 @@ which cuda-gdb  # 输出应与配置中的路径一致
 - 输入y之后进入调试，发现cuda调试进程有一个进程显示exception：
 
   ```shell
-  unable toretrive stack trace. the message is improperly formatted or was damaged in transit
+  unable to retrive stack trace. the message is improperly formatted or was damaged in transit
   ```
 
-- 查看CUDA 调试符号路径
+- 这个错误先不管，在python debug走一步，如果进入了cu文件的断点，就可以正常调试了
+
+
+- 如果上面操作不行，查看CUDA 调试符号路径
 
   ```shell
   ls /usr/local/cuda-11.6/lib64/debug

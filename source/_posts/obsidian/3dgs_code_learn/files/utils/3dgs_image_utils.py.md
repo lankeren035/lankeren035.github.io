@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/utils/image_utils.py/3dgs_mse\|mse]] | - | - |
-| [[3dgs_code_learn/functions/utils/image_utils.py/3dgs_psnr\|psnr]] | - | - |
+| [[3dgs_mse\|mse]] | - | - |
+| [[3dgs_psnr\|psnr]] | - | - |

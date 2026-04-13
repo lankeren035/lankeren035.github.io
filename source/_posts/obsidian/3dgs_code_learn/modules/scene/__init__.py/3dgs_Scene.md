@@ -22,15 +22,15 @@ hexo-path:
 
 ## 2. 属性
 
-| 属性名 | 类型 | 来源函数 | 解释 |
-|---|---|---|---|
-| gaussians | GaussianModel | <class> | - |
-| cameras_extent | - | __init__ | - |
-| gaussians | - | __init__ | - |
-| loaded_iter | - | __init__ | - |
-| model_path | - | __init__ | - |
-| test_cameras | - | __init__ | - |
-| train_cameras | - | __init__ | - |
+| 属性名            | 类型            | 来源函数     | 解释       |
+| -------------- | ------------- | -------- | -------- |
+| gaussians      | GaussianModel | <class>  | 场景中所有的高斯 |
+| cameras_extent | -             | __init__ | 场景尺度     |
+| gaussians      | -             | __init__ | 场景中所有的高斯 |
+| loaded_iter    | None          | __init__ | -        |
+| model_path     | -             | __init__ | 输出模型路径   |
+| test_cameras   | -             | __init__ | 测试相机数据   |
+| train_cameras  | -             | __init__ | 训练相机数据   |
 
 ## 3. 方法
 

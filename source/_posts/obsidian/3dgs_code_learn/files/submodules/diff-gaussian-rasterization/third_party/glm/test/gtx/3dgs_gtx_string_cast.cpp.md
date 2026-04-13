@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_test_string_cast_vector\|test_string_cast_vector]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_test_string_cast_matrix\|test_string_cast_matrix]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_test_string_cast_quaternion\|test_string_cast_quaternion]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_test_string_cast_dual_quaternion\|test_string_cast_dual_quaternion]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_string_cast_vector\|test_string_cast_vector]] | int | - |
+| [[3dgs_test_string_cast_matrix\|test_string_cast_matrix]] | int | - |
+| [[3dgs_test_string_cast_quaternion\|test_string_cast_quaternion]] | int | - |
+| [[3dgs_test_string_cast_dual_quaternion\|test_string_cast_dual_quaternion]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_string_cast.cpp/3dgs_0_main\|main]] | int | - |

@@ -24,10 +24,10 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_simplex_float\|test_simplex_float]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_simplex_double\|test_simplex_double]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_perlin_float\|test_perlin_float]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_perlin_double\|test_perlin_double]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_perlin_pedioric_float\|test_perlin_pedioric_float]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_test_perlin_pedioric_double\|test_perlin_pedioric_double]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_simplex_float\|test_simplex_float]] | static int | - |
+| [[3dgs_test_simplex_double\|test_simplex_double]] | static int | - |
+| [[3dgs_test_perlin_float\|test_perlin_float]] | static int | - |
+| [[3dgs_test_perlin_double\|test_perlin_double]] | static int | - |
+| [[3dgs_test_perlin_pedioric_float\|test_perlin_pedioric_float]] | static int | - |
+| [[3dgs_test_perlin_pedioric_double\|test_perlin_pedioric_double]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_noise.cpp/3dgs_0_main\|main]] | int | - |

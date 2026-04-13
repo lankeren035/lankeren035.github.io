@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/integer.hpp/glm/3dgs_log2\|glm::log2]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/integer.hpp/glm/3dgs_log2\|glm::log2]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |

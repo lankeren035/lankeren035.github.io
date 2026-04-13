@@ -29,14 +29,14 @@ hexo-path:
 ## 3. 操作逻辑
 
 1. 遍历每一条相机参数，进行打包[[3dgs_loadCam]]
-- 最终返回数据形式：
+- 最终返回数据形式：camera_list= \[ [[source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera|Camera1]], [[source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera|Camera2]],... ]
 
 
 ## 4. 信息
 
-| 字段 | 内容 |
-|---|---|
-| 所属文件 | [[3dgs_camera_utils.py\|camera_utils.py]] |
-| 所属类 | - |
-| 命名空间 | - |
-| 类型 | - |
+| 字段   | 内容                                       |
+| ---- | ---------------------------------------- |
+| 所属文件 | [[3dgs_camera_utils.py|camera_utils.py]] |
+| 所属类  | -                                        |
+| 命名空间 | -                                        |
+| 类型   | -                                        |

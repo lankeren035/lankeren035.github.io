@@ -12,13 +12,13 @@ hexo-path:
 
 ## 1. 输入
 
-| 参数名 | 类型 | 解释 |
-|---|---|---|
-| lr_init | - | - |
-| lr_final | - | - |
-| lr_delay_steps | default=0 | - |
-| lr_delay_mult | default=1.0 | - |
-| max_steps | default=1000000 | - |
+| 参数名            | 类型              | 解释         |
+| -------------- | --------------- | ---------- |
+| lr_init        | -               | 初始 lr      |
+| lr_final       | -               | 最终 lr      |
+| lr_delay_steps | default=0       | delay 持续步数 |
+| lr_delay_mult  | default=1.0     | delay 倍率   |
+| max_steps      | default=1000000 | 总衰减步数      |
 
 ## 2. 输出
 
@@ -28,7 +28,8 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. 指数衰减调度
+2. 如果 `lr_delay_steps > 0`，前期还会额外乘一个平滑的 delay 系数
 
 ## 4. 信息
 

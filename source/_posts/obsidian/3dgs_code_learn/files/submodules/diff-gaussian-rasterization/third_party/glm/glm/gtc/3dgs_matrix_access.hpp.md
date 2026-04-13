@@ -24,7 +24,7 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_access.hpp/glm/3dgs_row\|glm::row]] | template<typename genType> GLM_FUNC_DECL typename genType::row_type | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_access.hpp/glm/3dgs_row\|glm::row]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_access.hpp/glm/3dgs_column\|glm::column]] | template<typename genType> GLM_FUNC_DECL typename genType::col_type | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_access.hpp/glm/3dgs_column\|glm::column]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[3dgs_row\|glm::row]] | template<typename genType> GLM_FUNC_DECL typename genType::row_type | - |
+| [[3dgs_row\|glm::row]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[3dgs_column\|glm::column]] | template<typename genType> GLM_FUNC_DECL typename genType::col_type | - |
+| [[3dgs_column\|glm::column]] | template<typename genType> GLM_FUNC_DECL genType | - |

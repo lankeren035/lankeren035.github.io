@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/3dgs_gtx_extended_min_max.cpp\|gtx_extended_min_max.cpp]] |
+| 所属文件 | [[3dgs_gtx_extended_min_max.cpp\|gtx_extended_min_max.cpp]] |
 | 所属类 | - |
 | 命名空间 | fmin_ |
 | 类型 | definition |

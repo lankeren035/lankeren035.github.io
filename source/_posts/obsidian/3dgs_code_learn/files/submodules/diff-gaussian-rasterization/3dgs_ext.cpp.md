@@ -12,7 +12,10 @@ hexo-path:
 
 ## 1. 流程
 
-1. 待补充
+1. 使用pybind11定义三个python接口
+	- rasterize_gaussians：绑定到C++函数：[[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.cu/3dgs_RasterizeGaussiansCUDA|RasterizeGaussiansCUDA]]，渲染接口
+	- rasterize_gaussians_backward：绑定到C++函数：[[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.cu/3dgs_RasterizeGaussiansBackwardCUDA|RasterizeGaussiansBackwardCUDA]]，反向传播接口
+	- mark_visible：绑定到C++函数：[[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/rasterize_points.cu/3dgs_markVisible|markVisible]]
 
 ## 2. 包含的类
 
@@ -24,4 +27,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/ext.cpp/3dgs_PYBIND11_MODULE\|PYBIND11_MODULE]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/ext.cpp/3dgs_PYBIND11_MODULE|PYBIND11_MODULE]] | - | - |

@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/gaussian_renderer/network_gui.py/3dgs_init\|init]] | - | - |
-| [[3dgs_code_learn/functions/gaussian_renderer/network_gui.py/3dgs_try_connect\|try_connect]] | - | - |
-| [[3dgs_code_learn/functions/gaussian_renderer/network_gui.py/3dgs_read\|read]] | - | - |
-| [[3dgs_code_learn/functions/gaussian_renderer/network_gui.py/3dgs_send\|send]] | - | - |
-| [[3dgs_code_learn/functions/gaussian_renderer/network_gui.py/3dgs_receive\|receive]] | - | - |
+| [[3dgs_init\|init]] | - | - |
+| [[3dgs_try_connect\|try_connect]] | - | - |
+| [[3dgs_read\|read]] | - | - |
+| [[3dgs_send\|send]] | - | - |
+| [[3dgs_receive\|receive]] | - | - |

@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_nextFloat\|glm::nextFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_prevFloat\|glm::prevFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_nextFloat\|glm::nextFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_prevFloat\|glm::prevFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_floatDistance\|glm::floatDistance]] | GLM_FUNC_DECL int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_floatDistance\|glm::floatDistance]] | GLM_FUNC_DECL int64 | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_nextFloat\|glm::nextFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_prevFloat\|glm::prevFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_nextFloat\|glm::nextFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_prevFloat\|glm::prevFloat]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_floatDistance\|glm::floatDistance]] | GLM_FUNC_DECL int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_ulp.hpp/glm/3dgs_floatDistance\|glm::floatDistance]] | GLM_FUNC_DECL int64 | - |

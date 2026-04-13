@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/exterior_product.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/exterior_product.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL T | - |

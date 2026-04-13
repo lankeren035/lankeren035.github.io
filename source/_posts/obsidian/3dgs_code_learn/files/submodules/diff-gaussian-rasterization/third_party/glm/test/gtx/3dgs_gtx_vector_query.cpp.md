@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_areCollinear\|test_areCollinear]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_areOrthogonal\|test_areOrthogonal]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_isNormalized\|test_isNormalized]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_isNull\|test_isNull]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_areOrthonormal\|test_areOrthonormal]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_areCollinear\|test_areCollinear]] | int | - |
+| [[3dgs_test_areOrthogonal\|test_areOrthogonal]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_isNormalized\|test_isNormalized]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_test_isNull\|test_isNull]] | int | - |
+| [[3dgs_test_areOrthonormal\|test_areOrthonormal]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_vector_query.cpp/3dgs_0_main\|main]] | int | - |

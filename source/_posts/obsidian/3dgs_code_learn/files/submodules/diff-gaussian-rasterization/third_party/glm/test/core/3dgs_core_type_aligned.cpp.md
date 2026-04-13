@@ -24,7 +24,7 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_aligned.cpp/3dgs_test_storage_aligned\|test_storage_aligned]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_aligned.cpp/3dgs_test_storage_unaligned\|test_storage_unaligned]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_aligned.cpp/3dgs_test_vec3_aligned\|test_vec3_aligned]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_aligned.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_storage_aligned\|test_storage_aligned]] | static int | - |
+| [[3dgs_test_storage_unaligned\|test_storage_unaligned]] | static int | - |
+| [[3dgs_test_vec3_aligned\|test_vec3_aligned]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_aligned.cpp/3dgs_0_main\|main]] | int | - |

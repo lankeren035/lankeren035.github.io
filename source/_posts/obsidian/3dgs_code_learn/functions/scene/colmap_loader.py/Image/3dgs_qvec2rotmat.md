@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/scene/3dgs_colmap_loader.py\|colmap_loader.py]] |
-| 所属类 | [[3dgs_code_learn/modules/scene/colmap_loader.py/3dgs_Image\|Image]] |
+| 所属文件 | [[3dgs_colmap_loader.py\|colmap_loader.py]] |
+| 所属类 | [[source/_posts/obsidian/3dgs_code_learn/modules/scene/colmap_loader.py/3dgs_Image\|Image]] |
 | 命名空间 | - |
 | 类型 | - |

@@ -9,6 +9,33 @@ published: true
 permalink: "code/3dgs/scene.cameras.py.Camera.__init__"
 hexo-path:
 ---
+- 最终该类包含如下属性：
+
+| 属性名                  | 类型                      | 来源函数     | 解释                                                                       |
+| -------------------- | ----------------------- | -------- | ------------------------------------------------------------------------ |
+| FoVx                 | -                       | __init__ | x视场角                                                                     |
+| FoVy                 | -                       | __init__ | y视场角                                                                     |
+| R                    | -                       | __init__ | 旋转矩阵                                                                     |
+| T                    | -                       | __init__ | 平移向量                                                                     |
+| alpha_mask           | -                       | __init__ | 用于曝光训练对一张图做左右mask                                                        |
+| camera_center        | -                       | __init__ | 相机中心                                                                     |
+| colmap_id            | -                       | __init__ | 相机id                                                                     |
+| data_device          | -                       | __init__ | -                                                                        |
+| depth_mask           | -                       | __init__ | 深度图的mask                                                                 |
+| depth_reliable       | bool=False              | __init__ | 深度是否可靠                                                                   |
+| full_proj_transform  | -                       | __init__ | 全量矩阵：W2C\*透视投影NDC矩阵                                                      |
+| image_height         | -                       | __init__ | 最终图片高度                                                                   |
+| image_name           | -                       | __init__ | 图片文件名                                                                    |
+| image_width          | -                       | __init__ | 最终图片宽度                                                                   |
+| invdepthmap          | default=None            | __init__ | 逆深度                                                                      |
+| original_image       | -                       | __init__ | GT图[0,1]                                                                 |
+| projection_matrix    | -                       | __init__ | 透视投影矩阵，将相机坐标系的点投影到NDC空间                                                  |
+| scale                | default=1               | __init__ | 场景归一化参数，这里采用默认值，按理来说应该调用的时候传入之前计算的场景尺度： 1/radius [[3dgs_getNerfppNorm]]  |
+| trans                | default=[0.0, 0.0, 0.0] | __init__ | 场景归一化参数，这里采用默认值，按理来说应该调用的时候传入之前计算的场景位移： translate [[3dgs_getNerfppNorm]] |
+| uid                  | -                       | __init__ | 相机信息序号                                                                   |
+| world_view_transform | -                       | __init__ | W2C矩阵                                                                    |
+| zfar                 | 100                     | __init__ | 远平面                                                                      |
+| znear                | 0.01                    | __init__ | 近平面                                                                      |
 
 ## 1. 输入
 
@@ -64,7 +91,9 @@ hexo-path:
 6. 处理逆深度图以及其mask：##todo
 7. 设置近平面（100）远平面（0.01）
 8. 计算W2C（可自定义） [[3dgs_getWorld2View2]] （这里会将W2C进行转置保存，这是为了配合 CUDA / OpenGL 风格 / 行向量乘法约定，因此后面取数据的时候`self.camera_center = self.world_view_transform.inverse()[3, :3]` 取的是第四行而不是第四列，且这里代码写死的直接放到GPU上!!）
-9. 计算透视投影矩阵projection_matrix [[3dgs_getProjectionMatrix]]
+9. 计算相机坐标到NDC空间的投影矩阵projection_matrix [[3dgs_getProjectionMatrix]]，保存转置
+10. 根据W2C\*projection_matrix 得到最终的全量的转换矩阵full_proj_transform
+
 
 - **思考1**：在 8. 这里，之前在计算场景的缩放尺度和平移时，计算过W2C，为什么那个时候不直接保存到cam_info里，然后这里第二次调用直接赋值就行了？
 	- 工程上是成立的不过没必要，这一步开销小，而且用cam_info只想保存原始描述，派生结果放到Camera，数据划分更清晰

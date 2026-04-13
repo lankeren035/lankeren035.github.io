@@ -18,7 +18,7 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/scene/__init__.py/3dgs_Scene\|Scene]] | - |
+| [[3dgs_Scene\|Scene]] | - |
 
 ## 3. 包含的函数
 

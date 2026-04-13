@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/gaussian_renderer/3dgs_network_gui.py\|network_gui.py]] |
+| 所属文件 | [[3dgs_network_gui.py\|network_gui.py]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | - |

@@ -9,7 +9,7 @@ published: true
 permalink: "code/3dgs/utils.sh_utils.py.RGB2SH"
 hexo-path:
 ---
-
+- （rgb - 0.5) / c0
 ## 1. 输入
 
 | 参数名 | 类型 | 解释 |
@@ -24,13 +24,13 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. （rgb - 0.5) / c0
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/utils/3dgs_sh_utils.py\|sh_utils.py]] |
+| 所属文件 | [[3dgs_sh_utils.py\|sh_utils.py]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | - |

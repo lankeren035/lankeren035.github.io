@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/bug/3dgs_bug_ms_vec_static.cpp\|bug_ms_vec_static.cpp]] |
+| 所属文件 | [[3dgs_bug_ms_vec_static.cpp\|bug_ms_vec_static.cpp]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

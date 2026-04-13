@@ -24,11 +24,11 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_wrapAngle\|glm::wrapAngle]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastSin\|glm::fastSin]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastCos\|glm::fastCos]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastTan\|glm::fastTan]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastAsin\|glm::fastAsin]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastAcos\|glm::fastAcos]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastAtan\|glm::fastAtan]] | template<typename T> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/fast_trigonometry.hpp/glm/3dgs_fastAtan\|glm::fastAtan]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_wrapAngle\|glm::wrapAngle]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastSin\|glm::fastSin]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastCos\|glm::fastCos]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastTan\|glm::fastTan]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastAsin\|glm::fastAsin]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastAcos\|glm::fastAcos]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastAtan\|glm::fastAtan]] | template<typename T> GLM_FUNC_DECL T | - |
+| [[3dgs_fastAtan\|glm::fastAtan]] | template<typename T> GLM_FUNC_DECL T | - |

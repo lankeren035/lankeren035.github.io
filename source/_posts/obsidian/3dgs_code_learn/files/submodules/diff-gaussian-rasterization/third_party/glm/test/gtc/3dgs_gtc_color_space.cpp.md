@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/srgb/3dgs_test\|srgb::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/srgb_lowp/3dgs_test\|srgb_lowp::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/srgb/3dgs_test\|srgb::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/srgb_lowp/3dgs_test\|srgb_lowp::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtc/gtc_color_space.cpp/3dgs_0_main\|main]] | int | - |

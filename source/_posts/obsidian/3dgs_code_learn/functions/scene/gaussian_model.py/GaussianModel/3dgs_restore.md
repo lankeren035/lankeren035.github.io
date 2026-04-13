@@ -31,7 +31,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/scene/3dgs_gaussian_model.py\|gaussian_model.py]] |
-| 所属类 | [[3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel\|GaussianModel]] |
+| 所属文件 | [[3dgs_gaussian_model.py\|gaussian_model.py]] |
+| 所属类 | [[3dgs_GaussianModel\|GaussianModel]] |
 | 命名空间 | - |
 | 类型 | - |

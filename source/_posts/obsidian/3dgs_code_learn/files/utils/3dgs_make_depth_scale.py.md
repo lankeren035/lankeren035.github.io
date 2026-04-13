@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/utils/make_depth_scale.py/3dgs_get_scales\|get_scales]] | - | - |
-| [[3dgs_code_learn/functions/utils/make_depth_scale.py/3dgs_0_main\|main]] | - | 由 if __name__ == '__main__' 入口块生成的入口笔记 |
+| [[3dgs_get_scales\|get_scales]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/utils/make_depth_scale.py/3dgs_0_main\|main]] | - | 由 if __name__ == '__main__' 入口块生成的入口笔记 |

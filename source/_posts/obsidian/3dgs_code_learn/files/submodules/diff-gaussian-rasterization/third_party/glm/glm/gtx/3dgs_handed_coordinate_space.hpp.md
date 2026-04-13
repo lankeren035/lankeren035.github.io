@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/handed_coordinate_space.hpp/glm/3dgs_rightHanded\|glm::rightHanded]] | template<typename T, qualifier Q> GLM_FUNC_DECL bool | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/handed_coordinate_space.hpp/glm/3dgs_leftHanded\|glm::leftHanded]] | template<typename T, qualifier Q> GLM_FUNC_DECL bool | - |
+| [[3dgs_rightHanded\|glm::rightHanded]] | template<typename T, qualifier Q> GLM_FUNC_DECL bool | - |
+| [[3dgs_leftHanded\|glm::leftHanded]] | template<typename T, qualifier Q> GLM_FUNC_DECL bool | - |

@@ -24,10 +24,10 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_operators\|test_operators]] | static bool | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_ctr\|test_ctr]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/cast/3dgs_entry\|cast::entry]] | template<typename genType> int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/cast/3dgs_test\|cast::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_size\|test_size]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_constexpr\|test_constexpr]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_operators\|test_operators]] | static bool | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_ctr\|test_ctr]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/cast/3dgs_entry\|cast::entry]] | template<typename genType> int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/cast/3dgs_test\|cast::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_size\|test_size]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_test_constexpr\|test_constexpr]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_mat3x2.cpp/3dgs_0_main\|main]] | int | - |

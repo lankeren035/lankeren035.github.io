@@ -18,15 +18,15 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/utils/graphics_utils.py/3dgs_BasicPointCloud\|BasicPointCloud]] | - |
+| [[3dgs_BasicPointCloud\|BasicPointCloud]] | - |
 
 ## 3. 包含的函数
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_geom_transform_points\|geom_transform_points]] | - | - |
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getWorld2View\|getWorld2View]] | - | - |
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getWorld2View2\|getWorld2View2]] | - | - |
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getProjectionMatrix\|getProjectionMatrix]] | - | - |
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_fov2focal\|fov2focal]] | - | - |
-| [[3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_focal2fov\|focal2fov]] | - | - |
+| [[3dgs_geom_transform_points\|geom_transform_points]] | - | - |
+| [[3dgs_getWorld2View\|getWorld2View]] | - | - |
+| [[3dgs_getWorld2View2\|getWorld2View2]] | - | - |
+| [[3dgs_getProjectionMatrix\|getProjectionMatrix]] | - | - |
+| [[3dgs_fov2focal\|fov2focal]] | - | - |
+| [[3dgs_focal2fov\|focal2fov]] | - | - |

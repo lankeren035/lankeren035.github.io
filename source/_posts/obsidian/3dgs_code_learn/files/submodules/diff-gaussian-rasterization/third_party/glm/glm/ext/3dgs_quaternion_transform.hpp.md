@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/quaternion_transform.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/quaternion_transform.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |

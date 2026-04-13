@@ -34,7 +34,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/cuda_rasterizer/3dgs_rasterizer.h\|rasterizer.h]] |
-| 所属类 | [[3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/3dgs_Rasterizer\|Rasterizer]] |
+| 所属文件 | [[3dgs_rasterizer.h\|rasterizer.h]] |
+| 所属类 | [[3dgs_Rasterizer\|Rasterizer]] |
 | 命名空间 | CudaRasterizer |
 | 类型 | declaration |

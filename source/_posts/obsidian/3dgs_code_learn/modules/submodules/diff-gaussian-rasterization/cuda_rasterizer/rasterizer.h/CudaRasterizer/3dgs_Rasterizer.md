@@ -26,6 +26,6 @@ hexo-path:
 
 | 方法名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_markVisible\|markVisible]] | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_forward\|forward]] | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_backward\|backward]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_markVisible\|markVisible]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_forward\|forward]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/rasterizer.h/CudaRasterizer/Rasterizer/3dgs_backward\|backward]] | - |

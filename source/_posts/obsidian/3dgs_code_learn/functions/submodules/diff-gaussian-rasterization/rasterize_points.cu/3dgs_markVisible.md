@@ -32,7 +32,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/3dgs_rasterize_points.cu\|rasterize_points.cu]] |
+| 所属文件 | [[3dgs_rasterize_points.cu\|rasterize_points.cu]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

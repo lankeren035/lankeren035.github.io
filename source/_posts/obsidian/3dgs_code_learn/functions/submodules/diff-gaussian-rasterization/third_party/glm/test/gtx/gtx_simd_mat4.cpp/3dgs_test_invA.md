@@ -31,7 +31,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/3dgs_gtx_simd_mat4.cpp\|gtx_simd_mat4.cpp]] |
+| 所属文件 | [[3dgs_gtx_simd_mat4.cpp\|gtx_simd_mat4.cpp]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

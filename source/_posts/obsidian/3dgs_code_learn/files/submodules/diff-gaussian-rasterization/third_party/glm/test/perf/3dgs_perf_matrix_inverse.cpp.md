@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_test_mat_inverse\|test_mat_inverse]] | template <typename matType> static void | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_launch_mat_inverse\|launch_mat_inverse]] | template <typename matType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_comp_mat2_inverse\|comp_mat2_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_comp_mat3_inverse\|comp_mat3_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_comp_mat4_inverse\|comp_mat4_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_mat_inverse\|test_mat_inverse]] | template <typename matType> static void | - |
+| [[3dgs_launch_mat_inverse\|launch_mat_inverse]] | template <typename matType> static int | - |
+| [[3dgs_comp_mat2_inverse\|comp_mat2_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat3_inverse\|comp_mat3_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat4_inverse\|comp_mat4_inverse]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_inverse.cpp/3dgs_0_main\|main]] | int | - |

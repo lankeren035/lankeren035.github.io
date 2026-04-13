@@ -31,7 +31,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/utils/3dgs_graphics_utils.py\|graphics_utils.py]] |
+| 所属文件 | [[3dgs_graphics_utils.py\|graphics_utils.py]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | - |

@@ -39,9 +39,9 @@ hexo-path:
 	- 点云文件
 	- 相机参数（测试在前训练在后，json保存）
 4. 遍历所有图片分辨率（这个分辨率不是数据集的 1，1/2分辨率，而是当前这个类构造函数的resolution_scales）：
-	- 打包相机参数[[3dgs_cameraList_from_camInfos]]
-	- 最终相机参数格式：
-
+	- 对训练集测试集分别打包相机参数[[3dgs_cameraList_from_camInfos]]
+	- 最终train_cameras\[resolution_scale]/ test_cameras\[resolution_scale]的相机参数格式： \[ [[source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera|Camera1]], [[source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera|Camera2]],... ]
+5. 从点云数据和训练相机信息中初始化高斯模型[[3dgs_create_from_pcd|create_from_pcd(点云数据，训练相机信息，场景尺度)]]
 ## 4. 信息
 
 | 字段 | 内容 |

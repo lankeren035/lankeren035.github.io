@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/compNormalize/3dgs_run\|compNormalize::run]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/compScale/3dgs_run\|compScale::run]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/compNormalize/3dgs_run\|compNormalize::run]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/compScale/3dgs_run\|compScale::run]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_component_wise.cpp/3dgs_0_main\|main]] | int | - |

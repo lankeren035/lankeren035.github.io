@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/arguments/3dgs___init__.py\|__init__.py]] |
-| 所属类 | [[3dgs_code_learn/modules/arguments/__init__.py/3dgs_OptimizationParams\|OptimizationParams]] |
+| 所属文件 | [[source/_posts/obsidian/3dgs_code_learn/files/arguments/3dgs___init__.py\|__init__.py]] |
+| 所属类 | [[3dgs_OptimizationParams\|OptimizationParams]] |
 | 命名空间 | - |
 | 类型 | - |

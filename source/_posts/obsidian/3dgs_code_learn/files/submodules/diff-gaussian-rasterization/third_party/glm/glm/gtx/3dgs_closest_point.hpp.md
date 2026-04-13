@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/closest_point.hpp/glm/3dgs_closestPointOnLine\|glm::closestPointOnLine]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/closest_point.hpp/glm/3dgs_closestPointOnLine\|glm::closestPointOnLine]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<2, T, Q> | - |
+| [[3dgs_closestPointOnLine\|glm::closestPointOnLine]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
+| [[3dgs_closestPointOnLine\|glm::closestPointOnLine]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<2, T, Q> | - |

@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/3dgs_type_half.hpp\|type_half.hpp]] |
+| 所属文件 | [[3dgs_type_half.hpp\|type_half.hpp]] |
 | 所属类 | - |
 | 命名空间 | glm::detail |
 | 类型 | declaration |

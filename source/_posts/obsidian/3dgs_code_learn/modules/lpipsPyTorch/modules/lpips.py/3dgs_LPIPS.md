@@ -28,5 +28,5 @@ hexo-path:
 
 | 方法名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/functions/lpipsPyTorch/modules/lpips.py/LPIPS/3dgs___init__\|__init__]] | - |
-| [[3dgs_code_learn/functions/lpipsPyTorch/modules/lpips.py/LPIPS/3dgs_forward\|forward]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/lpipsPyTorch/modules/lpips.py/LPIPS/3dgs___init__\|__init__]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/lpipsPyTorch/modules/lpips.py/LPIPS/3dgs_forward\|forward]] | - |

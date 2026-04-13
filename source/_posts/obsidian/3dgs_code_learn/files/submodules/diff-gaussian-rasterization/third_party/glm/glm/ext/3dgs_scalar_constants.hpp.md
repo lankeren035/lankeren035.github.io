@@ -24,6 +24,6 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_constants.hpp/glm/3dgs_epsilon\|glm::epsilon]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_constants.hpp/glm/3dgs_pi\|glm::pi]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/ext/scalar_constants.hpp/glm/3dgs_cos_one_over_two\|glm::cos_one_over_two]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |
+| [[3dgs_epsilon\|glm::epsilon]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |
+| [[3dgs_pi\|glm::pi]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |
+| [[3dgs_cos_one_over_two\|glm::cos_one_over_two]] | template<typename genType> GLM_FUNC_DECL GLM_CONSTEXPR genType | - |

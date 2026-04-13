@@ -26,4 +26,4 @@ hexo-path:
 
 | 方法名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/io.hpp/glm/io/width/3dgs___init__\|__init__]] | 由构造函数生成的初始化方法笔记 |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/io.hpp/glm/io/width/3dgs___init__\|__init__]] | 由构造函数生成的初始化方法笔记 |

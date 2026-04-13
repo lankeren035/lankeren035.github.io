@@ -24,11 +24,11 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_inverse_sigmoid\|inverse_sigmoid]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_PILtoTorch\|PILtoTorch]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_get_expon_lr_func\|get_expon_lr_func]] | - | Copied from Plenoxels |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_strip_lowerdiag\|strip_lowerdiag]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_strip_symmetric\|strip_symmetric]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_build_rotation\|build_rotation]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_build_scaling_rotation\|build_scaling_rotation]] | - | - |
-| [[3dgs_code_learn/functions/utils/general_utils.py/3dgs_safe_state\|safe_state]] | - | - |
+| [[3dgs_inverse_sigmoid\|inverse_sigmoid]] | - | - |
+| [[3dgs_PILtoTorch\|PILtoTorch]] | - | - |
+| [[3dgs_get_expon_lr_func\|get_expon_lr_func]] | - | Copied from Plenoxels |
+| [[3dgs_strip_lowerdiag\|strip_lowerdiag]] | - | - |
+| [[3dgs_strip_symmetric\|strip_symmetric]] | - | - |
+| [[3dgs_build_rotation\|build_rotation]] | - | - |
+| [[3dgs_build_scaling_rotation\|build_scaling_rotation]] | - | - |
+| [[3dgs_safe_state\|safe_state]] | - | - |

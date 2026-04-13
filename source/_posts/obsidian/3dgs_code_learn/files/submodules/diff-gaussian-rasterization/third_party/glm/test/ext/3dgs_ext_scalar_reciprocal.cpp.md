@@ -24,16 +24,16 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_sec\|test_sec]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_csc\|test_csc]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_cot\|test_cot]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_asec\|test_asec]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acsc\|test_acsc]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acot\|test_acot]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_sech\|test_sech]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_csch\|test_csch]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_coth\|test_coth]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_asech\|test_asech]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acsch\|test_acsch]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acoth\|test_acoth]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_sec\|test_sec]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_csc\|test_csc]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_cot\|test_cot]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_asec\|test_asec]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acsc\|test_acsc]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acot\|test_acot]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_sech\|test_sech]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_csch\|test_csch]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_coth\|test_coth]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_asech\|test_asech]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acsch\|test_acsch]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_test_acoth\|test_acoth]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_reciprocal.cpp/3dgs_0_main\|main]] | int | - |

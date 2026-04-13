@@ -24,9 +24,9 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_test_mat_transpose\|test_mat_transpose]] | template <typename matType> static void | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_launch_mat_transpose\|launch_mat_transpose]] | template <typename matType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_comp_mat2_transpose\|comp_mat2_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_comp_mat3_transpose\|comp_mat3_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_comp_mat4_transpose\|comp_mat4_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_mat_transpose\|test_mat_transpose]] | template <typename matType> static void | - |
+| [[3dgs_launch_mat_transpose\|launch_mat_transpose]] | template <typename matType> static int | - |
+| [[3dgs_comp_mat2_transpose\|comp_mat2_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat3_transpose\|comp_mat3_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[3dgs_comp_mat4_transpose\|comp_mat4_transpose]] | template <typename packedMatType, typename alignedMatType> static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/perf/perf_matrix_transpose.cpp/3dgs_0_main\|main]] | int | - |

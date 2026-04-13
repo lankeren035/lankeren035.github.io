@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/3dgs_ext_scalar_integer.cpp\|ext_scalar_integer.cpp]] |
+| 所属文件 | [[3dgs_ext_scalar_integer.cpp\|ext_scalar_integer.cpp]] |
 | 所属类 | - |
 | 命名空间 | isPowerOfTwo |
 | 类型 | definition |

@@ -25,13 +25,18 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+```c
+__forceinline__ __device__ float ndc2Pix(float v, int S)  //像素坐标的原点在左上角像素的中心，有个0.5的偏移
+{
+    return ((v + 1.0) * S - 1.0) * 0.5;
+}
+```
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/cuda_rasterizer/3dgs_auxiliary.h\|auxiliary.h]] |
+| 所属文件 | [[3dgs_auxiliary.h\|auxiliary.h]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

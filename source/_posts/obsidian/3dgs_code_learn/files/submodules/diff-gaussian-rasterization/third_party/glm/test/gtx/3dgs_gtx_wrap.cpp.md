@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/clamp/3dgs_test\|clamp::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/repeat/3dgs_test\|repeat::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/mirrorClamp/3dgs_test\|mirrorClamp::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/mirrorRepeat/3dgs_test\|mirrorRepeat::test]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/clamp/3dgs_test\|clamp::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/repeat/3dgs_test\|repeat::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/mirrorClamp/3dgs_test\|mirrorClamp::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/mirrorRepeat/3dgs_test\|mirrorRepeat::test]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/gtx/gtx_wrap.cpp/3dgs_0_main\|main]] | int | - |

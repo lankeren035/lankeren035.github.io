@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_translate\|glm::translate]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_scale\|glm::scale]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_shearX\|glm::shearX]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_shearY\|glm::shearY]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_translate\|glm::translate]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_transform_2d.hpp/glm/3dgs_scale\|glm::scale]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[3dgs_shearX\|glm::shearX]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[3dgs_shearY\|glm::shearY]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |

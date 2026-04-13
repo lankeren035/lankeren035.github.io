@@ -1,0 +1,286 @@
+{
+  "main": {
+    "id": "a31608037c853881",
+    "type": "split",
+    "children": [
+      {
+        "id": "3eb2a79d57262226",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d595d147a99739e3",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/main.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "main"
+            }
+          },
+          {
+            "id": "8f13b844f8ce97f4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/functions/scene/gaussian_model.py/GaussianModel/3dgs_training_setup.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_training_setup"
+            }
+          },
+          {
+            "id": "e7c39b08705eb696",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/functions/scene/gaussian_model.py/GaussianModel/3dgs_create_from_pcd.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_create_from_pcd"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "1985e9ad8667964e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "96c286d470950a7c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/obsidian/3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "3dgs_GaussianModel"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "933e08d88425e241",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f7ab5871ef1d613",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b95251fbdfbce9e5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "eb8c6ad1c11def27",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "b49025f085d20f3f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 304.5
+  },
+  "right": {
+    "id": "a099871a45d90968",
+    "type": "split",
+    "children": [
+      {
+        "id": "56b6735020ed8854",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f75b933e35d15bf0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "train 的反向链接列表"
+            }
+          },
+          {
+            "id": "f3a374811ca83162",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "train 的出链列表"
+            }
+          },
+          {
+            "id": "5b102e444aaeede0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "1bcce6c67938b321",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "916900de7192e19f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "train 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian42-brat:BRAT": false,
+      "hexo-integration:Hexo integration": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "96c286d470950a7c",
+  "lastOpenFiles": [
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getProjectionMatrix.sync-conflict-20260409-211056-M5UO4BC.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/~syncthing~3dgs_getProjectionMatrix.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/gaussian_model.py/GaussianModel/3dgs_training_setup.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/general_utils.py/3dgs_get_expon_lr_func.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/gaussian_model.py/GaussianModel/3dgs_create_from_pcd.md",
+    "source/_posts/obsidian/3dgs_code_learn/main.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/train.py/3dgs_training.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/__init__.py/Scene/3dgs___init__.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/__init__.py/3dgs_Scene.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/dataset_readers.py/3dgs_SceneInfo.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/cameras.py/Camera/3dgs___init__.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/cameras.py/3dgs_Camera.md",
+    "source/_posts/paper/3DGS/3dgs_debug.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/spatial.cu/3dgs_distCUDA2.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/spatial.h/3dgs_distCUDA2.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/SimpleKNN/3dgs_knn.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/3dgs_boxMeanDist.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/3dgs_distBoxPoint.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/3dgs_updateKBest.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/3dgs_boxMinMax.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/simple-knn/simple_knn.cu/3dgs_coord2Morton.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/submodules/simple-knn/simple_knn.cu/3dgs_CustomMin.md",
+    "source/_posts/obsidian/3dgs_code_learn/modules/submodules/simple-knn/simple_knn.cu/3dgs_CustomMax.md",
+    "source/_posts/paper/3DGS/3dgs_run.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/sh_utils.py/3dgs_RGB2SH.md",
+    "source/_posts/obsidian/3dgs_code_learn/functions/utils/camera_utils.py/3dgs_cameraList_from_camInfos.md",
+    "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
+    "themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg",
+    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg",
+    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/5_minibatch_gradient_descent_files/5_minibatch_gradient_descent_7_1.svg",
+    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg",
+    "themes/yilia/source/img/obsidian/3dgs/2.png",
+    "source/_posts/paper/3DGS/CG/~syncthing~camera_transformation.md.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~NeRF.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~2_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/~syncthing~3dgs_code.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~3_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/base/~syncthing~1_3dgs.md.tmp",
+    "source/_posts/paper/3DGS/CG/~syncthing~rasterization.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/modules/scene/dataset_readers.py/~syncthing~3dgs_SceneInfo.md.tmp",
+    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/~syncthing~3dgs_readColmapSceneInfo.md.tmp",
+    "themes/yilia/source/img/paper/video_edit/Tokenflow/results_sub_00.png",
+    "themes/yilia/source/img/datastruct/5_tree/bintree/7.png",
+    "themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset_files/6_object_detect_dataset_11_0.png",
+    "themes/yilia/source/img/datastruct/6_graph/DAG/6.png"
+  ]
+}

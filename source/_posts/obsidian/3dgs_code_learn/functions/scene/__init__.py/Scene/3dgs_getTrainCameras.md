@@ -9,7 +9,7 @@ published: true
 permalink: "code/3dgs/scene.__init__.py.Scene.getTrainCameras"
 hexo-path:
 ---
-
+- 返回train_cameras属性
 ## 1. 输入
 
 | 参数名 | 类型 | 解释 |
@@ -24,13 +24,13 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. 返回train_cameras\[scale]
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/scene/3dgs___init__.py\|__init__.py]] |
-| 所属类 | [[3dgs_code_learn/modules/scene/__init__.py/3dgs_Scene\|Scene]] |
+| 所属文件 | [[source/_posts/obsidian/3dgs_code_learn/files/scene/3dgs___init__.py\|__init__.py]] |
+| 所属类 | [[3dgs_Scene\|Scene]] |
 | 命名空间 | - |
 | 类型 | - |

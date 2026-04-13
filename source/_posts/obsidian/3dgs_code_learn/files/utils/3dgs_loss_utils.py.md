@@ -18,16 +18,16 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/utils/loss_utils.py/3dgs_FusedSSIMMap\|FusedSSIMMap]] | - |
+| [[source/_posts/obsidian/3dgs_code_learn/modules/utils/loss_utils.py/3dgs_FusedSSIMMap\|FusedSSIMMap]] | - |
 
 ## 3. 包含的函数
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_l1_loss\|l1_loss]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_l2_loss\|l2_loss]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_gaussian\|gaussian]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_create_window\|create_window]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_ssim\|ssim]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs__ssim\|_ssim]] | - | - |
-| [[3dgs_code_learn/functions/utils/loss_utils.py/3dgs_fast_ssim\|fast_ssim]] | - | - |
+| [[3dgs_l1_loss\|l1_loss]] | - | - |
+| [[3dgs_l2_loss\|l2_loss]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/utils/loss_utils.py/3dgs_gaussian\|gaussian]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/utils/loss_utils.py/3dgs_create_window\|create_window]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/utils/loss_utils.py/3dgs_ssim\|ssim]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/utils/loss_utils.py/3dgs__ssim\|_ssim]] | - | - |
+| [[3dgs_fast_ssim\|fast_ssim]] | - | - |

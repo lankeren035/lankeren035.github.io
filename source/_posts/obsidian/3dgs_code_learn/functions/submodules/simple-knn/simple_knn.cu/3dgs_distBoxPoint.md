@@ -9,7 +9,7 @@ published: true
 permalink: "code/3dgs/submodules.simple-knn.simple_knn.cu.distBoxPoint"
 hexo-path:
 ---
-
+- 计算一个点距离一个盒子的距离，如果这个点在盒子内，距离=0， 如果点在盒子外但是x范围在盒子内，则x轴距离=0.
 ## 1. 输入
 
 | 参数名 | 类型 | 解释 |
@@ -25,13 +25,13 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. 计算一个点距离一个盒子的距离，如果这个点在盒子内，距离=0， 如果点在盒子外但是x范围在盒子内，则x轴距离=0.
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/simple-knn/3dgs_simple_knn.cu\|simple_knn.cu]] |
+| 所属文件 | [[3dgs_simple_knn.cu\|simple_knn.cu]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_cross_product.hpp/glm/3dgs_matrixCross3\|glm::matrixCross3]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/matrix_cross_product.hpp/glm/3dgs_matrixCross4\|glm::matrixCross4]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<4, 4, T, Q> | - |
+| [[3dgs_matrixCross3\|glm::matrixCross3]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<3, 3, T, Q> | - |
+| [[3dgs_matrixCross4\|glm::matrixCross4]] | template<typename T, qualifier Q> GLM_FUNC_DECL mat<4, 4, T, Q> | - |

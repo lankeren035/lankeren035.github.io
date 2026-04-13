@@ -18,14 +18,14 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_my_vec2\|my_vec2]] | - |
+| [[3dgs_my_vec2\|my_vec2]] | - |
 
 ## 3. 包含的函数
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_test_vec2_cast\|test_vec2_cast]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_test_vec3_cast\|test_vec3_cast]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_test_vec4_cast\|test_vec4_cast]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_test_std_copy\|test_std_copy]] | int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_vec2_cast\|test_vec2_cast]] | int | - |
+| [[3dgs_test_vec3_cast\|test_vec3_cast]] | int | - |
+| [[3dgs_test_vec4_cast\|test_vec4_cast]] | int | - |
+| [[3dgs_test_std_copy\|test_std_copy]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_cast.cpp/3dgs_0_main\|main]] | int | - |

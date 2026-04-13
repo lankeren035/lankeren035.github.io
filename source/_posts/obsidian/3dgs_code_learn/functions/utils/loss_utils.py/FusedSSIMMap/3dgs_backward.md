@@ -31,7 +31,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/utils/3dgs_loss_utils.py\|loss_utils.py]] |
-| 所属类 | [[3dgs_code_learn/modules/utils/loss_utils.py/3dgs_FusedSSIMMap\|FusedSSIMMap]] |
+| 所属文件 | [[3dgs_loss_utils.py\|loss_utils.py]] |
+| 所属类 | [[source/_posts/obsidian/3dgs_code_learn/modules/utils/loss_utils.py/3dgs_FusedSSIMMap\|FusedSSIMMap]] |
 | 命名空间 | - |
 | 类型 | - |

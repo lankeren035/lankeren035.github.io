@@ -18,7 +18,7 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel\|GaussianModel]] | - |
+| [[3dgs_GaussianModel\|GaussianModel]] | - |
 
 ## 3. 包含的函数
 

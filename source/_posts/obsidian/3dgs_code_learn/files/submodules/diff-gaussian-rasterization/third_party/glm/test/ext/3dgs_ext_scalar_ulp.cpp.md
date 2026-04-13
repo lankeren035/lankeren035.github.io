@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_float_dist\|test_ulp_float_dist]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_float_step\|test_ulp_float_step]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_double_dist\|test_ulp_double_dist]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_double_step\|test_ulp_double_step]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_float_dist\|test_ulp_float_dist]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_float_step\|test_ulp_float_step]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_double_dist\|test_ulp_double_dist]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_test_ulp_double_step\|test_ulp_double_step]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/ext/ext_scalar_ulp.cpp/3dgs_0_main\|main]] | int | - |

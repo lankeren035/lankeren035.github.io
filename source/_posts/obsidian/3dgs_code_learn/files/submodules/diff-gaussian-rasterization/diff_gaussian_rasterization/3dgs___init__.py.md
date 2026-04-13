@@ -18,13 +18,13 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/3dgs__RasterizeGaussians\|_RasterizeGaussians]] | - |
-| [[3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/3dgs_GaussianRasterizationSettings\|GaussianRasterizationSettings]] | - |
-| [[3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/3dgs_GaussianRasterizer\|GaussianRasterizer]] | - |
+| [[3dgs__RasterizeGaussians\|_RasterizeGaussians]] | - |
+| [[3dgs_GaussianRasterizationSettings\|GaussianRasterizationSettings]] | - |
+| [[3dgs_GaussianRasterizer\|GaussianRasterizer]] | - |
 
 ## 3. 包含的函数
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/3dgs_cpu_deep_copy_tuple\|cpu_deep_copy_tuple]] | - | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/3dgs_rasterize_gaussians\|rasterize_gaussians]] | - | - |
+| [[3dgs_cpu_deep_copy_tuple\|cpu_deep_copy_tuple]] | - | - |
+| [[3dgs_rasterize_gaussians\|rasterize_gaussians]] | - | - |

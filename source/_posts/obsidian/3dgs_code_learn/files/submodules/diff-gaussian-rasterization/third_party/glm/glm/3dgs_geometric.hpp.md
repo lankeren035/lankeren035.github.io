@@ -24,11 +24,11 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_length\|glm::length]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_distance\|glm::distance]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_dot\|glm::dot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_normalize\|glm::normalize]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_faceforward\|glm::faceforward]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_reflect\|glm::reflect]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_refract\|glm::refract]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_length\|glm::length]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[3dgs_distance\|glm::distance]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_dot\|glm::dot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR T | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR vec<3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/geometric.hpp/glm/3dgs_normalize\|glm::normalize]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_faceforward\|glm::faceforward]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_reflect\|glm::reflect]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_refract\|glm::refract]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |

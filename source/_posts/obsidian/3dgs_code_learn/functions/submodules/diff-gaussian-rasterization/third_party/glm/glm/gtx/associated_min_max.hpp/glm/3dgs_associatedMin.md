@@ -37,7 +37,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/3dgs_associated_min_max.hpp\|associated_min_max.hpp]] |
+| 所属文件 | [[3dgs_associated_min_max.hpp\|associated_min_max.hpp]] |
 | 所属类 | - |
 | 命名空间 | glm |
 | 类型 | declaration |

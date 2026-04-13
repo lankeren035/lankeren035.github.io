@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/test/core/3dgs_core_force_platform_unknown.cpp\|core_force_platform_unknown.cpp]] |
+| 所属文件 | [[3dgs_core_force_platform_unknown.cpp\|core_force_platform_unknown.cpp]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

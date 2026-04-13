@@ -24,12 +24,12 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_highestBitValue\|glm::highestBitValue]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_lowestBitValue\|glm::lowestBitValue]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_highestBitValue\|glm::highestBitValue]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoAbove\|glm::powerOfTwoAbove]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoAbove\|glm::powerOfTwoAbove]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoBelow\|glm::powerOfTwoBelow]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoBelow\|glm::powerOfTwoBelow]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoNearest\|glm::powerOfTwoNearest]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_powerOfTwoNearest\|glm::powerOfTwoNearest]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_highestBitValue\|glm::highestBitValue]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |
+| [[3dgs_lowestBitValue\|glm::lowestBitValue]] | template<typename genIUType> GLM_FUNC_DECL genIUType | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/bit.hpp/glm/3dgs_highestBitValue\|glm::highestBitValue]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_powerOfTwoAbove\|glm::powerOfTwoAbove]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
+| [[3dgs_powerOfTwoAbove\|glm::powerOfTwoAbove]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_powerOfTwoBelow\|glm::powerOfTwoBelow]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
+| [[3dgs_powerOfTwoBelow\|glm::powerOfTwoBelow]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |
+| [[3dgs_powerOfTwoNearest\|glm::powerOfTwoNearest]] | template<typename genIUType> GLM_DEPRECATED GLM_FUNC_DECL genIUType | - |
+| [[3dgs_powerOfTwoNearest\|glm::powerOfTwoNearest]] | template<length_t L, typename T, qualifier Q> GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> | - |

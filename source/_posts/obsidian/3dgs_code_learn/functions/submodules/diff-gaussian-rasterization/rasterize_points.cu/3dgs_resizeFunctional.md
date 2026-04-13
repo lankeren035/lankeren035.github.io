@@ -24,13 +24,14 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+1. 返回一个函数，该函数进行如下操作：
+	1. 将调用者resize成指定长度的tensor
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/3dgs_rasterize_points.cu\|rasterize_points.cu]] |
+| 所属文件 | [[3dgs_rasterize_points.cu\|rasterize_points.cu]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

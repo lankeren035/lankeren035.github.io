@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/3dgs__swizzle_func.hpp\|_swizzle_func.hpp]] |
+| 所属文件 | [[3dgs__swizzle_func.hpp\|_swizzle_func.hpp]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

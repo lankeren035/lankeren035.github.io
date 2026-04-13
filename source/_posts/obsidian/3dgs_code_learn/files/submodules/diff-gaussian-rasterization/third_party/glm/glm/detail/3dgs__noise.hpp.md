@@ -24,15 +24,15 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_mod289\|glm::detail::mod289]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_permute\|glm::detail::permute]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/_noise.hpp/glm/detail/3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |
+| [[3dgs_mod289\|glm::detail::mod289]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
+| [[3dgs_permute\|glm::detail::permute]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
+| [[3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
+| [[3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
+| [[3dgs_permute\|glm::detail::permute]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |
+| [[3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T> GLM_FUNC_QUALIFIER T | - |
+| [[3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
+| [[3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
+| [[3dgs_taylorInvSqrt\|glm::detail::taylorInvSqrt]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |
+| [[3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<2, T, Q> | - |
+| [[3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<3, T, Q> | - |
+| [[3dgs_fade\|glm::detail::fade]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER vec<4, T, Q> | - |

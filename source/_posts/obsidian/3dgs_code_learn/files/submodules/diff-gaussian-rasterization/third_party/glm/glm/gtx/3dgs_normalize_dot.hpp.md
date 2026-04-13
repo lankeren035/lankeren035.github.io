@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/normalize_dot.hpp/glm/3dgs_normalizeDot\|glm::normalizeDot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/normalize_dot.hpp/glm/3dgs_fastNormalizeDot\|glm::fastNormalizeDot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[3dgs_normalizeDot\|glm::normalizeDot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[3dgs_fastNormalizeDot\|glm::fastNormalizeDot]] | template<length_t L, typename T, qualifier Q> GLM_FUNC_DECL T | - |

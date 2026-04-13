@@ -30,7 +30,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/lpipsPyTorch/modules/3dgs_networks.py\|networks.py]] |
-| 所属类 | [[3dgs_code_learn/modules/lpipsPyTorch/modules/networks.py/3dgs_BaseNet\|BaseNet]] |
+| 所属文件 | [[3dgs_networks.py\|networks.py]] |
+| 所属类 | [[3dgs_BaseNet\|BaseNet]] |
 | 命名空间 | - |
 | 类型 | - |

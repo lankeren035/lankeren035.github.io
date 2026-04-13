@@ -24,7 +24,7 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_length.cpp/3dgs_test_length_mat_non_squared\|test_length_mat_non_squared]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_length.cpp/3dgs_test_length_mat\|test_length_mat]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_length.cpp/3dgs_test_length_vec\|test_length_vec]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_length.cpp/3dgs_0_main\|main]] | int | - |
+| [[3dgs_test_length_mat_non_squared\|test_length_mat_non_squared]] | static int | - |
+| [[3dgs_test_length_mat\|test_length_mat]] | static int | - |
+| [[3dgs_test_length_vec\|test_length_vec]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_type_length.cpp/3dgs_0_main\|main]] | int | - |

@@ -18,7 +18,7 @@ hexo-path:
 
 | 类名 | 解释 |
 |---|---|
-| [[3dgs_code_learn/modules/submodules/simple-knn/simple_knn.h/3dgs_SimpleKNN\|SimpleKNN]] | - |
+| [[3dgs_SimpleKNN\|SimpleKNN]] | - |
 
 ## 3. 包含的函数
 

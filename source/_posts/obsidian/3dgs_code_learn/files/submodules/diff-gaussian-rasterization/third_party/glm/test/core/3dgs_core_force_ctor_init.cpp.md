@@ -24,7 +24,7 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_test_vec\|test_vec]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_test_mat\|test_mat]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_test_qua\|test_qua]] | static int | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_0_main\|main]] | int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_test_vec\|test_vec]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_test_mat\|test_mat]] | static int | - |
+| [[3dgs_test_qua\|test_qua]] | static int | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/test/core/core_force_ctor_init.cpp/3dgs_0_main\|main]] | int | - |

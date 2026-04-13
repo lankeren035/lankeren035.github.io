@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/simd/exponential.h/3dgs_glm_vec1_sqrt_lowp\|glm_vec1_sqrt_lowp]] | GLM_FUNC_QUALIFIER glm_f32vec4 | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/simd/exponential.h/3dgs_glm_vec4_sqrt_lowp\|glm_vec4_sqrt_lowp]] | GLM_FUNC_QUALIFIER glm_f32vec4 | - |
+| [[3dgs_glm_vec1_sqrt_lowp\|glm_vec1_sqrt_lowp]] | GLM_FUNC_QUALIFIER glm_f32vec4 | - |
+| [[3dgs_glm_vec4_sqrt_lowp\|glm_vec4_sqrt_lowp]] | GLM_FUNC_QUALIFIER glm_f32vec4 | - |

@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.h/BACKWARD/3dgs_render\|BACKWARD::render]] | void | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.h/BACKWARD/3dgs_preprocess\|BACKWARD::preprocess]] | void | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.h/BACKWARD/3dgs_render\|BACKWARD::render]] | void | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.h/BACKWARD/3dgs_preprocess\|BACKWARD::preprocess]] | void | - |

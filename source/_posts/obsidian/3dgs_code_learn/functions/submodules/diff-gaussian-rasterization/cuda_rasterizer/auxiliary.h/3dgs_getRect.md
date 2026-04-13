@@ -28,13 +28,35 @@ hexo-path:
 
 ## 3. 操作逻辑
 
-1. 待补充
+```c
+__forceinline__ __device__ void getRect(const float2 p, int max_radius, uint2& rect_min, uint2& rect_max, dim3 grid)
+
+{
+
+    rect_min = {
+
+        min(grid.x, max((int)0, (int)((p.x - max_radius) / BLOCK_X))), //左边界的tile索引
+
+        min(grid.y, max((int)0, (int)((p.y - max_radius) / BLOCK_Y))) //上边界的tile索引
+
+    };
+
+    rect_max = {
+
+        min(grid.x, max((int)0, (int)((p.x + max_radius + BLOCK_X - 1) / BLOCK_X))), //右边界的tile索引
+
+        min(grid.y, max((int)0, (int)((p.y + max_radius + BLOCK_Y - 1) / BLOCK_Y))) //下边界的tile索引
+
+    };
+
+}
+```
 
 ## 4. 信息
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/cuda_rasterizer/3dgs_auxiliary.h\|auxiliary.h]] |
+| 所属文件 | [[3dgs_auxiliary.h\|auxiliary.h]] |
 | 所属类 | - |
 | 命名空间 | - |
 | 类型 | definition |

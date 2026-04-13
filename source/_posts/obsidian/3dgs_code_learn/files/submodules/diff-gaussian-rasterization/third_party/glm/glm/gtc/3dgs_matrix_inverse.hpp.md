@@ -24,5 +24,5 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_inverse.hpp/glm/3dgs_affineInverse\|glm::affineInverse]] | template<typename genType> GLM_FUNC_DECL genType | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtc/matrix_inverse.hpp/glm/3dgs_inverseTranspose\|glm::inverseTranspose]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[3dgs_affineInverse\|glm::affineInverse]] | template<typename genType> GLM_FUNC_DECL genType | - |
+| [[3dgs_inverseTranspose\|glm::inverseTranspose]] | template<typename genType> GLM_FUNC_DECL genType | - |

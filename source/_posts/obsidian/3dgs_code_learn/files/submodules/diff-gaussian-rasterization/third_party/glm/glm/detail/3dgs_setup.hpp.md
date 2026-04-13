@@ -24,4 +24,4 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/detail/setup.hpp/glm/3dgs_countof\|glm::countof]] | template<typename T, std::size_t N> constexpr std::size_t | - |
+| [[3dgs_countof\|glm::countof]] | template<typename T, std::size_t N> constexpr std::size_t | - |

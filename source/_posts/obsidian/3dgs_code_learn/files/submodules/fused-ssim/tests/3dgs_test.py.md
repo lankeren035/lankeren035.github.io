@@ -24,8 +24,8 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_gaussian\|gaussian]] | - | - |
-| [[3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_create_window\|create_window]] | - | - |
-| [[3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_ssim\|ssim]] | - | - |
-| [[3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs__ssim\|_ssim]] | - | - |
-| [[3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_0_main\|main]] | - | 由 if __name__ == '__main__' 入口块生成的入口笔记 |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_gaussian\|gaussian]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_create_window\|create_window]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_ssim\|ssim]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs__ssim\|_ssim]] | - | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/fused-ssim/tests/test.py/3dgs_0_main\|main]] | - | 由 if __name__ == '__main__' 入口块生成的入口笔记 |

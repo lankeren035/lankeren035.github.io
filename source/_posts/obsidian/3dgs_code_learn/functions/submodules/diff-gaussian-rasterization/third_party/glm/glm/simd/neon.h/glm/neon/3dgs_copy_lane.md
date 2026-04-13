@@ -33,7 +33,7 @@ hexo-path:
 
 | 字段 | 内容 |
 |---|---|
-| 所属文件 | [[3dgs_code_learn/files/submodules/diff-gaussian-rasterization/third_party/glm/glm/simd/3dgs_neon.h\|neon.h]] |
+| 所属文件 | [[3dgs_neon.h\|neon.h]] |
 | 所属类 | - |
 | 命名空间 | glm::neon |
 | 类型 | definition |

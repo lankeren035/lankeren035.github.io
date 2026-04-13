@@ -24,19 +24,19 @@ hexo-path:
 
 | 函数名 | 返回 | 解释 |
 |---|---|---|
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_quat_identity\|glm::quat_identity]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_squad\|glm::squad]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_intermediate\|glm::intermediate]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_extractRealComponent\|glm::extractRealComponent]] | template<typename T, qualifier Q> GLM_FUNC_DECL T | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_toMat3\|glm::toMat3]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_toMat4\|glm::toMat4]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<4, 4, T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_toQuat\|glm::toQuat]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_toQuat\|glm::toQuat]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_shortMix\|glm::shortMix]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_fastMix\|glm::fastMix]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_rotation\|glm::rotation]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
-| [[3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_length2\|glm::length2]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR T | - |
+| [[3dgs_quat_identity\|glm::quat_identity]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR qua<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_cross\|glm::cross]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
+| [[3dgs_squad\|glm::squad]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[3dgs_intermediate\|glm::intermediate]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<3, T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_rotate\|glm::rotate]] | template<typename T, qualifier Q> GLM_FUNC_DECL vec<4, T, Q> | - |
+| [[3dgs_extractRealComponent\|glm::extractRealComponent]] | template<typename T, qualifier Q> GLM_FUNC_DECL T | - |
+| [[3dgs_toMat3\|glm::toMat3]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<3, 3, T, Q> | - |
+| [[3dgs_toMat4\|glm::toMat4]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER mat<4, 4, T, Q> | - |
+| [[3dgs_toQuat\|glm::toQuat]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER qua<T, Q> | - |
+| [[3dgs_toQuat\|glm::toQuat]] | template<typename T, qualifier Q> GLM_FUNC_QUALIFIER qua<T, Q> | - |
+| [[3dgs_shortMix\|glm::shortMix]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[3dgs_fastMix\|glm::fastMix]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[3dgs_rotation\|glm::rotation]] | template<typename T, qualifier Q> GLM_FUNC_DECL qua<T, Q> | - |
+| [[source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/third_party/glm/glm/gtx/quaternion.hpp/glm/3dgs_length2\|glm::length2]] | template<typename T, qualifier Q> GLM_FUNC_DECL GLM_CONSTEXPR T | - |

@@ -81,13 +81,13 @@ hexo-path:
 			0 & 0 & 1 & 0
 			\end{bmatrix}
            $$
-           ![62](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/obsidian/3dgs/2.png)
-           - 可以发现这里第三列
+	   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/obsidian/3dgs/2.png)
+	    - 可以发现这里代码中给出的第三列（ \[0,2] \[1,2] ）这两个数跟理论值不一样，符号相反，不过由于对称关系，这两项结果为0，不影响结果??
 ## 4. 信息
 
-| 字段 | 内容 |
-|---|---|
+| 字段   | 内容                                            |
+| ---- | --------------------------------------------- |
 | 所属文件 | [[3dgs_graphics_utils.py\|graphics_utils.py]] |
-| 所属类 | - |
-| 命名空间 | - |
-| 类型 | - |
+| 所属类  | -                                             |
+| 命名空间 | -                                             |
+| 类型   | -                                             |
