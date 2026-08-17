@@ -4,74 +4,67 @@
     "type": "split",
     "children": [
       {
-        "id": "3eb2a79d57262226",
+        "id": "d17a55ba7208741d",
         "type": "tabs",
-        "dimension": 50.83032490974729,
         "children": [
           {
-            "id": "d595d147a99739e3",
+            "id": "994a2d60da507c08",
             "type": "leaf",
             "state": {
-              "type": "excalidraw",
+              "type": "markdown",
               "state": {
-                "file": "source/_posts/obsidian/3dgs_code_learn/main.md"
+                "file": "source/_drafts/paper/stylegs.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "excalidraw-icon",
-              "title": "main"
+              "icon": "lucide-file",
+              "title": "stylegs"
             }
           },
           {
-            "id": "5ad7f63dc55613bf",
+            "id": "2c56b896279017c2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_preprocessCUDA.md",
+                "file": "source/_posts/deeplearning/code/pytorch/6_moden_convolution/5_batchnormal.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3dgs_preprocessCUDA"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "1985e9ad8667964e",
-        "type": "tabs",
-        "dimension": 49.16967509025271,
-        "children": [
-          {
-            "id": "96c286d470950a7c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/obsidian/3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "3dgs_GaussianModel"
+              "title": "5_batchnormal"
             }
           },
           {
-            "id": "0f44258e289941e1",
+            "id": "bfa4f49e4ee742de",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_computeCov2D.md",
+                "file": "未命名 3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3dgs_computeCov2D"
+              "title": "未命名 3"
+            }
+          },
+          {
+            "id": "b7a49801257653b2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/programs/stable_diffusion/2_lora.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2_lora"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -91,7 +84,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -103,7 +98,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "hemes/yilia/source/img/paper/3DGS/base/3dgs/12.png",
+                "query": "tag:其他",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -128,7 +123,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 385.5
+    "width": 280.5,
+    "collapsed": true
   },
   "right": {
     "id": "a099871a45d90968",
@@ -144,7 +140,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "obsidian笔记/3dgs_code_learn/files/train/train.md",
+                "file": "source/_drafts/date/code.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -154,7 +150,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "train 的反向链接列表"
+              "title": "code 的反向链接列表"
             }
           },
           {
@@ -219,28 +215,57 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "hexo-integration:Hexo 集成": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian42-brat:BRAT": false,
+      "hexo-integration:Hexo integration": false,
+      "obsidian-git:Open Git source control": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false,
-      "obsidian42-brat:BRAT": false,
-      "obsidian-git:Open Git source control": false
+      "bases:新建数据库": false
     }
   },
-  "active": "5ad7f63dc55613bf",
+  "active": "b7a49801257653b2",
   "lastOpenFiles": [
+    "source/_posts/programs/stable_diffusion/3_use.md",
+    "source/_posts/programs/Wan/1_install.md",
+    "source/_drafts/1_DDPM.md",
+    "source/_posts/programs/stable_diffusion/2_lora.md",
+    "source/_posts/programs/stable_diffusion/1_setup.md",
+    "source/_posts/paper/SODA.md",
+    "source/_posts/paper/concept.md",
+    "source/_posts/paper/diffusion/3_guidance.md",
+    "source/_posts/paper/diffusion/5_video_diffusion.md",
+    "source/_posts/paper/diffusion/freenoise.md",
+    "source/_posts/paper/diffusion/gen-l-video.md",
+    "source/_posts/paper/diffusion/lvdm_long.md",
+    "source/_posts/paper/diffusion/set_attn_processor.md",
+    "source/_posts/paper/diffusion/stable_diffusion.md",
+    "source/_posts/paper/cv/NeRF.md",
+    "source/_posts/deeplearning/normalization.md",
+    "1111test.md",
+    "source/_drafts/dualgs理解.md",
+    "source/_posts/paper/3DGS/base/4_3dgs.md",
+    "source/_posts/paper/3DGS/base/3_3dgs.md",
+    "source/_posts/paper/3DGS/3dgs_run.md",
+    "source/_posts/paper/3DGS/3dgs_paper.md",
+    "source/_posts/paper/3DGS/3dgs_debug.md",
+    "source/_posts/paper/3DGS/3DGS.md",
+    "source/_posts/paper/3DGS/base/2_3dgs.md",
+    "source/_posts/paper/3DGS/base/NeRF.md",
+    "source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg",
+    "source/_drafts/date",
+    "Pasted image 20260507224250.png",
+    "source/_drafts/paper",
     "source/_posts/paper/3DGS/4D/~syncthing~human performance tracking.md.tmp",
-    "source/_posts/paper/3DGS/4D/human performance tracking.md",
     "~syncthing~1111test.md.tmp",
     "source/_posts/paper/3DGS/4D",
     "source/_posts/obsidian/3dgs_code_learn/~syncthing~main.md.tmp",
@@ -248,32 +273,6 @@
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/~syncthing~3dgs_computeColorFromSH.md.tmp",
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h/~syncthing~3dgs_getRect.md.tmp",
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h/~syncthing~3dgs_ndc2Pix.md.tmp",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_computeCov2D.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_preprocessCUDA.md",
-    "source/_posts/paper/3DGS/base/2_3dgs.md",
-    "source/_posts/paper/3DGS/base/3_3dgs.md",
-    "source/_posts/paper/3DGS/base/4_3dgs.md",
-    "source/_posts/obsidian/3dgs_code_learn/modules/scene/gaussian_model.py/3dgs_GaussianModel.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_computeCov3D.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h/3dgs_in_frustum.md",
-    "source/_posts/obsidian/3dgs_code_learn/main.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_renderCUDA.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/gaussian_renderer/__init__.py/3dgs_render.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/_RasterizeGaussians/3dgs_forward.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getProjectionMatrix.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/scene/cameras.py/Camera/3dgs___init__.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/utils/camera_utils.py/3dgs_cameraList_from_camInfos.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_readColmapSceneInfo.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/utils/camera_utils.py/3dgs_loadCam.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/scene/__init__.py/Scene/3dgs___init__.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/train.py/3dgs_training.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/scene/dataset_readers.py/3dgs_getNerfppNorm.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/utils/graphics_utils.py/3dgs_getWorld2View2.md",
-    "source/_posts/obsidian/3dgs_code_learn/modules/scene/dataset_readers.py/3dgs_SceneInfo.md",
-    "source/_posts/deeplearning/code/pytorch/8_moden_rnn/1_GRU.md",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/FORWARD/3dgs_preprocess.md",
-    "source/_posts/obsidian/3dgs_code_learn/modules/submodules/diff-gaussian-rasterization/diff_gaussian_rasterization/__init__.py/~syncthing~3dgs_GaussianRasterizationSettings.md.tmp",
-    "source/_posts/obsidian/3dgs_code_learn/functions/gaussian_renderer/__init__.py/~syncthing~3dgs_render.md.tmp",
     "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg",
@@ -281,8 +280,6 @@
     "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/1_optimize_files/1_optimize_5_0.svg",
     "themes/yilia/source/img/obsidian/3dgs/2.png",
     "themes/yilia/source/img/paper/video_edit/Tokenflow/results_sub_00.png",
-    "themes/yilia/source/img/datastruct/5_tree/bintree/7.png",
-    "themes/yilia/source/img/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset_files/6_object_detect_dataset_11_0.png",
-    "themes/yilia/source/img/datastruct/6_graph/DAG/6.png"
+    "themes/yilia/source/img/datastruct/5_tree/bintree/7.png"
   ]
 }

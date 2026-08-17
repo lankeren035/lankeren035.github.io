@@ -11,6 +11,8 @@ toc: true
 # 4 softmax回归
 ## 4.1 分类问题
 - 独热编码（one-hot encoding）：$y\in{(1,0,0),(0,1,0),(0,0,1)}$
+- 假设有 3 个类别：{猫,狗,鸡}。对于一张图片 x，神经网络先输出 logits：o=(o1​,o2​,o3​)，经过 softmax 得到：$\hat y = (\hat y_{1}, \hat y_{2}, \hat y_{3} )$ ，其中$\hat y_{j}=P(Y=j∣x)$ ，比如模型输出：(0.7,0.2,0.1)表示 $P(猫∣x)=0.7,P(狗∣x)=0.2,P(鸡∣x)=0.1$ ，假设真实类别是猫，我们希望训练目标是P(猫∣x) 越大越好。
+- 目标函数就是最大化对数似然。
 ## 4.2 网络架构
 - 为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1=x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1=x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1=x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$
 
@@ -18,7 +20,7 @@ toc: true
 ![$ \mathfb{o} = \mathfb{W} \mathfb{x} + \mathfb{b}$](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png)
 ## 4.3 softmax全连接层的参数开销
 - $d$个输入和$q$个输出的全连接层，参数开销为$O(dq)$
-- 可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定
+- 可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定，具体方法参考相关论文
 ## 4.4 softmax运算
 - softmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持可导的性质。
 $$\hat{y}_ j= \frac{exp(o_ j)}{ \sum_ {i=1}^ qexp(o_ i)}$$
@@ -31,23 +33,27 @@ $$\hat{y}_ j= \frac{exp(o_ j)}{ \sum_ {i=1}^ qexp(o_ i)}$$
 ## 4.6 损失函数
 - 使用极大似然估计
 ### 4.6.1 对数似然
-- softmax函数输出向量$\hat{\mathbf{Y}}$：x属于各个类别的概率分布（$\hat{y}_1=P(y=猫|x),\hat{y}_2=P(y=狗|x),\hat{y}_3=P(y=鸡|x)$）
+- softmax函数输出向量$\hat{\mathbf{Y}}$表示：输入为x时，输出各个类别的概率分布（$\hat{y}_1=P(y=猫|x),\hat{y}_2=P(y=狗|x),\hat{y}_3=P(y=鸡|x)$）
 - 1）根据最大似然估计，需要最大化观测数据的联合概率。$$P(\mathbf{Y}|\mathbf{X})=\prod_{i=1}^nP(\mathbf{y}^{(i)}|\mathbf{x}^{(i)})$$
     - $\mathbf{y}^{(i)}|\mathbf{x}^{(i)}$：对于样本i，特征向量为：$\mathbf{x}^{(i)}$，标签向量为：$\mathbf{y}^{(i)}$
     - $y_j^{(i)}$：样本i的标签向量中属于类别j的概率
+    - n为数据集所有样本
 - 2）相当于最小化负对数似然(损失函数)：$$-\log P(\mathbf{Y}|\mathbf{X})=-\sum_{i=1}^n\log P(y^{(i)}|\mathbf{x}^{(i)})=\sum_{i=1}^nl(\mathbf{y}^{(i)},\mathbf{\hat{y}}^{(i)})$$
     - 损失函数为（交叉熵损失 cross-entropy loss）：$$l(\mathbf{y},\mathbf{\hat{y}})=-\sum_{j=1}^qy_j\log\hat{y}_j$$
+    - 为什么这个概率p突然变成了这个l的形式？例如当用独热编码标签时，三个标签分别为$y\in{(1,0,0),(0,1,0),(0,0,1)}$ ，我们输入x预测的概率为$\hat y =(0.7,0.2,0.1)$ ，这个x对应的真实标签假设为(1,0,0)，那么损失就是$L=−(1 \times log y_{1} ​+0\times log y_{2} ​+ 0 \times logy_{​3} ​)$ ，当预测的0.7变得更大时，损失函数更小，预测更准确。当label即使不是独热编码，是一个概率分布的时候结果仍然成立。
 
         由于y是一个长度为q的独热编码向量，所以除了一个项以外的所有项j都消失了。由于所有yˆj都是预测的概率，所以它们的对数永远不会大于0。因此，如果正确地预测实际标签，即如果实际标签P(y | x) = 1，则损失函数不能进一步最小化。注意，这往往是不可能的。例如，数据集中可能存在标签噪声（比如某些样本可能被误标），或输入特征没有足够的信息来完美地对每一个样本分类。？？？
 
 
 
 ### 4.6.2 softmax及其导数
+
 - 对损失函数：$$ \begin{aligned} l( \mathbf{y}, \mathbf{ \hat{y}}) &= - \sum_ {j=1}^ qy_ j \log \hat{y}_ j \\\\ &= - \sum_ {j=1}^ qy_ j \log \frac{ \exp(o_ j)}{ \sum_ {i=1}^ q \exp(o_ i)} \\\\ &= - \sum_ {j=1}^ q(y_ j(o_ j- \log \sum_ {i=1}^ q \exp(o_ i))) \\\\ &= \sum_ {j=1}^ qy_ j \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \\\\ &= \log \sum_ {i=1}^ q \exp(o_ i)- \sum_ {j=1}^ qy_ jo_ j \end{aligned}$$
 - 损失函数对$o_j$的导数(log以e为底)：$$\frac{\partial l(\mathbf{y},\mathbf{\hat{y}})}{\partial o_j}=\frac{\exp(o_j)}{\sum_{i=1}^q\exp(o_i)}-y_j=softmax(o)_j-y_j$$
     - **这与我们在回归中看到的非常相似，其中梯度是观测值y和估计值yˆ之间的差异。这不是巧合，在任何指数族分布模型中对数似然的梯度正是由此得出的。这使梯度计算在实践中变得容易很多。**
 
 ### 4.6.3 交叉熵损失
+
 - 对于标签$\mathbf{y}$，我们可以使用与以前相同的表示形式。唯一的区别是，我们现在用一个概率向量表示，如(0.1, 0.2, 0.7)，而不是仅包含二元项的向量(0, 0, 1)。
 - 交叉熵损失（分类问题最常用）：$$l(\mathbf{y},\mathbf{\hat{y}})=-\sum_{j=1}^qy_j\log\hat{y}_j$$
 

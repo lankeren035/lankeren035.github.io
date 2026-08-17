@@ -37,7 +37,7 @@ toc: true
 
 - [下载](https://www.autohotkey.com/)(两个都要下载)
 
-   ![](../../../../theme/yilia/source/img/experience/app/mouse/2.png)
+
 
   ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/experience/app/mouse/2.png) 
 

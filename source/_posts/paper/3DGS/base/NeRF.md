@@ -1,16 +1,12 @@
 ---
-title:  "NeRF"
-
-date:  2025-8-30 10:28:00
-
-tags:  [NeRF]
-
-categories:  [NeRF]
-
-comment:  false
-
-toc:  true
-
+title: NeRF
+date: 2025-8-30 10:28:00
+tags:
+  - NeRF
+categories:
+  - NeRF
+comment: true
+toc: true
 ---
 
 #
@@ -31,21 +27,21 @@ toc:  true
 - 使用神经网络（MLP）来隐式存储3D信息的一个presentation（表征）
   - 显式的3D信息：**有明确的x,y,z值**（mesh, voxel体素,点云）
     - 比如mesh会使用一个矩阵$\begin{bmatrix} 1,2,3 \\\\ 2,3,4 \\\\3,4,5 \\\\ 4,5,6 \end{bmatrix}$ 表示有四个顶点，与这四个顶点的xyz坐标。使用$\begin{bmatrix} 1,2,3 \\\\ 1,2,4 \end{bmatrix}$ 表示有两个表面（三角形）顶点1，2，3之间有连接，顶点1，2，4之间有连接。
-  - 隐式的3D信息：无明确的x,y,z值，智能输出指定角度的2D图片。
+  - 隐式的3D信息：无明确的x,y,z值，只能输出指定角度的2D图片。
 
 - 训练时使用给定场景下的若干张图片。
 
 - 推论
   - 模型不具有泛化能力
-  - **一个模型智能存储一个3D信息**
+  - **一个模型只能存储一个3D信息**
 
 ## 2. NeRF模型结构
 
-| 问题       | 回答                          | 解释                                                         |
-| :--------- | ----------------------------- | :----------------------------------------------------------- |
-| 模型是什么 | 8层MLP                        |                                                              |
-| 模型输入   | 5D向量，$(x,y,z,\theta,\phi)$ | 这是**粒子**的空间位姿<br>$\theta$表示方向，它可以由两个向量相减得到，因此输入也可以理解为6D |
-| 模型输出   | 4D向量，（密度，颜色）        | 这是**粒子**对应的颜色以及密度<br>颜色包括RGB                |
+| 问题    | 回答                         | 解释                                                      |
+| :---- | -------------------------- | :------------------------------------------------------ |
+| 模型是什么 | 8层MLP                      |                                                         |
+| 模型输入  | 5D向量，$(x,y,z,\theta,\phi)$ | 这是**粒子**的空间位姿<br>$\theta$表示方向，它可以由两个向量相减得到，因此输入也可以理解为6D |
+| 模型输出  | 4D向量，（密度，颜色）               | 这是**粒子**对应的颜色以及密度<br>颜色包括RGB                            |
 
 >- 什么是粒子？
 >- 输入不应该是图片吗？
@@ -125,7 +121,7 @@ toc:  true
 
   - 粒子颜色即为像素颜色
 
-  - （u,v）与）（x,y,z）的公式：相机坐标=相机内参x转换矩阵x世界坐标
+  - （u,v）与（x,y,z）的公式：相机坐标=相机内参x转换矩阵x世界坐标
     $$
     \begin{bmatrix} u \\\\ v \\\\ 1 \end{bmatrix} = \begin{bmatrix} f_x \space \space 0 \space \space c_x \space \space 0 \\\\ 0 \space \space  f_y \space \space c_y \space \space  0 \\\\ 0 \space \space  0 \space \space  1 \space \space  0 \end{bmatrix}_ { 3 \times 4 } \begin{bmatrix} R \space \space T \\\\ 0 \space \space 1 \end{bmatrix}_ { 4 \times 4} \begin{bmatrix} x_w \\\\ y_w \\\\ z_w \\\\ 1 \end{bmatrix}_ { 4 \times 1}
     $$
@@ -192,6 +188,7 @@ toc:  true
       rays_o = c2w[:3,-1].expand(rays_d.shape)
       return rays_o,rays_d
   
+  rays_o, rays_d = get_rays(H, W, K, c2w)
   # 通常训练不需要全部像素点，只需要采样一定数量的射线
   coords = torch.reshape(coords, [-1,2]) #[HW,2]
   select_inds = np.random.choice(coords.shape[0], size=[N_rand], replace=False) #[N_rand,]
@@ -228,10 +225,10 @@ toc:  true
 
   - 图片呢？怎么得到这些粒子？
     - 从图片和相机位姿计算射线
-    - 从涉嫌上采样粒子
+    - 从射线上采样粒子
   - 多少个粒子，这些粒子怎么批量输入？
     - 训练时，一张图片取1024个像素，得到1024条射线，每条射线上采样64个粒子
-    - 共1024*64个粒子，粒子以batch形式输入模型 [1024\*64, 3]
+    - 共1024\*64个粒子，粒子以batch形式输入模型 [1024\*64, 3]
   - 模型的输入
     - 将物体进行稀疏表示的粒子的位姿
   - 模型的输出
@@ -294,7 +291,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
   - $L=\sum_ {r \in R} || \hat C ( r ) - C ( r ) ||^ 2 _ 2$
   - $R$是每个batch的射线（1024条）
 
-  #### 4.2.1 粒子如何求和
+#### 4.2.1 粒子如何求和
 
   >假设有粒子A和B，A在B的前面，如果A异常明亮，那么B的光就不会显示了
 
@@ -340,7 +337,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     
 
-### 4.2.2 离散情况下粒子求和 ($\alpha$-blending)
+#### 4.2.2 离散情况下粒子求和 ($\alpha$-blending)
 
 - 将光线[0,s]划分为N各等间距区间$[ T_ n \rightarrow T_{ n + 1 }]$ 
 
@@ -348,7 +345,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
 - 间隔长度为$\delta_ n$
 
-- 假设区间内密度$\sigma_ n $和颜色$C_ n$固定
+- 假设区间内密度$\sigma_ n$和颜色$C_ n$固定
   $$
   \begin{aligned}
   \hat C( r ) &= \sum_{ i = 1} ^ N T_ i ( 1 - e^ {-\sigma_ i  \delta_ i} ) c_ i \\\\
@@ -446,7 +443,7 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 
     - 先根据粗模型的结果，进行逆变换采样。首先根据公式$\hat C = \sum_ { n = 0 } ^ N C_ n \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } )$ 取粒子颜色前的权重做softmax：
 
-      $$w = \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } ) \\\\ \hat w_i = \frac{ w_ i }{ \sum _ {j = 1 } ^ {N _ c } w_ i}$$
+      $$w = \alpha_ n ( 1 - \alpha_ 0 ) ( 1 - \alpha_ 1 )...( 1 - \alpha_ { n - 1 } ) , \hat w_i = \frac{ w_ i }{ \sum _ {j = 1 } ^ {N _ c } w_ i}$$
 
     - 此时，新的权重和为1，可看作概率密度函数，生成他的cdf
 
@@ -471,14 +468,14 @@ raw = network_query_fn(pts, viewdirs, network_fn)
 1. 前处理：
    - 将图片中的每个像素通过相机模型找到对应的射线
    - 每条射线上进行采样，得到64个粒子
-   - 对1024*64个粒子进行位置编码
+   - 对1024\*64个粒子进行位置编码
      - 位置坐标$x,y,z$ -> 63D
      - 方向向量$x', y', z'$ -> 27D
 
 2. 模型1：
    - 8层MLP
    - 输入为[1024, 64, 63] 和 [1024, 64, 27]
-   - 输出为[1024, 64, 4]
+   - 输出为[1024, 64, 4] （$rgb \sigma$）
 
 3. 后处理1：
    - 计算模型1的输出，对射线进行二次采样

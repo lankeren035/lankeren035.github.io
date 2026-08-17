@@ -111,7 +111,7 @@ toc:  true
 
 - 对于公式：$G( x, \mu, \Sigma ) = \frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } } e^ { - \frac{ 1 }{ 2 } ( x - \mu )^ T \Sigma ^ { - 1 } ( x - \mu ) }$
 
-  - $\frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } } $ 这部分是常数
+  - $\frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } }$ 这部分是常数
 
   - 当$(x - \mu )^ T \Sigma^ { -1 } (x  - \mu )$ 是一个常数时，整个高斯的概率就是一个常数了。因此：
 
@@ -214,7 +214,7 @@ toc:  true
 
   - $\Lambda$是一个对角矩阵，他的对角线元素是他的特征值：$\begin{bmatrix} S_0 &0 &0 \\\\ 0 &S_1 &0 \\\\ 0 &0 &S_ 2 \end{bmatrix}$
 
-  - 最后拆成：$\Sigma = Q \Lambda^{ \frac{ 1 }{ 2 }} \Lambda^{ \frac{ 1 }{ 2 }} Q^ T $
+  - 最后拆成：$\Sigma = Q \Lambda^{ \frac{ 1 }{ 2 }} \Lambda^{ \frac{ 1 }{ 2 }} Q^ T$
 
     ```python
     import numpy as np
