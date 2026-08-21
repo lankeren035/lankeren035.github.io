@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/programs/stable_diffusion/2_lora.md",
+                "file": "source/_posts/paper/diffusion/3_guidance.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2_lora"
+              "title": "3_guidance"
             }
           }
         ],
@@ -123,7 +123,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 280.5,
+    "width": 321.5,
     "collapsed": true
   },
   "right": {
@@ -235,14 +235,17 @@
   },
   "active": "b7a49801257653b2",
   "lastOpenFiles": [
+    "themes/yilia/source/img/job/aigc/diffusion/ode_sde.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 195798.crdownload",
+    "source/_posts/paper/diffusion/DDIM_inversion.md",
+    "source/_posts/paper/diffusion/3_guidance.md",
+    "source/_posts/programs/stable_diffusion/2_lora.md",
     "source/_posts/programs/stable_diffusion/3_use.md",
     "source/_posts/programs/Wan/1_install.md",
     "source/_drafts/1_DDPM.md",
-    "source/_posts/programs/stable_diffusion/2_lora.md",
     "source/_posts/programs/stable_diffusion/1_setup.md",
     "source/_posts/paper/SODA.md",
     "source/_posts/paper/concept.md",
-    "source/_posts/paper/diffusion/3_guidance.md",
     "source/_posts/paper/diffusion/5_video_diffusion.md",
     "source/_posts/paper/diffusion/freenoise.md",
     "source/_posts/paper/diffusion/gen-l-video.md",
@@ -259,8 +262,6 @@
     "source/_posts/paper/3DGS/3dgs_paper.md",
     "source/_posts/paper/3DGS/3dgs_debug.md",
     "source/_posts/paper/3DGS/3DGS.md",
-    "source/_posts/paper/3DGS/base/2_3dgs.md",
-    "source/_posts/paper/3DGS/base/NeRF.md",
     "source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg",
     "source/_drafts/date",
     "Pasted image 20260507224250.png",
@@ -272,7 +273,6 @@
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/~syncthing~3dgs_preprocessCUDA.md.tmp",
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/~syncthing~3dgs_computeColorFromSH.md.tmp",
     "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h/~syncthing~3dgs_getRect.md.tmp",
-    "source/_posts/obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/auxiliary.h/~syncthing~3dgs_ndc2Pix.md.tmp",
     "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg",
     "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg",
