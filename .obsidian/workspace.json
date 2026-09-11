@@ -6,6 +6,7 @@
       {
         "id": "d17a55ba7208741d",
         "type": "tabs",
+        "dimension": 63.20254506892895,
         "children": [
           {
             "id": "994a2d60da507c08",
@@ -69,16 +70,40 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
+                "file": "source/_posts/LLM/2_RAG/1_RAG.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "6_个人知识库助手"
-            }
+              "title": "1_RAG"
+            },
+            "group": "9e3b284976b42174"
           }
         ],
         "currentTab": 4
+      },
+      {
+        "id": "df429ce04891fa80",
+        "type": "tabs",
+        "dimension": 36.79745493107105,
+        "children": [
+          {
+            "id": "d5b24a5a48c7987e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "source/_posts/LLM/2_RAG/1_RAG.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "1_RAG 的大纲"
+            },
+            "group": "9e3b284976b42174"
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -112,7 +137,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:其他",
+                "query": "tag:#pdf资料",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -137,7 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 292.8333435058594
   },
   "right": {
     "id": "a099871a45d90968",
@@ -153,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_drafts/date/code.md",
+                "file": "source/_posts/LLM/2_RAG/1_RAG.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +188,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "code 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -248,11 +273,21 @@
   },
   "active": "4328476c1cfe72be",
   "lastOpenFiles": [
+    "themes/yilia/source/img/llm/RAG_finetuen.png",
+    "themes/yilia/source/img/llm/未确认 964678.crdownload",
+    "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
+    "source/_posts/LLM/2_RAG/1_RAG.md",
+    "themes/yilia/source/img/llm/RAG.png",
+    "themes/yilia/source/img/llm/未确认 319932.crdownload",
+    "1111test.md",
+    "source/_posts/LLM/1_useLLM/1_大模型简介.md",
+    "source/_posts/LLM/2_RAG",
+    "source/_posts/LLM/1_useLLM/2_使用LLM API开发应用.md",
+    "source/_posts/LLM/1_useLLM/4_构建RAG应用.md",
+    "source/_posts/LLM/1_useLLM/3_搭建向量知识库.md",
     "themes/yilia/source/img/llm/usellm_1.jpg",
     "themes/yilia/source/img/llm/未确认 313694.crdownload",
     "source/_posts/LLM/1_useLLM/5_系统评估与优化.md",
-    "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
-    "1111test.md",
     "source/_posts/algorithm/1_base/6_double_pointer.md",
     "themes/yilia/source/img/job/aigc/diffusion/sdxl.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 97689.crdownload",
@@ -267,10 +302,6 @@
     "source/_posts/datastruct/7_search/2_BST.md",
     "source/_posts/datastruct/7_search/1_search.md",
     "themes/yilia/source/img/job/aigc/diffusion/flowmatching_1.png",
-    "source/_posts/LLM/1_useLLM/3_搭建向量知识库.md",
-    "source/_posts/LLM/1_useLLM/2_使用LLM API开发应用.md",
-    "source/_posts/LLM/1_useLLM/4_构建RAG应用.md",
-    "source/_posts/LLM/1_useLLM/1_大模型简介.md",
     "themes/yilia/source/img/llm/worembedding.png",
     "themes/yilia/source/img/llm/未确认 452477.crdownload",
     "source/_posts/paper/diffusion/3_guidance.md",
@@ -280,19 +311,13 @@
     "themes/yilia/source/img/新建文件夹",
     "source/_posts/project/python/DiT.md",
     "source/_posts/LLM/1_useLLM",
-    "source/_posts/LLM",
     "source/_posts/programs/Wan/1_install.md",
     "source/_posts/programs/QAnything/1_setup.md",
     "source/_posts/programs/deepseek/local_install.md",
     "未命名 4.md",
-    "themes/yilia/source/img/job/aigc/diffusion/unistylediff.pdf",
-    "themes/yilia/source/img/job/aigc/diffusion/未确认 86965.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/ode_sde.png",
-    "source/_posts/paper/diffusion/DDIM_inversion.md",
     "source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg",
     "Pasted image 20260507224250.png",
-    "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
-    "themes/yilia/source/img/deeplearning/code/pytorch/1_prepare/6_probability_files/6_probability_1_2.svg",
-    "themes/yilia/source/img/deeplearning/code/pytorch/10_optimize/8_RMSProp_files/8_RMSProp_7_1.svg"
+    "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg"
   ]
 }
