@@ -1,5 +1,5 @@
 ---
-title: title
+title: 1_RAG
 date: 2026-09-11
 tags:
   - llm
@@ -114,3 +114,196 @@ hexo-path:
 	1. **性能层面**：通过**索引分层**（对高频数据启用缓存）和**多模态扩展**（支持图像/表格检索）来提升效率和能力边界。
 	2. **架构层面**，简单的线性流程正在被更复杂的**设计模式**所取代。例如，系统可以通过**分支模式**并行处理多路检索，或通过**循环模式**进行自我修正，这些灵活的架构是通往更智能 RAG 的必由之路。
 # 2. 环境配置
+参考：https://datawhalechina.github.io/all-in-rag/#/chapter1/02_preparation
+
+如果vscode连接codespace比较卡，可以终端连接：
+
+```powershell
+# 1. 安装 GitHub CLI
+winget install --id GitHub.cli
+
+# 2. 检查是否安装成功
+gh --version
+
+# 3. 登录 GitHub
+gh auth login
+
+# 登录时建议选择
+# GitHub.com
+# HTTPS
+# Yes
+# Login with a web browser
+
+# 4. 如果 codespace 权限不足
+gh auth refresh -h github.com -s codespace
+
+# 5. 查看 Codespace
+gh codespace list
+
+# 6. 连接 Codespace
+gh codespace ssh
+
+# 7. 指定某个 Codespace
+gh codespace ssh -c <codespace-name>
+
+# 例如
+gh codespace ssh -c friendly-potato-r5wqpr675qj2xrp6
+
+# 8. 用 VS Code 打开 Codespace
+gh codespace code
+
+# 9. 指定某个 Codespace 用 VS Code 打开
+gh codespace code -c <codespace-name>
+
+# 10. 查看当前 GitHub 登录状态
+gh auth status
+
+# 11. 退出当前 GitHub 账号
+gh auth logout
+```
+
+# 3. 构建RAG
+## 3.1 使用LangChain 框架的 RAG
+### 3.1.1 初始化
+
+```python
+import os
+from dotenv import load_dotenv
+from langchain_community.document_loaders import TextLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.vectorstores import InMemoryVectorStore
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+load_dotenv()
+```
+### 3.1.2 数据准备
+#### 1）加载原始文档
+- 选择一个md文档，然后使用`TextLoader`加载
+```python
+# 1. 数据准备
+## 1.1 加载文档
+markdown_path = "../../data/C1/markdown/easy-rl-chapter1.md"
+loader = TextLoader(markdown_path)
+docs = loader.load()
+```
+#### 2）文本分块
+- 这里采用**递归字符分割策略**`RecursiveCharacterTextSplitter()` ，其默认行为旨在**最大程度保留文本的语义结构**：
+	- **默认分隔符与语义保留**: 按顺序尝试使用一系列预设的分隔符 `["\n\n" (段落), "\n" (行), " " (空格), "" (字符)]` 来递归分割文本。目的是尽可能保持段落、句子和单词的完整性，因为它们通常是语义上最相关的文本单元，直到文本块达到目标大小。
+	- **保留分隔符**: 默认情况下 (`keep_separator=True`)，分隔符本身会被保留在分割后的文本块中。
+	- **默认块大小与重叠**: 使用其基类 `TextSplitter` 中定义的默认参数 `chunk_size=4000`（块大小）和 `chunk_overlap=200`（块重叠）。这些参数确保文本块符合预定的大小限制，并通过重叠来减少上下文信息的丢失。
+```python
+## 1.2 文本分块
+text_spliter = RecursiveCharacterTextSplitter()
+texts = text_spliter.split_documents(docs)
+```
+### 3.3.3 构建索引
+#### 1）初始化embedding模型
+- 使用`HuggingFaceEmbeddings`。配置模型在CPU上运行，并启用嵌入归一化 (`normalize_embeddings: True`)。
+```python
+# 2. 索引构建
+## 2.1 初始化embedding模型
+embeddings = HuggingFaceEmbeddings(
+    model_name = "BAAI/bge-small-zh-v1.5",
+    model_kwargs = {'device': 'cpu'},
+    encode_kwargs = {'normalize_embeddings': True}
+)
+```
+#### 2）构建向量存储
+- 将分割后的文本块通过初始化好的**嵌入模型**转换为**向量表示**，然后使用`InMemoryVectorStore`将这些向量及其对应的原始文本内容添加进去，从而在内存中构建出一个向量索引。
+```python
+## 2.2 构建向量存储
+vectorstore = InMemoryVectorStore(embeddings)
+vectorstore.add_documents(texts)
+```
+### 3.3.4 查询与检索
+#### 1）定义用户查询
+```python
+# 3. 查询与检索
+## 3.1 定义用户查询
+question = "文中举了哪些例子？"
+```
+#### 2）检索数据库
+- 使用向量存储的`similarity_search`方法，根据用户问题在索引中查找最相关的 `k` (此处示例中 `k=3`) 个文本块。
+```python
+retrieved_docs = vectorstore.similarity_search(question, k=3)
+```
+#### 3）准备上下文
+- 将检索到的多个文本块的页面内容合并成一个单一的字符串，并使用双换行符 (`"\n\n"`) 分隔各个块，形成最终的上下文信息 (`docs_content`) 供大语言模型参考。
+```python
+docs_content= '\n\n'.join(doc.page_content for doc in retrieved_docs)
+```
+> 使用 `"\n\n"` (双换行符) 而不是 `"\n"` (单换行符) 来连接不同的检索文档块，主要是为了在传递给大型语言模型（LLM）时，能够更清晰地在语义上区分这些独立的文本片段。双换行符通常代表段落的结束和新段落的开始，这种格式有助于LLM将每个块视为一个独立的上下文来源，从而更好地理解和利用这些信息来生成回答。
+
+### 3.3.5 生成继承
+```python
+
+# 4. 生成集成
+## 4.1 构建提示词模板
+prompt = ChatPromptTemplate.from_template("""请根据下面提供的上下文信息来回答问题。
+请确保你的回答完全基于这些上下文。
+如果上下文中没有足够的信息来回答问题，请直接告知：“抱歉，我无法根据提供的上下文找到相关信息来回答此问题。”
+  
+上下文:
+{context}
+
+问题: {question}
+
+回答:"""
+                                          )
+## 4.2 配置大语言模型
+llm = ChatOpenAI(
+    model = "glm-4.7-flash-free",
+    temperature=0.7,
+    max_tokens=2048,
+    api_key=os.getenv('AIHUBMIX_API_KEY'),
+    base_url = "https://aihubmix.com/v1"
+)
+## 4.3 调用llm
+answer = llm.invoke(prompt.format(question=question, context=docs_content,))
+print(answer)
+```
+- 输出参数解析：
+	- **`content`**: 最核心部分，llm生成的回答。
+	- **`additional_kwargs`**: 包含一些额外的参数，在这个例子中是 `{'refusal': None}`，表示模型没有拒绝回答。
+	- **`response_metadata`**: 包含了关于LLM响应的元数据。
+	    - `token_usage`: 显示了本次调用消耗的token数量，包括完成（completion_tokens）、提示（prompt_tokens）和总量（total_tokens）。
+	    - `model_name`: 使用的LLM模型名称，当前是 `deepseek-chat`。
+	    - `system_fingerprint`, `id`, `service_tier`, `finish_reason`, `logprobs`: 这些是更详细的API响应信息，例如 `finish_reason: 'stop'` 表示模型正常完成了生成。
+	- **`id`**: 本次运行的唯一标识符。
+	- **`usage_metadata`**: 与 `response_metadata` 中的 `token_usage` 类似，提供了输入和输出token的统计。
+
+## 3.2 使用Llamaindex构建 RAG
+```python
+import os
+from dotenv import load_dotenv
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings 
+from llama_index.llms.openai_like import OpenAILike
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+load_dotenv()
+
+# 1. 初始化llm
+Settings.llm = OpenAILike(
+    model="glm-4.7-flash-free",
+    api_key=os.getenv("AIHUBMIX_API_KEY"),
+    api_base="https://aihubmix.com/v1",
+    is_chat_model=True
+)
+
+# 2. 初始化embedding模型
+Settings.embed_model = HuggingFaceEmbedding("BAAI/bge-small-zh-v1.5")
+
+# 3. 加载文档
+documents = SimpleDirectoryReader(input_files=["../../data/C1/markdown/easy-rl-chapter1.md"]).load_data()
+
+# 4. 切分，向量化，建立索引
+index = VectorStoreIndex.from_documents(documents)
+
+# 5. 将索引对象包装成查询引擎
+query_engine = index.as_query_engine()
+
+print(query_engine.get_prompts())
+print(query_engine.query("文中举了哪些例子?"))
+```

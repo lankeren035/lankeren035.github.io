@@ -6,7 +6,7 @@
       {
         "id": "d17a55ba7208741d",
         "type": "tabs",
-        "dimension": 63.20254506892895,
+        "dimension": 67.12619300106044,
         "children": [
           {
             "id": "994a2d60da507c08",
@@ -85,7 +85,7 @@
       {
         "id": "df429ce04891fa80",
         "type": "tabs",
-        "dimension": 36.79745493107105,
+        "dimension": 32.87380699893955,
         "children": [
           {
             "id": "d5b24a5a48c7987e",
@@ -273,13 +273,18 @@
   },
   "active": "4328476c1cfe72be",
   "lastOpenFiles": [
+    "source/_posts/LLM/2_RAG/2_数据准备.md",
+    "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
+    "themes/yilia/source/img/llm/embedding.png",
+    "themes/yilia/source/img/llm/未确认 51222.crdownload",
+    "1111test.md",
+    "source/_posts/LLM/2_RAG/1_RAG.md",
+    "source/_posts/experience/code/huggingface_hub.md",
     "themes/yilia/source/img/llm/RAG_finetuen.png",
     "themes/yilia/source/img/llm/未确认 964678.crdownload",
-    "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
-    "source/_posts/LLM/2_RAG/1_RAG.md",
     "themes/yilia/source/img/llm/RAG.png",
     "themes/yilia/source/img/llm/未确认 319932.crdownload",
-    "1111test.md",
     "source/_posts/LLM/1_useLLM/1_大模型简介.md",
     "source/_posts/LLM/2_RAG",
     "source/_posts/LLM/1_useLLM/2_使用LLM API开发应用.md",
@@ -310,14 +315,8 @@
     "themes/yilia/source/img/llm",
     "themes/yilia/source/img/新建文件夹",
     "source/_posts/project/python/DiT.md",
-    "source/_posts/LLM/1_useLLM",
     "source/_posts/programs/Wan/1_install.md",
-    "source/_posts/programs/QAnything/1_setup.md",
-    "source/_posts/programs/deepseek/local_install.md",
-    "未命名 4.md",
     "themes/yilia/source/img/job/aigc/diffusion/ode_sde.png",
-    "source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg",
-    "Pasted image 20260507224250.png",
-    "themes/yilia/source/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg"
+    "source/_posts/deeplearning/code/pytorch/2_linear_neural_network/6_softmax_realize_files/6_softmax_realize_13_0.svg"
   ]
 }
