@@ -162,7 +162,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 292.8333435058594
+    "width": 304.8333435058594,
+    "collapsed": true
   },
   "right": {
     "id": "a099871a45d90968",
@@ -273,16 +274,22 @@
   },
   "active": "4328476c1cfe72be",
   "lastOpenFiles": [
+    "source/_posts/LLM/2_RAG/4_检索优化.md",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
+    "1111test.md",
+    "source/_posts/LLM/2_RAG/2_数据准备.md",
+    "source/_posts/experience/install/Milvus.md",
+    "themes/yilia/source/img/llm/milvus.png",
+    "themes/yilia/source/img/llm/未确认 159291.crdownload",
+    "themes/yilia/source/img/llm/schema.png",
+    "themes/yilia/source/img/llm/未确认 858814.crdownload",
     "themes/yilia/source/img/llm/clip.png",
     "themes/yilia/source/img/llm/未确认 282316.crdownload",
-    "source/_posts/LLM/2_RAG/2_数据准备.md",
     "source/_posts/LLM/2_RAG/1_RAG.md",
     "themes/yilia/source/img/job/aigc/diffusion/RAG_finetune.png",
     "source/_posts/LLM/1_useLLM/6_个人知识库助手.md",
-    "source/_posts/LLM/2_RAG/3_索引构建.md",
     "themes/yilia/source/img/llm/embedding.png",
     "themes/yilia/source/img/llm/未确认 51222.crdownload",
-    "1111test.md",
     "source/_posts/experience/code/huggingface_hub.md",
     "themes/yilia/source/img/llm/RAG_finetuen.png",
     "themes/yilia/source/img/llm/未确认 964678.crdownload",
@@ -310,14 +317,8 @@
     "source/_posts/datastruct/7_search/2_BST.md",
     "source/_posts/datastruct/7_search/1_search.md",
     "themes/yilia/source/img/job/aigc/diffusion/flowmatching_1.png",
-    "themes/yilia/source/img/llm/worembedding.png",
     "themes/yilia/source/img/llm/未确认 452477.crdownload",
     "source/_posts/paper/diffusion/3_guidance.md",
-    "themes/yilia/source/img/llm/langchain.png",
-    "themes/yilia/source/img/llm/未确认 370786.crdownload",
-    "themes/yilia/source/img/llm",
-    "source/_posts/project/python/DiT.md",
-    "source/_posts/programs/Wan/1_install.md",
-    "themes/yilia/source/img/job/aigc/diffusion/ode_sde.png"
+    "source/_posts/project/python/DiT.md"
   ]
 }
