@@ -5,12 +5,12 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
+  <link rel="dns-prefetch" href="https://lankeren035.github.io">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/58/index.html">
+<meta property="og:url" content="https://lankeren035.github.io/page/58/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="ke">
@@ -158,28 +158,175 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-datastruct/7_search/5_Btree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.cu/3dgs_preprocessCUDA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/12/12/datastruct/7_search/5_Btree/">7.5 B树</a>
+      <a class="article-title" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.preprocessCUDA/">preprocessCUDA</a>
     </h1>
   
 
         
-        <a href="/2023/12/12/datastruct/7_search/5_Btree/" class="archive-article-date">
-  	<time datetime="2023-12-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-12</time>
+        <a href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.preprocessCUDA/" class="archive-article-date">
+  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>P</td>
+<td>int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>D</td>
+<td>int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>M</td>
+<td>int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>means</td>
+<td>const float3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>radii</td>
+<td>const int*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>shs</td>
+<td>const float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>clamped</td>
+<td>const bool*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>scales</td>
+<td>const glm::vec3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>rotations</td>
+<td>const glm::vec4*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>scale_modifier</td>
+<td>const float</td>
+<td>-</td>
+</tr>
+<tr>
+<td>proj</td>
+<td>const float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>campos</td>
+<td>const glm::vec3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dmean2D</td>
+<td>const float3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dmeans</td>
+<td>glm::vec3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dcolor</td>
+<td>float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dcov3D</td>
+<td>float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dsh</td>
+<td>float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dscale</td>
+<td>glm::vec3*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_drot</td>
+<td>glm::vec4*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dopacity</td>
+<td>float*</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>template<int C> <strong>global</strong> void</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
+<li>待补充</li>
+</ol>
+<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属文件</td>
+<td>[[3dgs_code_learn&#x2F;files&#x2F;submodules&#x2F;diff-gaussian-rasterization&#x2F;cuda_rasterizer&#x2F;3dgs_backward.cu|backward.cu]]</td>
+</tr>
+<tr>
+<td>所属类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>-</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>definition</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -192,15 +339,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">查找</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">B树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -212,7 +351,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数据结构//" class="article-tag-list-link color5">数据结构</a>
+        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -221,7 +360,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/12/12/datastruct/7_search/5_Btree/">展开全文 >></a>
+          <a class="article-more-a" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.preprocessCUDA/">展开全文 >></a>
         </p>
       
 
@@ -251,28 +390,165 @@
 
 
   
-    <article id="post-experience/app/lrc_to_smi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.cu/3dgs_renderCUDA" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/12/12/experience/app/lrc_to_smi/">win10中windows media player自动同步歌词</a>
+      <a class="article-title" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.renderCUDA/">renderCUDA</a>
     </h1>
   
 
         
-        <a href="/2023/12/12/experience/app/lrc_to_smi/" class="archive-article-date">
-  	<time datetime="2023-12-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-12</time>
+        <a href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.renderCUDA/" class="archive-article-date">
+  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ranges</td>
+<td>const uint2* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>point_list</td>
+<td>const uint32_t* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>W</td>
+<td>int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>H</td>
+<td>int</td>
+<td>-</td>
+</tr>
+<tr>
+<td>bg_color</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>points_xy_image</td>
+<td>const float2* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>conic_opacity</td>
+<td>const float4* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>colors</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>depths</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>final_Ts</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>n_contrib</td>
+<td>const uint32_t* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dpixels</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_invdepths</td>
+<td>const float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dmean2D</td>
+<td>float3* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dconic2D</td>
+<td>float4* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dopacity</td>
+<td>float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dcolors</td>
+<td>float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>dL_dinvdepths</td>
+<td>float* <strong>restrict</strong></td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>template <uint32_t C> <strong>global</strong> void <strong>launch_bounds</strong>(BLOCK_X * BLOCK_Y)</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
+<li>待补充</li>
+</ol>
+<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属文件</td>
+<td>[[3dgs_backward.cu|backward.cu]]</td>
+</tr>
+<tr>
+<td>所属类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>-</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>definition</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -285,7 +561,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Windows</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -297,7 +573,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/经验//" class="article-tag-list-link color3">经验</a>
+        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -306,7 +582,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/12/12/experience/app/lrc_to_smi/">展开全文 >></a>
+          <a class="article-more-a" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.renderCUDA/">展开全文 >></a>
         </p>
       
 
@@ -336,28 +612,80 @@
 
 
   
-    <article id="post-deeplearning/code/pytorch/1_prepare/2_preprocessing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/backward.cu/3dgs_sq" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/27/deeplearning/code/pytorch/1_prepare/2_preprocessing/">1.2 pytorch数据预处理</a>
+      <a class="article-title" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.sq/">sq</a>
     </h1>
   
 
         
-        <a href="/2023/11/27/deeplearning/code/pytorch/1_prepare/2_preprocessing/" class="archive-article-date">
-  	<time datetime="2023-11-27T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-27</time>
+        <a href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.sq/" class="archive-article-date">
+  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>float</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>device</strong> <strong>forceinline</strong> float</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
+<li>待补充</li>
+</ol>
+<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属文件</td>
+<td>[[3dgs_code_learn&#x2F;files&#x2F;submodules&#x2F;diff-gaussian-rasterization&#x2F;cuda_rasterizer&#x2F;3dgs_backward.cu|backward.cu]]</td>
+</tr>
+<tr>
+<td>所属类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>-</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>definition</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -370,11 +698,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -386,7 +710,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
+        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -395,7 +719,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/27/deeplearning/code/pytorch/1_prepare/2_preprocessing/">展开全文 >></a>
+          <a class="article-more-a" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.backward.cu.sq/">展开全文 >></a>
         </p>
       
 
@@ -425,28 +749,110 @@
 
 
   
-    <article id="post-deeplearning/code/pytorch/1_prepare/1_dataoperation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_computeColorFromSH" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/">1.1 pytorch数据操作</a>
+      <a class="article-title" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeColorFromSH/">computeColorFromSH</a>
     </h1>
   
 
         
-        <a href="/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/" class="archive-article-date">
-  	<time datetime="2023-11-11T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-11</time>
+        <a href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeColorFromSH/" class="archive-article-date">
+  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>idx</td>
+<td>int</td>
+<td>高斯索引&#x2F;线程索引</td>
+</tr>
+<tr>
+<td>deg</td>
+<td>int</td>
+<td>当前启用的球谐阶数</td>
+</tr>
+<tr>
+<td>max_coeffs</td>
+<td>int</td>
+<td>球谐系数总个数（3阶为16个）</td>
+</tr>
+<tr>
+<td>means</td>
+<td>const glm::vec3*</td>
+<td>（P, 3)，每个点的3D坐标</td>
+</tr>
+<tr>
+<td>campos</td>
+<td>glm::vec3</td>
+<td>相机中心在世界坐标系中的位置</td>
+</tr>
+<tr>
+<td>shs</td>
+<td>const float*</td>
+<td>球谐系数【p, 16, 3】</td>
+</tr>
+<tr>
+<td>clamped</td>
+<td>bool*</td>
+<td>来自[[3dgs_GeometryState]]，记录 RGB 三个通道是否被 clamp 过</td>
+</tr>
+</tbody></table>
+<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>device</strong> glm::vec3</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
+<li>待补充</li>
+</ol>
+<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属文件</td>
+<td>[[3dgs_forward.cu|forward.cu]]</td>
+</tr>
+<tr>
+<td>所属类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>-</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>definition</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -459,11 +865,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pytorch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -475,7 +877,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/机器学习//" class="article-tag-list-link color5">机器学习</a>
+        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -484,7 +886,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/">展开全文 >></a>
+          <a class="article-more-a" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeColorFromSH/">展开全文 >></a>
         </p>
       
 
@@ -514,28 +916,123 @@
 
 
   
-    <article id="post-algorithm/1_base/1_qsort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-obsidian/3dgs_code_learn/functions/submodules/diff-gaussian-rasterization/cuda_rasterizer/forward.cu/3dgs_computeCov2D" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/02/algorithm/1_base/1_qsort/">1-1. 快速排序</a>
+      <a class="article-title" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeCov2D/">computeCov2D</a>
     </h1>
   
 
         
-        <a href="/2023/10/02/algorithm/1_base/1_qsort/" class="archive-article-date">
-  	<time datetime="2023-10-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-02</time>
+        <a href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeCov2D/" class="archive-article-date">
+  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-        
+        <ul>
+<li>根据3D协方差，计算出投影到屏幕上的2D协方差</li>
+</ul>
+<h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mean</td>
+<td>const float3&amp;</td>
+<td>-</td>
+</tr>
+<tr>
+<td>focal_x</td>
+<td>float</td>
+<td>-</td>
+</tr>
+<tr>
+<td>focal_y</td>
+<td>float</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tan_fovx</td>
+<td>float</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tan_fovy</td>
+<td>float</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cov3D</td>
+<td>const float*</td>
+<td>-</td>
+</tr>
+<tr>
+<td>viewmatrix</td>
+<td>const float*</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
+<thead>
+<tr>
+<th>返回类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>device</strong> float3</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
+<li>首先将视锥空间的点进行限制，将x，y坐标clamp到[-1.3fov，1.3fov]范围</li>
+<li>梳理投影过程：<ol>
+<li>3D协方差 -&gt; 相机坐标系3D协方差（放射变换，直接乘以W2C）<br> $$R_{w2c} \cdot cov3D \cdot R_{w2c}^T$$</li>
+<li>相机坐标系3D协方差 -&gt; 正交空间3D协方差（该过程将透视投影转为正交投影，非仿射变换，要用[[2_3dgs#4.2.2 基于雅可比矩阵的投影变换|雅可比]]）<br> $$J \cdot R_{w2c} \cdot cov3D \cdot R_{w2c}^{T}\cdot J^ T$$</li>
+<li>正交空间3D协方差 -&gt; 2D协方差（正交投影，去掉z）</li>
+</ol>
+</li>
+</ol>
+<p><strong>注意</strong>：将协方差投影到2D的时候没有压缩到NDC盒子，直接用的图像尺度，因此后面无需视口变换。而高斯位置&#x2F;均值 是处理到了NDC空间的，因此要做视口变换<br><strong>思考</strong>：为什么要clamp到1.3范围？</p>
+<ul>
+<li>因为计算雅可比矩阵的时候靠近视锥边缘的点会出现：x&#x2F;z或y&#x2F;z过大，导致数值不稳定，后面求逆得到的二次型也会失真，甚至崩溃</li>
+</ul>
+<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>所属文件</td>
+<td>[[3dgs_forward.cu</td>
+</tr>
+<tr>
+<td>所属类</td>
+<td>-</td>
+</tr>
+<tr>
+<td>命名空间</td>
+<td>-</td>
+</tr>
+<tr>
+<td>类型</td>
+<td>definition</td>
+</tr>
+</tbody></table>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -548,7 +1045,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">算法，排序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -560,7 +1057,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
+        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
         		</li>
       		
 		</ul>
@@ -569,7 +1066,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/10/02/algorithm/1_base/1_qsort/">展开全文 >></a>
+          <a class="article-more-a" href="/code/3dgs/submodules.diff-gaussian-rasterization.cuda_rasterizer.forward.cu.computeCov2D/">展开全文 >></a>
         </p>
       
 
@@ -601,7 +1098,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/57/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="page-number" href="/page/57/">57</a><span class="page-number current">58</span><a class="page-number" href="/page/59/">59</a><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/64/">64</a><a class="extend next" rel="next" href="/page/59/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/57/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/">56</a><a class="page-number" href="/page/57/">57</a><span class="page-number current">58</span><a class="page-number" href="/page/59/">59</a><a class="page-number" href="/page/60/">60</a><span class="space">&hellip;</span><a class="page-number" href="/page/870/">870</a><a class="extend next" rel="next" href="/page/59/">Next &raquo;</a>
     </nav>
   
 
@@ -753,15 +1250,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,6 +1286,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">llm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -805,11 +1326,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -833,11 +1354,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,26 +1379,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,10 +1406,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
@@ -925,11 +1422,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,11 +1470,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,15 +1486,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,6 +1543,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

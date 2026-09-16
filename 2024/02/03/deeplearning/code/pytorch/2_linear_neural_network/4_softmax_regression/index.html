@@ -5,17 +5,17 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
+  <link rel="dns-prefetch" href="https://lankeren035.github.io">
   <title>2.4 softmax回归 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
 <meta property="og:title" content="2.4 softmax回归">
-<meta property="og:url" content="http://example.com/2024/02/03/deeplearning/code/pytorch/2_linear_neural_network/4_softmax_regression/index.html">
+<meta property="og:url" content="https://lankeren035.github.io/2024/02/03/deeplearning/code/pytorch/2_linear_neural_network/4_softmax_regression/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png">
 <meta property="article:published_time" content="2024-02-03T06:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T14:24:16.858Z">
+<meta property="article:modified_time" content="2026-08-07T14:09:01.851Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -185,6 +185,8 @@
         <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
 <h1 id="4-softmax回归"><a href="#4-softmax回归" class="headerlink" title="4 softmax回归"></a>4 softmax回归</h1><h2 id="4-1-分类问题"><a href="#4-1-分类问题" class="headerlink" title="4.1 分类问题"></a>4.1 分类问题</h2><ul>
 <li>独热编码（one-hot encoding）：$y\in{(1,0,0),(0,1,0),(0,0,1)}$</li>
+<li>假设有 3 个类别：{猫,狗,鸡}。对于一张图片 x，神经网络先输出 logits：o&#x3D;(o1​,o2​,o3​)，经过 softmax 得到：$\hat y &#x3D; (\hat y_{1}, \hat y_{2}, \hat y_{3} )$ ，其中$\hat y_{j}&#x3D;P(Y&#x3D;j∣x)$ ，比如模型输出：(0.7,0.2,0.1)表示 $P(猫∣x)&#x3D;0.7,P(狗∣x)&#x3D;0.2,P(鸡∣x)&#x3D;0.1$ ，假设真实类别是猫，我们希望训练目标是P(猫∣x) 越大越好。</li>
+<li>目标函数就是最大化对数似然。</li>
 </ul>
 <h2 id="4-2-网络架构"><a href="#4-2-网络架构" class="headerlink" title="4.2 网络架构"></a>4.2 网络架构</h2><ul>
 <li>为了解决线性模型的分类问题，需要和输出一样多的仿射函数（affine function）。$$o_1&#x3D;x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b1$$ $$o_1&#x3D;x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b2$$ $$o_1&#x3D;x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b3$$</li>
@@ -192,7 +194,7 @@
 <p>![[blog&#x2F;source&#x2F;_posts&#x2F;deeplearning&#x2F;code&#x2F;pytorch&#x2F;2_linear_neural_network&#x2F;4img&#x2F;1.png|$ \mathfb{o}&#x3D; \mathfb{W} \mathfb{x}+ \mathfb{b}$]]<br><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/2_linear_neural_network/4img/1.png" alt="$ \mathfb{o} = \mathfb{W} \mathfb{x} + \mathfb{b}$"></p>
 <h2 id="4-3-softmax全连接层的参数开销"><a href="#4-3-softmax全连接层的参数开销" class="headerlink" title="4.3 softmax全连接层的参数开销"></a>4.3 softmax全连接层的参数开销</h2><ul>
 <li>$d$个输入和$q$个输出的全连接层，参数开销为$O(dq)$</li>
-<li>可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定</li>
+<li>可以将成本减少到$O(\frac{dq}{n})$,n可以灵活指定，具体方法参考相关论文</li>
 </ul>
 <h2 id="4-4-softmax运算"><a href="#4-4-softmax运算" class="headerlink" title="4.4 softmax运算"></a>4.4 softmax运算</h2><ul>
 <li>softmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持可导的性质。<br>$$\hat{y}_ j&#x3D; \frac{exp(o_ j)}{ \sum_ {i&#x3D;1}^ qexp(o_ i)}$$</li>
@@ -208,14 +210,17 @@
 <li>使用极大似然估计</li>
 </ul>
 <h3 id="4-6-1-对数似然"><a href="#4-6-1-对数似然" class="headerlink" title="4.6.1 对数似然"></a>4.6.1 对数似然</h3><ul>
-<li>softmax函数输出向量$\hat{\mathbf{Y}}$：x属于各个类别的概率分布（$\hat{y}_1&#x3D;P(y&#x3D;猫|x),\hat{y}_2&#x3D;P(y&#x3D;狗|x),\hat{y}_3&#x3D;P(y&#x3D;鸡|x)$）</li>
+<li>softmax函数输出向量$\hat{\mathbf{Y}}$表示：输入为x时，输出各个类别的概率分布（$\hat{y}_1&#x3D;P(y&#x3D;猫|x),\hat{y}_2&#x3D;P(y&#x3D;狗|x),\hat{y}_3&#x3D;P(y&#x3D;鸡|x)$）</li>
 <li>1）根据最大似然估计，需要最大化观测数据的联合概率。$$P(\mathbf{Y}|\mathbf{X})&#x3D;\prod_{i&#x3D;1}^nP(\mathbf{y}^{(i)}|\mathbf{x}^{(i)})$$<ul>
 <li>$\mathbf{y}^{(i)}|\mathbf{x}^{(i)}$：对于样本i，特征向量为：$\mathbf{x}^{(i)}$，标签向量为：$\mathbf{y}^{(i)}$</li>
 <li>$y_j^{(i)}$：样本i的标签向量中属于类别j的概率</li>
+<li>n为数据集所有样本</li>
 </ul>
 </li>
 <li>2）相当于最小化负对数似然(损失函数)：$$-\log P(\mathbf{Y}|\mathbf{X})&#x3D;-\sum_{i&#x3D;1}^n\log P(y^{(i)}|\mathbf{x}^{(i)})&#x3D;\sum_{i&#x3D;1}^nl(\mathbf{y}^{(i)},\mathbf{\hat{y}}^{(i)})$$<ul>
 <li><p>损失函数为（交叉熵损失 cross-entropy loss）：$$l(\mathbf{y},\mathbf{\hat{y}})&#x3D;-\sum_{j&#x3D;1}^qy_j\log\hat{y}_j$$</p>
+</li>
+<li><p>为什么这个概率p突然变成了这个l的形式？例如当用独热编码标签时，三个标签分别为$y\in{(1,0,0),(0,1,0),(0,0,1)}$ ，我们输入x预测的概率为$\hat y &#x3D;(0.7,0.2,0.1)$ ，这个x对应的真实标签假设为(1,0,0)，那么损失就是$L&#x3D;−(1 \times log y_{1} ​+0\times log y_{2} ​+ 0 \times logy_{​3} ​)$ ，当预测的0.7变得更大时，损失函数更小，预测更准确。当label即使不是独热编码，是一个概率分布的时候结果仍然成立。</p>
 <p>  由于y是一个长度为q的独热编码向量，所以除了一个项以外的所有项j都消失了。由于所有yˆj都是预测的概率，所以它们的对数永远不会大于0。因此，如果正确地预测实际标签，即如果实际标签P(y | x) &#x3D; 1，则损失函数不能进一步最小化。注意，这往往是不可能的。例如，数据集中可能存在标签噪声（比如某些样本可能被误标），或输入特征没有足够的信息来完美地对每一个样本分类。？？？</p>
 </li>
 </ul>
@@ -253,7 +258,7 @@
 <li>使用预测概率最高的类别作为输出类别。如果预测与实际类别（标签）一致，则预测是正确的。</li>
 <li>用精度（accuracy）来评估模型的性能。精度&#x3D;正确个数&#x2F;总个数</li>
 </ul>
-
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -358,7 +363,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/03/deeplearning/code/pytorch/2_linear_neural_network/4_softmax_regression/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lankeren035.github.io/2024/02/03/deeplearning/code/pytorch/2_linear_neural_network/4_softmax_regression/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -579,15 +584,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,6 +620,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">llm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -631,11 +660,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -659,11 +688,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,26 +713,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,10 +740,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
@@ -751,11 +756,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,11 +804,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,15 +820,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,6 +877,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

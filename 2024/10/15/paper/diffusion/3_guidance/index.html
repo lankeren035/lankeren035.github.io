@@ -5,28 +5,28 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
+  <link rel="dns-prefetch" href="https://lankeren035.github.io">
   <title>扩散模型引导 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
 <meta property="og:title" content="扩散模型引导">
-<meta property="og:url" content="http://example.com/2024/10/15/paper/diffusion/3_guidance/index.html">
+<meta property="og:url" content="https://lankeren035.github.io/2024/10/15/paper/diffusion/3_guidance/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/1.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/diffusion/guidance/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/1.png">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/2.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/diffusion/guidance/2.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/2.png">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/3.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/diffusion/guidance/3.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/3.png">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/4.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/diffusion/guidance/4.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/4.png">
 <meta property="article:published_time" content="2024-10-15T02:28:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T14:23:59.919Z">
+<meta property="article:modified_time" content="2026-08-21T06:12:30.120Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="diffusion">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/diffusion/guidance/1.png">
+<meta name="twitter:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/diffusion/guidance/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -209,10 +209,11 @@
 <li><p>其中$y$是条件，可以是文本、类别等等。</p>
 </li>
 <li><p>使用贝叶斯：</p>
-<p>$$\hat q (X_ {t - 1 } | X_ { t },y) &#x3D;  \frac{\hat q (X_ {t - 1 } | X_ { t }) \cdot \hat q (y | X_ { t  }, X_ { t - 1 })}{ \hat q (y | X_ { t }) }$$</p>
 </li>
-<li><p>如何求上面的分布：</p>
+</ul>
+<p> $$\hat q (X_ {t - 1 } | X_ { t },y) &#x3D;  \frac{\hat q (X_ {t - 1 } | X_ { t }) \cdot \hat q (y | X_ { t  }, X_ { t - 1 })}{ \hat q (y | X_ { t }) }$$</p>
 <ul>
+<li>如何求上面的分布：<ul>
 <li>分母是<code>y</code>的分布，是个常数。</li>
 <li>分子的两个都是假设出来的，我们都不知道。</li>
 </ul>
@@ -235,35 +236,36 @@
 <li><p>$\hat q (X_ {t - 1 } | X_ { t }) &#x3D; \frac{ \hat q (X_ t | X_ { t - 1 }) \cdot \hat q(X_ {t - 1})}{ \hat q( X_t)}$</p>
 </li>
 <li><p>为了让分子的第一项与已知条件靠拢，应该想办法将<code>y</code>引入（通过积分的方式引入）：</p>
-<p>$$\begin{aligned} \hat q (X_ t | X_ { t - 1 }) &amp;&#x3D; \int_y \hat q( X_ t, y | X{ t - 1 } ) dy \&amp;&#x3D;\int_y \hat q(X_ t | y, X_ { t - 1}) \cdot \hat q( y | X_ { t - 1}) dy \&amp; &#x3D; \int_y q(X_t | X_{ t - 1}) \cdot \hat q( y | X_ {t - 1 }) dy \&amp; &#x3D; q(X_t | X_{ t - 1}) \int_y  \hat q( y | X_ {t - 1 }) dy \&amp; &#x3D;  q(X_t | X_{ t - 1}) \cdot 1\end{aligned}$$</p>
 </li>
+</ul>
+<p> $$\begin{aligned} \hat q (X_ t | X_ { t - 1 }) &amp;&#x3D; \int_y \hat q( X_ t, y | X{ t - 1 } ) dy \&amp;&#x3D;\int_y \hat q(X_ t | y, X_ { t - 1}) \cdot \hat q( y | X_ { t - 1}) dy \&amp; &#x3D; \int_y q(X_t | X_{ t - 1}) \cdot \hat q( y | X_ {t - 1 }) dy \&amp; &#x3D; q(X_t | X_{ t - 1}) \int_y  \hat q( y | X_ {t - 1 }) dy \&amp; &#x3D;  q(X_t | X_{ t - 1}) \cdot 1\end{aligned}$$</p>
+<ul>
 <li><p>分子第二项仍然用全概率公式：</p>
-<p>  $$ \begin{aligned} \hat q{X_ t} &amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 \space : \space t} ) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 } ) \cdot \hat q( X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1}  \end{aligned} $$</p>
+<p> $$\begin{aligned} \hat q{X_ t} &amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 \space : \space t} ) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 } ) \cdot \hat q( X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1}  \end{aligned}$$</p>
 <ul>
 <li><p>这里的第二项怎么求：</p>
+<p>-$$\begin{aligned} \hat q( X_ { 1\space : \space t} | X_ 0) &amp;&#x3D; \int_ y \hat q( X_ { 1\space : \space t} , y | X_ 0)dy \&amp;&#x3D; \int_ y \hat q( X_ { 1 \space : \space t} |y,X_0 ) \cdot \hat q( y | X_0 ) dy \&amp;&#x3D; \int_y \hat q( y | X_ 0) \cdot \prod_ 1 ^ t \hat q( X_ t | X_ { t - 1 }, y) dy \&amp;&#x3D; \int_y \hat q( y | X_0 ) \cdot \prod_ 1 ^ t q(X_ t | X_ { t - 1 })dy \&amp;&#x3D; \int_ y \hat q( y | X_ 0 ) \cdot q( X_ {1 \space : \space t} | X_ 0 )dy \text{ （马尔可夫性质）} \&amp;&#x3D; 1 \cdot q( X_ {1 \space : \space t} | X_ 0 ) \end{aligned}$$</p>
 <ul>
-<li>$ \begin{aligned} \hat q( X_ { 1\space : \space t} | X_ 0) &amp;&#x3D; \int_ y \hat q( X_ { 1\space : \space t} , y | X_ 0)dy \&amp;&#x3D; \int_ y \hat q( X_ { 1 \space : \space t} |y,X_0 ) \cdot \hat q( y | X_0 ) dy \&amp;&#x3D; \int_y \hat q( y | X_ 0) \cdot \prod_ 1 ^ t \hat q( X_ t | X_ { t - 1 }, y) dy \&amp;&#x3D; \int_y \hat q( y | X_0 ) \cdot \prod_ 1 ^ t q(X_ t | X_ { t - 1 })dy \&amp;&#x3D; \int_ y \hat q( y | X_ 0 ) \cdot q( X_ {1 \space : \space t} | X_ 0 )dy \text{ （马尔可夫性质）} \&amp;&#x3D; 1 \cdot q( X_ {1 \space : \space t} | X_ 0 ) \end{aligned} $</li>
 <li>算了两次都发现：两次计算的正向的式子都跟<code>DDPM</code>是一样的，这也是合理的。</li>
 </ul>
 </li>
 <li><p>继续计算：</p>
 </li>
 </ul>
-<p>  $$ \begin{aligned} \hat q{X_ t} &amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 \space : \space t} ) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 } ) \cdot \hat q( X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1}  \&amp;&#x3D; \int_ {X_ {0 \space : \space t-1}} q( X_0 ) \cdot q(X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ {0 \space : \space t-1}} q( {X_ {0 \space : \space t }} ) dX_{ 0 \space : \space t-1}  \&amp;&#x3D; q( X_ t ) \end{aligned}$$</p>
+<p> $$\begin{aligned} \hat q{X_ t} &amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 \space : \space t} ) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ { 0 \space : \space t-1 }} \hat q( X_ { 0 } ) \cdot \hat q( X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1}  \&amp;&#x3D; \int_ {X_ {0 \space : \space t-1}} q( X_0 ) \cdot q(X_ { 1\space : \space t} | X_ 0) dX_{ 0 \space : \space t-1} \&amp;&#x3D; \int_ {X_ {0 \space : \space t-1}} q( {X_ {0 \space : \space t }} ) dX_{ 0 \space : \space t-1}  \&amp;&#x3D; q( X_ t ) \end{aligned}$$</p>
 </li>
 </ul>
-<h3 id="2）解决：-hat-q-y-X-t-1-X-t"><a href="#2）解决：-hat-q-y-X-t-1-X-t" class="headerlink" title="2）解决：$\hat q (y | X_ { t - 1 }, X_ { t })$"></a>2）解决：$\hat q (y | X_ { t - 1 }, X_ { t })$</h3><p>$$ \begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &amp;&#x3D; \frac{ \hat q( X_t | y, X_{ t - 1 }) \cdot \hat q( y | X_ { t  - 1 }) }{ \hat q( X_ t | X_ { t - 1 }) } \&amp;&#x3D; \hat q( X_ t | y, X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1} ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D;  q( X_ t |  X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1 } ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D; \hat q( X_ t |  X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1 } ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D; \hat q(y | X_ { t - 1 }) \end{aligned}$$</p>
+<h3 id="2）解决：-hat-q-y-X-t-1-X-t"><a href="#2）解决：-hat-q-y-X-t-1-X-t" class="headerlink" title="2）解决：$\hat q (y | X_ { t - 1 }, X_ { t })$"></a>2）解决：$\hat q (y | X_ { t - 1 }, X_ { t })$</h3><p>$$\begin{aligned} \hat q (y | X_ { t  }, X_ { t - 1 }) &amp;&#x3D; \frac{ \hat q( X_t | y, X_{ t - 1 }) \cdot \hat q( y | X_ { t  - 1 }) }{ \hat q( X_ t | X_ { t - 1 }) } \&amp;&#x3D; \hat q( X_ t | y, X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1} ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D;  q( X_ t |  X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1 } ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D; \hat q( X_ t |  X_{ t-1 } ) \cdot \frac{ \hat q(y, | X_ { t - 1 } ) }{ \hat q( X_ t | X_ { t - 1 })} \&amp;&#x3D; \hat q(y | X_ { t - 1 }) \end{aligned}$$</p>
 <h2 id="2-3-综合"><a href="#2-3-综合" class="headerlink" title="2.3 综合"></a>2.3 综合</h2><ul>
-<li><p>条件采样可以变成：</p>
+<li><p>条件采样可以变成：<br>-$\begin{aligned} \hat q (X_ {t - 1 } | X_ { t },y) &amp;&#x3D; z \cdot q(X_ {t - 1 } | X_ t) \cdot \hat q( y | X_ { t - 1 })  \&amp;&#x3D;常数 \cdot DDPM采样 \cdot 分类器 \end{aligned}$</p>
 <ul>
-<li>$\begin{aligned} \hat q (X_ {t - 1 } | X_ { t },y) &amp;&#x3D; z \cdot q(X_ {t - 1 } | X_ t) \cdot \hat q( y | X_ { t - 1 })  \&amp;&#x3D;常数 \cdot DDPM采样 \cdot 分类器 \end{aligned} $</li>
 <li>这里的z相当于是一个<code>normalize factor</code>，正则化因子，让概率分布和为1。</li>
 </ul>
 </li>
-<li><p>现在就需要两个模型，一个预测$q(X_ {t - 1 } | X_ t) $，一个预测 $ \hat q( y | X_ { t - 1 })   $：</p>
+<li><p>现在就需要两个模型，一个预测$q(X_ {t - 1 } | X_ t)$，一个预测$\hat q( y | X_ { t - 1 })$：</p>
 <ul>
-<li>用$P_ \theta (X_t | X_ { t + 1 })$预测$q(X_ {t - 1 } | X_ t) \rightarrow DDPM $</li>
-<li>用$P_ \varphi (y| X_t)$预测 $ \hat q( y | X_ { t - 1 })  \rightarrow  $ 分类器</li>
+<li>用$P_ \theta (X_t | X_ { t + 1 })$预测$q(X_ {t - 1 } | X_ t) \rightarrow DDPM$</li>
+<li>用$P_ \varphi (y| X_t)$预测$\hat q( y | X_ { t - 1 })  \rightarrow$分类器</li>
 </ul>
 </li>
 <li><p>当在<code>t+1</code>时刻，我们没有$X_t$，此时DDPM还在求他，因此分类器项无法求得确切的值，因此无法通过准确的数学计算得到，只能通过预估得到。</p>
@@ -273,31 +275,25 @@
 <li>对于DDPM项（高斯分布$\sim N( \mu, \Sigma^2)$）：</li>
 </ul>
 </li>
-<li><p>$log (P_ \theta (X_t | X_ { t + 1 })) &#x3D; -\frac{1}{2} (X_t - \mu) ^ T \Sigma ^ { -1 } (X_ t  - \mu) + C_1$ </p>
+<li><p>$log (P_ \theta (X_t | X_ { t + 1 })) &#x3D; -\frac{1}{2} (X_t - \mu) ^ T \Sigma ^ { -1 } (X_ t  - \mu) + C_1$</p>
 <ul>
-<li><p>对于分类器项：因为扩散模型的方差都很小（每次注入噪声很少，因此可以合理认为$X_t \approx \mu$，$X_t$在$\mu附近$），我们把$X_t$当作一个变量的话，就可以在$X_t &#x3D; \mu$处进行泰勒展开（$\nabla &#x3D; g$是梯度）：</p>
-</li>
-<li><p>$\begin{aligned} log P_ \varphi (y| X_t) &amp;&#x3D; log ( P_ \varphi (y| X_t) |<em>{X_t &#x3D; \mu} ) + (X_t - \mu ) \cdot \nabla</em> {X_t} log( P_ \varphi (y| X_t) |_{X_t &#x3D; \mu} ) + o(\space) \&amp;\approx C_2 + (X_t - \mu ) \cdot \nabla \end{aligned}$</p>
-</li>
-<li><p>两项汇总：</p>
-<ul>
-<li>$\begin{aligned} log \space \hat q (X_ {t - 1 } | X_ { t },y) &amp;&#x3D; log (P_ \theta (X_t | X_ { t + 1 })) + log P_ \varphi (y| X_t) \&amp;&#x3D; -\frac{1}{2} (X_t - \mu) ^ T \Sigma ^ { -1 } (X_ t  - \mu) + C + (X_t - \mu ) \cdot \nabla \&amp;&#x3D; -\frac{1}{2} (X_t - \mu -\Sigma g) ^ T \Sigma ^ { -1 } (X_ t  - \mu - \Sigma g) + \frac{1}{2}g^ T \Sigma g +C \&amp;&#x3D; -\frac{1}{2} (X_t - \mu -\Sigma g) ^ T \Sigma ^ { -1 } (X_ t  - \mu - \Sigma g)  + C^ \prime \end{aligned}$</li>
+<li>对于分类器项：因为扩散模型的方差都很小（每次注入噪声很少，因此可以合理认为$X_t \approx \mu$，$X_t$在$\mu附近$），我们把$X_t$当作一个变量的话，就可以在$X_t &#x3D; \mu$处进行泰勒展开（$\nabla &#x3D; g$是梯度）：</li>
 </ul>
+<p>-$\begin{aligned} log P_ \varphi (y| X_t) &amp;&#x3D; log ( P_ \varphi (y| X_t) |<em>{X_t &#x3D; \mu} ) + (X_t - \mu ) \cdot \nabla</em> {X_t} log( P_ \varphi (y| X_t) |_{X_t &#x3D; \mu} ) + o(\space) \&amp;\approx C_2 + (X_t - \mu ) \cdot \nabla \end{aligned}$</p>
+<ul>
+<li><p>两项汇总：</p>
+<p>-$\begin{aligned} log \space \hat q (X_ {t } | X_ { t+1 },y) &amp;&#x3D; log (P_ \theta (X_t | X_ { t + 1 })) + log P_ \varphi (y| X_t) \&amp;&#x3D; -\frac{1}{2} (X_t - \mu) ^ T \Sigma ^ { -1 } (X_ t  - \mu) + C + (X_t - \mu ) \cdot \nabla \&amp;&#x3D; -\frac{1}{2} (X_t - \mu -\Sigma g) ^ T \Sigma ^ { -1 } (X_ t  - \mu - \Sigma g) + \frac{1}{2}g^ T \Sigma g +C \&amp;&#x3D; -\frac{1}{2} (X_t - \mu -\Sigma g) ^ T \Sigma ^ { -1 } (X_ t  - \mu - \Sigma g)  + C^ \prime \end{aligned}$</p>
 </li>
 <li><p>因此$\hat q (X_ {t - 1 } | X_ { t },y) \sim N( \mu + \Sigma g \space , \space \Sigma^2)$</p>
 </li>
 <li><p>因此$X_t &#x3D; \mu + \Sigma g + \Sigma \epsilon$，其中：</p>
 </li>
-<li><p>$\mu$在DDPM中可以根据预测的噪声计算</p>
-<ul>
-<li>$g$是分类器的梯度（这也就是条件部分，条件就蕴含在分类器梯度里）</li>
 </ul>
-</li>
-</ul>
+<p>-$\mu$在DDPM中可以根据预测的噪声计算<br>  -$g$是分类器的梯度（这也就是条件部分，条件就蕴含在分类器梯度里）</p>
 </li>
 </ul>
 <h1 id="3-泛用采样"><a href="#3-泛用采样" class="headerlink" title="3. 泛用采样"></a>3. 泛用采样</h1><ul>
-<li><p>一个问题：对于偏移项$\Sigma g$，$\Sigma$是采样方差，但是在比如DDIM等模型中，$\Sigma &#x3D; 0 $，此时方法不适用了。</p>
+<li><p>一个问题：对于偏移项$\Sigma g$，$\Sigma$是采样方差，但是在比如DDIM等模型中，$\Sigma &#x3D; 0$，此时方法不适用了。</p>
 </li>
 <li><p>引入一个概念：分数（score）</p>
 <ul>
@@ -305,23 +301,16 @@
 </li>
 <li><p>在DDPM中模型预测的是一个分布，在score based模型中他们认为扩散模型在预测score。</p>
 </li>
-<li><p>在DDPM中</p>
-<ul>
-<li>$P(X_ t | X_ 0) \sim N(\sqrt{ \bar { \alpha_{t} } } X_ 0 \space, \space 1- \bar \alpha_ t)$</li>
-<li>$log \space P(X_ t | X_ 0 ) &#x3D; -\frac{1}{2} \frac{( X_t - \sqrt{ \bar \alpha_ t} X_0 )^ 2 }{1-\bar \alpha_ t}$</li>
-</ul>
+<li><p>在DDPM中<br>-$P(X_ t | X_ 0) \sim N(\sqrt{ \bar { \alpha_{t} } } X_ 0 \space, \space 1- \bar \alpha_ t)$<br>-$log \space P(X_ t | X_ 0 ) &#x3D; -\frac{1}{2} \frac{( X_t - \sqrt{ \bar \alpha_ t} X_0 )^ 2 }{1-\bar \alpha_ t}$</p>
 </li>
 <li><p>对于$log \space P(X_ t | X_ 0 )$的分数值：$\nabla_ { X_t } log \space P(X_t | X_0 ) &#x3D; - \frac{  X_t - \sqrt{ \bar \alpha_ t} X_0  }{1-\bar \alpha_ t}$</p>
 <ul>
-<li>一个很巧的事：$X_t &#x3D; \sqrt{ \bar \alpha_ t }X_0 +\sqrt{ 1- \bar \alpha_t} \epsilon \\epsilon &#x3D; \frac{X_ t -\sqrt{\bar \alpha_t } X_0 }{ \sqrt{ 1- \bar \alpha_t}}$</li>
+<li>一个很巧的事：$X_t &#x3D; \sqrt{ \bar \alpha_ t }X_0 +\sqrt{ 1- \bar \alpha_t} \epsilon ， \epsilon &#x3D; \frac{X_ t -\sqrt{\bar \alpha_t } X_0 }{ \sqrt{ 1- \bar \alpha_t}}$</li>
 <li>上面倒数第一个等式和倒数第三个等式很像：$\begin{aligned} \nabla_ { X_t } log \space P(X_t | X_0 ) &amp;&#x3D; - \frac{  X_t - \sqrt{ \bar \alpha_ t} X_0  }{1-\bar \alpha_ t} \&amp;&#x3D; - \frac{\epsilon }{ \sqrt{1 - \bar \alpha_ t} } \end{aligned}$</li>
 <li>上面式子中$\epsilon$是抽样得到的，如果把他改成预测得到的噪声$\epsilon_ \theta$就可以得到预测出的分数：$\nabla_ { X_ t } log \space P_ \theta ( X_t ) &#x3D; - \frac{\hat \epsilon_ \theta (X_ t ) }{ \sqrt{1 - \bar \alpha_ t} } \space \space \space（3-1）$</li>
-<li>而我们需要预测的分数是：<ul>
-<li>$\begin{aligned} \nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] &amp;&#x3D; \nabla log \space P_ \theta (X_ t ) + \nabla log \space P_ \varphi (y | X_t) \&amp;&#x3D; -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \end{aligned}$</li>
-</ul>
-</li>
-<li>根据(3-1)可以知道分数：$ \nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] &#x3D; - \frac{\hat \epsilon_ \theta ^ \prime (X_ t ) }{ \sqrt{1 - \bar \alpha_ t} } $</li>
-<li>因此：$- \frac{\hat \epsilon_ \theta ^ \prime  }{ \sqrt{1 - \bar \alpha_ t} } &#x3D; -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \\ \hat \epsilon ^\prime &#x3D;  \hat \epsilon_ \theta - \sqrt{ 1 - \bar \alpha_ t} g $</li>
+<li>而我们需要预测的分数是：<br>-$\begin{aligned} \nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] &amp;&#x3D; \nabla log \space P_ \theta (X_ t ) + \nabla log \space P_ \varphi (y | X_t) \&amp;&#x3D; -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \end{aligned}$</li>
+<li>根据(3-1)可以知道分数：$\nabla_ { X_ t } log[ P_ \theta (X_ t) \cdot P_ \varphi (y | X_ t)] &#x3D; - \frac{\hat \epsilon_ \theta ^ \prime (X_ t ) }{ \sqrt{1 - \bar \alpha_ t} }$</li>
+<li>因此：$- \frac{\hat \epsilon_ \theta ^ \prime  }{ \sqrt{1 - \bar \alpha_ t} } &#x3D; -\frac{\hat \epsilon_ \theta (X_ t) }{ \sqrt{1 - \bar \alpha_ t} } + g \\ \hat \epsilon ^\prime &#x3D;  \hat \epsilon_ \theta - \sqrt{ 1 - \bar \alpha_ t} g$</li>
 <li>因此这里只需要将DDPM预测出来的噪音做一个微小的偏移，然后就可以使用DDIM采样了。</li>
 </ul>
 </li>
@@ -330,12 +319,7 @@
 </ul>
 <h1 id="4-采样算法"><a href="#4-采样算法" class="headerlink" title="4. 采样算法"></a>4. 采样算法</h1><h2 id="4-1-采样算法1"><a href="#4-1-采样算法1" class="headerlink" title="4.1 采样算法1"></a>4.1 采样算法1</h2><p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/1.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/1.png"></p>
-<ul>
-<li>$N( \mu + s \Sigma \nabla_ {x_ t} log \space p_ \phi (y|x_ t ), \Sigma)$其中多了个s，用来控制条件控制强度：<ul>
-<li>$s  \nabla log \space p (y|x_ t ) \rightarrow \nabla lg \space p (y|x_ t )^ s \cdot z  $， 其中z用于归一化（假设当s&#x3D;1时，比如原本这里的p有两种可能取值：0.9和0.1，当s增大为2时，两个可能取值：$0.9^2，0.1^2$，归一化之后$0.9^2$就变得比原本的0.9更大了。</li>
-</ul>
-</li>
-</ul>
+<p>-$N( \mu + s \Sigma \nabla_ {x_ t} log \space p_ \phi (y|x_ t ), \Sigma)$其中多了个s，用来控制条件控制强度：<br>  -$s  \nabla log \space p (y|x_ t ) \rightarrow \nabla lg \space p (y|x_ t )^ s \cdot z$， 其中z用于归一化（假设当s&#x3D;1时，比如原本这里的p有两种可能取值：0.9和0.1，当s增大为2时，两个可能取值：$0.9^2，0.1^2$，归一化之后$0.9^2$就变得比原本的0.9更大了。</p>
 <h2 id="4-2-采样算法2"><a href="#4-2-采样算法2" class="headerlink" title="4.2 采样算法2"></a>4.2 采样算法2</h2><p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/2.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/2.png"></p>
 <ul>
@@ -348,39 +332,32 @@
 <h1 id="6-classifier-free-guidance"><a href="#6-classifier-free-guidance" class="headerlink" title="6. classifier-free guidance"></a>6. classifier-free guidance</h1><ul>
 <li><p>核心思想：用一个模型把条件的和非条件的放到一个模型里一起训练。</p>
 <ul>
-<li>$\epsilon_ \theta (X_ t, t) \rightarrow \epsilon_ \theta (X_ t, t, y)$ , 直接用右边的模型，然后采样的时候就看你加不加y；如果不加y，他也有一个非条件的生成方式。（他这个没有什么技术可言，完全就是让模型去硬学，原因是现在我们有大数据，大模型，更好的显卡，支持模型可以用这种简单粗暴的方式去训练）</li>
+<li>$\epsilon_ \theta (X_ t, t) \rightarrow \epsilon_ \theta (X_ t, t, y)$, 直接用右边的模型，然后采样的时候就看你加不加y；如果不加y，他也有一个非条件的生成方式。（他这个没有什么技术可言，完全就是让模型去硬学，原因是现在我们有大数据，大模型，更好的显卡，支持模型可以用这种简单粗暴的方式去训练）</li>
 </ul>
 </li>
 <li><p>从DDPM到classifier-free guidance的时候diffusion模型已经有了很多改变</p>
 <ul>
-<li>比如这里时间采样的方式不再是离散的<code>1...T</code>，变成了连续的一个随机变量 $\lambda$ </li>
-<li>算法2的采样方式变成了某种方差的1-v次方再乘以之前的方差的v次方</li>
-<li>$X_T$变成了$Z_1$</li>
+<li>比如这里时间采样的方式不再是离散的<code>1...T</code>，变成了连续的一个随机变量$\lambda$</li>
+<li>算法2的采样方式变成了某种方差的1-v次方再乘以之前的方差的v次方<br>-$X_T$变成了$Z_1$</li>
 </ul>
 </li>
 </ul>
 <p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/3.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/3.png"></p>
+<p>-$p_ {uncond }$是一个输入条件，一个概率，用来训无条件扩散模型的概率，</p>
 <ul>
-<li><p>$p_ {uncond }$是一个输入条件，一个概率，用来训无条件扩散模型的概率，</p>
-</li>
-<li><p>从数据集拿出一张图片和对应的分类</p>
-</li>
-<li><p>以$p_ {uncond }$的概率将类别变成空（用这种方式将条件和非条件放到一起训练，只是多了这一步而已）</p>
-</li>
-<li><p>采样一个时间步$\lambda$</p>
-</li>
-<li><p>采样随机噪音</p>
-</li>
-<li><p>一步到位加噪得到$Z_ \lambda$</p>
-</li>
+<li>从数据集拿出一张图片和对应的分类</li>
+<li>以$p_ {uncond }$的概率将类别变成空（用这种方式将条件和非条件放到一起训练，只是多了这一步而已）</li>
+<li>采样一个时间步$\lambda$</li>
+<li>采样随机噪音</li>
+<li>一步到位加噪得到$Z_ \lambda$</li>
 </ul>
 <p><img src="/../../../../theme/yilia/source/img/paper/diffusion/guidance/4.png"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/diffusion/guidance/4.png"></p>
 <ul>
 <li>用加权的方式获得噪声：条件模型和非条件模型预测的结果做加权（当c取空时，预测的噪声就是非条件模型预测的噪声）</li>
 </ul>
-
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -485,7 +462,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/10/15/paper/diffusion/3_guidance/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lankeren035.github.io/2024/10/15/paper/diffusion/3_guidance/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -706,15 +683,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,6 +719,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">llm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -758,11 +759,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,11 +787,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,26 +812,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,10 +839,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
@@ -878,11 +855,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -918,11 +903,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,15 +919,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,6 +976,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

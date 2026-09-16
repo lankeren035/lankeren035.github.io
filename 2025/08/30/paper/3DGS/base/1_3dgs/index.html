@@ -5,16 +5,16 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
+  <link rel="dns-prefetch" href="https://lankeren035.github.io">
   <title>3DGS_捏雪球 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
 <meta property="og:title" content="3DGS_捏雪球">
-<meta property="og:url" content="http://example.com/2025/08/30/paper/3DGS/base/1_3dgs/index.html">
+<meta property="og:url" content="https://lankeren035.github.io/2025/08/30/paper/3DGS/base/1_3dgs/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-30T07:28:00.000Z">
-<meta property="article:modified_time" content="2026-02-11T12:34:06.653Z">
+<meta property="article:modified_time" content="2026-07-31T06:46:15.515Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="3DGS">
 <meta name="twitter:card" content="summary">
@@ -306,7 +306,7 @@
 </li>
 <li><p>对于公式：$G( x, \mu, \Sigma ) &#x3D; \frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } } e^ { - \frac{ 1 }{ 2 } ( x - \mu )^ T \Sigma ^ { - 1 } ( x - \mu ) }$</p>
 <ul>
-<li><p>$\frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } } $ 这部分是常数</p>
+<li><p>$\frac{ 1 }{ \sqrt{ ( 2 \pi )^ k | \Sigma | } }$ 这部分是常数</p>
 </li>
 <li><p>当$(x - \mu )^ T \Sigma^ { -1 } (x  - \mu )$ 是一个常数时，整个高斯的概率就是一个常数了。因此：</p>
 <ul>
@@ -380,12 +380,12 @@
 </li>
 <li><p>$\Lambda$是一个对角矩阵，他的对角线元素是他的特征值：$\begin{bmatrix} S_0 &amp;0 &amp;0 \\ 0 &amp;S_1 &amp;0 \\ 0 &amp;0 &amp;S_ 2 \end{bmatrix}$</p>
 </li>
-<li><p>最后拆成：$\Sigma &#x3D; Q \Lambda^{ \frac{ 1 }{ 2 }} \Lambda^{ \frac{ 1 }{ 2 }} Q^ T $</p>
+<li><p>最后拆成：$\Sigma &#x3D; Q \Lambda^{ \frac{ 1 }{ 2 }} \Lambda^{ \frac{ 1 }{ 2 }} Q^ T$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">computeCov3D</span>(<span class="params">scale, rot, mod=<span class="number">1</span></span>): <span class="comment">#scale是缩放矩阵，rot旋转矩阵，mod是一个缩放</span></span><br><span class="line">    <span class="comment"># 缩放矩阵</span></span><br><span class="line">    S = np.array(</span><br><span class="line">        [</span><br><span class="line">            [scale[<span class="number">0</span>] * mod, <span class="number">0</span>, <span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>, scale[<span class="number">1</span>] * mod, <span class="number">0</span>],</span><br><span class="line">            [<span class="number">0</span>, <span class="number">0</span>, scale[<span class="number">2</span>] * mod] </span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line">    R = rot</span><br><span class="line">    M = np.dot(R,S)</span><br><span class="line">    cov3D = np.dot(M,M.T)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cov3D</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -486,7 +486,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2025/08/30/paper/3DGS/base/1_3dgs/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lankeren035.github.io/2025/08/30/paper/3DGS/base/1_3dgs/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -707,15 +707,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,6 +743,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">llm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -759,11 +783,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,11 +811,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,26 +836,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -859,10 +863,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
@@ -879,11 +879,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,11 +927,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,15 +943,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,6 +1000,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

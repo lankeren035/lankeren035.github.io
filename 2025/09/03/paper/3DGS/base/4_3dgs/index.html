@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://example.com">
+  <link rel="dns-prefetch" href="https://lankeren035.github.io">
   <title>3DGS_高性能渲染与机器学习 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
 <meta property="og:title" content="3DGS_高性能渲染与机器学习">
-<meta property="og:url" content="http://example.com/2025/09/03/paper/3DGS/base/4_3dgs/index.html">
+<meta property="og:url" content="https://lankeren035.github.io/2025/09/03/paper/3DGS/base/4_3dgs/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/24.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/3DGS/base/3dgs/24.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/24.png">
-<meta property="og:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/25.png">
+<meta property="og:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/3DGS/base/3dgs/25.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/paper/3DGS/base/3dgs/25.png">
 <meta property="article:published_time" content="2025-09-03T07:28:00.000Z">
-<meta property="article:modified_time" content="2026-04-04T14:23:59.919Z">
+<meta property="article:modified_time" content="2026-08-12T07:21:27.643Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="3DGS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/theme/yilia/source/img/paper/3DGS/base/3dgs/24.png">
+<meta name="twitter:image" content="https://lankeren035.github.io/theme/yilia/source/img/paper/3DGS/base/3dgs/24.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -189,7 +189,7 @@
 <blockquote>
 <p>最开始虽然设想一个高斯椭球可以影响多个像素，以至于高斯椭球数量可能比点云数量少一些，但实际上并没有少，因为他初始的时候就是用colmap生成的点云，所以说他并没有粒子上的减少，为什么就快了呢？实际上是因为GPU。</p>
 </blockquote>
-<h1 id="1-3dgs为什么快"><a href="#1-3dgs为什么快" class="headerlink" title="1. 3dgs为什么快"></a>1. 3dgs为什么快</h1><ul>
+<h2 id="1-3dgs为什么快"><a href="#1-3dgs为什么快" class="headerlink" title="1. 3dgs为什么快"></a>1. 3dgs为什么快</h2><ul>
 <li>cpu相当于一个老教授，GPU相当于一群小学生。</li>
 <li>GPU:<ul>
 <li>整个splatting部分是用cuda编写的，一个线程负责一个像素，每个像素去找它对应的3d高斯椭球去渲染颜色即可。</li>
@@ -239,7 +239,7 @@
 <li><p>算法：</p>
 <ul>
 <li>渲染 + SGD</li>
-<li>$L &#x3D; ( 1 - \lambda ) L_ 1 + \lambda L _ { D - SSIM } , \lambda &#x3D; 0 .2 $</li>
+<li>$L &#x3D; ( 1 - \lambda ) L_ 1 + \lambda L _ { D - SSIM } , \lambda &#x3D; 0 .2$</li>
 </ul>
 </li>
 <li><p>一个问题：</p>
@@ -258,7 +258,7 @@
 </ul>
 </li>
 </ul>
-
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -359,7 +359,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2025/09/03/paper/3DGS/base/4_3dgs/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lankeren035.github.io/2025/09/03/paper/3DGS/base/4_3dgs/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -383,8 +383,8 @@
     </a>
   
   
-    <a href="/2025/09/02/paper/3DGS/base/3_3dgs/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">3DGS_雪球颜色</div>
+    <a href="/2025/09/02/paper/3DGS/CG/rasterization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">光栅化</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -411,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3dgs%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%AB"><span class="toc-number">2.</span> <span class="toc-text">1. 3dgs为什么快</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%AF%84%E4%BC%B0"><span class="toc-number">2.1.</span> <span class="toc-text">2. 机器学习与参数评估</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3dgs%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%AB"><span class="toc-number">1.1.</span> <span class="toc-text">1. 3dgs为什么快</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%AF%84%E4%BC%B0"><span class="toc-number">1.2.</span> <span class="toc-text">2. 机器学习与参数评估</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -580,15 +580,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +616,30 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">llm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
@@ -632,11 +656,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,11 +684,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,26 +709,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">B树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，二分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,10 +736,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">viso</a>
               </li>
              
@@ -752,11 +752,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Obsidian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Syncthing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,11 +800,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3DGS</a>
+                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,15 +816,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">风格迁移</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">视频扩散模型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">diffusion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,6 +873,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
