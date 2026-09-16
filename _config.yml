@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://lankeren035.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -120,9 +120,20 @@ jsonContent:
 
 
 
-mathjax: true
-katex: true
-backlink: true
+mathjax: false
+katex: false
+backlink: false
+
+# Markdown renderer
+markdown:
+  preset: default
+  render:
+    html: true
+    breaks: false
+    linkify: true
+    typographer: false
+  plugins:
+    - markdown-it-mathjax3
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/

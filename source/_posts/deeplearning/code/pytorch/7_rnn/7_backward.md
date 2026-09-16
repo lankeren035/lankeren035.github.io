@@ -88,10 +88,14 @@ $$ \frac{\partial L}{\partial \mathbf{ o }_ t} = \frac{1}{T} \frac{\partial l(\m
 $$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ W }_ { qh } } &= \sum_ {t=1} ^ T prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ W }_ { qh } } \right) \\\\ &= \sum_ {t=1} ^ T  \frac{\partial L}{\partial \mathbf{ o }_ t} \mathbf{ h }_ t ^ T . \end{aligned} $$
 
 - 其中$ \frac{ \partial L}{\partial \mathbf{ o }_ t} $已经在上面计算过了。接下来，在最后的时间步T，目标函数L仅通过$\mathbf{ o }_ T $依赖于隐状态$\mathbf{ h }_ T $。因此，使用链式法可以很容易地得到梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ T} $：
-<span id='goto13'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &= prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \\\\ &= \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$
+<span id='goto13'></span>
+
+$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ T} &= prod \left( \frac{\partial L}{\partial \mathbf{ o }_ T}, \frac{\partial \mathbf{ o }_ T}{\partial \mathbf{ h }_ T} \right) \\\\ &= \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ T}. \end{aligned} （13） $$
 
 - 当目标函数L通过$\mathbf{ h }_ { t+1 } $和$\mathbf{ o }_ t $依赖于$\mathbf{ h }_ t $时，对任意时间步t < T来说都变得更加棘手。根据链式法则，隐状态的梯度$ \frac{ \partial L}{\partial \mathbf{ h }_ t} $在任何时间步骤t < T时都可以递归地计算为：
-<span id='goto14'></span>$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &= prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \\\\ &= \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$
+<span id='goto14'></span>
+
+$$ \begin{aligned} \frac{\partial L}{\partial \mathbf{ h }_ t} &= prod \left( \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }}, \frac{\partial \mathbf{ h }_ { t+1 }}{\partial \mathbf{ h }_ t} \right) + prod \left( \frac{\partial L}{\partial \mathbf{ o }_ t}, \frac{\partial \mathbf{ o }_ t}{\partial \mathbf{ h }_ t} \right) \\\\ &= \mathbf{ W }_ { hh } ^ T \frac{\partial L}{\partial \mathbf{ h }_ { t+1 }} + \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ t}. \end{aligned} （14） $$
 
 - 为了进行分析，对于任何时间步1 ≤ t ≤ T展开递归计算得:
 $$ \frac{\partial L}{\partial \mathbf{ h }_ t} = \sum_ {i=t} ^ T \left( \mathbf{ W }_ { hh } ^ T \right) ^ {T-i} \mathbf{ W }_ { qh } ^ T \frac{\partial L}{\partial \mathbf{ o }_ { T+t-i }}. $$

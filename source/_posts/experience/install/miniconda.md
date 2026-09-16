@@ -1,16 +1,12 @@
 ---
 title: Linux下安装miniconda
-
 date: 2024-4-23 08:00:00
-
-tags: [安装]
-
-categories: [安装]
-
+tags:
+  - 经验
+categories:
+  - 经验
 comment: true
-
 toc: true
-
 ---
 
 #

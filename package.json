@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "build": "node --max-old-space-size=8192 node_modules/hexo/bin/hexo generate --concurrency 1",
+    "clean": "node node_modules/hexo/bin/hexo clean",
+    "deploy": "node --max-old-space-size=8192 node_modules/hexo/bin/hexo generate --concurrency 1 --deploy",
+    "server": "node --max-old-space-size=8192 node_modules/hexo/bin/hexo server"
   },
   "hexo": {
     "version": "7.2.0"
@@ -22,10 +22,11 @@
     "hexo-generator-json-content": "^4.2.3",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-markdown-it": "^7.1.1",
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",
-    "luxon": "^3.4.4"
+    "luxon": "^3.4.4",
+    "markdown-it-mathjax3": "^5.2.0"
   }
 }

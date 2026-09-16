@@ -1,19 +1,13 @@
 ---
-title: "开机自动连接校园网"
-
+title: 开机自动连接校园网
 date: 2026-1-28 08:00:00
-
-tags: [经验]
-
-categories: [经验]
-
+tags:
+  - 经验
+categories:
+  - 经验
 comment: true
-
 toc: true
-
-
-
-
+type:
 ---
 
 #

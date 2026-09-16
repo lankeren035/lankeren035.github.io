@@ -1,3 +1,20 @@
+---
+title: Milvus安装
+date: 2026-09-14
+tags:
+  - 经验
+categories:
+  - 经验
+comment: true
+toc: true
+published: true
+permalink: experience/test
+hexo-path:
+---
+#
+<!--more-->
+#
+<!--more-->
 
 1. **问题现象**
     

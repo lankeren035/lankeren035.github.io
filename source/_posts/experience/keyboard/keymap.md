@@ -1,16 +1,12 @@
 ---
 title: 使用via键盘映射
-
 date: 2024-3-7 08:00:00
-
-tags: [键盘]
-
-categories: [经验]
-
+tags:
+  - 经验
+categories:
+  - 经验
 comment: true
-
 toc: true
-
 ---
 
 #

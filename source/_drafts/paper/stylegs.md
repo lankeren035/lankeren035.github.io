@@ -228,6 +228,7 @@ lion 38
 
 
 
+{% raw %}
 \begin{figure*}[t]
 \centering
 \setlength{\tabcolsep}{0pt}
@@ -347,6 +348,7 @@ lion 38
 \caption{Qualitative comparison with representative 3DGS stylisation methods. Each example contains one content image and one style reference, followed by stylised renderings from two novel viewpoints.}
 \label{fig:qualitative}
 \end{figure*}
+{% endraw %}
 
 
 

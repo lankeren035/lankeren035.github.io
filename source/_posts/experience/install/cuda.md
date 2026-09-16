@@ -1,17 +1,12 @@
 ---
 title: windows下使用nvidia GPU机器学习
-
 date: 2024-8-8 18:00:00
-
-tags: [安装]
-
-categories: [安装]
-
+tags:
+  - 经验
+categories:
+  - 经验
 comment: true
-
 toc: true
-
-
 ---
 
 #
