@@ -158,113 +158,28 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_extrinsics_binary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker/8_dockerfile" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_binary/">read_extrinsics_binary</a>
+      <a class="article-title" href="/2024/08/28/docker/8_dockerfile/">8- Dockerfile</a>
     </h1>
   
 
         
-        <a href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_binary/" class="archive-article-date">
-  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
+        <a href="/2024/08/28/docker/8_dockerfile/" class="archive-article-date">
+  	<time datetime="2024-08-28T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>path_to_model_file</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
-<thead>
-<tr>
-<th>返回类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
-<li>读取图片数量num_reg_images，8字节，Q（无符号 8 字节整数）[[source&#x2F;_posts&#x2F;obsidian&#x2F;3dgs_code_learn&#x2F;functions&#x2F;scene&#x2F;colmap_loader.py&#x2F;3dgs_read_next_bytes|read_next_bytes(文件指针，字节数，Q)]]</li>
-<li>循环遍历上面读取到的图片数量：<ul>
-<li>读取对应的数据</li>
-<li>如何读取每个图片的xy：<ol>
-<li>一步读取该图片的特征点数量n</li>
-<li>读取n $\times$ 24 个字节得到（每个特征点包含：x,y,point3D_id三个字段，各8字节）</li>
-<li>读取每个特征点的xy，即得到当前图片中所有2D特征点的像素坐标【p,2】</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>最终得到的数据格式：images{0：图片0的数据，1：图片1的数据}，每条数据格式如下[[source&#x2F;_posts&#x2F;obsidian&#x2F;3dgs_code_learn&#x2F;modules&#x2F;scene&#x2F;colmap_loader.py&#x2F;3dgs_Image|Image]]</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>qvec【4】</th>
-<th>tvec【3】</th>
-<th>camera_id</th>
-<th>name</th>
-<th>xys【p,2】</th>
-<th>point3D_ids【p,1】</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>图片id</td>
-<td>旋转四元数</td>
-<td>平移向量</td>
-<td>相机id</td>
-<td>图片文件名</td>
-<td>当前图中所有特征点的像素坐标</td>
-<td>当前图中所有特征点id</td>
-</tr>
-</tbody></table>
-<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
-<thead>
-<tr>
-<th>字段</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>所属文件</td>
-<td>[[3dgs_colmap_loader.py</td>
-</tr>
-<tr>
-<td>所属类</td>
-<td>-</td>
-</tr>
-<tr>
-<td>命名空间</td>
-<td>-</td>
-</tr>
-<tr>
-<td>类型</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -277,7 +192,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -289,7 +204,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -298,7 +213,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_binary/">展开全文 >></a>
+          <a class="article-more-a" href="/2024/08/28/docker/8_dockerfile/">展开全文 >></a>
         </p>
       
 
@@ -328,80 +243,28 @@
 
 
   
-    <article id="post-obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_extrinsics_text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker/7_volume" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_text/">read_extrinsics_text</a>
+      <a class="article-title" href="/2024/08/27/docker/7_volume/">7- 容器数据卷</a>
     </h1>
   
 
         
-        <a href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_text/" class="archive-article-date">
-  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
+        <a href="/2024/08/27/docker/7_volume/" class="archive-article-date">
+  	<time datetime="2024-08-27T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>path</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
-<thead>
-<tr>
-<th>返回类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
-<li>待补充</li>
-</ol>
-<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
-<thead>
-<tr>
-<th>字段</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>所属文件</td>
-<td>[[3dgs_colmap_loader.py|colmap_loader.py]]</td>
-</tr>
-<tr>
-<td>所属类</td>
-<td>-</td>
-</tr>
-<tr>
-<td>命名空间</td>
-<td>-</td>
-</tr>
-<tr>
-<td>类型</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -414,7 +277,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -426,7 +289,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -435,7 +298,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/code/3dgs/scene.colmap_loader.py.read_extrinsics_text/">展开全文 >></a>
+          <a class="article-more-a" href="/2024/08/27/docker/7_volume/">展开全文 >></a>
         </p>
       
 
@@ -465,126 +328,28 @@
 
 
   
-    <article id="post-obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_intrinsics_binary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker/6_image" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_binary/">read_intrinsics_binary</a>
+      <a class="article-title" href="/2024/08/26/docker/6_image/">6- docker镜像原理</a>
     </h1>
   
 
         
-        <a href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_binary/" class="archive-article-date">
-  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
+        <a href="/2024/08/26/docker/6_image/" class="archive-article-date">
+  	<time datetime="2024-08-26T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>数据形式</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>model</th>
-<th>width</th>
-<th>height</th>
-<th>params</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>相机id</td>
-<td>相机模型</td>
-<td>图片宽度</td>
-<td>图片高度</td>
-<td>相机参数：焦距fx&#x2F;fy，中心cx&#x2F;cy</td>
-</tr>
-</tbody></table>
-<h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>path_to_model_file</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
-<thead>
-<tr>
-<th>返回类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
-<li>读取相机数量：n</li>
-<li>循环遍历n：<ol>
-<li>读取相机参数（24字节，iiQQ）：相机id，相机模型id，图像宽度，图像高度</li>
-<li>根据相机模型id，获取该相机属性个数m</li>
-<li>根据属性个数读取对应的字节数（8 $\times$ m字节i）</li>
-</ol>
-</li>
-<li>最终数据形式：</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>model</th>
-<th>width</th>
-<th>height</th>
-<th>params</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>相机id</td>
-<td>相机模型</td>
-<td>图片宽度</td>
-<td>图片高度</td>
-<td>相机参数：焦距fx&#x2F;fy，中心cx&#x2F;cy</td>
-</tr>
-</tbody></table>
-<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
-<thead>
-<tr>
-<th>字段</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>所属文件</td>
-<td>[[3dgs_colmap_loader.py|colmap_loader.py]]</td>
-</tr>
-<tr>
-<td>所属类</td>
-<td>-</td>
-</tr>
-<tr>
-<td>命名空间</td>
-<td>-</td>
-</tr>
-<tr>
-<td>类型</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -597,7 +362,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -609,7 +374,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -618,7 +383,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_binary/">展开全文 >></a>
+          <a class="article-more-a" href="/2024/08/26/docker/6_image/">展开全文 >></a>
         </p>
       
 
@@ -648,80 +413,28 @@
 
 
   
-    <article id="post-obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_intrinsics_text" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker/5_portainer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_text/">read_intrinsics_text</a>
+      <a class="article-title" href="/2024/08/26/docker/5_portainer/">5- portainer可视化面板安装</a>
     </h1>
   
 
         
-        <a href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_text/" class="archive-article-date">
-  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
+        <a href="/2024/08/26/docker/5_portainer/" class="archive-article-date">
+  	<time datetime="2024-08-26T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>path</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
-<thead>
-<tr>
-<th>返回类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
-<li>待补充</li>
-</ol>
-<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
-<thead>
-<tr>
-<th>字段</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>所属文件</td>
-<td>[[3dgs_code_learn&#x2F;files&#x2F;scene&#x2F;3dgs_colmap_loader.py|colmap_loader.py]]</td>
-</tr>
-<tr>
-<td>所属类</td>
-<td>-</td>
-</tr>
-<tr>
-<td>命名空间</td>
-<td>-</td>
-</tr>
-<tr>
-<td>类型</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -734,7 +447,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -746,7 +459,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -755,7 +468,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/code/3dgs/scene.colmap_loader.py.read_intrinsics_text/">展开全文 >></a>
+          <a class="article-more-a" href="/2024/08/26/docker/5_portainer/">展开全文 >></a>
         </p>
       
 
@@ -785,97 +498,28 @@
 
 
   
-    <article id="post-obsidian/3dgs_code_learn/functions/scene/colmap_loader.py/3dgs_read_next_bytes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker/4_practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/code/3dgs/scene.colmap_loader.py.read_next_bytes/">read_next_bytes</a>
+      <a class="article-title" href="/2024/08/26/docker/4_practice/">4- docker练习</a>
     </h1>
   
 
         
-        <a href="/code/3dgs/scene.colmap_loader.py.read_next_bytes/" class="archive-article-date">
-  	<time datetime="2026-04-06T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-07</time>
+        <a href="/2024/08/26/docker/4_practice/" class="archive-article-date">
+  	<time datetime="2024-08-26T04:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-08-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-输入"><a href="#1-输入" class="headerlink" title="1. 输入"></a>1. 输入</h2><table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>fid</td>
-<td>-</td>
-<td>文件指针</td>
-</tr>
-<tr>
-<td>num_bytes</td>
-<td>-</td>
-<td>读取的字节数</td>
-</tr>
-<tr>
-<td>format_char_sequence</td>
-<td>-</td>
-<td>数据类型，比如Q：无符号 8 字节整数，q：有符号 8 字节整数，I：无符号 4 字节整数，i：有符号 4 字节整数</td>
-</tr>
-<tr>
-<td>endian_character</td>
-<td>default&#x3D;’&lt;’</td>
-<td>小端读取</td>
-</tr>
-</tbody></table>
-<h2 id="2-输出"><a href="#2-输出" class="headerlink" title="2. 输出"></a>2. 输出</h2><table>
-<thead>
-<tr>
-<th>返回类型</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<h2 id="3-操作逻辑"><a href="#3-操作逻辑" class="headerlink" title="3. 操作逻辑"></a>3. 操作逻辑</h2><ol>
-<li>读取num_bytes个字节</li>
-<li>按照指定的大小端&#x2F;数据格式进行解析</li>
-<li>指针后移</li>
-</ol>
-<h2 id="4-信息"><a href="#4-信息" class="headerlink" title="4. 信息"></a>4. 信息</h2><table>
-<thead>
-<tr>
-<th>字段</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>所属文件</td>
-<td>[[3dgs_colmap_loader.py|colmap_loader.py]]</td>
-</tr>
-<tr>
-<td>所属类</td>
-<td>-</td>
-</tr>
-<tr>
-<td>命名空间</td>
-<td>-</td>
-</tr>
-<tr>
-<td>类型</td>
-<td>-</td>
-</tr>
-</tbody></table>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -888,7 +532,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3dgs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -900,7 +544,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/3dgs//" class="article-tag-list-link color5">3dgs</a>
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
         		</li>
       		
 		</ul>
@@ -909,7 +553,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/code/3dgs/scene.colmap_loader.py.read_next_bytes/">展开全文 >></a>
+          <a class="article-more-a" href="/2024/08/26/docker/4_practice/">展开全文 >></a>
         </p>
       
 
@@ -941,7 +585,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/870/">870</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/29/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/68/">68</a><a class="extend next" rel="next" href="/page/31/">Next &raquo;</a>
     </nav>
   
 
@@ -1314,10 +958,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">

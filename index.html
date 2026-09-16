@@ -418,94 +418,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p><strong>问题现象</strong></p>
-<ul>
-<li><p><code>docker compose up -d</code> 显示 <code>milvus-standalone</code> 已启动，但很快从 <code>docker ps</code> 中消失。</p>
-</li>
-<li><p><code>docker ps -a</code> 显示：</p>
-  <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus-standalone   Exited (134)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明 Milvus 启动后异常退出。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>查看 Milvus 日志</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs milvus-standalone</span><br></pre></td></tr></table></figure>
-<p> 关键输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init with etcd failed</span><br><span class="line">error=&quot;context deadline exceeded&quot;</span><br><span class="line"></span><br><span class="line">panic: failed to create etcd client: context deadline exceeded</span><br></pre></td></tr></table></figure>
-<p> 说明根因是：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Milvus → etcd:2379 连接超时</span><br></pre></td></tr></table></figure>
-<p> 不是 Milvus 本身启动参数问题。</p>
-</li>
-<li><p><strong>排除 OOM</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect milvus-standalone \</span><br><span class="line">  --format <span class="string">&#x27;OOM=&#123;&#123;.State.OOMKilled&#125;&#125; Exit=&#123;&#123;.State.ExitCode&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p> 输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OOM=false Exit=134</span><br></pre></td></tr></table></figure>
-<p> 说明不是内存不足。</p>
-</li>
-<li><p><strong>验证 etcd 自身是否正常</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> milvus-etcd \</span><br><span class="line">  etcdctl --endpoints=http://127.0.0.1:2379 endpoint health</span><br></pre></td></tr></table></figure>
-<p> 输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:2379 is healthy</span><br></pre></td></tr></table></figure>
-<p> 说明：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etcd 服务本身正常</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>验证 Docker DNS</strong><br> 从同一个 <code>milvus</code> 网络启动临时容器：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> \</span><br><span class="line">  --network milvus \</span><br><span class="line">  --entrypoint /bin/sh \</span><br><span class="line">  milvusdb/milvus:v2.5.14 \</span><br><span class="line">  -c <span class="string">&#x27;getent hosts etcd&#x27;</span></span><br></pre></td></tr></table></figure>
-<p> 得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.18.0.3 etcd</span><br></pre></td></tr></table></figure>
-<p> 说明：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Docker DNS 正常</span><br><span class="line">etcd 名称可以正确解析</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>验证容器间 TCP 通信</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
-<p> 结果：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect to 172.18.0.3:2379 failed</span><br><span class="line">Connection timed out</span><br></pre></td></tr></table></figure>
-<p> MinIO 同样：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minio:9000 → timeout</span><br></pre></td></tr></table></figure>
-<p> 所以可以确定：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS 正常</span><br><span class="line">服务正常</span><br><span class="line">但 Docker 容器之间的网络转发被阻断</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>检查 Docker 网络</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect milvus</span><br></pre></td></tr></table></figure>
-<p> 得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subnet: 172.18.0.0/16</span><br><span class="line">minio: 172.18.0.2</span><br><span class="line">etcd:  172.18.0.3</span><br></pre></td></tr></table></figure>
-<p> 网络配置本身正常。</p>
-</li>
-<li><p><strong>检查 iptables</strong><br> 普通 <code>iptables</code>：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -S FORWARD</span><br></pre></td></tr></table></figure>
-<p> 显示 <code>ACCEPT</code>，但同时提示：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-legacy tables present</span><br></pre></td></tr></table></figure>
-<p> 因此继续检查：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -S FORWARD</span><br></pre></td></tr></table></figure>
-<p> 得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-P FORWARD DROP</span><br></pre></td></tr></table></figure>
-<p> 并且现有规则只放行：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker0</span><br></pre></td></tr></table></figure>
-<p> 没有放行自定义 Docker bridge：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus → 172.18.0.0/16</span><br></pre></td></tr></table></figure>
-<p> <strong>最终根因：</strong></p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">系统同时存在 iptables-nft 和 iptables-legacy。</span><br><span class="line"></span><br><span class="line">iptables-legacy 的 FORWARD 默认策略是 DROP，</span><br><span class="line">并且只放行 docker0，</span><br><span class="line">导致 milvus 自定义 bridge 网络中的容器互相访问被丢弃。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>解决方法</strong><br> 临时放行 <code>milvus</code> 网络内部通信：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s 172.18.0.0/16 \</span><br><span class="line">  -d 172.18.0.0/16 \</span><br><span class="line">  -j ACCEPT</span><br></pre></td></tr></table></figure>
-
-<p> 或者</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    SUBNET=$(docker network inspect milvus \</span><br><span class="line">  --format <span class="string">&#x27;&#123;&#123;(index .IPAM.Config 0).Subnet&#125;&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">sudo iptables-legacy -C FORWARD \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT 2&gt;/dev/null || \</span><br><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
-<pre><code>再测试：
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
-
-成功返回，MinIO 也恢复访问。
-
-最后启动 Milvus：
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start milvus-standalone</span><br></pre></td></tr></table></figure>
-</code></pre>
-<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+        
       
 
       
@@ -634,7 +548,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/870/">870</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/68/">68</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1007,10 +921,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">3dgs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
              
               <li class="article-tag-list-item">
