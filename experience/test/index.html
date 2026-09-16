@@ -6,14 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lankeren035.github.io">
-  <title>Tag: 键盘 | Hexo</title>
+  <title>Milvus安装 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://lankeren035.github.io/tags/%E9%94%AE%E7%9B%98/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Milvus安装">
+<meta property="og:url" content="https://lankeren035.github.io/experience/test/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-09-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-16T04:38:21.457Z">
 <meta property="article:author" content="ke">
+<meta property="article:tag" content="经验">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -156,48 +159,157 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-experience/install/Milvus" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/07/experience/keyboard/keymap/" class="archive-article-date">
-  	<time datetime="2024-03-07T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/07/experience/keyboard/keymap/">使用via键盘映射</a>
+    <h1 class="article-title" itemprop="name">
+      Milvus安装
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/experience/test/" class="archive-article-date">
+  	<time datetime="2026-09-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><span id="more"></span>
+<h1 id="-1"><a href="#-1" class="headerlink" title=""></a></h1><!--more-->
+
+<ol>
+<li><p><strong>问题现象</strong></p>
+<ul>
+<li><p><code>docker compose up -d</code> 显示 <code>milvus-standalone</code> 已启动，但很快从 <code>docker ps</code> 中消失。</p>
+</li>
+<li><p><code>docker ps -a</code> 显示：</p>
+  <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus-standalone   Exited (134)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>说明 Milvus 启动后异常退出。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>查看 Milvus 日志</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs milvus-standalone</span><br></pre></td></tr></table></figure>
+<p> 关键输出：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init with etcd failed</span><br><span class="line">error=&quot;context deadline exceeded&quot;</span><br><span class="line"></span><br><span class="line">panic: failed to create etcd client: context deadline exceeded</span><br></pre></td></tr></table></figure>
+<p> 说明根因是：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Milvus → etcd:2379 连接超时</span><br></pre></td></tr></table></figure>
+<p> 不是 Milvus 本身启动参数问题。</p>
+</li>
+<li><p><strong>排除 OOM</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect milvus-standalone \</span><br><span class="line">  --format <span class="string">&#x27;OOM=&#123;&#123;.State.OOMKilled&#125;&#125; Exit=&#123;&#123;.State.ExitCode&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p> 输出：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OOM=false Exit=134</span><br></pre></td></tr></table></figure>
+<p> 说明不是内存不足。</p>
+</li>
+<li><p><strong>验证 etcd 自身是否正常</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> milvus-etcd \</span><br><span class="line">  etcdctl --endpoints=http://127.0.0.1:2379 endpoint health</span><br></pre></td></tr></table></figure>
+<p> 输出：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:2379 is healthy</span><br></pre></td></tr></table></figure>
+<p> 说明：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etcd 服务本身正常</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>验证 Docker DNS</strong><br> 从同一个 <code>milvus</code> 网络启动临时容器：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> \</span><br><span class="line">  --network milvus \</span><br><span class="line">  --entrypoint /bin/sh \</span><br><span class="line">  milvusdb/milvus:v2.5.14 \</span><br><span class="line">  -c <span class="string">&#x27;getent hosts etcd&#x27;</span></span><br></pre></td></tr></table></figure>
+<p> 得到：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.18.0.3 etcd</span><br></pre></td></tr></table></figure>
+<p> 说明：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Docker DNS 正常</span><br><span class="line">etcd 名称可以正确解析</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>验证容器间 TCP 通信</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
+<p> 结果：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect to 172.18.0.3:2379 failed</span><br><span class="line">Connection timed out</span><br></pre></td></tr></table></figure>
+<p> MinIO 同样：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minio:9000 → timeout</span><br></pre></td></tr></table></figure>
+<p> 所以可以确定：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS 正常</span><br><span class="line">服务正常</span><br><span class="line">但 Docker 容器之间的网络转发被阻断</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>检查 Docker 网络</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect milvus</span><br></pre></td></tr></table></figure>
+<p> 得到：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subnet: 172.18.0.0/16</span><br><span class="line">minio: 172.18.0.2</span><br><span class="line">etcd:  172.18.0.3</span><br></pre></td></tr></table></figure>
+<p> 网络配置本身正常。</p>
+</li>
+<li><p><strong>检查 iptables</strong><br> 普通 <code>iptables</code>：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -S FORWARD</span><br></pre></td></tr></table></figure>
+<p> 显示 <code>ACCEPT</code>，但同时提示：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-legacy tables present</span><br></pre></td></tr></table></figure>
+<p> 因此继续检查：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -S FORWARD</span><br></pre></td></tr></table></figure>
+<p> 得到：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-P FORWARD DROP</span><br></pre></td></tr></table></figure>
+<p> 并且现有规则只放行：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker0</span><br></pre></td></tr></table></figure>
+<p> 没有放行自定义 Docker bridge：</p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus → 172.18.0.0/16</span><br></pre></td></tr></table></figure>
+<p> <strong>最终根因：</strong></p>
+ <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">系统同时存在 iptables-nft 和 iptables-legacy。</span><br><span class="line"></span><br><span class="line">iptables-legacy 的 FORWARD 默认策略是 DROP，</span><br><span class="line">并且只放行 docker0，</span><br><span class="line">导致 milvus 自定义 bridge 网络中的容器互相访问被丢弃。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>解决方法</strong><br> 临时放行 <code>milvus</code> 网络内部通信：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s 172.18.0.0/16 \</span><br><span class="line">  -d 172.18.0.0/16 \</span><br><span class="line">  -j ACCEPT</span><br></pre></td></tr></table></figure>
+
+<p> 或者</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    SUBNET=$(docker network inspect milvus \</span><br><span class="line">  --format <span class="string">&#x27;&#123;&#123;(index .IPAM.Config 0).Subnet&#125;&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">sudo iptables-legacy -C FORWARD \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT 2&gt;/dev/null || \</span><br><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
+<pre><code>再测试：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
+
+成功返回，MinIO 也恢复访问。
+
+最后启动 Milvus：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start milvus-standalone</span><br></pre></td></tr></table></figure>
+</code></pre>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">键盘</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -210,17 +322,126 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lankeren035.github.io/experience/test/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/llm/2_RAG/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          5_生成集成
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/llm/2_RAG/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4_检索优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#-1"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,9 +464,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -535,14 +756,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">zotero</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">键盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
               </li>
              
               <li class="article-tag-list-item">
