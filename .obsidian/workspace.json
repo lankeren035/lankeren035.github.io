@@ -257,6 +257,8 @@
   },
   "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
+    "themes/yilia/source/img/job/aigc/diffusion/ipadapter.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 986565.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/t2iadapter.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 924225.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/controlnet2.png",
@@ -299,8 +301,6 @@
     "source/_posts/LLM/2_RAG/5_生成集成.md",
     "themes/yilia/source/img/llm/agent_evo.png",
     "themes/yilia/source/img/llm/未确认 186116.crdownload",
-    "node_modules/markdown-it-deflist/dist/markdown-it-deflist.min.js",
-    "themes/yilia/source/img/llm/agentloop.png",
     "source/_posts/linux/terminal.md",
     "source/_posts/linux/tmux.md"
   ]
