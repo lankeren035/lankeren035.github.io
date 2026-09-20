@@ -257,6 +257,8 @@
   },
   "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
+    "themes/yilia/source/img/job/aigc/diffusion/t2iadapter.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 924225.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/controlnet2.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 171577.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/controlnet.png",
@@ -298,10 +300,8 @@
     "themes/yilia/source/img/llm/agent_evo.png",
     "themes/yilia/source/img/llm/未确认 186116.crdownload",
     "node_modules/markdown-it-deflist/dist/markdown-it-deflist.min.js",
-    "node_modules/markdown-it-deflist/dist/markdown-it-deflist.js",
     "themes/yilia/source/img/llm/agentloop.png",
     "source/_posts/linux/terminal.md",
-    "source/_posts/linux/tmux.md",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg"
+    "source/_posts/linux/tmux.md"
   ]
 }
