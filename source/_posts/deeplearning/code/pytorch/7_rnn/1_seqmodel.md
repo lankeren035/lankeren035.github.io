@@ -14,7 +14,7 @@ toc: true
 # 1 序列模型
 ## 1.1 统计工具
 - 以股票价格（富时100指数）为例。
-![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
+
 ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/1.png)
     - 在时间步t观察到的价格为$x_ t$。t对于本文中的序列通常是离散的，并在整数或其子集上变化。假设一个交易员想在t日的股市中表现良好，于是通过以下途径预测xt：
     $$x_ t ∼ P(x_ t | x_ {t−1}, . . . , x_ 1)$$
@@ -24,8 +24,6 @@ toc: true
     1. 假设在现实情况下相当长的序列 xt−1, . . . , x1可能是不必要的，因此我们只需要满足某个长度为$\tau$的时间跨度。这种模型被称为自回归模型（autoregressive models），因为它们是对自己执行回归。
 
     2. 如下图是保留一些对过去观测的总结$h_ t$，并且同时更新预测$\hat x_ t$的模型和总结$h_ t$。即：基于$\hat x_ t = P(x_ t | h_ t)$估计$x_ t$， 并使用$h_ t = g(x_ {t−1}, h_ {t−1})$来更新模型。由于$h _t$从未被观测到，这类模型也被称为 隐变量自回归模型（latent autoregressive models）。
-
-    ![](../../../../../../theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
     ![](https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/1_seqmodel/2.png)
 
 - 这两种情况都有一个显而易见的问题：如何生成训练数据？可以使用历史观测来预测下一个未来观测。整个序列的估计值都将通过以下的方式获得：
@@ -69,7 +67,7 @@ d2l.plot(time, [x], 'time', 'x', xlim=[1, 1000], figsize=(6, 3))
     
 
 
-- 将这个序列转换为模型的特征－标签（feature‐label）对。将数据映射为数据对$y_ t = x_ t$和 \mathbf{ x }_ t = [x_ { t - \tau }, \cdots, x_ { t - 1 }]$。这比我们提供的数据样本少了$\tau$个，在这里，我们仅使用前600个“特征－标签”对进行训练。
+- 将这个序列转换为模型的特征－标签（feature‐label）对。将数据映射为数据对$y_ t = x_ t$和 $\mathbf{ x }_ t = [x_ { t - \tau }, \cdots, x_ { t - 1 }]$。这比我们提供的数据样本少了$\tau$个，在这里，我们仅使用前600个“特征－标签”对进行训练。
 
 
 ```python

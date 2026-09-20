@@ -6,7 +6,7 @@
       {
         "id": "d17a55ba7208741d",
         "type": "tabs",
-        "dimension": 73.34152334152334,
+        "dimension": 72.00647249190939,
         "children": [
           {
             "id": "994a2d60da507c08",
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未命名 3.md",
+                "file": "source/_posts/diffusion/生成模型笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未命名 3"
+              "title": "生成模型笔记"
             }
           },
           {
@@ -56,21 +56,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/git/delete.md",
+                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "delete"
+              "title": "2_构建智能体"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "df429ce04891fa80",
         "type": "tabs",
-        "dimension": 26.65847665847666,
+        "dimension": 27.993527508090615,
         "children": [
           {
             "id": "d5b24a5a48c7987e",
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/git/delete.md",
+                "file": "source/_posts/diffusion/生成模型笔记.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -146,7 +146,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 344.8333435058594
+    "width": 264.8333435058594
   },
   "right": {
     "id": "a099871a45d90968",
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/git/delete.md",
+                "file": "source/_posts/diffusion/生成模型笔记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -255,53 +255,53 @@
       "bases:新建数据库": false
     }
   },
-  "active": "b7a49801257653b2",
+  "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
-    "source/_posts/experience/account/1_appleid.md",
-    "db.json",
-    "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/8_rcnn/index.html",
-    "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/7_ssd/index.html",
-    "public/2024/08/13/deeplearning/code/pytorch/12_computer_vision/6_object_detect_dataset/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/4_anchor_box/index.html",
-    "public/2024/08/13/deeplearning/code/pytorch/12_computer_vision/5_multiscale_object_detect/index.html",
-    "public/2024/08/10/deeplearning/code/pytorch/11_computing_performance/6_multi_GPU_simple/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/3_object_detection/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/2_finetune/index.html",
-    "public/2024/08/11/deeplearning/code/pytorch/12_computer_vision/1_image_augmentation/index.html",
+    "themes/yilia/source/img/job/aigc/diffusion/controlnet.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 275894.crdownload",
+    "source/_posts/LLM/3_agent/2_构建智能体.md",
+    "source/_posts/datastruct/5_tree/4_Hafmantree.md",
+    "source/_posts/datastruct/1_extract/1_基础.md",
+    "source/_posts/datastruct/2_linearlist/1_linearlist.md",
+    "source/_posts/LLM/3_agent/1_智能体与语言模型.md",
+    "source/_posts/deeplearning/code/pytorch/9_attention/7_transformer.md",
+    "source/_posts/deeplearning/code/pytorch/8_moden_rnn/2_LSTM.md",
+    "source/_posts/deeplearning/code/pytorch/8_moden_rnn/2_LSTM_files/2_LSTM_9_1.svg",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
+    "source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/1_cov.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/2_picture_cov.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/3_padding_stride.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/4_mult_channel.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/5_pooling.md",
+    "source/_posts/deeplearning/code/pytorch/5_convolution/6_LeNet.md",
+    "source/_posts/deeplearning/code/pytorch/7_rnn/2_textprecess.md",
+    "source/_posts/deeplearning/code/pytorch/7_rnn/3_lmdataset.md",
+    "source/_posts/deeplearning/code/pytorch/7_rnn/4_rnn.md",
+    "source/_posts/deeplearning/code/pytorch/7_rnn/5_rnn_realize.md",
+    "themes/yilia/source/img/llm/rnn.png",
+    "themes/yilia/source/img/llm/未确认 81052.crdownload",
+    "themes/yilia/source/img/llm/nlp.png",
+    "themes/yilia/source/img/llm/未确认 106469.crdownload",
+    "themes/yilia/source/img/llm/markove.png",
+    "themes/yilia/source/img/llm/未确认 967468.crdownload",
+    "themes/yilia/source/img/llm/agenthistory.png",
+    "themes/yilia/source/img/llm/未确认 117923.crdownload",
+    "themes/yilia/source/img/llm/shrdlu.png",
+    "themes/yilia/source/img/llm/未确认 588450.crdownload",
+    "source/_posts/LLM/2_RAG/2_数据准备.md",
+    "source/_posts/LLM/2_RAG/1_RAG.md",
+    "source/_posts/LLM/2_RAG/4_检索优化.md",
+    "source/_posts/LLM/2_RAG/5_生成集成.md",
+    "themes/yilia/source/img/llm/agent_evo.png",
+    "themes/yilia/source/img/llm/未确认 186116.crdownload",
+    "node_modules/markdown-it-deflist/dist/markdown-it-deflist.min.js",
+    "node_modules/markdown-it-deflist/dist/markdown-it-deflist.js",
+    "node_modules/markdown-it-deflist/dist",
+    "themes/yilia/source/img/llm/agentloop.png",
+    "source/_posts/linux/terminal.md",
+    "source/_posts/linux/tmux.md",
     "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_31_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_25_1.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer/1.jpg",
-    "public/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_8_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/6_self_attention_files/6_self_attention_12_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/6_self_attention/1.png",
-    "public/img/deeplearning/code/pytorch/9_attention/5_multihead/1.png",
-    "public/img/deeplearning/code/pytorch/9_attention/4_bahdanau_attention_files/4_bahdanau_attention_9_0.svg",
-    "public/2025/09/01/paper/3DGS/CG/camera_transformation.md",
-    "node_modules/markdown-it-emoji/README.md",
-    "node_modules/markdown-it-mark/README.md",
-    "node_modules/mdurl/README.md",
-    "node_modules/mathxyjax3/README.md",
-    "node_modules/mathxyjax3/LICENSE.md",
-    "node_modules/markdown-it-attrs/README.md",
-    "node_modules/type-fest/readme.md",
-    "source/_posts/experience/network/1_autologin.md",
-    "source/_posts/experience/install/cuda.md",
-    "source/_posts/experience/install/conda.md",
-    "source/_posts/experience/install/Milvus.md",
-    "source/_posts/experience/install/miniconda.md",
-    "source/_posts/experience/keyboard/keymap.md",
-    "source/_posts/experience/obsidian/obsidian_hexo_codelearning.md",
-    "source/_posts/experience/obsidian/obsidian_hexo.md",
-    "source/_posts/experience/obsidian/Obsidian.md",
-    "source/_posts/experience/obsidian/Syncthing.md",
-    "source/_posts/experience/obsidian/excalidraw.md",
-    "source/_posts/experience/pycharm/link_server.md",
-    "source/_posts/experience/vscode/autocomplete.md",
-    "source/_posts/experience/vscode/code_folding.md",
-    "source/_posts/experience/vscode/ctrl_roll.md",
-    "source/_posts/experience/vscode/update.md",
-    "source/_posts/experience/vscode/shortcut_key.md"
+    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg"
   ]
 }
