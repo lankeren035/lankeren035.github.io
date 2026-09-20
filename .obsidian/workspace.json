@@ -257,6 +257,8 @@
   },
   "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
+    "themes/yilia/source/img/job/aigc/diffusion/controlnet2.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 171577.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/controlnet.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 275894.crdownload",
     "source/_posts/LLM/3_agent/2_构建智能体.md",
@@ -297,11 +299,9 @@
     "themes/yilia/source/img/llm/未确认 186116.crdownload",
     "node_modules/markdown-it-deflist/dist/markdown-it-deflist.min.js",
     "node_modules/markdown-it-deflist/dist/markdown-it-deflist.js",
-    "node_modules/markdown-it-deflist/dist",
     "themes/yilia/source/img/llm/agentloop.png",
     "source/_posts/linux/terminal.md",
     "source/_posts/linux/tmux.md",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg",
-    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_35_0.svg"
+    "public/img/deeplearning/code/pytorch/9_attention/7_transformer_files/7_transformer_37_0.svg"
   ]
 }
