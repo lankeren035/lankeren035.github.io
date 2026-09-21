@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/diffusion/生成模型笔记.md",
+                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "生成模型笔记"
+              "title": "2_构建智能体"
             }
           },
           {
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/diffusion/生成模型笔记.md",
+                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/diffusion/生成模型笔记.md",
+                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -257,6 +257,12 @@
   },
   "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
+    "source/_posts/diffusion/生成模型笔记.md",
+    "source/_posts/diffusion/deeplearning.md",
+    "themes/yilia/source/img/job/aigc/diffusion/lora.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 124756.crdownload",
+    "themes/yilia/source/img/job/aigc/diffusion/dreambooth.png",
+    "themes/yilia/source/img/job/aigc/diffusion/未确认 12381.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/ipadapter.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 986565.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/t2iadapter.png",
@@ -291,17 +297,11 @@
     "themes/yilia/source/img/llm/未确认 106469.crdownload",
     "themes/yilia/source/img/llm/markove.png",
     "themes/yilia/source/img/llm/未确认 967468.crdownload",
-    "themes/yilia/source/img/llm/agenthistory.png",
     "themes/yilia/source/img/llm/未确认 117923.crdownload",
-    "themes/yilia/source/img/llm/shrdlu.png",
-    "themes/yilia/source/img/llm/未确认 588450.crdownload",
     "source/_posts/LLM/2_RAG/2_数据准备.md",
     "source/_posts/LLM/2_RAG/1_RAG.md",
     "source/_posts/LLM/2_RAG/4_检索优化.md",
     "source/_posts/LLM/2_RAG/5_生成集成.md",
-    "themes/yilia/source/img/llm/agent_evo.png",
-    "themes/yilia/source/img/llm/未确认 186116.crdownload",
-    "source/_posts/linux/terminal.md",
-    "source/_posts/linux/tmux.md"
+    "source/_posts/linux/terminal.md"
   ]
 }
