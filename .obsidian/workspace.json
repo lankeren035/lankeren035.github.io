@@ -6,7 +6,7 @@
       {
         "id": "d17a55ba7208741d",
         "type": "tabs",
-        "dimension": 72.00647249190939,
+        "dimension": 64.52476572958501,
         "children": [
           {
             "id": "994a2d60da507c08",
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
+                "file": "source/_posts/algorithm/LeetCode hot100.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2_构建智能体"
+              "title": "LeetCode hot100"
             }
           },
           {
@@ -70,7 +70,7 @@
       {
         "id": "df429ce04891fa80",
         "type": "tabs",
-        "dimension": 27.993527508090615,
+        "dimension": 35.475234270414994,
         "children": [
           {
             "id": "d5b24a5a48c7987e",
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
+                "file": "source/_posts/algorithm/LeetCode hot100.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -146,7 +146,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 264.8333435058594
+    "width": 218.16668701171875
   },
   "right": {
     "id": "a099871a45d90968",
@@ -162,7 +162,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/LLM/3_agent/2_构建智能体.md",
+                "file": "source/_posts/LLM/2_RAG/4_检索优化.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -257,8 +257,37 @@
   },
   "active": "bfa4f49e4ee742de",
   "lastOpenFiles": [
-    "source/_posts/diffusion/生成模型笔记.md",
     "source/_posts/diffusion/deeplearning.md",
+    "source/_posts/algorithm/LeetCode hot100.md",
+    "source/_posts/diffusion/生成模型笔记.md",
+    "1111test.md",
+    "source/_posts/algorithm/1_base/6_double_pointer.md",
+    "source/_posts/algorithm/1_base/5_prefix.md",
+    "source/_posts/algorithm/1_base/4_high_precision.md",
+    "source/_posts/algorithm/1_base/3_dichotomy.md",
+    "source/_posts/algorithm/1_base/2_mergesort.md",
+    "source/_posts/algorithm/1_base/1_qsort.md",
+    "source/_posts/LLM/3_agent/1_智能体与语言模型.md",
+    "source/_posts/experience/obsidian/diary.md",
+    "source/_posts/LLM/2_RAG/project/5_代码实现_工具层.md",
+    "source/_posts/LLM/2_RAG/project/4_代码实现_RAG Pipeline.md",
+    "source/_posts/LLM/2_RAG/project/3_代码实现_检索模块.md",
+    "source/_posts/LLM/2_RAG/project/2_代码实现_文档入库.md",
+    "source/_posts/LLM/2_RAG/project/1_项目设计.md",
+    "source/_posts/LLM/2_RAG/project/0_环境配置.md",
+    "source/_posts/LLM/2_RAG/1_RAG.md",
+    "source/_posts/LLM/2_RAG/8_RGA项目实战.md",
+    "source/_posts/LLM/2_RAG/project",
+    "source/_posts/LLM/2_RAG/未命名.md",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
+    "source/_posts/LLM/2_RAG/7_高级RAG架构.md",
+    "source/_posts/LLM/2_RAG/6_RAG系统评估.md",
+    "source/_posts/LLM/2_RAG/5_生成集成.md",
+    "source/_posts/LLM/2_RAG/4_检索优化.md",
+    "themes/yilia/source/img/llm/cookrag_graph.png",
+    "themes/yilia/source/img/llm/agent.png",
+    "themes/yilia/source/img/llm/helloagents_workflow.png",
+    "themes/yilia/source/img/llm/未确认 623600.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/lora.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 124756.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/dreambooth.png",
@@ -271,37 +300,8 @@
     "themes/yilia/source/img/job/aigc/diffusion/未确认 171577.crdownload",
     "themes/yilia/source/img/job/aigc/diffusion/controlnet.png",
     "themes/yilia/source/img/job/aigc/diffusion/未确认 275894.crdownload",
-    "source/_posts/LLM/3_agent/2_构建智能体.md",
-    "source/_posts/datastruct/5_tree/4_Hafmantree.md",
-    "source/_posts/datastruct/1_extract/1_基础.md",
-    "source/_posts/datastruct/2_linearlist/1_linearlist.md",
-    "source/_posts/LLM/3_agent/1_智能体与语言模型.md",
-    "source/_posts/deeplearning/code/pytorch/9_attention/7_transformer.md",
-    "source/_posts/deeplearning/code/pytorch/8_moden_rnn/2_LSTM.md",
     "source/_posts/deeplearning/code/pytorch/8_moden_rnn/2_LSTM_files/2_LSTM_9_1.svg",
-    "source/_posts/LLM/2_RAG/3_索引构建.md",
-    "source/_posts/deeplearning/code/pytorch/7_rnn/1_seqmodel.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/1_cov.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/2_picture_cov.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/3_padding_stride.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/4_mult_channel.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/5_pooling.md",
-    "source/_posts/deeplearning/code/pytorch/5_convolution/6_LeNet.md",
-    "source/_posts/deeplearning/code/pytorch/7_rnn/2_textprecess.md",
-    "source/_posts/deeplearning/code/pytorch/7_rnn/3_lmdataset.md",
-    "source/_posts/deeplearning/code/pytorch/7_rnn/4_rnn.md",
-    "source/_posts/deeplearning/code/pytorch/7_rnn/5_rnn_realize.md",
-    "themes/yilia/source/img/llm/rnn.png",
     "themes/yilia/source/img/llm/未确认 81052.crdownload",
-    "themes/yilia/source/img/llm/nlp.png",
-    "themes/yilia/source/img/llm/未确认 106469.crdownload",
-    "themes/yilia/source/img/llm/markove.png",
-    "themes/yilia/source/img/llm/未确认 967468.crdownload",
-    "themes/yilia/source/img/llm/未确认 117923.crdownload",
-    "source/_posts/LLM/2_RAG/2_数据准备.md",
-    "source/_posts/LLM/2_RAG/1_RAG.md",
-    "source/_posts/LLM/2_RAG/4_检索优化.md",
-    "source/_posts/LLM/2_RAG/5_生成集成.md",
-    "source/_posts/linux/terminal.md"
+    "themes/yilia/source/img/llm/未确认 106469.crdownload"
   ]
 }

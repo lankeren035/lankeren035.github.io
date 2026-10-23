@@ -1,3 +1,18 @@
+---
+title: title
+date: 2026-09-15
+tags:
+  - 其他
+categories:
+  - 其他
+comment: true
+toc: true
+published: true
+permalink: diffusion
+hexo-path:
+---
+#
+<!--more-->
 ## 1. Attention
 ### 1.1 单头注意力机制
 $$softmax(\frac{QK^T}{\sqrt{d}})V$$
