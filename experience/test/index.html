@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lankeren035.github.io">
-  <title>Milvus安装 | Hexo</title>
+  <title>title | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="Milvus安装">
+<meta property="og:title" content="title">
 <meta property="og:url" content="https://lankeren035.github.io/experience/test/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-09-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-16T04:38:21.457Z">
+<meta property="article:published_time" content="2023-12-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-11T03:53:26.190Z">
 <meta property="article:author" content="ke">
-<meta property="article:tag" content="经验">
+<meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -159,20 +159,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-experience/install/Milvus" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-experience/obsidian/diary" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Milvus安装
+      title
     </h1>
   
 
         
         <a href="/experience/test/" class="archive-article-date">
-  	<time datetime="2026-09-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-09-14</time>
+  	<time datetime="2023-12-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-12</time>
 </a>
         
       </header>
@@ -181,109 +181,27 @@
       
         <h1></h1>
 <span id="more"></span>
-<h1></h1>
-<!--more-->
-<ol>
-<li>
-<p><strong>问题现象</strong></p>
-<ul>
-<li>
-<p><code>docker compose up -d</code> 显示 <code>milvus-standalone</code> 已启动，但很快从 <code>docker ps</code> 中消失。</p>
-</li>
-<li>
-<p><code>docker ps -a</code> 显示：</p>
-  <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus-standalone   Exited (134)</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>说明 Milvus 启动后异常退出。</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>查看 Milvus 日志</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs milvus-standalone</span><br></pre></td></tr></table></figure>
-<p>关键输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init with etcd failed</span><br><span class="line">error=&quot;context deadline exceeded&quot;</span><br><span class="line"></span><br><span class="line">panic: failed to create etcd client: context deadline exceeded</span><br></pre></td></tr></table></figure>
-<p>说明根因是：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Milvus → etcd:2379 连接超时</span><br></pre></td></tr></table></figure>
-<p>不是 Milvus 本身启动参数问题。</p>
-</li>
-<li>
-<p><strong>排除 OOM</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker inspect milvus-standalone \</span><br><span class="line">  --format <span class="string">&#x27;OOM=&#123;&#123;.State.OOMKilled&#125;&#125; Exit=&#123;&#123;.State.ExitCode&#125;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OOM=false Exit=134</span><br></pre></td></tr></table></figure>
-<p>说明不是内存不足。</p>
-</li>
-<li>
-<p><strong>验证 etcd 自身是否正常</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> milvus-etcd \</span><br><span class="line">  etcdctl --endpoints=http://127.0.0.1:2379 endpoint health</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:2379 is healthy</span><br></pre></td></tr></table></figure>
-<p>说明：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etcd 服务本身正常</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>验证 Docker DNS</strong><br>
-从同一个 <code>milvus</code> 网络启动临时容器：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> \</span><br><span class="line">  --network milvus \</span><br><span class="line">  --entrypoint /bin/sh \</span><br><span class="line">  milvusdb/milvus:v2.5.14 \</span><br><span class="line">  -c <span class="string">&#x27;getent hosts etcd&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">172.18.0.3 etcd</span><br></pre></td></tr></table></figure>
-<p>说明：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Docker DNS 正常</span><br><span class="line">etcd 名称可以正确解析</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>验证容器间 TCP 通信</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">connect to 172.18.0.3:2379 failed</span><br><span class="line">Connection timed out</span><br></pre></td></tr></table></figure>
-<p>MinIO 同样：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minio:9000 → timeout</span><br></pre></td></tr></table></figure>
-<p>所以可以确定：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DNS 正常</span><br><span class="line">服务正常</span><br><span class="line">但 Docker 容器之间的网络转发被阻断</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>检查 Docker 网络</strong></p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect milvus</span><br></pre></td></tr></table></figure>
-<p>得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subnet: 172.18.0.0/16</span><br><span class="line">minio: 172.18.0.2</span><br><span class="line">etcd:  172.18.0.3</span><br></pre></td></tr></table></figure>
-<p>网络配置本身正常。</p>
-</li>
-<li>
-<p><strong>检查 iptables</strong><br>
-普通 <code>iptables</code>：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -S FORWARD</span><br></pre></td></tr></table></figure>
-<p>显示 <code>ACCEPT</code>，但同时提示：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-legacy tables present</span><br></pre></td></tr></table></figure>
-<p>因此继续检查：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -S FORWARD</span><br></pre></td></tr></table></figure>
-<p>得到：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-P FORWARD DROP</span><br></pre></td></tr></table></figure>
-<p>并且现有规则只放行：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker0</span><br></pre></td></tr></table></figure>
-<p>没有放行自定义 Docker bridge：</p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">milvus → 172.18.0.0/16</span><br></pre></td></tr></table></figure>
-<p><strong>最终根因：</strong></p>
- <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">系统同时存在 iptables-nft 和 iptables-legacy。</span><br><span class="line"></span><br><span class="line">iptables-legacy 的 FORWARD 默认策略是 DROP，</span><br><span class="line">并且只放行 docker0，</span><br><span class="line">导致 milvus 自定义 bridge 网络中的容器互相访问被丢弃。</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p><strong>解决方法</strong><br>
-临时放行 <code>milvus</code> 网络内部通信：</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s 172.18.0.0/16 \</span><br><span class="line">  -d 172.18.0.0/16 \</span><br><span class="line">  -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>或者</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    SUBNET=$(docker network inspect milvus \</span><br><span class="line">  --format <span class="string">&#x27;&#123;&#123;(index .IPAM.Config 0).Subnet&#125;&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">sudo iptables-legacy -C FORWARD \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT 2&gt;/dev/null || \</span><br><span class="line">sudo iptables-legacy -I FORWARD 1 \</span><br><span class="line">  -s <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -d <span class="string">&quot;<span class="variable">$SUBNET</span>&quot;</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
-<pre><code>再测试：
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl http://etcd:2379/health</span><br></pre></td></tr></table></figure>
-
-成功返回，MinIO 也恢复访问。
-
-最后启动 Milvus：
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start milvus-standalone</span><br></pre></td></tr></table></figure>
-</code></pre>
+<h1>Obsidian 每日学习日志完整流程</h1>
+<h2 id="一、整体思路">一、整体思路</h2>
+<p>用 Obsidian 自带的「每日笔记」插件一天生成一篇日志，模板按小时划分时段，每个时段包含日常记录和学习记录两部分，学习记录用内联字段标注主题、知识点，用可勾选任务标注掌握程度。再用 Dataview 插件从所有日志中提取数据，生成待复习清单、知识点汇总、按日期浏览等查询页面，实现记录与复习的闭环。</p>
+<h2 id="二、插件安装与设置">二、插件安装与设置</h2>
+<p>需要两个插件。「每日笔记」是 Obsidian 核心插件，在设置→核心插件中开启即可，它负责一键创建当天日志、自动命名、套用模板。进入其选项页，日期格式设为 <code>YYYY-MM-DD 时间日志</code>，新文件位置选 <code>record/日志</code>，模板文件指向你存放模板的路径。如果希望文件自动按年月归档到子文件夹（如 <code>record/日志/2026/10/</code>），核心插件做不到，需改用第三方插件 Periodic Notes，在其 Daily Notes 设置里把 Folder 填为 <code>record/日志/&#123;&#123;date:YYYY&#125;&#125;/&#123;&#123;date:MM&#125;&#125;</code> 即可，其余配置相同。</p>
+<p>Dataview 是第三方插件，在社区插件市场搜索安装并启用。进入设置，开启 Enable Queries 和 Enable JavaScript Queries 两项，前者支持普通表格 / 列表查询，后者支持用 JS 代码做更复杂的按块提取。Dataview 的 <code>FROM &quot;record/日志&quot;</code> 会递归包含该文件夹下所有子文件夹，所以无论日志是否按年月分目录，查询都不用改路径。</p>
+<h2 id="三、模板设计">三、模板设计</h2>
+<p>在库中新建 <code>Templates</code> 文件夹，创建 <code>每日时段日志.md</code> 作为模板。模板顶部是 YAML 元数据，用 <code>---</code> 包裹，包含 date、weekday 和 tags 三个字段，日期用 Daily Notes 支持的变量 <code>&#123;&#123;date:YYYY-MM-DD&#125;&#125;</code>，注意不要用 Templater 的 <code>&lt;% tp.date.now() %&gt;</code> 语法，每日笔记插件不会执行它。正文从 07:00 到 23:00，每个小时一个二级标题，下面分两个三级标题：「🌱 日常」写当时的生活关键词或一句话，「📚 学习」用项目符号列出 <code>主题::</code>、<code>知识点::</code> 两个内联字段，以及掌握程度的三个可勾选任务（了解、熟悉、掌握），任务下方留空行写大段学习内容。每个小时块结尾用 <code>---</code> 分割。模板底部是今日总复盘区，包含今日一句话、学到了什么、踩坑、待复习任务列表、明天计划、心情状态。内联字段 <code>主题::</code> <code>知识点::</code> 是 Dataview 能识别的关键，写在项目符号里即可，不需要表格。掌握程度用 <code>- [ ]</code> 原生任务框，鼠标直接点击勾选，三选一只勾一个。</p>
+<h2 id="四、日常使用">四、日常使用</h2>
+<p>每天打开 Obsidian，按 <code>Ctrl+P</code> 调出命令面板，执行「每日笔记：打开今日笔记」（Periodic Notes 则是 Open daily note），插件会自动在指定文件夹创建当天文件、套用模板、自动命名。在对应时段的「日常」里写生活关键词，在「学习」里填主题和知识点，勾选掌握程度，下方写几百字的学习总结、踩坑记录、理解推导。一天结束后在底部复盘区用自己的话复述当天学到的内容，把需要回顾的点写进「待复习」的任务框里。整个写作过程就是普通 Markdown，编辑器区域不受任何卡片限制，可随意粘贴图片、代码块、长段落。</p>
+<h2 id="五、查询汇总">五、查询汇总</h2>
+<p>新建一篇 <code>汇总.md</code> 放在 <code>record/日志</code> 下，把以下查询分别放入代码块，代码块语言标记必须写 <code>dataviewjs</code>（不能只写 dataview，否则 JS 代码会报解析错误），切换到阅读视图自动渲染。</p>
+<p>所有日记按年月日排列的总览，读取每篇顶部的「今日一句话」作为摘要，日期列可点击跳转：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const rows = [];</span><br><span class="line">for (const page of dv.pages(&#x27;&quot;record/日志&quot;&#x27;)) &#123;</span><br><span class="line">  const content = await dv.io.load(page.file.path);</span><br><span class="line">  if (!content) continue;</span><br><span class="line">  let summary = &quot;&quot;;</span><br><span class="line">  const m1 = content.match(/今日一句话：[ \t]*([^\n]+)/);</span><br><span class="line">  if (m1 &amp;&amp; m1[1].trim()) summary = m1[1].trim();</span><br><span class="line">  else &#123;</span><br><span class="line">    const m2 = content.match(/今日一句话：\s*\n\s*([^\n&gt;]+)/);</span><br><span class="line">    if (m2) summary = m2[1].trim();</span><br><span class="line">  &#125;</span><br><span class="line">  const dm = page.file.name.match(/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/);</span><br><span class="line">  if (!dm) continue;</span><br><span class="line">  rows.push(&#123; year: dm[1], month: dm[2], date: dm[0], link: page.file.link, summary: summary || &quot;（未写）&quot; &#125;);</span><br><span class="line">&#125;</span><br><span class="line">rows.sort((a, b) =&gt; b.date.localeCompare(a.date));</span><br><span class="line">dv.table([&quot;年&quot;, &quot;月&quot;, &quot;日期&quot;, &quot;今日一句话&quot;], rows.map(r =&gt; [r.year, r.month, r.link, r.summary]));</span><br></pre></td></tr></table></figure>
+<p>所有待复习知识点，提取每篇底部「🔁 待复习」下未勾选的任务：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const rows = [];</span><br><span class="line">for (const page of dv.pages(&#x27;&quot;record/日志&quot;&#x27;)) &#123;</span><br><span class="line">  const content = await dv.io.load(page.file.path);</span><br><span class="line">  if (!content) continue;</span><br><span class="line">  const sec = content.match(/##\s*🔁\s*待复习([\s\S]*?)(?=\n##\s|\n#\s|$)/);</span><br><span class="line">  if (!sec) continue;</span><br><span class="line">  for (const m of sec[1].matchAll(/-\s*\[\s\]\s*(.+)/g)) &#123;</span><br><span class="line">    const text = m[1].trim();</span><br><span class="line">    if (text) rows.push([page.file.link, text]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">rows.sort((a, b) =&gt; b[0].path.localeCompare(a[0].path));</span><br><span class="line">if (rows.length === 0) dv.paragraph(&quot;✅ 没有待复习项&quot;);</span><br><span class="line">else dv.table([&quot;日期&quot;, &quot;待复习内容&quot;], rows);</span><br></pre></td></tr></table></figure>
+<p>所有「了解」级别的知识点，按小时块分割文本，检测学习区是否勾选了了解，输出日期、时段（可跳转到文件内对应标题）、知识点三列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const rows = [];</span><br><span class="line">for (const page of dv.pages(&#x27;&quot;record/日志&quot;&#x27;)) &#123;</span><br><span class="line">  const content = await dv.io.load(page.file.path);</span><br><span class="line">  if (!content) continue;</span><br><span class="line">  const sections = content.split(/^## (\d&#123;2&#125;:\d&#123;2&#125;)\s*$/m);</span><br><span class="line">  for (let i = 1; i &lt; sections.length; i += 2) &#123;</span><br><span class="line">    const hour = sections[i];</span><br><span class="line">    const body = sections[i + 1] || &quot;&quot;;</span><br><span class="line">    if (!body.includes(&quot;### 📚 学习&quot;)) continue;</span><br><span class="line">    let kp = body.match(/知识点::\s*([^\n]+)/);</span><br><span class="line">    if (!kp) kp = body.match(/主题::\s*([^\n]+)/);</span><br><span class="line">    const knowledge = kp ? kp[1].trim() : &quot;（未填知识点）&quot;;</span><br><span class="line">    if (/-\s*\[[xX]\]\s*了解/.test(body)) &#123;</span><br><span class="line">      rows.push(&#123; date: page.file.name, dateLink: page.file.link, hour, hourLink: dv.fileLink(page.file.path + &quot;#&quot; + hour, false, hour), knowledge &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">rows.sort((a, b) =&gt; a.date !== b.date ? b.date.localeCompare(a.date) : a.hour.localeCompare(b.hour));</span><br><span class="line">dv.table([&quot;日期&quot;, &quot;时段&quot;, &quot;知识点&quot;], rows.map(r =&gt; [r.dateLink, r.hourLink, r.knowledge]));</span><br></pre></td></tr></table></figure>
+<p>昨天的知识点，分待复习和了解两个查询，核心是用 <code>new Date()</code> 计算昨天日期字符串，再用 <code>page.file.name.includes()</code> 筛选文件，其余提取逻辑与上面相同。最近五天则是生成最近五天的日期数组循环匹配，最后把待复习和了解分两个表格输出。这两个查询的完整代码较长，核心模式不变，需要时把日期筛选条件替换进去即可。</p>
+<h2 id="六、注意事项">六、注意事项</h2>
+<p>模板顶部的 YAML 必须从文件第一行开始，前面不能有空行或脚本，否则 Obsidian 不识别为元数据。标签在 YAML 里用列表写法且不带 <code>#</code> 号。Daily Notes 只认 <code>&#123;&#123;date&#125;&#125;</code> 变量，不要混入 Templater 语法。DataviewJS 读取文件内容用 <code>await dv.io.load(page.file.path)</code>，不要用 <code>page.file.content</code>，后者在多数版本里为 undefined 会报错。时段超链接通过 <code>dv.fileLink(path + &quot;#&quot; + hour)</code> 构造，可直接跳转到文件内对应小时标题。掌握程度的勾选状态通过正则 <code>/-\s*\[[xX]\]\s*了解/</code> 检测，换成熟悉或掌握只需改关键词。</p>
 <link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
@@ -318,7 +236,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其他</a>
         		</li>
       		
 		</ul>
@@ -330,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/经验//" class="article-tag-list-link color3">经验</a>
+        			<a href="/categories/其他//" class="article-tag-list-link color3">其他</a>
         		</li>
       		
 		</ul>
@@ -399,18 +317,18 @@
   
 <nav id="article-nav">
   
-    <a href="/llm/2_agent/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/12/12/experience/app/lrc_to_smi/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          1_初识智能体
+          win10中windows media player自动同步歌词
         
       </div>
     </a>
   
   
-    <a href="/llm/2_RAG/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">4_检索优化</div>
+    <a href="/3dgs/4d/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">title</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -437,7 +355,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Obsidian 每日学习日志完整流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%95%B4%E4%BD%93%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.</span> <span class="toc-text">一、整体思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.2.</span> <span class="toc-text">二、插件安装与设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A8%A1%E6%9D%BF%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.3.</span> <span class="toc-text">三、模板设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">四、日常使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E8%AF%A2%E6%B1%87%E6%80%BB"><span class="toc-number">2.5.</span> <span class="toc-text">五、查询汇总</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">2.6.</span> <span class="toc-text">六、注意事项</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -549,27 +467,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,7 +487,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,15 +515,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,11 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,15 +563,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,19 +587,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,11 +607,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,27 +647,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,7 +655,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,15 +671,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,6 +727,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
@@ -825,14 +751,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
              
@@ -842,6 +760,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,10 +788,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

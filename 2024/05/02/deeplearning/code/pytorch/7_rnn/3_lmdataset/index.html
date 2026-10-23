@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://lankeren035.github.io/2024/05/theme/yilia/source/img/deeplearning/code/pytorch/7_rnn/3_lmdataset/1.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/deeplearning/code/pytorch/7_rnn/3_lmdataset/1.png">
 <meta property="article:published_time" content="2024-05-02T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-04-08T09:36:56.000Z">
+<meta property="article:modified_time" content="2026-09-17T03:39:45.778Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="pytorch">
@@ -190,9 +190,9 @@
 <h1>3 语言模型和数据集</h1>
 <ul>
 <li>假设长度为T的文本序列中的词元依次为
-    <span id="mjx-18db5958">
+    <span id="mjx-b8e8c9c8">
       <style>
-      #mjx-18db5958{
+      #mjx-b8e8c9c8{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -351,9 +351,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="2.282ex" height="1.339ex" role="img" focusable="false" viewBox="0 -442 1008.6 592" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,-150) scale(0.707)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>1</mn></msub></math></mjx-assistive-mml></mjx-container>
     </span>
   ,
-    <span id="mjx-e11ded48">
+    <span id="mjx-4f60fab8">
       <style>
-      #mjx-e11ded48{
+      #mjx-4f60fab8{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -512,9 +512,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="2.282ex" height="1.339ex" role="img" focusable="false" viewBox="0 -442 1008.6 592" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mn" transform="translate(605,-150) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container>
     </span>
   ,...,
-    <span id="mjx-da4b88e">
+    <span id="mjx-0b23f89">
       <style>
-      #mjx-da4b88e{
+      #mjx-0b23f89{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -673,9 +673,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="2.608ex" height="1.339ex" role="img" focusable="false" viewBox="0 -442 1152.8 592" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mi" transform="translate(605,-150) scale(0.707)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>x</mi><mi>T</mi></msub></math></mjx-assistive-mml></mjx-container>
     </span>
   。
-    <span id="mjx-cf0ba958">
+    <span id="mjx-01acde6">
       <style>
-      #mjx-cf0ba958{
+      #mjx-01acde6{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -836,9 +836,9 @@ g[data-mml-node="xypic"] path {
   可以被认为是文本序列在时间步t处的观测或标签。语言模型（language model）的目标是估计序列的联合概率：</li>
 </ul>
 
-    <span id="mjx-996e7dd8">
+    <span id="mjx-6e553208">
       <style>
-      #mjx-996e7dd8{
+      #mjx-6e553208{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -998,9 +998,9 @@ g[data-mml-node="xypic"] path {
     </span>
   <ul>
 <li>只需要一次抽取一个词元
-    <span id="mjx-dff1767">
+    <span id="mjx-a4b24f58">
       <style>
-      #mjx-dff1767{
+      #mjx-a4b24f58{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1165,9 +1165,9 @@ g[data-mml-node="xypic"] path {
 <li>我们面对的问题是如何对一个文档，甚至是一个词元序列进行建模。</li>
 </ul>
 
-    <span id="mjx-658980d8">
+    <span id="mjx-47bd8a28">
       <style>
-      #mjx-658980d8{
+      #mjx-47bd8a28{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1329,9 +1329,9 @@ g[data-mml-node="xypic"] path {
 <li>例如，包含了四个单词的一个文本序列的概率是：</li>
 </ul>
 
-    <span id="mjx-e12c7468">
+    <span id="mjx-26882a9">
       <style>
-      #mjx-e12c7468{
+      #mjx-26882a9{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1492,9 +1492,9 @@ g[data-mml-node="xypic"] path {
   <ul>
 <li>为了训练语言模型，我们需要计算单词的概率，以及给定前面几个单词后出现某个单词的条件概率。这些概率本质上就是语言模型的参数。</li>
 <li>假设训练数据集是一个大型的文本语料库。训练数据集中词的概率可以根据给定词的相对词频来计算。例如，可以将估计值
-    <span id="mjx-b7814e08">
+    <span id="mjx-f33f9398">
       <style>
-      #mjx-b7814e08{
+      #mjx-f33f9398{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1655,9 +1655,9 @@ g[data-mml-node="xypic"] path {
   计算为任何以单词“deep”开头的句子的概率，或“deep”在数据集中的出现次数。接下来，我们可以尝试估计：</li>
 </ul>
 
-    <span id="mjx-2ed25538">
+    <span id="mjx-a46295e">
       <style>
-      #mjx-2ed25538{
+      #mjx-a46295e{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1817,9 +1817,9 @@ g[data-mml-node="xypic"] path {
     </span>
   <ul>
 <li>其中
-    <span id="mjx-85a10338">
+    <span id="mjx-1daac2e8">
       <style>
-      #mjx-85a10338{
+      #mjx-1daac2e8{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -1981,9 +1981,9 @@ g[data-mml-node="xypic"] path {
 <li>一种常见的策略是执行某种形式的拉普拉斯平滑（Laplace smoothing）：在所有计数中添加一个小常量。用n表示训练集中的单词总数，用m表示唯一单词的数量。此解决方案有助于处理单元素问题：</li>
 </ul>
 
-    <span id="mjx-5bb542b">
+    <span id="mjx-2ad1ceb8">
       <style>
-      #mjx-5bb542b{
+      #mjx-2ad1ceb8{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2143,9 +2143,9 @@ g[data-mml-node="xypic"] path {
     </span>
   <ul>
 <li>其中
-    <span id="mjx-e6ded378">
+    <span id="mjx-8149f738">
       <style>
-      #mjx-e6ded378{
+      #mjx-8149f738{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2304,9 +2304,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.919ex" height="1ex" role="img" focusable="false" viewBox="0 -431 406 442" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D716" d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi></math></mjx-assistive-mml></mjx-container>
     </span>
   是一个超参数，当
-    <span id="mjx-32e517c8">
+    <span id="mjx-0a340d2">
       <style>
-      #mjx-32e517c8{
+      #mjx-0a340d2{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2465,9 +2465,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="5.067ex" height="1.692ex" role="img" focusable="false" viewBox="0 -666 2239.6 748" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D716" d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z"></path></g><g data-mml-node="mo" transform="translate(683.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(1739.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi><mo>=</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container>
     </span>
   时，不应用平滑；当
-    <span id="mjx-5386ac8">
+    <span id="mjx-bff1d5a">
       <style>
-      #mjx-5386ac8{
+      #mjx-bff1d5a{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2626,9 +2626,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="0.919ex" height="1ex" role="img" focusable="false" viewBox="0 -431 406 442" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D716" d="M227 -11Q149 -11 95 41T40 174Q40 262 87 322Q121 367 173 396T287 430Q289 431 329 431H367Q382 426 382 411Q382 385 341 385H325H312Q191 385 154 277L150 265H327Q340 256 340 246Q340 228 320 219H138V217Q128 187 128 143Q128 77 160 52T231 26Q258 26 284 36T326 57T343 68Q350 68 354 58T358 39Q358 36 357 35Q354 31 337 21T289 0T227 -11Z"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi></math></mjx-assistive-mml></mjx-container>
     </span>
   接近正无穷时，
-    <span id="mjx-ba992c08">
+    <span id="mjx-24350c4">
       <style>
-      #mjx-ba992c08{
+      #mjx-24350c4{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2787,9 +2787,9 @@ g[data-mml-node="xypic"] path {
       <mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.753ex" height="2.943ex" role="img" focusable="false" viewBox="0 -1051 2101 1301" aria-hidden="true"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mover"><g data-mml-node="mi"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(486,257) translate(-250 0)"><path data-c="5E" d="M112 560L249 694L257 686Q387 562 387 560L361 531Q359 532 303 581L250 627L195 580Q182 569 169 557T148 538L140 532Q138 530 125 546L112 560Z"></path></g></g></g><g data-mml-node="mo" transform="translate(751,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1140,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(1712,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi>P</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container>
     </span>
   接近均匀分布 
-    <span id="mjx-b6184a68">
+    <span id="mjx-f6aba998">
       <style>
-      #mjx-b6184a68{
+      #mjx-f6aba998{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -2953,9 +2953,9 @@ g[data-mml-node="xypic"] path {
 <h2 id="3-2-马尔可夫模型与n元语法">3.2 马尔可夫模型与n元语法</h2>
 <ul>
 <li>如果
-    <span id="mjx-f986f2e8">
+    <span id="mjx-f1e8415">
       <style>
-      #mjx-f986f2e8{
+      #mjx-f1e8415{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -3116,9 +3116,9 @@ g[data-mml-node="xypic"] path {
   ,则序列上的分布满足一阶马尔可夫性质。阶数越高，对应的依赖关系就越长。这种性质推导出了许多可以应用于序列建模的近似公式：</li>
 </ul>
 
-    <span id="mjx-71978e18">
+    <span id="mjx-e0b03c4">
       <style>
-      #mjx-71978e18{
+      #mjx-e0b03c4{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -3306,9 +3306,9 @@ g[data-mml-node="xypic"] path {
 <li>将前几个单词作为例外消除后，剩余的所有单词大致遵循双对数坐标图上的一条直线。这意味着单词的频率满足齐普夫定律即第i个最常用单词的频率ni为：</li>
 </ul>
 
-    <span id="mjx-ff1dddd8">
+    <span id="mjx-2aeb9278">
       <style>
-      #mjx-ff1dddd8{
+      #mjx-2aeb9278{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -3470,9 +3470,9 @@ g[data-mml-node="xypic"] path {
 <li>等价于：</li>
 </ul>
 
-    <span id="mjx-fda400c8">
+    <span id="mjx-efaed6e8">
       <style>
-      #mjx-fda400c8{
+      #mjx-efaed6e8{
         display:contents;
         mjx-assistive-mml {
           user-select: text !important;
@@ -4006,27 +4006,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4034,7 +4026,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4050,15 +4054,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4078,11 +4082,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4098,15 +4102,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4122,19 +4126,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4146,11 +4146,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4170,27 +4186,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4198,7 +4194,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4206,15 +4210,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4262,6 +4266,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
@@ -4282,14 +4290,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
              
@@ -4299,6 +4299,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -4323,10 +4327,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">

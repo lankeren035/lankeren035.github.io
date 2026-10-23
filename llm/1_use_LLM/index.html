@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://lankeren035.github.io">
-  <title>3_搭建向量知识库 | Hexo</title>
+  <title>2_使用LLM API开发应用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="3_搭建向量知识库">
+<meta property="og:title" content="2_使用LLM API开发应用">
 <meta property="og:url" content="https://lankeren035.github.io/llm/1_use_LLM/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/llm/worembedding.png">
 <meta property="article:published_time" content="2026-08-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-01T14:28:52.500Z">
+<meta property="article:modified_time" content="2026-09-03T08:51:03.313Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="llm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/llm/worembedding.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -161,14 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LLM/1_useLLM/3_搭建向量知识库" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LLM/1_useLLM/2_使用LLM API开发应用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      3_搭建向量知识库
+      2_使用LLM API开发应用
     </h1>
   
 
@@ -182,150 +180,53 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1></h1>
-<h1></h1>
 <span id="more"></span>
-<h1>1. 向量及向量知识库</h1>
-<h2 id="1-1-词向量与向量">1.1 词向量与向量</h2>
-<p>词向量（word embedding）是一种以单词为单位将每个单词转化为实数向量的技术。这些实数向量可以被计算机更好地理解和处理。词向量背后的主要理念是相似或相关的对象在向量空间中的距离应该很近。
-<img src="https://cdn.jsdelivr.net/gh/lankeren035/lankeren035.github.io@source/themes/yilia/source/img/llm/worembedding.png" alt=""></p>
-<p>词向量实际上是将单词转化为固定的静态的向量，虽然可以在一定程度上捕捉并表达文本中的语义信息，但忽略了单词在不同语境中的意思会受到影响这一现实。因此在RAG应用中使用的向量技术一般为通用文本向量(Universal text embedding)，该技术可以对一定范围内任意长度的文本进行向量化，与词向量不同的是向量化的单位不再是单词而是输入的文本，输出的向量会捕捉更多的语义信息。</p>
-<p>在RAG（Retrieval Augmented Generation，检索增强生成）方面向量的优势主要有两点：</p>
+<h1>1. 基本概念</h1>
+<h2 id="1-1-Prompt">1.1 Prompt</h2>
 <ul>
-<li>向量比文字更适合检索。当我们在数据库检索时，如果数据库存储的是文字，主要通过检索关键词（词法搜索）等方法找到相对匹配的数据，匹配的程度取决于数据库中的文档中是否含有查询句中的关键词；而向量中包含了原文本的语义信息，可以通过计算问题与数据库中数据的点积、余弦距离、欧几里得距离等指标，直接获取问题与数据在语义层面上的相似度；</li>
-<li>向量比其它媒介的综合信息能力更强，当传统数据库存储文字、声音、图像、视频等多种媒介时，很难去将上述多种媒介构建起关联与跨模态的查询方法；但是向量却可以通过多种向量模型将多种数据映射成统一的向量形式。</li>
+<li>我们每一次访问大模型的输入为一个 Prompt，而大模型给我们的返回结果则被称为 Completion。</li>
 </ul>
-<p>在搭建 RAG 系统时，我们往往可以通过使用向量模型来构建向量，我们可以选择：</p>
+<h2 id="1-2-Temperature">1.2 Temperature</h2>
 <ul>
-<li>使用各个公司的 Embedding API；</li>
-<li>在本地使用向量模型将数据构建为向量。</li>
+<li>Temperature 一般取值在 0~1 之间，当取值较低接近 0 时，预测的随机性会较低，产生更保守、可预测的文本，不太可能生成意想不到或不寻常的词。当取值较高接近 1 时，预测的随机性会较高，所有词被选择的可能性更大，会产生更有创意、多样化的文本，更有可能生成不寻常或意想不到的词。</li>
+<li>对于不同的问题与应用场景，我们可能需要设置不同的 temperature。例如，在本教程搭建的个人知识库助手项目中，我们一般将 temperature 设置为 0，从而保证助手对知识库内容的稳定使用，规避错误内容、模型幻觉；在产品智能客服、科研论文写作等场景中，我们同样更需要稳定性而不是创造性；但在个性化 AI、创意营销文案生成等场景中，我们就更需要创意性，从而更倾向于将 temperature 设置为较高的值。</li>
 </ul>
-<h2 id="1-2-向量数据库">1.2 向量数据库</h2>
-<p>专门用于存储和检索向量数据（embedding）的数据库系统。它与传统的基于关系模型的数据库不同，它主要关注的是向量数据的特性和相似性。</p>
-<p>在向量数据库中，数据被表示为向量形式，每个向量代表一个数据项。这些向量可以是数字、文本、图像或其他类型的数据。向量数据库使用高效的索引和查询算法来加速向量数据的存储和检索过程。</p>
-<p>向量数据库中的数据以向量作为基本单位，对向量进行存储、处理及检索。向量数据库通过计算与目标向量的余弦距离、点积等获取与目标向量的相似度。当处理大量甚至海量的向量数据时，向量数据库索引和查询算法的效率明显高于传统数据库。</p>
+<h2 id="1-3-System-Prompt">1.3 System Prompt</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.trychroma.com/">Chroma</a>：是一个轻量级向量数据库，拥有丰富的功能和简单的 API，具有简单、易用、轻量的优点，但功能相对简单且不支持GPU加速，适合初学者使用。</li>
-<li><a target="_blank" rel="noopener" href="https://weaviate.io/">Weaviate</a>：是一个开源向量数据库。除了支持相似度搜索和最大边际相关性（MMR，Maximal Marginal Relevance）搜索外还可以支持结合多种搜索算法（基于词法搜索、向量搜索）的混合搜索，从而提高搜索结果的相关性和准确性。</li>
-<li><a target="_blank" rel="noopener" href="https://qdrant.tech/">Qdrant</a>：Qdrant使用 Rust 语言开发，有极高的检索效率和RPS（Requests Per Second），支持本地运行、部署在本地服务器及Qdrant云三种部署模式。且可以通过为页面内容和元数据制定不同的键来复用数据。</li>
+<li>你可以设置两种 Prompt：一种是 System Prompt，该种 Prompt 内容会在整个会话过程中持久地影响模型的回复，且相比于普通 Prompt 具有更高的重要性；另一种是 User Prompt，这更偏向于我们平时提到的 Prompt，即需要模型做出回复的输入。</li>
+<li>我们一般设置 System Prompt 来对模型进行一些初始化设定，例如，我们可以在 System Prompt 中给模型设定我们希望它具备的人设如一个个人知识库助手等。System Prompt 一般在一个会话中仅有一个。在通过 System Prompt 设定好模型的人设或是初始设置后，我们可以通过 User Prompt 给出模型需要遵循的指令。例如，当我们需要一个幽默风趣的个人知识库助手，并向这个助手提问我今天有什么事时，可以构造如下的 Prompt：</li>
 </ul>
-<h1>2. 使用Embedding API</h1>
-<p>GPT有封装好的接口，我们简单封装即可。目前GPT embedding mode有三种，性能如下所示：</p>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>每美元页数</th>
-<th><a target="_blank" rel="noopener" href="https://github.com/embeddings-benchmark/mteb">MTEB</a>得分</th>
-<th><a target="_blank" rel="noopener" href="https://github.com/project-miracl/miracl">MIRACL</a>得分</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>text-embedding-3-large</td>
-<td>9,615</td>
-<td>64.6</td>
-<td>54.9</td>
-</tr>
-<tr>
-<td>text-embedding-3-small</td>
-<td>62,500</td>
-<td>62.3</td>
-<td>44.0</td>
-</tr>
-<tr>
-<td>text-embedding-ada-002</td>
-<td>12,500</td>
-<td>61.0</td>
-<td>31.4</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>MTEB得分为embedding model分类、聚类、配对等八个任务的平均得分。</li>
-<li>MIRACL得分为embedding model在检索任务上的平均得分。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">openai_embedding</span>(<span class="params">text:<span class="built_in">str</span>, model:<span class="built_in">str</span>=<span class="literal">None</span></span>):</span><br><span class="line">	</span><br><span class="line">	client = OpenAI(</span><br><span class="line">		api_key = os.environ[<span class="string">&#x27;SILICONFLOW_API_KEY&#x27;</span>],</span><br><span class="line">		base_url = <span class="string">&#x27;https://api.siliconflow.cn/v1&#x27;</span></span><br><span class="line">	)</span><br><span class="line">	<span class="keyword">if</span> model == <span class="literal">None</span>:</span><br><span class="line">		model = <span class="string">&quot;BAAI/bge-m3&quot;</span></span><br><span class="line">	</span><br><span class="line">	response = client.embeddings.create(</span><br><span class="line">		<span class="built_in">input</span> = text,</span><br><span class="line">		model = model</span><br><span class="line">	)</span><br><span class="line">	<span class="keyword">return</span> response</span><br><span class="line">response = openai_embedding(text=<span class="string">&#x27;要生成 embedding 的输入文本，字符串形式。&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(response.model_dump_json(indent=<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;返回的embedding类型为：<span class="subst">&#123;response.<span class="built_in">object</span>&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;embedding长度为：<span class="subst">&#123;<span class="built_in">len</span>(response.data[<span class="number">0</span>].embedding)&#125;</span>&#x27;</span>) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;embedding（前10）为：<span class="subst">&#123;response.data[<span class="number">0</span>].embedding[:<span class="number">10</span>]&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;本次embedding model为：<span class="subst">&#123;response.model&#125;</span>&#x27;</span>) </span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;本次token使用情况为：<span class="subst">&#123;response.usage&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="API返回的数据为json格式，除object向量类型外还有存放数据的data、embedding-model-型号model以及本次-token-使用情况usage等数据，">API返回的数据为<code>json</code>格式，除<code>object</code>向量类型外还有存放数据的<code>data</code>、embedding model 型号<code>model</code>以及本次 token 使用情况<code>usage</code>等数据，</h2>
-<h1>3. 数据处理</h1>
-<p>为构建我们的本地知识库，我们需要对以多种类型存储的本地文档进行处理，读取本地文档并通过前文描述的 Embedding 方法将本地文档的内容转化为词向量来构建向量数据库。</p>
-<h2 id="3-1-源文档选取">3.1 源文档选取</h2>
-<ul>
-<li>应该包含pdf, txt 等多种形式的数据</li>
-</ul>
-<h2 id="3-2-数据读取">3.2 数据读取</h2>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;system prompt&quot;</span><span class="punctuation">:</span> <span class="string">&quot;你是一个幽默风趣的个人知识库助手，可以根据给定的知识库内容回答用户的提问，注意，你的回答风格应是幽默风趣的&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;user prompt&quot;</span><span class="punctuation">:</span> <span class="string">&quot;我今天有什么事务？&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h1>2. 使用LLM API</h1>
 <ol>
-<li>使用LangChain 的 PyMuPDFLoader 来读取知识库的 PDF 文件。PyMuPDFLoader 是 PDF 解析器中速度最快的一种，结果会包含 PDF 及其页面的详细元数据，并且每页返回一个文档。</li>
+<li>调用openai api</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_community.document_loaders <span class="keyword">import</span> PyMuPDFLoader</span><br><span class="line"></span><br><span class="line">loader = PyMuPDFLoader(</span><br><span class="line">	<span class="string">&quot;../data_base/knowledge_db/pumkin_book/pumpkin_book.pdf&quot;</span></span><br><span class="line">)</span><br><span class="line">pdf_pages = loader.load()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(pdf_pages)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;载入后的变量类型为：<span class="subst">&#123;<span class="built_in">type</span>(pdf_pages)&#125;</span>，&quot;</span>,  <span class="string">f&quot;该 PDF 一共包含 <span class="subst">&#123;<span class="built_in">len</span>(pdf_pages)&#125;</span> 页&quot;</span>)</span><br><span class="line">pdf_page = pdf_pages[<span class="number">1</span>] <span class="comment">#取一页</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;每一个元素的类型：<span class="subst">&#123;<span class="built_in">type</span>(pdf_page)&#125;</span>.&quot;</span>,</span><br><span class="line">    <span class="string">f&quot;该文档的描述性数据：<span class="subst">&#123;pdf_page.metadata&#125;</span>&quot;</span>,</span><br><span class="line">    <span class="string">f&quot;查看该文档的内容:\n<span class="subst">&#123;pdf_page.page_content&#125;</span>&quot;</span>,</span><br><span class="line">    sep=<span class="string">&quot;\n------\n&quot;</span>)</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>读取markdown</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_community.document_loaders.markdown <span class="keyword">import</span> UnstructuredMarkdownLoader</span><br><span class="line">loader = UnstructuredMarkdownLoader(<span class="string">&quot;../data_base/knowledge_db/prompt_engineering/1. 简介 Introduction.md&quot;</span>)</span><br><span class="line">md_pages = loader.load()</span><br><span class="line">md_page = md_pages[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(md_pages) <span class="comment">#读取出来的对象是一样的</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-3-数据清洗">3.3 数据清洗</h2>
-<ol>
-<li>使用正则表达式匹配并删除掉<code>\n</code>。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">pattern = re.<span class="built_in">compile</span>(</span><br><span class="line">	<span class="string">r&#x27;[^\u4e00-\u9fff](\n)[^\u4e00-\u9fff]&#x27;</span>, </span><br><span class="line">	re.DOTALL</span><br><span class="line">)</span><br><span class="line">pdf_page.page_content = re.sub(</span><br><span class="line">	pattern,</span><br><span class="line">	<span class="keyword">lambda</span> <span class="keyword">match</span>: <span class="keyword">match</span>.group(<span class="number">0</span>).replace(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&#x27;&#x27;</span>),</span><br><span class="line">	pdf_page.page_content</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(pdf_page.page_content)</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>发现数据中还有不少的<code>•</code>和空格，我们使用replace方法去掉即可。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pdf_page.page_content = pdf_page.page_content.replace(<span class="string">&#x27;•&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">pdf_page.page_content = pdf_page.page_content.replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(pdf_page.page_content)</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>md文件中每一段中间隔了一个换行符，我们同样可以使用replace方法去除</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">md_page.page_content = md_page.page_content.replace(<span class="string">&#x27;\n\n&#x27;</span>, <span class="string">&#x27;\n&#x27;</span>) </span><br><span class="line"><span class="built_in">print</span>(md_page.page_content)</span><br></pre></td></tr></table></figure>
-<h2 id="3-4-文档分割">3.4 文档分割</h2>
-<p>单个文档的长度往往会超过模型支持的上下文，因此，在构建向量知识库的过程中，我们往往需要对文档进行分割，将单个文档按长度或者按固定的规则分割成若干个 chunk，然后将每个 chunk 转化为词向量，存储到向量数据库中。</p>
-<p>在检索时，我们会以 chunk 作为检索的元单位，也就是每一次检索到 k 个 chunk 作为模型可以参考来回答用户问题的知识，这个 k 是我们可以自由设定的。</p>
-<p>Langchain 中文本分割器都根据 <code>chunk_size</code> (块大小，每个块包含的字符或 Token 的数量)和 <code>chunk_overlap</code> (块与块之间的重叠大小)进行分割。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 调用api（确保你的api key可以被读取到）</span></span><br><span class="line"><span class="comment"># 可以将apiKey 放到 .env文件然后读取或者在codebase中可以手动添加环境变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">client = OpenAI(</span><br><span class="line">	api_key=os.environ.get(<span class="string">&quot;OPENAI_API_KEY&quot;</span>),</span><br><span class="line">	<span class="comment"># 如果用的别的api可以在这里指定baseurl</span></span><br><span class="line">	base_url=<span class="string">&quot;https://api.lkeap.cloud.tencent.com/coding/v3&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入所需库</span></span><br><span class="line"><span class="comment"># 注意，此处我们假设你已根据上文配置了 OpenAI API Key，如没有将访问失败</span></span><br><span class="line">completion = client.chat.completions.create(</span><br><span class="line">    <span class="comment"># 调用模型：ChatGPT-4o</span></span><br><span class="line">    model=<span class="string">&quot;glm-5&quot;</span>,</span><br><span class="line">    <span class="comment"># messages 是对话列表</span></span><br><span class="line">    messages=[</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;system&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;You are a helpful assistant.&quot;</span>&#125;,</span><br><span class="line">        &#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;Hello!&quot;</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(completion)</span><br><span class="line"><span class="built_in">print</span>(completion.choices[<span class="number">0</span>].message.content)</span><br></pre></td></tr></table></figure>
+<p>调用该 API 会返回一个 ChatCompletion 对象，其中包括了回答文本、创建时间、id 等属性。我们一般需要的是回答文本，也就是回答对象中的 content 信息。</p>
+<p>调用 API 常会用到的几个参数：</p>
 <ul>
-<li>RecursiveCharacterTextSplitter(): 按字符串分割文本，递归地尝试按不同的分隔符进行分割文本。
+<li>model，即调用的模型，一般取值包括“gpt-3.5-turbo”（ChatGPT-3.5）、“gpt-3.5-turbo-16k-0613”（ChatGPT-3.5 16K 版本）、“gpt-4”（ChatGPT-4）、“gpt-4o”（ChatGPT-4o）、。注意，不同模型的成本是不一样的。</li>
+<li>messages，即我们的 prompt。ChatCompletion 的 messages 需要传入一个列表，列表中包括多个不同角色的 prompt。我们可以选择的角色一般包括 system：即前文中提到的 system prompt；user：用户输入的 prompt；assistant：助手，一般是模型历史回复，作为提供给模型的参考内容。</li>
+<li>temperature，温度。即前文中提到的 Temperature 系数。</li>
+<li>max_tokens，最大 token 数，即模型输出的最大 token 数。OpenAI 计算 token 数是合并计算 Prompt 和 Completion 的总 token 数，要求总 token 数不能超过模型上限（如默认模型 token 上限为 4096）。因此，如果输入的 prompt 较长，需要设置较大的 max_token 值，否则会报错超出限制长度。</li>
+</ul>
+<p>如下是一个简单的封装 OpenAI 接口的函数，支持我们直接传入 prompt 并获得模型的输出：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> openai <span class="keyword">import</span> OpenAI</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">client = OpenAI(</span><br><span class="line">	api_key = os.environ.get(<span class="string">&#x27;OPENAI_API_KEY&#x27;</span>) ,</span><br><span class="line">	    base_url=<span class="string">&quot;https://api.lkeap.cloud.tencent.com/coding/v3&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_gpt_messages</span>(<span class="params">prompt</span>):</span><br><span class="line">	messages = [</span><br><span class="line">		&#123;<span class="string">&#x27;role&#x27;</span>: <span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;content&#x27;</span>:prompt&#125;</span><br><span class="line">	]</span><br><span class="line">	<span class="keyword">return</span> messages</span><br><span class="line">	</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_completion</span>(<span class="params">prompt, model=<span class="string">&#x27;glm-5&#x27;</span>, temperature=<span class="number">0</span></span>):</span><br><span class="line">	response = client.chat.completions.create(</span><br><span class="line">		model = model,</span><br><span class="line">		messages=gen_gpt_messages(prompt),</span><br><span class="line">		temperature = temperature</span><br><span class="line">	)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(response.choices) &gt; <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">return</span> response.choices[<span class="number">0</span>].message.content</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;error&#x27;</span></span><br><span class="line">	</span><br><span class="line">get_completion(<span class="string">&#x27;你好&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1>3. Prompt Engineering</h1>
+<p>设计高效 Prompt 的两个关键原则：<strong>编写清晰、具体的指令</strong>和<strong>给予模型充足思考时间</strong>。</p>
+<h2 id="3-1-使用分隔符">3.1 使用分隔符</h2>
 <ul>
-<li>按照这个优先级[&quot;\n\n&quot;, &quot;\n&quot;, &quot; &quot;, &quot;&quot;])，这样就能尽量把所有和语义相关的内容尽可能长时间地保留在同一位置。</li>
-<li>该函数有四个参数：*
+<li>你可以选择用 ```，&quot;&quot;&quot;，&lt; &gt;， ，: 等做分隔符，只要能明确起到隔断作用即可。</li>
+<li>寻求结构化的输出</li>
+<li>要求模型检查是否满足条件</li>
+<li>提供少量示例</li>
+</ul>
+<h2 id="3-2-给模型时间去思考">3.2 给模型时间去思考</h2>
+<p>可以要求其先列出对问题的各种看法，说明推理依据，然后再得出最终结论。在 Prompt 中添加逐步推理的要求，能让语言模型投入更多时间逻辑思维，输出结果也将更可靠准确。</p>
 <ul>
-<li>separators - 分隔符字符串数组</li>
-<li>chunk_size - 每个文档的字符数量限制</li>
-<li>chunk_overlap - 两份文档重叠区域的长度</li>
-<li>length_function - 长度计算函数</li>
+<li>指导模型在下结论之前找出一个自己的解法</li>
 </ul>
-</li>
-</ul>
-</li>
-<li>CharacterTextSplitter(): 按字符来分割文本。</li>
-<li>MarkdownHeaderTextSplitter(): 基于指定的标题来分割markdown 文件。</li>
-<li>TokenTextSplitter(): 按token来分割文本。</li>
-<li>SentenceTransformersTokenTextSplitter(): 按token来分割文本</li>
-<li>Language(): 用于 CPP、Python、Ruby、Markdown 等。</li>
-<li>NLTKTextSplitter(): 使用 NLTK（自然语言工具包）按句子分割文本。</li>
-<li>SpacyTextSplitter(): 使用 Spacy按句子的切割文本。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_text_splitters <span class="keyword">import</span> RecursiveCharacterTextSplitter</span><br><span class="line">text_splitter = RecursiveCharacterTextSplitter(</span><br><span class="line">	chunk_size = <span class="number">500</span>,</span><br><span class="line">	chunk_overlap = <span class="number">50</span></span><br><span class="line">)</span><br><span class="line">text_splitter.split_text(pdf_page.page_content[<span class="number">0</span>:<span class="number">1000</span>])</span><br><span class="line"><span class="built_in">print</span>(text_splitter)</span><br><span class="line">split_docs = text_splitter.split_documents(pdf_pages)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;切分后的文件数量：<span class="subst">&#123;<span class="built_in">len</span>(split_docs)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;切分后的字符数（可以用来大致评估 token 数）：<span class="subst">&#123;<span class="built_in">sum</span>([<span class="built_in">len</span>(doc.page_content) <span class="keyword">for</span> doc <span class="keyword">in</span> split_docs])&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h1>4. 搭建并使用向量数据库</h1>
-<h2 id="4-1-前序配置">4.1 前序配置</h2>
-<ol>
-<li>收集所有数据</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">file_paths = []</span><br><span class="line">folder_path = <span class="string">&#x27;./data_base/knowledge_db&#x27;</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(folder_path):</span><br><span class="line">	<span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">		file_path = os.path.join(root, file)</span><br><span class="line">		file_paths.append(file_path)</span><br><span class="line"><span class="built_in">print</span>(file_paths)</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>加载所有数据</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_community.document_loaders <span class="keyword">import</span> PyMuPDFLoader</span><br><span class="line"><span class="keyword">from</span> langchain_community.document_loaders <span class="keyword">import</span> UnstructuredMarkdownLoader</span><br><span class="line"></span><br><span class="line">loaders = []</span><br><span class="line"><span class="keyword">for</span> file_path <span class="keyword">in</span> file_paths:</span><br><span class="line">	file_type = file_path.split(<span class="string">&#x27;.&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">	<span class="keyword">if</span> file_type == <span class="string">&#x27;pdf&#x27;</span>:</span><br><span class="line">		loaders.append(PyMuPDFLoader(file_path))</span><br><span class="line">	<span class="keyword">elif</span> file_type == <span class="string">&#x27;md&#x27;</span>:</span><br><span class="line">		loaders.append(UnstructuredMarkdownLoader(file_path))</span><br><span class="line">texts = []</span><br><span class="line"><span class="keyword">for</span> loader <span class="keyword">in</span> loaders:</span><br><span class="line">	texts.extend(loader.load()) <span class="comment">#extend将返回的list展开然后放进texts</span></span><br><span class="line"><span class="comment"># 每个元素变量类型为`langchain_core.documents.base.Document`</span></span><br><span class="line">text = texts[<span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;每一个元素的类型：<span class="subst">&#123;<span class="built_in">type</span>(text)&#125;</span>.&quot;</span>, </span><br><span class="line">	<span class="string">f&quot;该文档的描述性数据：<span class="subst">&#123;text.metadata&#125;</span>&quot;</span>, </span><br><span class="line">	<span class="string">f&quot;查看该文档的内容:\n<span class="subst">&#123;text.page_content[<span class="number">0</span>:]&#125;</span>&quot;</span>, sep=<span class="string">&quot;\n------\n&quot;</span>)</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>切分文档</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain_text_splitters <span class="keyword">import</span> RecursiveCharacterTextSplitter</span><br><span class="line">text_splitter = RecursiveCharacterTextSplitter( </span><br><span class="line">	chunk_size=<span class="number">500</span>, </span><br><span class="line">	chunk_overlap=<span class="number">50</span></span><br><span class="line">) </span><br><span class="line">split_docs = text_splitter.split_documents(texts)</span><br></pre></td></tr></table></figure>
-<h2 id="4-2-构建Chroma向量库">4.2 构建Chroma向量库</h2>
-<p>Langchain 集成了超过 30 个不同的向量存储库。我们选择 Chroma 是因为它轻量级且数据存储在内存中，这使得它非常容易启动和开始使用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#from langchain.embeddings.openai import OpenAIEmbeddings</span></span><br><span class="line"><span class="keyword">from</span> langchain_openai <span class="keyword">import</span> OpenAIEmbeddings</span><br><span class="line">embedding = OpenAIEmbeddings(</span><br><span class="line">    model=<span class="string">&quot;BAAI/bge-m3&quot;</span>,</span><br><span class="line">    openai_api_key=os.environ[<span class="string">&quot;SILICONFLOW_API_KEY&quot;</span>],</span><br><span class="line">    openai_api_base=<span class="string">&quot;https://api.siliconflow.cn/v1&quot;</span>,</span><br><span class="line">    check_embedding_ctx_length=<span class="literal">False</span></span><br><span class="line">)</span><br><span class="line">persist_directory = <span class="string">&#x27;./data_base/my_vector_db/chroma&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> langchain_community.vectorstores <span class="keyword">import</span> Chroma</span><br><span class="line">vectordb = Chroma.from_documents(</span><br><span class="line">	documents = split_docs,</span><br><span class="line">	embedding = embedding,</span><br><span class="line">	persist_directory=persist_directory</span><br><span class="line">)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;向量库中存储的数量：<span class="subst">&#123;vectordb._collection.count()&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>注意，由于这里使用的是 <code>BAAI/bge-m3</code>，而 <code>OpenAIEmbeddings</code> 默认会尝试按 OpenAI 模型的方式检查上下文长度并使用 <code>tiktoken</code> 分词。由于 <code>tiktoken</code> 不认识 <code>BAAI/bge-m3</code>，运行时会出现类似 <code>Warning: model not found. Using cl100k_base encoding.</code> 的警告，并回退到 OpenAI 的 <code>cl100k_base</code> 编码，这可能导致传给 BGE-M3 的输入处理方式不正确，进而影响向量检索效果。因此这里设置 <code>check_embedding_ctx_length=False</code>，并使用新的langchain_openai ， 让 LangChain 不再用 OpenAI tokenizer 预处理文本，而是直接将原始文本交给 SiliconFlow 的 BGE-M3 进行向量化。</li>
-</ul>
-<h2 id="4-3-向量检索">4.3 向量检索</h2>
-<p>Chroma的相似度搜索使用的是余弦距离。当你需要数据库返回严谨的按余弦相似度排序的结果时可以使用<code>similarity_search</code>函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">question=<span class="string">&quot;什么是大语言模型&quot;</span></span><br><span class="line">sim_docs = vectordb.similarity_search(question,k=<span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;检索到的内容数：<span class="subst">&#123;<span class="built_in">len</span>(sim_docs)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i, sim_doc <span class="keyword">in</span> <span class="built_in">enumerate</span>(sim_docs): </span><br><span class="line">	<span class="built_in">print</span>(<span class="string">f&quot;检索到的第<span class="subst">&#123;i&#125;</span>个内容: \n<span class="subst">&#123;sim_doc.page_content[:<span class="number">200</span>]&#125;</span>&quot;</span>, end=<span class="string">&quot;\n--------------\n&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>如果只考虑检索出内容的相关性会导致内容过于单一，可能丢失重要信息。最大边际相关性 (<code>MMR, Maximum marginal relevance</code>) 可以帮助我们在保持相关性的同时，增加内容的丰富度。核心思想是在已经选择了一个相关性高的文档之后，再选择一个与已选文档相关性较低但是信息丰富的文档。这样可以在保持相关性的同时，增加内容的多样性，避免过于单一的结果。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mmr_docs = vectordb.max_marginal_relevance_search(question,k=<span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> i, sim_doc <span class="keyword">in</span> <span class="built_in">enumerate</span>(mmr_docs):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;MMR 检索到的第<span class="subst">&#123;i&#125;</span>个内容: \n<span class="subst">&#123;sim_doc.page_content[:<span class="number">200</span>]&#125;</span>&quot;</span>, end=<span class="string">&quot;\n--------------\n&quot;</span>)</span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
       
 
       
@@ -444,7 +345,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          2_使用LLM API开发应用
+          3_搭建向量知识库
         
       </div>
     </a>
@@ -478,7 +379,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">1. 向量及向量知识库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E8%AF%8D%E5%90%91%E9%87%8F%E4%B8%8E%E5%90%91%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 词向量与向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 向量数据库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">2. 使用Embedding API</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#API%E8%BF%94%E5%9B%9E%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%BAjson%E6%A0%BC%E5%BC%8F%EF%BC%8C%E9%99%A4object%E5%90%91%E9%87%8F%E7%B1%BB%E5%9E%8B%E5%A4%96%E8%BF%98%E6%9C%89%E5%AD%98%E6%94%BE%E6%95%B0%E6%8D%AE%E7%9A%84data%E3%80%81embedding-model-%E5%9E%8B%E5%8F%B7model%E4%BB%A5%E5%8F%8A%E6%9C%AC%E6%AC%A1-token-%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5usage%E7%AD%89%E6%95%B0%E6%8D%AE%EF%BC%8C"><span class="toc-number">4.1.</span> <span class="toc-text">API返回的数据为json格式，除object向量类型外还有存放数据的data、embedding model 型号model以及本次 token 使用情况usage等数据，</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">3. 数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%BA%90%E6%96%87%E6%A1%A3%E9%80%89%E5%8F%96"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 源文档选取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 数据读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 数据清洗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%96%87%E6%A1%A3%E5%88%86%E5%89%B2"><span class="toc-number">5.4.</span> <span class="toc-text">3.4 文档分割</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">4. 搭建并使用向量数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%89%8D%E5%BA%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 前序配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E6%9E%84%E5%BB%BAChroma%E5%90%91%E9%87%8F%E5%BA%93"><span class="toc-number">6.2.</span> <span class="toc-text">4.2 构建Chroma向量库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%90%91%E9%87%8F%E6%A3%80%E7%B4%A2"><span class="toc-number">6.3.</span> <span class="toc-text">4.3 向量检索</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">1. 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Prompt"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 Prompt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-Temperature"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 Temperature</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-System-Prompt"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 System Prompt</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2. 使用LLM API</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">3. Prompt Engineering</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BD%BF%E7%94%A8%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 使用分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%BB%99%E6%A8%A1%E5%9E%8B%E6%97%B6%E9%97%B4%E5%8E%BB%E6%80%9D%E8%80%83"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 给模型时间去思考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -590,27 +491,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">命令</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">conda</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">debug</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
+                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,7 +511,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">debug</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">powershell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,15 +539,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,11 +567,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,15 +587,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">算法，高精度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">算法，差分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，双指针</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -706,19 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
+                <a href="javascript:void(0)" class="js-tag color4">双链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">串</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,11 +631,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+                <a href="javascript:void(0)" class="js-tag color2">串</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哈夫曼树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -754,27 +671,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">最小生成树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">最短路径</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+                <a href="javascript:void(0)" class="js-tag color3">经验</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -782,7 +679,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ppt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">powertoyes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,15 +695,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">word</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">经验</a>
+                <a href="javascript:void(0)" class="js-tag color2">zotero</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,6 +751,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">cv</a>
               </li>
              
@@ -866,14 +775,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像编辑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
              
@@ -883,6 +784,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频生成</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">视频编辑</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,10 +812,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">超分</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其他</a>
               </li>
              
               <li class="article-tag-list-item">
