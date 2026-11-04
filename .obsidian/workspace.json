@@ -231,8 +231,14 @@
   },
   "active": "f47ec284ba105590",
   "lastOpenFiles": [
-    "themes/yilia/source/img/llm/ER.png",
+    "themes/yilia/source/img/job/database/ER.png",
+    "themes/yilia/source/img/job/database",
+    "themes/yilia/source/img/job/新建文件夹",
+    "source/_posts/LLM/3_agent/2_构建智能体.md",
+    "source/_posts/LLM/2_RAG/4_检索优化.md",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
     "source/3_数据库.md",
+    "themes/yilia/source/img/llm/ER.png",
     "source/2_python异步编程.md",
     "source/0_python语法.md",
     "source/template/未命名.md",
@@ -257,17 +263,12 @@
     "1111test.md",
     "source/template",
     "source/_posts/LLM/2_RAG/project/3_代码实现_检索模块.md",
-    "source/_posts/LLM/2_RAG/project/2_代码实现_文档入库.md",
-    "source/_posts/LLM/2_RAG/project/0_环境配置.md",
-    "source/_posts/LLM/2_RAG/project/1_项目设计.md",
     "db.json",
     "public/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/index.html",
     "public/2023/11/27/deeplearning/code/pytorch/1_prepare/2_preprocessing/index.html",
     "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/8_rcnn/index.html",
     "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/7_ssd/index.html",
     "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/4_anchor_box/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/3_object_detection/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/2_finetune/index.html",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/8_search/3.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/8_search/2.png",
@@ -276,7 +277,6 @@
     "public/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg",
-    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png",
-    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/1.png"
+    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png"
   ]
 }
