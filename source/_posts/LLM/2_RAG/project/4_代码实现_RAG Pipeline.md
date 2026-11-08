@@ -209,7 +209,7 @@ pipeline.py
                      ▼                             ▼
           ┌──────────────────┐          ┌──────────────────────┐
           │ retrieve_initial │          │ prepare_sub_questions│
-          │ 第一次检索       │          │ 准备子问题           │
+          │ 第一次检索         │          │ 准备子问题            │
           └────────┬─────────┘          └──────────┬───────────┘
                    │                               │
                    │                         _fanout_sub_questions()
@@ -217,14 +217,14 @@ pipeline.py
                    ▼                               ▼
           ┌──────────────────┐          ┌──────────────────────┐
           │ grade_documents  │          │ rag_sub_agent × N    │
-          │ Evidence 评分    │          │ 并行执行子问题 RAG   │
+          │ Evidence 评分    │          │ 并行执行子问题 RAG      │
           └────────┬─────────┘          └──────────┬───────────┘
                    │                               │
           _route_after_grade()                     │
                    │                               ▼
           ┌────────┴─────────┐           ┌──────────────────┐
           │                  │           │    synthesis     │
-   rewrite_question         end          │ 合并子问题证据   │
+   rewrite_question         end          │ 合并子问题证据     │
           │                  │           └────────┬─────────┘
           ▼                  ▼                    │
 ┌──────────────────┐       END                    ▼
@@ -235,7 +235,7 @@ pipeline.py
          ▼
 ┌────────────────────┐
 │ retrieve_rewritten │
-│ 重写后重新检索     │
+│ 重写后重新检索       │
 └────────┬───────────┘
          │
          └────────────────────────→ grade_documents
@@ -996,8 +996,8 @@ def rag_sub_agent(state: RAGState) -> RAGState:
 		1. 再看证据完整度，如果所有有效子问题都是answerable，那么父问题状态就是answerable
 		2. 只要有一个子问题是partial，父问题状态就是partial
 	2. 如果没有evidence，就判断是否有需要用户介入的子问题（HITL）
-		1. 优先看是否有需要用户选择（needs_scope_selection）的子问题，有则路由到scope_select（注意，HITL不是Graph节点，而是更上层，因此这里会结束Grpah）
-		2. 其次看是否需要用户澄清（needs_clarification）的子问题，有则路由到clarify
+		1. 优先看是否有需要用户选择（needs_scope_selection）的子问题，有则路由到scope_select（注意，HITL不是Graph节点，而是更上层，因此这里会结束Grpah），并合并所有子问题的选项
+		2. 其次看是否需要用户澄清（needs_clarification）的子问题，有则路由到clarify，并合并所有子问题的prompt
 	3. 如果连HITL都没有，就路由到no_knowledge
     
 > 对于简单问题，如果检索状态为paritial，那么会执行重写。但是复杂问题的子问题如果为paritial，并不会重写，而是视作跟answerable一样，这里的逻辑有待优化？？？
@@ -1173,7 +1173,7 @@ def run_rag_graph(question: str, ctx: ChatRequestContext) -> dict:
     return result
 ```
 #### 1）初始化RAG State
-- 根据数据结构设计部分，初始胡RAG State
+- 根据数据结构设计部分，初始化RAG State
 ```python
 class RAGState(TypedDict):
     question: str

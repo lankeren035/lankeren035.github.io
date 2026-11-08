@@ -4,61 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "88e4146dd8f36adc",
+        "id": "c381587f2f0b44b4",
         "type": "tabs",
         "children": [
           {
-            "id": "0b1cb2b33055af3a",
+            "id": "74da9eb86cda5323",
             "type": "leaf",
             "state": {
-              "type": "outline",
-              "state": {
-                "file": "source/3_数据库.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "大纲"
-            }
-          },
-          {
-            "id": "f47ec284ba105590",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/3_数据库.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "3_数据库"
-            },
-            "group": "d05cf664783a498a"
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "da5453c1e0f36849",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "23b3117db09c0f2e",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "source/3_数据库.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "3_数据库 的大纲"
-            },
-            "group": "d05cf664783a498a"
+              "title": "新标签页"
+            }
           }
         ]
       }
@@ -119,8 +76,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 362.8333435058594
   },
   "right": {
     "id": "a099871a45d90968",
@@ -216,7 +172,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
       "obsidian42-brat:BRAT": false,
       "hexo-integration:Hexo integration": false,
       "obsidian-git:Open Git source control": false,
@@ -229,46 +185,196 @@
       "bases:新建数据库": false
     }
   },
-  "active": "f47ec284ba105590",
+  "floating": {
+    "id": "dec8b79b3b303033",
+    "type": "floating",
+    "children": [
+      {
+        "id": "c93610a14b4d14b1",
+        "type": "window",
+        "children": [
+          {
+            "id": "8d44d02739430dfa",
+            "type": "tabs",
+            "dimension": 74.18952618453865,
+            "children": [
+              {
+                "id": "9dc737aaf08b97c0",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/1_项目设计.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "1_项目设计"
+                }
+              },
+              {
+                "id": "f4437788916af85d",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/2_代码实现_文档入库.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "2_代码实现_文档入库"
+                }
+              },
+              {
+                "id": "aefc801bf5fb10f1",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/3_代码实现_检索模块.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "3_代码实现_检索模块"
+                }
+              },
+              {
+                "id": "b4c14341c3d1dcc3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/4_代码实现_RAG Pipeline.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "4_代码实现_RAG Pipeline"
+                }
+              },
+              {
+                "id": "c7af1ddff5b88391",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/5_代码实现_工具层.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "5_代码实现_工具层"
+                }
+              },
+              {
+                "id": "34c3cb4d288e32a2",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/6_代码实现_Agent 状态管理.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "6_代码实现_Agent 状态管理"
+                },
+                "group": "29bf984e29cfdc02"
+              },
+              {
+                "id": "07a7b1cad09a0047",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/7_代码实现_Agent 对话编排.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "7_代码实现_Agent 对话编排"
+                }
+              }
+            ],
+            "currentTab": 6
+          },
+          {
+            "id": "4a3f71e83a1ec271",
+            "type": "tabs",
+            "dimension": 25.81047381546135,
+            "children": [
+              {
+                "id": "7ccb745a64ac13c5",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "source/_posts/LLM/2_RAG/project/6_代码实现_Agent 状态管理.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "6_代码实现_Agent 状态管理 的大纲"
+                },
+                "group": "29bf984e29cfdc02"
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": -799,
+        "y": 0,
+        "width": 802,
+        "height": 956,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "74da9eb86cda5323",
   "lastOpenFiles": [
+    "source/_posts/LLM/2_RAG/project/6_代码实现_Agent 状态管理.md",
+    "source/_posts/LLM/2_RAG/project/7_代码实现_Agent 对话编排.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_7Agent对话编排模块.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_6Agent状态管理模块.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_7数据库ER关系.md",
+    "source/2_python异步编程.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_4RAG工作流模块.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_5工具层模块.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_4RAG工作流模块 1.md",
+    "source/_posts/LLM/2_RAG/project/5_代码实现_工具层.md",
+    "source/_posts/LLM/2_RAG/project/4_代码实现_RAG Pipeline.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_9HITL跨轮恢复.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_8三级分块与跨库关联.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_6数据存储与状态.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_5RAG决策流程.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_4检索与Evidence构建.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_1项目设计.md",
+    "source/_posts/LLM/2_RAG/project/img/设计/图_3文档入库流程.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/RAGTrace_字段解释表.md",
+    "source/_posts/LLM/2_RAG/project/3_代码实现_检索模块.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_3检索模块.md",
+    "source/_posts/LLM/2_RAG/project/2_代码实现_文档入库.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/项目实现.md",
+    "source/_posts/LLM/2_RAG/3_索引构建.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现/图_2文档入库模块.md",
+    "source/_posts/LLM/2_RAG/project/img/实现/图_2文档入库模块.md",
+    "source/_posts/LLM/2_RAG/project/img/详细实现",
+    "source/_posts/LLM/2_RAG/project/img/实现",
+    "source/_posts/LLM/2_RAG/project/img/设计",
+    "source/_posts/LLM/2_RAG/project/img",
+    "Excalidraw",
     "themes/yilia/source/img/job/database/ER.png",
     "themes/yilia/source/img/job/database",
     "themes/yilia/source/img/job/新建文件夹",
-    "source/_posts/LLM/3_agent/2_构建智能体.md",
-    "source/_posts/LLM/2_RAG/4_检索优化.md",
-    "source/_posts/LLM/2_RAG/3_索引构建.md",
-    "source/3_数据库.md",
     "themes/yilia/source/img/llm/ER.png",
-    "source/2_python异步编程.md",
-    "source/0_python语法.md",
-    "source/template/未命名.md",
-    "source/1_FastAPI.md",
-    "source/_posts/LLM/2_RAG/project/6_代码实现_Agent 状态管理.md",
-    "source/_posts/LLM/2_RAG/project/5_代码实现_工具层.md",
-    "source/_posts/LLM/2_RAG/project/7_代码实现_Agent 对话编排.md",
-    "source/_posts/LLM/2_RAG/project/8_代码实现_API接口.md",
-    "source/2026-10-31.md",
-    "source/_drafts/paper/stylegs.md",
-    "source/_posts/experience/obsidian/diary.md",
-    "2026-10-31.md",
-    "未命名.md",
-    "source/template/note.md",
-    "未命名 1.md",
-    "未命名 4.md",
     "未命名.canvas",
-    "note 1.md",
-    "note.md",
     "source/_posts/java/base",
-    "source/_posts/java/base.md",
-    "1111test.md",
     "source/template",
-    "source/_posts/LLM/2_RAG/project/3_代码实现_检索模块.md",
     "db.json",
-    "public/2023/11/11/deeplearning/code/pytorch/1_prepare/1_dataoperation/index.html",
-    "public/2023/11/27/deeplearning/code/pytorch/1_prepare/2_preprocessing/index.html",
-    "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/8_rcnn/index.html",
-    "public/2024/08/14/deeplearning/code/pytorch/12_computer_vision/7_ssd/index.html",
-    "public/2024/08/12/deeplearning/code/pytorch/12_computer_vision/4_anchor_box/index.html",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/1_GRU_files/1_GRU_9_1.svg",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/8_search/3.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/8_search/2.png",
@@ -276,7 +382,6 @@
     "public/img/deeplearning/code/pytorch/8_moden_rnn/5_encoder/1.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/2.png",
     "public/img/deeplearning/code/pytorch/8_moden_rnn/6_seq_to_seq/1.png",
-    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg",
-    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn/2.png"
+    "public/img/deeplearning/code/pytorch/8_moden_rnn/4_double_rnn_files/4_double_rnn_1_1.svg"
   ]
 }

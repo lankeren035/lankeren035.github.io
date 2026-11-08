@@ -79,28 +79,29 @@ hexo-path:
 ```
 ## 1.3 数据结构设计
 - 针对上述的Agent流程，我们需要设计几个数据结构，有些数据结构我们前面已经用到了，只是我们之前没有定义，现在在这里都给定义：
-	- RAG相关：主要用于记录、校验和规范化 RAG 执行轨迹，不直接参与检索计算。
-		- RetrievedChunk：检索得到的 Evidence 数据格式
-		- RagTraceFields：定义 RAG 检索、评分、Rewrite 和路由等执行轨迹的公共字段。后面的父问题trace和子问题trace都继承自这里。
-		- RagSubTrace：记录复杂问题中单个子问题的 RAG 执行轨迹。
-		- RagTrace：记录完整 RAG 执行轨迹，包括主流程和各子问题的执行信息。
-	- HITL相关：用于实现 HITL 跨轮恢复，而不是记录 RAG Trace。
+	- **RAG相关**：主要用于记录、校验和规范化 RAG 执行轨迹，不直接参与检索计算。
+		- **RetrievedChunk**：检索得到的 Evidence 数据格式
+		- **RagTraceFields**：定义 RAG 检索、评分、Rewrite 和路由等执行轨迹的公共字段。后面的父问题trace和子问题trace都继承自这里。
+		- **RagSubTrace**：记录复杂问题中单个子问题的 RAG 执行轨迹。
+		- **RagTrace**：记录完整 RAG 执行轨迹，包括主流程和各子问题的执行信息。
+	- **HITL相关**：用于实现 HITL 跨轮恢复，而不是记录 RAG Trace。
 		- HitlResumeState：保存 RAG 恢复所需的状态，供用户补充信息后继续检索。这个是在RAG层用到的。
 		- PendingHitlState：用于保存跨轮待处理的 HITL 信息，包括澄清问题、用户已补充的内容和 `HitlResumeState`，以便下一轮继续处理。这个是在chat层用到的。
-	- Chat 相关：负责单轮请求状态管理、聊天接口的请求与响应、历史消息查询以及会话管理。
-		- `ChatRequestContext`：管理单次 Query 的临时状态，包括工具调用额度、RAG Trace、HITL 恢复信息和流式输出。
-		- `ChatRequest`：定义用户发送给 Chat API 的请求格式。
-		- `ChatResponse`：定义 Chat API 的响应格式。
-		- `MessageInfo`：定义单条历史聊天消息的数据格式。
-		- `SessionMessagesResponse`：定义查询某个会话历史消息时的返回格式。
-		- `SessionInfo`：记录单个会话的基本信息。
-		- `SessionListResponse`：定义查询用户会话列表时的返回格式。
-		- `SessionDeleteResponse`：定义删除会话后的返回格式。
+	- **Chat 相关**：负责单轮请求状态管理、聊天接口的请求与响应、历史消息查询以及会话管理。
+		- **`ChatRequestContext`**：管理单次 Query 的临时状态，包括工具调用额度、RAG Trace、HITL 恢复信息和流式输出。
+		- **`ChatRequest`**：定义用户发送给 Chat API 的请求格式。
+		- **`ChatResponse`**：定义 Chat API 的响应格式。
+		- **`MessageInfo`**：定义单条历史聊天消息的数据格式。
+		- **`SessionMessagesResponse`**：定义查询某个会话历史消息时的返回格式。
+		- **`SessionInfo`**：记录单个会话的基本信息。
+		- **`SessionListResponse`**：定义查询用户会话列表时的返回格式。
+		- **`SessionDeleteResponse`**：定义删除会话后的返回格式。
 > 之前数据库设计的时候设计了消息相关的数据结构啊，为什么这里又有如MessageInfo相关的数据结构呢？
 > 之前的数据库数据结构（SQLAlchemy ORM）负责数据持久化存储，而这里的 Chat 数据结构（Pydantic Schema）负责API 请求校验、响应格式定义和数据序列化，两者分别服务于存储层和接口层。
 ### 1.3.1 RAG数据结构
 - 这里的四个数据结构都是为了RAG Trace 的记录、校验和规范化服务的，不直接参与检索计算。
 #### 1）检索结果Chunk数据结构
+- RetrievedChunk
 
 | 字段             | 类型                   | 作用           |
 | -------------- | -------------------- | ------------ |
@@ -108,79 +109,84 @@ hexo-path:
 | `page_number`  | `Optional[str / int] | 来源页码         |
 | `text`         | `Optional[str]`      | 证据文本         |
 | `score`        | `Optional[float]`    | 原始检索分数       |
-| `rrf_rank`     | `Optional[int]`      | 融合检索结果中的排序位置 |
+| `rrf_rank`     | `Optional[int]`      | 混合检索结果中的排序位置 |
 | `rerank_score` | `Optional[float]`    | Rerank 相关性分数 |
 #### 2）RAG Trace数据结构
+- RagTraceFields
 
-| 字段                               | 类型                                       | 作用                          |
-| -------------------------------- | ---------------------------------------- | --------------------------- |
-| 工具及查询                            |                                          |                             |
-| `tool_used`                      | `Optional[bool]`                         | 是否使用了知识库工具                  |
-| `tool_name`                      | `Optional[str]`                          | 工具名称                        |
-| `query`                          | `Optional[str]`                          | 检索 Query                    |
-| 查询重写                             |                                          |                             |
-| `rewrite_method`                 | `Optional[Literal["step_back", "hyde"]]` | 查询重写方法                      |
-| `rewritten_query`                | `Optional[str]`                          | 重写后的 Query                  |
-| `step_back_question`             | `Optional[str]`                          | Step-back 生成的问题             |
-| `hyde_document`                  | `Optional[str]`                          | HyDE 生成的假设文档                |
-| `retrieval_stage`                | `Optional[str]`                          | 当前检索阶段                      |
-| 证据质量判断                           |                                          |                             |
-| `route`                          | `Optional[str]`                          | RAG 最终路由                    |
-| `retrieval_status`               | `Optional[str]`                          | 证据检索状态                      |
-| `evidence_relevance`             | `Optional[str]`                          | 证据相关性                       |
-| `evidence_answerability`         | `Optional[str]`                          | 证据可回答性                      |
-| `evidence_ambiguity`             | `Optional[str]`                          | 问题歧义情况                      |
-| `evidence_confidence`            | `Optional[float]`                        | 证据评分置信度                     |
-| `evidence_reason`                | `Optional[str]`                          | 证据评分原因                      |
-| HITL                             |                                          |                             |
-| `missing_slots`                  | `Optional[List[str]]`                    | 缺失的关键条件                     |
-| `hitl_prompt`                    | `Optional[str]`                          | 向用户提出的澄清问题                  |
-| `hitl_options`                   | `Optional[List[str]]`                    | 用户可选的澄清选项                   |
-| `hitl_resumed`                   | `Optional[bool]`                         | 是否执行了 HITL 恢复               |
-| `hitl_answer`                    | `Optional[str]`                          | 用户补充的信息                     |
-| `hitl_resume_strategy`           | `Optional[str]`                          | HITL 恢复策略                   |
-| `hitl_resume_from_status`        | `Optional[str]`                          | 恢复前的检索状态                    |
-| `hitl_resume_from_route`         | `Optional[str]`                          | 恢复前的路由                      |
-| `hitl_targeted_retrieved_chunks` | `Optional[List[RetrievedChunk]]`         | HITL 恢复时检索到的证据              |
-| Rerank                           |                                          |                             |
-| `rerank_enabled`                 | `Optional[bool]`                         | 是否配置启用 Rerank               |
-| `rerank_applied`                 | `Optional[bool]`                         | 本次是否尝试执行 Rerank             |
-| `rerank_model`                   | `Optional[str]`                          | Rerank 模型                   |
-| `rerank_endpoint`                | `Optional[str]`                          | Rerank API 地址               |
-| `rerank_error`                   | `Optional[str]`                          | Rerank 错误信息                 |
-| `rerank_timeout_seconds`         | `Optional[float]`                        | Rerank 超时时间                 |
-| `rerank_min_score`               | `Optional[float]`                        | 最低相关性阈值                     |
-| `post_rerank_count`              | `Optional[int]`                          | Rerank 后的候选数量               |
-| `post_threshold_count`           | `Optional[int]`                          | 阈值过滤后的候选数量                  |
-| `retrieval_empty`                | `Optional[bool]`                         | 最终检索结果是否为空                  |
-| 检索配置及过程                          |                                          |                             |
-| `retrieval_mode`                 | `Optional[str]`                          | Hybrid、Dense Fallback 等检索模式 |
-| `retrieval_pipeline`             | `Optional[str]`                          | 检索处理流程标识                    |
-| `candidate_k`                    | `Optional[int]`                          | 初始召回候选数量                    |
-| `candidate_k_source`             | `Optional[str]`                          | 候选数量的配置来源                   |
-| `candidate_k_config_error`       | `Optional[str]`                          | 候选数量配置错误                    |
-| `retrieval_candidate_multiplier` | `Optional[int]`                          | 候选数量扩展倍数                    |
-| `retrieval_top_k`                | `Optional[int]`                          | 最终检索 TopK                   |
-| `recall_count`                   | `Optional[int]`                          | 初始召回结果数量                    |
-| `post_merge_candidate_count`     | `Optional[int]`                          | Auto-Merging 后的候选数量         |
-| `candidate_count`                | `Optional[int]`                          | 进入精排的候选数量                   |
-| `leaf_retrieve_level`            | `Optional[int]`                          | 初始检索的 Chunk 层级              |
-| Auto-Merging                     |                                          |                             |
-| `auto_merge_enabled`             | `Optional[bool]`                         | 是否启用 Auto-Merging           |
-| `auto_merge_applied`             | `Optional[bool]`                         | 本次是否发生合并                    |
-| `auto_merge_threshold`           | `Optional[int]`                          | 触发父块合并的子块数量阈值               |
-| `auto_merge_replaced_chunks`     | `Optional[int]`                          | 合并时被替换的子块数量                 |
-| `auto_merge_steps`               | `Optional[int]`                          | 实际发生合并的层级步骤数                |
-| 检索证据                             |                                          |                             |
-| `retrieved_chunks`               | `Optional[List[RetrievedChunk]]`         | 最终记录的检索证据                   |
-| `initial_retrieved_chunks`       | `Optional[List[RetrievedChunk]]`         | 初始检索证据                      |
-| `rewrite_retrieved_chunks`       | `Optional[List[RetrievedChunk]]`         | 重写后检索证据                     |
-| 复杂问题处理                           |                                          |                             |
-| `complexity`                     | `Optional[str]`                          | 问题复杂度                       |
-| `complexity_reason`              | `Optional[str]`                          | 复杂度判断原因                     |
-| `sub_questions`                  | `Optional[List[str]]`                    | 拆解出的子问题                     |
-| `sub_agent_count`                | `Optional[int]`                          | 子 Agent 数量                  |
-| `synthesis_merged_count`         | `Optional[int]`                          | Synthesis 合并后的证据数量          |
+| 字段                               | 类型                                       | 作用                                | 可能取值                                                                                                                  |
+| -------------------------------- | ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 工具及查询                            |                                          |                                   |                                                                                                                       |
+| `tool_used`                      | `Optional[bool]`                         | 是否使用了知识库工具                        | `True`（当前 RAG Pipeline 固定）                                                                                            |
+| `tool_name`                      | `Optional[str]`                          | 工具名称                              | `search_knowledge_base`                                                                                               |
+| `query`                          | `Optional[str]`                          | 检索 Query                          | 任意问题字符串                                                                                                               |
+| `retrieval_stage`                | `Optional[str]`                          | 当前检索阶段                            | initial  <br>rewritten  <br>synthesis  <br>hitl_targeted_retrieval                                                    |
+| 复杂问题处理                           |                                          |                                   |                                                                                                                       |
+| `complexity`                     | `Optional[str]`                          | 问题复杂度                             | simple  <br>complex                                                                                                   |
+| `complexity_reason`              | `Optional[str]`                          | 复杂度判断原因                           | obvious_simple_fast_path:single_fact_marker  <br>obvious_simple_fast_path:short_single_intent  <br>模型生成的任意理由字符串       |
+| `sub_questions`                  | `Optional[List[str]]`                    | 拆解出的子问题                           | []  <br>子问题字符串列表（最多4个）                                                                                                |
+| `sub_agent_count`                | `Optional[int]`                          | 子 Agent 数量                        | 非负整数（正常复杂问题通常 2～4）                                                                                                    |
+| `synthesis_merged_count`         | `Optional[int]`                          | Synthesis 合并后的证据数量                | 非负整数（`len(all_docs)`）                                                                                                 |
+| 检索配置                             |                                          |                                   |                                                                                                                       |
+| `retrieval_mode`                 | `Optional[str]`                          | Hybrid、Dense Fallback 等检索模式       | hybrid  <br>dense_fallback  <br>failed                                                                                |
+| `retrieval_pipeline`             | `Optional[str]`                          | 检索处理流程标识（预留）                      | `recall_merge_rerank`（固定）                                                                                             |
+| `candidate_k`                    | `Optional[int]`                          | 初始召回候选数量                          | 整数，≥ `retrieval_top_k`                                                                                                |
+| `candidate_k_source`             | `Optional[str]`                          | 候选数量的配置来源（env / multiplier）       | env  <br>multiplier                                                                                                   |
+| `candidate_k_config_error`       | `Optional[str]`                          | 候选数量配置错误（比如env中候选数量是字符串）          | `invalid RETRIEVAL_CANDIDATE_K`                                                                                       |
+| `retrieval_candidate_multiplier` | `Optional[int]`                          | 候选数量扩展倍数                          | 正整数，默认 `3`                                                                                                            |
+| `retrieval_top_k`                | `Optional[int]`                          | 期望最终检索出 TopK                      | 正整数，默认 `8`                                                                                                            |
+| `recall_count`                   | `Optional[int]`                          | 实际召回结果数量                          | 非负整数（通常 ≤ `candidate_k`）                                                                                              |
+| `leaf_retrieve_level`            | `Optional[int]`                          | 初始检索的 Chunk 层级                    | 1（L1）  <br>2（L2）  <br>3（L3，默认）<br><br>源码接受环境变量中的其他整数，但实际索引需有对应层级。                                                     |
+| Auto-Merging                     |                                          |                                   |                                                                                                                       |
+| `auto_merge_enabled`             | `Optional[bool]`                         | 是否启用 Auto-Merging                 | True  <br>False                                                                                                       |
+| `auto_merge_applied`             | `Optional[bool]`                         | 本次是否发生合并                          | True  <br>False                                                                                                       |
+| `auto_merge_threshold`           | `Optional[int]`                          | 触发父块合并的子块数量阈值                     | 环境变量配置的整数，默认 `2`                                                                                                      |
+| `auto_merge_replaced_chunks`     | `Optional[int]`                          | 合并时被替换的子块数量                       | 非负整数                                                                                                                  |
+| `auto_merge_steps`               | `Optional[int]`                          | 实际发生合并的层级步骤数                      | 0（未发生合并）  <br>1（发生一轮合并）  <br>2（发生两轮合并）                                                                                |
+| `post_merge_candidate_count`     | `Optional[int]`                          | Auto-Merging 后的候选数量               | 非负整数                                                                                                                  |
+| Rerank                           |                                          |                                   |                                                                                                                       |
+| `rerank_enabled`                 | `Optional[bool]`                         | 是否配置启用 Rerank                     | True  <br>False                                                                                                       |
+| `rerank_applied`                 | `Optional[bool]`                         | 本次是否尝试执行 Rerank                   | True  <br>False                                                                                                       |
+| `rerank_model`                   | `Optional[str]`                          | Rerank 模型                         | 环境变量 `RERANK_MODEL` 指定的模型名                                                                                            |
+| `rerank_endpoint`                | `Optional[str]`                          | Rerank API 地址                     | 配置的服务地址 + /v1/rerank  <br>""（未配置）                                                                                     |
+| `rerank_error`                   | `Optional[str]`                          | Rerank 错误信息                       | embedding_failed  <br>retrieve_failed  <br>empty_rerank_results  <br>HTTP <状态码>: <响应文本>  <br>请求异常信息字符串  <br>None（无错误） |
+| `rerank_timeout_seconds`         | `Optional[float]`                        | Rerank 超时时间                       | 浮点数，默认 `5.0`，最小配置值被限制为 `0.1`                                                                                          |
+| `rerank_min_score`               | `Optional[float]`                        | 最低相关性阈值                           | 浮点数，默认 `0.0`                                                                                                          |
+| `candidate_count`                | `Optional[int]`                          | 进入精排的候选数量                         | 非负整数                                                                                                                  |
+| `post_rerank_count`              | `Optional[int]`                          | Rerank 后的候选数量                     | 整数，0～`retrieval_top_k`                                                                                                |
+| `post_threshold_count`           | `Optional[int]`                          | 阈值过滤后的候选数量                        | 整数，0～`post_rerank_count`                                                                                              |
+| `retrieval_empty`                | `Optional[bool]`                         | 最终检索结果是否为空                        | True  <br>False                                                                                                       |
+| 检索证据1                            |                                          |                                   |                                                                                                                       |
+| `initial_retrieved_chunks`       | `Optional[List[RetrievedChunk]]`         | 初始检索证据（rerank后，若无rerank就是初始召回的证据） | []（无结果）  <br>[RetrievedChunk, ...]（文档列表）                                                                              |
+| 证据质量判断                           |                                          |                                   |                                                                                                                       |
+| `route`                          | `Optional[str]`                          | RAG 最终路由                          | answer  <br>rewrite  <br>clarify  <br>scope_select  <br>no_knowledge                                                  |
+| `retrieval_status`               | `Optional[str]`                          | 证据检索状态                            | answerable  <br>partial  <br>needs_rewrite  <br>needs_clarification  <br>needs_scope_selection  <br>no_knowledge      |
+| `evidence_relevance`             | `Optional[str]`                          | 证据相关性                             | none  <br>weak  <br>strong                                                                                            |
+| `evidence_answerability`         | `Optional[str]`                          | 证据可回答性                            | none  <br>partial  <br>sufficient                                                                                     |
+| `evidence_ambiguity`             | `Optional[str]`                          | 问题歧义情况                            | none  <br>missing_slot  <br>multiple_candidates                                                                       |
+| `evidence_confidence`            | `Optional[float]`                        | 证据评分置信度                           | 0.0～1.0  <br>None（Synthesis 不重新评分）                                                                                    |
+| `evidence_reason`                | `Optional[str]`                          | 证据评分原因                            | 模型生成的任意理由字符串  <br>no_retrieved_documents  <br>rewrite_budget_exhausted                                                |
+| 查询重写（重写和HITL谁先谁后不好说，优先判断HITL）    |                                          |                                   |                                                                                                                       |
+| `rewrite_method`                 | `Optional[Literal["step_back", "hyde"]]` | 查询重写方法                            | step_back（Step-back）  <br>hyde（HyDE）                                                                                  |
+| `rewritten_query`                | `Optional[str]`                          | 重写后的 Query                        | 原问题 + 退步问题  <br>原问题 + 假设性答案文档                                                                                         |
+| `step_back_question`             | `Optional[str]`                          | Step-back 生成的问题                   | 模型生成的问题字符串（最多 300 字符）                                                                                                 |
+| `hyde_document`                  | `Optional[str]`                          | HyDE 生成的假设文档                      | 模型生成的假设文档字符串（最多 1200 字符）                                                                                              |
+| `rewrite_retrieved_chunks`       | `Optional[List[RetrievedChunk]]`         | 重写后检索证据                           | []（重写检索无结果）  <br>[RetrievedChunk, ...]（文档列表）                                                                          |
+| HITL                             |                                          |                                   |                                                                                                                       |
+| `missing_slots`                  | `Optional[List[str]]`                    | 缺失的关键条件                           | []  <br>["模型版本", "时间范围", ...]  <br>（模型生成的字符串列表）                                                                       |
+| `hitl_prompt`                    | `Optional[str]`                          | 向用户提出的澄清问题                        | ""（无 HITL 提示）  <br>模型生成的提示字符串  <br>系统生成的默认提示字符串  <br>Synthesis 合并的提示字符串                                               |
+| `hitl_options`                   | `Optional[List[str]]`                    | 用户可选的澄清选项                         | []  <br>["选项A", "选项B", ...]  <br>（模型生成或合并的选项列表）                                                                       |
+| `hitl_resumed`                   | `Optional[bool]`                         | 是否执行了 HITL 恢复                     | `True`（恢复时才写入）                                                                                                        |
+| `hitl_answer`                    | `Optional[str]`                          | 用户补充的信息                           | 用户提交的任意字符串                                                                                                            |
+| `hitl_resume_strategy`           | `Optional[str]`                          | HITL 恢复策略                         | `targeted_retrieval`（固定）                                                                                              |
+| `hitl_resume_from_status`        | `Optional[str]`                          | 恢复前的检索状态                          | needs_clarification  <br>needs_scope_selection                                                                        |
+| `hitl_resume_from_route`         | `Optional[str]`                          | 恢复前的路由                            | clarify  <br>scope_select                                                                                             |
+| `hitl_targeted_retrieved_chunks` | `Optional[List[RetrievedChunk]]`         | HITL 恢复时检索到的证据                    | []（无结果）  <br>[RetrievedChunk, ...]（文档列表）                                                                              |
+| 检索证据2                            |                                          |                                   |                                                                                                                       |
+| `retrieved_chunks`               | `Optional[List[RetrievedChunk]]`         | 最终记录的检索证据                         | []（当前无可用证据）  <br>[RetrievedChunk, ...]（文档列表）                                                                          |
+
+
+
 #### 3）RagSubTrace
 - 继承 `RagTraceFields`
 
@@ -191,6 +197,7 @@ hexo-path:
 ### 1.3.2 HITL数据结构
 #### 1）HitlResumeState
 - 保存 RAG 恢复快照，供用户补充信息后恢复检索。
+- rag层级，不考虑多轮HITL
 
 |字段|类型|作用|
 |---|---|---|
@@ -204,39 +211,42 @@ hexo-path:
 
 #### 2）PendingHitlState
 
-记录跨轮待处理的 HITL 任务，保存用户需要补充的信息和 RAG 恢复快照。
+- 记录跨轮待处理的 HITL 任务，保存用户需要补充的信息和 RAG 恢复快照。
+- chat层级，包括多轮HITL，这里的original_question可以针对多轮HITL
 
-|字段|类型|作用|
-|---|---|---|
-|`id`|`str`|HITL 任务 ID，不能为空|
-|`original_question`|`str`|最初的用户问题，不能为空|
-|`prompt`|`str`|向用户提出的澄清问题，不能为空|
-|`options`|`List[str]`|可供用户选择的选项，默认空列表|
-|`route`|`Literal["clarify", "scope_select"]`|HITL 类型|
-|`retrieval_status`|`Literal["needs_clarification", "needs_scope_selection"]`|当前待澄清的检索状态|
-|`answers`|`List[str]`|用户之前已补充的信息，默认空列表|
-|`resume_state`|`HitlResumeState`|RAG 恢复快照|
-|`created_at`|`str`|HITL 状态创建时间|
+| 字段                  | 类型                                                        | 作用                                                |
+| ------------------- | --------------------------------------------------------- | ------------------------------------------------- |
+| `id`                | `str`                                                     | HITL 任务 ID，不能为空                                   |
+| `original_question` | `str`                                                     | 最初的用户问题，不能为空                                      |
+| `prompt`            | `str`                                                     | 向用户提出的澄清问题，不能为空                                   |
+| `options`           | `List[str]`                                               | 可供用户选择的选项，默认空列表                                   |
+| `route`             | `Literal["clarify", "scope_select"]`                      | HITL 类型                                           |
+| `retrieval_status`  | `Literal["needs_clarification", "needs_scope_selection"]` | 当前待澄清的检索状态                                        |
+| `answers`           | `List[str]`                                               | 用户之前已补充的信息，默认空列表                                  |
+| `resume_state`      | `HitlResumeState`                                         | RAG 恢复快照（多轮HITL时不是保存一个列表，而是新的HitlResumeState替换旧的） |
+| `created_at`        | `str`                                                     | HITL 状态创建时间                                       |
 
 ### 1.3.3 chat 数据结构
 
 #### 1）ChatRequestContext
 - 管理单次 Query 的临时运行状态，包括当前用户与会话、Knowledge Tool 调用额度、RAG Trace、HITL 恢复信息和流式输出事件。
+- hitl之后会创建一个新的ctx，而rewrite不会，rewrite还在一次工具调用里面。
 
-| 字段                           | 类型                                    | 作用                             |
-| ---------------------------- | ------------------------------------- | ------------------------------ |
-| `user_id`                    | `str`                                 | 当前用户 ID                        |
-| `session_id`                 | `str`                                 | 当前会话 ID                        |
-| `output_queue`               | `Optional[asyncio.Queue]`             | 流式输出事件队列，默认 `None`             |
-| `loop`                       | `Optional[asyncio.AbstractEventLoop]` | 流式输出所使用的事件循环，默认 `None`         |
-| `_lock`                      | `threading.RLock`                     | 保证状态读写的线程安全                    |
-| `_active`                    | `bool`                                | 请求是否有效，默认 `True`               |
-| `_rag_trace`                 | `Optional[dict]`                      | 暂存规范化 RAG Trace 和 HITL 恢复状态    |
-| `_knowledge_tool_slots_used` | `int`                                 | 本轮 Knowledge Tool 已调用次数，默认 `0` |
-| `_started_at`                | `float`                               | 本轮上下文创建时的单调时钟时间                |
-| `_last_step_at`              | `Optional[float]`                     | 上一次 RAG 进度事件的时间，默认 `None`      |
+| 字段                           | 类型                                    | 作用                                                                                                                                                 |
+| ---------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user_id`                    | `str`                                 | 当前用户 ID                                                                                                                                            |
+| `session_id`                 | `str`                                 | 当前会话 ID                                                                                                                                            |
+| `output_queue`               | `Optional[asyncio.Queue]`             | 异步消息队列，暂存 RAG 进度事件，供 Chat Service 读取并通过 SSE 发送给前端                                                                                                  |
+| `loop`                       | `Optional[asyncio.AbstractEventLoop]` | 流式输出所使用的事件循环，默认 `None`                                                                                                                             |
+| `_lock`                      | `threading.RLock`                     | 可重入线程锁，多个线程访问同一个 `ctx` 时，防止并发修改状态造成数据冲突                                                                                                            |
+| `_active`                    | `bool`                                | 上下文是否仍然有效，`True` 表示请求仍可使用；`close()` 后变为 `False`，禁止继续发送进度或存储新 Trace（例如前端用户取消了这次query，那么ctx对象是应该标记为失效，此时rag线程还在跑，等他跑完准备输出的时候发现当前ctx失活了，就不会对ctx进行操作了） |
+| `_rag_trace`                 | `Optional[dict]`                      | 暂存规范化 RAG Trace 和 HITL 恢复状态                                                                                                                        |
+| `_knowledge_tool_slots_used` | `int`                                 | 本轮 Knowledge Tool 已调用次数，默认 `0`                                                                                                                     |
+| `_started_at`                | `float`                               | 本轮上下文创建时的单调时钟时间                                                                                                                                    |
+| `_last_step_at`              | `Optional[float]`                     | 上一次 RAG 进度事件的时间（最近一次emit()的时间），默认 `None`                                                                                                           |
+- 为什么需要lock：例如，同一次请求中，Agent 同时发起两次 RAG 工具调用，如果没有锁，两个线程可能都读取到 `_knowledge_tool_slots_used=0`，从而都通过次数限制。假设第一次检索成功（`route=answer`），第二次需要澄清（`route=clarify`），由于 `ctx` 只有一个 `_rag_trace` 存储位置，后完成的第二次检索可能覆盖第一次的 Trace，导致 Chat Service 错误地要求用户澄清，而不是正常回答。加锁可以保证检查调用次数和增加计数是一个不可被并发打断的操作，从而避免这种情况。
 #### 2）ChatRequest
-- 定义用户调用 Chat API 时提交的请求数据，包括用户消息和会话 ID。
+- 定义用户调用 Chat API 时提交的请求数据，定义前端向后端发送聊天请求时的数据格式
 
 |字段|类型|作用|
 |---|---|---|
@@ -244,7 +254,7 @@ hexo-path:
 |`session_id`|`Optional[str]`|会话 ID，默认 `"default_session"`|
 
 #### 3）ChatResponse
-- 定义 Chat API 返回的响应数据，包括 Agent 生成的回答及本轮 RAG Trace。
+- 定义 Chat API 返回的响应数据，后端普通聊天接口返回给前端的数据格式
 
 |字段|类型|作用|
 |---|---|---|
@@ -252,7 +262,7 @@ hexo-path:
 |`rag_trace`|`Optional[RagTrace]`|本轮 RAG 执行轨迹，默认 `None`|
 
 #### 4）MessageInfo
-- 定义单条历史聊天消息的数据格式，包括消息类型、内容、时间以及关联的 RAG Trace。
+- 定义一条历史聊天消息的数据结构，用于前端加载和展示聊天记录。
 
 |字段|类型|作用|
 |---|---|---|
@@ -262,14 +272,14 @@ hexo-path:
 |`rag_trace`|`Optional[RagTrace]`|消息关联的 RAG Trace，默认 `None`|
 
 #### 5）SessionMessagesResponse
-- 定义查询某个会话历史消息时的返回格式，包含多条 MessageInfo。
+- 定义查询某个会话的全部历史消息时，后端返回的数据格式。
 
 |字段|类型|作用|
 |---|---|---|
 |`messages`|`List[MessageInfo]`|历史聊天消息列表|
 
 #### 6）SessionInfo
-- 定义单个会话的基本信息，包括会话 ID、标题、更新时间和消息数量。
+- 定义一个聊天会话的基本信息，主要用于前端展示历史会话列表。
 
 |字段|类型|作用|
 |---|---|---|
@@ -279,14 +289,14 @@ hexo-path:
 |`message_count`|`int`|会话消息数量|
 
 #### 7）SessionListResponse
-- 定义查询用户会话列表时的返回格式，包含多个 `SessionInfo`。
+- 定义查询用户所有聊天会话时，后端返回的数据格式，包含多个 `SessionInfo`。
 
 |字段|类型|作用|
 |---|---|---|
 |`sessions`|`List[SessionInfo]`|用户会话信息列表|
 
 #### 8）SessionDeleteResponse
-- 定义删除会话操作的返回格式，包括被删除的会话 ID 和操作结果信息。
+- 定义删除聊天会话成功后，后端返回给前端的数据格式。
 
 |字段|类型|作用|
 |---|---|---|
@@ -576,18 +586,18 @@ class SessionDeleteResponse(StrictSchema):
 
 ##### 2）方法设计
 
-| 方法                              | 参数                                            | 作用                                 |
-| ------------------------------- | --------------------------------------------- | ---------------------------------- |
-| `for_stream()`                  | `user_id`、`session_id`、`output_queue`         | 创建流式请求上下文，自动绑定当前 Event Loop        |
-| `for_sync()`                    | `user_id`、`session_id`                        | 创建非流式请求上下文，不需要消息队列和 Event Loop     |
-| `emit_rag_step()`               | `icon`、`label`、`detail`、`group`、`group_label` | 将 RAG 执行进度和耗时信息写入异步队列，供前端实时展示      |
-| `store_rag_trace()`             | `rag_trace`、`hitl_resume_state`               | 校验并暂存本轮 RAG Trace，以及可选的 HITL 恢复状态  |
-| `take_rag_trace()`              | 无                                             | 取出并清空暂存的 RAG 结果，供 Chat Service 处理  |
-| `peek_rag_trace()`              | 无                                             | 读取 RAG 结果但不清空，用于检查执行状态和 HITL       |
-| `reset_knowledge_tool_budget()` | 无                                             | 清零 Knowledge Tool 调用计数             |
-| `acquire_knowledge_tool_slot()` | 无                                             | 申请工具调用额度，每轮最多成功申请一次                |
-| `close()`                       | 无                                             | 标记请求结束，停止后续进度发送和 Trace 写入，解除流式资源引用 |
-
+| 方法                              | 参数                                            | 作用                                 |     |
+| ------------------------------- | --------------------------------------------- | ---------------------------------- | --- |
+| `for_stream()`                  | `user_id`、`session_id`、`output_queue`         | 创建流式请求上下文，自动绑定当前 Event Loop        |     |
+| `for_sync()`                    | `user_id`、`session_id`                        | 创建非流式请求上下文，不需要消息队列和 Event Loop     |     |
+| `emit_rag_step()`               | `icon`、`label`、`detail`、`group`、`group_label` | 将 RAG 执行进度和耗时信息写入异步队列，供前端实时展示      |     |
+| `store_rag_trace()`             | `rag_trace`、`hitl_resume_state`               | 校验并暂存本轮 RAG Trace，以及可选的 HITL 恢复状态  |     |
+| `take_rag_trace()`              | 无                                             | 取出并清空暂存的 RAG 结果，供 Chat Service 处理  |     |
+| `peek_rag_trace()`              | 无                                             | 读取 RAG 结果但不清空，用于检查执行状态和 HITL       |     |
+| `reset_knowledge_tool_budget()` | 无                                             | 清零 Knowledge Tool 调用计数             |     |
+| `acquire_knowledge_tool_slot()` | 无                                             | 申请工具调用额度，每轮最多成功申请一次                |     |
+| `close()`                       | 无                                             | 标记请求结束，停止后续进度发送和 Trace 写入，解除流式资源引用 |     |
+- emit函数有异步操作：以两个用户 A、B 同时提问为例，Chat Service 为每人创建独立的 `ctx` 和 `asyncio.Queue`，两个请求的异步协程可以在同一个事件循环中交替执行；同步 RAG 如果被分配到不同工作线程，就能同时检索，互不等待，但如果线程池只有一个线程，B 就必须等待 A 完成，这也是当前方案的并发局限。具体看用户 A：Chat Service 的事件循环通过 `await queue.get()` 等待进度消息，同时 RAG 工作线程执行同步检索，调用 `_emit()` → `ctx.emit_rag_step()` 生产进度。这里不是两个事件循环，而是一个事件循环线程和一个 RAG 工作线程。因为 `asyncio.Queue` 不保证跨线程直接操作的安全性，所以 RAG 不能直接调用 `queue.put_nowait()`，而是通过 `ctx.loop.call_soon_threadsafe()` 通知 Chat Service 的事件循环执行入队，Chat 再消费消息并通过 SSE 发送给前端。需要注意，源码中 HITL 恢复明确通过 `run_in_executor()` 使用工作线程，普通对话则通过 `agent.astream()` 执行，不能认为所有 RAG 调用都显式创建了工作线程。
 ##### 3）生命周期设计
 
 ```
@@ -791,7 +801,7 @@ class ChatRequestContext:
 | Redis `chat_messages:{user_id}:{session_id}` | 指定会话的消息列表                  | 加速历史消息读取              |
 | Redis `chat_sessions:{user_id}`              | 用户所有会话的摘要列表                | 加速会话列表查询              |
 
-> 当前实现注意： `save()` 采用全量覆盖策略，会先删除指定 Session 的旧消息，再写入完整消息列表；后续可以优化为增量追加???
+> 当前实现注意： `save()` 采用全量覆盖策略，会先删除指定 Session 的旧消息，再写入完整消息列表；后续可以优化为增量追加???他对单个会话的消息和用户的所有消息列表都是全量删除，有待优化
 
 ```python
 from datetime import datetime
@@ -1052,7 +1062,7 @@ storage = ConversationStorage()
 ```
 ## 2.3 Agent Runtime
 `backend/chat/runtime.py`
-初始化 LLM，配置 System Prompt，创建绑定 Knowledge Tool 和 Weather Tool 的 Agent。
+初始化 LLM，配置 System Prompt，创建绑定 Knowledge Tool 和 Weather Tool 的 Agent。每收到用户的一次 Query，都会创建一个新的 Agent 实例。
 ```python
 import os
 
