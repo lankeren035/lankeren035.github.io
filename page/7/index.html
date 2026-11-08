@@ -158,20 +158,486 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hexo/fold_code" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-LLM/2_RAG/project/img/设计/图_13Agent与工具运行时" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>图_13Agent与工具运行时</h1>
+<p>原生 Excalidraw 可编辑画布，基于 SuperMew-0.1.0。请使用 Obsidian 的 Excalidraw 视图打开。</p>
+<p><strong>所属模块：</strong> M4 Agent 与工具运行时。总图与详图使用相同模块编号；画布右侧也包含以下读图说明。</p>
+<h3 id="运行时">运行时</h3>
+<ul>
+<li>MODEL 与 System Prompt 创建外层 Agent；绑定天气工具和请求专属知识工具。</li>
+</ul>
+<h3 id="流程">流程</h3>
+<ul>
+<li>MODEL 可直接回复，或发出 tool call；结果作为 ToolMessage 回到模型。</li>
+<li>知识工具申请 ctx 一次额度，运行 RAG，并保存 Trace/恢复快照。</li>
+<li>service 对 HITL 结果改为澄清提示。</li>
+</ul>
+<h3 id="约束">约束</h3>
+<ul>
+<li>知识调用次数有硬额度；收到知识结果后不再调工具主要由提示词约束。</li>
+<li>FAST/GRADE 分别用于笔记/规划/改写与评分，不是外层 Agent 的重复回路。</li>
+</ul>
+<h3 id="源码对应">源码对应</h3>
+<ul>
+<li><code>backend/chat/runtime.py</code>：<code>create_agent_for_request()</code></li>
+<li><code>backend/tools/knowledge.py</code>：<code>make_search_knowledge_base()</code></li>
+<li><code>backend/tools/weather.py</code>：<code>get_current_weather()</code></li>
+</ul>
+<h1>Excalidraw Data</h1>
+<h2 id="Text-Elements">Text Elements</h2>
+<p>13  Agent 与工具运行时 ^065fab4c</p>
+<p>M4 决定调用工具和生成答案；M5 返回证据/控制状态，M3 负责跨轮编排。 ^ea0fb7db</p>
+<p>M4 Agent 与工具运行时  ·  对应总图 01 ^3ff9e82c</p>
+<p>M3 输入
+上下文 messages + 本请求 ctx ^decafcd8</p>
+<p>create_agent_for_request(ctx)
+绑定 MODEL / System Prompt
+天气工具 + 请求专属知识工具 ^145dc49d</p>
+<p>MODEL 选择
+直接回复 / tool call ^683d5cf0</p>
+<p>get_current_weather
+请求高德 API / 校验与异常文本 ^7dd606b5</p>
+<p>search_knowledge_base
+ctx.acquire_knowledge_tool_slot
+每轮最多一次 ^fe53b095</p>
+<p>再次调用：直接返回
+TOOL_CALL_LIMIT_REACHED ^fb514e33</p>
+<p>M5 run_rag_graph(query, ctx)
+检索与评分 / 必要时一次改写或子问题
+ctx 保存 Trace + 可选恢复快照 ^e3b34e0b</p>
+<p>工具输出 ToolMessage
+编号证据 / NO_KNOWLEDGE
+或 NEEDS_CLARIFICATION / SCOPE_SELECTION ^b087b67b</p>
+<p>外层最终回复 → 交给 M3
+有工具时，MODEL 基于 ToolMessage 回答
+M3 负责 Trace / HITL 覆盖 / 保存 / SSE ^4f943893</p>
+<p>不需要工具：直接给出 AI 内容 ^39427c17</p>
+<p>知识额度由代码硬控制；收到知识工具结果后停止其他工具调用主要由 System Prompt 约束。 ^739bbb4f</p>
+<p>读图说明 · M4 Agent 与工具运行时 ^3c51aaf4</p>
+<p>运行时 ^06dc0da9</p>
+<p>• MODEL 与 System Prompt 创建外层 Agent；绑
+定天气工具和请求专属知识工具。 ^a4c37bef</p>
+<p>流程 ^72807773</p>
+<p>• MODEL 可直接回复，或发出 tool call；结果作
+为 ToolMessage 回到模型。 ^3a26a4cf</p>
+<p>• 知识工具申请 ctx 一次额度，运行 RAG，并保
+存 Trace/恢复快照。 ^139ba69a</p>
+<p>• service 对 HITL 结果改为澄清提示。 ^41e40d8c</p>
+<p>约束 ^88fc0d5a</p>
+<p>• 知识调用次数有硬额度；收到知识结果后不再调
+工具主要由提示词约束。 ^fa4b277e</p>
+<p>• FAST/GRADE 分别用于笔记/规划/改写与评分，
+不是外层 Agent 的重复回路。 ^fb4aab3d</p>
+<h2 id="Element-Links">Element Links</h2>
+<p>3ff9e82c: [[图_1项目设计]]</p>
+<p>%%</p>
+<h2 id="Drawing">Drawing</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">N4IgLgngDgpiBcIYA8DGBDANgSwCYCd0B3EAGhADcZ8BnbAewDsEAmcm+gV31TkQAswYKDXgB6MSgw4CxAHSp6AWzJJMMJTEZgaCANqg8CELnQBOXDADMABnSrIsY/hiow6RgHN1q5AgCMZgBsNuQQAQDsoSBEeGD8CACsLNH8MNiegkmJ/uQe3nzRNGD49ADWMADC9Jj0+MYAxKgARriJMP6qzeioZZ6lnIy41bX1iA0AZgAcE+gTqKoT2JiYAM</span><br><span class="line"></span><br><span class="line">qQPogcMqrFpRUA6nEJ8P5yiewl5TDrEJsg20bkA5mMMDS68NH0UD3YkAEbNF+lwoABJXCfPQAXXIE0ImghCEYnBW5GwQxQxnQNlUAyGbw+yNRmHYMBguFYLDMLCsQRYETYlGodCYrHIVFoDEYADkmLwEAAWFiCqwiiIRKbomgAERg6jAFIQs0wNBg5GaXCGAFF1JptFDYSBOFBTIrKacImYrBLBUFEvarBcQDhGGViWiXfRekr4Cq1QBfUiGC0gV</span><br><span class="line"></span><br><span class="line">BmGxTVBWCZmBzQPggdD4Uokch+eCJKJhViCqbnO3kWK4eIBWzkNIZLKnORTQWCvJeTZFK4VEZ1RpBQURPPNLo9Pr44Y1DuIEoeGi/FzaRbLNYbROPSmXfYwI4lk5nKUPVs3BfGJd4rivd6fb6/VD/cKnIHkEEmiGGuEImBI+Aoz0YywZpOdZ5a3BCU+D9SQeckLRYfwbCtYIrQ5FluXZZkuSYPlGAFeAUmpKZoKmelpTlBVfX9dUQE1QZcF1DQtB</span><br><span class="line"></span><br><span class="line">0fQjRNM1fX8K0bR7e1HWdV13XfElyFqH0LRI8goHoDFaPgPQ9FCGxYT0fxyy3etoSNTB0GKaolCUf5zQABVEmceM9YpkzAAAhL8MU8BBQHlajtDfEwrDaFh0DpRZvU4M873QKBWCDJAhnMoZLOstQ7LABzTEZCJEmCdzUE8hBgR8vzLhMgBBFN6CINJ0AtEDyC0XBMtTXLQ2TVNVHlTUiGIrBA2DEAjEQCIYBCXB5LgchHETCrst8QEWGda8xWiY</span><br><span class="line"></span><br><span class="line">tSy+Ct0kyMAAhSRsCiSldrnbMYQAaLseymPsNQHe8hlW4xx0YSdkxo2cVlue5D2Ww5jgCWtbr3O5FxqJ4QBefggKWkAfj+AEb2BAZwUhOjn3QRF8t4prMR/dAWCPCjvsM0C1SYsUcgieSzHglDmEw3HWV5fk+ECeS8KCEImWwWVbPNZV6tI8idT1Gin2NU10Hpy1rVtdjEidPiMW4gqvQEhnVVIkSxKhKTSBk0g5f8FJlL4tSwA0rShApPSxI9VH</span><br><span class="line"></span><br><span class="line">3HwMyLK8ULbP1CLQyihlYqCeLEsmkBPBSzD/KKoLcBC+AbNZ+zQzMVAIiCCZcGaXE4Q8rynZdlh/OMo2Suysr9cKoZE5ymA8uxLK0zUGq6sloMQ2MFggg6AOzESeMnEQPrc4zKChpzTNEjG+74CCKZnUrGbImifJmyew7xk23t+16fbh1GI7CBOqdzrhOcrtenYnvXCatye5eDze5cPuPL7Tx+v7LwBqCgdBR8wZAeEIdfKHP1h7ErERgkj5Rslf</span><br><span class="line"></span><br><span class="line">UFaCgjMP+rEJohAmyEiZoQwv4e0DozD+CmOWJqtMiKCUZhqACVELbswYlzJiLE+YOgFpxYWKcxYVCQZLYS+lxKSWkrJUIMVZIAFpO4XDoYrRhXdSDMRkipdWmttI6woUQ+Oxtgqm29mFC2DkA5BxDmHe2Udna+VdqnXAHsvY+3Cg5BkNhO6oCCPYCOCV5ExzjobMA6dk4fwCsVHOFikw5yqpgfOpCGrF0QBAswzQrB4QmNXXq9j0yAjFOcSCzdEi</span><br><span class="line"></span><br><span class="line">tyLO3WkcgRTbh7tWThC1B47lXMPdao9trj0HABVJx1TrTlmovS6+4ti712Ludem5HrJOuNvEpq996cBPESR2J8ryAgvg+UGEkjS30hkQr8WJa6ClfoBd+os0YQRtDYesiQGwgKAUyTkoCSYBH8HmKYUxAj4XgYRGA3MhJkVQb7Sh9FObc2YrzNieDBYukIZY/iJCJZqnITLfQcsFZ6CiTEjhURVYuh4coLWukBGWKEao0R6iJH+0DsHUO4cb6Rx+</span><br><span class="line"></span><br><span class="line">go1KVjwVWTEebGimjnIsFLi/AxDtkqKNjmlBONjM4P1AkVcxFLs6VUKo47KBcXFNVDGHVApcJjNDtt1BMdL+oBNOFM5ukoIjnAiRuBAEYppVlmo7AehQh4jjWhtbsY9doTyHDk2eeSF43yXsUh4pS17t03tUiotSjX1M+sjc8/1rznzvMDK+3TwZ9MsQMuGVd/xIzGdDCZAQu5WEFFmKYERAFsmAUs7kYDSbaODUEZi4Sdl02ZUzI54UMFnOwZcu</span><br><span class="line"></span><br><span class="line">01yCFuiIQ8tNLyDRvOoYraVXC1bqUBXw3AusDLjNMWis2xzsXJFxUEfFCLDFIuMco1tGL22hgmBMEIdY8JyP7cSkxGVyVZ0sdShd5V/F5yZc4mARdWXGGaIkKMQc7S+P5fXQE9pm5d2dONE4qRprxLgQqn6ewVrKs7GqjJGqskUW1ROeeM5Cnzhejvepz67qSprNuUDz1rrGoaU0qOrSz63ids6rpMI3X336U/WuPKGlv2aeM8CAQIx0hihsiN+N</span><br><span class="line"></span><br><span class="line">FkIVQis+A0DbDKxDduGmuz9nIMORRNBbNr6YPOTgq5HEhaFvud6R5fp2PSzLRJd5NCOG2D+apWtml62Nrlc2kyQ7IVYtDCwHFeLp2O2RUo1FJt0Vab9sYekVgYA2HDAsAlRjZ2krMSuohy7Sq0trmu6qG6nlbsas1G+Qcpg9EFH+cAfKvP0pABmYN0Rrx1jbuByCYq1kAJAHEuVop+5NkVeaqor6R7vp2mRPaWrCvgB1X+gp+qilAbqe9KDFSHqQ</span><br><span class="line"></span><br><span class="line">d3Jam6cHD7NLtafB1yH7wg3Zr0zDHrsNJgiCM5GhHfRDTMMKKIysKNIWjTR9CpM6SCmtPu7ZLHU2bpQZx45WbGIWguaxPNgnbnCdFsW/bIBJOUJk4rUIcXZIpbkGl0g2WFMAuU9rBtIL1NG00+I7TJcog6L0QZolKL3ambbRo0MeEbBWFsGE6H3knM7nnR5xdot3NJ083Y6LPnaqbu3YFnCNgYDRX0RFmuxOBUxalbA6JUwcYgAdcrJLG9NnnDgh</span><br><span class="line"></span><br><span class="line">lu9cr/DJsfY7KDqTVVbRK90TV2SKu5OqxdQDMGQPlNNVUqD7XYM2vfj1tpgMnWXzQz0l8b5RaeuxFMSbfqjJEaFfN3+KOltRuo8TNbrAbApCCBEKwwRqYIL2SWjjLNM08ezad/jF38FCZFtDW7fnS2PYrXoehMCzhZhxiL6t/ylNAv4XrUFLb4fDsR5Z2kNm7MY+jljuHIizOg4s4gZHqObDo4czOlFQiaV4+hgTjOi7Ge51J2minVsJgwESKgXg</span><br><span class="line"></span><br><span class="line">e8eonoGqcSBF7v4SomiwdhgvZVCjMGKlHQREl5YlxVqX6rSty+/QrqrZ1/21ZVyvRr6vwNmq14ajruvuvkEQ31jpg3r7DfN9DJbrXHGD6vhsBP6vbrSN2L7ljNECtpRhRrGnNCGskDFMKARHtoniHpREduHidpELmvzDclxEWqJsHg9rLCni9mEgwrSBcE6IkLQYLJthELQewiwXIHvj9nnipoDv6sXvXgjlCsYGOhOnmLhhMIioZgOiZoIaXsIc</span><br><span class="line"></span><br><span class="line">3iEK3u3r2oSpjl3qYj3pSsolofPgyk4n5mPsYFGM0NlroselFkzhmIyPFgEN/Feu3LelvqcE3EmLlk+ruJLukjLmVvLtPGOFfvksrtrmrquM1hBlvK/jrgfLap/heAbo6ihsbkNmbtoTDN+NiOlDbgRhAUxN2ALGGshvActm7kgacBGBKFEGqhgYglgczDgWHq6hzPgTzOdkQQWnHp6AnuJmQvdhQpQfLLJsrIwdwjwf9qpoIgIZ7BCo3pbMYUoW</span><br><span class="line"></span><br><span class="line">jt6qoY5rDoFCXuZnMYgMHCGhMGFiAcsZ3sZt3q5kumnCcUPg4gYT0SyoFlYP4JPjvvDBYRcYKvJMmteDkFYJwQ6KvpuFBDKr3B3B9v4LkG4YtOLp4cft4ZkpPD+nPNfjVksHVqrg/mERrq1quCEe9O/ghvEUhj/i6uhjfKkVhhkbXKZNkeAXbr6MkKNN2nMsUa7njGUSLnNjFL/DAjUUHndvUVxlJkSbxjmm0fmrHqQeLNcVLP0eWoMYrCCaEEEM</span><br><span class="line"></span><br><span class="line">Cf4NwRrHWuMXwUZFMWorMZIjCjIvCpIX2tIbXmsXIRsQ5MkLGJYDiNXkZiStjmSrjmkf3rYnXJcb5hKUYYgBMF7iELMvsXPpYaeqcF3LYZmHAteqsuepvoCSCdmGCUkkfv4WksVjCeVkmYrgicEVEaEdcOEc/m1tmdiTEXrnEfau0kbp0ikXfAAY/GSUmJUJSYIpATkJsn7oyC7lRsybRunlAUNHGbtrURKQdqHugngVgpHoQSKVdp0aBN0QchQd</span><br><span class="line"></span><br><span class="line">KR8oLEuRcLGR8mnvJKEGuQwiCQpG8cqbwmqYXkDsItMQ3pik3iABaRYJnPqVITDsZnXmeUIWDlsbsYkLsYEDaTIccY6W5mcX+YGW6WToYQFlbE5MkK5LhgGR9K4O4O4YKnGQ6tKjEO3K3E4TGf8fGYfpCUmQ0DYBMEHGXKmX4aOOtN6SHLMFmfVlaqibmeiZETRW/sWR/r9Hid/hWb/hJCADSM0NSLFBNqbtWWkUAUmDKI2WIgGVYHHJAbisrKXL</span><br><span class="line"></span><br><span class="line">FB2Ygd2bMp3AyOznMgOdyXURmqORJKADBYqMgDVoFpYBgPMLgNbtujBa6eiKGOGJGNGLGCAAGKci0WdrgpdiQSJuKSRJ6SYOgNFLbM8S4G4I+ohchshTzicPaBhfejluCS2CksfhENGOgEqJ+rCcfhMB+TGD4gBliXvE1gxfloVYjPBsfOxeWUkZWfoCAJTLYDYNAtbkJe6hbmNugNqBJQZZFtJZ/BBNSG3rAtaEpfMqtuAtBCjtjDtoHmxr0byb</span><br><span class="line"></span><br><span class="line">gfpfTomEZSZaGGsokLgKgJtpSNZZFi8TuogA5VGDGHGHtQzrZYdSAK1O1J1C5W5eOQQcKV5XcjdmQeTmBcYFIrCrIrygzqFfBYtBFaGfWNFQgLFQCfElhWLklS+nhalVYOlXvLLl+gdNlblWOtRSiUVY/hvJrgWUxdEY0l1riWWYbjVVxXoFeS5K3NYFXK1SNu1XWegAAGLdXLUIB9VgRMRdjaLJCiijXwFlHBB0gOggnMazXB4LWNEGAc1jgoBr</span><br><span class="line"></span><br><span class="line">WWawJtCoDekuWNQ2VrqBY3U2AdTWbq09UXVa06ZlyBDhhVznV+LRaBbuKeLeIG1y0HW3H3ECVPGuXkCCkTnPUx7TliliZ+WfWIBaKQ504wUA3hXM7wBIUIA2G/FJAr7RnxLzTYUeHJXw1pUZVn6o1TxkWTAY35W35lUmpP742YmFl7w4mVVk2JEDaElXm4BBB8UgmdAM01mgSiXoAADi7NUlMlX8TVkE6+++Y1CBI9LJzECl0QWlc1zy2BfJlCht</span><br><span class="line"></span><br><span class="line">K1Ctqg2tuADd2ie6Dtmt1tJt5c5tW9+1l1gWhFncoWnQ7tzRj1rRnlPt3lb1vljM/lumna+mf1iY4dCFkdQcoZsdqF4GiacVwuNyMNSq6diNmdKNWVeFOVEweVWN9+ONaJJdGJNS5d5VJNVdvW1VtdaG9VMAwQni6A9grdIlHVAAEj3b1X3RaPkbisGp2UTCUV2R7lHVUfJLYAHqxlLbpdxktYZcvXZSIZPlYGHJXAfUbTvcYLbV4sHOI1bUzoFu</span><br><span class="line"></span><br><span class="line">ypytynI3oVdXugel2HbBfZ7U9TfcQa9fHu9aBa4jfOOpGOISFXBRHQ3HaD/TchGfAH7oA4CM6CA/lpLh0P4LgHmCRRftA2Ov4BMAjAVWg8XXjSgxamE51rEWxdXf1qhlCCYN2Pgz0MQxhm3eiB1WCJQzXFzQGphD7pKHJcPYyQwzGrRloxAnWKXFyTPemodjLYvUdAI1dVyjkIKNYC/JbWo4o7Zso9oxrYfcbcYLgBPlPjPvdR7RHnowJrfYY10c</span><br><span class="line"></span><br><span class="line">Yx6YHfVRXrZgHFY2FZ/dYSEM3GYBvo4wA5DUA24+4RCWnbnQRURV1FnVA7nRRWM3TkiXfsBnRWBhE4xdjeg7E1/tg4k3VZKJst6faCACQ6SYMkmAAFK5N8D5P25QQMZ2OgllPKUsMgmij7qShzZ1PcONN6Wy38PGUr2hjWCeKdM2B9g9NAWCOIAaMwpHpUtO1I5Ag04Mj2A6MzPX1zMGPXZGMP2FwrMt6LGbOA0+ARXNzKxxmOObkuNCqnOJWgOX</span><br><span class="line"></span><br><span class="line">Mn3EWZVpn3MEWPPwOvOIP0XIOfMIPfMllxNYPk04NJP2hr2twMigsZOkPM0ADSMLnN1DdhbeuKIozoKLY93Z2i9hc2waOLPJPD/JzT8tRLNLZEkYEQ3K0bqj1LbTwWZ9cbTLxhLLtOybR94+k+0+SojLmbxhLQZh2jD1fGk5L1vLiz/LNxoY2xH5exIrNjMdoZIu4ZpqjVxzZY8rCZuFudCNSNfjaN0D+dWrDWOr7zlSkT0GBrPqFVLSVVpr/z3F</span><br><span class="line"></span><br><span class="line">DIFKNmdsYLo2zNAAMk604y66cBAj7nWFGV60Ld2Ue8kNaPs4GzpXi7wwS/tatcS8YIKLGKKOzt00MxIwo0joW7YOYXmyM16T6W3ptlM5faW97TyzOXxEswHaY9eVafCmHdY9s3Ybs5zkKDhHHU4yhZltVe44mb2xncjb4f4/c8O6E4TTmeOy1vq9q4a6xb8wu8kXVb2A3agNMja8ScJeC3DAALI7twu+iFHaK/zbgnulG0YbYMi/z9mS1Bu3shuO</span><br><span class="line"></span><br><span class="line">2PsRt+7zaoDMQZuAcgB3EPERBu2fvyO5zH3Ad+lge6NcvR5Qd+2j4rN82zCmH2bKetMZghrNyttP6JYdvwDCjiop3nNw253Ky2DdgDs51rQZlBGUdfPhMTt0ejsMek0ms12LtEn/52sQvoA8gSXTYWiUywJ3GlNu5MPLIsNhYxRNXTLD3T24sjl3sltCn6MdE2d3aPtuJWAAAEHX6UngNEHXgAcHKACnuoAO6KgAC/GAAyEYAG+mqgdQGQGIWAAA</span><br><span class="line"></span><br><span class="line">Ksve111z1310N2N1N+5NoKsNgAAF6wtzKSHaAs0QzLDXhMirXpQ4CeD4wugwATA1achgDYDSDXcZB3daRr1ithhMDuAYjUCZNXYwBkNC4PSuHoCcBgD0AABK7w+3fAcHV1t5XKEQoczxKnkdbnGH8AeE2HMCCdeHmEXxMUB+qdgXKq0JqrpFEXgReqzzRd+WeZpdqDVHRZxNPz87KXLHTR6XvH2IAA8jl7kRBCGqKCCce8V0yaV+ArFKXKJwGymo</span><br><span class="line"></span><br><span class="line">OQctLfiw117U16KT5f7exm1yAHx4KB14AM2KgAWdqADAMYABSuI3gAMSqAD4roAAhGgAKt6AASFoANj/fHiQHXgAK/GAB7aoAIPRgAdsZiCADlxoAGxKgAbU6ACABoADD/fHnXgA+LGADEsYABexgAdvGABo/oAEnGgAQAwzf4BzeMCLfLf6+G+m+W828O8u/u+e+++B8h8R8x9x8ddJ9p9Z+58Rw7cI/EYd9gCndaSYAXfdQK3ve3fGDqCPeqDP</span><br><span class="line"></span><br><span class="line">evdYAj+fd4C4A/eKDaDoAA/4BA+ugg9g81gQ9Q+w/w8HcmNXV5VmAwBTAsBOeEs1aufDSrLhp/286E9b+QTRJds4UXMqpXOUw3OQNqu0+/qZnRdp2TPEqi/jZ4V0WKSXBIgkx55pcSSG7TLjpGF7Uk8uUQYatokFqSc0WTVHIPs1gLXshyc9RagKU5YeVuWzXRAJJEAB/agAH1/AgATwzAAd26AA+6MACF0cpFUBzldexfA3t1167aABuI3CbpNy</span><br><span class="line"></span><br><span class="line">64AB2rroAE/tQACl6gAbgNKBHXGwOFlm6eB5umAJbkS0QA8C1u/AjbkINEESCZBcghQdtzAC7cD+loHvn33O5IQruN3O7uPye7UAXub3WwcYC+4L8bmS/f7m8DX5pEN+oPZwmcB37Q84edAMwUj1MquA5gqASyhjxc4IAz+zcSCAqVcKONuww9InlmD84Ece2H/ZVt/1I6DsyKkXengajAFlIkGHzUqtE0rpzt4mBJXBrxX4o74uOfPeAXDAACKS</span><br><span class="line"></span><br><span class="line">A1GJAVRyJoBYTVDAcw3AS+4tkMUbFkr20oEDVe9XaZu5SjztEte99HXr0T15N9AAyfGABTRQAA6jAQAFBygAaDlAA4aYddNAHwdAL1xoAdcAA1B10AA05oAHfowAEI2HXNwH4E/z59lBhfVQdwM66bCdhBw44acJoDnD3g1wu4U8JeFgA3hCKTvmYNpAWCzuA/awcPxcFHUaI1ASfo4On6YBZ+rg+fovz+4r9vBkUCCi5DchCZN+AQl/nkF34hCu</span><br><span class="line"></span><br><span class="line">+yzUxhtS2o7VYh4bL+othx6QQtwpPe/jFVqaJ05UeEakf51hptgUqxHMLnCV1Q34Ge0TYqnqyqFlCZ2GDWocl2gG1VuKDVIEM1RaFwCmamXGHl0P6qsA3iYSEaiPRK4VM0WkEM/sEDx4TD6mw5Bomr1mFX1SBVncgUsODx69UALgLBNQJBHaBqBkhfANQJcAABHTgO8DAAAAKV4QAEodhgARb8TeHXPjgLxlDahN2HXMQB11WAQBigGgDrjpFKBK</span><br><span class="line"></span><br><span class="line">AoAYAHYYAEpNQACg2I3MEU8MADIcoAD0dQAKfugAMeiRuefAvkX3UFhg/RioAMXwLADBi6gYYmAJGOjFxioRiYxgCmLTEZisxOYvMQWMVBKBixpY8sVWNrHDd6xjw5se2M7E99TBfAeETCN76IjB+4AFER92MC8BtAGI3GE4Jn6oiQAbggkcv1X6RRAqNsOKBSP8ExlhRkPYIfv0R6P0VmncCCqrSQ4Ps4hUdDkdeDzTYd6Q6Qrfuh2yHv9GgfbC</span><br><span class="line"></span><br><span class="line">BgUPC4zx/+UXQunKNxpxdFRMXGJkayY7c8NRVNSCrTSdC6ieObQ7EKsCNHc1TsTVWwGKG7CDCZecaNHPWDUr4CVewbE5K6Ig6a9fa2vb0dwIXHZjAAkAmABLox2GAAXt0AClxj70ACwmkuOh41AXhWATAF2M+E9i5U+vWSR10UkqT1JWk3MTpMwB6SVgxg48bmARH99LxNgm8WiPvH1BHx2I3EYgDfEeDCRn46FNIjhQcCAe/4+JIBNpEgTD+q9d</span><br><span class="line"></span><br><span class="line">eo3SWKX8F8CQnHjFBYB+dHGOQFCc4TCRk8AuYosBv22p5kc/+8JAibKKVHACFRoAsiTUP1z4lOKddTao3S5Et1bW/PWuAt1YkFN5IgQcQjkB4lWjwEzdeSmEinrycb2dXfkur1mYejFhfLZYbPT169dhxCUFMDRGoG1QuYaQfADsKeGAANrMADt+t1x0hgglxgAQgtAAMVn9dAAQPqAAOPUOG3DDJKgtQSZNWnUD1p+SLaZnHiDUB9pjw46adPOm</span><br><span class="line"></span><br><span class="line">5jrpd0x6c9KPH0jcULkqwcAncmj9PJiobychCfE4iXxAU1QJ4KJGA8dMEOKMFDj/Fb9AhbjGKaENAkCtTG4zERtgNZFX8Y67ZNKXaGFFZT7RRPM/lkLOaiiCsRU7CefkKFlTpRiJUoWRPlGVDapQA+qaWTVH1DzW+DRuojXSbcc2qgBDqgAFUepkBSmJ3Cgg74hp41UmHLytZDQJpXDBTtNNEngdGuZAhaZWyWmkQ9eaoZMKgH4DUCygjAbKOoFw</span><br><span class="line"></span><br><span class="line">C9dqB3QNUDsNeFyAegkY7AC4DdkeyiAXsn2bZOoE0BagFYxgIAHnrVPoAABzQAFiagAADlAAhNYvSvhb0g8JnB4Cuz3ZnsikD7L9kwAA5UIoOagBDlhyS5kcsuTAGoExy459ABOcnPTnZzHJ0MpkMd3PGuTkRxlPyWGHREoyp+zgjya+PxGBSPxxInTHpm7ThS3gkU4XNFOAnky4po6PdGsi6Z0yF8ayRmdeCDgkzsOdIHKYCWSCcyFWHjY/F4x8</span><br><span class="line"></span><br><span class="line">bW4SpAsvCeVJKHIkgBYskiRLPo7KjOedQpqbgx8atQzAaTBiSrNrKZcAAaprJmzdpkgDoZ3BaOl7DTYWHTENHNk4aYEphIk47G6PmFTk76i06Sb2MACxilnMt6AAsf7Um+8dhC3AXgL03bUDKg6UTdows3Zgg+OYIBbtQJh7ah0olQMhtqHErvDux3w0heQot5ULVJNCxgHQoYVMKWFbCjhVwp4V8KBFQinuXCNBL9zLBSI+GdeMRmjyvJmIo2L5</span><br><span class="line"></span><br><span class="line">IxkzysZQU+eSIXMaTpcMfg4mevL36byGRyPERsGhswlZkpiFI+YCBBIsy0KbMrfhzNf7k9CpSra5pKMvz4S35LzBLrF1o6kTJZEAzBlANlkAsNkQTPmmAsZqqzmaBwGBZMjDSJoCe+s93OAh9w2hbAvuU2VguEmKdLZFnd0QsMklejWu3Az3vgEGBhjzh1A/oD5H4AxiJx+ACAKQEhHIAZxgAAYtAARL79dAAI9GAAwJSXGABR/UACBkZN2zmABO</span><br><span class="line"></span><br><span class="line">U0ACZioADQjQAAragAO9TAAGRlVzkAHXQALvygADW0OuC3QgLwDBGAB75TkmAAjAw0mABr/UADmjrnOMnGAPeHXLpYwB6WeA+lhAKAIMuGWjLxlUy2ZYspWXrKtleyo5acvQhQjLlNyu5T0BgBPLXlHy75VDLhF9y/uuityQYru53jkZJitGSPMxnkBsZwU8vNZnWZOcHFVIoIc4vpHhC2UUbGNl4pglsiMwqUh1NSEFByAbQDhJ/DJ285CiIeXM</span><br><span class="line"></span><br><span class="line">xVrkMiVPzcJARGJTKJFkfziJiS7+fEvImMcue6oymvVU2ptAvcglDqUxNrgAANQpYGhyBus8pSC8pgbNYDISGQPYISexmmEzSxJ1s+aa0qIXtLexI3NYYAC/FW5fQBqB8dTwIInYen0ADvyoHyXE8gBe1A+1smoOCbshFndbUDsN2UdceQ2oIRasCYWbt0oMPMECzTBDMKFuYIAXjyCXGrBKgAvHSNqGoGrAsx2oSoDWrrU/KxFJk4NWGoW4RrMA</span><br><span class="line"></span><br><span class="line">Uas4b11jUJqA+SalNWmoF4Zqs1OaxgHmoLVFqS1ZaitVWvSjdr61uYxtc2tbXtrM1Xa2tdlwJUnj0sOii8UPLMQviKVD41GWYqnm0rfuc83GfMRRzCsiZbK0mRvM5VgTTGL7f1u+33mCohVAQMJKKvFX48pVAo+IckNCUFSeZRHcBiR35nKrKsqq4We/J/nVTxZBNOqSktVFpKAFSTZdnlFXY5KgeHdAAJo2rcewaAScxDKVlEsYrcdForxq7mzn</span><br><span class="line"></span><br><span class="line">RMwq2Rrxtn+q7ZxCkyYADRNQAEI6KcwABN+mkjroACTCDroABK5QAJt+aYqwDsMACQ5iN0m6x8zJgAL/VAAcXLhrI10a3rh1x96O8dhTfJPrcvuXYrcxZDLhdmMABhkYADW3JcdcobXtre1+cxAGJsk3Sa5NSmlTeps03abMx2Y/TYZpHXGbsVZmizQn0T7WasVS4+zQtyc2ubcx7m3dZ5rPWsAL1xKq9fouHm3qx5VKx9YYufX0rrFb5HYvWy/U</span><br><span class="line"></span><br><span class="line">AT2VdIsIf+qP4YLUqmnN+i0wFV2FfFmYCBLWB5GONz53nUuIBLlW3zeZqG7OlKKVyACcNn8rVfhuSUc8KJ+q9JdxTY5BAOOwyddvqLhgAAtOjSEGmQgkBYzG2jJBGgh0MQg1XSadgoaW4LxJ/GwhYJsDUmTAAsHKAAAdNWUjcpFimsNelHOmABQxUACd2l5uL6fbvtw3X7f9qB2g6ctmEbRflsHmFab1U8u9ePKxGTzytFiulVYrfWIAEOt5ZeZS</span><br><span class="line"></span><br><span class="line">Pq0/qOVTWymVdV9weJmgphAut4qx439LQWHXkYGkf7OFcU187thhKKzS4ol6ZOnmquw06r5tERJJThqlnGtiNFNQkjtryWZc6cQ4KbCLzmjyUwsECM7SwxwiQR7CEtM2VNO43ereNc0lpc9tnKwcuBvY9sYAFyMwAGV6gARldAAx3KABAD0AA2HmH1d6AA2U0AAMSgeOG6ABlv0AA55oADgVQADoKgAI2tAAboqAA1uRG6W9AA3HKrL7dy4wsWuJ</span><br><span class="line"></span><br><span class="line">LHKByxHXQAGV+gAfXN2+v0D4a9OL426HdLu93aHy92+6OxAekPRHpj1x6Leie5PfmNT3riM9YAbPXns0Wkxtwl65HZdzJVj8HuDg0xVjrn7fdZ5Xg/HTdgimOKGtsU1xbcVQA5AiGuxEDZHUCAs6HUdYbDnmFlYjbZVN8wjiqnyJQJ+dRQwXVhriW0Ux2a4EAYtol2EaGpHFGXSbnNW7bsQJWJXbbm6G+hu0IoCosiyl5OrylfAP+BKG7TuqHRtX</span><br><span class="line"></span><br><span class="line">Q3Y0pIH4Ly20HYhEJuMCABv6MoGAAX6MABwZh1zEGaChxAgzbtNxEVGS+1aBzAzgbwOG8tBHenQVt3h0hIzxJK69SPPsGlax9eIifZYtfU+Ci0s+79TSN/UU7q2xgbRFtV1rmB19DcfZnMgu42hd9jMongfoQ3czJcn/FVrc1/4vyhZI7G/eUN1Z4ay6VUyXZRINWy7398uuGE52/05FkBMdQIAyHGESchhpMTaAoLbxeIPV81HBWOUe1+qzdMHK</span><br><span class="line"></span><br><span class="line">tg7OL5CCwdvY0IwwcR0ncCtA+orVPLYM+SOD/knHS+qn28H7k/B0nYIfJ0UyRDQyaMNGwe5SHiMO+zkT7gUNMgMhCVbnRT0aCn7f45+wWTNsIlVTRd+ZIwwRuW16r/5r+qsuAvbodVwBvqWw7/sjwycsYlMTXRhCDSzIsYKFTjQbvnoPbfVpuhZubqCND9exgAIgJ5xYWgbintXFt6yxHewANhKgAL70xNvAmiK7yTE7CTeNYm3o2NbHV789Sgov</span><br><span class="line"></span><br><span class="line">dsd2OLj+uBxosenuOMddzjlxmgzcbuMPHhu1vJ437vz39ynJmEaIH3rhmxHUdhihIw+qSPTyuDuOng+v0yNRT59LirlcYEZA4RKiPaBndIdKMjRUcFR4bfBvymqHj86h/IWhum0ACWjoszVWLu1V6Hf5K2no2az/x6jLD2IG5jYapKjG5oQIbtHhHSzOHeJJon0kkKwoLG7tFs5Y3xv8NrHAj9szYyZMACCtoAGgvMI/qaNORHYZeipE6weH3sHn</span><br><span class="line"></span><br><span class="line">xT6lI5Vun3x5cTa8/E3+sp23F4YeiQUKrWKPlFKTnNbtDSdg2Zhqjb/Wo+MHqP7Ef+NPbQ80cqkcmKhX8h/TqpMOraSNgpxiR/trgF0xTTZP/U1XZI0gpjpMG2A6BDQcbbt9StU74ZWMEKtTyB17cYB2Ppi9jjytSZpOj67LAAi8phrbJ9kzAK7yD2AAdeR2GAAuOUi2jrgRJmn3t7sACEVoAGj1V44XrznF9mzZkts1ZM7M9mOufZ6QAOeHNjmJ</span><br><span class="line"></span><br><span class="line">z0W0zXOcXPd7Pc5p0lXEZRPWnEjtp7HZidSM4z0jM+leXPrJ2Nbcj/mRkX7m6C/xQ6/K+mX6dkNChqQQZqo/SflV1GYoZ+pVayYqnqq5tnJ9o6z06Oztn9fzGAXLogVwwrIoBUZCMeNFwmEFeYDnHKZQXIE80Q0PXXUs9U+GmiTShA/MwrbrGdTV4j437sADMrvcPGUdds5du6PhNw64w90ondaPoADc9C5TsIxU2axAbyr5UudEXeaQAOxrizxd</span><br><span class="line"></span><br><span class="line">eF8Ws5AloSyJbEuSXpLiW3gHJbxXQm/usJ5OgiYtO6mrTE/O8+jLtOPmHTL5p02+YENJgyZbpvIyADCwwBv4llC/oBYPkyHm4m2CVRNG7CVGn+KhqCxGZgsNG4L0S1+ULuv0dY2jLPKJsYaf3SzpdAp3nkKZwvYgEg+F5XXYY7gRhoEsyBksAdRay9W4UQVSpguV50X7tNZjU6sZYvamUDiAHY2qHwAUBXu2K8QR1xS3Zig9my0c4ABD7QAKB2gA</span><br><span class="line"></span><br><span class="line">BeNAAXJ6KXSDylnq9QH6sPKhrI1jrmNcmuzWFr55uE5eZYMvjUTE8+8+PvcHcG0jOJ1y1kfctCGvz/lDZPMF1qJAALDOTHhSZAthlh6qQxQ0/zpMiiYr60Jk40djNsn4zGqxMwto6NLb0L2Vxqb0YzP9GsmzNbAHRrSzSmewQBvGJaOdWnAwsqOSCB0y8Oz0vVcBuYWW2YtIHOBKw4vrnuNPGB6bZppgzEesvHXbzaJs65wYutYmrrvg50+Dw/ML</span><br><span class="line"></span><br><span class="line">7CTXpdAIKD4oSgbm5Jko19YdA/X24EV7zqLjG3H7oLYSeK5oZjMqqkrV+xnmlcnaM9Uz/J1LthYGPM0AAVnRtLgesYEdxYs6sjP4Mg8UtSpq94ZasMX4DlN6zlJMbPdWOu7Yy3lnMAAOpmptd127K97YoPcHre0kKzeOwkbk3vmuABZ6Nz2LX3jJk1S22MDsh2w7tuiO22Kjsx247jABO0nuTup39rFlpHYibZvxGObp1+yw+Z5tPmGVGRm63iaF</span><br><span class="line"></span><br><span class="line">sEnmtx9UwkQ08Sz5ArrxYKzj3/3gWt+yto/TkLVuwXNbpUsGwheF08ncNSZmG4/q6OQCEbuV2AZmeFO1x3QxVn/URbxSbY6wgQe2zeHK5Yw4EKpqs7AfVMm66zHVhs1gT147GWa6UVYAtzECd0RLmYjrgssADUShbz02AAUb0AAN0WIEAAjkYACQlMQDsvmULLo+Owt7YAHozIEwQcAAhboAFnEjST70AD3sWnZXMfH37n97+7/e1D/2gHoDiBzA</span><br><span class="line"></span><br><span class="line">7gfbKEHSDxgKg/Qd9dsHuDgh5XfhPV2rL7F5E3YPruY6ubyRxy3juctdEBb2/Tu55a3RGgfIUAdYFglCh/TNAY/LfByGwAwAiApkHCZLjHR6OC6/QPAOZaBh4A+O9ASwNqEL7NAvZWBPbhGpUBiIKAWAKMUlDkARA44vomoJgGtXi5PHKwWjY7C+lYpVxLNbh5eJQAiRgcOEhACUCjGFRkAkTsAEcHiAyhkwZQMx5YFAq1Z3g1kAMAGCAA==</span><br></pre></td></tr></table></figure>
+<p>%%</p>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">excalidraw</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/11/04/LLM/2_RAG/project/img/%E8%AE%BE%E8%AE%A1/%E5%9B%BE_13Agent%E4%B8%8E%E5%B7%A5%E5%85%B7%E8%BF%90%E8%A1%8C%E6%97%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LLM/2_RAG/project/img/设计/图_12文档删除流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>图_12文档删除流程</h1>
+<p>原生 Excalidraw 可编辑画布，基于 SuperMew-0.1.0。请使用 Obsidian 的 Excalidraw 视图打开。</p>
+<p><strong>所属模块：</strong> M6 文档管理。总图与详图使用相同模块编号；画布右侧也包含以下读图说明。</p>
+<h3 id="M6-组成">M6 组成</h3>
+<ul>
+<li>列表聚合 Milvus 叶子记录；上传衔接 M7 索引；删除清理多种存储。</li>
+<li>同步在请求内完成；异步返回 job_id，进度由内存 JobManager 提供。</li>
+<li>上传细节见图 03，下方展开删除分支。</li>
+</ul>
+<h3 id="清理顺序">清理顺序</h3>
+<ul>
+<li>Milvus L3 → PG L1/L2 commit → Redis 父块缓存删除。</li>
+<li>BM25 统计由 Milvus 自动维护；没有独立重建任务。</li>
+</ul>
+<h3 id="边界">边界</h3>
+<ul>
+<li>本地原文、聊天历史和已保存 Trace 保留。</li>
+<li>transactionally 是函数名，不代表跨库事务。</li>
+<li>部分失败无自动回滚；Redis 异常可能被忽略。</li>
+</ul>
+<h3 id="源码对应">源码对应</h3>
+<ul>
+<li><code>backend/api/routes/documents.py</code>：<code>delete_document_async()</code></li>
+<li><code>backend/api/routes/documents.py</code>：<code>_process_delete_job()</code></li>
+<li><code>backend/api/resources.py</code>：<code>delete_document_transactionally()</code></li>
+<li><code>backend/indexing/parent_chunk_store.py</code>：<code>delete_by_filename()</code></li>
+<li><code>backend/jobs/upload_jobs.py</code>：<code>UploadJobManager()</code></li>
+</ul>
+<h1>Excalidraw Data</h1>
+<h2 id="Text-Elements">Text Elements</h2>
+<p>12  文档管理组成与删除流程 ^fc49eb86</p>
+<p>原版真实分支与时序；全部图形、文字与连线均为可编辑元素。 ^ec954da6</p>
+<p>M6 文档管理  ·  对应总图 01 ^3added20</p>
+<p>M6 文档管理的三组能力 · 全部要求管理员身份 ^454f3531</p>
+<p>文档列表
+GET /documents
+从 Milvus 叶子记录
+统计 filename / chunk_count ^d18d8603</p>
+<p>上传与索引入口
+同步 / 异步上传
+保存、同名清理、创建 job
+调用 M7 入库，详见图 03 ^0ce2c831</p>
+<p>删除与任务状态
+同步 / 异步删除
+JobManager 保存内存进度
+轮询 jobs，删除细节如下 ^bb513407</p>
+<p>管理员提交删除 filename ^ea923e42</p>
+<p>同步 / 异步接口 ^a2865738</p>
+<p>create_job · pending
+prepare / bm25 / milvus / parent_store ^91806992</p>
+<p>返回 job_id
+BackgroundTasks → running ^b4311601</p>
+<p>前端轮询删除进度 ^3eea68e5</p>
+<p>delete_document_transactionally
+初始化 Milvus Collection ^691f5ff6</p>
+<p>异步进度 bm25=completed
+统计由 Milvus 自动维护 ^7204fa26</p>
+<p>按 filename 删除 Milvus L3 ^07f67382</p>
+<p>按 filename 找 PG 父块 ID
+删除 L1/L2 → PG commit ^df3932c8</p>
+<p>逐个 cache.delete parent_chunk key
+Redis 异常在封装内部忽略 ^4b095f63</p>
+<p>同步返回 delete_count
+或 job completed ^52a70209</p>
+<p>同步 HTTP 错误
+或 job failed / 当前步骤 / error ^dc62436e</p>
+<p>可能已清理部分数据
+需检查各存储实际状态 ^5db3b2de</p>
+<p>本地上传原文
+历史聊天 / 已保存 Trace ^31ac02bd</p>
+<p>任务不是 PG / Redis 持久队列 ^6c93eebe</p>
+<p>异步 ^02a126b9</p>
+<p>GET delete/jobs/id ^ae1aabcf</p>
+<p>同步 ^845553aa</p>
+<p>异常 ^2041be41</p>
+<p>异常 ^4e25df1a</p>
+<p>异常 ^f4aea033</p>
+<p>无跨库自动回滚 ^4f2b1286</p>
+<p>仍保留 ^414c9950</p>
+<p>服务重启后丢失 ^094937f1</p>
+<p>读图说明 · M6 文档管理 ^fd03ffb3</p>
+<p>M6 组成 ^8a24ef47</p>
+<p>• 列表聚合 Milvus 叶子记录；上传衔接 M7 索引
+；删除清理多种存储。 ^2763bd0e</p>
+<p>• 同步在请求内完成；异步返回 job_id，进度由
+内存 JobManager 提供。 ^3d343a98</p>
+<p>• 上传细节见图 03，下方展开删除分支。 ^ed3e722e</p>
+<p>清理顺序 ^0a6b683b</p>
+<p>• Milvus L3 → PG L1/L2 commit → Redis 父块缓
+存删除。 ^4c8b2609</p>
+<p>• BM25 统计由 Milvus 自动维护；没有独立重建
+任务。 ^4a0826ff</p>
+<p>边界 ^2d116b58</p>
+<p>• 本地原文、聊天历史和已保存 Trace 保留。 ^aae7431e</p>
+<p>• transactionally 是函数名，不代表跨库事务。 ^75f16ddc</p>
+<p>• 部分失败无自动回滚；Redis 异常可能被忽略。 ^b77acf23</p>
+<h2 id="Element-Links">Element Links</h2>
+<p>3added20: [[图_1项目设计]]</p>
+<p>%%</p>
+<h2 id="Drawing">Drawing</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">N4IgLgngDgpiBcIYA8DGBDANgSwCYCd0B3EAGhADcZ8BnbAewDsEAmcm+gV31TkQAswYKDXgB6MSgw4CxAHSp6AWzJJMMJTEZgaCANqg8CEAA4AbOgCMZk7dWRYx/DFRh0jAObrVyBAGYABnIIBGsgkCI8MH5QgL8AVnJ+GGwPQVYWRJB3Lz5wmjB8egBrGABhekx6fGMAYlQAI1x4mEtVBvRUYo8izkZcCqqaxFqAMxNR9FHUVVHsTEwAZUhvRA</span><br><span class="line"></span><br><span class="line">4ZVQKi0oB1KJj4SzksrZKYZYhVkHWjcl60xhgaXXhw+ihO7EhY8J6uKAAkrgXnoALrkUaETRAhCMTgLcjYfooYzoAKqXr9R7PWHwzDsGAwXChAAslksAHY4pY2JRqHQmKxyFRaAxGAA5Ji8BAATj8FJY1ksJlp2BoABEYOowESEJNMDQYOQGlx+gBRdSabQg8EgThQXDoGXEw4UvkUikkszxMx+YXkHCMYq4hEgKpdWXweWKgC+pEMJpAPJM1lQF</span><br><span class="line"></span><br><span class="line">Jg6Hs0D4IGcrhy3nIvkOlhJ4RCpvCkVw0QQ8RY4WSqXS8DMARM5ATeXYhTOg2qdUazVa7U63UxA0qDZG40m01m8yWKxjN2JNe2MD2OYORxOtdKFyuo4xXAeTxebw+qC+GcsAV+vUBwP0ush6GhJrhrqRuBRiCsK76uGxLyv+OuhJNlniPJJFJsZi0iyDLMPAQH0mynKMNyhx/pSPKZPEJKIhKUowMacpYIqyqqrgGoaFoOgnuQ+qGhhprmpa1q2v</span><br><span class="line"></span><br><span class="line">abpIs68Bvg69Aeia3owH6AbGDAFK4JYozxCYDRRo4974EUJBJggJI8vEcgJLSGYyRWET7AghYpGkYD+GYlaeKs+TzuUXbDCAtRmH+JJCa2XR/E+9amYU7g0B8zjaAOCyLiOlS3NcRlTrmhxyCppwLsOxjLncq78C+6nkO8nzfIc+7kHZR46hCUIwDCjF4oiyLJtkLCPli64uu+iqeiwJKBCGARWcyEGMmBjWskwUEwcKJI1YEPLBihkrSp67E4U+</span><br><span class="line"></span><br><span class="line">+FakR8BgiRBpGp68H8lRNp2ipjoMUxbosaUbFYUqIBQPQSKTXoehBAE4KnaQfhmKCuqYOgBQVEoShfMaAAKh3ublroFOg+BgAAQjeSIeAgoBoRNOUgAEtoNAEuBprMLGcBuqXoFArB+kg/RA/0INg2oBHaFDlgwA0qCyTSSOoCjcUgB46OYzWf1gAAguJ9BEMk6CXnl2O4OzEnc4Gf0SaoUoqkQw27ZxIBGIgcQ8jAZi4CYcDkA4Mai5zPjSTYcg</span><br><span class="line"></span><br><span class="line">2FkGZmDyRx+Ob5DZoFwpmAbfg8kkmkljSFIG2YFJ6bkdOhcZQx1BZlrWcqbZ2f0DnGE5jAuX9hEeUOlzeRs45nAFM7BcnYUJxFPljrG0Wxa88VbjuPypYeQIZSAZ4XuV+W3oV6B+CVz5ld9FWfv4ZpWg1dJtaB4F9x1fBCr+CE8lSA1oeRI0gCqY2aoRlekXNX5motVrLbRa215trGYQqe0HUdIKXedpB6AAtAEch7mwZI33yF0X5Schr6QVpuxS</span><br><span class="line"></span><br><span class="line">T/CiwxwknfrsAhf3Ps/cwdsHbWmChSSw38wG2gdi7T+t0HQPTAE9F6QgiQfSOjvX6/1ca4HxvAcGC9iaBlJuTSmxUITI1RvTRmYEsZaFwAQohJCiZgChiSdAZhRgsFwFSamtNC70Ixow5m/1Bac2FjvZhUiuYRhFhzSSahJbSwPrLeW0NJjj34SSESWtlG63gObPwcgyR+GCAgEwslLZqXgGA/MtIixaR0p7AyGdfbdjMgHKywlg62Q7OHRAkdo5</span><br><span class="line"></span><br><span class="line">uW0hCQcXls5Jz8hOVOoR05xLONEtYOdHxrhxCIhK24kp7gPP8CuxEq5ZRyhtG8d5sj6Kik+AuG1KpfgsiwFgVJLCtRAkyXuIEh6hBMCSJC+5+TITlqhIaO0D6jXVKQ46upl7kQWhaDeNFVr0R3u6ba+9sL7U+sdU+F1f7/wrMKV+tgLomGvn4TIpACxyACCwHkZzbZOKujdO6qD0GvSwTs3Bbh8HA08ATCGhEuE8L4QI9ENCaZ0IZmIlgTCcb/NB</span><br><span class="line"></span><br><span class="line">sQwmkNAy4BYDAcsGAeRCOhQwuFEi2bKJkW3cgcjiWKNREYslmA1HjN9P6OWItWgRnOf48A0YqViykiYkMwUaRWOSkAux046YuOdj3Ks3sjLBJ8ZZIOs8Q5BJMhHQgUdXKx0iZ5cKaTYk+wSUFEKRlUkgENDQZIud7gxVbpuRKu4Ur03LseKap5Sm82vAVVE8Rm51L5g03pmQLRmgHh0lqXTIJcmHibcefgaqpknmMzZe055TI4UvWa8y16LOoitB</span><br><span class="line"></span><br><span class="line">0qzSW7w2V6Xa5Aj7an0Hs8+QRUwmGQW6d5ygMHvW+QWvBgNEWAumVDdFmKTDYtxXTGFTN+asIBcioFZDjABAaOGGGAQcWQuEb8fFWM23yJJRtclQtKViW5aozm6iGVcUQCYfMMAeQWG9RrTlu6dY8qcbc2ixtTbyQtqpUVYF7lyAvc4p22kTHxCOGYd27jqzJNKLK8y8r2UdECbhWVoSNXuS1fHJc6TPEGqOEaicJrIp504JkuhOSS5CrLoU5100</span><br><span class="line"></span><br><span class="line">Snnmyu698FSG5mB9a3epHdDj22tKmWN7S2SdOAhG6Cw9yRWW/GWXSIzBroUPcm3C41F7FLmfNLNS1ll5qdGsraUnS07JPmdC619Dnv1/hZG658bnUnfrbYDwC9CCl/pYO0FmkGma/XyNg+Zgr9P2S5wCV1ANILeY9RtnzcDYK+vU357a8ZjvYai4wFCKaAeoVXWhg6V1koRVFpFMXgUi0sOgHk+4STq2S1C1LsLV0RfXTuzd/Qqs8y5Xe/dUt6Uc</span><br><span class="line"></span><br><span class="line">UZVo9APEKR+FaJGa9olsjUpAMmfpJhbnxA9iAe1wr32BQLLbYUDsQDiv/ddUD0qJyQd8Qq2D7Z4MqpCWqsJmqq5RJ1dcdD4HJz2Kw543DF2rUF1tbkqbZH9RFJdZlajZS+b0dRBSJjWSWPzRFL+GGZJuPNRDfxzqZhhTmBtP/BNkmWuTLwtM9NZFFOUSWbmuiamC3rM09s4+FbdPnxJHIFgljLA8jttZmnrs+psALPsmGN8bEvLrfdQLz1guhf/e</span><br><span class="line"></span><br><span class="line">Flmo6ssopy8YHtWL8sDpEUO8RI6O3jq7bl/LhXiujBSzLtLfkWZ1do+lgWFL6u3pURLA9LXNGBi6+geILQKTss1g1lRyZgMU+qmJ3c5JFtWwODVB+i3ltuOyPpMDPtNvQZsrt+y+3wCHaQxEk72qs66t8vq67SSfZ3diQ9m1Rc7Wl0deRyu1caM71+/eEwAPXx+tYzSGktofxtPDZDiHHJI2hEAn0wUNuVJigk9PEts8ZPo/kxmrH68c1b3zRtQn</span><br><span class="line"></span><br><span class="line">KPiflqmpWy+QH7mkGOeWWtIC/CjYCD+a519vwkifr7mnDtrpc4bbzzBIWW2C7+ZlztHCoZWBV/VNXGvl3lf18Lh/sXEDjb4jOqgElurqVprp/trpIobnrvzLro7uLLSmbkmhbsYEVqgN1rgAVgYnATyoBEcPVBNruFTo3t7mKn+oHlKiIqHtHlBoHDBkqntn7Ads5HHnHJninv5Gnthikmdnhtnlkk9iRvkq9ulMUsXt9h6vXKiAuvhqVIDtXp6C</span><br><span class="line"></span><br><span class="line">KA3t1Itnxs3k3q3gJqEDToEIJJZEjv3hMoPvPGmiPpjqvNjhPisvjtPhprPmWrsmTpdGfgFmgkFlfvzj8kLgrtlpOn/rxJYIAcAe/mjOAcwt/oro/oGL+LePVNwtLh/sOmulAbIrVskcbvAXSkgW1lEVMESKem0H1oYnusmIJHJMBotruHaF7vYjJAbIjktmQSYmJhQYZBttQVtnQXBlHowTHswTHMhgnqhonOwfEpwbdjwfdvnDniAMRnkg6mlO</span><br><span class="line"></span><br><span class="line">9pRmIdAWXtkKzJXrgjXoBPmP0jJC3rxk1BoZ1DvsBvklvvoUTimmjiYR9nqKPuYePpvFYetHzDPkmlpiTgvo4RfL/BzjTrchvpfP/MFH1HvrcvVEfrTk0pzi4R8u4Tfn6hFuET4ZwlESSDEd1L1iVkuiEcOmEd4aLr4SALDg0PwvEA0FetiXiuAUkdukbjVgbnSUonuqbs1lkceiAGgbxCYLgKMPbjegNsUXmHco+sMruHGiKoFFSMcBeo7MWCts</span><br><span class="line"></span><br><span class="line">0cHutnWO0eHgEpHmHNHohv0fHnMInmhnqhwR+jdpdmwZalMfwbns9vngsRRq6l9isZ6veADBsa2qxgWMpNaKbPsWGqoUcXwLYNaPVPcj3qMsju8UYamhNBjivKEEpjjpPtYa8bYRGfYTpqQGfJfGYrEavrTtYIfiAraAbGaGCfuDAiAtKT+LpM4Sgjzk2l8jgq2kiQSROqicYCSWSRSfEbiXLviffhEb/pycrNOqMH4DMIutSYkZVmkQybAekTSp</span><br><span class="line"></span><br><span class="line">kcWhotkcYDyAJFaO7MVg7vOUNtJHaOYk+qEEhJYjNgcBpPKeQUqZQTKqqbQRHqHJ2D0dqeEqwRMYaaMcaensam+b5HwURsXHMQUm9naZ9jXAWqsegGUK6UDo0lSCbCwCYBNn6QcYPG3ocDYOPMGNAuEL3lPJcUPjcZRgpg8dmk8api8a6G8UuVsmmaThmXpjCbWa4Zfs2o2bfpFoQtFoSW2YgLwGWA0KOeOVSWVniRlpxSLq2VDA0AhAEKgLgB0N</span><br><span class="line"></span><br><span class="line">2aIlOTrjOXzFutIjuoKY1qyVJsgfeObFaKMGYEJduVpU7ggBSH5v1JNloTTpKQcKenUY3gHvAFaOEC0Z4mHneeqQ+QhrHjqa+Unudu+SnGMaaWdmahahktapaTMQBS9gXsBUXm6qXk6dkOKNBfIavOSJcsBlDmoX6T0q5XcjSJ3mJrhYmtRdJsYdGaYbGRRI8SpnjhRe+FRTPLRV8fReTvJDDLmQbD+BdCbDfPGizufI5RZG0i0q/PEGcmUeDm5e</span><br><span class="line"></span><br><span class="line">fnWXzgiT9M2f2SiU/nlgVq/opbLgSvLutdxU/jJHyO7EJSATiUpXLrSRpfSWpakUydgU1rpSuYgPJbgHELgLgE3IUU9c7jaOYtVIKvZnZaeaEIKAbLRC5SwGWGtteW0T0TQX4vecqk+f5S+ShmaZsEadbF+ThhFQ9FFTUoRnTLMQlbaclQ6alZIfeGqJlT9O6YEDJOSAEI3shb6YcUVddDbtApaBcbPlcbJvPkRfcXGRYWRc1epnvFVR8cLYvhTv</span><br><span class="line"></span><br><span class="line">EOWH1dAn4INbTqPHvmcr/HEFdAcjvlrbcpYs0qNmaCZnoC+naMzt1BdDlTfBbNVAWXoLXpDRWDDedLCW4axWFoiV4YdZJWiRiXEROSJb2WJWwkdSLCdddBSOdcEVdftTdQonda6OpUncydpQgWyVVXpdDLGrwJhVgTuSUdKfVMDRKWDbBKNv/MMi5TWnDa0SqYjR0SjQwd4s+cdnqUMTEiMaFZ+VwZnFcJFbKMTTFf+XnqRolSIbccsdTZUugAAG</span><br><span class="line"></span><br><span class="line">L03tyeixpliWUqGHEoXdJoUiYCjQKpjlVhkGFbKC3D63HEVi2NW47bwE4pky1z4OFdV6AU4u7K2AZq12yJDNL8oPLnyVmyks3HA2IXRdbfpXIg09Wq3nz2a04WhHKXI21WSA3IQ1qLXMX1nX5sU+137iU/5i6IAdnNBdnB1gGiUsItlK6ohR1nW7Va6J0br3WMm3Xp0m6Z0vUcnkxdYBFoiF1mXGJwO3I1TA3WhZAkEiK12s312eW3nI0+Wo1t3o</span><br><span class="line"></span><br><span class="line">0d2nZBV4ap593jFBVD3mkEaj2k3xU2lOqU1gXlJpXoAADiS9BI8048ZYi04Q7N+V/p0kaY8QdofN4meFAtBFtV59otDVpFTVN9Nh0t7V2mdFmZ1arNaDcJXtAu2DHF4d/tVDfU0dsdoBCRod5DftlD94jQFIfavCtDNJ05j1BaqdJKfDC5iB2dr1IAP4DQNUPIAivD2s5lrl+5ZIKku4Ij9lpBF5yUjeHll2XlsjiqXRmpaNfRGNgxWNGGYVGeBN</span><br><span class="line"></span><br><span class="line">5qw9+GJN2S+jE9FNohKV4FpjAAEpYx+J6KDrDlaBvX3FvdDnwMJrJDDFxh45VTPKfYRbMn4wssptfVPsmSEwPh1SdI4ZEzAh7SxQ2d7atb7bgwOfg7PDJXJQpSQxk/tX2RCxtYGCGJ0HvQUcJaQ9dSU8wykUw2nU9TpebrU/VABLaLnKZa08YlTtfO7F09YrYhXY4s0nKa4pXVI8MzI9tvQd0Qo1M0o/qcMbnGo7jf3ecIs0TSs7o2s+PUIZPYsf</span><br><span class="line"></span><br><span class="line">acYz9qYwCAc/6q5bgQhCeQ4y3kVUhOYDc4EPzRGU8z4yLWYZfQEx80mZRXfaE58X80/RfGYuNmwP8WmICRfMBuCR7KNZfI5bzdcmYnuI7RfCy+61ZNE57SC3E2Czg4kzkyANwrwvwoIvCz2Yi2HVxUk4gCk6MAEDAAhUU8pZAaU7OWkZU89SSxyc0qgKgDYgJLw3GG4EqfekbBkFmPYoEOeey6mO5VeQ3RBtQQEKMP+GYMVjtr5dQQW6MLyViZ3b</span><br><span class="line"></span><br><span class="line">M5dphnjdwSo5MTo49laYIfMYY/oCAFvmYB0CYB1iAEqyXjszTdkAAFKumgDbl+CrqsbXRWTmhZC6vqFFVCY06ASr0mv31mtyZTT3sCkyjIDx5aJ8Q8nmBxAgA+gvOWv+PvOJktXMTfPLkcmmwwD9IYD8n9YttSo8r2zpidu9MmI75ssSoDtezw2N3eK1CjvjuTu8sTP0ezvzuBUGk927DzPfnrtZ4Wlj3WkbN7tTTJs8joAUlxDCTnviF0amMADS</span><br><span class="line"></span><br><span class="line">d7HKokj7VjX4+Y48tgBWPpjjRVBYSEdeBWooR9+FNVQHBgKnMYYHEHgYslRbDbdocHCH9VbzCZzxUtRa7EOdY79seWKszbLgrbXsPKXWJHn6XbH6dovbVHnLVBiNjHwGzH4zj5bHo7HHmNP5IrONac4rS7f5ejcru7he+7869b+TTTZ7oFF7JjV76AAAMspw+0+1VD+FToKMBrp3qzvamKc/OuYP+4894xZyB/1jZ6oFog0BSfZmmP9vBzNIh255</span><br><span class="line"></span><br><span class="line">YeRZ5+w0ylOrDPDIjL9YgAR227ubytvlToKv0pF7NqmP1WJi5ZKoO9I4jX4A0CKEZS3Xy6ZLUDAKMEZZ95x8K9jR+WKxo1x9o6swIYBcIYsdDIKKzbeBXrJ46XVwALJNc3pqeHMmjWimKXJdeftoWAQ1TNLWCH195mdRkjdWcRwoC2fcT5ZU7YfFSyxUuDZaI8R8QCTWTzd3GLfxnLeS233odbJQpgDKDihGiRjIocDcC8Cci3jGDrE+g53xZUK8</span><br><span class="line"></span><br><span class="line">OELnhMC5zDY77BT5iCquMqRiPCgxf/oG9xc3mI0YEWgwwvesdvefd8lkw/fd3Zf/e5eA+/cj1btxVFdAVT16CcmoB/gTuNBVdUbKsSFz3sjqvPvNL3Iq3Y+FU72s0Cj/xlgmfE9ePmfC2jfWeU8TciwIXWhdYV4M8CnUuIiBgs/8SCTCTF/9al/rcKz2zKyqxwA19FGNZaKnoYoXrW7OcLeufc8S1BNfNecD6C/C+i8EwS88AwDS8xgI8ADy4odN</span><br><span class="line"></span><br><span class="line">8vtTKbYK6b5Pu3QXhHB35IjO3UgqIoJ5Yjlyo2BYJ5LlAoJvCNbHP4mKnRGpqXNvn34Yuci7WXf3vdAP4V/Hv5gnhXwneVpszE7NBAg0CUYG0Dh6z0G48/ZHqpxa4mh8mO+fcNNg/bx9NCKYeqHch/Sp9PGprYbpn037gAc+ZfVcgb2jT09GUjPPdFokVhN81YcHKgSXyZ52cdEAoBGIwKz5PVaBVocwBS176c9++4tQJp8ztb889oY/JQCLzcCT</span><br><span class="line"></span><br><span class="line">8uA0/WfsYFvYr8OSEuPtFLh26xht++3ZMPcjkg2gGW8APkKI3sTVQTadzS/rSCGbxd6O8MX8HYDkat0be6XSYA72TxO8v+LvH/kD2ioe8yaBjErmJw+4yQLA7sYPjPUvZz03ocAvgKjw1YE8aQQCeNOoQubtRceVZS0F3EG4D5AOhA0yuN1IGIAGmdoMIG0Fb7cDWB+WdgfojKE7l2sLKdAGyk4FEC6+dQi0N1jywCCL6SHdzitz54j9DCkg6QWL</span><br><span class="line"></span><br><span class="line">1ABT8pe9AGXogFZhlAlOyg+vtDBnSYoyw0hUyntxC4HdAgWGAVDZRTC74K6YQSjv+hu40ch2XiN7g9ye6MYHBr3OoB9y+6jBXBwVbjldnUZeC3e0rXwesyAGidfevJPkHEHJJhDtmtXOegAEVoh/gBAeDWQH5gVIaAzmmhRaTdQrItoHCqZ3T6k9choHEgXMO6wRgbAMAb1DUKrZ1DSYDQ6dJ0NeYD8RBtrVqva1H4owheUgifuLzkFjCJhIAAAK</span><br><span class="line"></span><br><span class="line">pqtZh7WLaqrkC7xhtBeYH1olmBr4EyOCFMxOfwOEWVLBt3LlglwwJWQK8Vw63nUHY4uDMuv/dwTxxeELNtRPg6Yn4JE4BDfefwz7kWzgBQCIhDcAAErgiTEkI9ClQgvTDI4RqFDASYCqL/xaIFVcMgBwIHHQuBISbEVohNiV9PujGIkS0NRZnpu+hIpgbXxYGohOs7QyMNGOTGIArcNuHiNX0TFt8VE7WAyrwmMoUiuewgm1qh0LRE5BhzIkYayJ</span><br><span class="line"></span><br><span class="line">n7jCYwZQermqFZgR8eRgYf/AERjpJYVhWgtYSUVZr8pFIWhXYWIypxV0TYMo+AFfyDzHC7uNgpUfYLGaP9IMGohdso28FzM9RfHbce8KNGfDiuSVfdqgFGAyQkIEAwEVTRtGohFgDo2Iaxhkr5FrAcfeERgK6zuxXGvotEfgIz5BiiB+QuYQKHqiTAYaTQ6ge30tx+BrctuPMcGOJGBhUC6BTAhzy6FLdB+og2keIPIC1iZBLIyXo2PZEAwkenY1</span><br><span class="line"></span><br><span class="line">cuiUxSYkBRwXRMAd0VoU5TYYpcGtAglGXJKcnXBov0yOEeIFRt/JWOSNVFP91RL/ZZu/wNE7jv++o/cQV1laADjxPvYkt9ULbGUcU1o4EQ3AAAqD4p0SJn64d43xHozqFZASBpgdO9zf0UN3/EggEJQE2gRSCMqF9KBCEmMSgRcAoT0QGYmgTkVGB5FAMEE5gV5PFxNBPq31MsUIKvoodVus+PCcMPOyESFBiAUiTnUIbklKS/YwUYOOkhU5v0tg</span><br><span class="line"></span><br><span class="line">YGgkGqIfpmkFOIBCpAsHX86ONvO/gJNXHTtEatvV/g8NUY5dEkeXD/u70PFe9weFGIMGGGMox0ZgaklVnVw5HaT1OsQB2jVBLLJCOahk4eK+zNA/hBIWQwwjkIAl5DQxaKUcq5gbb+SkxgUvNrkVVh+TPJUE4wFyVVi8l4JzQzMbnRJD50zQYUzNBWMil9CaxDI8fvhPrHxSmxxgKIWRN4rDkBKY5aiTvx0HnI/cZdFiRXUCAHJzinE9lnOKsGm8</span><br><span class="line"></span><br><span class="line">+J9/K3kJJ7AiS3+W4t4aK08FSS3hMk0HuTW+EHs8sBIjAoxkGlh8G4AANVGlo9WA+ZbAQ5mml6ceuPNGwMGWWkn1Ax1kwCRtJQJwxZIRlJuCdMLGBhzpPJPkrtILG59Vy65KzC3xc5PSIpHnV6dFPelMjPpcU+QT9MQD2j/p0LAsLCyxLpSaJxWZMObCOBURgagkY/tdj6jyQD+8MksIjPlHWCzhj3FgM90EmQZbhvCe4VqP3G4yWprvR3oaNirG</span><br><span class="line"></span><br><span class="line">ivhpo01HJSP7+9rxofeTnVx2D0yNWNOMkAWG1YGTt6GAssAfXthmS/Rx9aqhiLWlYjwOcsv/CwHQBUgs5Ms8ofLKQiKyG5tQrsTyCKFNM5uyssfNaxenBN+hAvTWUMNkHfT2RaodkBlUNnoBqGMdEGUKNLBINbABBI8l6IlGCR5IWwsqfOJ4keybh5IBGCqJqnyNn+EAvhI1IuwhzDUYctwRHKE47tveEPPhBMEsrNJE5NXIaXPQAAaacmvAKB/B</span><br><span class="line"></span><br><span class="line">phjurM7rhgM4w2AqcWnbmaXOuLmsbJAst6qgDx7XQW++YxufpVXpGUZgYsquaamCl+Avqos1BW3KnR51z0D07BQUNnhhg7QHQDyT3JIrIc1ZA8t6QUA+mxTRhREmMPPVZgAhGu08vJgU0DlEDVhtE53CKEEYnldw/4M7jOAQgzi3ZC43iW91/CNxHuaM9cRMCmDnVsZ4ciSXjL3EEz/+skh+V1JBCmA7Q31LCu/Lk51w56AATV/nA4WaNgAbsApx</span><br><span class="line"></span><br><span class="line">6gKzQXoq0LSygWo4ha5csbvArqbyUHu/CFBc5JumcMaFPDNCZSOelMLh+LCxkSPIIm6z2Rb0VmLaK0mGy0WYYFpJizNmgz/AX6f4cDWkUSj6or8DidvKRk39lF3Cc4eopnaaL+wQcnGc1OvmvDdFB4yOUeMfndSBIFJL0RGGsXw856AALUcVfh8pAoAODnMuasB7Y3NZpETzwEBirJ+gOBZXMoV2hOgdyJoK3MQnGB6mjTZprEvLGqzehzCjWawq</span><br><span class="line"></span><br><span class="line">1nsKGxCUkAApzVBqg/pOdfNoW2LYaCRFFs1gOF1DYTYJxSDS2jOO4kh5kZ9S1RUfKnYnz1RLS7RUK26VXyTS+M7pYTO3Zg8FW3UidnyAmANNRl0A1EFiQ7AFxgxj4+aKJgKyAL5lqQjAadU8X7hVlDzbIbzM2X8ztlcwlSbiIaDhLrp+06GLwOAz4LHpvcxhVcsSU3LkldYnWWyLn5qgkptTb8DyviAIwfqwigcaItYBFkyWgqdemRzhnQ0TytSi</span><br><span class="line"></span><br><span class="line">qaqgFYDEYVjg4SbbyEViTg5HSlFQYrRVGKiZ/gk8dPSBGfyG47KElcxiyoZAzQwYBCjSqcalh7M/IawEXN/HrKy5MZFWX3ISViDB5rWDkvWxrloh+I88zKeR1dggrthe4aBMcDI41pzEBqxokAuNXDtJm6qAKr7JnbWqbVOi2+XotDldKm1PS++ZiuAFLEPV1M1EEJR9VyEGaVUftn0nnRIVN6M03OTBCpAWg/hSQ4uSTxgUWd6FVrMVbz2uXsk5</span><br><span class="line"></span><br><span class="line">h42IkGOXnSZrNVs4tidZQzB9JXYxgqLqVLLVGr3ZEK01dWumYWrrhGM61RfJCq6jJJjqtteis95yT+lRjD+b2vvDaNZCVeIdSaAQgM4RQboidWzNAU24EIzSf8LgOZUrTWVvjC5fGvFWJq1uWiLaqgHszjZ91vyhxMclwLA1JRha6GZev6blqb1dSu9UdnNUsd0ZZketQ2sRVtrkVq7AeoYs3YdTf1pirZjePUkpjI+VUM0Hchhps0YNICmCFTno</span><br><span class="line"></span><br><span class="line">l8hrKC69EUuuForruhPPIfthprZzDcAaBCyMGSI38MPWSEPKV6Mo0n9qN7LWjYor3lMF71x2R9WqOfW29X1Twldq1PEntqABJirFf+psVyxTGQigdaBuXomhaWBWGxFjzcXoCYIpsc2Pkz0LmSS5fis+ha3CmYb11Eqzdcz2gTnJlY/2b5RquI24E6cZdWSBZu7ZWaSwNm3ebevs2Mb48TmljWMHrVuadRzwj9fjS83fqo58kxVtVwC0QVQYNSED</span><br><span class="line"></span><br><span class="line">ZsSqj/wqiP4exjJvcWdRT0MMxWvOqjWWSY1dVONWuq03YSk1PnEMHwJ2lFaMpB6vLX/EkXt5ZSew0GoavKmVr+WDmpjSl3XFta2lSK+1dxolY9bnVGK4maaKpnJy56MQUbS3EHVhatVrNK0KbWDVc0QwSEf+EppW0sqNl6GjLZtqwlocdttTW3vOnqhHzClC8tMGYlNgGCI1YmMRjbhnG1bwV9GhrSwVrV1TntMzNqcu147dbpJX2n9b5q7V/bbF</span><br><span class="line"></span><br><span class="line">DcbAGJvC02B+Q0fWEbNti18AqQ9EhIHuF8WRlVNMyPvhtp6FZbtNOWqIgSMGRNtDt5s4xH0ku6CpZItOc9dbCu1XqbtpwhjbTuPmWqXN33F7Zxre2ea2dfG3pZ1L81Cak5PO1EAACt+d7eMsHcksrSbzmk6hZYcGDA05WaJkmXatNjWiqldW29HThsDDTAZIZMcwLwyAnDYO25HItazUN5ZTKNFa83SMBpBM1CtVup9b0Xu26lG1jwjrR5pvl167</span><br><span class="line"></span><br><span class="line">5Pmztd8O52Ba6uzoIHb6jA1ardi9sINTFvfGdRyQRUn+NHrQ3pbFdmmtHdWNnzjdEANIAAARL7AA4aaABjC0ACF3oADAXQACN+gABCNAAcHKAACJUAAmaYAEFbQANBeqgaoKkCRBYANJOfRfSwBX0b6d9B+k/Rfuv00JtAiwbAAAC8YhwydXNoHnrnh5gGYWkDZ1Zg4APAoEN0B93jwsgwA2AaQDAdSDwGXoX1WiYoG0DoAkQ1AALY6BgC7NGiRw</span><br><span class="line"></span><br><span class="line">K5NkE4BC9bRTwAA3wG861MXAskdEjwgz3Yis9h/Unddjz0U6zEllM3SMx5aPatSijAYravaXO8W1qKr9ezr61/r3dAG/7Q3EwC+6wIVkIBAa0cYpCQ12ha6K5mQ0WTEda25HdPswk0jE98+p/SAEAD5yoAAknQAPjugAPO1AAYEqAB6U0P2AA300ADxeoAGx/wABaKgAC4TAAf2qAAjfUACADKvsADq2ofsAB78YAH6/QAOLqgALjlAA98qAA0f0</span><br><span class="line"></span><br><span class="line">ACJ8YAGFFQAAS+gAIAYb9+AO/YwAf1WG7DThtw54d8OBHQjER6I/EeSPpHsj+RpGL/roOhBFsIBsAGAZeiYBIDGsSnugbgPGB1AowJA9QBQNoHYDmBvALgBwNMA3ABB/AEQYIOkH+m5BrIOgCoP0AaDdAQA6ruMAwSvqRIAsGwY5UcG81lIXPdLpdn/oIaFBovZBkS4TsmlVaxre1s/7vr9FrO3jSD2+2uqfe7eiCioG72+re9oa2ZZ0yh09dgMZ</span><br><span class="line"></span><br><span class="line">Yc5KZuS2Lr/FsehhfHvzQgAToQRgAPqWBAAnhmAA7t0AB90YAELo26KoDaoD4F9IABHmYDX1b7t9K+gAO0r7AAn9qAAUvUADcBkEaX2s1CjxR0o5XMSm0m39DJpfcyaX3smuTPJzFl0b/37HTQP+7o+Ab6OdJoD0xkY4gdUDIHUDWAIYzMewPFZcDixx4MsegLEG1jfbSnJse2O7H2jNTDkrsVHLfizj8eIcWUuGRiM+oWQaGrbAeN0aTVIwP8Db</span><br><span class="line"></span><br><span class="line">hNivG7t7xu3U3ubWdLpDkZ7zcYtb2/bBtYyhuMwFBMg6xps4mGv+HgjQmMBBYQULvXyYT6kdU+uPTPvMNz6IyVJmk3SZ32AAQt0ACQcrvsAC/AYAGylMU0vsCOABAyMABCNjvsAAaKoAGq4wAL9yfJjwPfswCP7BT1J4U/ScbMtn2zzJ7s32e31DnRzipuU3wEFCKmejEB1U4MfVOIBRj4x/6DqcwB6njAWBuY4aYWP4GTTKxx4BaedhWnKwNp2g</span><br><span class="line"></span><br><span class="line">/KYYMqDhQqsWxi6eMQgZth1UI3QcBaRXdGiZkx4yOzHZJdQzjkUQzXo42xmuNju34zKxdUmi3VvvQ9se1PZAnTG9AVQ4KBjRzZoNwe2DXFvuSChT0itYs8YdLOonyzVYik4YSpMb7AA6EqAALCIAA6jAMxmqA0lL6xAuAZGNGR4uAA5uSX0I95gFAFGEvsABvyoAAVtQAA3RgAVX0eLgAfb9iTS+vUloGoyCWl9qAfgH0GKBYnFAfQePLfvHMlHJ</span><br><span class="line"></span><br><span class="line">zVh9i9xd4v8XBLwlmmKJcYASWpLmAGSzQHkvKW1LjATS9pfmC6XNA+lwy8ZdMuqhdSCxzc70h3PKn+jxA8DheYBnaBqAWpiY2eeSsgArz8xvA0sahh1sG2a5SkuabIMvnKD1B98/QZlikteALARzgUormunpIdyQVEBYlEhgZxEF/07dre7PHkua4kQ2aoQtd17dkh6M5+tjO9a+lgmsTjJEk6K0HuBK28feAxhpnQtGZgjeSBDBB7Q05F4eBekA</span><br><span class="line"></span><br><span class="line">xIQENtFuXSidXVomKzzFrZFScABQcoAAJ5Q/YACJfQAKj6gAU0VAAx8o8XAAMCqABTa30uAAgfV+sPWeLgAXflAAGtphHvrgAWBVAAoHbb6wjgAbCVAAX3pL6vd9ABoDxcADAMYAApXSSxSCX1vXAAyXqAAYf8ABn0YAEHI7k7B3ihFGrLAp/9CAAevPX3rX1xgH9cBvA37rYNyGzDfhtI3Ub6NzG4wFxv43CbpNym9TbVWym7TtELo7uZVNho1T</span><br><span class="line"></span><br><span class="line">GBs6YRDSutRJjupw89ldmO5XjThBqIqTBw6SdyTqxsqw8bfN7HqrGHOYVN0AyxogEf50LvUUgP9IOrYF/pt1ds31azI/V2CxbprWM6vNyFxvbwVkMzW3dYnMrmGBsTEg8LdXAAI6qGf2ZIW0AWFzOdRY0NuNMGmCZWGHUNJZ9TRhOpFMW6RLFqw2fsP2ABvuUACFSoADanQAIAGP1/62ICX1A2z9PF69hjYR7uB0AHgagEvohuABQxXBuABt+MAB</span><br><span class="line"></span><br><span class="line">lejxcAB28YACPotGxjZoAk2z9gAMb9AAQUGAAgzUADQcmOYnNTnGbld2u43ebuc2O7jALuw0B7slH+7+AQe+DZHsT3p7c9oW4vZXsb3t7G52WypHlvxX9zSV7W7wFSs1ANbmV7WzlZvN5X7zyerrKbB4S5xSr6x8q1scqtW2DjiACMNqzp5O2DuOd25EAqUgWQi1cCG0BTuo51bqdZkSkIhGqQV7nNVe8M0HbtXjWHVPxp1c7o7U/bMLkPPcJYBh</span><br><span class="line"></span><br><span class="line">7LWRNYkQi/0kOuQ6h9s0v5aeishmhltafP8XRaLtUjKxUUqs1YYHOAAF40AAlcmfsCvqASjmgHe9Zb3vGA1Hmj0/do+Ctv42j8p18cllAM/2lbB5lWylZlBAPe4mt886A91vgP9bppjbg9y24Qo8cJB829aeQd2nPzcw9APn3Gxb4sHw2BIPJG17bDYceva7EDVuN/KBD1BfJgkFHb+2adgd8Q69qYfvb8u4d13V2r94B8XAMnJM4SvvC6B1r421</span><br><span class="line"></span><br><span class="line">ePVBpzjZdrPGEPbSri0XoaQim0MjI+jVnX1tZZsw6XZwmJXGbHN1u0DcAClxh9f0cM3jAUztu79bmetGwAMV9CnFd6MJXlbwxpx+rdccgPHHOtg06oCNN3mDbcWMmAlipiqYgnCDi26E4/M1XMO5ApnLE9CDmxv0zsk9fbH1X7hKcOtdJ8VUyeI1exfEJLM1r8rDWPjUZ5h2uyd1/GOdCZzh6AMSFXj47c9ePCFqadHlMgJsGSOOrIuyatzgySi/</span><br><span class="line"></span><br><span class="line">Zn6drLVtQzkwyM5LtKP76VJ1AM4DmhYmhbHZ2AJlh4tQBnAGqfSw0CUCZB9LvRry/pbjxYnWFzgBZzZenMsuIwModlxjc5fMIQYPLvlzHAFdCv4gIr6S7JdbsSupXFjjZ7LbEzf2dnv9tmP/bVsuPtTUxk52A/Oe3n8rSE0FGmwCfwPLTTznY1VdQezw40JQz5yYnJDHAbA+uwDBKJuRdYa6jRNMGC/o4zdsOWJaF0Ner1wvmdu4lhzIbYct6OHC</span><br><span class="line"></span><br><span class="line">koId31CFYuG4nAZO9p26ifiM7w8RCtdCASiZTryJ4ZwxdGeMuZ4VJwACvxgAPbV57DQLE3gB4sAxmNGkh6MUG8uAAkwiX34A+gjAfGLTf5OyvGbXbnt329wADuh3I78d5O+nezubHJrqx2a4WMK3dnDj/Z0OUAfpXTz9r09469wnOvIH4uDFJLmkKevnz3r20y85ttaJcRPCNWGlKavGI3GI44GpSHtnGlot0NUh1ToDMUP/5SEPJ3Q8t2FOxrHg</span><br><span class="line"></span><br><span class="line">qQ5NbDs5v4zebiHr8MCAJAanIfRQ57vvAUBVDXpPLQifdFTrh4+TeBF1gRPKbZHtL+ixdcYutvKTVhwALJKgAe69Z7Z+iezK8MeIBuPvH0/fx4/v7vtne5+x3/ZOcAPnHF7tx1lZveck73VzhWAsLnTPuzbjzkJz65Qf2nOVpsASJGKDeCRf4oovNbc3XlyRpRILuNzvKg+9W6giboOjQ5Y3t0xDtepqcU5QusPkXch2a2aMCAWiMUfDz1aiBUS4</span><br><span class="line"></span><br><span class="line">u3S80W+AhT6jtOCqw+wTAhRaR2h6iDHwZ427pfNuGX6s5R9OdvBDQsTzlzgBNCxOhJOgKBpgFgD6M8XAAuEqABpzUABoypJb1feXBg6gVwDxjnf02F34uPCsV5EuERyvh2Sr2yBq8QB6vzX1r55dksdegu3X3d5s+sfmupPUBk9/Abk+HO7XWth1546dcQO1P2QPkTtXudPmjeiDy22E9efASPSYEy4eyuavwBAMrsEMKOJTD8GK6UPcxNOLs+Qf</span><br><span class="line"></span><br><span class="line">lSTnkvbGiTfwePPI1pdiHdbVTWynAmyO77zPEXiSQmL2pyteyC+BGn0Xr8K08EjICq3eYNMFgOzsNu0t8j+JVhu21E4qTQNie0vsFeZAAAvIoCUBQAxkGl4k4AEZXGb2K8ABXgYAAqlQAC9+gAEqMBPVh6n+Pdp/avGfygFn8jjZ+c+PLPPgX8L/E9RpJPit9bzJ9PdbfbXGVq9/qevMHfvHUMbsYEVNuPngnr5559baPRzCgEDkrfH2P/f3obkj</span><br><span class="line"></span><br><span class="line">E8jaegqWu5qlZa/77R0B9mQIXdztzzC7TcRnvPKHia1m+h8Yf0L0czhyrECDKwKYYXwDdkBCAY+YK1iWNKPDEyUfQ9goMkDDHyWoiBnNLrL8x400tu8vTLqw4AEhjMx7o5gBL6tHCv2S/VzVWWXd7tf+v3peb9tel9bf9Z8t4Pe2OLX0nq17J5tcKfjn17/b7e8O8+O82FE2IliRfcXe33vrgz5By2mXIDtj34xI0xynE7+QwFjo7bBKmgqffJwy</span><br><span class="line"></span><br><span class="line">DAH6hfMbg/9DpD0hYd2h2N2/niOxU55C9Sww9bZP0odRD/7CLB2ysxotXPy6c5pAnzAEfMRExU0y/Un0uVldCn0sNpzOvx0sG/JfUAA/IyX03oMxiX1AANidAAdXUl9AEHFAeLLR3q5LAMQHq4X9Cd2wCDLNwhF9kA7vxCtMA2gIICiAkgMYAyAigKoCl9GgJwCmfDBEH9TXNX2PdNfTb0n9gHPX0vNZ/FT3n8oYFKWIZAnc70SR1/fT3CctEEkC</span><br><span class="line"></span><br><span class="line">Fl4gEWSDd7kebFBI81SRwlFLQEtWq1DhS/0XE3uG/1B94LdN0h8YzdDzf9ynEmV2VyZC9F/8iPWeH3BVDGjxh0zJUAJ0Nx4MkFBw4ZDL1L8SfBXXpdFHKvzbcrDQAAQEwACo5Ay06BkgOQEK9JMJfQlcwrJ0CX1SgSb0YAaDQhG8sAbQAA49QAAp1QAEAdQAFGIoewCNAAX/1AAU1cGAxm0SDkgwyxgA0gvCkyCdSUyyMscgvIJ4tCgsUDbtyg6o</span><br><span class="line"></span><br><span class="line">NqDGgoQIk9d3I90tcsrbXyn8pAxAGU8LnF11Vt+KQSjN8HnL110933a32TUt1GuTrk91DQUz1/AP8FfgrQW2QMD9eAtVjQY3LiQsClFZz1g9qHFNzeNEPLz0vln/KH0cC0Lf4wwsFJPTVVgqcBOWLdjAOGExYovDPwcRYTAUAu0Agr9i6wFIEHCpcUNHmULtIgnL2iCN1av2nM/rJd3SDFXMy20AeLQADQjHtzoDmfRNB69O/PEN+sCQgb2JCwAM</span><br><span class="line"></span><br><span class="line">kIpCmfGXwwgVfdvBEDZg613PdJA3bxn8znOfyN9AwaSmNl5KFf209tgy3z09rvT9zRREFaqGQUg3F3GChEKK4IKlZsQIE3lf0B4Pjc3uWwDDVy9N4LDMPgxCzD8vjVD0j9fgj4WcCY5Z+THYnEDwI71KkOGCSwoQv1TAhouGxDmw8fMCAvQLIP8EjUS/IwyY84AzLQT1KzXEMmd/rXZg0kNJN6CX1AATFTAAe+iWQjl0mAgrXAH0tAAZX0OPX60A</span><br><span class="line"></span><br><span class="line">ASrP0tqAIoBccO/AxysMObOMITDkwtMMYByQjMPwN1AbMNbs8wwsOLCOYFxxlspg1b3V8BjMQNVs+Qo50WDTnA32FDLnBfyqQUmGhjO8LfCq1lCP3G3y0QVVBoFCUZeE4PYMEAE2G3whGPNQtAuDY0gIc/vfULqADKb8EpITQuC1hdQ/L4J88X/ATmj9/g2PwUkvRHh3thEKZ0NWI4YNVQ9DwTQNVcZYcHVlF0kvP5XdhKQGwHcYwg0MNgDMQlj0</span><br><span class="line"></span><br><span class="line">r8cQ2IOnMUjZs0AAn3XhsAjZw0AAHU0AA7Yx4tAAAHTAAAYtAAU/NAAEBVwbQAAqFRw0ABRNMbtmg4wGQi0I7fQwicI/COIiyIyiJoiG7SYNV9pguxw19x/LXwkDhwgUP189bCcKfwBFRBSEVV/FQJ2CN/dQMDBdlVAH2VKWJ33WF+kQ2mz1KQf8CLV/wKpQ9t2Wez0gt7uWNHPCbA68IYcJDcPwRceNPzz+CUXLDwGVUpYZUjAwQwoXqhVDfMHL</span><br><span class="line"></span><br><span class="line">A/wKaQRCd6cwDy0d8O5igiC7OR1giK/XLwQj2Pac0AAac0AAGdQetrDVfR4tAAMOVAAJ+VAAKQDAASk19LFCIhsl9DSUIBuQGkIrDYohKPusko1KMyico1uzyjwbAqKKjjXIf25Cx/OYKEidvdxz28hQ2QJFDjAXJQxZNg5QKChVAuUKXDAwLlUJAeVIN1WxLPWHEjcLkLeW98TwkYDPCbccyJD9LIop2siSnJnWms7QuP3PQt8Pkn0Q3IrwMpJf</span><br><span class="line"></span><br><span class="line">w0HRTAt8fMBgY/Q/JgQoltejwR1QosMPCji7bEOy1ow4wFrtAAWDlAAejMsAnANbshg7y0ABAY0ABROUAB8NLYs6IxAF+iAY2gOBiiQYYIhjoY7iK5DeI0f34i2oocI6ilPGQJWD73PNj5AC2ItiPkZI4aLki1Am71oEa5OvGkpdAn1h1VthaRUq0ouAyJq1HguzQoceoVz0vCA7aZkf8LQzrW+NEXVC1tDYfLnRR9+HLwIe8LojMxaQ3WFpD9Dh</span><br><span class="line"></span><br><span class="line">QY/wI0YaYn2eY3ohR37lPoxCMZsgbWGJABDYzkK2dMYtb37CBI+A2PMFgkSOkDuowmLU9p8KUNfcqY0aP2CSRdAEk4zxaaL3AdQsUS6wi1D+BqgzAjJwc8AfYvR5iDKZNzv9U3B/0+C31EWKtCxYuyIljOdNvWljwvdyPL15YhmUOBFCE5jDdRHKj1iBgwHtnzNNY81nDDUdK6zLsbrKwz4sBLQkJgAxAZ+zEBfIcsMWdEARuKX1m41uIXt24t/m</span><br><span class="line"></span><br><span class="line">ithA82L7CJnLKxtj+QzqMFCxwnqPEizTF2LX83YxcI9jUWfpBtwYJU2TUjkwOjxylD+PYmhkOYu4y5ifbWoE4xY0GOOEN3ggpwTj3NFnRTjs3JwMliM4gjyG00qOGCPlc49OS3xszVxhm0SXObWS87kS5BtA87FLVl0YIwQVMNIovWOiiYwo2L+t0Ys2N7DRAq2I1MxjW2OnjRIrx3ni1kReNkiZQ3YL9cPSAImw5GrQJXONrECGjI081B6P1Uj4</span><br><span class="line"></span><br><span class="line">sOOMiE3XmMvjBra+MFjb4+vXvjbIx+PsiAvOH1OihZVQ3Ngj+aBBz9gIsR0wE14d2EuDoAxj0gT0JHWITVEA/LwNiSgo2NKCkElb0Pc+Iy2InjNTKePxiHY1TwX9nY83x09CE+SJpikJIthVUIBLeIoSnvAUAOQETSond9D4kh2Wio4i+PWj4480NvDto3z14S041F0BNM4lPzhh1idP09CQwX8BzszmPa1JdWAPbQvQhkSuOXVtYsnwQCLDVROM</span><br><span class="line"></span><br><span class="line">BNEkqK7jjY9RNNjtEkfwtjx47W0njhIrBPtjZ4x2NMTXifBMpjLE6mPlDjAc8Q6w0Qc2BVDqoMrUMDx4ehM8Tw4330jiz4lhN8SzQ0ayf87wn4Nf8+E9/xfjwhGWLhgXSaJPBMCXG0HyZyQP0NSSgzQCDASkTCIKgSog3WJV0voxAHySZiOm1pC1ErROH8lTLGL0TKkgxOqSjEupJMSHzLYNdiWk92JzokfFgAaBSqB73WlKEzM1nBdw7pnHg2Y4</span><br><span class="line"></span><br><span class="line">3QmwIPLxLGTo4iZJvj/ExOIb1Zkh8Kfj04xM1fjkzcEICAoKNZMuivRSPQQgRdABLF0/lN2lhxu8dJLU1Mk+AMjDrrPaCpNAAA9NAAC9iibPn07dAALbsjY9lM5TefHlLuSWo7GOeSMEwxI8djEuQIXjzE6UPnCiEzfyQlUwCmBuYg3XO2/RDyZ0TPUyOVxiGSmEt7nPi+Y2OPYTBWKZOFi0UhwLmSQkxyP81cU9yIypCUjMxsA4IBbBVju4a0Bh</span><br><span class="line"></span><br><span class="line">oaLORMy8jkxRKyTGUuuOZSrDQAFm5UG0ABNVyNjQ0iNJKT7kmYNaixUk80U9JU95OlS8E2VO+T5UqxLaSFYUeH5ArxDcNBTEKPXW2EenItSuMQXdO2GSr/agkNTWE2qVNDkUs1ICTLQiPwfio/TFNCSBtHFLqcvAumkdS84mNCpB1Q4uND0pHT1kJdaU+XWOSsQ05JUTzkkAEABYcxrtAAWcTAAehVAAOBVAAIjlAARk0jYpdLXSt03dJjSRUp5J</span><br><span class="line"></span><br><span class="line">OcqkvGOTSxI1YIJwmkjYx+SV4nzg+o/AT7lXCg3ckFho81PpDI51DCnV9NNjHq1GSgzG0GkJ+Y/Jw4SUUu+Mzc20m0P40sUzC0ESAgRen7S4hDHhhh81P0MVogLLfFatvU8IK1jp0uCJgSzk/WOMBAAb+igjQABfowADgzDsxrMRTI2PIzqM2jNnMd9JBO3NR41BP0TxU15MvScE69LMSvkpePvS9gnOhPZqoIIXL0QUp73fSmJL0MBUaiOcR9NE</span><br><span class="line"></span><br><span class="line">HADKeNoLF4zp0G08DKbTUU7hI+0kXeZP2iwk7tNR84YCxmQya8bqAkcLQLQ06cQ1LM3PDiUydPOsIoj6OIy4E4wBrMD9I2M8z99NjMbwUEnkLPSXki9K6iU03qJvT00oTMzTWksaOMBQLB7g+otybeK0IjwyAwAsxGP8F1D2WL1P1S6gIDJDMNMq8I2ihY5tKTjW0nhPbSDM5+OxSlkrOK8D9mczM9ALEbATkUR0sAMWUbGPQ2L9qXaCN9S4lBlN</span><br><span class="line"></span><br><span class="line">n0mUy2OMBAAIgIl9Ti0AAtAMAAIFS59ZLRS1UsfDB60AAVCJmcxbV6x4sfDM/XhtAALE1AAWc8KIgowKS+vRADGzJsmbJb9vLebJUtFs+6xWy1sl6w2yts7fT2yDstjPCAAs+NKCzuMkLJnir0omIEyhou9Oizfk2pnwVY0GCWDA30/MkFRTEb9MUzGiHLJUzqCfLJAzjUzTNNSIfb4MtSMUqrLgyjM2rIiSAgNVkaz0eMkAt5rQP0L6R+QfcCJ0</span><br><span class="line"></span><br><span class="line">nMpt0IzXMudJIyTspfT+sygwAHfonsyHtAAGO199HwyBsl3IWxXcSbCe3Z8eLEeyX1z7S+z7sB7VR0ABs+UOyrk+d0E8QAMbLZzOcnnL5yBc7tyFy8AEXPHsxcxgAlypc3u2vsl9eXMVzuwslxPSKkr7MTTp/bBMN9cEiLMEyCE4HIfTGDb6h4hmkJLMcTjEGTJhzrghTKyyatf9O9tyHWoBRykUrTMxyZk7HL/5HwhyIBMu0gnL/93I29hJzWAS</span><br><span class="line"></span><br><span class="line">R3AV/AiRJLjYIRIVrxeqXDN6z8Mv1IGza48ZypMxsh6zXsqbHkz8ASbTe0ABO00ABVHUAAAfTP03DRXM7jjs1XKX1a81e3ry4gJvLbzO80/W7y3sm3L2drY4LN187YpYIJiPkmVNdzmk93JEzSWHhAaBBdPDmz5QUgPO2FuoGRWkh4cmjT/T4Uv20KyBYjHKZ17AtDytTYMztJApjM5ZICAlOTPOSgEIYDISSOnfaz+VZICyC04DDcBJj16clzNn</span><br><span class="line"></span><br><span class="line">Sck+dPhtAALwyvDI2JgK4C02PYyPs0VLtzMEt5L+ynYxpMiy3cpBwXCN8h0wbZSSJYShzUsk/OPzXKU/OyyT4iPKjyr8sDJvzg7LHPvycc61OTzn81PM8C4YRrg/zzkKTQFAyUxJMATekPkB/jbAYAsOSy8/rIjDBswNOGyWci7P78/AXgMBj+/bgJf0BAr4BUKQYvAPwDAAZH8eLcGzP0e865NKjGbMbMUK2/FQtoDyAygI0K3CbQuRjvLAgIML</span><br><span class="line"></span><br><span class="line">GAIwtP1Lc4ePlNK0lAtPTT3c9PnyakxfKlTwsgHLnC8ChVIUiUCNEBFAA5UgtkyAIuHJDz/0RHPDzoPSPMspgM6PMYLGHQJPvCE8jtJtSFDN+KvY4YJHg/z9whClZp32PPND0L0LCndhgwnrJeiFE6QprixnJNXkL+8kiWFdNLeXz78+fIXx8NAAQptAASHNAAG6dAAaa9l05Gx4ta7EwuVyrDMbJ6KdXPotmzvLQYsF8RiiYumLZixgHmKp8jjM</span><br><span class="line"></span><br><span class="line">Cz/CufMvcF80cMwKGkyilvTLvK32IS+IawCGV4iwVBT4ki39OUy0iv3wY41Mga3rSisvxO0zIMrrWgyH8l3Wqz4M8JLTyvAiPg/zMst1l+8/IjxQk04gE2G6y0Q6BVaKMNdorY9y7ac0ABO+MAAZVyNjCSvzOnyNvdBPtyRw5YOXy001fKByIirNNiz7wDrEtA7QX3L3zpM6HKSdotDLKoLQ8+FLoKg/OOMmTY8vIvRSCi3HKfzbUntLhhYBD/Pg</span><br><span class="line"></span><br><span class="line">gDOCNTuiWaOIHHY6c7LwZyICqMOZz+8+KKSiwjbKPSjAAGJU6ohqM6BG/cNIWLevFXLGy9S1fQNKso40tNLCo80sHsw0zwssdrco4s+yTi77MCKMCvjP+zsCuktuL8Cv10soIBFWD01nipJ0DiK6TLIp0w8sh3SLBS0DIQ9G00UpbSbIvTPFjH8oovdVhNOrLhgoheUqpx3YY2hqLyUkCLD0YaJYRsRUQ/O3RCwogjPALlEyAp1Kxsiry69qvBYA</span><br><span class="line"></span><br><span class="line">gAl9P6MABfxUwjobEmx+jAAY7kOLDlMABouRrsrSm5NGyl9Lsqq9rLPo37KhykcvHLJyomxnKPSvdy9LfC23N9LKS84upLU0l3MBzQyyIusTwQi0E6A+ENVSkz/crkozBoED02DzEygUsyKCsoUpNTPPCDK4SoMirJgywSvHJTye1KErhgwReUu1YEIGqFIshCilNcpFpN2gngS8lor6ysSy6w6LKfJYqX0MI7dMABSWJZSuU7lJ8MdC0oOQjAAa</span><br><span class="line"></span><br><span class="line">ojGgucrMKFy/CqIqSKsiqcKRgqiporDig8pnyKS9At4ync/jODKLykaIfTdQdGCgBlgOaAJhogAiBGMLyZkGwAYAIgEHcr4tjgZ0egPAE2dK0tStwAEeJsTVASjBoGbCIyf/XoBlAAmAoAsATgDyBX4VdBZdKgTAB/lKCWyoWAHFERBphxIYFBlAlAeeh0THkpAGQADofBGY0EAQoEsqyUfyuqAwAPYGiARefAGKAdKiYQYME8J4DBh5eIAA</span><br></pre></td></tr></table></figure>
+<p>%%</p>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">excalidraw</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/11/04/LLM/2_RAG/project/img/%E8%AE%BE%E8%AE%A1/%E5%9B%BE_12%E6%96%87%E6%A1%A3%E5%88%A0%E9%99%A4%E6%B5%81%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LLM/2_RAG/project/img/设计/图_11鉴权与会话管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1>图_11鉴权与会话管理</h1>
+<p>原生 Excalidraw 可编辑画布，基于 SuperMew-0.1.0。请使用 Obsidian 的 Excalidraw 视图打开。</p>
+<p><strong>所属模块：</strong> M2 接口与鉴权；会话操作属于 M3。总图与详图使用相同模块编号；画布右侧也包含以下读图说明。</p>
+<h3 id="接口层组成">接口层组成</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://app.py">app.py</a> 装配环境、启动建表、中间件、业务路由和可选静态托管。</li>
+<li>router 注册 auth/sessions/chat/documents；Pydantic 与 Depends 承担校验和依赖注入。</li>
+</ul>
+<h3 id="身份">身份</h3>
+<ul>
+<li>注册/登录签发 JWT；后续按 sub 查询当前 DB User。</li>
+<li>管理员权限读取 DB role，不直接信任 JWT role。</li>
+</ul>
+<h3 id="会话">会话</h3>
+<ul>
+<li>前端新建 session_id 后，第一次聊天 save 才建 PG 会话。</li>
+<li>所有会话查询用当前用户身份限定；删除级联清消息和缓存。</li>
+</ul>
+<h3 id="边界">边界</h3>
+<ul>
+<li>没有创建会话 API、token 刷新表或服务器 logout 状态。</li>
+<li>会话隔离不意味着每人一套知识库。</li>
+</ul>
+<h3 id="源码对应">源码对应</h3>
+<ul>
+<li><code>backend/infra/auth.py</code>：<code>get_current_user()</code></li>
+<li><code>backend/infra/auth.py</code>：<code>resolve_role()</code></li>
+<li><code>backend/api/routes/auth.py</code></li>
+<li><code>backend/api/routes/sessions.py</code></li>
+<li><code>backend/chat/storage.py</code>：<code>delete_session()</code></li>
+<li><code>frontend/src/stores/chat.ts</code></li>
+<li><code>frontend/src/stores/auth.ts</code></li>
+</ul>
+<h1>Excalidraw Data</h1>
+<h2 id="Text-Elements">Text Elements</h2>
+<p>11  接口层、鉴权与会话管理 ^02eb034a</p>
+<p>原版真实分支与时序；全部图形、文字与连线均为可编辑元素。 ^67ef0b29</p>
+<p>M2 接口与鉴权；会话操作属于 M3  ·  对应总图 01 ^0b2c167f</p>
+<p>M2 接口层组成 · 装配与运行时职责分开 ^71ab6cff</p>
+<p><a target="_blank" rel="noopener" href="http://app.py">app.py</a> 应用装配
+load_env / 启动 init_db
+CORS / no-cache
+可选 frontend/dist ^c00d1129</p>
+<p>api/router.py
+注册四组业务路由
+auth / sessions
+chat / documents ^d6d3e9e0</p>
+<p>请求与响应边界
+Pydantic 请求/响应模型
+Depends 鉴权与 DB 会话
+JSON 或 StreamingResponse ^019b195d</p>
+<p>会话业务 · 以当前用户为查询边界 ^bef30afe</p>
+<p>身份建立与请求鉴权 ^17131698</p>
+<p>注册 username / password
+可选 admin + 邀请码 ^45a849c2</p>
+<p>resolve_role
+PBKDF2 哈希 → PG User ^27e9c250</p>
+<p>登录 username / password ^6a609a20</p>
+<p>查 PG User / 验证哈希 ^738c0323</p>
+<p>签发 JWT · sub / role / exp
+前端 localStorage 保存 ^63d4766a</p>
+<p>Bearer 请求业务 API ^4c8ab776</p>
+<p>解码 JWT / 校验 exp
+取 sub 再查 PG User ^970ddb7f</p>
+<p>业务权限 ^dddf9050</p>
+<p>chat / sessions / auth-me ^71d8ac23</p>
+<p>documents / jobs 管理 ^2dd82cb5</p>
+<p>401 ^d2e6fc0d</p>
+<p>403 ^a42607d2</p>
+<p>前端新建本地 session_id
+不发送创建会话 API ^96984270</p>
+<p>第一次聊天 storage.save
+查 username → <a target="_blank" rel="noopener" href="http://users.id">users.id</a> ^c2cc7845</p>
+<p>按 user_id + session_id 查找
+不存在才创建 ChatSession ^8351f0ed</p>
+<p>消息关联 <a target="_blank" rel="noopener" href="http://session.id">session.id</a> 整数 PK
+不是外部 session_id ^99a568df</p>
+<p>GET sessions / sessions-id
+Redis 优先，PG 回源 ^8471dd12</p>
+<p>DELETE sessions-id
+找本用户会话 → ORM 删除 ^d6105d6c</p>
+<p>PG 删除会话及消息
+commit 后清两类 Redis key ^792b6e7d</p>
+<p>404 ^d1578805</p>
+<p>登录用户 ^39fb4e55</p>
+<p>DB role=admin ^82cfff37</p>
+<p>无效 / 过期 / 用户不存在 ^63abc058</p>
+<p>非管理员访问文档 ^5bb8d55e</p>
+<p>未找到 ^dd6f62e2</p>
+<p>读图说明 · M2 接口与鉴权 ^d41f1acb</p>
+<p>接口层组成 ^24f079bb</p>
+<p>• <a target="_blank" rel="noopener" href="http://app.py">app.py</a> 装配环境、启动建表、中间件、业务路
+由和可选静态托管。 ^553766cd</p>
+<p>• router 注册 auth/sessions/chat/documents；
+Pydantic 与 Depends 承担校验和依赖注入。 ^fc7f3e0e</p>
+<p>身份 ^54e70d3d</p>
+<p>• 注册/登录签发 JWT；后续按 sub 查询当前 DB
+User。 ^f6569e1b</p>
+<p>• 管理员权限读取 DB role，不直接信任 JWT
+role。 ^d2a1287a</p>
+<p>会话 ^91096f08</p>
+<p>• 前端新建 session_id 后，第一次聊天 save 才
+建 PG 会话。 ^6fe0548a</p>
+<p>• 所有会话查询用当前用户身份限定；删除级联清
+消息和缓存。 ^9b7a4a8f</p>
+<p>边界 ^5b74f5d6</p>
+<p>• 没有创建会话 API、token 刷新表或服务器
+logout 状态。 ^441cfa9b</p>
+<p>• 会话隔离不意味着每人一套知识库。 ^b76e69ee</p>
+<h2 id="Element-Links">Element Links</h2>
+<p>0b2c167f: [[图_1项目设计]]</p>
+<p>%%</p>
+<h2 id="Drawing">Drawing</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line">N4IgLgngDgpiBcIYA8DGBDANgSwCYCd0B3EAGhADcZ8BnbAewDsEAmcm+gV31TkQAswYKDXgB6MSgw4CxAHSp6AWzJJMMJTEZgaCANqg8CEADZ0AVgBGAM3SoALKsixj+GKjDpGAc3WrkCADMAAzkEAgAjCahIER4YPyRwYHm5Pww2N6CrNHkXr58MTRg+PQA1jAAwvSY9PjGAMSolrjmMBGqlnZl3qWcjLjVtfWIDdYAHLbWqKrW2JiYAMqQfog</span><br><span class="line"></span><br><span class="line">cMqrFpRUA6vGJ8BFyqSBb5TDLEKunNUbkfVmMMDS68DH0UHbYkEkxvVxQACSuFeegAuuRrIRNMCEIxOAtyNgBihjOhgqo+gMni84QjMOwYDBcJEIhFzCxzONgvZyFRaAxmPA2JRqHQmAA5Ji8SIAdmCEQAnPzBeMTEiaAARGDqMDEhC2TA0GDkSxcAYAUXUmm0oIhIE4UFw6DlJMOvMFgV5vPsJnM0XsJxwjDKeMRIFqqAqZsVyoAvqRDGaQLyIr</span><br><span class="line"></span><br><span class="line">zKdZcOMnNA+CA3B58n5yAFmTFwodzClyHFcAkEIKqXIhYK0hksmAEPZQ3kfKsiiVzkM6o1mq12p1uv9+oMai3RhMpjNIfMlis4+s7qdG7t9pE5IF2DOLuPjJOSfcuI9nq93p9UN8MxFgn8+kCQfp9VD0DCzfD3cjcKjEOgOpuezjXveCaciWayeMha8vaJz0uyTIsmBjJcowPLmsE/IsLygQROMErSrK8rwL6KogGqPZahoWg6Je5CGsapp8pa1q</span><br><span class="line"></span><br><span class="line">2vaNJOsirrwN+5Cet6CpYP6gYgEYiAhNYwQmBg5gxi4iAJp4dZwCmVYmHIwSCqWIAZvYgosrm+bwGpwTHGWmTZFpJiLiASaFEu2xVH2IwgE0LRtG+eFdlivbDI0g7oNMsyjpc1zrpsy57HmBxHMZZwVD5E63Bu8Zbvwn4IHuXw/IcJ7kN2556pC0IwLCzH4kiKKpiZLCYuquDxXl7rKlh5gRChJj2Cw4qsgyTCsHSbLQdyfCCiY1KWvYqHoTKMCU</span><br><span class="line"></span><br><span class="line">dhnG4fhmrasRmUGkaJpYWG1E2naDoMS6bo/mxWE4QGQZoqGVrjDAliiXGEmmf4pL2OmfIxBpBwUjE6T6ZW8BHbWBQJeZTZWa2dkdqqTllc21ljJMHnDiAcwLBFa5Rf5FmBZpRwnGFK5XJFGzvtuuJvOQHxJUeqUgOlwJzdet5bQVT5FeggSlR+O407+S3AUKQrmDEUFtcyHWtYwMFweSlolhaaE8VKI1jThqplYROokfA4JkQtY3LVaq10Y6rGMa</span><br><span class="line"></span><br><span class="line">zO0+hN+08cGgQwGpvImHa51ovgpQkDJ8ApCcGYsIWOZzs7JyvRWP0mVJ/sY2DjQNTa4xncDXrdgMIeICUXg0J8bjaF5cOrmsiO/bOQXzpLGPw5nOMxZweO7oT+6Hr8aVnhTpEw9luUsTxhVoo477YizlU/tVZprWSJgsJBnV88PgvC3wqHHlmCEhMNmFG0qk0KzNur1+Ri3/haWu0eteubd3rH0F6u0TeQUD0Miyt6HooTBBCejZvf+qYOgxTVEo</span><br><span class="line"></span><br><span class="line">SjfKaAAKl+p4fac6B8BgAAEKPmRN4BAoARpK1yiAcYLBgiWHMBSawsxj6cHLmTdAUBWABiQAMcBAxIHQLUERbQ8C1IwEdIEW6GDUBYP9t4XB+ClzALAAAQXtvQIg6R0B3nyoQ3A3CHb8ODMAh2qgZRqiIKfJeJteImUAjAYIGBGbkGcHGSRvDrrwG5iwOQloWQZhMOST2ucCYgF9gZJBX16zZ0sq5UYYd7AR07NHZycdwCEEYEnYBxE05jixgjYu</span><br><span class="line"></span><br><span class="line">GMUbBTkPnZchcbjFweHFLuiUDzJWPKeAEdcVZXkboIh8rcXwiQ7uVLuzde58j6sEcYdVJa8wggLcCE9WB1XsIEFg4xEEsmwNLBeHEl7ywIqva++oN4a23jRNa9F95MWbobXpypz7/2vrfUg99SDLKQWCF+b8wAfy/kIYkf8r6s2KBw4huBSHwBgYM+BgF7CWBSLgDRMNMHYJYXg5kBCtC4DORcq5FCwBUIpIEVA4xAiCgYUwqxby2FAJAaI3h4jW</span><br><span class="line"></span><br><span class="line">ZfPhXwmAAi7ZSPIDI3h8iuIHUQINXAJ5ggsHbuAWMGLdFOyHjpKIzVTHmNiF7F65YDKtPsWZacFlvENFce4qOPQvH/Xjr4/xKdKwjnTiEouU5wleyONEiysS/K40SfjZJVcUrpMNJk1WDcbw5VyT+R8z4TImCZp3fGpS/wIBMIKE8gpBo8xHnUlqDTuq2qpKgsFg956jVxcvAZ/y5ojPZitXekyPT60AbM8afSQAXyvqCZZqzlmtM2axbZuzv4HM</span><br><span class="line"></span><br><span class="line">WcczwICfk+DIbA4i8DSX3ItJYDEkIXnMNYR8rFRCIHFsueQuBwZ7DWGtgI8YvIIWvIbSwAhJy4U8NReiwByLx2IpfOO6RmBZEBsUcGFg1h3ZZmsP2zRFK52YpAKmAxRj2XKQQKGCIFjUaCTkNWFkNj3r2g5UHZcPK+WR0cp40GwqfGJ2ToEyVwTfJZy5ecCJedHHKuAwkiqGrUmk3JheLJWUDVNyESa+m26S6Wq/EIsp8BVKOhYCkC9brGTtVI5y</span><br><span class="line"></span><br><span class="line">D1aZghZkaieZqXSML+sXvMvCK9g3r3VmGneEzdZRoPjM4+7E42scTWvFWKaH6hCFHIBqgQH4AFoyRGNSCERT9rjhD1IGptZSnr20O03JFIvJFPHjkre0g9oM0eizcoPZv882ANHWAltUC22lsocGQsRGQVgoHfW95w6m3fNcyW65wYTDEgFOYVA5ra2MMHYFkdBauEzrRUa4LKLZ0mXnVixdOKWMwBXcYSwSETDIRaLbPdVKD2sCQcWa2YRbWKUv</span><br><span class="line"></span><br><span class="line">cFfT4Y9J+3gH1J9Vjg7ft5dWNx76uifp7N4hOfi/2pwA5BsJAV5VRIgxnOJU5oNJIrsTauZNa6Ib1VTQ1rN0NomjEUiq1qlp9rqmGBC9SyP8wo0LKjSDAjjCzNSJqfrZZnzY0GpWIauNb3Dbxja0yhGxrlgmxZya74P0CPJDrg1iy8nGA/Ptmm2CNQfmZuQTU0K2iiSZtZOOLN9Ws6/d+dmc24EOQA0pKWi1ub+R24wXae1Rkw9YOtUKh2fObSQ1</span><br><span class="line"></span><br><span class="line">tzOy0Rai+SWL/medJfYWOsR6WkUDCy3L6rjs1BLsK8VxAW7UC8FUeCndYkcv7tTIEMxxxVJNfgOMFprX/b3tYDEK6fWX0DbfR4wVX7nE/qmwEmbMNvIrZVSBnOqMltB8xkB+JsUYObZSSTbVGV64HdQ3kumaI9dYeKVa3DNrmTmFFFaa2tJHvkdqY05kyFAh0LBTERjMsA39OmhxpD80KLcfGTrUHBshP16h0m/Qkm1mhA2Vsynn9qe0/evT05oX</span><br><span class="line"></span><br><span class="line">3PheMJFolYu4vPISwFmFXzGdhf+VQmAIEiVkq56vyXMLnOK8nc3adsvJ2G5q9iuR6vuJKLRagK0uBCxVZvyr43pvzDm9PVpRlR6W3Vld6OxAOb6J3blF3IbflD9d3cbb9SbMVf9P3KVCPWVBbSxBVZbaVVbaKdbdVGPTVNJGuDJPbbJFDDLFuVPF8ThC1TPHDKqHPUlMxcrWqYyWpEvF1MvFgOqIee1ElBjbpZjOZQNRvf7TjVvIHHjDvKZLvE+Q</span><br><span class="line"></span><br><span class="line">rBZPvCTWHQfUgYfTNUfezXNI5JzBnGfIXTzYwQUXfO0ffCXP4XnYLTfWfbfYMZ6btMwd9Q/SFSwqXWFVLK/Kgy/BFJXT/BdNXUQjXJAdECIVSIkD/HRL/IIdpBcK2C3Y8MkG3Q4WIweO9EAhAR9cAhxMPV9GAkbEGBAz3JA6bCVVAwDbGDA5GRbRVc4ObNbKPDbEAImWPbbBDSmHJI7fJEyUBeg87bPLCUlLMcMQSMecCLg8eKjY8NpSpE8X/L7H</span><br><span class="line"></span><br><span class="line">vKaXARWWaSQzeKiGQvefjMHd0CHH7MTJZVQ9ZI4YCewbHOSMMNgHTPQKIcYG9VTVNVCO4pCRcOhXHa0bHVIrTKzEfHZKnfZGnRzKfQtAw9tYXYwBwntZw7nNw9ffnc5QXMEowxAEFEwe5QUawdBeLVwtKKwjws/bwhXNLa/KIgIgrIIx/YMKMXATE18LE8lA3Ukp2cwK2IxUUBIykEjIAqxO3Q4NpXrBsKAz3QbcOAosbWORA0VUooJeo6KOVLA0</span><br><span class="line"></span><br><span class="line">PAuAPKDRowg5oyuODePXVCg6mQBY7F8SoPokpAYs0IeG0BSRBUCF1CY91WCPgSkJqO0E8TpYQ77eNJYlY8TPVUNaQ9vLY50HY7abvRQ3vL0gfZZCINpcnWzMfAEiffNafAXJnJEgFYMVE9EzEiw3E9wjfUEjzVM4wC0E8FpGhLMnBdw0/YkwkkRKsylFXO/ZdSk4wbtMI4FN7SI3LWrbrKIY4dk//SM5TIvbkoeewWTH2DIw4crWTAUxxPI0Ut3G</span><br><span class="line"></span><br><span class="line">OFyfsL3ZA33WGCo0JKo0DGonA9A/A1U7BFo4g+DXbDoygromgkySUI0rPJgwYqkZISkK3O7UeF8p7O0hAUFJqG0VBGvV0xY9jCQ5vH0jYv0yNAM+Q4TSHA4mHFZKTYsFk0gBqG9FHbHQUeSasJC9CkwB+XgwxbmNCO1WTXC0lMc0gKpWTMMEi0cu0UgKIXkYi347NOMoE3DfQpMrfFnFEsUDM+klwxLOEkLDi2wrikAXqQUdASwewC2Ms6FRtfE2</span><br><span class="line"></span><br><span class="line">sqdIkrwussk+/Ck/FUwO5R1XAG2fXbRTs43N48MExJIJIplLAr49It6VgXqGc3I6A+cgVRcibKUn3Mo9c2UpGbchU2o8KFbY0GgdIfc0uNVQ8jUuPUgnVcg5DXU5ufUkyDUG8xgnuHPaeVgvPGpa0h7UvKY8MNSasSpF0pjN01jD0wZAHKQ0C7Wf06NQTBQ0QpQsMo4ofE4sUUzOSIjcUa4pTPqOQZCUsHqp4hceYt4qkInPQJTKy9Q3qaMrQ8fV</span><br><span class="line"></span><br><span class="line">iqqdihE5M/M+BSEpw2SvE3M4SwwgsxAQUIlbtR0raislLAk+XGslS5XNSxszSvtdEBwawdPLRVS5kq0BcPso8Xgo4Ic+VRSXHPs3k+i6c7IzlfrYU13ZyoVYoty8VGU5U+bao3y3cuMQK4KpmMuf2I8zUqKhPZvJPKghK9AAAMWSuOTSsal4MHhrGLxyu4KmMdTBSqTJD/JKoAr+1WOAsB2qojT4wgpjWDMatDMOLgt0x0kEkXCMiiRpFMzuLqlL</span><br><span class="line"></span><br><span class="line">CIpwt02GvdiwuIpVoBvdjQkQU03MFMy1vZJBpwqYv+Ic10OBJc12pTPgXTLBUzOxIEvkp2pWs4vBJfGaAiFsFQEKRXxxPLJP3OsUov2Ut8JJM7IbIf00pRyQncCQQ7KNzPRtEot5ASLtElmHLkhRxI15KyMd0FL+khvyIXJhuXJKPcoRtwMD3lJDz8vD0qJCqxqsRxsip2zILPLirQ26PQAAHFyanM0rKRFImpGo3ybSuoPzDhbRrZrQPsFiQzyq</span><br><span class="line"></span><br><span class="line">m9vSebzRgdZDtjIKe8YL+8Wq6L0KTd5NicQpBQL1rimp+qbRDNZMrRcKs6qlLMTbNC/jYzza6c2LEzXaRL3akBrBAgJgyROcYTszBKbC9ry1rY+pLB7lTrA6OELqlKrqw6JEI78t1KRMismzEAIh0ALBkFeRpIGSDLE79FWTFJJYjwWkuSvYUIaLzLeS2ljJ87ZzHLhsS6Pcy64aUDPLEatzg9Ik66vLVVo91StstU8btTYrDs9Tu6AAJfui7U07</span><br><span class="line"></span><br><span class="line">eQCFrOmsYiekWE+hCe0cMIQ9mhewCrm5eqq1ezY8Cuq8HIW9Bpq0W1NUIO0fqlk84hcQaUgG0OHAUXHQCVxs4tZGhyii9N7XHMxOHMI/x9Q17WTQsdxu4yvNgSkOSYUZWvQNpZ4pCdQ03MkQUXC9HUFdQ0FOa5+7QwEi29+kE62ta4MIsmkc2A/IBgO52+E35G21dCBiOaBx2tfeSys66kOxBidZB/dSOjS02YwVATEiYNpByV6m6p2UFeHMkYyI</span><br><span class="line"></span><br><span class="line">8Is5IllGytMeyiG5ckU1h6G9h6ycu+G2bHhuUzA2u1GzcxusK7GiKto08xPTo6Ry89AQEeRk0ppKpAUakZ1QWceyjSe1CGms0x1ee4WxeoCox9YkxsC/m8x3Yyx6C6HHesW9ZZ+J+5i1+yfUpq2z+sBlp62Npp5fizpoLYRUB5p4wQIJ8Ew9Aa0GBrpoOnpoRHw/pt61Xck9B4ImAQISwIUISF63dfw2ZyvYsOqBI9pZqbk1ZrrMAphhyoupyuAl</span><br><span class="line"></span><br><span class="line">yyU39Cuo5qu4DGu/h85mVS54Rlu259u+588x501dAAAKVebvNNNe1OPJGak4PpsmMnuI1cTCJBasd+3EMMeGRXs1mhc70Foao9e3pUORaH1RZs3mpYpKaWo/qaYqYpapbRVpY6ePwaaEpxfJcQCsBtHsEGkJbqbkpJe6aQcuvgcFbZbQb2kwYQQiCgerBMHpOmYrdTEHjuJpFTv7MoeSNtDuL7XHLWfJBI1lc2fBihsVdLv2c4bXP93VaRp8rObD</span><br><span class="line"></span><br><span class="line">0EZLibtg1bvaKNc7pT1NYAGlLXUqloTdkhK8+yHW1G/m4JrY7XzTiq699HOavSfXjG/WaqzGBMLGg2EXlCb5d6WkFxKRTN4c7Q2Bf9FMUgFxzFQPdMswb18c7j2DFNQx+r2lLMfHJrHRRzAJU6oP0O+r+2kLRy6EsndNe3CdUgh2Cn0WdC37Y2ynM2E3EAqmSzamj9YT02yWGOQByQVFqW6Xi2GXS2EHy2mTK27qRmUTeRMTBJToE6atD1KQjE/8</span><br><span class="line"></span><br><span class="line">KGUJkixRFOc6Jyh2Nnnd5WdmJ29njADmuHZ29zvK+HwMl3jnMarnm6bmxG27oqO6pH4ru6AAZfdwkQYhSc9XgovM9t8svVsxBKIVCW9npD1sF71tWZ9sZV9mF99uFz9/YxF0N2xpC+HPNwD3HWqbxxDuSO1XL3TNTx1AJhiqzIrhJlxij02l+6jzF2j7F+NufRjgQ5jvjvnDNpruwtEZITdST9r6XTwwT3p4TlBwIjlmtxttE60SS2T6I/DZCWTN</span><br><span class="line"></span><br><span class="line">W/s9O5IweG9NSTrAyPOwOSAwurZ8d0beAiU2GlVw58o5dzVizpUudho0KvVuzkghz/G/bB5lzp5gAWQ87Zn/FuNaUjPPddVysnsmcdT7RR3dch0i8fei8hZfb5oDfqqguS+/fDOkz7eCeJx0leweIfjcWLFu2uPW9UiuIYoVofmJ825+LRbNrq4TLo669EvRBSD/v69TbY5JZdsZ+/uCGJDCMxIIaJbTf47geDqZdDpZZmdE6jvE5AFUjMEaksFO</span><br><span class="line"></span><br><span class="line">0IdZdTFukI7FDTqpDW8MRJ62/enJBZBHZ04O+Lt2aKI4bO+M7QIbrM5gDA0OEVJiQCrfgxqEaaP1fs43YJre67qeY5G+7wytlFEjJPrHsddtJFjoVQTe1tDC5EIi4MZh5bzh9i4R7kMDeR/jRDZ/bDfUJ0hPqSaU1HNUlTp6vtH/cGolpQkU0p8xwYsGlR10zr7oopEo9p+KZo57mWu5+RJMl69Z74sLe2sacRM45CCtBi0jAG4UsZfdGZeyxE6G</span><br><span class="line"></span><br><span class="line">Ym/uqQRQTQQ/0ukDmZNdjqwemodJmBu5m06FK2eCC3WtgIaO6VeFIEkjFsErtM8cQd+wMs9u91Y98e5PMNZVgQVQAGjtDoIdSznP3qawADy/dUANM0CAjo0qB9MxNrXD6A8eCZId2CSjzbx9SqYhZYhVX0BQCBWcoZAGUSUSoATwuAVAeChNjNsROSic2JbGtgiQ/QT7VPmvVqoJcgySXBRDW2oS0J6E+lVwO4EkjfQnY1eC3DSmSIhAB2XWckA7</span><br><span class="line"></span><br><span class="line">l24F0KgPKc/lbEixsMLe4MO/jSXQCP9bez/Hcm/yf4rsbOa7A1o530AgBkE5gXAKgG/IgBgByeY1N3R/iQCVezsWAUtF/wkpkIUQJAQFymK3p2kleIaFLD0agsk+18fAQbkIHECqSJgR5BbFUQgAqBArGgWbAthlYbYTA2HqMlYFvtAyR8TgXill7jBSB0lSwU8mbZb9hBXZZCHdGZBgFuSKEKVgZBkEn99u4MJQZf1UEnctmGgh/mqwMFXdHeAj</span><br><span class="line"></span><br><span class="line">Kzu7zVKe8nu3vPQCAFQSoBjwP5WwZI3sG0xTWAARWcHQC3B/4Xtkgn5AkZ/Oj2MvP1AIpW5MBHNL1l6QiFxgohqgJRAKEFA8tCwJITISn2yGmN4ueQj0PC2Ng1tbk9yMoZv0EFXQRBanX/EpAzC/5jIw5VpP1UazWIJyHWMGs+lP7gxuWiCbtF0KXLgwYAmJRtnxRM46Cw8L/J3kqhGGGCHuojCYXc1/5UhpiZAhYfqi3YOCnmAAJXWG7oYBnnLY</span><br><span class="line"></span><br><span class="line">T6ndjIQfBBwqYu0jewoRL6wQu9qEIfbhCXB4AFANENZzmB0AVuQUNYMSHcRqBnZJRAqJMJqIGYiQ5ga8P9YZ8kePeBLGAGUCSgTQWgttBwG4C8AuQT4YwMyI1B90/QwRbzG2T8z8DxIgI7fl2TBTmAFwZiC3EZCUjDlyQxYFxnCLWYIjjeyIxoMEDfxuJle1/Sdm5HP6aDtBFzO3kSOGHv9rO5I1ol7ypFTCqkRKYFPanpGE0LyprRYGyLEgcifu</span><br><span class="line"></span><br><span class="line">kQe0K9haR9o+RwPS9nQithgoi8tecLlDzCGghLhhnGUTcNXT4MlRlIDEEkMZLqiJEKibUYzGnFEMasSiNdBulZ66ishbeOLojw/ZZ9WMJos0RaLITWieAMAO0XGGZFgDXOSVF0TWwrRWh7hNaKUZUOTBdljw8OFHIs0yLlZkiRGQxMoP15VhJYMYtoY0FRFrpl8yYgzqMGxHdoHaF3UkYMNf43cDBBBcKhSO/6mDf+qEawZMBOgVjfe27emAABVa</span><br><span class="line"></span><br><span class="line">xfAesXhmbGgoxQnbfYe2MnjAQK8SET7KKL7E/Zoeko5ttcKRARZ0A0QCSvHSXGsslEhKYlKSk3EvDtx6fDepn2NFYJTRSgc0Z4BPFcAzxF44wK5zAE91AQAfO8ZpTZxmAOcAIxMD6NTCRl4cSCXft1hy4WVUYloIxFpkjFdY3ErQhQQNnjFg8kxhRboeoLTF9DEJuY3QSjX0EEj0J1zTCVqT2xIA6EdqOwIzDsFE1u6AAVXIlBBNhn5VpA+QRH0S</span><br><span class="line"></span><br><span class="line">Gak9R0HJhFCSxexCffsRKMHFSieJsvZCMUMfKLjVRyQ2cazgiBEpnSjgYSVLyUSlYrYFWJ4XqOkkg5DRe4+ScUCPEqSrRak20fQHtGIBKgMjDUJUD3b6TZeC+aLOLk9HxhvRVQ1MCwXkhhgLc1oKhpYiIxHBRiQEj6EbzkHMNhSEcKflBJ8mYi3I5gX+ghO4ZBTCReg1CWFIPIRSCxlIn/lMJPrWBd8b+BKYsKSlPMAAamlNcGcjSQZiQsOVntbZ</span><br><span class="line"></span><br><span class="line">VkBUxBqDSEjI6NIeHEgcXgMqkjjeJ8+Slg2zMAqihxnU1dOukLAbiOpFbLqWVl6lkypRKQ5sryG1xEgFIkkkClCx3FDTEu+43CIeKUnHiJpNo88dNLjAkSwBO7DUHpNdGmFLBNIEyUILfE7SkOjUIvBmFonJFUIOkSkOdNcmIi9u7k4UhBPRHm9fJjQOCbiIzE6ssxn053u9PCm2dIp4jaKURnQCWgGY0YRKVWPpg7AYZlEtKtbBJT9tAevzd8ho</span><br><span class="line"></span><br><span class="line">yqR5saQpw+9ucK4kECCZsvewCCkkrWhzUtMlmZrjZk65OZWcpqYgGfyv538zw7mfD0GmySjRIZIWcpMtGgBTxU0maSAEdErDkpGoRYGROWlKINqs3Daa+IIZqy9Zv4//JaBDHypda9oayl1mjFXS5WZ/BMe0gxE8pehWg/oQSOQnEi6ipI52cYMLEAyQAvAZ6Ur1KyETjW73U1gAA1A5GUy3A6CMhutVGvg/5mKCMj4tXs2M90rjJVjkzpRRA0cc</span><br><span class="line"></span><br><span class="line">YX5C4BcAlgfrgXP3RP54pvIN/IwIakziIFwYNFAKHCJwBwFK4iLNpXsC6VGB/U30rzKrnDSa5CksafXJuBiyNJiASGRqGZGAgSaAATUSHBE7aGJJtgK3OQ3gmA0UNXujlUjkMkgtNbkrrPOlCKjZ8gpxFszfzWhBIy8gbOM0sAyd15mY4KYuy+lKKyRn/V2c911RIBww9yMMOal9kmt6YDCs7MaStZNJosLSFRrlKdYiw88b8pBHHPFEJyKp3E5O</span><br><span class="line"></span><br><span class="line">UomAU0l7U3MJmWqIQXGAkFYREwqgrgXLiVcHi8YDSVsBe1fFjU/xZrjMQtIQUsC3+dnIQS8hHqXaSgbgt5qVyBa1c4WrXJFkNzJp4s5uZwkqCVAO5NY7uZU1a41NlZQIrsraFHIKQwRkQV7JCK9hDx/RFoTtryUNmgSTZC8ryTItv7+S15gUgYacy1ahS1Fu8ogrjS0XRTpKGAawPYE9lnzGRyw+mAAC0b5cMvkn1BRwx02xeUy9khGtCHTip/5e</span><br><span class="line"></span><br><span class="line">OTgKXq/yqpSiUMFGDsBEZYl8C9BcYGpK0kYlaC8JcGGwa4NQFIS1JYXNrb1srY6Cf5QAok5SdIsZ0Mub6zT55LYWHAgWeQCKXjSSl5CiWcYEWCQzDStS4wnFKkoyV+5W01WWejBRRI7K/ZTpX+JJT9VkgBskCXPNHZxjF53k8Uo9IHATLbZeBe2SFNUV2zRhGEv6VhJe7TDUAknfBj4sMUXz6Yky5yBVHJlBz3BFoJBAhCyo/MI+6jCiVEF7ZOlP</span><br><span class="line"></span><br><span class="line">5ZVb+QYHxn/zCZiAFgMAsQTNAUlzM8FS2SSXtkkVMXHIe8M3pELRpws7FWQvUl4rEAkoMAUStdFHVB41sRpWZLPQS0VGR4FCEdNRgUhWVbk8RViLJC4A3EYynoZiS9olRFFoqj6cKsdloSfpLsiVVFNBAwxDqMASLLSwVWgD6Y76FVV3DVW3zDVfUR1LaDOW2LJ4Ow6LGpF0ZijE+5UvGW4stWy9cALAWtdMHjEfKwlsKrSpYB0oZCclPMmSfksI</span><br><span class="line"></span><br><span class="line">WFLiFvq0hY3LKVxgNQt0DoMSo9o8tvavtCoZSsHk5BDEbShIgyrsnBRk1zkgyIMvZUm901LUrNRbN5U2RxmeagVdXRmXXcS130+7hoorVuyq11eKSsCjgANriJaIaGC2vxhtrDlU8SpLdHiJPz+R+UsUJoxow3KQhI6lxWOqTkTqNRjUaINApKgwqrV6SzJc9S5nIqPVu4/mSNMUl1zVJuK5uUeuSCMKa22Iv+izUwxXrTJ2021ErX1n9kqQErbp</span><br><span class="line"></span><br><span class="line">QpCMTPlX170WeRATEU8ozZ90nlTymtmvT8RaizeTmNLUQaxhX/StWYJ5b2geW8oRDUyNNYhVsMZCDYYcsnEEarlPayPpPBZItIQ5gkE1dgM9KJzIh7irzHahOH8h51IkypognwbWCpxa6iuevU3UcbvVXG4pf6qblxgOQGoAOaepACOlIG7TF8der0ThgyePWfsqGAzrdLlMgEDTlGMunqbrpIyxMdmr8n39Jlb06ZcjRUVgb5lZavef9OwlTDd8</span><br><span class="line"></span><br><span class="line">J4VAG/gxB2adlaIAhqhteDoaGx+GQQnnkZQ2KvN/C5BSShJQBaG89y8Fo8tC2jMWA2uFHI6Ci0UzCysWuOlONCXRbjAQK7mCCou10y0y4zRBFUhY3uq3h7G9FZxpIU8aA1zckmoCGZGdzBNmlSlvEJpZiaBWA8srZGXkhpN+y0cv8Y1GRzTyDIamnIhyoHB55VEYpY7n+rGCYl8G0UbrRvJA1DDtWgqsVb9OPIWbf+wMqMF2lPnTbqCprekvNuc3</span><br><span class="line"></span><br><span class="line">sjb5DUNSJGVQSeb9V8M6ILwWAhs1h1ZUsjT/ItWyjEAoKWqAJHlD0bZeYzTEh9pPV3bLtRc7lry3/5faWBP2vmX9rS0A7RZQOuMMlJ/iLBqFXc4Ijmzzb5so1kmj6GGIQiazIgmjP8SbgRySxeS2O8Gp+qelajCdN/HNVunlAFradRavrSSKdmDbFl67IseYOgX3D3YMwdncTSgSmK0NLg9VWaELCARC8ewlGc/JFhvzeor2IISVKwF7agtriijf</span><br><span class="line"></span><br><span class="line">LrEoSV7QkS6Fdrte0BK9dvUA3W6qN0GiCFqW7dT6u40W6stxgGRoCE7lgDmRDC/LdxxMK8cKVEmqlfhk92ZhNeT61gCEGcZF4A9TWnHcHtGCeS2tv6lefyuj3AbetsykVTHoWUiMoNyymDSfWKE4NwUWe7uokFz0Lb89t8npYqPtTC6L2fa3lpIJr23LnF+2wxodso3BgrcLy8gXRs71pKqkkKxtobv1H4KUtpukfelr9X7qKFLcjUJwmvL5bmef</span><br><span class="line"></span><br><span class="line">XVhQbnh0iDSKdCDfdx3k3HT3Y/7f3fCMP1B7YxJ+rle1tTGdagNGrKnShP62FqH94wyVdor13tAdGWykAUhpfDYADlS2+iopEEIcEy9eGivRUkqRmZdtnraAxcLl2LrdK08XSjMFV0kDJOAkBFS9rSVTdQFGSxFSgfBXy90AivaMP3qwMbq0V+QjFYfJ3Vj6cVlu4wJKA1A3iSJt44Irz3IFdpgZLutfY30+rWSwwQQqEf6IMwqaz0HBpEWBLx2h</span><br><span class="line"></span><br><span class="line">7eDA4UnVHqmWU6b9oG+PSZtXZJ6TBUqt7IpA2WgpZDSwjnfTAABWShvDOSGGLYbgDkcvgNHL7SCEnFpGgw8FquFHaWuLASwHWqeHOH4lpgbtA4dm6eGBpyWnw58IKGCyAjGWwg4GpACVBOEiwA46EYh2y8J+wEMZtFHE0qyb1zIexoBGSOo7t9mYTHe9HfXNb55X6zNdyqJ0rzc166AQ/O3M7U65lohxPY/oZ3QazBtakFHVH4lNGIZprV0D/p51</span><br><span class="line"></span><br><span class="line">1jb53MGPoNCtK6rUZ/zd2EKEcV0I9DnExvSFrgPfLyQKOakA6r8VfKCUvUNw1MY8OJaUVax9gb4f+27rAdE+xAPxvanBEMlbywIfEduO/5fqX1DpURl0jPHaa9DRhh+q4MrlpS5+2ReM30029DNQhref5QT2mbxVkJ5/ZuzkP2b6YmAQPoPTFAoROxvRwLtzB9RkhR6bE0qTjNHXc1vtg+nAxyZl60CT6YzCStDGuNNLUw1odCuHAfVSmTggioeM</span><br><span class="line"></span><br><span class="line">cCF2ZHmQ8pj47jqVOqt9OagtyGqbxEanC1RmmnYHjEPmaoTPvc+Y2rRAqAUTA9GqKKH7aPz1tIutMERntBuJHTtes4aMcqoD7sD6xvYlwM0prRXw4wPuSVtX2inRyeedpYcCCXSnBFutQeFINsQJmj9ipozr7mglpnCjapwE7w3t4OyKj4GqoxCaWWTDP9TzZgOWYUZJAjI2G7tbhoYmRAkE1YKkPamGPS62zaxLw6ivZMbGBZUR0BdEGaQim9ES</span><br><span class="line"></span><br><span class="line">EU6XGslPw5Iz8qIk3GaIyprXKVvFcw9L+Mbmr9ghsoyCbv15nwT4hxna92LPyGTI9Ac00tCQT6LcmN585ZPBozCh+QYu4k2apZNsaTdXp4Zk/kLA6GleAFkQaEz9EJEbQ+FZIrGblMwXlW3uc7quctnrnxmm5k5qheEO7mBtep+nYeaLHHnTWeCM8282ZB5sw4Vem01RmFD9sBQkFls3cob1vnVjbAj4d2cKG3Dp11aOhJMvHVlE1e1kueM8cSJN</span><br><span class="line"></span><br><span class="line">C3jfF0RS1vBgWSO2BR5M+dwp2amZL2p+uvJf3NYXCzOF7ZS0bRAABHQi2aEkGJM/OGh2891g92DwaGtF10xC3fNsnLLXw+NNcKwYRAAABOVcAClxoAGPlQAEI6gAQAZAALkmABhc0ABwcoACx5QALvRgAQu9AAYC6qA6gmQZEFgBIkjiyrlV2q41daudXerA12tNoEWDYAAAXhRKLxc5tAJNG8PMDdiaIZRnCHAN4CZAehsRZRekGAGwDSADrmQY</span><br><span class="line"></span><br><span class="line">61/GAVvjFA2gdAMiGoDNHnQMAGRpp2y55BOApo5kc8BWt8Bq2vZ/BgJFKz8syTTlqsNZK32CKBQHlnfQ4yEu6dYCYlv9cuY8oGbszWp4zXuaMHVH95I2lS/THqDqXzFKUQCIgkdDfNxieqkA/wqiDuwQgz5l0zLvyvmXchXq4WqVZACAB85UAASToAHx3QAHnagAMCVAA9KZtXAAb6aAB4vUADY/4AAtFQABcJgAP7VAARvoNXAA4aaAB1bTauAA</span><br><span class="line"></span><br><span class="line">9+MAD9foAHF1QAFxygAe+VAAaP6ABE+MADCioAAJfQAEAMg1/AMNcYCjXxrfNoW2Lcluy3FbqtjWzrf1vG3zb1t+207YWtgAlrq1r3RHa2tfxMAu1v+VwkOvHX1A1gM69QAutXWU7xgO67gAetMBPAL1/AG9ZeufXB231kyL9foD/W6A0dlfrL2QQnb6KVB8YxOucsJF9pbl+G+dN4KV2hlaauMRfxUEqnTuIl63huWxuhXcbEV/GweeT0AzibaI</span><br><span class="line"></span><br><span class="line">XQGTYPa/dQwqkIULpedYEnq9xGqXazdfNumOz3hg+CABvgq2AA+hEEACeGYADu3QAH3RgAQujNkqgKy7hB5sfcWA1Vmq21daty3urgAWZNAAOvKAA9HUABxcuVY+6BBKrAAdsquABP7UAApeoAG4DFW+VYFDO3Xb7t/+YgC/s/2/7LVgB11ZAcQOoHMD8q/A/KvIO0HGDhyBtcjuA2+Qsd7awnfIxRDrrR14wGnYzsgJLrWATh7dbwD52CGj1ou0</span><br><span class="line"></span><br><span class="line">8BLtUF3r5d6Qf3eru12mHDd55dg2mPq6P8VUw9LULDB/VLEikOc6AU6onAB7PKB8/aHTxo3YL49mdlmZj05nQT9+zCwWcNNFnYrxNMotzorO/cT6J9UlHRPSvkW7ziYlpGdKdN179Dpl4+wVYstc2PWn97+1NcAAjfoAAQjSh+VcACjEYAFlEtq4AAX4wADIRUtwADIBgAYljRbgAAH0sH3gEa5gDGu4OQA+DxJyk/geZOcn+T4p2U4wSLXFHvBF</span><br><span class="line"></span><br><span class="line">h/HcTscOc7iAHh6oHOv8PMAgj3O8I4LtPXi7pdp4DI+aFyO/rAN+u8DbV1kCKB6j5Oa207Zuxj+zxsrOdKAPeXPjQ95QVfwQvCXVymNmx9foXa36RDDjhS+WoNOTC/+AA56Qib9lohOASV+3NUgFA1n/Hvaz8soxprAtQnrZiJ+zbwWn2irmxva7U9wRQA5AUACAOVaQeAAKV0ycAAdRgLUAESX2tAFAcq2IHKuAB6FUAAVSuVeRDfBL7IC3F5UF</span><br><span class="line"></span><br><span class="line">n2LASX5VxgPQAUwYBUA6QXF2bcACQCeVahCF2vkYgc5MUAqdVOan70EyFAGReov0XWLjJ7i/xe4BCXjAYl6S8pfUvGAtL+l4wEZdg6WXbLjl3YG5eMA+XAr0oNoGFeiuPKhdqO5PElgMO47O19h/tYGeHziI1AYZ5ndGfjPEAedqZ+I9evwG1+qCNdG/bLtfWZN6AeR8s6BvfDNKulOIVqM2ft2qwO2//JOL/H304zRz4xx5OHvnOdNlz5UyUZCt</span><br><span class="line"></span><br><span class="line">3Pyj283U5FacevOLBVgmwUvZfAUBfndQikEZCajhy6bfR0kAmuj6IJcrbN+i8bqH24HYnHt3BNgDEB9A5Q+AFFxAFxeAALm0AAxioAG21BJ4ACw5QAIVKgAe9jAAjK64uY3CQFl8qBeCMgaAuLrlyaBZe4BMEEhQmC7cqdu3qnE7qAFO5nfUB53S7td5u93cHu3bv1/gCe53DnvL3/Aa96S9veMJ73zyTp/XaCFOvWHfTt1zddGaevSbLULOwI/d</span><br><span class="line"></span><br><span class="line">cBvRHhd56xI6oTTreBz46R1G6Mexu678bns43aFAPDLBqbqGx9EdO7P9+x0rfbyTzcKncjNkDoSPdTPiXArE9y7jjdzMqknnQ2iQ9FJmFzDztTbkyCrg8fnnJyNEwMWReBd8l4mLJVpCza/l5Xh3Hprs8VdYw83AA79GAAhGzauABZlSQeABO+MAAyrri5/gQBjQ2gS6+VYs9iAbPgAQitAA0eq4vpQsAAYDQHKszXyrkoUBOVe6u4uzWiwMARyH</span><br><span class="line"></span><br><span class="line">KuAA0I3KvLA3A21nwLXYvh+ICGQ1p9zg6lcWfrPdnxz4wGc+ues7Hn8z156Qd+eAvMAILyCFC/tXwvkX6L4wFi/xekvKXkoGii/gZfngWX5UB08YfwfHXhd512w4ez9PUPKJdD9674fZ2ZvIAXD6oDEcEfg3xgWqaUMeQRu5n5Hn60s6o/MXgw8i3+sEA8gENHLeiR8cemSO0Ypz3S9Ha0jYNrMZW3H4Ze0P5B2mArGNqS0Krj1VvKjc9qK845iv</span><br><span class="line"></span><br><span class="line">GmZtL4AIKvdc3OlSUTNbe3BBniVIUcvqCFyZdwGROObnquSSGR5vdXt3qTwAKdygAZX1AAskoYvAA7EYm3AAp+aAAj6Ic/ivn3kr4wPj63dE+yflPmn/T/s/Df7XkQZqIh96euuiBfrk6+nfm9YexnOHyZ3h+meEepHkbiu9G8o+KPVnSiFI/VFFCMe9ELSeHIqItyb2HvWBP/PQ1kGJnj9vHr7wJtHuW8rH1zye7Y9E/2OMLEngm8Npe7yf0A4Q</span><br><span class="line"></span><br><span class="line">aH0ttJRcxdfCPvgNEBSBII+oun01fp63EwuPzcLvwzzcADVcYAF+5QAF96gAaa82rFn1q4z/y/GAk/afjP+Z6z8R2+fk5Hpy66m8oeuHgz06xL99fS/7rsvoN5I4NiK/ZHyvw76r4Tcpz5Rio5URtI0fpv8KSnTInnkZWjlAJcZ26Mja2aXFUEZKCxyW5TPBWp7FbtCw85d81vNFrzmkdtrnWe/lrrbmoU6hfW1n6bhwMWF0cQiDuj70L3JYVZie</span><br><span class="line"></span><br><span class="line">Q4ebK78q1gmoBu3NALLz4C8CIB1BcAPL/lwIh9e5VgADU5VoAABCaZ6AAgB7Z+L7rU7P+r/vgDv+MAJ/5vwNAD/74Af/ma4ABuAEAGgBEAdAHF+ijt4KweYABN7IeIvu668AVrhh4jOi3lX7LeMvqt74eMzvAaOofwjt77wH1vt5V2Hfis5d+q4uOLWCPiv35bOVYMpgm4JGKYixm05mTwRiAymb6LmPHg0DNINCJMoL+Y9lc5/eyivc5yWYJq77</span><br><span class="line"></span><br><span class="line">z2NRtooliyQP/xTa4Ml86IA1aM+JKeGlo3y1QJXIH6fk09FWba8aPlAZQuBnp2afm79gi5SubgOsBUAl9qUDqATnqAg7skoCTTf2gABMqgADB65VoABJhOVY/wPdOVbJSyoBh65eErh7b+BNQIEHBBMAKEHhBkQeVaxBCQUkEpBaQV66EB8HgL7jeSHsL7J2S3lQGzutfnQFCODfkwFy+G3gdRAovmOnhkeSvhR68B1HtZZ8SAkugDx0IgWm4Tmo</span><br><span class="line"></span><br><span class="line">ZqRbgiObsOQ0gMIs1Cm+0/r5bhgc/j97Ts9viJ7T2YnpHj6BIPq864SbSBMAIa5gUYolYmDj76dGZIL/jVgH8up4baABCjgskA7m4EjGHgVH53+0Tjj7c2HtoADeboACq+i/7pBSASgHf+v/jAHM+iAMCGghb/gagQhaAVCHVBk8LUGbW9QRX4UBTQXN4CwkvqL4remKswHy+xgA+JVopHq34LO7fjXZxux3oWSvYpAq0jlCTenogK0uODRhBitF</span><br><span class="line"></span><br><span class="line">G5b2MakK8b24awY0AqBGylsFwWOwUhJO+6FuJ6b+T+q85cstoP6ZgyDIuD5xWlgSSituA5KLA1Cjgc7CtIoYEVLX+XwVJLR+9/n8HjutTtT7lBqQekEsugADFZgAIPRsQdCEe2FockFWh1ALaEOhMQbz5EB6IaQGYhLINN70BzQVUGYedfkt6Ehh8sSHdBcvI4S9omGAMFt+QwTSFHeSjhFjEyygg5Ysh1KOtwCgOzmeiti+zskDyQqPvIEChowN</span><br><span class="line"></span><br><span class="line">ywIQDUCKF2+WgbHo6BgPnjb5iLzinpAyIMpaCfOlwaqFPINgeTbHgtoJqr8g2oTdiUM2dD2KQGnwRj63+66jH4P+P2DzaAAft6AAi8rlWZrDsAkSqTjQCcAlgCy75BLLigBQAuLqT6AA917lWnoFgDLAdQOgDeAyAYAC78oAAa2k6G1OS4SuFrhG4VuE7hNQMgGku+4YeEnhZ4WOCXh14eVb3h3oTUFl+k3gGGV+x1sGE0BPrm0ETOHQUSFdBzfo</span><br><span class="line"></span><br><span class="line">gCrSS+Lt5cBgwQd7JhnfjR6iSacg4bL4V3tSg8KpKBbjtIias+qGIMmqsHHOSZsoEbBv+NWGaByFkCbbmxaroGPO0oc2EHyHsl7KvYHYYqpXBZKD2Fr2n5CShjmo/k8F1mADINAMMqPsZbuBk4Z4Gwus4SVYe2oCGihuA+AJV4E+nCD/AvMD7tg6wBUrppEBIOkRZ56RBkaBFoh4EeQGNBQYbiGhh8Ef66MBSEU3474e+ErKcB8zgbyLOOEXwF4R</span><br><span class="line"></span><br><span class="line">XmEAogKbPEYYkRnVCPIZghYOBZYEv+McAlhE5FP50RFvsoF0IqgcxGluy/o757BzvlKHA+tbinpHy1gCfIlQ8ntWi+0okRhpUgYKGGDZg0kWf68ECkDsLIQY4SRovmhoeXKsmvwQUpmhUroADHkZAEvh64aS6AAhBY2h5Vj+GMAgAGvK5VpuHbhgALGKLoRUHpBj4QNFDRq4SNHlW40ZNHIAB4TNFzR74UtGWhlQRh4MOJfsQGC+5fpBHYhjkdQG</span><br><span class="line"></span><br><span class="line">tB2HuGFuRkYchHrUSCLGHvoCYVSFJhCjoFGjB3ysArPUNGM+LERXZLVAJMEphOa2SUZvvoTkb3ub6KmDQF+Lcw9JOoG2+LEWW4r+wJrJYNhs9k2FKWB8jAC6KwogYoXBQkaqHL4VUb76tIdoIkTqGOJuXqTwJuOVhWwRGG1EH2enkO7fB04SaG9Rj/h7bbuLVoAAKaWtHGAgsSLGoh/PnZENBovjBEPRUvk9GIRL0R5FpkPFPbT0kX0X5HUhv0SM</span><br><span class="line"></span><br><span class="line">EYM0dC1IDm1gsyGQ2OvtSDyQIFocBgonbIIrCg/VMKC92CgZwZKBQoWoEXOGgVlFY2OUav44xOpkD74xC9iNpy87gB5AbKH+mTElmqoZhhUxtwdRB2gEPA1E9u3WIPBAQMfAaHKR3MUlo9RW6n1GjM4HmADAeZ7kwAhepLke78ACmJoCixKJHnEFx4EMXHlWpceXGC8drj6HSxWIQ5HQRTkbQGPR9ARGFreLAYWT1KpZD5HcBR7gFG6xwRDapRgJ</span><br><span class="line"></span><br><span class="line">2igja+TsMBD+ixeg+r2xblsnT8gxkLRH5uwpC7GZRS/p7G3O2MWFbLs+Zlv4p6MWLKpjagkRHF4QlSK25uICEHVC00p/onFCg/IHmyV4g4R8EdR6cUaE/BnNqaH8xtTlB6cA/2Cy6tG9AJYAhe/VpXEgAQCSAmkuYCRAnlWUCZLGl+JAWQEyxlAZ3FwR3ce0EiOnQSrEkqElGSr9BlIVrE/RtIamHfK06o2ykCVxlmFdkanPer0qMmjDEOxZYTZA</span><br><span class="line"></span><br><span class="line">UR78TvFBWe8Shbexh8TvKOOJ8QfLPUT4HWr9o5UZzI3BzBD9SFUOUkC7PBcwibh54V/p/GH2nUaxojunpl+Y94PNserQJ+iSgmXRdQUL5txssVgkLeOCQhF4J7ket4oRYlOGonUw8VhE8BY8XSEvg1GghBTqs8V2RIQ7bBbEK01sfKhkRUFo7E5GH3o0CcJVoNwnCe4oblGShBwdxEExgcbBpJK5wUqHNGCVNWh0E0iezB4UQ8FaBDh6vJlREaac</span><br><span class="line"></span><br><span class="line">UvQqRM4f/FzhHtrdBPImQUz41J1viQEXRvoeglmJmCfdF4hYYT3HPRfcSSFnqXtHYC+0msfODaxFCWr5haooI1CRaUwUx59Q/orOZp0GbtOZHAUyQbJhJxsoPajAs/kxE2+U7KKG1hdjgkl3cSSQHFSqVmmiQRAtmuHF4W1aL0S5J/4CySEasZk/Fl4ikD44hACkeOFfx5SRnHdRf8XzHVJtTseGAADabJ+gADTmgAAzqc0SB5MAl9ngC4ugALBy</span><br><span class="line"></span><br><span class="line">i4YACACYADYSsn7dW5VvpGGRzRI+5ZBwKUeFgpUKTCmFxjAPCmYByKeimYpXVtinWRRia0n+hvgeYmdJzkVYmuRSsX0nRhwmv/RhgGEb5GjJ5CSmETJx2qdpW4l6vQnBmf7LcQ8WkFtOZ6+YfJP4bJGmgNjbxeyYZzbBhyRKHr++Uf7GGB0UmNpqIk2pfG3JwQIaQPJ9uNRqC6XbriZwQbiF0b2oEBu1HqJ38V1EMWo7kxY5xiAIAA03oAAAcoAC</span><br><span class="line"></span><br><span class="line">E1oABSAYACUmnNGmihANeFyANAOgBUAuLhaEIB4IYkEIBNAHIBTg9STn4+pAaSGlhpgETABRpMaQUGMA8aWCGIhSaekEppU4OdEtxaCUylJ2LKS0FdJLkQwGcpUYfYmFaBLPykjxKvn9F6xRQsRjK6dCSbFzxbSEjp5hKRK5ahio5JcTrJ7CUjHWCSBjEnWODvvvHsRAPr7GNhkGjxGBxzOlbglRZUTckmmVwdeQWplscHz2oW+q8l6W4YMRiDqZ</span><br><span class="line"></span><br><span class="line">SeCwVJvMdnEAJUroACQxvCH4AFKSAGkp4EJ+nU+gAH5GSKXeGAAFOqAAskYYp5VpUB5xiwLCmnmeKcZEwhIAG+kIBn6aAGnuP6XgDlW/6YBmgZ4GZBkmg0GWSk2RUsTWmmJN0e3FoerKV3EKxPSS2mvRZsEmww6naS4mjxOse4kt6FgH1A0kPicGYoQCOAwa3phYe2zxxpYSlGIxbMjaqRki6WKHvSRyTqmJJBUcImBxXienpKiJqYemqhSVCekh</span><br><span class="line"></span><br><span class="line">cx4L1B8Yl6ZPSKQIxGpCuBikROG/JP8TzFZxw+l6kgAgABG2gAPYGgAM6KgACoB36YyCppuAOVaAALqaAADqZJBO7EimAA9GaAAaJpK2bmXClpp+KQ0m1ODmS5nhZjAB5neZfmT/ABZjAIikhZYWWhmMgFKURmoJV0RBHMpHSQ2lsp1GbgmBudietSgKTunVBMZiYdhGsZlCQrrVgLUgumzJeiLkArcyyQpqGI9BjOmiZzselHCh6qSKgHJrEVub</span><br><span class="line"></span><br><span class="line">Zi+wSckKZMoSnq1Rb+psqSJZNFpmvYfaFbhd2+mXamNQAPGQx3pUXBZmZxAKU+lApUrj3Qag64VllFxNcee4KYCKYwD/WoruVaAAGPKAAEoqAAMP+uhgAHtqgAAl20CadnnZMGXXEXZfiDdmYB92V0hPZb2Z9k/ZDKa3FkZ9aSGFUZBIb0mtp8CIvrQ6tWd9H1Z4yfwExCphkJDcZQQLdB76SyepAKaIUPyRKps6WqkCe6NpqljZ0lvwkz2egacn</span><br><span class="line"></span><br><span class="line">6pMGjZqXEpMRkmImRUNWh90J6SORx87sGlYMxmhvaTlY1GkZbfJLqeZlupWiUZ7wuSdiEZhGZ2RqDxZNACDm4uf6eCmU+WKYkGz6H3OVaAABEqAAJmnQJoRuEaq5QOerm3ZWuTrm0peucyIG5JublnGJGIaRmFZOIZRnYJpWdYnlZ/cS+AD8W6BrGkJgqVjnCpOOQPFTGMxgTn4YbxNxZVacqQpoN8WYH1mbxWzOJmtZNOZY4Yx2USukTZeUfJl6</span><br><span class="line"></span><br><span class="line">phNrUZjmDRoqGVinYdfFyMWmUhA0YqCIqkbZ9pHRB1QzMbtnJ8suYZ7eBxnh/Ye2roSbndWgAFPKDmZe7/E5VoABwKoACgdoAAkcoADePuVZg5IXhUDe+cGXl4mRxgH3nG5g+cPmwQo+ZPmz58+cSDg5S+S7mMp7uXWlFZCOd7lI5tGQQmIA0RvzxxGziXVmuJDWSKmIA5Am8HUmMeZMy0qjxhTmsJoSbOlRJmGGjH7JNYfTn/e9Yeul4xm6cklS</span><br><span class="line"></span><br><span class="line">qMJlUiBA8JpIm4p0ccwRcwOmZGRFJzpBaB547MexKcxN/g+lWZY7s+ms43kSvkEpUrurwn5sOR7l3RxWYjn1+NicrEVZZsMkAXG0/E/mY5L+djlBRFLBiRkqqCDHn3BG3HwqWxLCV7AFcgBf1kRJ2ybr5DZWeYv48JNznwkHxTOVxHTZW6R74HpEPtfEWsJ6TRoh8Obo3lOBVuGYjaObeUMh/J7qdok+BiubCFAhlPtAnAhzhTDkkZ10fQWp2Nfo</span><br><span class="line"></span><br><span class="line">2nspzaSwVcpKETMgh5jvGMnh5/BQrona4zNEltZc8brRhmzCbFGow9WKgj6O/IbIVbJNkK2T2WUmVqnxJcmVNlF57vhIxc5FgdfF7sy2aGDvy2JrTa2pk8LdC0SJ9NeamZPyfek2FcuV3kK5PNhF7lW+QQAC8gAciBm5kXv0WDFsGVWlgRHhQVnn5S3kM6+FPuRykBFKOQr57ezGd2njxk3EgWWApAlSAiFZXAElacblmbGLJMhWnm+WCha7HFu7</span><br><span class="line"></span><br><span class="line">sbvGqFbEfnnHJH/GZqKZOhaUWV51aO5xaZ9EILrrZCiXWaNQ7SJ27guLRdLltF+2f8nY+gKepG1OgAAemgABKmLLoADj8YAD45iy6U+iKcBnQJcJYiUolpLmiUYl7hfln2RovnMUlZ1+UsV0ZLfqsXP5LGXwX/R2bFAyRKqCJd6SprAMnRMJ8apIVYEJ6BvHvemRcoEXFuRRAXaBlbtAXM5WhXAUlFFeeTHXxX3Cem9QYYDaCWg2oUhAn0v+DRZq</span><br><span class="line"></span><br><span class="line">JhBRonumXgbH66JHtoAB66f1aAAGiqAA/dGAAd6ma2gAMYW0CYaV9WppRaXWlBJSYmeFMxfQEklTBYrHklt+cEVUlPBTSXhFdJTAm6Ux1DAD5q4Ub6JhgSRjxZ5s/FuvFwxyqT5aChApcNlCeS6bsGM5k2Y8X6mEpTFSvF0pdWgB8/Of9yqlkFqYXmgeeDjx54kugQUR+XMWCW2F8uXH4e2gAFTmf6YAAMStAmtlHZU6Vu5LpYGHeF4vvMVklfuf</span><br><span class="line"></span><br><span class="line">0k+lmEdSXrFbGZmpe02DM0Ax5A8Fo7Ka3JHfG92hjrOmmOdqIKWYxXseoWZleYrAVnJkpURLqZ18RAL85I5JSDgx2oVbCZUNoJLnOpmpa6maJnebqW4+HtoADf0SraAAL9GAAcGapO9Tr/ZF+lBdFlSun5b+X/l8ToBUtWuWd05TFRJe67ulV+cwUjl3QWOUCpoRUKm4RgZaSgCQVaO+igx5koapiChSc8YWYUFmuUZFigoW5blueWoWrpUBeFZi</span><br><span class="line"></span><br><span class="line">lRRVJ5OcmSd0TVoTgiek2s78dBYJxgXMBD9uO2RqW1lRBe0UvlakSZ4e2DTtAnSVKCbBWElGCbMU+FpJchWN+bBZSXjlfpZOWNZ0wsMTWwE2vOVEVmbiPLLlCIrnQJlJzqMAbl5jm7HoxHsbcXjZO5rjFMVB5azlGmbFZeTVoawiemAQLsO0jC5tRYzG2UfaI6lb6wJY+Uy5z5TqUSVPebU6AARAT1xMrvO7pOGToAD1zoADBGg1aUuyfoAAWEQ1</span><br><span class="line"></span><br><span class="line">aAAtHKAAL6mAAb3INW27ju64ue7oAAxKny6AAmumAAgAaAAGkY9W4dsBUZpIAAlVIuyVZk4ZVWVRS65VBVSVVlVu7pVU1VvLg1XNVrVRMX2kMQApXtJSlYOUqVnpShVBF4OCEVHAYRVhW9pSiNMCSc5sLzyGVDUBbiV4XSpYhkV5leuXzxm5SmW/eQpXWEiljFZoXMV2FpImsi/OWHDZWJuNqG3QlSP5WPB4VSJValJ9pUmQlklfFW9FXALO7lWz</span><br><span class="line"></span><br><span class="line">/qXFiAVuWIBXuYACK53us0HLZOeLnl4AVebVuF71eXyCF6AA/kaAAo0bjRVVYAC58oABqsYu6AApoqtV6aWvmIACVR+46RMNYB5w1AOQjV5xyNdB6o16NeV7ue2NYF5415VkTUk1FNdTVTVzcfXZgEc1XDkIVylR6U0ZXpepUxo61f5Gv5EedmzSUQCpSyHVG+mCjjyZ1WZVwxFFWcWnOnQjdV0525XnlOVopU9WuVxeUeW4WJ5dWg1iPlU+Ysxp</span><br><span class="line"></span><br><span class="line">eiLkZWjQkZBvYH8QDWBaT5dqWqRVSVCVSuSftAkR1clSRgy1Xhdw7y1SFctVqV/uWhVdpwwWxndoZju0D4VLJROZHV/+I1AG1mkOdUTkezqbVWVV1TZVXFdlTcXLpdFfcUFFWZYpaHluZVKVXx1aGRL85NUTSD2pQ4R+JUgvBPeUcxgNUHXA1j6dZlkFDNdDXLuYgMCHPhm0XLZj5gALd+b6fNGYZtPmT4te5Vri6nRtNVFntVCVSu6z1QIfPVrh</span><br><span class="line"></span><br><span class="line">i9SvWHR24XT6b1PRTvXpBEtXB4zVdBa6UDlvDviGqV+CcrWp1axenU6VU6q+BtIGSrrUG+HsKRVG1azGXW8lJjpXU0VvCXcU21j1Rv7ilLdaxXc5VwalLnllSGYiS02oVmB72ghFYXtmUTodkT1x2cYAJVxpcLHvls0T0X5Br2YimAAL25VWgAIfygAN9yw0dvWMA+QXvXwZHthQ12lVDTQ0jFn4fQ1MNbDRw24u3DTBWzVzpdMX9l8dYtUK1ZWc</span><br><span class="line"></span><br><span class="line">nWjla1b6VkJYeVtWuiOmY2w3xsRe+JGV4Imp6mVfIXcb92UDQW5nOsDQ5UM5u5QXmFF9tcUWt1x5XoXVo0MlpnPQwXB1lllLxOjJ2o+Bc6YRVoJR3nRVodWDVSu3VtAmRN0dc/XyN1foo2J1itStWzOmlRo28FAZdtURYwMjRhuImYUOkGN+deCKKpJjedKQNCMUoHWV1jXXXwNHEc5V21TxTNmL2uhSqHXxAclpl1Rcwptx8VAom9jcwbiCKIB1</span><br><span class="line"></span><br><span class="line">9eqPXENEJUdlh15DeVagpyfvFmfpY+a9l+pQaaGnRpVAOVYgZuLtM2uh3Vjw2r5CGQlVTNMzRhlzNCzdmnLNyAWs2MAGzSkFbN0jbE1QRCjW/XdJyjZ/Up1ajak2h56TVo3cCoCm4YKirdsOLTBA8BvpxxPbOA1dYZTYoFyFNkJU0W1o2VbX11CDUfFCJjTUTbNNWScEDXyWmUZDJAnzAFX3YdRSP6vYx7E6nD1gdZFXB1INWM3hNEzYAACRoACQ</span><br><span class="line"></span><br><span class="line">5t1Z0+GLhz4U+SfkLGAAWdpy2JuYADlfs5kT5uLg5lVVgAMj+d4ds1UFNLfS1dWjLcy2stHLdy28t/LfZlCtIrTc1wVilW6UJ1liQsX+FyTSsVvNGFZo09pDulVnWAlgkRG51gLQdK8VJTeRXmN5TZC0NAfHkW6/GyhbEkyZ2qZxFINz1dFaSJJihnj9E5NkXr1Gb2NeVGQtUIA0BNYTiSZmWxoSQWepk9SAAM+RkTs0e2ibc0ldOMdbI3wVC1Q8</span><br><span class="line"></span><br><span class="line">1NpvccsUaV6FRtWYVhrTWx5sEQGMyeyOdfk2EVhTWegp5YDaY3gtTsfa3QtShdcUqF1TY5W1NttZ62ONLFe5VoNqofsonpG9rwRigNRXi1BV+GJf42s+9jWWktwTVFUh1oNbFVSuCVYACFNrS0YpWKTikNWpohUCMA5VoADsSiCk5ViXoACw5lu6AAFmqcNtQN4CQ15VoABtTvVWitIFRM2bt27bSm7t+7VoDHtp7Re3Xtt7fQD3tv1k+0vtKrbH</span><br><span class="line"></span><br><span class="line">Uv19zfLHDlKjahWvNhbWrW0lmTSVhWwtasErAN/+FUhF1BwCXWveRjhY3CkrbaAUapsLbRU1Na6Yg26pfbS9Wot7Fed7qhakHQh0oNqVO0UgQoJUjCg1ZYE0j1ZLWPWxtOiW+Xg13VoAApaYADdnoimAA8IaAAziqAAAu6AA89aAAXXK+pgAOqagAKfugAGPRgAMl6r7QfVReXVuJ1SdcnUp2qdmnTp0QdmbWq2v1MHR/W2JLzbsSq1m1Ya36gSL</span><br><span class="line"></span><br><span class="line">ssCLQzmukAVxgzjZR0g2ADABEAoCLZXqCGZqoC9AeACX5gEYXbgAfcEshqBu2lgOoAhky1vQDKAZCBQBYAnAIUD9UI6KgDBBmANfJ9YuXTUCYADClYiMI9sGWhygSgCTSWdD2PuF1AYCA9IIAJQJl1Yoe0Q117ACQOaL4AZQDF0zS1bKgTPA0CC6JAAA</span><br></pre></td></tr></table></figure>
+<p>%%</p>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">excalidraw</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2026/11/04/LLM/2_RAG/project/img/%E8%AE%BE%E8%AE%A1/%E5%9B%BE_11%E9%89%B4%E6%9D%83%E4%B8%8E%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-LLM/2_RAG/project/10_代码实现_前端交互" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/hexo/">hexo代码块折叠</a>
+      <a class="article-title" href="/llm/2_RAG/project/">8_代码实现_API接口</a>
     </h1>
   
 
         
-        <a href="/hexo/" class="archive-article-date">
-  	<time datetime="2026-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-05</time>
+        <a href="/llm/2_RAG/project/" class="archive-article-date">
+  	<time datetime="2026-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-10-27</time>
 </a>
         
       </header>
@@ -192,7 +658,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
         		</li>
       		
 		</ul>
@@ -204,7 +670,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        			<a href="/categories/项目//" class="article-tag-list-link color3">项目</a>
         		</li>
       		
 		</ul>
@@ -213,7 +679,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/hexo/">展开全文 >></a>
+          <a class="article-more-a" href="/llm/2_RAG/project/">展开全文 >></a>
         </p>
       
 
@@ -243,20 +709,20 @@
 
 
   
-    <article id="post-experience/obsidian/obsidian_hexo_codelearning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-LLM/2_RAG/project/7_代码实现_Agent 对话编排" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/experience/obsidian/">使用obsidian学习代码</a>
+      <a class="article-title" href="/llm/2_RAG/project/">7_代码实现_Agent 对话编排</a>
     </h1>
   
 
         
-        <a href="/experience/obsidian/" class="archive-article-date">
-  	<time datetime="2026-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-05</time>
+        <a href="/llm/2_RAG/project/" class="archive-article-date">
+  	<time datetime="2026-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-10-27</time>
 </a>
         
       </header>
@@ -277,11 +743,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">3DGS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
         		</li>
       		
 		</ul>
@@ -293,7 +755,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/经验//" class="article-tag-list-link color3">经验</a>
+        			<a href="/categories/项目//" class="article-tag-list-link color3">项目</a>
         		</li>
       		
 		</ul>
@@ -302,252 +764,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/experience/obsidian/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-experience/obsidian/excalidraw" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/04/04/experience/obsidian/excalidraw/">excalidraw使用</a>
-    </h1>
-  
-
-        
-        <a href="/2026/04/04/experience/obsidian/excalidraw/" class="archive-article-date">
-  	<time datetime="2026-04-04T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Obsidian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2026/04/04/experience/obsidian/excalidraw/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-experience/obsidian/obsidian_hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2026/04/04/experience/obsidian/obsidian_hexo/">obsidian笔记转为hexo博客</a>
-    </h1>
-  
-
-        
-        <a href="/2026/04/04/experience/obsidian/obsidian_hexo/" class="archive-article-date">
-  	<time datetime="2026-04-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Obsidian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/经验//" class="article-tag-list-link color3">经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2026/04/04/experience/obsidian/obsidian_hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-experience/obsidian/Obsidian" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/obsidian-notes/">Obsidian使用</a>
-    </h1>
-  
-
-        
-        <a href="/obsidian-notes/" class="archive-article-date">
-  	<time datetime="2026-04-03T03:01:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1></h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">经验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Obsidian</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/obsidian-notes/">展开全文 >></a>
+          <a class="article-more-a" href="/llm/2_RAG/project/">展开全文 >></a>
         </p>
       
 
@@ -579,7 +796,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/">71</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/79/">79</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 
@@ -1003,6 +1220,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
             
             <div class="clearfix"></div>

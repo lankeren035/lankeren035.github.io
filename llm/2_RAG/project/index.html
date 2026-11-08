@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-10-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-06T07:36:21.364Z">
+<meta property="article:modified_time" content="2026-11-06T05:01:33.686Z">
 <meta property="article:author" content="ke">
 <meta property="article:tag" content="项目">
 <meta name="twitter:card" content="summary">
@@ -181,9 +181,9 @@
       
         <h1></h1>
 <span id="more"></span>
-<h1>1. 项目背景</h1>
+<h1>0. 项目背景</h1>
 <ul>
-<li>本项目希望完成一个面向<strong>私有知识库问答场景的 Agent 系统</strong>。涉及到：
+<li>本项目希望完成一个面向<strong>私有知识库问答场景的 Agentic RAG 系统</strong>。涉及到：
 <ul>
 <li>Agent</li>
 </ul>
@@ -195,10 +195,19 @@
 </ul>
 </li>
 </ul>
-<h1>2. 系统设计</h1>
-<h2 id="2-1-用户角色">2.1 用户角色</h2>
+<h1>1. 需求分析</h1>
 <ul>
-<li>系统有两类用户，需要考虑用户、权限、会话、消息、知识库</li>
+<li>项目里面有哪些角色</li>
+<li>任务流程</li>
+</ul>
+<h2 id="1-1-用户角色">1.1 用户角色</h2>
+<ul>
+<li>系统有两类用户：
+<ul>
+<li>普通用户</li>
+<li>管理员</li>
+</ul>
+</li>
 </ul>
 <h3 id="1）普通用户">1）普通用户</h3>
 <p>主要完成：</p>
@@ -217,16 +226,385 @@
 <li>查看知识库</li>
 <li>删除文档</li>
 </ul>
-<h2 id="2-2-数据流">2.2 数据流</h2>
+<h2 id="1-2-数据流">1.2 数据流</h2>
 <ul>
-<li>系统围绕两条链路运行</li>
+<li>系统围绕<strong>两条链路</strong>运行，这两条链路是项目的核心流程</li>
 </ul>
 <h3 id="1）用户问答链路">1）用户问答链路</h3>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">用户问题</span><br><span class="line">   ↓</span><br><span class="line">Agent</span><br><span class="line">   ├── 普通问题 → LLM</span><br><span class="line">   │</span><br><span class="line">   ├── 天气问题 → Weather Tool</span><br><span class="line">   │</span><br><span class="line">   └── 知识问题 → Knowledge Tool</span><br><span class="line">                         ↓</span><br><span class="line">                        RAG</span><br><span class="line">                         ↓</span><br><span class="line">                       检索</span><br><span class="line">                         ↓</span><br><span class="line">                      Evidence</span><br><span class="line">                         ↓</span><br><span class="line">                        LLM</span><br><span class="line">                         ↓</span><br><span class="line">                       Answer</span><br></pre></td></tr></table></figure>
 <h3 id="2）文档入库链路">2）文档入库链路</h3>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">管理员上传文档</span><br><span class="line">        ↓</span><br><span class="line">     文档解析</span><br><span class="line">        ↓</span><br><span class="line">     文档分块</span><br><span class="line">        ↓</span><br><span class="line">      Embedding</span><br><span class="line">        ↓</span><br><span class="line">      知识库存储</span><br><span class="line">        ↓</span><br><span class="line">后续供 RAG 检索</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-数据库设计">2.3 数据库设计</h2>
-<h3 id="2-3-1-向量数据库设计">2.3.1 向量数据库设计</h3>
+<h1>2. 系统设计</h1>
+<ul>
+<li>根据项目的两条数据流，将整个项目划分为5个层级：
+<ol>
+<li>交互层：前端交互逻辑
+<ul>
+<li>Vue：构建页面组件。</li>
+<li>Pinia：管理前端状态。</li>
+</ul>
+</li>
+<li>接入层: 接口与鉴权
+<ul>
+<li>FastAPI：HTTP 接口</li>
+<li>Pydantic：校验字段</li>
+<li>JWT：校验登录令牌</li>
+<li>DB 角色判断</li>
+</ul>
+</li>
+<li>业务编排层：两条业务流
+<ul>
+<li>会话与对话编排</li>
+<li>文档管理</li>
+</ul>
+</li>
+<li>智能执行层：负责执行 Agent、RAG 与文档处理能力
+<ul>
+<li>Agent与工具运行时</li>
+<li>RAG知识引擎</li>
+<li>文档检索</li>
+</ul>
+</li>
+<li>基础设施层：数据存储、缓存
+<ul>
+<li>PostgreSQL：存储会话内容</li>
+<li>Redis：缓存会话</li>
+<li>Milvus：保存向量数据</li>
+<li>本地文件存储</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-1-项目架构设计">2.1 项目架构设计</h2>
+<p>总体架构图：[[图_1项目设计]]</p>
+<h3 id="2-1-1-交互层">2.1.1 交互层</h3>
+<h4 id="1）前端交互模块">1）前端交互模块</h4>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>登录</strong></td>
+<td>提交账号密码，保存登录凭证，并在后续请求中携带凭证。</td>
+</tr>
+<tr>
+<td><strong>聊天</strong></td>
+<td>提交问题，接收回答，持续更新正在生成的消息。</td>
+</tr>
+<tr>
+<td><strong>历史</strong></td>
+<td>展示会话列表，切换会话并读取历史消息。</td>
+</tr>
+<tr>
+<td><strong>文档</strong></td>
+<td>为管理员提供文档查看、上传、删除和处理进度界面。</td>
+</tr>
+<tr>
+<td><strong>引用</strong></td>
+<td>展示回答使用的来源编号及对应文档片段，方便查看依据。</td>
+</tr>
+<tr>
+<td><strong>Trace</strong></td>
+<td>展示检索、改写、评分等执行记录，帮助理解本轮回答的处理过程。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-1-2-接入层">2.1.2 接入层</h3>
+<h4 id="1）接口与鉴权模块">1）接口与鉴权模块</h4>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>auth</strong></td>
+<td>提供注册、登录等账号认证接口。</td>
+</tr>
+<tr>
+<td><strong>sessions</strong></td>
+<td>提供当前用户的会话列表、历史读取和删除等接口。</td>
+</tr>
+<tr>
+<td><strong>chat</strong></td>
+<td>接收问题，调用 M3，返回完整回答或 SSE 流式事件。</td>
+</tr>
+<tr>
+<td><strong>documents</strong></td>
+<td>提供文档列表、上传、删除和任务进度查询接口。</td>
+</tr>
+<tr>
+<td><strong>JWT</strong></td>
+<td>校验登录令牌的有效性，并从令牌中取得用户身份。</td>
+</tr>
+<tr>
+<td><strong>DB 角色判断</strong></td>
+<td>查询 PostgreSQL 中用户的实际角色，判断是否允许执行管理员操作，例如上传和删除文档。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-1-3-业务编排层">2.1.3 业务编排层</h3>
+<h4 id="1）会话管理模块">1）会话管理模块</h4>
+<ul>
+<li>负责组织一轮对话：准备上下文、调用执行模块、处理结果并保存。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ConversationStorage</strong></td>
+<td>封装会话、消息和会话元信息的读取、保存、删除及缓存处理。</td>
+</tr>
+<tr>
+<td><strong>Chat Service</strong></td>
+<td>串起一次问答的完整流程，决定进入普通 Agent，还是恢复上轮未完成的 RAG。</td>
+</tr>
+<tr>
+<td><strong>请求 ctx</strong></td>
+<td>本轮请求共享的上下文对象，保存工具调用额度、RAG Trace、恢复快照和流式事件通道等状态。</td>
+</tr>
+<tr>
+<td><strong>历史</strong></td>
+<td>加载已有对话，并选取近期消息作为本轮模型输入。</td>
+</tr>
+<tr>
+<td><strong>笔记</strong></td>
+<td>将需要长期保留的对话信息整理为 <code>persistent_note</code>，在后续提问时带入上下文。</td>
+</tr>
+<tr>
+<td><strong>跨轮 HITL</strong></td>
+<td>系统需要用户补充信息时保存待处理状态；用户下一轮补充后，继续原来的检索任务。</td>
+</tr>
+<tr>
+<td><strong>SSE</strong></td>
+<td>将回答内容、检索进度、Trace、澄清请求等事件持续发送给前端。</td>
+</tr>
+<tr>
+<td><strong>结果保存</strong></td>
+<td>保存本轮用户消息、AI 回复、Trace，以及更新后的笔记和待恢复状态。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2）文档管理模块">2）文档管理模块</h4>
+<ul>
+<li>负责管理文档的业务操作，并组织索引任务的执行。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>列表</strong></td>
+<td>根据 Milvus 中的文档块记录，统计并返回文档名称、类型和块数量。</td>
+</tr>
+<tr>
+<td><strong>上传</strong></td>
+<td>检查文件类型、保存原文件，然后调用 M7 解析和建立索引。</td>
+</tr>
+<tr>
+<td><strong>删除</strong></td>
+<td>清理文档在 Milvus、PostgreSQL 和 Redis 中的索引及父块数据。原版保留本地原文件。</td>
+</tr>
+<tr>
+<td><strong>同名清理</strong></td>
+<td>上传同名文档时，清除旧版本的检索数据，避免新旧文档块混在一起。</td>
+</tr>
+<tr>
+<td><strong>BackgroundTasks</strong></td>
+<td>在接口返回后继续执行上传处理或删除任务，属于应用进程内的后台任务。</td>
+</tr>
+<tr>
+<td><strong>进度查询</strong></td>
+<td>根据 <code>job_id</code> 返回当前步骤、处理数量、完成状态或错误，供前端轮询展示。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-1-4-智能执行层">2.1.4 智能执行层</h3>
+<h4 id="1）Agent与工具运行时">1）Agent与工具运行时</h4>
+<ul>
+<li>负责让模型判断如何处理问题、调用工具，并根据工具结果生成回答。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>图中要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MODEL</strong></td>
+<td>外层对话模型，决定直接回答还是调用工具，并基于工具返回内容生成最终回答。</td>
+</tr>
+<tr>
+<td><strong>ToolMessage</strong></td>
+<td>将工具执行结果包装成模型能够读取的工具消息，送回 Agent 的对话流程。</td>
+</tr>
+<tr>
+<td><strong>知识工具</strong></td>
+<td>将知识查询交给 M5，取得带来源编号的证据，或者需要澄清、没有可靠知识等状态。</td>
+</tr>
+<tr>
+<td><strong>天气工具</strong></td>
+<td>调用高德天气接口，取得天气数据，再交给模型组织成自然语言回答。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2）RAG-知识引擎">2）RAG 知识引擎</h4>
+<ul>
+<li>负责从知识库寻找证据，并判断、调整检索过程。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>图中要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hybrid</strong></td>
+<td>同时使用 dense 向量检索和 BM25 关键词检索，再通过 RRF 融合结果，兼顾语义相似和术语匹配。</td>
+</tr>
+<tr>
+<td><strong>Merge</strong></td>
+<td>多个命中子块满足合并条件时，回取更完整的父块，补足上下文。</td>
+</tr>
+<tr>
+<td><strong>Rerank</strong></td>
+<td>根据问题与候选文本的相关程度重新排序，优先保留更有用的证据。</td>
+</tr>
+<tr>
+<td><strong>评分</strong></td>
+<td>判断检索结果是否足以支持回答，为回答、改写、澄清或无知识等后续路径提供依据。</td>
+</tr>
+<tr>
+<td><strong>改写</strong></td>
+<td>检索效果不足时，通过 Step-back 或 HyDE 生成辅助检索文本，再尝试检索。</td>
+</tr>
+<tr>
+<td><strong>Send</strong></td>
+<td>使用 LangGraph 的动态分发能力，将复杂问题拆出的多个子问题送入并行检索、评分分支。</td>
+</tr>
+<tr>
+<td><strong>证据合并</strong></td>
+<td>汇总各子问题的有效文档，去重并组织统一证据，供外层模型回答。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3）文档索引">3）文档索引</h4>
+<ul>
+<li>负责把原始文档转换成知识库能够检索的数据。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>图中要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>解析</strong></td>
+<td>从 PDF、Word、Excel、HTML 等文件中提取正文和来源信息。</td>
+</tr>
+<tr>
+<td><strong>清洗</strong></td>
+<td>清除控制字符、零宽字符等异常内容，并规范正文和元信息。</td>
+</tr>
+<tr>
+<td><strong>三级分块</strong></td>
+<td>生成 L1 大块、L2 中块、L3 叶子块，并建立块 ID、父块 ID 和根块 ID。</td>
+</tr>
+<tr>
+<td><strong>父块入库</strong></td>
+<td>将 L1/L2 的全文及来源写入 PostgreSQL，并缓存到 Redis，供检索时回取。</td>
+</tr>
+<tr>
+<td><strong>叶子向量化</strong></td>
+<td>对 L3 文本生成 dense 向量，再将文本、向量和关联信息写入 Milvus。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-1-5-基础设施层">2.1.5 基础设施层</h3>
+<ul>
+<li>负责承载业务数据、检索数据、缓存和任务状态。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>图中要点</th>
+<th>负责的功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PostgreSQL／PG</strong></td>
+<td>关系数据库，持久保存用户、会话、消息和父级文档块。</td>
+</tr>
+<tr>
+<td><strong>用户</strong></td>
+<td>保存账号、密码哈希和角色等身份信息。</td>
+</tr>
+<tr>
+<td><strong>会话</strong></td>
+<td>保存会话归属及标题、笔记、待恢复状态等元信息。</td>
+</tr>
+<tr>
+<td><strong>消息</strong></td>
+<td>保存用户问题、AI 回复及消息关联的 RAG Trace。</td>
+</tr>
+<tr>
+<td><strong>父块</strong></td>
+<td>保存 L1/L2 全文和来源、关联 ID，供 M5 扩展检索上下文。</td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td>缓存会话历史、会话列表和父块，减少重复查询 PostgreSQL。</td>
+</tr>
+<tr>
+<td><strong>Milvus：L3 dense + BM25</strong></td>
+<td>保存叶子块及检索所需数据，提供向量检索和 BM25 全文检索。</td>
+</tr>
+<tr>
+<td><strong>本地原文 <code>data/documents</code></strong></td>
+<td>保存上传的原始文件，作为文档解析的数据来源。</td>
+</tr>
+<tr>
+<td><strong>内存 JobManager</strong></td>
+<td>保存上传、删除任务的进度与状态；属于进程内数据，不保证重启后恢复。</td>
+</tr>
+<tr>
+<td><strong>etcd</strong></td>
+<td>Milvus 的底层依赖，保存其运行所需的元数据和协调信息。</td>
+</tr>
+<tr>
+<td><strong>MinIO</strong></td>
+<td>Milvus 的底层对象存储，保存其数据、索引等文件；用户上传的原文仍保存在本地目录。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-2-数据库设计">2.2 数据库设计</h2>
+<ul>
+<li>总体设计图见[[图_6数据存储与状态]]</li>
+</ul>
+<h3 id="2-2-1-向量数据库设计">2.2.1 向量数据库设计</h3>
 <ul>
 <li>向量数据库作为系统里面的一个功能，需要提前设计好，他还会影响后面的数据库设计。</li>
 </ul>
@@ -241,7 +619,7 @@
 假设三级分块策略是：</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">L1: chunk_size=2400, overlap=400</span><br><span class="line">L2: chunk_size=1600, overlap=200</span><br><span class="line">L3: chunk_size=800,  overlap=100</span><br></pre></td></tr></table></figure>
-<p>我有一个文档，以页为单位进行切分，假设第一页长度是4000，它会被切成两个L1：（0-2400）（2000-4000）。然后再把每个L1切成L2，得到：（0-1600）（1400-2400）（2000-3600）（3400-4000）。然后每个L2再切成L3。这里涉及到两个字段：chunk_id和chunk_idx。这个例子切分后得到的顺序：</p>
+<p>我有一个文档，以页为单位进行切分，假设第一页长度是4000，它会被切成两个L1：（0-2400）（2000-4000）。然后再把每个L1切成L2，得到：（0-1600）（1400-2400）（2000-3600）（3400-4000）。然后每个L2再切成L3。这里涉及到两个字段：chunk_id和chunk_idx（数据库级全局序号）。这个例子切分后得到的顺序：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">L1-0</span><br><span class="line">  L2-0</span><br><span class="line">    L3-0</span><br><span class="line">    L3-1</span><br><span class="line">  L2-1</span><br><span class="line">    L3-2</span><br><span class="line">    L3-3</span><br><span class="line">L1-1</span><br><span class="line">  L2-2</span><br><span class="line">    L3-4</span><br><span class="line">    L3-5</span><br></pre></td></tr></table></figure>
 <p>这两个字段的编号逻辑：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">L1-0</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l1::0</span><br><span class="line">chunk_idx = 0</span><br><span class="line"></span><br><span class="line">L2-0</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l2::0</span><br><span class="line">chunk_idx = 1</span><br><span class="line"></span><br><span class="line">L3-0</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l3::0</span><br><span class="line">chunk_idx = 2</span><br><span class="line"></span><br><span class="line">L3-1</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l3::1</span><br><span class="line">chunk_idx = 3</span><br><span class="line"></span><br><span class="line">L2-1</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l2::1</span><br><span class="line">chunk_idx = 4</span><br><span class="line"></span><br><span class="line">L3-2</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l3::2</span><br><span class="line">chunk_idx = 5</span><br><span class="line"></span><br><span class="line">L3-3</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l3::3</span><br><span class="line">chunk_idx = 6</span><br><span class="line"></span><br><span class="line">L1-1</span><br><span class="line">chunk_id  = VGGT.pdf::p0::l1::1</span><br><span class="line">chunk_idx = 7</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
@@ -250,7 +628,7 @@
 <li>采用<strong>Hybrid Retrieval</strong>：</li>
 </ul>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Dense Retrieval</span><br><span class="line">       +</span><br><span class="line">BM25 Retrieval</span><br><span class="line">       ↓</span><br><span class="line">      RRF</span><br></pre></td></tr></table></figure>
-<h4 id="3）存储结构">3）存储结构</h4>
+<h4 id="3）存储字段">3）存储字段</h4>
 <ul>
 <li>使用Milvus作为向量数据库，结合项目背景，设计如下Collection字段：</li>
 </ul>
@@ -330,7 +708,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2-3-2-关系数据库设计">2.3.2 关系数据库设计</h3>
+<h3 id="2-2-2-关系数据库设计">2.2.2 关系数据库设计</h3>
+<ul>
+<li>ER图见[[图_7数据库ER关系]]</li>
+</ul>
 <h4 id="1）用户表-users">1）用户表 users</h4>
 <table>
 <thead>
@@ -537,7 +918,7 @@
 </table>
 <p>这就是数据库设计与 Auto-merging RAG 发生联系的地方。</p>
 <hr>
-<h3 id="2-3-3-Redis-缓存设计">2.3.3 Redis 缓存设计</h3>
+<h3 id="2-2-3-Redis-缓存设计">2.2.3 Redis 缓存设计</h3>
 <ul>
 <li>频繁读取的数据需要缓存到内存</li>
 </ul>
@@ -625,6 +1006,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sqlalchemy <span class="keyword">import</span> JSON, DateTime, ForeignKey, Integer, String, Text, UniqueConstraint</span><br><span class="line"><span class="keyword">from</span> sqlalchemy.orm <span class="keyword">import</span> Mapped, mapped_column, relationship</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> backend.infra.database <span class="keyword">import</span> Base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(<span class="title class_ inherited__">Base</span>):</span><br><span class="line">    __tablename__ = <span class="string">&quot;users&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">id</span>: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, primary_key=<span class="literal">True</span>, index=<span class="literal">True</span>)</span><br><span class="line">    username: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">100</span>), unique=<span class="literal">True</span>, index=<span class="literal">True</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    password_hash: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">255</span>), nullable=<span class="literal">False</span>)</span><br><span class="line">    role: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">20</span>), default=<span class="string">&quot;user&quot;</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    sessions = relationship(<span class="string">&quot;ChatSession&quot;</span>, back_populates=<span class="string">&quot;user&quot;</span>, cascade=<span class="string">&quot;all, delete-orphan&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatSession</span>(<span class="title class_ inherited__">Base</span>):</span><br><span class="line">    __tablename__ = <span class="string">&quot;chat_sessions&quot;</span></span><br><span class="line">    __table_args__ = (UniqueConstraint(<span class="string">&quot;user_id&quot;</span>, <span class="string">&quot;session_id&quot;</span>, name=<span class="string">&quot;uq_user_session&quot;</span>),)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">id</span>: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, primary_key=<span class="literal">True</span>, index=<span class="literal">True</span>)</span><br><span class="line">    user_id: Mapped[<span class="built_in">int</span>] = mapped_column(ForeignKey(<span class="string">&quot;users.id&quot;</span>, ondelete=<span class="string">&quot;CASCADE&quot;</span>), nullable=<span class="literal">False</span>, index=<span class="literal">True</span>)</span><br><span class="line">    session_id: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">120</span>), nullable=<span class="literal">False</span>, index=<span class="literal">True</span>)</span><br><span class="line">    metadata_json: Mapped[<span class="built_in">dict</span>] = mapped_column(JSON, default=<span class="built_in">dict</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=<span class="literal">False</span>)</span><br><span class="line">    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    user = relationship(<span class="string">&quot;User&quot;</span>, back_populates=<span class="string">&quot;sessions&quot;</span>)</span><br><span class="line">    messages = relationship(<span class="string">&quot;ChatMessage&quot;</span>, back_populates=<span class="string">&quot;session&quot;</span>, cascade=<span class="string">&quot;all, delete-orphan&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ChatMessage</span>(<span class="title class_ inherited__">Base</span>):</span><br><span class="line">    __tablename__ = <span class="string">&quot;chat_messages&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">id</span>: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, primary_key=<span class="literal">True</span>, index=<span class="literal">True</span>)</span><br><span class="line">    session_ref_id: Mapped[<span class="built_in">int</span>] = mapped_column(ForeignKey(<span class="string">&quot;chat_sessions.id&quot;</span>, ondelete=<span class="string">&quot;CASCADE&quot;</span>), nullable=<span class="literal">False</span>, index=<span class="literal">True</span>)</span><br><span class="line">    message_type: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">20</span>), nullable=<span class="literal">False</span>)</span><br><span class="line">    content: Mapped[<span class="built_in">str</span>] = mapped_column(Text, nullable=<span class="literal">False</span>)</span><br><span class="line">    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=<span class="literal">False</span>)</span><br><span class="line">    rag_trace: Mapped[<span class="built_in">dict</span> | <span class="literal">None</span>] = mapped_column(JSON, nullable=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    session = relationship(<span class="string">&quot;ChatSession&quot;</span>, back_populates=<span class="string">&quot;messages&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ParentChunk</span>(<span class="title class_ inherited__">Base</span>):</span><br><span class="line">    __tablename__ = <span class="string">&quot;parent_chunks&quot;</span></span><br><span class="line"></span><br><span class="line">    chunk_id: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">512</span>), primary_key=<span class="literal">True</span>)</span><br><span class="line">    text: Mapped[<span class="built_in">str</span>] = mapped_column(Text, nullable=<span class="literal">False</span>)</span><br><span class="line">    filename: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">255</span>), nullable=<span class="literal">False</span>, index=<span class="literal">True</span>)</span><br><span class="line">    file_type: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">50</span>), default=<span class="string">&quot;&quot;</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    file_path: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">1024</span>), default=<span class="string">&quot;&quot;</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    page_number: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, default=<span class="number">0</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    parent_chunk_id: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">512</span>), default=<span class="string">&quot;&quot;</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    root_chunk_id: Mapped[<span class="built_in">str</span>] = mapped_column(String(<span class="number">512</span>), default=<span class="string">&quot;&quot;</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    chunk_level: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, default=<span class="number">0</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    chunk_idx: Mapped[<span class="built_in">int</span>] = mapped_column(Integer, default=<span class="number">0</span>, nullable=<span class="literal">False</span>)</span><br><span class="line">    updated_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>定义关系数据库表结构</li>
+<li><strong>ORM 是“对象关系映射”（Object-Relational Mapping）</strong>：把数据库中的表、字段、记录，对应成 Python 中的类、属性、对象，让你通过 Python 对象读写数据库。</li>
 </ul>
 <h4 id="backend-indexing-2"><code>backend/indexing/</code></h4>
 <h5 id="1）milvus-client-py">1）milvus_client.py</h5>
@@ -662,7 +1044,7 @@
 <h6 id="定义Milvus操作">定义Milvus操作</h6>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;Milvus 访问层：无状态 Store + 短生命周期 gRPC 连接（避免长期持有失效 channel）。&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> annotations</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"><span class="keyword">from</span> dataclasses <span class="keyword">import</span> dataclass</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">Callable</span>, Iterator, TypeVar</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pymilvus <span class="keyword">import</span> AnnSearchRequest, DataType, MilvusClient, RRFRanker, Function, FunctionType</span><br><span class="line"></span><br><span class="line">QUERY_MAX_LIMIT = <span class="number">16384</span> <span class="comment"># 一次查询最多返回多少条数据</span></span><br><span class="line">T = TypeVar(<span class="string">&quot;T&quot;</span>) <span class="comment">#给后面通用函数做类型标注，本身不参与业务逻辑。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Milvus 配置</span></span><br><span class="line"><span class="meta">@dataclass(<span class="params">frozen=<span class="literal">True</span></span>) </span><span class="comment">#让这个配置类更方便定义，并且创建后不能随意修改</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MilvusSettings</span>:</span><br><span class="line">    host: <span class="built_in">str</span></span><br><span class="line">    port: <span class="built_in">str</span></span><br><span class="line">    collection_name: <span class="built_in">str</span></span><br><span class="line">    uri: <span class="built_in">str</span></span><br><span class="line">    timeout: <span class="built_in">float</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">from_env</span>(<span class="params">cls</span>) -&gt; MilvusSettings:</span><br><span class="line">        host = os.getenv(<span class="string">&quot;MILVUS_HOST&quot;</span>, <span class="string">&quot;localhost&quot;</span>)</span><br><span class="line">        port = os.getenv(<span class="string">&quot;MILVUS_PORT&quot;</span>, <span class="string">&quot;19530&quot;</span>)</span><br><span class="line">        collection = os.getenv(<span class="string">&quot;MILVUS_COLLECTION&quot;</span>, <span class="string">&quot;embeddings_collection&quot;</span>)</span><br><span class="line">        timeout = <span class="built_in">float</span>(os.getenv(<span class="string">&quot;MILVUS_TIMEOUT&quot;</span>, <span class="string">&quot;30&quot;</span>))</span><br><span class="line">        <span class="keyword">return</span> cls( <span class="comment"># 返回一个实例</span></span><br><span class="line">            host=host,</span><br><span class="line">            port=port,</span><br><span class="line">            collection_name=collection,</span><br><span class="line">            uri=<span class="string">f&quot;http://<span class="subst">&#123;host&#125;</span>:<span class="subst">&#123;port&#125;</span>&quot;</span>,</span><br><span class="line">            timeout=timeout,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">milvus_client_session</span>(<span class="params">settings: MilvusSettings | <span class="literal">None</span> = <span class="literal">None</span></span>) -&gt; Iterator[MilvusClient]:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;一次 RPC 会话：创建连接，用完后关闭，不缓存 gRPC channel。&quot;&quot;&quot;</span></span><br><span class="line">    cfg = settings <span class="keyword">or</span> MilvusSettings.from_env()</span><br><span class="line">    client = MilvusClient(uri=cfg.uri, timeout=cfg.timeout)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">yield</span> client</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        client.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_normalize_filter</span>(<span class="params">filter_expr: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="keyword">return</span> filter_expr.strip() <span class="keyword">if</span> filter_expr.strip() <span class="keyword">else</span> <span class="string">&quot;id &gt;= 0&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MilvusStore</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Milvus 集合读写；本身不持有连接，所有 IO 经 milvus_client_session。&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, settings: MilvusSettings | <span class="literal">None</span> = <span class="literal">None</span></span>):</span><br><span class="line">        self._settings = settings <span class="keyword">or</span> MilvusSettings.from_env()</span><br><span class="line"></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">collection_name</span>(<span class="params">self</span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        <span class="comment"># 当前类对应一个表，取出表名</span></span><br><span class="line">        <span class="keyword">return</span> self._settings.collection_name</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_run</span>(<span class="params">self, operation: <span class="type">Callable</span>[[MilvusClient], T]</span>) -&gt; T:</span><br><span class="line">        <span class="comment"># 统一操作函数</span></span><br><span class="line">        <span class="keyword">with</span> milvus_client_session(self._settings) <span class="keyword">as</span> client: <span class="comment">#该函数返回一个数据库连接对象</span></span><br><span class="line">            <span class="keyword">return</span> operation(client)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @contextmanager</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">session</span>(<span class="params">self</span>) -&gt; Iterator[MilvusClient]:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;同一业务流（如整次上传）内复用一条连接，用毕即关。&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 把这个函数又包装一次，后续with调用就不需要传递参数了，在这个with下面可以公用一个连接多次执行</span></span><br><span class="line">        <span class="keyword">with</span> milvus_client_session(self._settings) <span class="keyword">as</span> client:</span><br><span class="line">            <span class="keyword">yield</span> client</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ensure_collection</span>(<span class="params">client: MilvusClient, collection_name: <span class="built_in">str</span>, dense_dim: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 创建 Collection</span></span><br><span class="line">        <span class="keyword">if</span> client.has_collection(collection_name):</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        schema = client.create_schema(auto_id=<span class="literal">True</span>, enable_dynamic_field=<span class="literal">True</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;id&quot;</span>, DataType.INT64, is_primary=<span class="literal">True</span>, auto_id=<span class="literal">True</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;dense_embedding&quot;</span>, DataType.FLOAT_VECTOR, dim=dense_dim)</span><br><span class="line">        schema.add_field(<span class="string">&quot;sparse_embedding&quot;</span>, DataType.SPARSE_FLOAT_VECTOR)</span><br><span class="line">        schema.add_field(</span><br><span class="line">            <span class="string">&quot;text&quot;</span>,</span><br><span class="line">            DataType.VARCHAR,</span><br><span class="line">            max_length=<span class="number">65535</span>,</span><br><span class="line">            enable_analyzer=<span class="literal">True</span>,</span><br><span class="line">            analyzer_params=&#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;chinese&quot;</span>&#125;,</span><br><span class="line">            enable_match=<span class="literal">True</span>,</span><br><span class="line">        )</span><br><span class="line">        schema.add_field(<span class="string">&quot;filename&quot;</span>, DataType.VARCHAR, max_length=<span class="number">255</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;file_type&quot;</span>, DataType.VARCHAR, max_length=<span class="number">50</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;file_path&quot;</span>, DataType.VARCHAR, max_length=<span class="number">1024</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;page_number&quot;</span>, DataType.INT64)</span><br><span class="line">        schema.add_field(<span class="string">&quot;chunk_idx&quot;</span>, DataType.INT64)</span><br><span class="line">        schema.add_field(<span class="string">&quot;chunk_id&quot;</span>, DataType.VARCHAR, max_length=<span class="number">512</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;parent_chunk_id&quot;</span>, DataType.VARCHAR, max_length=<span class="number">512</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;root_chunk_id&quot;</span>, DataType.VARCHAR, max_length=<span class="number">512</span>)</span><br><span class="line">        schema.add_field(<span class="string">&quot;chunk_level&quot;</span>, DataType.INT64)</span><br><span class="line"></span><br><span class="line">        bm25_function = Function( <span class="comment"># 写入text字段后，计算BM25写道sparseembedding字段</span></span><br><span class="line">            name=<span class="string">&quot;text_bm25_emb&quot;</span>,</span><br><span class="line">            function_type=FunctionType.BM25,</span><br><span class="line">            input_field_names=[<span class="string">&quot;text&quot;</span>],</span><br><span class="line">            output_field_names=[<span class="string">&quot;sparse_embedding&quot;</span>],</span><br><span class="line">        )</span><br><span class="line">        schema.add_function(bm25_function)</span><br><span class="line"></span><br><span class="line">        index_params = client.prepare_index_params()</span><br><span class="line">        <span class="comment"># 创建索引，给dense_embedding字段创建HNSW索引，给sparse_embedding字段创建SPARSE_INVERTED_INDEX索引</span></span><br><span class="line">        index_params.add_index(</span><br><span class="line">            field_name=<span class="string">&quot;dense_embedding&quot;</span>,</span><br><span class="line">            index_type=<span class="string">&quot;HNSW&quot;</span>,</span><br><span class="line">            metric_type=<span class="string">&quot;IP&quot;</span>, <span class="comment">#内积衡量相似度</span></span><br><span class="line">            params=&#123;<span class="string">&quot;M&quot;</span>: <span class="number">16</span>, <span class="string">&quot;efConstruction&quot;</span>: <span class="number">256</span>&#125;,</span><br><span class="line">        )</span><br><span class="line">        index_params.add_index(</span><br><span class="line">            field_name=<span class="string">&quot;sparse_embedding&quot;</span>,</span><br><span class="line">            index_type=<span class="string">&quot;SPARSE_INVERTED_INDEX&quot;</span>, <span class="comment"># 稀疏倒排索引</span></span><br><span class="line">            metric_type=<span class="string">&quot;BM25&quot;</span>, <span class="comment"># 按照 BM25 分数排序</span></span><br><span class="line">            params=&#123;<span class="string">&quot;drop_ratio_build&quot;</span>: <span class="number">0.2</span>&#125;,</span><br><span class="line">        )</span><br><span class="line">        client.create_collection(</span><br><span class="line">            collection_name=collection_name,</span><br><span class="line">            schema=schema,</span><br><span class="line">            index_params=index_params,</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">init_collection</span>(<span class="params">self, dense_dim: <span class="built_in">int</span> | <span class="literal">None</span> = <span class="literal">None</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 外部真正调用的初始化入口，创建Collection</span></span><br><span class="line">        <span class="keyword">if</span> dense_dim <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            dense_dim = <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DENSE_EMBEDDING_DIM&quot;</span>, <span class="string">&quot;1024&quot;</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_init</span>(<span class="params">client: MilvusClient</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">            self.ensure_collection(client, self.collection_name, dense_dim)</span><br><span class="line"></span><br><span class="line">        self._run(_init)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, data: <span class="built_in">list</span>[<span class="built_in">dict</span>]</span>):</span><br><span class="line">        <span class="comment"># 插入数据</span></span><br><span class="line">        <span class="keyword">return</span> self._run(<span class="keyword">lambda</span> client: client.insert(self.collection_name, data))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">query</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        filter_expr: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="params">        output_fields: <span class="built_in">list</span>[<span class="built_in">str</span>] | <span class="literal">None</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">        limit: <span class="built_in">int</span> = <span class="number">10000</span>,</span></span><br><span class="line"><span class="params">        offset: <span class="built_in">int</span> = <span class="number">0</span>,</span></span><br><span class="line"><span class="params">    </span>):</span><br><span class="line">        <span class="comment"># 普通字段查询，根据关键词输出 对应字段</span></span><br><span class="line">        expr = _normalize_filter(filter_expr)</span><br><span class="line">        fields = output_fields <span class="keyword">or</span> [<span class="string">&quot;filename&quot;</span>, <span class="string">&quot;file_type&quot;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_query</span>(<span class="params">client: MilvusClient</span>):</span><br><span class="line">            <span class="keyword">return</span> client.query(</span><br><span class="line">                collection_name=self.collection_name,</span><br><span class="line">                <span class="built_in">filter</span>=expr,</span><br><span class="line">                output_fields=fields,</span><br><span class="line">                limit=<span class="built_in">min</span>(limit, QUERY_MAX_LIMIT),</span><br><span class="line">                offset=offset,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self._run(_query)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">query_all</span>(<span class="params">self, filter_expr: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>, output_fields: <span class="built_in">list</span>[<span class="built_in">str</span>] | <span class="literal">None</span> = <span class="literal">None</span></span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;分页拉取；单次 session 内完成，避免每页新建连接。&quot;&quot;&quot;</span></span><br><span class="line">        fields = output_fields <span class="keyword">or</span> [<span class="string">&quot;filename&quot;</span>, <span class="string">&quot;file_type&quot;</span>]</span><br><span class="line">        expr = _normalize_filter(filter_expr)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_query_all</span>(<span class="params">client: MilvusClient</span>) -&gt; <span class="built_in">list</span>:</span><br><span class="line">            out: <span class="built_in">list</span> = []</span><br><span class="line">            offset = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                batch = client.query(</span><br><span class="line">                    collection_name=self.collection_name,</span><br><span class="line">                    <span class="built_in">filter</span>=expr,</span><br><span class="line">                    output_fields=fields,</span><br><span class="line">                    limit=QUERY_MAX_LIMIT,</span><br><span class="line">                    offset=offset,</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> batch:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                out.extend(batch)</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">len</span>(batch) &lt; QUERY_MAX_LIMIT:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                offset += <span class="built_in">len</span>(batch)</span><br><span class="line">            <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self._run(_query_all)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_chunks_by_ids</span>(<span class="params">self, chunk_ids: <span class="built_in">list</span>[<span class="built_in">str</span>]</span>) -&gt; <span class="built_in">list</span>[<span class="built_in">dict</span>]:</span><br><span class="line">        <span class="comment"># 按chunkid查询</span></span><br><span class="line">        ids = [item <span class="keyword">for</span> item <span class="keyword">in</span> chunk_ids <span class="keyword">if</span> item]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ids:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        quoted_ids = <span class="string">&quot;, &quot;</span>.join(<span class="string">f&#x27;&quot;<span class="subst">&#123;item&#125;</span>&quot;&#x27;</span> <span class="keyword">for</span> item <span class="keyword">in</span> ids)</span><br><span class="line">        <span class="keyword">return</span> self.query(</span><br><span class="line">            filter_expr=<span class="string">f&quot;chunk_id in [<span class="subst">&#123;quoted_ids&#125;</span>]&quot;</span>,</span><br><span class="line">            output_fields=[</span><br><span class="line">                <span class="string">&quot;text&quot;</span>,</span><br><span class="line">                <span class="string">&quot;filename&quot;</span>,</span><br><span class="line">                <span class="string">&quot;file_type&quot;</span>,</span><br><span class="line">                <span class="string">&quot;page_number&quot;</span>,</span><br><span class="line">                <span class="string">&quot;chunk_id&quot;</span>,</span><br><span class="line">                <span class="string">&quot;parent_chunk_id&quot;</span>,</span><br><span class="line">                <span class="string">&quot;root_chunk_id&quot;</span>,</span><br><span class="line">                <span class="string">&quot;chunk_level&quot;</span>,</span><br><span class="line">                <span class="string">&quot;chunk_idx&quot;</span>,</span><br><span class="line">            ],</span><br><span class="line">            limit=<span class="built_in">len</span>(ids),</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">hybrid_retrieve</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        dense_embedding: <span class="built_in">list</span>[<span class="built_in">float</span>],</span></span><br><span class="line"><span class="params">        query: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">        top_k: <span class="built_in">int</span> = <span class="number">5</span>,</span></span><br><span class="line"><span class="params">        rrf_k: <span class="built_in">int</span> = <span class="number">60</span>,</span></span><br><span class="line"><span class="params">        filter_expr: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="params">    </span>) -&gt; <span class="built_in">list</span>[<span class="built_in">dict</span>]:</span><br><span class="line">        output_fields = [</span><br><span class="line">            <span class="string">&quot;text&quot;</span>,</span><br><span class="line">            <span class="string">&quot;filename&quot;</span>,</span><br><span class="line">            <span class="string">&quot;file_type&quot;</span>,</span><br><span class="line">            <span class="string">&quot;page_number&quot;</span>,</span><br><span class="line">            <span class="string">&quot;chunk_id&quot;</span>,</span><br><span class="line">            <span class="string">&quot;parent_chunk_id&quot;</span>,</span><br><span class="line">            <span class="string">&quot;root_chunk_id&quot;</span>,</span><br><span class="line">            <span class="string">&quot;chunk_level&quot;</span>,</span><br><span class="line">            <span class="string">&quot;chunk_idx&quot;</span>,</span><br><span class="line">        ]</span><br><span class="line">        dense_search = AnnSearchRequest( <span class="comment">#定义一个向量检索请求，还没执行</span></span><br><span class="line">            data=[dense_embedding],</span><br><span class="line">            anns_field=<span class="string">&quot;dense_embedding&quot;</span>,</span><br><span class="line">            param=&#123;<span class="string">&quot;metric_type&quot;</span>: <span class="string">&quot;IP&quot;</span>, <span class="string">&quot;params&quot;</span>: &#123;<span class="string">&quot;ef&quot;</span>: <span class="number">64</span>&#125;&#125;,</span><br><span class="line">            limit=top_k * <span class="number">2</span>,</span><br><span class="line">            expr=filter_expr,</span><br><span class="line">        )</span><br><span class="line">        sparse_search = AnnSearchRequest(</span><br><span class="line">            data=[query],</span><br><span class="line">            anns_field=<span class="string">&quot;sparse_embedding&quot;</span>,</span><br><span class="line">            param=&#123;<span class="string">&quot;metric_type&quot;</span>: <span class="string">&quot;BM25&quot;</span>, <span class="string">&quot;params&quot;</span>: &#123;<span class="string">&quot;drop_ratio_search&quot;</span>: <span class="number">0.2</span>&#125;&#125;,</span><br><span class="line">            limit=top_k * <span class="number">2</span>,</span><br><span class="line">            expr=filter_expr,</span><br><span class="line">        )</span><br><span class="line">        reranker = RRFRanker(k=rrf_k)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_search</span>(<span class="params">client: MilvusClient</span>):</span><br><span class="line">            <span class="keyword">return</span> client.hybrid_search(</span><br><span class="line">                collection_name=self.collection_name,</span><br><span class="line">                reqs=[dense_search, sparse_search],</span><br><span class="line">                ranker=reranker,</span><br><span class="line">                limit=top_k,</span><br><span class="line">                output_fields=output_fields,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        results = self._run(_search)</span><br><span class="line">        formatted_results = []</span><br><span class="line">        <span class="keyword">for</span> hits <span class="keyword">in</span> results:</span><br><span class="line">            <span class="keyword">for</span> hit <span class="keyword">in</span> hits:</span><br><span class="line">                formatted_results.append(&#123;</span><br><span class="line">                    <span class="string">&quot;id&quot;</span>: hit.get(<span class="string">&quot;id&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;text&quot;</span>: hit.get(<span class="string">&quot;text&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;filename&quot;</span>: hit.get(<span class="string">&quot;filename&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;file_type&quot;</span>: hit.get(<span class="string">&quot;file_type&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;page_number&quot;</span>: hit.get(<span class="string">&quot;page_number&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_id&quot;</span>: hit.get(<span class="string">&quot;chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;parent_chunk_id&quot;</span>: hit.get(<span class="string">&quot;parent_chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;root_chunk_id&quot;</span>: hit.get(<span class="string">&quot;root_chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_level&quot;</span>: hit.get(<span class="string">&quot;chunk_level&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_idx&quot;</span>: hit.get(<span class="string">&quot;chunk_idx&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;score&quot;</span>: hit.get(<span class="string">&quot;distance&quot;</span>, <span class="number">0.0</span>),</span><br><span class="line">                &#125;)</span><br><span class="line">        <span class="keyword">return</span> formatted_results</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dense_retrieve</span>(<span class="params"></span></span><br><span class="line"><span class="params">        self,</span></span><br><span class="line"><span class="params">        dense_embedding: <span class="built_in">list</span>[<span class="built_in">float</span>],</span></span><br><span class="line"><span class="params">        top_k: <span class="built_in">int</span> = <span class="number">5</span>,</span></span><br><span class="line"><span class="params">        filter_expr: <span class="built_in">str</span> = <span class="string">&quot;&quot;</span>,</span></span><br><span class="line"><span class="params">    </span>) -&gt; <span class="built_in">list</span>[<span class="built_in">dict</span>]:</span><br><span class="line">        <span class="comment"># 向量检索</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_search</span>(<span class="params">client: MilvusClient</span>):</span><br><span class="line">            <span class="keyword">return</span> client.search(</span><br><span class="line">                collection_name=self.collection_name,</span><br><span class="line">                data=[dense_embedding],</span><br><span class="line">                anns_field=<span class="string">&quot;dense_embedding&quot;</span>,</span><br><span class="line">                search_params=&#123;<span class="string">&quot;metric_type&quot;</span>: <span class="string">&quot;IP&quot;</span>, <span class="string">&quot;params&quot;</span>: &#123;<span class="string">&quot;ef&quot;</span>: <span class="number">64</span>&#125;&#125;,</span><br><span class="line">                limit=top_k,</span><br><span class="line">                output_fields=[</span><br><span class="line">                    <span class="string">&quot;text&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;filename&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;file_type&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;page_number&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;chunk_id&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;parent_chunk_id&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;root_chunk_id&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;chunk_level&quot;</span>,</span><br><span class="line">                    <span class="string">&quot;chunk_idx&quot;</span>,</span><br><span class="line">                ],</span><br><span class="line">                <span class="built_in">filter</span>=filter_expr,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        results = self._run(_search)</span><br><span class="line">        formatted_results = []</span><br><span class="line">        <span class="keyword">for</span> hits <span class="keyword">in</span> results:</span><br><span class="line">            <span class="keyword">for</span> hit <span class="keyword">in</span> hits:</span><br><span class="line">                formatted_results.append(&#123;</span><br><span class="line">                    <span class="string">&quot;id&quot;</span>: hit.get(<span class="string">&quot;id&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;text&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;text&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;filename&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;filename&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;file_type&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;file_type&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;page_number&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;page_number&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_id&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;parent_chunk_id&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;parent_chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;root_chunk_id&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;root_chunk_id&quot;</span>, <span class="string">&quot;&quot;</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_level&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;chunk_level&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;chunk_idx&quot;</span>: hit.get(<span class="string">&quot;entity&quot;</span>, &#123;&#125;).get(<span class="string">&quot;chunk_idx&quot;</span>, <span class="number">0</span>),</span><br><span class="line">                    <span class="string">&quot;score&quot;</span>: hit.get(<span class="string">&quot;distance&quot;</span>, <span class="number">0.0</span>),</span><br><span class="line">                &#125;)</span><br><span class="line">        <span class="keyword">return</span> formatted_results</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, filter_expr: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="comment"># 删除指定条目</span></span><br><span class="line">        <span class="keyword">return</span> self._run(</span><br><span class="line">            <span class="keyword">lambda</span> client: client.delete(collection_name=self.collection_name, <span class="built_in">filter</span>=filter_expr)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">has_collection</span>(<span class="params">self</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="comment"># 检查表是否存在</span></span><br><span class="line">        <span class="keyword">return</span> self._run(<span class="keyword">lambda</span> client: client.has_collection(self.collection_name))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">drop_collection</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="comment"># 删除表</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">_drop</span>(<span class="params">client: MilvusClient</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> client.has_collection(self.collection_name):</span><br><span class="line">                client.drop_collection(self.collection_name)</span><br><span class="line"></span><br><span class="line">        self._run(_drop)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">_store: MilvusStore | <span class="literal">None</span> = <span class="literal">None</span> <span class="comment"># 这个变量要么是none要么是milvusstore， 初始化为none</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取 MilvusStore 实例，全局变量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_milvus_store</span>() -&gt; MilvusStore:</span><br><span class="line">    <span class="keyword">global</span> _store</span><br><span class="line">    <span class="keyword">if</span> _store <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        _store = MilvusStore()</span><br><span class="line">    <span class="keyword">return</span> _store</span><br></pre></td></tr></table></figure>
 <h5 id="2）parent-chunk-store-py">2）parent_chunk_store.py</h5>
-<p><strong>L1/L2 Parent Chunk 的统一存储层</strong>。后面的代码不直接分别操作 PostgreSQL 和 Redis，而是通过这个文件统一完成父级 Chunk 的写入、读取和删除。这个文件主要提供：</p>
+<p><strong>L1/L2 Parent Chunk 的统一存储层</strong>，针对的是父块表。后面的代码不直接分别操作 PostgreSQL 和 Redis，而是通过这个文件统一完成父级 Chunk 的写入、读取和删除。这个文件主要提供：</p>
 <ol>
 <li>数据转换功能
 <ul>
@@ -842,7 +1224,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">1. 项目背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2. 系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 用户角色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="toc-number">3.1.1.</span> <span class="toc-text">1）普通用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">3.1.2.</span> <span class="toc-text">2）管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E7%94%A8%E6%88%B7%E9%97%AE%E7%AD%94%E9%93%BE%E8%B7%AF"><span class="toc-number">3.2.1.</span> <span class="toc-text">1）用户问答链路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E6%96%87%E6%A1%A3%E5%85%A5%E5%BA%93%E9%93%BE%E8%B7%AF"><span class="toc-number">3.2.2.</span> <span class="toc-text">2）文档入库链路</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.3.1 向量数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E6%96%87%E6%A1%A3%E5%88%86%E5%9D%97%E7%AD%96%E7%95%A5"><span class="toc-number">3.3.1.1.</span> <span class="toc-text">1）文档分块策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5"><span class="toc-number">3.3.1.2.</span> <span class="toc-text">2）检索策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.1.3.</span> <span class="toc-text">3）存储结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.3.2 关系数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E7%94%A8%E6%88%B7%E8%A1%A8-users"><span class="toc-number">3.3.2.1.</span> <span class="toc-text">1）用户表 users</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BC%9A%E8%AF%9D%E8%A1%A8-chat-sessions"><span class="toc-number">3.3.2.2.</span> <span class="toc-text">2）会话表 chat_sessions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF%E8%A1%A8-chat-messages"><span class="toc-number">3.3.2.3.</span> <span class="toc-text">3）聊天消息表 chat_messages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89%E7%88%B6%E7%BA%A7-Chunk-%E8%A1%A8-parent-chunks"><span class="toc-number">3.3.2.4.</span> <span class="toc-text">4）父级 Chunk 表 parent_chunks</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-Redis-%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3.3 Redis 缓存设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E8%81%8A%E5%A4%A9%E5%8E%86%E5%8F%B2"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">1）聊天历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8"><span class="toc-number">3.3.3.2.</span> <span class="toc-text">2）会话列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89Parent-Chunk"><span class="toc-number">3.3.3.3.</span> <span class="toc-text">3）Parent Chunk</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">3. 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 数据存储模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.1.1.</span> <span class="toc-text">3.1.1 文件结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#backend"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">backend&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-infra"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">backend&#x2F;infra&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-db"><span class="toc-number">4.1.1.3.</span> <span class="toc-text">backend&#x2F;db&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-indexing"><span class="toc-number">4.1.1.4.</span> <span class="toc-text">backend&#x2F;indexing&#x2F;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.1.2.</span> <span class="toc-text">3.1.2 模块实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-2"><span class="toc-number">4.1.2.1.</span> <span class="toc-text">backend&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89env-py"><span class="toc-number">4.1.2.1.1.</span> <span class="toc-text">1）env.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-infra-2"><span class="toc-number">4.1.2.2.</span> <span class="toc-text">backend&#x2F;infra&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89database-py"><span class="toc-number">4.1.2.2.1.</span> <span class="toc-text">1）database.py</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89cache-py"><span class="toc-number">4.1.2.2.2.</span> <span class="toc-text">2）cache.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-db-2"><span class="toc-number">4.1.2.3.</span> <span class="toc-text">backend&#x2F;db&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89models-py"><span class="toc-number">4.1.2.3.1.</span> <span class="toc-text">1）models.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-indexing-2"><span class="toc-number">4.1.2.4.</span> <span class="toc-text">backend&#x2F;indexing&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89milvus-client-py"><span class="toc-number">4.1.2.4.1.</span> <span class="toc-text">1）milvus_client.py</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98-Milvus-%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.2.4.1.1.</span> <span class="toc-text">保存 Milvus 配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5Milvus%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">4.1.2.4.1.2.</span> <span class="toc-text">连接Milvus的客户端</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86"><span class="toc-number">4.1.2.4.1.3.</span> <span class="toc-text">条件过滤处理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89Milvus%E6%93%8D%E4%BD%9C"><span class="toc-number">4.1.2.4.1.4.</span> <span class="toc-text">定义Milvus操作</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89parent-chunk-store-py"><span class="toc-number">4.1.2.4.2.</span> <span class="toc-text">2）parent_chunk_store.py</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95"><span class="toc-number">4.1.3.</span> <span class="toc-text">3.1.3 模块测试</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">0. 项目背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">1. 需求分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 用户角色</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="toc-number">3.1.1.</span> <span class="toc-text">1）普通用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">3.1.2.</span> <span class="toc-text">2）管理员</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E7%94%A8%E6%88%B7%E9%97%AE%E7%AD%94%E9%93%BE%E8%B7%AF"><span class="toc-number">3.2.1.</span> <span class="toc-text">1）用户问答链路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E6%96%87%E6%A1%A3%E5%85%A5%E5%BA%93%E9%93%BE%E8%B7%AF"><span class="toc-number">3.2.2.</span> <span class="toc-text">2）文档入库链路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">2. 系统设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.1.</span> <span class="toc-text">2.1 项目架构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E4%BA%A4%E4%BA%92%E5%B1%82"><span class="toc-number">4.1.1.</span> <span class="toc-text">2.1.1 交互层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%89%8D%E7%AB%AF%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">1）前端交互模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E6%8E%A5%E5%85%A5%E5%B1%82"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.1.2 接入层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E6%8E%A5%E5%8F%A3%E4%B8%8E%E9%89%B4%E6%9D%83%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.2.1.</span> <span class="toc-text">1）接口与鉴权模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E4%B8%9A%E5%8A%A1%E7%BC%96%E6%8E%92%E5%B1%82"><span class="toc-number">4.1.3.</span> <span class="toc-text">2.1.3 业务编排层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.3.1.</span> <span class="toc-text">1）会话管理模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97"><span class="toc-number">4.1.3.2.</span> <span class="toc-text">2）文档管理模块</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-4-%E6%99%BA%E8%83%BD%E6%89%A7%E8%A1%8C%E5%B1%82"><span class="toc-number">4.1.4.</span> <span class="toc-text">2.1.4 智能执行层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89Agent%E4%B8%8E%E5%B7%A5%E5%85%B7%E8%BF%90%E8%A1%8C%E6%97%B6"><span class="toc-number">4.1.4.1.</span> <span class="toc-text">1）Agent与工具运行时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89RAG-%E7%9F%A5%E8%AF%86%E5%BC%95%E6%93%8E"><span class="toc-number">4.1.4.2.</span> <span class="toc-text">2）RAG 知识引擎</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E6%96%87%E6%A1%A3%E7%B4%A2%E5%BC%95"><span class="toc-number">4.1.4.3.</span> <span class="toc-text">3）文档索引</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-5-%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E5%B1%82"><span class="toc-number">4.1.5.</span> <span class="toc-text">2.1.5 基础设施层</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.</span> <span class="toc-text">2.2 数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.1.</span> <span class="toc-text">2.2.1 向量数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E6%96%87%E6%A1%A3%E5%88%86%E5%9D%97%E7%AD%96%E7%95%A5"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">1）文档分块策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E6%A3%80%E7%B4%A2%E7%AD%96%E7%95%A5"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">2）检索策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E5%AD%98%E5%82%A8%E5%AD%97%E6%AE%B5"><span class="toc-number">4.2.1.3.</span> <span class="toc-text">3）存储字段</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.2.2 关系数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E7%94%A8%E6%88%B7%E8%A1%A8-users"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">1）用户表 users</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BC%9A%E8%AF%9D%E8%A1%A8-chat-sessions"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">2）会话表 chat_sessions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF%E8%A1%A8-chat-messages"><span class="toc-number">4.2.2.3.</span> <span class="toc-text">3）聊天消息表 chat_messages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89%E7%88%B6%E7%BA%A7-Chunk-%E8%A1%A8-parent-chunks"><span class="toc-number">4.2.2.4.</span> <span class="toc-text">4）父级 Chunk 表 parent_chunks</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-Redis-%E7%BC%93%E5%AD%98%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.3.</span> <span class="toc-text">2.2.3 Redis 缓存设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E8%81%8A%E5%A4%A9%E5%8E%86%E5%8F%B2"><span class="toc-number">4.2.3.1.</span> <span class="toc-text">1）聊天历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8"><span class="toc-number">4.2.3.2.</span> <span class="toc-text">2）会话列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89Parent-Chunk"><span class="toc-number">4.2.3.3.</span> <span class="toc-text">3）Parent Chunk</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">3. 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9D%97"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 数据存储模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">5.1.1.</span> <span class="toc-text">3.1.1 文件结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#backend"><span class="toc-number">5.1.1.1.</span> <span class="toc-text">backend&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-infra"><span class="toc-number">5.1.1.2.</span> <span class="toc-text">backend&#x2F;infra&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-db"><span class="toc-number">5.1.1.3.</span> <span class="toc-text">backend&#x2F;db&#x2F;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-indexing"><span class="toc-number">5.1.1.4.</span> <span class="toc-text">backend&#x2F;indexing&#x2F;</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.1.2.</span> <span class="toc-text">3.1.2 模块实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-2"><span class="toc-number">5.1.2.1.</span> <span class="toc-text">backend&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89env-py"><span class="toc-number">5.1.2.1.1.</span> <span class="toc-text">1）env.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-infra-2"><span class="toc-number">5.1.2.2.</span> <span class="toc-text">backend&#x2F;infra&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89database-py"><span class="toc-number">5.1.2.2.1.</span> <span class="toc-text">1）database.py</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89cache-py"><span class="toc-number">5.1.2.2.2.</span> <span class="toc-text">2）cache.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-db-2"><span class="toc-number">5.1.2.3.</span> <span class="toc-text">backend&#x2F;db&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89models-py"><span class="toc-number">5.1.2.3.1.</span> <span class="toc-text">1）models.py</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#backend-indexing-2"><span class="toc-number">5.1.2.4.</span> <span class="toc-text">backend&#x2F;indexing&#x2F;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89milvus-client-py"><span class="toc-number">5.1.2.4.1.</span> <span class="toc-text">1）milvus_client.py</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98-Milvus-%E9%85%8D%E7%BD%AE"><span class="toc-number">5.1.2.4.1.1.</span> <span class="toc-text">保存 Milvus 配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5Milvus%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">5.1.2.4.1.2.</span> <span class="toc-text">连接Milvus的客户端</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%87%E6%BB%A4%E5%A4%84%E7%90%86"><span class="toc-number">5.1.2.4.1.3.</span> <span class="toc-text">条件过滤处理</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89Milvus%E6%93%8D%E4%BD%9C"><span class="toc-number">5.1.2.4.1.4.</span> <span class="toc-text">定义Milvus操作</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89parent-chunk-store-py"><span class="toc-number">5.1.2.4.2.</span> <span class="toc-text">2）parent_chunk_store.py</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95"><span class="toc-number">5.1.3.</span> <span class="toc-text">3.1.3 模块测试</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1283,6 +1665,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NVS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">excalidraw</a>
               </li>
             
             <div class="clearfix"></div>
